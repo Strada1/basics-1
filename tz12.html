@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            function bebra(kurwa, a, b) {
+                    switch (kurwa) {
+                        case "bobr":
+                        return a + b;
+                        break;  //break не нужен если до него идет return
+
+                        case "ya perdole":
+                        return a - b;
+                        break;
+
+                        case "uazik":
+                        return a * b;
+                        break;
+
+                        default:
+                            return alert("Ошибочка");
+                }
+            }
+            
+            alert(bebra("bobr", 4, 4));
+            alert(bebra("ya perdole", 4, 3));
+            alert(bebra("uazik", 4, 2));
+           
+    </script>
+</body>
+</html>

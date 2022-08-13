@@ -6,6 +6,8 @@ function calc(operator, a, b) {
             return a - b;
         case 'multi':
             return a * b;
+        default:
+            return 'Error'; 
     } 
 };
 

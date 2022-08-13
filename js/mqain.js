@@ -12,7 +12,6 @@ function calc(a, b, action) {
 			return a ** b
 		case '%':
 			return a % b
-		case '%':
 	}
 }
 

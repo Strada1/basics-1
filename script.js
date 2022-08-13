@@ -18,4 +18,3 @@ console.log(calc("add", 10, 5));
 console.log(calc("multi", 5, 5));
 console.log(calc("substract", 5, 5));
 console.log(calc("nothing", 5, 5));
-console.log(calc("add", 5, 5));

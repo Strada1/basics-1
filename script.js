@@ -1,11 +1,8 @@
 function calc(action, a, b) {
 
 
-   if (!getValidNumber(a, b)) {
-      console.log('test');
-
+   if (!checkValidNumber(a, b)) {
       return console.error('Вторым и третим аргументом должны быть числа;');
-
    }
 
    switch (action) {
@@ -23,10 +20,9 @@ function calc(action, a, b) {
 
 }
 
-function getValidNumber(firstNum, twoNumber) {
+function checkValidNumber(firstNum, twoNumber) {
 
    if (typeof (firstNum) && typeof (twoNumber) == 'number') {
-      console.log('test2');
       return true;
    }
 

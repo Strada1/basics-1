@@ -3,13 +3,16 @@ let firstNumb = Number(prompt("Первое число", ""))
 let secondNumb = Number(prompt("Второе число", ""))
 let result
 function add(firstNumb, secondNumb) {
-        return result = (firstNumb + secondNumb)
+        const result = (firstNumb + secondNumb)
+        return result
     }
 function multi(firstNumb, secondNumb) {
-        return result = (firstNumb * secondNumb)
+        const result = (firstNumb * secondNumb)
+        return result
     }
 function subtract(firstNumb, secondNumb) {
-        return result = (firstNumb - secondNumb)
+        const result = (firstNumb - secondNumb)
+        return result
     }
 switch (action) {
     case "+": result = add(firstNumb, secondNumb)

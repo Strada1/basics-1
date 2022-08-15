@@ -1,35 +1,23 @@
-let deistvie = prompt("Vvedite nujnoe deistie (+, -, *)", "")
-let pervoe = Number(prompt("Pervoe 4islo", ""))
-let vtoroe = Number(prompt("Vtoroe 4islo", ""))
-let resultat
-function calcSumm(pervoe, vtoroe) {
-        const resultat = (pervoe + vtoroe)
-        return resultat
+let action = prompt("Введите нужно действие (+, *, -)", "")
+let firstNumb = Number(prompt("Первое число", ""))
+let secondNumb = Number(prompt("Второе число", ""))
+let result
+function add(firstNumb, secondNumb) {
+        return result = (firstNumb + secondNumb)
     }
-function calcRazn(pervoe, vtoroe) {
-        const resultat = (pervoe - vtoroe)
-        return resultat
+function multi(firstNumb, secondNumb) {
+        return result = (firstNumb * secondNumb)
     }
-function calcMult(pervoe, vtoroe) {
-        const resultat = (pervoe * vtoroe)
-        return resultat
+function subtract(firstNumb, secondNumb) {
+        return result = (firstNumb - secondNumb)
     }
-/* if (deistvie === "+") {
-    resultat = calcSumm(pervoe, vtoroe)
-} else if (deistvie === "-") {
-    resultat = calcRazn(pervoe, vtoroe)
-} else if (deistvie === "*") {
-    resultat = calcMult(pervoe, vtoroe)
-} else {
-    resultat = "Вы ввели недопустимое значение"
-} */
-switch (deistvie) {
-    case "+": resultat = calcSumm(pervoe, vtoroe)
+switch (action) {
+    case "+": result = add(firstNumb, secondNumb)
     break
-    case "-": resultat = calcRazn(pervoe, vtoroe)
+    case "*": result = multi(firstNumb, secondNumb)
     break
-    case "*": resultat = calcMult(pervoe, vtoroe)
+    case "-": result = subtract(firstNumb, secondNumb)
     break
-    default: resultat = "Вы ввели недопустимое значение"
+    default: result = "Вы ввели недопустимое значение"
 }
-alert (resultat)
+alert (result)

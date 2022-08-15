@@ -1,45 +1,10 @@
-function getNumber() {
-  let number;
-  number = prompt("Введите первое число", 2);
-  return number;
+for (let i = 1; i <= 19; i++) {
+  console.log("Итерация цикла for  № " + i);
 }
 
-function calc(operation, a, b) {
-  let result;
-  switch (operation) {
-    case "add":
-      result = add(a, b);
-      break;
-    case "sub":
-      result = sub(a, b);
-      break;
-    case "mult":
-      result = mult(a, b);
-      break;
-    case "div":
-      result = div(a, b);
-      break;
-  }
-  return result;
-}
+let i = 0;
 
-function add(a, b) {
-  return a + b;
+while (i < 19) {
+  ++i;
+  console.log("Итерация цикла while  № " + i);
 }
-
-function sub(a, b) {
-  return a - b;
-}
-
-function mult(a, b) {
-  return a * b;
-}
-
-function div(a, b) {
-  return a / b;
-}
-
-console.log(calc("add", getNumber(), getNumber()));
-console.log(calc("sub", getNumber(), getNumber()));
-console.log(calc("mult", getNumber(), getNumber()));
-console.log(calc("div", getNumber(), getNumber()));

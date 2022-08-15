@@ -7,4 +7,4 @@ function calc(op, a, b){
     }
 }
 
-console.log(calc('+', '12', 26));
+console.log(calc('+', 12, 26));

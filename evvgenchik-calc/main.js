@@ -1,18 +1,16 @@
 'use stict'
 
 function calc(iden, a, b) {
-	switch (iden) {
-		case 'add':
-			return a + b
-			break
-		case 'multi':
-			return a * b
-			break
-		case 'subtract':
-			return a - b
-			break
+	const operations = {
+		add: a + b,
+		multi: a * b,
+		subtract: a - b,
+	}
+
+	for (let key in operations) {
+		if (key == iden) {
+			return operations[key]
+		}
 	}
 }
 
-
-alert(calc('subtract', 2, 3))

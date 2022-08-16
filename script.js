@@ -1,30 +1,22 @@
 function calc(action, a, b) {
 
-
-   if (!checkValidNumber(a, b)) {
-      return console.error('Вторым и третим аргументом должны быть числа;');
+   /* проверка на NaN */
+   if (isNaN(+a) || isNaN(+b)) {
+      return console.error('Второй и третий аргумент должны быть числами!');
    }
 
-   switch (action) {
-
-      case 'add':
-         return Number(a) + Number(b);
-      case 'multi':
-         return a * b;
-      case 'subtract':
-         return a - b;
-      default:
-         return console.error('Введите одно из доступных действий: add (+) / multi (*) / subtract (-)');
-
+   const operations = {
+      add: +a + +b,
+      multi: a * b,
+      sub: a - b,
    }
+
+   for (let key in operations) {
+      if (key == action) {
+         return operations[key];
+      }
+   }
+
+   return console.error('Введите одно из доступных действий: add (+) / multi (*) / sub (-)');
 
 }
-
-function checkValidNumber(firstNum, twoNumber) {
-
-   if (typeof (firstNum) && typeof (twoNumber) == 'number') {
-      return true;
-   }
-
-}
-

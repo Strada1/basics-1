@@ -5,12 +5,15 @@ function calc( operator, num1, num2 ) {
         subtract: '-'
     }
     
-    if (operator == 'add'){
-        return console.log( num1 + num2);
-    } else if ( operator == 'multi'){
-        return console.log( num1 * num2);
-    } else if ( operator == 'subtract'){
-        return console.log( num1 - num2)
+    switch (operator) {
+        case "+":
+            return console.log( num1 + num2);
+        case "*":
+            return console.log( num1 * num2);
+        case "-":
+            return console.log( num1 - num2);
+        default:
+            console.log("Error");
     }
 }
 

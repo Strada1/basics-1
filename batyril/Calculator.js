@@ -1,14 +1,21 @@
+
 function сalc( operator, firstValue = 0 , secondValue = 0){
   let result = 0;
 
-  switch (operator) {
-    case 'multi':
+  const operations = {
+    add: '+',
+    multi: '*',
+    subtract: '-',
+  }
+
+  switch (operator){
+    case operations.multi:
       result = firstValue * secondValue;
       break;
-    case 'add':
+    case operations.add:
       result = firstValue + secondValue ;
       break;
-    case 'subtract':
+    case operations.subtract:
       result = firstValue - secondValue;
       break;
     default:
@@ -18,7 +25,7 @@ function сalc( operator, firstValue = 0 , secondValue = 0){
   return result
 }
 
-console.log(сalc('add', 4, 4))
-console.log(сalc('multi', 14, 2) )
-console.log(сalc('subtract', 15, 12) )
+console.log(сalc('+', 4, 4))
+console.log(сalc('-', 14, 2) )
+console.log(сalc('*', 15, 10) )
 console.log(сalc('subtrac79t', 3, 2) )

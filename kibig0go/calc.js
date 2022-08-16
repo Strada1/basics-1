@@ -1,11 +1,18 @@
-function calc(action, a, b) {
-    let operations = {
-        add: a + b,
-        multi: a * b,
-        subtract: a - b,
-    }
-    return operations[action];
+const operations = {
+    add: '+',
+    multi: '*',
+    subtract: '-',
 }
-console.log( 'value1: ' + calc('add', 1, 2))
-console.log( 'value2: ' + calc('multi', 1, 2))
-console.log( 'value3: ' + calc('subtract', 3, 2))
+function calc(action, a, b) {
+    switch (action) {
+        case operations.add:
+            return a + b;
+        case operations.multi:
+            return a * b;
+        case operations.subtract:
+            return a - b;
+    };
+}
+console.log('value1: ' + calc('+', 1, 2))
+console.log('value2: ' + calc('*', 1, 2))
+console.log('value3: ' + calc('-', 3, 2))

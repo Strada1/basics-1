@@ -1,3 +1,10 @@
+function checkInput(firstNumber,secondNumber) {
+    let checkInput = (typeof firstNumber !== 'number' || typeof secondNumber !== 'number')
+    if (checkInput) {
+        return true;
+    }
+}
+
 const operations = {
     result: 'result',
     add: 'add',

@@ -6,11 +6,11 @@ function calc( operator, num1, num2 ) {
     }
     
     switch (operator) {
-        case "+":
+        case operations.add:
             return console.log( num1 + num2);
-        case "*":
+        case operations.multi:
             return console.log( num1 * num2);
-        case "-":
+        case operations.subtract:
             return console.log( num1 - num2);
         default:
             console.log("Error");

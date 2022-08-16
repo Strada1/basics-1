@@ -1,14 +1,34 @@
+function add(a, b) {
+  return a + b;
+}
+function multi(a, b) {
+  return a * b;
+}
+function subtract(a, b) {
+  return a - b;
+}
+
 function Calc(action, a, b) {
   const isNumber = !isNaN(a) && !isNaN(b) ? true : false;
   const operations = {
-    add: a + b,
-    multi: a * b,
-    subtract: a - b,
+    add: "add",
+    multi: "multi",
+    subtract: "subtract",
   };
   if (isNumber) {
-    if (operations[action] === undefined) return "Операция не определена";
-    return operations[action];
-  } else return "Ошибка в аргументе";
+    switch (action) {
+      case operations.add:
+        return add(a, b);
+      case operations.multi:
+        return multi(a, b);
+      case operations.subtract:
+        return subtract(a, b);
+      default:
+        return "Операция не определена";
+    }
+  } else {
+    return "Ошибка в аргументе";
+  }
 }
 
-console.log(Calc("add", 5, 3));
+console.log(Calc("multi", 5, 3));

@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Functions</title>
+    </head>
+    <body>
+        <script>
+           let add, multi, subtract
+            function calc(action, a, b) {
+
+               switch (action){
+                    case "add":
+                            return a + b;
+                    break;
+                    case "multi":
+                            return a * b;
+                    break;
+
+                    case "subtract":
+                            return a - b;
+                    break;
+                }
+
+            }
+
+            let a = +prompt('Введите значение (а)');
+            let action = prompt('Введите нужное действие');
+            let b = +prompt('Введите значение (b)');
+
+            let result = calc(action, a, b);
+            alert(result);
+
+
+            // сalc(‘add’, 1, 2) - возвращает 3
+            // сalc(‘multi’, 1, 2) - возвращает 2
+            // сalc(’subtract’, 3, 2) - возвращает 1
+
+        </script>
+        <button onclick="location.reload()">Reload</button>
+    </body>
+</html>

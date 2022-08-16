@@ -1,12 +1,19 @@
-function calc(identifier, a, b) {
-  switch (identifier) {
-    case "add":
+let operations = {
+  add : '+',
+  multi : '*',
+  sub : '-',
+};
+
+
+function calc(operator, a, b) {
+  switch (operator) {
+    case operations.add:
       return a + b;
 
-    case "multi":
+    case operations.multi:
       return a * b;
 
-    case "substract":
+    case operations.sub:
       return a - b;
 
     default:
@@ -14,7 +21,7 @@ function calc(identifier, a, b) {
   }
 }
 
-console.log(calc("add", 10, 5));
-console.log(calc("multi", 5, 5));
-console.log(calc("substract", 5, 5));
-console.log(calc("nothing", 5, 5));
+console.log(calc(operations.add, 10, 5));
+console.log(calc(operations.multi, 5, 5));
+console.log(calc(operations.sub, 5, 5));
+console.log(calc('nothing', 5, 5));

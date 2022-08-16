@@ -9,27 +9,30 @@
 <body>
     <script>
 
-    
-let a = +prompt('Введите первое число: ', '');
-let b = +prompt('Введите второе число: ', '');
-let operation = prompt('Введите оператор: + , - или * ','');
-
-switch (operation) {
-case '+':
-alert (a+b);
-break;
-
-case '-':
-alert (a-b);
-break;
-
-case '*':
-alert (a*b);
-break;
-
-default:
-    alert ('Error!');
+const operations = {
+add: '+',
+sub: '-',
+multi: '*',
 }
+
+function calc (operation,a,b) {
+       
+     switch(operation) {
+
+            case operations.add:
+            return (a+b);
+
+            case operations.sub:
+            return (a-b);
+
+            case operations.multi:
+            return (a*b);
+     }
+}
+     console.log(calc(operations.add,5,5));
+     console.log(calc(operations.sub,5,5));
+     console.log(calc(operations.multi,5,5));
+
 </script>
 
 </body>

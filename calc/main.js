@@ -1,29 +1,34 @@
-function getNumbers (a, b, operator) {
-    
-    let isNumber = ((typeof (a) === "number") && (typeof (b) === "number"));
-    if (isNumber === false) {
-        return console.log('not a number');
-    } else {
-        return calc (a, b, operator)
-    }
-}
 
-function calc (a, b, operator) {
+
+function calc (firstNumber, secondNumber, operator) {
     let result;
 
+    let isNumber = ((typeof (firstNumber) === "number") && (typeof (secondNumber) === "number"));
+
+    if (isNumber === false) {
+        return console.log("not a number");
+    }
+
     switch (operator) {
-        case "+":
-            result = a + b;
+        case "addition":
+            result = firstNumber + secondNumber;
             break;
-        case "-":
-            result = a - b;
+        case "subtraction":
+            result = firstNumber - secondNumber;
             break;
-        case "*":
-            result = a * b;
+        case "multiplication":
+            result = firstNumber * secondNumber;
             break
         default:
-            result = 'operator is not defined...';
+            result = "operator is not defined...";
     }
 
     return console.log (result);
+}
+
+
+const operations = {
+    addiction: "+",
+    subtraction: "-",
+    multiplication: "*",
 }

@@ -1,59 +1,26 @@
-function checkInput(firstNumber,secondNumber) {
-    let checkInput = (typeof firstNumber !== 'number' || typeof secondNumber !== 'number')
-    if (checkInput) {
-        return true;
-    }
-}
+const operations = {
+    result: 'result',
+    add: 'add',
+    multi:'multi',
+    subtract:'subtract'
+};
 
-function calc(operation, firstNumber, secondNumber) {
+function calcObject(operation, firstNumber, secondNumber) {
     if ( checkInput(firstNumber,secondNumber) ) return "Is not number";
-
-    let result;
-    const add = 'add';
-    const multi = 'multi';
-    const subtract = 'subtract';
-
-    if (operation === add) {
-        return result = firstNumber + secondNumber;
-    } else if (operation === multi) {
-        return result = firstNumber * secondNumber;
-    } else if (operation === subtract){
-        return result = firstNumber - secondNumber;
-    } else {
-        return "unknown operation";
-    }
-}
-
-console.log("------ Несколько условий: « if else » ------")
-console.log(calc('add',1,2));
-console.log(calc('multi',1,2));
-console.log(calc('subtract',3,2));
-
-
-
-
-function calcSwitch(operation, firstNumber, secondNumber) {
-
-    if ( checkInput(firstNumber,secondNumber) ) return "Is not number";
-
-    let result;
-    const add = 'add';
-    const multi = 'multi';
-    const subtract = 'subtract';
 
     switch (operation) {
-        case (add):
-            return result = firstNumber + secondNumber;
-        case (multi):
-            return result = firstNumber * secondNumber;
-        case (subtract):
-            return result = firstNumber - secondNumber;
+        case (operations.add):
+            return operations.result = firstNumber + secondNumber;
+        case (operations.multi):
+            return operations.result = firstNumber * secondNumber;
+        case (operations.subtract):
+            return operations.result = firstNumber - secondNumber;
         default:
             return "unknown operation";
     }
 }
 
-console.log("------ Конструкция switch ------")
-console.log( calcSwitch('add',1,2) );
-console.log( calcSwitch('multi',1,2) );
-console.log( calcSwitch('subtract',3,2) );
+console.log("------ Конструкция Object ------")
+console.log( calcObject( operations.add,1,2 ) );
+console.log( calcObject( operations.multi,1,2 ) );
+console.log( calcObject( operations.subtract,3,2 ) );

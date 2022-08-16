@@ -5,29 +5,26 @@ function checkInput(firstNumber,secondNumber) {
     }
 }
 
-const operations = {
-    result: 'result',
-    add: 'add',
-    multi:'multi',
-    subtract:'subtract'
-};
 
 function calcObject(operation, firstNumber, secondNumber) {
     if ( checkInput(firstNumber,secondNumber) ) return "Is not number";
 
-    switch (operation) {
-        case (operations.add):
-            return operations.result = firstNumber + secondNumber;
-        case (operations.multi):
-            return operations.result = firstNumber * secondNumber;
-        case (operations.subtract):
-            return operations.result = firstNumber - secondNumber;
-        default:
-            return "unknown operation";
+    const operations = {
+        'add': firstNumber + secondNumber,
+        'multi': firstNumber * secondNumber,
+        'subtract': firstNumber - secondNumber
+    };
+
+    const findOperator = ([operation] in operations);
+
+    if (findOperator){
+      return   operations[operation];
+    }else {
+        console.log("unknown operation")
     }
 }
 
 console.log("------ Конструкция Object ------")
-console.log( calcObject( operations.add,1,2 ) );
-console.log( calcObject( operations.multi,1,2 ) );
-console.log( calcObject( operations.subtract,3,2 ) );
+console.log( calcObject( "add",1,2 ) );
+console.log( calcObject( "multi",2,1 ) );
+console.log( calcObject( "subtract",3,2 ) );

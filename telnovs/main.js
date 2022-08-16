@@ -58,29 +58,33 @@
 // cacl('multi',8)
 // cacl('subtract',58,8)
 
- function cacl(a=['add','multi','subtract'],b,c){
-    if ( b && c === undefined ){
-      return  console.log('Вы не ввили число')
-    } ;
+//  function cacl(a=['add','multi','subtract'],b,c){
+//     if ( b && c === undefined ){
+//       return  console.log('Вы не ввили число')
+//     } ;
   
-    switch (a){
-     case "add": 
-      console.log ( b +c);
-     break;
-     case 'multi':
-       console.log ( b * c);
-      break; 
-     case 'subtract':
-       console.log (b - c);
-       break;
-     default:
-      console.log("Вы не ввили действе")  
-    };
+//     switch (a){
+//      case "add": 
+//       console.log ( b +c);
+//      break;
+//      case 'multi':
+//        console.log ( b * c);
+//       break; 
+//      case 'subtract':
+//        console.log (b - c);
+//        break;
+//      default:
+//       console.log("Вы не ввили действе")  
+//     };
     
-  }
-  cacl()
-  cacl('multi',8)
-  cacl('subtract',58,8)
-  cacl('add',108,8)
-  cacl('multi',8,8)
+//   }
+//   cacl()
+//   cacl('multi',8)
+//   cacl('subtract',58,8)
+//   cacl('add',108,8)
+//   cacl('multi',8,8)
   
+
+
+
+ 

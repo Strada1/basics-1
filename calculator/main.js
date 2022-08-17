@@ -1,12 +1,18 @@
-function calc(operator, a, b) {
-    switch (operator) {
-        case 'add':
+const operations = {
+    add: '+',
+    multi: '*',
+    subtract: '-'
+}
+
+function calc(key, a, b) {
+    switch (key) {
+        case operations.add:
             return(a + b);
             break;
-        case 'multi':
+        case operations.multi:
             return(a * b);
             break;
-        case 'subtract':
+        case operations.subtract:
             return(a - b);
             break;
         default:
@@ -14,10 +20,10 @@ function calc(operator, a, b) {
     }
 }
 
-let a = +prompt("Введите первое число");
-let operator = prompt("Введите оператор(add, multi, subtract)");
-let b = +prompt("Введите второе число");
+a = +prompt("Введите первое число");
+key = prompt("Введите оператор(+, *, -)");
+b = +prompt("Введите второе число");
 
-let result = calc(operator, a, b);
+let result = calc(key, a, b);
 
 alert(result);

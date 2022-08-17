@@ -1,10 +1,16 @@
+const operations = {
+    "add": "+",
+    "multi": "*",
+    "sub": "-",
+}
+
 function calc(operation, a, b) {
     switch (operation) {
-        case "add":
+        case "+":
             return a + b;
-        case "multi":
+        case "*":
             return a * b;
-        case "subtract":
+        case "-":
             return a - b;
         default:
             alert('Unsuported operation');

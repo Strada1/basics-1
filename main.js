@@ -1,16 +1,20 @@
-function calc(action, a, b) {
+const operations = { add: '+', multi: '*', subtract:'-', divide: '/', power:'**'  }
 
-    switch (action) {
-        case 'add':
+function calc(action, a, b) {
+    let operation = operations[action];
+    switch (operation) {
+        case '+':
             return +a + +b;
-        case 'multi':
+        case '*':
             return a * b;
-        case 'subtract':
+        case '-':
             return a - b;
-        case 'divide':
+        case '/':
             if (b !== 0)
                 return a / b;
             break;
+        case '**':
+            return a ** b;
         default:
             return;
     }
@@ -19,5 +23,5 @@ function calc(action, a, b) {
 console.log(calc('add', 1, 2));
 console.log(calc('multi', 1, 2));
 console.log(calc('subtract', 3, 2));
-
+console.log(calc('power', 3, 4));
 

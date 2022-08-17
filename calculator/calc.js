@@ -1,15 +1,22 @@
+
+const operations = {
+  add : "+",
+  multi : "-",
+  subtract : "*"
+};
+
 function calc(action, a, b) {
   switch (action) {
-    case "add":
-      return (a + b);
+    case operations.add:
+    return (a + b);
 
-    case "multi":
+    case operations.multi:
       return (a - b);
 
-    case "subtract":
+    case operations.subtract:
       return (a * b);
   }
 }
-console.log(calc("add", 5, 2));
-console.log(calc("multi", 10, 5));
-console.log(calc("subtract", 6, 3));
+console.log(calc(operations.add, 5, 2));
+console.log(calc(operations.multi, 10, 5));
+console.log(calc(operations.subtract, 6, 3));

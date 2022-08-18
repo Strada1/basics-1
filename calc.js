@@ -16,10 +16,10 @@ function Calc(action = "add", a, b) {
   };
   if (isNumber) {
     if (operations[action] === undefined) return "Операция не определена";
-    return operations[action];
+    return operations[action](a, b);
   } else {
     return "Ошибка в аргументе";
   }
 }
 
-console.log(Calc("add", 5, 3));
+console.log(Calc("multi", 5, 3));

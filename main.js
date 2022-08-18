@@ -1,30 +1,31 @@
-function checkInput(firstNumber,secondNumber) {
-    let checkInput = (typeof firstNumber !== 'number' || typeof secondNumber !== 'number')
+
+function checkInput(a,b) {
+    let checkInput = (typeof a !== 'number' || typeof b !== 'number')
     if (checkInput) {
         return true;
     }
 }
 
+let calculator = {
 
-function calcObject(operation, firstNumber, secondNumber) {
-    if ( checkInput(firstNumber,secondNumber) ) return "Is not number";
+// ... ваш код ...
+    read(){
+        this.a = "5";
+        this.b = 3;
+    },
+    sum(){
+        if ( checkInput(this.a,this.b) ) return "Is not number";
 
-    const operations = {
-        'add': firstNumber + secondNumber,
-        'multi': firstNumber * secondNumber,
-        'subtract': firstNumber - secondNumber
-    };
-
-    const findOperator = ([operation] in operations);
-
-    if (findOperator){
-      return   operations[operation];
-    }else {
-        console.log("unknown operation")
+        return this.a + this.b;
+    },
+    mul(){
+        return this.a * this.b;
     }
-}
+};
 
-console.log("------ Конструкция Object ------")
-console.log( calcObject( "add",1,2 ) );
-console.log( calcObject( "multi",2,1 ) );
-console.log( calcObject( "subtract",3,2 ) );
+
+
+calculator.read();
+console.log( calculator.sum() );
+console.log( calculator.mul() );
+

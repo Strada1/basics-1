@@ -1,18 +1,24 @@
 function calcSwitchFn(value, a, b) {
+  const operations = {
+    add: 'add',
+    multi: 'multi',
+    subtract: 'subtract',
+  };
+
   // Применяем функцию проверки
   if (checkValue(a) && checkValue(b)) {
     let res = 0;
 
     switch (value) {
-      case 'add':
+      case operations.add:
         res = a + b;
         break;
 
-      case 'multi':
+      case operations.multi:
         res = a * b;
         break;
 
-      case 'subtract':
+      case operations.subtract:
         res = a - b;
         break;
 

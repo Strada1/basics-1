@@ -13,30 +13,29 @@ function checkNumbers(a, b) {
 function calc(action, a, b) {
     if (checkNumbers(a, b))
         return "Issue with input numbers";
-    let operation = operations[action];
-    switch (operation) {
-        case '+':
+    switch (action) {
+        case operations.add:
             return +a + +b;
-        case '*':
+        case operations.multi:
             return a * b;
-        case '-':
+        case operations.subtract:
             return a - b;
-        case '/':
+        case operations.divide:
             if (b !== 0)
                 return a / b;
             else
                 return "Couldn't divide by zero";
-        case '**':
+        case operations.power:
             return a ** b;
         default:
             return "Issue with input operator";
     }
 }
 
-console.log(calc('add', 1, 2));
-console.log(calc('multi', 1, 2));
-console.log(calc('subtract', 3, 2));
-console.log(calc('power', 3, 4));
-console.log(calc('divide', 3, 4));
-console.log(calc('divide', 3, 0));
-console.log(calc('divide', -3, -10));
+console.log(calc(operations.add, 1, 2));
+console.log(calc(operations.multi, 1, 2));
+console.log(calc(operations.subtract, 3, 2));
+console.log(calc(operations.power, 3, 4));
+console.log(calc(operations.divide, 3, 4));
+console.log(calc(operations.divide, 3, 0));
+console.log(calc(operations.divide, -3, -10));

@@ -1,35 +1,41 @@
 let todo = {
-	'buy products': 'not yet time',
-	'find job': 'in progress',
-	'make todo List': 'done',
+	list: {
+		'buy products': 'To Do',
+		'find job': 'in progress',
+		'make todo List': 'Done',
+	},
 
 	statuses: {
-		status_1: 'not yet time',
-		status_2: 'in progress',
-		status_3: 'done',
+		status_1: 'To Do',
+		status_2: 'In Progress',
+		status_3: 'Done',
 	},
 
 	changeStatus(task, newStatus) {
-		if (this.keyExists(task) && this.checkStatus(newStatus)) this[task] = newStatus;
+		if (this.keyExists(task) && this.checkStatus(newStatus)) this.list[task] = newStatus;
 	},
-	addTask(taskName, status) {
-		if (!this.keyExists(taskName) && this.checkStatus(status)) this[taskName] = status;
+	addTask(task, status = 'To Do') {
+		if (!this.keyExists(task) && this.checkStatus(status)) this.list[task] = status;
 	},
 	deleteTask(task) {
-		if (this.keyExists(task)) delete this[task];
+		if (this.keyExists(task)) delete this.list[task];
 	},
 	showList() {
-		let showListStr = '';
+		let toDoStr = 'ToDo:\n';
+		let inProgressStr = 'In Progress:\n';
+		let doneStr = 'Done:\n';
 
-		for (const key in this) {
-			if (typeof this[key] === 'string') showListStr += `task - ${key}: status - ${this[key]} \n`;
+		for (const key in this.list) {
+			if (this.list[key] === 'To Do') toDoStr += `  "${key}",\n`;
+			else if (this.list[key] === 'In Progress') inProgressStr += `  "${key}",\n`;
+			else if (this.list[key] === 'Done') doneStr += `  "${key}",\n`;
 		}
 
-		console.log(showListStr);
+		console.log(toDoStr + inProgressStr + doneStr);
 	},
 
 	keyExists(keyName) {
-		if (keyName in this) return true;
+		if (keyName in this.list) return true;
 	},
 
 	checkStatus(status) {
@@ -40,8 +46,11 @@ let todo = {
 	},
 };
 
-todo.changeStatus('buy products', 'in progress');
-todo.addTask('do PR', 'in progress');
+todo.changeStatus('buy products', 'In Progress');
+todo.addTask('do PR', 'To Do');
+todo.addTask('finish strada', 'In Progress');
+todo.addTask('refactor code', 'Done');
+
 todo.deleteTask('find job');
 todo.showList();
 console.log(todo);

@@ -1,44 +1,28 @@
-const list = {
-  'read book': 'to begin',
-  'learn JS': 'in progress',
-  'buy bread': 'complete',
+const STATUS__TODO = {
+  'to begin': 'to begin',
+  'in progress': 'in progress',
+  complete: 'complete',
 };
+const list = {
+  'read book': STATUS__TODO['to begin'],
+  'learn JS': STATUS__TODO['in progress'],
+  'buy bread': STATUS__TODO['complete'],
+};
+
 function changeStatus(task, status) {
-  list[task] = status;
-}
-function addTask(task) {
-  list[task] = 'to begin';
-}
-function deleteTask(task) {
-  delete list[task];
-}
-function showList() {
-  let result = '';
-  for (let task in list) {
-    result = result + task + ': ' + list[task] + '\n';
+  if (task in list && status in STATUS__TODO) {
+    this[task] = STATUS__TODO[status];
   }
-  return result;
-}
-changeStatus('read book', 'in progress');
-addTask('run');
-deleteTask('buy bread');
-console.log(showList());
-
-// ToDo on .This
-
-const list = {
-  'read book': 'to begin',
-  'learn JS': 'in progress',
-  'buy bread': 'complete',
-};
-function changeStatus(task, status) {
-  this[task] = status;
 }
 function addTask(task) {
-  this[task] = 'to begin';
+  if (typeof task === 'string') {
+    this[task] = STATUS__TODO['to begin'];
+  }
 }
 function deleteTask(task) {
-  delete this[task];
+  if (task in list) {
+    delete this[task];
+  }
 }
 function showList() {
   let result = '';
@@ -56,6 +40,4 @@ list.showList = showList;
 list.changeStatus('read book', 'in progress');
 list.addTask('run');
 list.deleteTask('buy bread');
-console.log(list.showList());
-
-// Need feedback
+console.log('ToDo list' + '\n' + list.showList());

@@ -9,9 +9,9 @@ function calc(name, a, b) {
 }
 
 
-console.log(calc('add', 1, 2))
+/*console.log(calc('add', 1, 2))
 console.log(calc('multi', 1, 2))
-console.log(calc('subtract', 3, 2))
+console.log(calc('subtract', 3, 2))*/
 
 
 
@@ -29,10 +29,10 @@ function calcSwitch(name, a, b) {
 }
 
 
-
+/*
 console.log(calcSwitch('add', 1, 2))
 console.log(calcSwitch('multi', 1, 2))
-console.log(calcSwitch('subtract', 3, 2))
+console.log(calcSwitch('subtract', 3, 2))*/
 
 
 

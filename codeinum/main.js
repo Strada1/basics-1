@@ -23,19 +23,19 @@ function showList () {
     console.log('\nToDo: ');
     for (key in todoList) {
         if (todoList[key] == 'To Do') {
-            console.log(`${key}`);
+            console.log('- ' + `${key}`);
         }
     }
     console.log('\nIn Progress: ');
     for (key in todoList) {
         if (todoList[key] == 'In Progress') {
-             console.log(`${key}`);
+             console.log('- ' + `${key}`);
         }
     }
     console.log('\nDone: ');
     for (key in todoList) {
         if (todoList[key] == 'Done') {
-            console.log(`${key}`);
+            console.log('- ' + `${key}`);
         }
     }
 }
@@ -43,10 +43,8 @@ function showList () {
 addTask('working in the garden');
 addTask('code practice');
 addTask('playing computer games');
-showList();
 changeStatus('working in the garden', 'Done');
 changeStatus('code practice', 'In Progress');
 changeStatus('playing computer games', 'In Progress');
-showList();
-deleteTask('working in the garden');
+// deleteTask('working in the garden');
 showList();

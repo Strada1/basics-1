@@ -3,7 +3,7 @@ const statusTask = {
   in_progress: "in Progress",
   Done: "Done",
 };
-let list = {
+const list = {
   "create a new practice task": statusTask.in_progress,
   "make a bed": statusTask.Done,
   "write a post": statusTask.ToDo,

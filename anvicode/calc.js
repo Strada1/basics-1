@@ -9,21 +9,27 @@
 	return res;
 } */
 
+const operations = {
+	add: '+',
+	multi: '*',
+	subtract: '-',
+};
+
 function calc(f, num1, num2) {
 	switch (f) {
-		case 'add':
+		case operations.add:
 			res = num1 + num2;
 			break;
-		case 'multi':
+		case operations.multi:
 			res = num1 * num2;
 			break;
-		case 'subtract':
+		case operations.subtract:
 			res = num1 - num2;
 			break;
 	}
 	return res;
 }
 
-console.log(calc('add', 2, 2));
-console.log(calc('multi', 2, 5));
-console.log(calc('subtract', 100, 1));
+console.log(calc('+', 2, 2));
+console.log(calc('*', 2, 5));
+console.log(calc('-', 100, 1));

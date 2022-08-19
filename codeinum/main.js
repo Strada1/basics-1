@@ -20,31 +20,26 @@ function deleteTask (nameTask) {
     delete todoList[nameTask]; 
 }
 function showList () {
+    function show(status) {
+        for (key in todoList) {
+            if (todoList[key] == status) {
+                console.log('    ' + `"${key}"`);
+            }
+        }
+    }
     console.log('\nToDo: ');
-    for (key in todoList) {
-        if (todoList[key] == 'To Do') {
-            console.log('- ' + `${key}`);
-        }
-    }
+    show('To Do')
     console.log('\nIn Progress: ');
-    for (key in todoList) {
-        if (todoList[key] == 'In Progress') {
-             console.log('- ' + `${key}`);
-        }
-    }
+    show('In Progress')         
     console.log('\nDone: ');
-    for (key in todoList) {
-        if (todoList[key] == 'Done') {
-            console.log('- ' + `${key}`);
-        }
-    }
+    show('Done')
 }
-
+show()
 addTask('working in the garden');
 addTask('code practice');
 addTask('playing computer games');
 changeStatus('working in the garden', 'Done');
 changeStatus('code practice', 'In Progress');
 changeStatus('playing computer games', 'In Progress');
-// deleteTask('working in the garden');
+deleteTask('working in the garden');
 showList();

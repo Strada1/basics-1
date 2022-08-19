@@ -1,17 +1,17 @@
 
 let toDo = {
-    running: 'in progress',
-    work: 'done',
+    running: 'undone',
+    work: 'undone',
 
 };
 
-function changeStatus(task, newStatus) {
-    toDo[task] = newStatus;
+function changeStatus(task) {
+    toDo[task] = 'done';
 
 };
 
-function addTask(task, status) {
-    toDo[task] = status;
+function addTask(task) {
+    toDo[task] = 'undone';
 };
 
 
@@ -27,8 +27,10 @@ function showList() {
 };
 
 
-addTask('feed cat', 'done');
+addTask('feed cat');
+addTask('walking');
 deleteTask ('work');
-changeStatus ('running', 'done');
+changeStatus ('running');
+changeStatus('walking');
 showList();
 

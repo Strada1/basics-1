@@ -1,9 +1,9 @@
 const list = {
    'create a new practice task': 'In Progress',
-   'create a new practice task2': 'Done',
+   'create a new practice task2': 'To Do',
    'create a new practice task3': 'In Progress',
    'create a new practice task4': 'To Do',
-   'make a bed': 'Done',
+   'make a bed': 'To Do',
    'write a post': 'To Do',
 }
 
@@ -57,8 +57,19 @@ function showList() {
       }
    }
 
+   if (resultTodo == `Todo:\n`) {
+      resultTodo += `   -\n`
+   }
+   if (resultProgress == 'in Progress:\n') {
+      resultProgress += `   -\n`
+   }
+   if (resultDone == 'Done: \n') {
+      resultDone += `   -\n`
+   }
+
+
    console.log(resultTodo);
    console.log(resultProgress);
    console.log(resultDone);
-   return ' ';
+
 }

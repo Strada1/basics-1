@@ -23,18 +23,23 @@ function showList() {
         console.log(key);
         }
     }
-    console.log("In Progress:");
+    console.log("------" + "\n" + "In Progress:");
     for(let key in list){
         if (list[key] == "In Progress") {
         console.log(key);
         }
     }
-    console.log("Done");
+    console.log("------" + "\n" +"Done:");
     for(let key in list){
         if (list[key] == "Done") {
         console.log(key);
         }
     }
+}
+
+
+function showList2() {
+    
 
 }
 
@@ -43,6 +48,8 @@ addTask("test2");
 console.log(list)
 deleteTask("test2");
 changeStatus("test","Done");
-changeStatus("test11","In Progress");
+changeStatus("test11","Done");
 console.log(list)
+showList();
+changeStatus("test","Done");
 showList();

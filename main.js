@@ -15,7 +15,6 @@ let calculator = {
     },
     sum(){
         if ( checkInput(this.a,this.b) ) return "Is not number";
-
         return this.a + this.b;
     },
     mul(){

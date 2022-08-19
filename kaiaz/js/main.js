@@ -1,65 +1,40 @@
-const operations = {
-  add: "add",
-  sub: "sub",
-  mult: "mult",
-  div: "div",
+const toDo = {
+  "Помыть посуду": true,
+  "Купить продукты": false,
+  "Покормить кота": true,
+  addTask() {
+    let task;
+    task = prompt("Введите задачу!", "Написать приложение");
+    this[task] = false;
+    console.log("========  Добавлена задача " + task + " ========");
+  },
+  deleteTask(task) {
+    let textTask = task;
+    delete this[task];
+    console.log('======== Задача "' + textTask + '" удалена ========');
+  },
+  changeStatus(task) {
+    this[task] = !this[task];
+    console.log(
+      '========  Статус этой задачи  "' + task + '" изменен ========'
+    );
+  },
+  showList() {
+    console.log("======== Список Задач ========");
+    for (let task in this) {
+      if (typeof this[task] === "function") {
+        continue;
+      } else {
+        console.log(task, ":", this[task]);
+      }
+    }
+  },
 };
 
-function getNumber() {
-  let number;
-  while (!checkNumber(number)) {
-    number = +prompt("Введите число", 2);
-  }
-
-  return number;
-}
-
-function checkNumber(number) {
-  let isNumber;
-  if (number === "" || isNaN(number)) {
-    isNumber = false;
-  } else {
-    isNumber = true;
-  }
-  return isNumber;
-}
-
-function calc(operation, a, b) {
-  let result;
-  switch (operation) {
-    case "add":
-      result = add(a, b);
-      break;
-    case "sub":
-      result = sub(a, b);
-      break;
-    case "mult":
-      result = mult(a, b);
-      break;
-    case "div":
-      result = div(a, b);
-      break;
-  }
-  return result;
-}
-
-function add(a, b) {
-  return a + b;
-}
-
-function sub(a, b) {
-  return a - b;
-}
-
-function mult(a, b) {
-  return a * b;
-}
-
-function div(a, b) {
-  return a / b;
-}
-
-console.log(calc(operations.add, getNumber(), getNumber()));
-// console.log(calc(operations.sub, getNumber(), getNumber()));
-// console.log(calc(operations.mult, getNumber(), getNumber()));
-// console.log(calc(operations.div, getNumber(), getNumber()));
+toDo.showList();
+toDo.addTask();
+toDo.showList();
+toDo.changeStatus("Купить продукты");
+toDo.showList();
+toDo.deleteTask("Помыть посуду");
+toDo.showList();

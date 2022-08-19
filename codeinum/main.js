@@ -10,7 +10,7 @@ function deleteTask (nameTask) {
     delete todoList[nameTask]; 
 }
 function showList () {
-    console.log('My ToDo \n');
+    console.log('My ToDo ');
     for (key in todoList) {
         console.log(`${key} - ` + `${todoList[key]}`);
     }

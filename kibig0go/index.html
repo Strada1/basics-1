@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let calc = {
+            read() {
+                this.a = +prompt('a = ');
+                this.b = +prompt('b = ');
+            },
+            add() {
+                return this.a + this.b;
+            },
+            multi() {
+                return this.a * this.b;
+            },
+            subtract() {
+                return this.a - this.b;
+            },
+        };
+        calc.read();
+        console.log(calc.add());
+        console.log(calc.multi());
+        console.log(calc.subtract());
+
+    </script>
+</body>
+
+</html>

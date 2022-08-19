@@ -1,28 +1,52 @@
-let todoList = {};
+const todoList = {};
 
-function changeStatus (nameTask) {
-    todoList[nameTask] = !this[nameTask];
+function changeStatus (nameTask, status) {
+    switch (status) {
+        case 'To Do':
+            todoList[nameTask] = 'To Do';
+            break;
+        case 'In Progress':
+            todoList[nameTask] = 'In Progress';
+            break;
+        case 'Done':
+            todoList[nameTask] = 'Done';
+            break;
+    }
 }
 function addTask (nameTask) {
-    todoList[nameTask] = false;
+    todoList[nameTask] = 'To Do';
 }
 function deleteTask (nameTask) {
     delete todoList[nameTask]; 
 }
 function showList () {
-    console.log('My ToDo');
+    console.log('\nToDo: ');
     for (key in todoList) {
-        console.log(`${key} - ` + `${todoList[key]}`);
+        if (todoList[key] == 'To Do') {
+            console.log(`${key}`);
+        }
+    }
+    console.log('\nIn Progress: ');
+    for (key in todoList) {
+        if (todoList[key] == 'In Progress') {
+             console.log(`${key}`);
+        }
+    }
+    console.log('\nDone: ');
+    for (key in todoList) {
+        if (todoList[key] == 'Done') {
+            console.log(`${key}`);
+        }
     }
 }
 
-addTask('working on the garden')
-console.log(todoList)
-addTask('code practice')
-console.log(todoList)
-addTask('playing computer games')
-console.log(todoList)
-deleteTask('code practice')
-changeStatus('working on the garden')
-console.log(todoList)
-showList()
+addTask('working in the garden');
+addTask('code practice');
+addTask('playing computer games');
+showList();
+changeStatus('working in the garden', 'Done');
+changeStatus('code practice', 'In Progress');
+changeStatus('playing computer games', 'In Progress');
+showList();
+deleteTask('working in the garden');
+showList();

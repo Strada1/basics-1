@@ -9,17 +9,17 @@
 </head>
 <body>
     <script>
-            function bebra(kurwa, a, b) {
-                switch (kurwa) {
-                    case "bobr":
+            function calc(operation, a, b) {
+                switch (operation) {
+                    case 'add':
                         return a + b;
                         break;  //break не нужен если до него идет return
 
-                    case "ya perdole":
+                    case 'sub':
                         return a - b;
                         break;
 
-                    case "uazik":
+                    case 'multi':
                         return a * b;
                         break;
 
@@ -28,9 +28,9 @@
                 }
             }
 
-            alert(bebra("bobr", 4, 4));
-            alert(bebra("ya perdole", 4, 3));
-            alert(bebra("uazik", 4, 2));
+            alert(calc('add', 4, 4));
+            alert(calc('sub', 4, 3));
+            alert(calc('multi', 4, 2));
     </script>
 </body>
 </html>

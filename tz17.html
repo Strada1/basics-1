@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+        function Calc(operation, a, b) {
+    let calculator = {
+       read() {
+          this.operation = operation;
+          this.a = a;
+          this.b = b;
+       },
+       result() {
+          switch (this.operation) {
+             case 'add':
+                return this.a + this.b;
+             case 'sub':
+                return this.a - this.b;
+             case 'multi':
+                return this.a * this.b;
+          }
+       },
+    };
+ 
+ 
+    calculator.read();
+ 
+    return calculator.result();
+ }
+ 
+ alert(Calc('add', 10, 2));
+ alert(Calc('sub', 10, 2));
+ alert(Calc('multi', 10, 2));
+    </script>
+</script>
+</body>
+</html>

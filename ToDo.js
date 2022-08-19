@@ -31,7 +31,7 @@ function showList() {
       result = result + task + ': ' + this[task] + '\n';
     }
   }
-  return result;
+  console.log('ToDo list' + '\n' + result);
 }
 list.changeStatus = changeStatus;
 list.addTask = addTask;
@@ -40,4 +40,4 @@ list.showList = showList;
 list.changeStatus('read book', 'in progress');
 list.addTask('run');
 list.deleteTask('buy bread');
-console.log('ToDo list' + '\n' + list.showList());
+list.showList();

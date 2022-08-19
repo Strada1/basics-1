@@ -44,13 +44,13 @@ function showList() {
   console.log(
     'To do:' +
       '\n' +
-      (toDo || '-') +
+      (toDo || '-\n') +
       'In Progress:' +
       '\n' +
-      (inProgress || '-') +
+      (inProgress || '-\n') +
       'Done:' +
       '\n' +
-      (done || '-'),
+      (done || '-\n'),
   );
 }
 list.changeStatus = changeStatus;

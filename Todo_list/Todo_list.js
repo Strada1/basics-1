@@ -1,17 +1,16 @@
-
 let toDo = {
-    running: 'undone',
-    work: 'undone',
+    running: 'done',
+    work: 'to do',
 
 };
 
-function changeStatus(task) {
-    toDo[task] = 'done';
+function changeStatus(task, status) {
+    toDo[task] = status;
 
 };
 
 function addTask(task) {
-    toDo[task] = 'undone';
+    toDo[task] = 'to do';
 };
 
 
@@ -19,18 +18,56 @@ function deleteTask (task) {
     delete toDo[task];
 };
 
+ 
+
 function showList() {
+    let statToDo = '';
+    let statInPr = '';
+    let statDone = '';
+
     for (let key in toDo) {
-        console.log (key +' - '+toDo[key]) ; 
+       if (toDo[key] == 'to do' || '') {
+        statToDo +=  '\n' + '- ' + key + '\n';
+       }
+       if (toDo[key] == 'in progress') {
+        statInPr += '\n'+ '- ' + key + '\n';
+       }
+
+       if (toDo[key] == 'done' || '') {
+        statDone += '\n' + '- ' + key + '\n';
+
+       }
+
     }
 
-};
+
+    if (statToDo !== '') {
+        console.log  ('To Do: ' + statToDo);
+    } else {
+        console.log  ('To Do: ' +'\n' + '-' +'\n');
+    };
+    
+    if (statDone !== '') {
+        console.log  ('Done: ' + statDone);
+    } else {
+        console.log  ('Done: ' +'\n' + '-' +'\n');
+    };
+    
+    if (statInPr !== '') {
+        console.log  ('In Progress: ' + statInPr);
+    } else {
+        console.log  ('In Progress: ' +'\n' + '-' +'\n');
+    };
+
+    
+       }
+  
+    
 
 
-addTask('feed cat');
+addTask('pet cat');
 addTask('walking');
 deleteTask ('work');
-changeStatus ('running');
-changeStatus('walking');
+changeStatus ('running', 'in progress');
 showList();
 

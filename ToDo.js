@@ -1,12 +1,12 @@
 const STATUS__TODO = {
-  'to begin': 'to begin',
+  'to do': 'to do',
   'in progress': 'in progress',
-  complete: 'complete',
+  done: 'done',
 };
 const list = {
-  'read book': STATUS__TODO['to begin'],
+  'read book': STATUS__TODO['to do'],
   'learn JS': STATUS__TODO['in progress'],
-  'buy bread': STATUS__TODO['complete'],
+  'buy bread': STATUS__TODO['done'],
 };
 
 function changeStatus(task, status) {
@@ -16,7 +16,7 @@ function changeStatus(task, status) {
 }
 function addTask(task) {
   if (typeof task === 'string') {
-    this[task] = STATUS__TODO['to begin'];
+    this[task] = STATUS__TODO['to do'];
   }
 }
 function deleteTask(task) {
@@ -25,13 +25,33 @@ function deleteTask(task) {
   }
 }
 function showList() {
-  let result = '';
+  let toDo = '';
+  let inProgress = '';
+  let done = '';
   for (let task in this) {
-    if (typeof this[task] === 'string') {
-      result = result + task + ': ' + this[task] + '\n';
+    switch (this[task]) {
+      case 'to do':
+        toDo += task + ',' + '\n';
+        break;
+      case 'in progress':
+        inProgress += task + ',' + '\n';
+        break;
+      case 'done':
+        done += task + ',' + '\n';
+        break;
     }
   }
-  console.log('ToDo list' + '\n' + result);
+  console.log(
+    'To do:' +
+      '\n' +
+      (toDo || '-') +
+      'In Progress:' +
+      '\n' +
+      (inProgress || '-') +
+      'Done:' +
+      '\n' +
+      (done || '-'),
+  );
 }
 list.changeStatus = changeStatus;
 list.addTask = addTask;
@@ -39,5 +59,5 @@ list.deleteTask = deleteTask;
 list.showList = showList;
 list.changeStatus('read book', 'in progress');
 list.addTask('run');
-list.deleteTask('buy bread');
+list.deleteTask('read book');
 list.showList();

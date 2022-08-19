@@ -1,21 +1,43 @@
-function Calculator (operator, num1, num2) {
-    switch (operator) {
-        case '+':
-            console.log(num1 + num2);
-            break;
-        case '-':
-            console.log(num1 - num2);
-            break;
-        case '*':
-            console.log(num1 * num2);
-            break;
-        default:
-            console.log('Оператор не задан');
-            break;
-    }
+const todoList = {};
+
+// добавлене новой задачи
+const addTask = (task) => {
+  todoList[task] = false;
 }
 
-Calculator('+', 145, 78);
-Calculator('-', 581, 37);
-Calculator('*', 155, 14);
-Calculator('/', 15, 4);
+// удаление задачи
+const deleteTask = (task) => {
+  delete todoList[task];
+}
+
+// меняет статус задачи
+const changeStatus = (task) => {
+  todoList[task] === false ? todoList[task] = true : todoList[task] = false;
+}
+
+// вывод всех задач в консоль
+const showList  = () => {
+ for (let key in todoList) {
+   console.log(key,':',todoList[key]);
+ }
+}
+
+addTask('купить хлеб');
+addTask('купить молоко');
+addTask('сходить к врачу');
+addTask('забрать вещи с пункта выдачи');
+showList();
+console.log('-----------------------------------------------');
+deleteTask('купить хлеб');
+changeStatus('сходить к врачу');
+showList();
+console.log('-----------------------------------------------');
+addTask('дать лекарство коту');
+changeStatus('купить молоко');
+changeStatus('сходить к врачу');
+showList();
+console.log('-----------------------------------------------');
+addTask('помыть кота');
+changeStatus('дать лекарство коту');
+deleteTask('сходить к врачу');
+showList();

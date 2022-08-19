@@ -1,4 +1,4 @@
-to
+
 const tasks = {
   'Прочитать главу learnJs': 'do',
   'Захватить мир': 'do',
@@ -25,6 +25,9 @@ const tasks = {
       }
     }
     return console.log('\t' + doneTasks + '\t'+ doTasks);
+  },
+  deleteTask(task) {
+    delete this[task];
   }
 }
 tasks.addTask('Сделать to-do лист');
@@ -34,4 +37,6 @@ tasks.changeStatus('Сделать to-do лист');
 tasks.changeStatus('Прочитать главу learnJs');
 tasks.showList();
 tasks.changeStatus('Сделать to-do лист');
+tasks.showList();
+tasks.deleteTask('Захватить мир');
 tasks.showList();

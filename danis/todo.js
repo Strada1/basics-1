@@ -8,18 +8,18 @@ const todo = {
 
     },
 	addTask(nameTask, statusTask) {
-		this.taskitem[nameTask] = statusTask;
+		this.taskitems[nameTask] = statusTask;
 	},
 	deleteTask(nameTask) {
-		delete this.taskitem[nameTask];
+		delete this.taskitems[nameTask];
 	},
 	changeStatus(nameTask, status) {
-		this.taskitem[nameTask] = status;
+		this.taskitems[nameTask] = status;
 	},
 	showList() {
 		console.log("ToDo: ");
-		for (let key in this.taskitem) {
-			console.log(`${key} : ${this.taskitem[key]}`);
+		for (let key in this.taskitems) {
+			console.log(`${key} : ${this.taskitems[key]}`);
 		}
 	},
 };

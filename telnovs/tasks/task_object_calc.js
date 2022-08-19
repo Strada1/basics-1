@@ -25,6 +25,3 @@ function calc(operations,b,c){
       };
 }  
 
-calc('add',6,7);
-calc('multi',6,7);
-calc('subtract',6,7);

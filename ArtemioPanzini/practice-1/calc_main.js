@@ -1,3 +1,12 @@
+const operations = {
+    add : a+b,
+    multi: a*b,
+    substract: a-b,
+};
+
+
+
+
 function calc(selection_action, a, b){
     switch(selection_action){
         case "multi":

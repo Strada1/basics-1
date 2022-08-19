@@ -23,7 +23,9 @@ changeStatus('read book', 'in progress');
 addTask('run');
 deleteTask('buy bread');
 console.log(showList());
+
 // ToDo on .This
+
 const list = {
   'read book': 'to begin',
   'learn JS': 'in progress',
@@ -55,3 +57,5 @@ list.changeStatus('read book', 'in progress');
 list.addTask('run');
 list.deleteTask('buy bread');
 console.log(list.showList());
+
+// Need feedback

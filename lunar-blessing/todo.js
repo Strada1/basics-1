@@ -9,8 +9,18 @@ let todo = {
   storage: {},
 
   showList() {
-    for (let key in this.storage) {
-      console.log(key, this.storage[key]);
+    for (let status in this.statuses) {
+      console.log(this.statuses[status] + ":")
+      let isEmpty = true;
+      for (let key in this.storage) {
+        if (this.statuses[status] == this.storage[key]) {
+          console.log("    " + key)
+          isEmpty = false;   
+        }
+      }
+      if (isEmpty == true) {
+        console.log("    -")
+      }
     }
   },
 
@@ -42,7 +52,7 @@ todo.addTask('doStrada');
 todo.changeStatus('doStrada', 'in progress');
 todo.addTask('drink coffee');
 todo.addTask('wake up')
-todo.changeStatus('wake up', 'done')
+// todo.changeStatus('wake up', 'done')
 todo.showList()
 
 // todo.addTask('reread object article')

@@ -1,4 +1,4 @@
-let todoList = new Object();
+let todoList = {};
 
 function changeStatus (nameTask) {
     todoList[nameTask] = !this[nameTask];
@@ -10,7 +10,7 @@ function deleteTask (nameTask) {
     delete todoList[nameTask]; 
 }
 function showList () {
-    console.log('My ToDo ');
+    console.log('My ToDo');
     for (key in todoList) {
         console.log(`${key} - ` + `${todoList[key]}`);
     }

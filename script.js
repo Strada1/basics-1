@@ -1,51 +1,64 @@
+const list = {
+   'create a new practice task': 'In Progress',
+   'create a new practice task2': 'Done',
+   'create a new practice task3': 'In Progress',
+   'create a new practice task4': 'To Do',
+   'make a bed': 'Done',
+   'write a post': 'To Do',
+}
 
-const operations = {
-   add: 'add',
-   multi: 'multiply',
-   sub: 'subtract',
-};
+function changeStatus(taskKey, taskNewStatus) {
 
-const operationsString = function () {
-   let resultStr = '';
-   for (let key in operations) {
-      resultStr += operations[key] + ' | ';
-   }
-   return resultStr;
-};
-
-function calc(action, a, b) {
-
-   /* проверка на NaN */
-   if (isNaN(+a) || isNaN(+b)) {
-      return `Второй и третий аргумент должны быть числами!`;
+   if (list[taskKey]) {
+      list[taskKey] = taskNewStatus;
+   } else {
+      console.log(`Задачи ${taskKey} не существует, проверьте правильность ввдённой задачи!`);
    }
 
-   switch (action) {
-      case operations.add:
-         return +a + +b;
-      case operations.multi:
-         return a * b;
-      case operations.sub:
-         return a - b;
-      default:
-         return `Введите одно из доступных действий: ${operationsString()}`;
+   console.log(`Статус задачи ${taskKey} успешно изменён на: ${taskNewStatus}.`);
+}
 
+function addTask(newTask) {
+
+   const defaultTaskStatus = 'To Do';
+
+   if (list[newTask]) {
+      console.log(`Задача ${newTask} уже существует и имеет статус: ${list[newTask]}`);
+   } else {
+      list[newTask] = defaultTaskStatus;
+      console.log(`Задача ${newTask} успешно создана и имеет статус: ${defaultTaskStatus}`);
    }
 
 }
 
-(function () {
+function deleteTask(delTaskKey) {
 
-   let userAction = prompt(`Укажите одно из доступных действий калькулятора: ${operationsString()}`, '');
-   let userFirstNum = prompt(`Укажите первое число`, '0');
-   let userSecondNum = prompt(`Укажите второе число`, '0');
+   if (!list[delTaskKey]) {
+      console.log(`Данной задачи ${delTaskKey} не сузествует, убедитесь в правильно введённой задачи!`);
+   } else {
+      delete list[delTaskKey];
+   }
 
-   alert('Результат: ' + calc(userAction, userFirstNum, userSecondNum));
+}
 
-})();
+function showList() {
 
-console.log(calc(operations.multi, 2, '3'));
-console.log(calc('add', 2, '4'));
-console.log(calc('multiply', 's', 2));
-console.log(calc('subtract', '2', '4'));
-console.log(calc('subsssss', '2', '4'));
+   let resultTodo = `Todo:\n`;
+   let resultProgress = 'in Progress:\n';
+   let resultDone = 'Done: \n';
+
+   for (key in list) {
+      if (list[key] == 'To Do') {
+         resultTodo += `   "${key}"\n`;
+      } else if (list[key] == 'In Progress') {
+         resultProgress += `   "${key}"\n`
+      } else if (list[key] == 'Done') {
+         resultDone += `   "${key}"\n`
+      }
+   }
+
+   console.log(resultTodo);
+   console.log(resultProgress);
+   console.log(resultDone);
+   return ' ';
+}

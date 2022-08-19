@@ -1,16 +1,29 @@
 'use stict'
 
-function calc(iden, a, b) {
-	const operations = {
-		add: a + b,
-		multi: a * b,
-		subtract: a - b,
-	}
 
-	for (let key in operations) {
-		if (key == iden) {
-			return operations[key]
+const toDo = {
+	study: 'complete',
+	exercise: 'uncomplete',
+	changeStatus(task, status) {
+		this[task] = status || 'complete'
+	},
+	addTask(task) {
+		this[task] = 'uncomplete'
+	},
+	deleteTask(task) {
+		delete this[task]
+	},
+	showList() {
+		for (let key in this) {
+			if (typeof this[key] != 'function') {
+				alert(`Задача ${key}: ${this[key]}`)
+			}
 		}
 	}
 }
 
+toDo.addTask('shower')
+toDo.changeStatus('shower', 'wait')
+toDo.addTask('breakfast')
+toDo.deleteTask('breakfast')
+toDo.showList()

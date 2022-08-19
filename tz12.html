@@ -10,28 +10,27 @@
 <body>
     <script>
             function bebra(kurwa, a, b) {
-                    switch (kurwa) {
-                        case "bobr":
+                switch (kurwa) {
+                    case "bobr":
                         return a + b;
                         break;  //break не нужен если до него идет return
 
-                        case "ya perdole":
+                    case "ya perdole":
                         return a - b;
                         break;
 
-                        case "uazik":
+                    case "uazik":
                         return a * b;
                         break;
 
-                        default:
-                            return alert("Ошибочка");
+                    default:
+                        return alert("Ошибочка");
                 }
             }
-            
+
             alert(bebra("bobr", 4, 4));
             alert(bebra("ya perdole", 4, 3));
             alert(bebra("uazik", 4, 2));
-           
     </script>
 </body>
 </html>

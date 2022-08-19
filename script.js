@@ -5,3 +5,4 @@ if (spek == 'ECMAScript') {
 } else {
     alert('Не знаете? ECMAScript!');
 }
+

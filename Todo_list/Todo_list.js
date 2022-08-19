@@ -26,15 +26,15 @@ function showList() {
     let statDone = '';
 
     for (let key in toDo) {
-       if (toDo[key] == 'to do' || '') {
-        statToDo +=  '\n' + '- ' + key + '\n';
+       if (toDo[key] == 'to do') {
+        statToDo += `"${key}"\n `;
        }
        if (toDo[key] == 'in progress') {
-        statInPr += '\n'+ '- ' + key + '\n';
+        statInPr += `"${key}"\n `;
        }
 
-       if (toDo[key] == 'done' || '') {
-        statDone += '\n' + '- ' + key + '\n';
+       if (toDo[key] == 'done') {
+        statDone += `"${key}"\n `;
 
        }
 
@@ -42,21 +42,21 @@ function showList() {
 
 
     if (statToDo !== '') {
-        console.log  ('To Do: ' + statToDo);
+        console.log  (`To Do:\n` + statToDo);
     } else {
-        console.log  ('To Do: ' +'\n' + '-' +'\n');
+        console.log  (`To Do:\n - \n`);
     };
     
     if (statDone !== '') {
-        console.log  ('Done: ' + statDone);
+        console.log  (`Done\n:` + statDone);
     } else {
-        console.log  ('Done: ' +'\n' + '-' +'\n');
+        console.log  (`Done:\n - \n `);
     };
     
     if (statInPr !== '') {
-        console.log  ('In Progress: ' + statInPr);
+        console.log  (`In Progress:\n ` + statInPr);
     } else {
-        console.log  ('In Progress: ' +'\n' + '-' +'\n');
+        console.log  (`In Progress:\n - \n `);
     };
 
     

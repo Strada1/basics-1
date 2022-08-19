@@ -1,8 +1,3 @@
-const operations = {
-    add : a+b,
-    multi: a*b,
-    substract: a-b,
-};
 
 
 
@@ -25,4 +20,4 @@ function calc(selection_action, a, b){
 console.log(calc("-", 4, 6))
 console.log(calc('add', 1, 2));
 console.log(calc('multi', 1, 2));
-console.log(calc('substracte', 3, 2));
+console.log(calc('substract', 3, 2));

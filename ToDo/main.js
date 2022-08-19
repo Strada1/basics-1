@@ -10,11 +10,11 @@ const list = {
     'relax': TODO,
 };
 
-function changeStatus (task, status) {
+function changeStatus (task, status = INPROGRESS) {
     list[task] = status;
 };
 
-function addTask (task, status) {
+function addTask (task, status = INPROGRESS) {
     list[task] = status;
 };
 

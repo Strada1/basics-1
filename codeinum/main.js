@@ -21,20 +21,18 @@ function deleteTask (nameTask) {
 }
 function showList () {
     function show(status) {
+        console.log(status + ':');
         for (key in todoList) {
             if (todoList[key] == status) {
                 console.log('    ' + `"${key}"`);
             }
         }
     }
-    console.log('\nToDo: ');
-    show('To Do')
-    console.log('\nIn Progress: ');
-    show('In Progress')         
-    console.log('\nDone: ');
-    show('Done')
+    show('To Do');
+    show('In Progress');         
+    show('Done');
 }
-show()
+
 addTask('working in the garden');
 addTask('code practice');
 addTask('playing computer games');

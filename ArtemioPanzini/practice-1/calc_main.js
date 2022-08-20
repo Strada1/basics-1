@@ -14,11 +14,12 @@ function calc(selection_action, a, b){
 
         case operations.add:
         case "+":
-            return a+b;
+            return +a + +b;
 
         case operations.sub:
         case "-":
             return a-b;
+        default 'Incorrect operator';
     }
 }
 console.log(calc("-", 4, 6))

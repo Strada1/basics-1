@@ -19,7 +19,7 @@ function calc(selection_action, a, b){
         case operations.sub:
         case "-":
             return a-b;
-        default 'Incorrect operator';
+        default: 'Incorrect operator';
     }
 }
 console.log(calc("-", 4, 6))

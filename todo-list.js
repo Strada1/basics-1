@@ -1,3 +1,5 @@
+const TABULATION = "   ";
+
 const todoList = {
   tasks: {
   },
@@ -35,13 +37,21 @@ const todoList = {
 
   showListByStatus(status) {
     if (status && Object.values(this.statuses).includes(status)) {
+      let count = 0;
+
       for (task in this.tasks) {
         if (this.tasks[task] === status) {
-          console.log(`   "${task}"`);
+          console.log(`${TABULATION}"${task}"`);
+          count++;
         }
+      }
+
+      if (!count) {
+        console.log(`${TABULATION}-`);
       }
     }
   }
+
 }
 
 todoList.addTask('Погулять');
@@ -58,5 +68,6 @@ todoList.changeStatus('Почистить зубы', 'In Progress');
 todoList.showList();
 
 todoList.deleteTask('Побриться');
+todoList.deleteTask('Погулять');
 
 todoList.showList();

@@ -50,7 +50,6 @@ function showList() {
       }
   }
 
-
 console.log("ToDo:" + "\n" + toDo + "\n" + "In Progress:" + "\n" + inProgress + "\n" + "Done:" + "\n" + done);
 }
 

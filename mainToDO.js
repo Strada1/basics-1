@@ -15,6 +15,8 @@ function addTask (name){
     return list[name];
 }
 
+
+
 function changeStatus (name, status = STATUS_TO_DO) {
     const isValidStatus = (status === STATUS_IN_PROGRESS || status === STATUS_DONE || status === STATUS_TO_DO )
     if ( isValidStatus ) {
@@ -26,23 +28,42 @@ function deleteTask(name){
     delete list[name];
 }
 
-function showList(){
-    console.log('ToDO:')
-    for (let key in list) {
-        console.log('\t'+`${list[key]}: \n \t\t ${key}` );
+
+function checkStatus(status){
+    let count = false;
+
+    console.log ('\t'+status + ":");
+    for ( let name in list ) {
+        if (list[name] === status) {
+            console.log (` \t\t"${name}"`);
+            count = true;
+        }
     }
+    if (!count) {
+        console.log ('\t\t'+"-");
+    }
+    count = false;
 }
 
-addTask('VITALIK');
-changeStatus("VITALIK", 'In Progress');
-showList();
-console.log("---------------------------------------------------------")
+function showList(){
+    console.log('ToDO:')
+    checkStatus (STATUS_TO_DO);
+    checkStatus (STATUS_IN_PROGRESS);
+    checkStatus (STATUS_DONE);
+}
+
 
 
 addTask('learJS');
 addTask('VITALIK');
+addTask('workk');
+addTask('eat');
+
 changeStatus("learJS", 'In Progress');
 changeStatus("VITALIK", 'To Do');
+changeStatus("eat", 'To Do');
+changeStatus("learJS", 'Done');
+
 showList();
 console.log("---------------------------------------------------------")
 

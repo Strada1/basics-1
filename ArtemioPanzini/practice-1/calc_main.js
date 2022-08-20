@@ -4,9 +4,14 @@ const operations = {
     sub: "sub",
 };
 
-
+function stringToNumber(x){
+return x = +x;  
+}
 
 function calc(selection_action, a, b){
+    
+    if ((isFinite(a)==true)===isFinite(b)){
+console.log (`vse super: ${a} ${selection_action} ${b}`);
     switch(selection_action){
         case operations.multi:
         case "*":
@@ -22,7 +27,9 @@ function calc(selection_action, a, b){
         default: 'Incorrect operator';
     }
 }
-console.log(calc("-", 4, 6))
+else return 'sorry, incorrect numbers';
+}
+console.log(calc("-", 2, 'z'))
 console.log(calc('add', 1, 2));
 console.log(calc('multi', 1, 2));
-console.log(calc('sub', 3, 2));
+console.log(calc('sub', 2, 3));

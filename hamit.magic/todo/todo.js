@@ -4,33 +4,33 @@ const list = {
 	"write a post": "To Do",
 
     changeStatus(key, keyStatus) {
-        list[key] = keyStatus;
+        this[key] = keyStatus;
     },
     
     addTask(key) {
-        list[key] = "To Do";
+        this[key] = "To Do";
     },
     
     deleteTask(key) {
-        delete list[key];
+        delete this[key];
     },
     
     showList() {
         console.log('Todo:')
         for (key in list) {
-            if (list[key] === 'To Do') {
+            if (this[key] === 'To Do') {
                 console.log('\t' + key);
             }
         }
         console.log('In Progress:');
         for (key in list) {
-            if (list[key] === 'In Progress') {
+            if (this[key] === 'In Progress') {
                 console.log('\t' + key);
             }
         }
         console.log('Done:');
         for (key in list) {
-            if (list[key] === 'Done') {
+            if (this[key] === 'Done') {
                 console.log('\t' + key);
             }
         }

@@ -1,27 +1,48 @@
 // Создайте список дел, добавьте в него пару задач, поменяйте их статусы несколько раз и выведете результат в консоль 
 
-// Пусть статус true у выполненных задач, статус false - у невыполненных
-// По умолчанию задача добавляется со статусом false
+const todoList = {};
 
-let todoList = {};
+const statusList = {
+  'To Do': 'To Do',
+  'In Progress': 'In Progress',
+  'Done': 'Done',
+}
 
-function changeStatus(task) {
-  (this[task] === false) ? (this[task] = true) : (this[task] = false);
+function changeStatus(task, status) {
+  if (status in statusList) {
+    this[task] = status;
+  } else {
+    console.log('Wrong Status');
+  }
 };
 
 function addTask(task) {
-  this[task] = false;
+  this[task] = 'To Do';
 };
 
 function deleteTask(task) {
-  delete this[task];
+  if (task in todoList) {
+    delete this[task];
+  } else {
+    console.log('Wrong Task Name');
+  }
 };
 
 function showList() {
-  for (let key in this) {
-    if (typeof(this[key]) === 'boolean') {
-      console.log(key + ': ' + this[key]);
+  let hasTasks = false;
+
+  for (let status in statusList) {
+    console.log(`${statusList[status]}:`);
+    for (let key in this) {
+      if (this[key] == statusList[status]) {
+        hasTasks = true;
+        console.log(`\t ${key}`);
+      };
+    };
+    if (!hasTasks) {
+      console.log('-');
     }
+    hasTasks = false;
   }
 };
 
@@ -31,13 +52,14 @@ todoList.deleteTask = deleteTask;
 todoList.showList = showList;
 
 
-todoList.addTask('First Task');         // First Task: false
-todoList.addTask('Second Task');        // First Task: false; Second Task: false
-todoList.changeStatus('Second Task');   // First Task: false; Second Task: true
-todoList.changeStatus('First Task');    // First Task: true; Second Task: true
-todoList.changeStatus('Second Task');   // First Task: true; Second Task: false
-todoList.addTask('Third Task');         // First Task: true; Second Task: false; Third Task: false
-todoList.deleteTask('Third Task');      // First Task: true; Second Task: false
-todoList.showList();                    // First Task: true; Second Task: false
+todoList.addTask('First Task');                        // First Task: To Do
+todoList.addTask('Second Task');                       // First Task: To Do; Second Task: To Do
+todoList.changeStatus('First Task', 'Done');           // First Task: Done; Second Task: To Do
+todoList.changeStatus('Second Task', 'In Progress');   // First Task: Done; Second Task: In Progress
+todoList.deleteTask('First Task');                     // Second Task: In Progress
+todoList.addTask('Third Task');                        // Second Task: In Progress, Third Task: To Do
+todoList.addTask('Forth Task');                        // Second Task: In Progress, Third Task: To Do, Forth Task: To Do
+todoList.deleteTask('Third Task');                     // Second Task: In Progress, Forth Task: To Do
+todoList.changeStatus('Forth Task', 'Done');           // Second Task: In Progress, Forth Task: Done
 
-
+todoList.showList();                                   // Second Task: In Progress, Forth Task: Done

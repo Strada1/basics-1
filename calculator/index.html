@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+    <script>
+     let a = +prompt('Введите значение a: ', '');
+     let b = +prompt ('Введите значение b: ', '');
+     let func = +prompt ('Выберите действие: 1 - сложение, 2 - вычитание 3 - умножение', '');
+       switch (func) {
+            case 1:
+            alert(add(a,b));
+            break;
+            case 2:           
+            alert(subtract(a,b));
+            break;           
+            case 3:    
+            alert(multi(a,b));
+            break;
+            default:
+                alert('Введено неверное преобразования!');
+            }
+    function add (a, b) {
+        return a + b;
+        }
+
+     function subtract (a, b) {
+        return a - b;
+        }
+     function multi (a, b) {
+        return a * b;
+         }
+
+    </script>
+
+</body>
+
+</html>

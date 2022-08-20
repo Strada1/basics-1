@@ -1,20 +1,24 @@
 const todoList = {};
-
+const STATUS = {
+    TO_DO: 'To Do',
+    IN_PROGRESS: 'In Progress',
+    DONE: 'Done'
+};
 function changeStatus (nameTask, status) {
     switch (status) {
-        case 'To Do':
-            todoList[nameTask] = 'To Do';
+        case STATUS.TO_DO:
+            todoList[nameTask] = STATUS.TO_DO;
             break;
-        case 'In Progress':
-            todoList[nameTask] = 'In Progress';
+        case STATUS.IN_PROGRESS:
+            todoList[nameTask] = STATUS.IN_PROGRESS;
             break;
-        case 'Done':
-            todoList[nameTask] = 'Done';
+        case STATUS.DONE:
+            todoList[nameTask] = STATUS.DONE;
             break;
     }
 }
 function addTask (nameTask) {
-    todoList[nameTask] = 'To Do';
+    todoList[nameTask] = STATUS.DONE;
 }
 function deleteTask (nameTask) {
     delete todoList[nameTask]; 
@@ -28,16 +32,16 @@ function showList () {
             }
         }
     }
-    show('To Do');
-    show('In Progress');         
-    show('Done');
+    show(STATUS.TO_DO);
+    show(STATUS.IN_PROGRESS);         
+    show(STATUS.DONE);
 }
 
 addTask('working in the garden');
 addTask('code practice');
 addTask('playing computer games');
-changeStatus('working in the garden', 'Done');
-changeStatus('code practice', 'In Progress');
-changeStatus('playing computer games', 'In Progress');
+changeStatus('working in the garden', STATUS.DONE);
+changeStatus('code practice', STATUS.IN_PROGRESS);
+changeStatus('playing computer games', STATUS.IN_PROGRESS);
 deleteTask('working in the garden');
 showList();

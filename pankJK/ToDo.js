@@ -44,8 +44,8 @@ function showList() {
   };
 };
 
-console.log(changeStatus("write a post", "In Progress"));
-console.log(addTask("wash clothes"));
-console.log(changeStatus("wash clothes", "In Progress"));
-console.log(deleteTask("go to walk"));
-console.log(showList());
+changeStatus("write a post", "In Progress");
+addTask("wash clothes");
+changeStatus("wash clothes", "In Progress");
+deleteTask("go to walk");
+showList();

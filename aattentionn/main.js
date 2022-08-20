@@ -1,13 +1,13 @@
 function calc(a, b, action) {
     let result;
     switch (action) {
-        case '+':
+        case 'add':
             result = a + b;
             break;
-        case '-':
+        case 'sub':
             result = a - b;
             break;
-        case '*':
+        case 'multi':
             result = a * b;
             break;
     }

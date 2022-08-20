@@ -59,8 +59,8 @@ console.log("--------"); // просто разделитель
 
 showList();
 
-changeStatus("do homework", "Done");
-deleteTask("do homework");
+changeStatus("Do homework", "Done");
+deleteTask("Do homework");
 
 console.log("--------"); // просто разделитель
 

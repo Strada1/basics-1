@@ -1,15 +1,21 @@
+let operations = {
+  add: 'add',
+  multi: 'multi',
+  sub: 'subtract',
+}
+
 function calc(operator, operand1, operand2) {
 
   if(operand1 && operand2) {
     if(testOfType(operand1) && testOfType(operand2)) {
       switch(operator) {
-        case('add'):
+        case(operations.add):
           return operand1 + operand2;
           break;
-        case('multi'):
+        case(operations.multi):
           return operand1 * operand2;
           break;
-        case('subtract'):
+        case(operations.sub):
           return operand1 - operand2;
           break;
         default:
@@ -28,6 +34,8 @@ function testOfType(value) {
   return typeof value === 'number';
 }
 
-console.log(calc('subtract', 3, 2));
+console.log(calc('add', 1, 2));  // возвращает 3
+console.log(calc('multi', 1, 2));  // возвращает 2
+console.log(calc('subtract', 3, 2));  // возвращает 1
 
 

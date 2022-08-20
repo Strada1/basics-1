@@ -1,45 +1,70 @@
-const list = {
-	"create a new practice task": "In Progress",
-	"make a bed": "Done",
-	"write a post": "To Do",
+const STATUS = {
+    TO_DO: 'To Do',
+    IN_PROGRESS: 'In Progress',
+    DONE: 'Done',
+};
 
-    changeStatus(key, keyStatus) {
-        this[key] = keyStatus;
-    },
-    
-    addTask(key) {
-        this[key] = "To Do";
-    },
-    
-    deleteTask(key) {
-        delete this[key];
-    },
-    
-    showList() {
-        console.log('Todo:')
-        for (key in list) {
-            if (this[key] === 'To Do') {
-                console.log('\t' + key);
-            }
-        }
-        console.log('In Progress:');
-        for (key in list) {
-            if (this[key] === 'In Progress') {
-                console.log('\t' + key);
-            }
-        }
-        console.log('Done:');
-        for (key in list) {
-            if (this[key] === 'Done') {
-                console.log('\t' + key);
-            }
-        }
-    },
-    
+const list = {
+	"create a new practice task": STATUS.IN_PROGRESS,
+	"make a bed": STATUS.DONE,
+	"write a post": STATUS.TO_DO,    
+};
+
+function changeStatus(key, keyStatus) {
+    if (key in list) {
+        list[key] = keyStatus;
+    }
+    else {
+        console.log('задание ' + key + " осутсвует");
+    }
 }
 
-list.changeStatus("write a post", "Done");
-list.addTask("lern JS");
-list.addTask('have a walk');
-list.deleteTask("have a walk");
-list.showList();
+function addTask(key) {
+    if (typeof(key) != 'object') {
+        list[key] = STATUS.TO_DO;
+    }
+    else {
+        console.log('Извините такое задание добавить невозможно');
+    }
+}
+
+function deleteTask(key) {
+    if (typeof(list.addTask) === 'function') {
+        console.log('задание ' + key + ' нет для удаления');
+    }
+    else if (key in list) {
+        delete list[key];
+    }
+    else {
+        console.log('задание ' + key + ' нет для удаления');
+    }
+}
+
+function showList() {
+    console.log('Todo:')
+    for (key in list) {
+        if (list[key] === STATUS.TO_DO) {
+            console.log('\t' + key);
+        }
+    }
+    console.log('In Progress:');
+    for (key in list) {
+        if (list[key] === STATUS.IN_PROGRESS) {
+            console.log('\t' + key);
+        }
+    }
+    console.log('Done:');
+    for (key in list) {
+        if (list[key] === STATUS.DONE) {
+            console.log('\t' + key);
+        }
+    }
+}
+
+changeStatus("write a post", STATUS.IN_PROGRESS);
+changeStatus("write a pot", STATUS.DONE);
+addTask("lern JS");
+addTask('have a walk');
+deleteTask("addTask");
+addTask('testing');
+showList();

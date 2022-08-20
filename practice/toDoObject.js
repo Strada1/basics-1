@@ -1,10 +1,7 @@
 toDoObj = {}
 
 function addTask(task, status) {
-  toDoObj[task] = {
-    status,
-    task
-  }
+  toDoObj[task] = status
 }
 
 function deleteTask(task) {
@@ -12,15 +9,17 @@ function deleteTask(task) {
 }
 
 function changeStatus(task, statusEdit) {
-  toDoObj[task].status = statusEdit
+  toDoObj[task] = statusEdit
 }
 
 function showList() {
-  let arr = []
+  let arrWorks = []
+  let arrStatus = []
   for (let key in toDoObj) {
-    arr.push(toDoObj[key].task)
+    arrWorks.push(key, toDoObj[key])
+    arrStatus.push(key, toDoObj.key)
   }
-  return console.log("Список дел", arr)
+  return console.log(arrStatus, arrWorks)
 }
 
 
@@ -28,13 +27,10 @@ addTask('work', "в работе")
 addTask('work2', "в работе")
 addTask('work3', "в блоке")
 
-showList()
-
 deleteTask('work3')
 
-showList()
-
-changeStatus('work', "в блоке")
-
+changeStatus('work2', 'в процессе')
 
 showList()
+
+

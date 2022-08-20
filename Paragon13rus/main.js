@@ -1,22 +1,63 @@
-//add, multi, subtract
-function calc (operator, a, b){
-	let result = 0;
-  switch (operator){
-  	case 'add':
-  	 result = a + b;
-     break;
-    case 'multi':
-  	 result = a * b;
-     break;
-    case 'subtract':
-     result = a - b;
-     break;
-    default:
-     console.log ("you need to write smt");
-  }
-  console.log(result);
+const list = {
+  "create a new practice task": "In Progress",
+  "make a bed": "Done",
+  "write a post": "To Do",
+  "write smt": "In Progress",
+};
+
+
+function changeStatus(task, status) {
+  list[task] = status
 }
 
-calc ("add", 2, 4);
-calc ("multi", 2, 4);
-calc ("subtract", 2, 4);
+function addTask(task) {
+  list[task] = "To Do"
+}
+
+function deleteTask(task) {
+  delete list[task]
+}
+
+function showList() {
+  let inProgress = "";
+  let done = "";
+  let toDo = "";
+
+  for (let key in list) {
+    if (list[key] === "In Progress") {
+      inProgress += key + "\n";
+    }
+      if (inProgress === "") {
+      inProgress = "-" + "\n";
+      }
+  }
+  
+  for (let key in list) {
+    if (list[key] === "Done") {
+      done += key + "\n"
+    } 
+        if (done === "") {
+        done = "-" + "\n"
+        }
+  }
+
+  for (let key in list) {
+    if (list[key] === "To Do") {
+      toDo += key + "\n";
+    }
+      if (toDo === "") {
+      toDo = "-" + "\n";
+      }
+  }
+
+
+console.log("ToDo:" + "\n" + toDo + "\n" + "In Progress:" + "\n" + inProgress + "\n" + "Done:" + "\n" + done);
+}
+
+changeStatus("write a post", "Done");
+addTask("learn english");
+addTask("do the dishes");
+deleteTask("do the dishes");
+changeStatus("write a post", "In Progress");
+changeStatus("learn english", "In Progress");
+showList();

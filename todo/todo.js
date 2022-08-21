@@ -20,20 +20,30 @@ function deleteTask (task) {
         console.log(`No task with name - ${task}`)
     }
 }
-function changeStatus (task, status) {
-    if (task && status in LIST) {
-        LIST[task] = status
+function changeStatus(task, status) {
+    if (task && Object.values(STATUS).includes(status)) {
+      LIST[task] = status;
     } else {
-        console.log(`Необходимо заполнить нужные поля`)
+      console.log(`Необходимо заполнить нужные поля`);
     }
-}
-function showList () {
-  for (let status in STATUS) {
-    console.log(STATUS[status])
-    	for (let task in LIST){
-            if (LIST[task] === STATUS[status])
-            console.log(`\t ${task}`)
+  }  
+  function showList() {
+    console.log('---------')
+    for (let status in STATUS) {
+      console.log(STATUS[status]);
+      for (let task in LIST) {
+        if (LIST[task] === STATUS[status]){
+           console.log(`\t ${task}`);     
         }
+      }
     }
-}
-showList ()
+  }
+  
+  changeStatus('write a post', 'To Do');
+  addTask("добавить задачу1")
+  addTask("добавить задачу2")
+  addTask("добавить задачу3", STATUS.DONE)
+  showList()
+  deleteTask("добавить задачу2")
+  changeStatus('make a bed', STATUS.DONE)
+  showList()

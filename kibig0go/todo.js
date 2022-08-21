@@ -1,79 +1,56 @@
+const STATUSES = {
+    TO_DO: 'To Do',
+    IN_PROGRESS: 'In progress',
+    DONE: 'Done',
+}
+
 const todoList = {
-    'run': 'To Do',
-    'wash': 'In progress',
-    'study': 'Done',
+    'run': STATUSES.TO_DO,
+    'wash': STATUSES.IN_PROGRESS,
+    'study': STATUSES.DONE,
 };
 
 function changeStatus(taskName, status) {
-    if (checkTask(taskName)) {
+    if (taskName in todoList) {
         todoList[taskName] = status;
     } else {
         console.log('no such task');
     }
 };
 function addTask(taskName) {
-    if (checkTask(taskName)) {
+    if (taskName in todoList) {
         console.log('task already exists');
     } else {
-        todoList[taskName] = 'To Do';
+        todoList[taskName] = STATUSES.TO_DO;
     }
 };
 function deleteTask(taskName) {
-    if (checkTask(taskName)) {
+    if (taskName in todoList) {
         delete todoList[taskName];
     } else {
         console.log('no such task');
     }
 };
 
-function checkTask(taskName) {
-    for (let task in todoList) {
-        if (task == taskName) return true;
+function showList() {
+    for (let status in STATUSES) {
+        console.log(`${STATUSES[status]}:`);
+        let statusPresence;
+        for (let task in todoList) {
+            if (todoList[task] == STATUSES[status]) {
+                console.log(`"${task}"`);
+                statusPresence = true;
+            }
+        }
+        if (!statusPresence) console.log('-');
     }
-    return false;
 }
 
-function showList() {
-    let statusPresence;
-    console.log('To Do:');
-    for (let task in todoList) {
-        if (todoList[task] == 'To Do') {
-            console.log(`"${task}"`);
-            statusPresence = true;
-        }
-    }
-    if (!statusPresence) {
-        console.log('-')
-    } else {
-        statusPresence = false;
-    }
-    console.log('In Progress:');
-    for (let task in todoList) {
-        if (todoList[task] == 'In progress') {
-            console.log(`"${task}"`);
-            statusPresence = true;
-        } 
-    }
-    if (!statusPresence) {
-        console.log('-')
-    } else {
-        statusPresence = false;
-    }
-    console.log('Done:');
-    for (let task in todoList) {
-        if (todoList[task] == 'Done') {
-            console.log(`"${task}"`);
-            statusPresence = true;
-        }
-    }
-    if (!statusPresence) {
-        console.log('-')
-    } else {
-        statusPresence = false;
-    }
-}
 changeStatus('run', 'In progress');
 addTask('code');
+changeStatus('code', 'In progress');
 deleteTask('study');
+changeStatus('run', 'Done');
+changeStatus('wash', 'Done');
 console.log(todoList);
 showList();

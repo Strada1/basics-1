@@ -1,32 +1,39 @@
-let toDo = {
-    "To wake up": false,
-    "Turn off the alarm": false,
-    "To wash up": false,
-    "To smile": false,
+const STATUS = {
+    TODO: "To Do",
+    DONE: "Done",
+    INPROGRESS: "In Progress",
 }
-function showList() {
-    for (key in this) {
-        if(typeof(this[key])!=='function') {
-            console.log(key +": "+ this[key])
+const LIST = {
+	"create a new practice task": STATUS.INPROGRESS,
+	"make a bed": STATUS.TODO,
+	"write a post": STATUS.DONE,
+}
+
+function addTask (newTask, status=STATUS.TODO) {
+    LIST[newTask] = status
+}
+  
+function deleteTask (task) {
+    if (task in LIST) {
+        delete LIST[task]
+    } else {
+        console.log(`No task with name - ${task}`)
+    }
+}
+function changeStatus (task, status) {
+    if (task && status in LIST) {
+        LIST[task] = status
+    } else {
+        console.log(`Необходимо заполнить нужные поля`)
+    }
+}
+function showList () {
+  for (let status in STATUS) {
+    console.log(STATUS[status])
+    	for (let task in LIST){
+            if (LIST[task] === STATUS[status])
+            console.log(`\t ${task}`)
         }
     }
 }
-function addTask(newTask) {
-    this[newTask] = false    
-}
-function deleteTask(delTask) {
-    delete this[delTask]
-}
-function changeStatus(chStatus) {
-    this[chStatus] = !this[chStatus]
-}
-toDo.showList = showList
-toDo.addTask = addTask
-toDo.deleteTask = deleteTask
-toDo.changeStatus = changeStatus
-
-toDo.addTask("Попрыгать")  
-toDo.showList()
-console.log("\n Change status 'To wash up' \n")
-toDo.changeStatus("To wash up")
-toDo.showList()
+showList ()

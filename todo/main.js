@@ -1,6 +1,6 @@
 const list = {
     "Write a script": "In Progress",
-	"Do the cleaning": "Done",
+	"Do room cleaning": "Done",
 	"Film a video": "To Do",
 };
 

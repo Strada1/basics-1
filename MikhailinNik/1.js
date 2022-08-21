@@ -1,48 +1,70 @@
-const operation = {
-	add: "add",
-	multi: "multi",
-	subtract: "subtract",
+const STATUS = {
+	IN_PROGRESS: "In Progress",
+	DONE: "Done",
+	TO_DO: "To Do",
 };
 
-function calculate(operand, a, b) {
-	switch (operand) {
-		case operation.add:
-			return a + b;
-		case operation.multi:
-			return a * b;
-		case operation.subtract:
-			return a - b;
-		default:
-			alert("Ошибка");
+const list = {
+	"create a new practice task": "In Progress",
+	"make a bed": "Done",
+	"write a post": "To Do",
+};
+
+addTask = function (task, status = "In Progress") {
+	for (let key in list) {
+		list[key];
+		list[task] = status;
 	}
-}
-
-console.log(calculate("add", 2, 1));
-console.log(calculate("multi", 1, 2));
-console.log(calculate("subtract", 3, 2));
-
-let toDo = {};
-
-toDo.addTask = function (task, status = "doing") {
-	this[task] = status;
 };
 
-toDo.changeTask = function (task, status) {
-	this[task] = status;
+changeStatus = function (task, status) {
+	list[task] = status;
 };
 
-toDo.deleteTask = function (task) {
-	delete this[task];
+deleteTask = function (task) {
+	delete list[task];
 };
 
-toDo.showList = function () {
-	for (let key in this) {
-		if (typeof (this[key]) != "function") {
-			console.log('Задача: '  + key + `\n` + 'Статус задачи: ' + this[key]);
+showList = function () {
+	let progressList = "";
+	let doneList = "";
+	let toDoList = "";
+
+	for (key in list) {
+		if (list[key] === STATUS.IN_PROGRESS) {
+			progressList += key + "\n";
+		}
+
+		if (list[key] === STATUS.DONE) {
+			doneList += key + "\n";
+		}
+
+		if (list[key] === STATUS.TO_DO) {
+			toDoList += key + "\n";
 		}
 	}
+
+	console.log(
+		STATUS.IN_PROGRESS +
+			":" +
+			"\n" +
+			progressList +
+			"\n" +
+			"\n" +
+			STATUS.DONE +
+			":" +
+			`\n` +
+			doneList +
+			"\n" +
+			"\n" +
+			STATUS.TO_DO +
+			":" +
+			`\n` +
+			toDoList
+	);
 };
 
-toDo.addTask("tea", "do");
-toDo.addTask("coffee", "done");
-toDo.showList();
+addTask("drink cup of tea", "In Progress");
+changeStatus("drink cup of tea", "Done");
+changeStatus("write a post", "Done");
+showList();

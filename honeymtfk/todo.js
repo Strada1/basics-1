@@ -5,7 +5,6 @@ const list = {
 }
 
 function changeStatus(task, status) {
-	task in list;
 	if (status == "To Do" || "In Progress" || "Done") {
 		list[task] = status;
 	} else {

@@ -1,28 +1,35 @@
-const listOfStatus = {todo:'To Do', inProgress: 'In Progress', done:'Done'};
+const STATUS = {
+    TO_DO: 'To Do',
+    IN_PROGRESS:  'In Progress',
+    DONE: 'Done'
+    };
 const list = {
-    'create a new practice task': 'In Progress',
-    'make a bed': 'Done',
-    'write a post': 'To Do',
+    'create a new practice task': STATUS.IN_PROGRESS,
+    'make a bed': STATUS.DONE,
+    'write a post': STATUS.TO_DO,
 }
 
 
-function addTask (list, task, status = 'To Do'){
+function addTask(list, task, status = STATUS.TO_DO) {
     list[task] = status;
 }
-function changeStatus (list, task, newStatus = 'Done'){
+
+function changeStatus(list, task, newStatus = STATUS.DONE) {
     list[task] = newStatus;
 }
-function deleteTask (list, task){
+
+function deleteTask(list, task) {
     delete list[task];
 }
+
 const space = '     ';
 
-function showList (list) {
-    for (let keyInListOfStatus in listOfStatus){
-        console.log(listOfStatus[keyInListOfStatus]);
-        for ( let key in list){
-            if (list[key] === listOfStatus[keyInListOfStatus]){
-                console.log( space + key);
+function showList({list}) {
+    for (let keySTATUS in STATUS) {
+        console.log(STATUS[keySTATUS]);
+        for (let key in list) {
+            if (list[key] === STATUS[keySTATUS]) {
+                console.log(space + key);
             }
         }
     }
@@ -31,7 +38,7 @@ function showList (list) {
 
 
 addTask(list, "task1");
-addTask(list, "task2", listOfStatus.inProgress );
-showList(list);
+addTask(list, "task2", STATUS.IN_PROGRESS);
+showList({list: list});
 deleteTask(list, "task2")
-showList(list);
+showList({list: list});

@@ -1,5 +1,5 @@
 function calc(id, a, b) {
-    switch(id)
+    switch(id){
     case 'add':
     console.log(a + b);
     break;
@@ -9,6 +9,7 @@ function calc(id, a, b) {
     case 'subtract':
     console.log(a - b);
     break;
+}
 }
 
 calc('add', 3, 5);

@@ -77,7 +77,7 @@ function showList() {
     };
     
     if (statInPr !== '') { 
-        console.log  (`In Progress:\n` + statInPr ||  `- \n` );
+        console.log  (`In Progress:\n` + statInPr);
     } else {
         console.log  (`In Progress:\n - \n `);
     };

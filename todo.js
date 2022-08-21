@@ -2,7 +2,7 @@ let list = {
 	"create a new practice task": "In Progress",
 	"make a bed": "Done",
 	"write a post": "To Do",
-  "write a post1": "To Do",
+    "write a post1": "To Do",
 }
 
 const changeStatus = (task, status) => {

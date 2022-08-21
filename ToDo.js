@@ -1,63 +1,52 @@
-const STATUS__TODO = {
-  'to do': 'to do',
-  'in progress': 'in progress',
-  done: 'done',
+const STATUS_TODO = {
+  TO_DO: 'to do',
+  IN_PROGRESS: 'in progress',
+  DONE: 'done',
 };
 const list = {
-  'read book': STATUS__TODO['to do'],
-  'learn JS': STATUS__TODO['in progress'],
-  'buy bread': STATUS__TODO['done'],
+  'read book': STATUS_TODO.TO_DO,
+  'learn JS': STATUS_TODO.IN_PROGRESS,
+  'buy bread': STATUS_TODO.DONE,
 };
 
 function changeStatus(task, status) {
-  if (task in list && status in STATUS__TODO) {
-    this[task] = STATUS__TODO[status];
-  }
+  if (task in list && status in STATUS_TODO) {
+    list[task] = STATUS_TODO[status];
+  } else console.log('Error change  task, status');
 }
 function addTask(task) {
   if (typeof task === 'string') {
-    this[task] = STATUS__TODO['to do'];
-  }
+    list[task] = STATUS_TODO['to do'];
+  } else console.log('Error add  task');
 }
 function deleteTask(task) {
   if (task in list) {
-    delete this[task];
-  }
+    delete list[task];
+  } else console.log('Error delete');
 }
 function showList() {
   let toDo = '';
   let inProgress = '';
   let done = '';
-  for (let task in this) {
-    switch (this[task]) {
-      case 'to do':
-        toDo += task + ',' + '\n';
+  for (let task in list) {
+    switch (list[task]) {
+      case STATUS_TODO.TO_DO:
+        toDo += ` ${task},\n`;
         break;
-      case 'in progress':
-        inProgress += task + ',' + '\n';
+      case STATUS_TODO.IN_PROGRESS:
+        inProgress += ` ${task},\n`;
         break;
-      case 'done':
-        done += task + ',' + '\n';
+      case STATUS_TODO.DONE:
+        done += ` ${task},\n`;
         break;
     }
   }
   console.log(
-    'To do:' +
-      '\n' +
-      (toDo || '-\n') +
-      'In Progress:' +
-      '\n' +
-      (inProgress || '-\n') +
-      'Done:' +
-      '\n' +
-      (done || '-\n'),
+    `To do:\n${toDo || '-\n'}In progress:\n${inProgress || '-\n'}Done:\n${done || '-\n'}`,
   );
 }
-list.changeStatus = changeStatus;
-list.addTask = addTask;
-list.deleteTask = deleteTask;
-list.showList = showList;
-list.changeStatus('read book', 'in progress');
-list.addTask('run');
-list.deleteTask('read book');
-list.showList();
+
+changeStatus('read book', 'IN_PROGRESS');
+addTask('run');
+deleteTask('');
+showList();

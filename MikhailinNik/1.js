@@ -12,7 +12,7 @@ const list = {
 
 addTask = function (task, status = "In Progress") {
 	for (let key in list) {
-		list[key];
+		list[task] = list[key];
 		list[task] = status;
 	}
 };
@@ -47,8 +47,9 @@ showList = function () {
 	console.log(
 		STATUS.IN_PROGRESS +
 			":" +
-			"\n" +
-			progressList +
+		"\n" +
+		progressList
+			 +
 			"\n" +
 			"\n" +
 			STATUS.DONE +
@@ -65,6 +66,10 @@ showList = function () {
 };
 
 addTask("drink cup of tea", "In Progress");
+addTask("learn JS", "To Do");
+
 changeStatus("drink cup of tea", "Done");
 changeStatus("write a post", "Done");
 showList();
+
+deleteTask("create a new practice task");

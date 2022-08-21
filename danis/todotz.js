@@ -14,7 +14,7 @@ function addTask(nameTask) {
   if (nameTask in list) {
     console.log('Такая задача уже существует');
   } else {
-    if ((nameTask !== "") && (nameTask.trim().length > 0)) {
+    if (nameTask.trim().length > 0) {
       list[nameTask] = STATUS.toDo;
     } else {
       console.log('Некорректный ввод');

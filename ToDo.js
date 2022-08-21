@@ -12,17 +12,23 @@ const list = {
 function changeStatus(task, status) {
   if (task in list && status in STATUS_TODO) {
     list[task] = STATUS_TODO[status];
-  } else console.log('Error change  task, status');
+  } else {
+    console.log('Error change  task, status');
+  }
 }
 function addTask(task) {
   if (typeof task === 'string') {
     list[task] = STATUS_TODO.TO_DO;
-  } else console.log('Error add  task');
+  } else {
+    console.log('Error add  task');
+  }
 }
 function deleteTask(task) {
   if (task in list) {
     delete list[task];
-  } else console.log('Error delete');
+  } else {
+    console.log('Error delete');
+  }
 }
 function showList() {
   let toDo = '';

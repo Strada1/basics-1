@@ -12,7 +12,17 @@ const todoList = {
 
 function changeStatus(taskName, status) {
     if (taskName in todoList) {
-        todoList[taskName] = status;
+        let statusValid;
+        for (let stat in STATUSES) {
+            if (status == STATUSES[stat]) {
+                statusValid = true;
+            }
+        }
+        if (statusValid) {
+            todoList[taskName] = status;
+        } else {
+            console.log('Invalid status!');
+        }
     } else {
         console.log('no such task');
     }

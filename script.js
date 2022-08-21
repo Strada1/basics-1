@@ -17,11 +17,11 @@ function changeStatus(taskKey, taskNewStatus) {
 
    if (list[taskKey]) {
       list[taskKey] = taskNewStatus;
+      console.log(`Статус задачи "${taskKey}" успешно изменён на: "${taskNewStatus}".`);
    } else {
-      console.log(`Задачи ${taskKey} не существует, проверьте правильность ввдённой задачи!`);
+      console.log(`Задача "${taskKey}" не существует, проверьте правильность ввдённой задачи!`);
    }
 
-   console.log(`Статус задачи ${taskKey} успешно изменён на: ${taskNewStatus}.`);
 }
 
 function addTask(newTask) {
@@ -29,10 +29,10 @@ function addTask(newTask) {
    const defaultTaskStatus = LIST_STATUS.TO_DO;
 
    if (list[newTask]) {
-      console.log(`Задача ${newTask} уже существует и имеет статус: ${list[newTask]}`);
+      console.log(`Задача "${newTask}" уже существует и имеет статус: "${list[newTask]}"`);
    } else {
       list[newTask] = defaultTaskStatus;
-      console.log(`Задача ${newTask} успешно создана и имеет статус: ${defaultTaskStatus}`);
+      console.log(`Задача "${newTask}" успешно создана и имеет статус: "${defaultTaskStatus}"`);
    }
 
 }
@@ -40,10 +40,10 @@ function addTask(newTask) {
 function deleteTask(delTaskKey) {
 
    if (!list[delTaskKey]) {
-      console.log(`Данной задачи ${delTaskKey} не сузествует, убедитесь в правильно введённой задачи!`);
+      console.log(`Данной задачи "${delTaskKey}" не существует, убедитесь в правильности введённой задачи!`);
    } else {
       delete list[delTaskKey];
-      console.log(`Задачи ${delTaskKey} успешно удалена!`);
+      console.log(`Задача "${delTaskKey}" успешно удалена!`);
    }
 
 }
@@ -82,3 +82,10 @@ function showList() {
 }
 
 showList()
+changeStatus('make a bed', LIST_STATUS.IN_PROGRESS);
+changeStatus('make a bedddd', LIST_STATUS.IN_PROGRESS);
+addTask('create a new practice task4');
+addTask('create a new practice tas5');
+deleteTask('create a new practice tas55');
+deleteTask('create a new practice tas5');
+showList();

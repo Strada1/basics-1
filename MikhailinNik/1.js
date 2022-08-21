@@ -11,10 +11,9 @@ const list = {
 };
 
 addTask = function (task, status = "In Progress") {
-	for (let key in list) {
-		list[task] = list[key];
-		list[task] = status;
-	}
+	list.key = task
+	list[task] = status
+
 };
 
 changeStatus = function (task, status) {

@@ -24,7 +24,7 @@ function deleteTask(list, task) {
 
 const space = '     ';
 
-function showList({list}) {
+function showList(list) {
     for (let keySTATUS in STATUS) {
         console.log(STATUS[keySTATUS]);
         for (let key in list) {
@@ -33,12 +33,12 @@ function showList({list}) {
             }
         }
     }
-    console.log("________________");
+    console.log('________________');
 }
 
 
-addTask(list, "task1");
-addTask(list, "task2", STATUS.IN_PROGRESS);
-showList({list: list});
-deleteTask(list, "task2")
-showList({list: list});
+addTask(list, 'task1');
+addTask(list, 'task2', STATUS.IN_PROGRESS);
+showList(list);
+deleteTask(list, 'task2')
+showList(list);

@@ -12,7 +12,7 @@ function checkNumbers(a, b) {
 
 function calc(action, a, b) {
     if (checkNumbers(a, b))
-        return "Issue with input numbers";
+        return 'Issue with input numbers';
     switch (action) {
         case operations.add:
             return +a + +b;
@@ -24,11 +24,11 @@ function calc(action, a, b) {
             if (b !== 0)
                 return a / b;
             else
-                return "Couldn't divide by zero";
+                return 'Couldn't divide by zero';
         case operations.power:
             return a ** b;
         default:
-            return "Issue with input operator";
+            return 'Issue with input operator';
     }
 }
 

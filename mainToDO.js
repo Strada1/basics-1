@@ -1,25 +1,22 @@
-const STATUS_IN_PROGRESS = "In Progress";
-const STATUS_DONE = "Done";
-const STATUS_TO_DO = "To Do";
-
+const status = {
+    STATUS_IN_PROGRESS: "In Progress",
+    STATUS_DONE: "Done",
+    STATUS_TO_DO: "To Do",
+}
 let list  = {
-    'create a new practice task': STATUS_IN_PROGRESS,
-    'make a bed': STATUS_DONE,
-    'write a post': STATUS_TO_DO,
+    'create a new practice task': status.STATUS_IN_PROGRESS,
+    'make a bed': status.STATUS_DONE,
+    'write a post': status.STATUS_TO_DO,
 }
 
 function addTask (name){
-    for (let key in list) {
-        list[name] = list[key];
-    }
     return list[name];
 }
 
 
 
-function changeStatus (name, status = STATUS_TO_DO) {
-    const isValidStatus = (status === STATUS_IN_PROGRESS || status === STATUS_DONE || status === STATUS_TO_DO )
-    if ( isValidStatus ) {
+function changeStatus (name, status = status.STATUS_TO_DO) {
+    if ( status ) {
         list[name] = status;
     }
 }
@@ -34,27 +31,27 @@ function checkStatus(status){
 
     console.log ('\t'+status + ":");
     for ( let name in list ) {
-        if (list[name] === status) {
+        if ( list[name] === status ) {
             console.log (` \t\t"${name}"`);
             count = true;
         }
     }
-    if (!count) {
-        console.log ('\t\t'+"-");
+    if ( !count ) {
+        console.log ( '\t\t'+"-" );
     }
     count = false;
 }
 
 function showList(){
     console.log('ToDO:')
-    checkStatus (STATUS_TO_DO);
-    checkStatus (STATUS_IN_PROGRESS);
-    checkStatus (STATUS_DONE);
+    checkStatus (status.STATUS_TO_DO);
+    checkStatus (status.STATUS_IN_PROGRESS);
+    checkStatus (status.STATUS_DONE);
 }
 
 
 
-addTask('learJS');
+addTask('learnJS');
 addTask('VITALIK');
 addTask('workk');
 addTask('eat');
@@ -67,11 +64,15 @@ changeStatus("learJS", 'Done');
 showList();
 console.log("---------------------------------------------------------")
 
+changeStatus("VITALIK", 'Done');
+deleteTask ( "VITALIK" );
 
 
-deleteTask('VITALIK');
 showList();
+
 console.log("---------------------------------------------------------")
+
+
 
 
 

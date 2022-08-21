@@ -5,7 +5,9 @@ const TODOlist = {
 };
 
 function changeStatus(task, status) {
-    TODOlist[task] = status;
+    if ( status == "In Progress" || status == "Done" || status == "To Do") {
+        TODOlist[task] = status;
+    } else console.log("Status entered incorrectly");
 };
 
 function addTask(task) {

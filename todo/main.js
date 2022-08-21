@@ -5,21 +5,21 @@ const list = {
 };
 
 function changeStatus(task, status) {
-    if ((task in list) && typeof task == "string" && typeof status == "string") {
+    if ((task in list) && typeof status == "string") {
         list[task] = status;
         console.log("changeStatus is DONE");
     } else console.log("changeStatus is NOT DONE");
 };
 
-function addTask(task) {
-    if (typeof task == "string") {
-        list[task] = '';
+function addTask(task, status) {
+    if (typeof task == "string" && typeof status == "string") {
+        list[task] = status;
         console.log("addTask is DONE");
     } else console.log("addTask is NOT DONE");
 };
 
 function deleteTask(task) {
-    if ((task in list) && typeof task == "string") {
+    if (task in list) {
         delete list[task];
         console.log("deleteTask is DONE");
     } else console.log("deleteTask is NOT DONE");
@@ -54,7 +54,7 @@ function showList() {
 
 showList();
 
-addTask("Workout");
+addTask("Workout", "To Do");
 
 changeStatus("Workout", "In Progress");
 

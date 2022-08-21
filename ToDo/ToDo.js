@@ -30,6 +30,7 @@ function showList(){
         }
     }
     
+    console.log('--------------------------------------------------');
     console.log('To Do:')
     sortStatus(STATUS.TO_DO);
     console.log('In progress:');

@@ -1,21 +1,45 @@
-let toDo = {
-    running: 'done',
-    work: 'to do',
+
+let STATUS = {
+    To_Do : 'to do',
+    In_Progress : 'in progress',
+    Done : 'done',
+
+};
+
+
+let list = {
+    running: STATUS.Done,
+    work: STATUS.To_Do,
 
 };
 
 function changeStatus(task, status) {
-    toDo[task] = status;
-
+    if (list[task] == undefined) {
+        console.log (`"${task}" cannot be changed because it is not in the list \n `);
+    } else {
+    list[task] = status;
+    console.log (`"${task}" status was successfully changed \n `);
+    }
 };
 
 function addTask(task) {
-    toDo[task] = 'to do';
+    if ( task in list) {
+        console.log (`"${task}" already exists \n `);
+    } else {
+    list[task] = STATUS.To_Do;
+    console.log (`"${task}" was successfully added \n `);
+    }
+
 };
 
 
 function deleteTask (task) {
-    delete toDo[task];
+    if (task in list) {
+    delete list[task];
+    console.log (`"${task}" was successfully deleted \n `);
+    } else {
+        console.log (`"${task}" cannot be deleted because it does not exist \n `);
+    }
 };
 
  
@@ -25,21 +49,19 @@ function showList() {
     let statInPr = '';
     let statDone = '';
 
-    for (let key in toDo) {
-       if (toDo[key] == 'to do') {
+    for (let key in list) {
+       if (list[key] == STATUS.To_Do) {
         statToDo += `"${key}"\n `;
        }
-       if (toDo[key] == 'in progress') {
+       if (list[key] == STATUS.In_Progress) {
         statInPr += `"${key}"\n `;
        }
 
-       if (toDo[key] == 'done') {
+       if (list[key] == STATUS.Done) {
         statDone += `"${key}"\n `;
-
        }
 
     }
-
 
     if (statToDo !== '') {
         console.log  (`To Do:\n` + statToDo);
@@ -48,19 +70,19 @@ function showList() {
     };
     
     if (statDone !== '') {
-        console.log  (`Done\n:` + statDone);
+        console.log  (`Done:\n` + statDone);
     } else {
         console.log  (`Done:\n - \n `);
     };
     
     if (statInPr !== '') {
-        console.log  (`In Progress:\n ` + statInPr);
+        
     } else {
         console.log  (`In Progress:\n - \n `);
     };
 
     
-       }
+}
   
     
 
@@ -68,6 +90,7 @@ function showList() {
 addTask('pet cat');
 addTask('walking');
 deleteTask ('work');
-changeStatus ('running', 'in progress');
+changeStatus ('crying', 'in progress');
 showList();
+
 

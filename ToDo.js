@@ -16,7 +16,7 @@ function changeStatus(task, status) {
 }
 function addTask(task) {
   if (typeof task === 'string') {
-    list[task] = STATUS_TODO['to do'];
+    list[task] = STATUS_TODO.TO_DO;
   } else console.log('Error add  task');
 }
 function deleteTask(task) {

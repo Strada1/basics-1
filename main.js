@@ -1,39 +1,39 @@
-// const operations = {
-//   add: "add",
-//   multi: "multi",
-//   sub: "subtract",
-// }
+const operations = {
+  add: "add",
+  multi: "multi",
+  sub: "subtract",
+}
 
-// function calc(operator, a, b) {
-//   const {add, multi, sub} = operations;
+function calc(operator, a, b) {
+  const {add, multi, sub} = operations;
 
-//   switch (operator) {
-//     case add:
-//       return a + b;
-//     case multi:
-//       return a * b;
-//     case sub:
-//       return a - b;
-//     default:
-//       console.log("Ошибка");
-//   }
-// }
-// calc(operations.add, 3, 2);
+  switch (operator) {
+    case add:
+      return a + b;
+    case multi:
+      return a * b;
+    case sub:
+      return a - b;
+    default:
+      console.log("Ошибка");
+  }
+}
+calc(operations.add, 3, 2);
 
-// /////////////////////////////////
+/////////////////////////////////
 
-// for (let i = 1; i <= 19; i++) {
-//   console.log(i);
-// }
+for (let i = 1; i <= 19; i++) {
+  console.log(i);
+}
 
-// /////////////////////////////////
+/////////////////////////////////
 
-// let i = 1;
+let i = 1;
 
-// while(i <= 19) {
-//   console.log(i);
-//   i++;
-// }
+while(i <= 19) {
+  console.log(i);
+  i++;
+}
 
 
 let list = {

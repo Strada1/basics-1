@@ -24,9 +24,11 @@ function changeStatus(nameTask, statusName) {
 }
 
 function addTask(nameTask) {
-  examination(nameTask)
-    ? console.log('Такая задача уже существует')
-    : (toDoList[nameTask] = STATUS.toDo);
+  if (examination(nameTask)) {
+    console.log('Такая задача уже существует');
+  } else if (nameTask) {
+    toDoList[nameTask] = STATUS.toDo;
+  }
 }
 
 function deleteTask(nameTask) {
@@ -51,8 +53,8 @@ function showList() {
   }
 }
 
-addTask('Сделать уроки');
-addTask('Сделать уроки');
-changeStatus('Сделать уроки', 'done');
+addTask('learn lesson');
+addTask('');
+changeStatus('learn lesson', 'inProgress');
 deleteTask('create a new practice task');
 showList();

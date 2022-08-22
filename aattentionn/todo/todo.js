@@ -11,15 +11,25 @@ const list = {
 };
 
 function addTask (goal) {
-    list[goal] = STATUS.TO_DO;
+
+    if (goal in list) {
+        list[goal] = STATUS.TO_DO;
+    }
+    console.log("Task added");
 };
 
 function deleteTask (goal) {
-    delete list[goal];
+    if (goal in list) {
+        delete list[goal];
+    }
+    console.log("Task deleted");
 };
 
 function changeStatus (goal, status) {
-    list[goal] = status;
+    if (goal in list) {
+        list[goal] = status;
+    }
+    console.log("Status changed");
 };
 
 function showList () {

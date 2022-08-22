@@ -2,6 +2,15 @@ const LIST_STATUS = {
    TO_DO: 'To Do',
    IN_PROGRESS: 'In Progress',
    DONE: 'Done',
+   toString() {
+      let resStr = '';
+      for (let key in LIST_STATUS) {
+         if (typeof (LIST_STATUS[key]) != 'function') {
+            resStr += `\t'${LIST_STATUS[key]}';\n`;
+         }
+      }
+      return resStr;
+   },
 }
 
 const list = {
@@ -16,8 +25,17 @@ const list = {
 function changeStatus(taskKey, taskNewStatus) {
 
    if (list[taskKey]) {
-      list[taskKey] = taskNewStatus;
-      console.log(`Статус задачи "${taskKey}" успешно изменён на: "${taskNewStatus}".`);
+
+      switch (taskNewStatus) {
+         case LIST_STATUS.IN_PROGRESS:
+         case LIST_STATUS.TO_DO:
+         case LIST_STATUS.DONE:
+            list[taskKey] = taskNewStatus;
+            return console.log(`Статус задачи "${taskKey}" успешно изменён на: "${taskNewStatus}".`);
+         default:
+            console.log(`Указанный Вами статус "${taskNewStatus} недоступен, укажите пожалуста один из предложенных вариантов:\n${LIST_STATUS.toString()}`);
+      }
+
    } else {
       console.log(`Задача "${taskKey}" не существует, проверьте правильность ввдённой задачи!`);
    }
@@ -83,6 +101,7 @@ function showList() {
 
 showList()
 changeStatus('make a bed', LIST_STATUS.IN_PROGRESS);
+changeStatus('make a bed', 'мне лень!');
 changeStatus('make a bedddd', LIST_STATUS.IN_PROGRESS);
 addTask('create a new practice task4');
 addTask('create a new practice tas5');

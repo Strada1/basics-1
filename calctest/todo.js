@@ -1,61 +1,74 @@
-const list = {
-  'create a new practice task': 'In Progress',
-  'make a bed': 'Done',
-  'write a post': 'To Do',
+const STATUS = {
+  TO_DO: 'To Do',
+  DONE: 'Done',
+  IN_PROGRESS: 'In Progress',
 };
 
-///////////////////////////////////////////////////////////
+const list = {
+  'create a new practice task': STATUS.IN_PROGRESS,
+  'make a bed': STATUS.DONE,
+  'write a post': STATUS.TO_DO,
+};
+
 // Меняем статус задачи (меняем значение ключа)
 function changeStatus(task, status) {
-  list[task] = status;
+  // делаем проверку на пустое поле.
+  if (list[task] === undefined) {
+    console.log('Нет такой задачи.');
+  } else {
+    list[task] = status;
+  }
 }
-changeStatus('write a post', 'Done');
-// console.log(list);
+changeStatus('write a post', STATUS.DONE);
 
-///////////////////////////////////////////////////////////
 // Добавляем новую задачу (добавляем новый ключ)
 function addTask(task) {
-  list[task] = 'To Do';
+  if (typeof task === 'string') {
+    // Если пустая строка, оно не выводится
+    if (task !== '') {
+      list[task] = STATUS.TO_DO;
+    }
+  } else {
+    console.log('Вы ввели не верное значение.');
+  }
 }
 addTask('have a walk');
-// console.log(list);
 
-///////////////////////////////////////////////////////////
 // Удаляем задачу (удаляем ключ)
 function deleteTask(task) {
-  delete list[task];
+  if (list[task] === undefined) {
+    console.log('Такой задачи не существует');
+  } else {
+    delete list[task];
+  }
 }
-
 deleteTask('have a walk');
-// console.log(list);
 
-////////////////////////////////////////////////////////////
 function showList() {
   console.log(`Todo: `);
   for (let key in list) {
-    if (list[key] === 'To Do') {
-      console.log(` \t ${key}`);
+    if (list[key] === STATUS.TO_DO) {
+      console.log(`\t ${key}`);
     }
   }
   console.log(`In Progress: `);
   for (let key in list) {
-    if (list[key] === 'In Progress') {
-      console.log(` \t ${key}`);
+    if (list[key] === STATUS.IN_PROGRESS) {
+      console.log(`\t ${key}`);
     }
   }
   console.log(`Done: `);
   for (let key in list) {
-    if (list[key] === 'Done') {
-      console.log(` \t ${key}`);
+    if (list[key] === STATUS.DONE) {
+      console.log(`\t ${key}`);
     }
   }
 }
 
-changeStatus('create a new practice task', 'To Do');
-changeStatus('make a bed', 'To Do');
-changeStatus('write a post', 'In Progress');
-addTask('cleaning in the apartment');
-changeStatus('cleaning in the apartment', 'Done');
+changeStatus('create a new practice task', STATUS.TO_DO);
+changeStatus('make a bed', STATUS.TO_DO);
+changeStatus('write a post', STATUS.IN_PROGRESS);
+// addTask('cleaning in the apartment');
+// changeStatus('cleaning in the apartment', STATUS.DONE);
 
-// console.log(list);
 showList();

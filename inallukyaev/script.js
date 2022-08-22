@@ -1,30 +1,36 @@
-const Status = {
+const STATUS = {
   inProgress: 'In Progress',
   done: 'Done',
   toDo: 'To Do',
 };
 
 const toDoList = {
-  'create a new practice task': 'In Progress',
-  'make a bed': 'Done',
-  'write a post': 'To Do',
+  'create a new practice task': STATUS.inProgress,
+  'make a bed': STATUS.done,
+  'write a post': STATUS.toDo,
 };
 function examination(task) {
-  if (task in toDoList) {
-    return true;
-  } else {
-    return false;
-  }
+  return task in toDoList;
 }
-function changeStatus(nameTask, status) {
-  examination(nameTask)
-    ? (toDoList[nameTask] = status)
-    : console.log('Такой задачи не существует');
+
+function changeStatus(nameTask, statusName) {
+  if (statusName in STATUS) {
+    examination(nameTask)
+      ? (toDoList[nameTask] = STATUS[statusName])
+      : console.log('Такой задачи не существует');
+  } else {
+    console.log('Такой статус не может быть использован');
+  }
 }
 
 function addTask(nameTask) {
-  toDoList[nameTask] = 'To Do';
+  if (nameTask in toDoList) {
+    console.log('Такая задача уже существует');
+  } else {
+    toDoList[nameTask] = STATUS.toDo;
+  }
 }
+
 function deleteTask(nameTask) {
   examination(nameTask)
     ? delete toDoList[nameTask]
@@ -32,15 +38,23 @@ function deleteTask(nameTask) {
 }
 
 function showList() {
-  for (let nameStatus in Status) {
-    console.log(Status[nameStatus]);
+  for (let nameStatus in STATUS) {
+    let countTask = 0;
+    console.log(STATUS[nameStatus]);
     for (let key in toDoList) {
-      if (Status[nameStatus] === toDoList[key]) console.log(`--${key}--`);
+      if (STATUS[nameStatus] === toDoList[key]) {
+        console.log(`--${key}--`);
+        countTask += 1;
+      }
+    }
+    if (!countTask) {
+      console.log('-');
     }
   }
 }
 
 addTask('Сделать уроки');
-changeStatus('Сделать уроки', Status.inProgress);
+addTask('Сделать уроки');
+changeStatus('Сделать уроки', 'done');
 deleteTask('create a new practice task');
 showList();

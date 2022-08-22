@@ -4,17 +4,34 @@ const STATUS = {
 	IN_PROGRESS: "In Progress",
 }
 const list = {
-	"create a new practice task": STATUS.IN_PROGRESS,
+	"create a new practice task": STATUS.TO_DO,
 	"make a bed": STATUS.DONE,
-	"write a post": STATUS.TO_DO,
+	"write a post": STATUS.IN_PROGRESS,
 }
-// добавляет новую задачу
-function addTask(task) {
-	list[task] = STATUS.DONE;
+// будет выводить весь список дел
+function showList() {
+	console.log("Todo:");
+	for (let key in list) {
+		if (list[key] === STATUS.TO_DO) {
+			console.log("\t" + key);
+		}
+	}
+	console.log("in progress:");
+	for (let key in list) {
+		if (list[key] === STATUS.IN_PROGRESS) {
+			console.log("\t" + key);
+		}
+	}
+	console.log("Done:");
+	for (let key in list) {
+		if (list[key] === STATUS.DONE) {
+			console.log("\t" + key);
+		}
+	}
 }
-// удаляет  задчу
+// удаляет  задачу
 function deleteTask(task) {
-	if (task in list) {
+	for (let key in list) {
 		delete list[task];
 	}
 }
@@ -22,28 +39,12 @@ function deleteTask(task) {
 function changeStatus(task, status) {
 	list[task] = status;
 }
-// будет выводить весь список дел
-function showList() {
-	console.log('Todo:');
-	for (let key in list) {
-		if (list[key] === STATUS.TO_DO) {
-			console.log(` \t ${key}`);
-		}
-	}
-	console.log('In Progress:');
-	for (let key in list) {
-		if (list[key] === STATUS.DONE) {
-			console.log(` \t ${key}`);
-		}
-	}
-	console.log('Done:');
-	for (let key in list) {
-		if (list[key] === STATUS.IN_PROGRESS) {
-			console.log(` \t ${key}`);
-		}
-	}
+// добавляет новую задачу
+function addTask(task) {
+	list[task] = STATUS.DONE;
 }
-changeStatus('make a bed', 'To Do');
-changeStatus('write a post', 'In Progress');
-addTask("walk the dog");
+changeStatus("write a post", "In Progress");
+changeStatus("make a bed", "To Do");
+deleteTask();
+addTask();
 showList();

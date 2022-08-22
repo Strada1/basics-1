@@ -1,4 +1,3 @@
-// calculator
 function calc(operator, a, b) {
   switch (operator) {
     case 'add':

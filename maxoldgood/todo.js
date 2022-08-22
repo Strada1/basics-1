@@ -1,8 +1,8 @@
 const list = {}
 
-toDo="To Do";
-inProgress="In Progress";
-done="Done";
+let toDo="To Do";
+let inProgress="In Progress";
+let done="Done";
 
 function changeStatus (task,status) {
     list[task]=status;

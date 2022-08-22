@@ -12,24 +12,23 @@ const list = {
 
 function addTask (goal) {
     list[goal] = STATUS.TO_DO;
-    console.log(list);
 };
 
 function deleteTask (goal) {
     delete list[goal];
-    console.log(list);
 };
 
 function changeStatus (goal, status) {
     list[goal] = status;
-    console.log(list);
 };
 
 function showList () {
-    for (goal in list) {
+    
+	for (goal in list) {
 
         console.log(`${list[goal]}: \n\t${goal}`);
-    }
+
+	}
 
 };
 

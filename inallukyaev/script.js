@@ -24,11 +24,9 @@ function changeStatus(nameTask, statusName) {
 }
 
 function addTask(nameTask) {
-  if (nameTask in toDoList) {
-    console.log('Такая задача уже существует');
-  } else {
-    toDoList[nameTask] = STATUS.toDo;
-  }
+  examination(nameTask)
+    ? console.log('Такая задача уже существует')
+    : (toDoList[nameTask] = STATUS.toDo);
 }
 
 function deleteTask(nameTask) {

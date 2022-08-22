@@ -33,7 +33,7 @@ function changeStatus(taskKey, taskNewStatus) {
             list[taskKey] = taskNewStatus;
             return console.log(`Статус задачи "${taskKey}" успешно изменён на: "${taskNewStatus}".`);
          default:
-            console.log(`Указанный Вами статус "${taskNewStatus} недоступен, укажите пожалуста один из предложенных вариантов:\n${LIST_STATUS.toString()}`);
+            console.log(`Указанный Вами статус "${taskNewStatus} недоступен, укажите пожалуста один из предложенных вариантов:\n${LIST_STATUS}`);
       }
 
    } else {

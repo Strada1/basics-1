@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>ToDo</title>
+</head>
+<body>
+<script>
+    // список дел и статусы   
+     list = {
+        "create a new practice task": "In Progress",
+        "make a bed": "Done",
+        "write a post": "To Do",
+    };
+
+
+    // создаем новый объект чтобы добавить новую задачу
+    let addNewToDo = {};
+
+    // доступные статусы
+    let statuses = (Object.values(list));
+    // доступные задачи
+    let tasks = (Object.keys(list));
+
+
+
+    //добавляем задачу и статус
+    function AddTask () {
+
+        key = prompt("Add a task name", 'party');
+        this[key] = prompt(`Select one of these status: ${statuses}`, `To 
+Do`);
+        addNewToDo[key] = this[key];
+        
+        //console.log(addNewToDo);
+        for (let key in addNewToDo){
+         //   console.log(key);
+         //   console.log(this[key])
+        }
+    }
+    AddTask();
+
+
+
+
+
+    // добавляем новую задачу к существующему списку
+    Object.assign(list, addNewToDo);
+    console.log("========== Добавили новую задачу ===========");
+    console.log("========== Выводим объект list ===========");
+    console.log(list);
+
+    console.log("========== Меняем статус задачи ===========");
+
+    function changeStatus(){
+        for (let key in list){
+            list[key] = prompt(`Change status for: ${key} to`, `To Do`);
+        }
+
+    }
+    changeStatus();
+    console.log("========== Выводим обновленные статусы ===========");
+    console.log(list);
+
+
+
+
+
+    // удаляем ключ
+    function deleteTask(){
+        for (let key in list){
+
+            if (confirm(`Удаляем задачу: ${key} `)) {
+            // Save it!
+            delete list[key];
+            console.log('Deleted');
+            } else {
+            // Do nothing!
+            console.log('Skip');
+            }
+
+            // list[key] = prompt(`Change status: ${tasks}`, `To Do`);
+            // delete person.age;
+        }
+    }
+    deleteTask();
+    console.log("========== Выводим list после удаления ===========");
+    console.log(list);
+
+
+    function showList() {
+
+        console.log('To Do:');
+        for (let key in list){
+            if (list[key] == 'To Do'){
+            console.log(key);
+             }
+        }
+
+        
+        console.log('Done:');
+        for (let key in list){
+            if (list[key] == 'Done'){
+            console.log(key);
+            }
+        }
+
+        console.log('In Progress:');
+        for (let key in list){
+            if (list[key] == 'In Progress'){
+            console.log(key);
+             }
+        }
+
+
+    }
+    console.log("========== Выводим отсортированный list ===========");
+    showList();
+
+
+
+</script>
+</body>
+</html>

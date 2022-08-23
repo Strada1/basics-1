@@ -7,4 +7,4 @@ function showVerticalMessage(str) {
     for (let elements of str) console.log(elements);
   }
 }
-showVerticalMessage("affrfst");
+showVerticalMessage("affrfst  ");

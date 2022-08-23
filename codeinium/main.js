@@ -12,7 +12,7 @@ function showVerticalMessage(str) {
             }
         }
     } else {
-        console.log(str);
+        console.log('error');
     }
     
 }

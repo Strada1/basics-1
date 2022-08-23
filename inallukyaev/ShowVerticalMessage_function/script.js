@@ -1,14 +1,12 @@
 function showVerticalMessage(str = '') {
+  str = str.length > 7 ? str.slice(0, 7) : str;
   let result = '';
   for (let i = 0; i < str.length; i++) {
     if (str[i] === 's' && i === 0) {
-      result += str[0].toUpperCase();
+      result += str[0].toUpperCase() + '\n';
       continue;
     }
-    result += str[i];
+    result += str[i] + '\n';
   }
-  result = str.length > 7 ? result.slice(0, 7) : result;
-  for (let char of result) {
-    console.log(char);
-  }
+  return result;
 }

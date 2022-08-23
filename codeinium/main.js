@@ -17,4 +17,7 @@ function showVerticalMessage(str) {
     
 }
 
+showVerticalMessage('strada');
+showVerticalMessage('strada dot one');
+showVerticalMessage(21444344);
 showVerticalMessage();

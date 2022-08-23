@@ -14,13 +14,14 @@ function showVerticalMessage(message) {
   }
 
   let result = '';
-  if (message[0] === 's') {
-    result = message[0].toUpperCase();
-  }
-  for (let pos = 1; pos < message.length && pos < 7; pos++) {
+  for (let pos = 0; pos < message.length && pos < 7; pos++) {
+    if (pos === 0 && message[pos] === 's') {
+      result = message[0].toUpperCase();
+      continue;
+    }
     result += '\n' + message[pos];
   }
-  console.log(result);
+  console.log(result.trim());
 }
 
 showVerticalMessage('strada');

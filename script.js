@@ -12,3 +12,4 @@ function showVerticalMessage(str) {
 }
 
 showVerticalMessage('carretera');
+showVerticalMessage('strada');

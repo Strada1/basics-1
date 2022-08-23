@@ -41,7 +41,7 @@ function showVerticalMessage(str) {
 		for (let char of fixStr) {
 			console.log(char);
 		}
-	} else if (str.includes("s")) {
+	} else if (str[0] == "s") {
 		let upperStr = str[0].toUpperCase();
 		let newStr = upperStr + str.slice(1)
 		for (let char of newStr) {

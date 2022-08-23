@@ -1,7 +1,9 @@
 function showVerticalMessage(str) {
     if (str) {
         str = String(str);
-        str = str[0].toUpperCase() + str.slice(1);
+        if (str[0] === 's') {
+            str = 'S' + str.slice(1);
+        }
         if (str.length >= 7) {
             for (let char of str.slice(0, 7)) {
                 console.log(char); 
@@ -18,6 +20,7 @@ function showVerticalMessage(str) {
 }
 
 showVerticalMessage('strada');
+showVerticalMessage('gtrada');
 showVerticalMessage('strada dot one');
-showVerticalMessage(21444344);
+showVerticalMessage(214343434);
 showVerticalMessage();

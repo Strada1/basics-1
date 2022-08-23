@@ -11,58 +11,58 @@ const list = {
 };
 
 function changeStatus(task, status) {
-  return list[task] = status;
+  list[task] = status;
 };
 
-function addTask(newTask) {
-  return list[newTask] = STATUS.PROGRESS;
+
+function addTask(newTask, status) {
+  list[newTask] = status;
 };
 
 function deleteTask(byTask) {
-  return delete list[byTask];
+  delete list[byTask];
 };
 
 function showList() {
 
   let todoStr = '';
   for(let key in list) {
-    if(list[key] === STATUS.TODO) {
-      todoStr += key;
-    } else if(todoStr === '') {
-        console.log('-');
-      };
+    if(list[key] === STATUS.TODO) { 
+      todoStr += `${key}\n`;
+    } 
   }
+  if(todoStr == '') {
+    todoStr = '    -';
+  };
   console.log(`Todo:\n    ${todoStr}`);
 
   let progressStr = '';
   for(let key in list) {
     if(list[key] == STATUS.PROGRESS) {
-      progressStr += key;
-    } else if(progressStr === '') {
-      console.log('-');
-      }
+      progressStr += `${key}\n`;
+    } 
   }
+  if(progressStr == '') {
+    progressStr = '    -';
+  };
   console.log(`In Progress:\n    ${progressStr}`);
 
   let doneStr = '';
   for(let key in list) {
-    if(list[key] == 'Done') {
-      doneStr += key;
-    } else if(doneStr == '') {
-      console.log('-');
-      };
+    if(list[key] == STATUS.DONE) {
+      doneStr += `${key}\n`;
+    } 
   }
+  if(doneStr == '') {
+    doneStr = '    -';
+  };
   console.log(`Done:\n    ${doneStr}`);
 
 };
 
-addTask('have a walk');
-addTask('wash the dishes');
-
-changeStatus('have a walk', 'Done');
-changeStatus('wash the dishes', 'In Progress');
-
-deleteTask('have a walk');
-
+addTask('write a post', STATUS.PROGRESS);
+changeStatus('create a new practice task', STATUS.TODO);
+deleteTask("make a bed");
+changeStatus('    make a bad', STATUS.TODO);
 showList();
 

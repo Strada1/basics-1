@@ -98,13 +98,3 @@ function showList() {
    console.log(resultDone);
 
 }
-
-showList()
-changeStatus('make a bed', LIST_STATUS.IN_PROGRESS);
-changeStatus('make a bed', 'мне лень!');
-changeStatus('make a bedddd', LIST_STATUS.IN_PROGRESS);
-addTask('create a new practice task4');
-addTask('create a new practice tas5');
-deleteTask('create a new practice tas55');
-deleteTask('create a new practice tas5');
-showList();

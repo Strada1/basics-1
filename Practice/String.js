@@ -6,7 +6,7 @@ function showVerticalMessage(str) {
         console.log('mistake');
     }
 
-    else if (str[0] > str[0].toUpperCase()) {
+    else if (str[0] === 's') {
        str = (str[0].toUpperCase() + str.slice(1))
 
         for (let char of str) {
@@ -22,4 +22,4 @@ function showVerticalMessage(str) {
     }
 }
 
-showVerticalMessage('');
+showVerticalMessage('stradastr');

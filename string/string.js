@@ -23,8 +23,8 @@ function showVerticalMessage(str) {
   const maxlength = 7;
   if (str.charAt(0).toLowerCase() === "s")
     str = str.charAt(0).toUpperCase() + str.slice(1);
-  for (let i = 0; i < maxlength; i++) {
+  for (let i = 0; i < str.length && i < maxlength; i++) {
     console.log(str[i]);
   }
 }
-showVerticalMessage("stra1236");
+showVerticalMessage("stra");

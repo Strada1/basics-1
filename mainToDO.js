@@ -3,17 +3,18 @@ const status = {
     STATUS_DONE: "Done",
     STATUS_TO_DO: "To Do",
 }
+
 let list  = {
-    'create a new practice task': status.STATUS_IN_PROGRESS,
-    'make a bed': status.STATUS_DONE,
-    'write a post': status.STATUS_TO_DO,
+
 }
 
 function addTask (name){
-    return list[name];
+    if ( name in list ){
+        console.log(`Есть задание с таким названием ${name}`)
+    }else {
+        return list[name] = status.STATUS_TO_DO;
+    }
 }
-
-
 
 function changeStatus (name, status = status.STATUS_TO_DO) {
     if ( status ) {
@@ -22,22 +23,25 @@ function changeStatus (name, status = status.STATUS_TO_DO) {
 }
 
 function deleteTask(name){
-    delete list[name];
+    if (name in list){
+        delete list[name];
+    }else {
+        console.log(`Вы не можите удалить ${name} , так как не существует`)
+    }
 }
-
 
 function checkStatus(status){
     let count = false;
 
-    console.log ('\t'+status + ":");
+    console.log ( ` \t ${status} : ` );
     for ( let name in list ) {
         if ( list[name] === status ) {
-            console.log (` \t\t"${name}"`);
+            console.log (` \t \t ${name} `);
             count = true;
         }
     }
     if ( !count ) {
-        console.log ( '\t\t'+"-" );
+        console.log ( ` \t \t - ` );
     }
     count = false;
 }
@@ -50,24 +54,11 @@ function showList(){
 }
 
 
-
 addTask('learnJS');
-addTask('VITALIK');
-addTask('workk');
 addTask('eat');
 
-changeStatus("learJS", 'In Progress');
-changeStatus("VITALIK", 'To Do');
-changeStatus("eat", 'To Do');
-changeStatus("learJS", 'Done');
-
-showList();
-console.log("---------------------------------------------------------")
-
-changeStatus("VITALIK", 'Done');
-deleteTask ( "VITALIK" );
-
-
+changeStatus("learnJS", 'In Progress');
+deleteTask('eat')
 showList();
 
 console.log("---------------------------------------------------------")

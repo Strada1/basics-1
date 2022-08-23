@@ -12,16 +12,18 @@ function showVerticalMessage(message) {
     console.log('Error message');
     return;
   }
-  let pos = 1;
-  let result = message[0].toUpperCase();
-  while (message[pos]) {
+
+  let result = '';
+  if (message[0] === 's') {
+    result = message[0].toUpperCase();
+  }
+  for (let pos = 1; pos < message.length && pos < 7; pos++) {
     result += '\n' + message[pos];
-    pos++;
   }
   console.log(result);
 }
 
-showVerticalMessage('');
+showVerticalMessage('strada');
 
 // HomeWork in LearnJS №1
 

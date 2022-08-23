@@ -1,6 +1,10 @@
+function sCheck(word){
+ return word[0]=='s'? true: false;
+}
+
 function horizntalToVerical (word){
 
-    if(word[0]=='s'){
+    if(sCheck(word)){
     console.log(`${word[0]}`.toUpperCase());
 
     for (let i = 1; i < 7; i++){

@@ -1,20 +1,19 @@
-function calc(action = '', a, b) {
-  switch (action) {
-    case 'add':
-      console.log(a + b);
-      break;
-    case 'multi':
-      console.log(a * b);
-      break;
-    case 'substract':
-      console.log(a-b);
-      break;
-    default:
-      console.log('Такого действия нет.');
+function showVerticalMessage(str) {
+  if (str) {
+    if (str[0] == 's') {
+      str = str[0].toUpperCase() + str.slice(1);
+    }
+    if(str>7) {
+      str = str.slice(0,7)
+    }
+    for (let char of str) {
+      console.log(char);
+    }
+  }
+  else{
+    console.log('Строка не введена!'); 
   }
 }
 
-(calc('add', 1, 2));
-(calc('multi', 1, 2));
-(calc('substract', 3, 2));
-(calc('addd', 1, 2));
+showVerticalMessage('strada');
+showVerticalMessage('123456789');

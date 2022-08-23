@@ -10,4 +10,4 @@ function showVerticalMessage(str) {
 	}
 }
 
-showVerticalMessage('stradazzz')
+showVerticalMessage('strada')

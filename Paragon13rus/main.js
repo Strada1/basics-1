@@ -19,9 +19,9 @@ function deleteTask(task) {
 }
 
 function showList() {
-  let inProgress = "";
-  let done = "";
-  let toDo = "";
+  let inProgress = "",
+  done = "",
+  toDo = "";
 
   for (let key in list) {
     if (list[key] === "In Progress") {

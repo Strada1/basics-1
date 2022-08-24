@@ -25,10 +25,12 @@ function findTask(status) {
     for(let key in list) {
         if(list[key] === status) {
             console.log(`\t${key}`);
-            count = true;
-        } else if (count === false) {
-            console.log('\t-');
+            count++;
         }
+
+    }
+    if (count === 0) {
+        console.log('\t-');
     }
 }
 

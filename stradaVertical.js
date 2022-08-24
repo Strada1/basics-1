@@ -6,7 +6,7 @@ function showVerticalMessage (word) {
     } else {
         newWord = word
     }
-    for (i=0; i<7 && i<symbols; i++) {
+    for (let i=0; i<7 && i<symbols; i++) {
         console.log(newWord[i])
     }
 }

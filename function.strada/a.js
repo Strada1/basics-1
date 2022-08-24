@@ -1,7 +1,11 @@
 function showVerticalMessage(words) {
     for (let char of words) {
-        console.log(char[0].toUpperCase() + words.slice(1, 7))
+    }
+    if (words[0] === "s") {
+        console.log(words[0].toUpperCase() + words.slice(1, 7))
+    } else {
+        console.log(words[0].toLowerCase() + words.slice(1,7));
     }
 }
 
-showVerticalMessage("strada");
+showVerticalMessage("pipipipopopopi");

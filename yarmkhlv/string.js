@@ -26,9 +26,7 @@ console.log(truncate("Хочу на море"));
 //Задание Страды
 
 function showVerticalMessage(word) {
-    if (word.lenght > 7) {
-        word = word.slice(0, 7);
-    }
+    word = word.slice(0, 7);
     if (word[0] === 's') {
         word = word[0].toUpperCase() + word.slice(1);
         for (let letter of word) {
@@ -38,8 +36,7 @@ function showVerticalMessage(word) {
         for (let letter of word) {
             console.log(letter);
         }
-        }
-    };
-
+}
+};
 showVerticalMessage('matumbaman');
 showVerticalMessage('strada');

@@ -10,32 +10,3 @@ for (let char of str) {
 }
 let str = prompt();
 showVerticalMessage(str);
-/*let calculator = {
-    
-    read(){
-         this.oper1= +prompt("Введите первый операнд", "");
-         this.oper2 = +prompt("Введите второй операнд", "");
-    },
-    
-    opers(){
-     this.operation = prompt("Введите оператор", "");
-    },
-    
-    valid(operation) {
-        if(this.operation == "add") {
-            return this.oper1 + this.oper2;
-        } else if(this.operation == "mult") {
-            return this.oper1 * this.oper2;
-        } else if(this.operation == "sub") {
-            return this.oper1 - this.oper2;
-        } else if(this.operation == "div") {
-            return this.oper1 / this.oper2;
-        }
-    }
-  
-};
-
-calculator.read();
-calculator.opers();
-console.log(calculator.valid());
-*/

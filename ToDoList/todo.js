@@ -68,4 +68,3 @@ showList();
 changeStatus("do strada", STATUS.IN_PROGRESS);
 showList();
 changeStatus("do strada", STATUS.DONE);
-showList();

@@ -5,9 +5,7 @@ function showVerticalMessage(str) {
       str = str[0].toUpperCase() + str.slice(1);
    }
 
-   str = str.split(``, 7).join(`\n`);
-
-   return console.log(str);
+   return console.log(str.split(``, 7).join(`\n`));
 
 }
 

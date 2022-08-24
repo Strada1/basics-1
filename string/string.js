@@ -21,8 +21,7 @@ console.log(truncate("asdf asdf asdf", 4));
 
 function showVerticalMessage(str) {
   const maxlength = 7;
-  if (str.charAt(0).toLowerCase() === "s")
-    str = str.charAt(0).toUpperCase() + str.slice(1);
+  if (str[0] === "s") str = str.charAt(0).toUpperCase() + str.slice(1);
   for (let i = 0; i < str.length && i < maxlength; i++) {
     console.log(str[i]);
   }

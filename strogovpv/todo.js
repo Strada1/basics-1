@@ -56,9 +56,9 @@ function showList() {
     }
   }
 
-  if (outToDo === `Todo:\n`) outToDo = `Todo:\n  -`;
-  if (inProgress === `In Progress:\n`) inProgress = `In Progress: \n  -`;
-  if (outDone === `Done:\n`) outDone = `Done:\n  -`;
+  if (outToDo === `Todo:\n`) outToDo = `Todo:  \n  -\n`;
+  if (inProgress === `In Progress:\n`) inProgress = `In Progress: \n  -\n`;
+  if (outDone === `Done:\n`) outDone = `Done:  \n  -\n`;
   return `${outToDo}${inProgress}${outDone}`
 }
 
@@ -72,3 +72,9 @@ console.log(showList());
 console.log(changeStatus("create a new practice task", "To Do"));
 console.log(deleteTask('call Bob'));
 console.log(showList());
+console.log(deleteTask("create a new practice task"));
+console.log(deleteTask("make a bed"));
+console.log(deleteTask("make a bed"));
+console.log(deleteTask('write a post'));
+console.log(showList());
+

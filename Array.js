@@ -2,7 +2,7 @@ function camelize(str) {
   let strArray = str.split('-');
   let newStrArray = strArray.map(function (element, index) {
     if (index !== 0) {
-      element[0].toUpperCase() + element.slice(1);
+      return element[0].toUpperCase() + element.slice(1);
     }
   });
   let newStr = newStrArray.join();

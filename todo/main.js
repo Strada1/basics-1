@@ -1,7 +1,13 @@
+const STATUS = {
+    TO_DO: "To Do",
+    IN_PROGRESS: "In Progress",
+    DONE: "Done",
+}
+
 const list = {
-    "Write a script": "In Progress",
-	"Do room cleaning": "Done",
-	"Film a video": "To Do",
+    "Write a script": STATUS.IN_PROGRESS,
+	"Do room cleaning": STATUS.DONE,
+	"Film a video": STATUS.TO_DO,
 };
 
 function changeStatus(task, status) {
@@ -30,21 +36,21 @@ function showList() {
 
     console.log("Todo:")
     for (let task in list) {
-        if (list[task] === "To Do") {
+        if (list[task] === STATUS.TO_DO) {
             console.log(task);
         }
     }
 
     console.log("In Progress:")
     for (let task in list) {
-        if (list[task] === "In Progress") {
+        if (list[task] === STATUS.IN_PROGRESS) {
             console.log(task);
         }
     }
 
     console.log("Done:")
     for (let task in list) {
-        if (list[task] === "Done") {
+        if (list[task] === STATUS.DONE) {
             console.log(task);
         }
     }

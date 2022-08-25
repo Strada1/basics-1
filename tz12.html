@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"> </script>
+</head>
+<body>
+    <script>
+            function calc(operation, a, b) {
+                switch (operation) {
+                    case 'add':
+                        return a + b;
+                        break;  //break не нужен если до него идет return
+
+                    case 'sub':
+                        return a - b;
+                        break;
+
+                    case 'multi':
+                        return a * b;
+                        break;
+
+                    default:
+                        return alert("Ошибочка");
+                }
+            }
+
+            alert(calc('add', 4, 4));
+            alert(calc('sub', 4, 3));
+            alert(calc('multi', 4, 2));
+    </script>
+</body>
+</html>

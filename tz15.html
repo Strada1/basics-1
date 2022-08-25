@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const operations = {
+                add: '+',
+                multi: '-',
+                sub: '*',
+        }
+
+        function bebra(kurwa, a, b) {
+
+            
+                switch (kurwa) {
+                    case operations.add:
+                    return a + b;
+
+                    case operations.multi:
+                    return a - b; 
+
+                    case operations.sub:
+                    return a * b;
+
+                    default:
+                        return alert("Ошибочка");
+            }
+        }
+
+        alert(bebra(operations.add, 4, 4));
+        alert(bebra(operations.multi, 4, 3));
+        alert(bebra(operations.sub, 4, 2));
+</script>
+</body>
+</html>

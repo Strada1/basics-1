@@ -7,7 +7,7 @@ function camelize(str) {
       return element;
     }
   });
-  let newStr = newStrArray.join();
+  let newStr = newStrArray.join('');
   return newStr;
 }
 console.log(camelize('background-color'));

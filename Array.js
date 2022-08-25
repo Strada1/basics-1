@@ -3,6 +3,8 @@ function camelize(str) {
   let newStrArray = strArray.map(function (element, index) {
     if (index !== 0) {
       return element[0].toUpperCase() + element.slice(1);
+    } else {
+      return element;
     }
   });
   let newStr = newStrArray.join();

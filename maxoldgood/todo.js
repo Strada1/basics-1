@@ -1,8 +1,8 @@
 const list = {}
 
-let toDo="To Do";
-let inProgress="In Progress";
-let done="Done";
+let toDo="Сделать:";
+let inProgress="In Progress:";
+let done="Done:";
 
 function changeStatus (task,status) {
     list[task]=status;
@@ -45,15 +45,15 @@ for (let prop in list) {
 }
 
 function showList () {
-    console.log (` \n Todo:`);
+    console.log (` \n ${toDo}`);
     for (let key in toDoList) {
         console.log(`   "${key}"`);
     }
-    console.log(`\n In Progress:`);
+    console.log(`\n ${inProgress}`);
     for (let key in inProgressList) {
         console.log(`   "${key}"`);
     }
-    console.log(` \n Done:`);
+    console.log(` \n ${done}`);
     for (let key in doneList) {
         console.log(`   "${key}"`);
     }

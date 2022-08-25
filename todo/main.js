@@ -1,7 +1,7 @@
 const list = {
-	'create a new practice task': 'In Progress',
-	'make a bed': 'Done',
-	'write a post': 'To Do',
+    'create a new practice task': 'In Progress',
+    'make a bed': 'Done',
+    'write a post': 'To Do',
     'go to the gym': 'In Progress',
     'make dinner': 'To Do',
     'walk the dog': 'Done',

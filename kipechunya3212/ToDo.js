@@ -7,41 +7,70 @@ const STATUS = {
 
 const taskList = {
 	'create a new practice task': 'IN_PROGRESS',
-	'banan' : 'TO_DO',
-  'apple' : 'IN_PROGRESS',
-  'melon' : 'IN_PROGRESS',
+	'clean' : 'TO_DO',
+  'study' : 'TO_DO',
+  'drink' : 'IN_PROGRESS',
+  'sleep' : 'IN_PROGRESS',
 }
 
 function addTask (task) {
-  taskList[task] = STATUS.TO_DO;
+  if (task in taskList) {
+    console.log('task already added');
+  } else  {
+    taskList[task] = STATUS.TO_DO;
+  }
 }
 
 function changeStatuses (task, status) {
-  taskList[task] = status;
+  if (task in taskList) {
+    let trueStatus;
+    for (let stat in STATUS) {
+        if (status == STATUS[stat]) {
+            trueStatus = true;
+        }
+    }
+    if (trueStatus) {
+      taskList[task] = status;
+    } else {
+        console.log('Status Invalid');
+    }
+} else {
+    console.log('no have task');
 }
+};
 
+  
 function deleteTask (task) {
-  delete taskList[task];
+  if (task in taskList) {
+    delete taskList[task];
+  } else {
+    console.log('task already deleted');
+  }
 }
 
 function showList () {
-  for (let task in taskList) {
-    switch (taskList[task]) {
-      case STATUS.TO_DO :       
-        console.log('' + task);
-        break;
-      case STATUS.IN_PROGRESS :        
-        console.log('' + task)
-        break;
-      case STATUS.DONE :        
-        console.log('' + task)
-        break;
+  let listToDo = '';
+  let listInPr = '';
+  let listDone = '';
 
+  for (let task in taskList) {
+      switch (taskList[task]) {
+        case STATUS.TO_DO :       
+          listToDo += `\t ${task}\n`;           
+            break;
+        case STATUS.IN_PROGRESS :        
+          listInPr += ` \t${task}\n`;
+            break;
+        case STATUS.DONE :        
+          listDone += ` \t${task}\n`;
+            break;
+        }
+      }
+      console.log(
+      ` ToDo:\n ${listToDo} In Progress:\n ${listInPr} Done:\n ${listDone}`);
     }
-  }
-}
-changeStatuses ('melon' , 'DONE' )
-changeStatuses ('apple' , 'TO_DO')
+changeStatuses ('sleep' , 'DONE' )
+changeStatuses ('drink' , 'TO_DO')
 
 showList ()
 

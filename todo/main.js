@@ -37,21 +37,21 @@ function showList() {
     console.log("Todo:")
     for (let task in list) {
         if (list[task] === STATUS.TO_DO) {
-            console.log(task);
+            console.log(`\t${task}`);
         }
     }
 
     console.log("In Progress:")
     for (let task in list) {
         if (list[task] === STATUS.IN_PROGRESS) {
-            console.log(task);
+            console.log(`\t${task}`);
         }
     }
 
     console.log("Done:")
     for (let task in list) {
         if (list[task] === STATUS.DONE) {
-            console.log(task);
+            console.log(`\t${task}`);
         }
     }
 

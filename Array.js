@@ -17,8 +17,8 @@ console.log(camelize('-webkit-transition') == 'WebkitTransition');
 
 // learnJs №2
 function filterRange(arr, a, b) {
-  arr.filter(function (item) {
-    return item >= a;
+  return arr.filter(function (item) {
+    return item >= a && item <= b;
   });
 }
 let arr = [5, 3, 8, 1];

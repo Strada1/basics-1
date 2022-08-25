@@ -1,3 +1,31 @@
+
+function showVerticalMessage(string) {
+    let newString;
+
+    if (string.length > 7) {
+        string = string.slice(0,6);
+    }
+
+    if(string[0] === 's') {
+        newString = string[0].toUpperCase() + string.slice(1);
+    }
+
+    for (let char of newString) {
+        console.log(char);
+    }
+
+}
+
+showVerticalMessage('strada')
+
+
+
+
+
+
+
+
+
 // console.log('Hello World!');
 
 // function calk(operator, a, b) {
@@ -39,27 +67,27 @@
 //     console.log(i);
 // }
 
-const operations = {
-    add: '+',
-    sub: '-',
-    multy: '*',
-    div: '/',
-};
-
-function Calk(operator, a, b) {
-    const isNotValid = (typeof a !== 'number') || (typeof b !== 'number') || (operator === '');
-
-    if(isNotValid) {
-        return 'Error' ;
-    } else if(operator === operations.add) {
-        return a + b;
-    } else if(operator === operations.sub) {
-        return a - b;
-    } else if(operator === operations.multy) {
-        return a * b;
-    } else if(operator === operations.div) {
-        return a / b;
-    }
-}
-
-console.log(Calk('+', 5, 5));
+// const operations = {
+//     add: '+',
+//     sub: '-',
+//     multy: '*',
+//     div: '/',
+// };
+//
+// function Calk(operator, a, b) {
+//     const isNotValid = (typeof a !== 'number') || (typeof b !== 'number') || (operator === '');
+//
+//     if(isNotValid) {
+//         return 'Error' ;
+//     } else if(operator === operations.add) {
+//         return a + b;
+//     } else if(operator === operations.sub) {
+//         return a - b;
+//     } else if(operator === operations.multy) {
+//         return a * b;
+//     } else if(operator === operations.div) {
+//         return a / b;
+//     }
+// }
+//
+// console.log(Calk('+', 5, 5));

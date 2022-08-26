@@ -2,20 +2,21 @@ const list = [
   { name: "create a post", status: "in progress", priority: "low" },
   { name: "test", status: "done", priority: "high" },
 ];
+const PROPERTY = { STATUS: "status", PRIORITY: "priority" };
 const STATUS = {
-  STATUS_IN_WORK: "Work",
-  STATUS_DONE: "Done",
-  STATUS_TODO: "To Do",
+  IN_WORK: "Work",
+  DONE: "Done",
+  TODO: "To Do",
 };
 const PRIORITY = {
-  PRIORITY_LOW: "low",
-  PRIORITY_HIGH: "high",
+  LOW: "low",
+  HIGH: "high",
 };
-function addTask(taskName) {
+function addTask(taskName, status, priority) {
   list.push({
     name: taskName,
-    status: STATUS.STATUS_TODO,
-    priority: PRIORITY.PRIORITY_LOW,
+    status: status ? status : STATUS.TODO,
+    priority: priority ? priority : PRIORITY.LOW,
   });
 }
 function deleteTask(taskName) {
@@ -23,10 +24,10 @@ function deleteTask(taskName) {
   if (res === -1) return console.log("Задача не найдена");
   list.splice(res, 1);
 }
-function changeStatus(taskName, status) {
+function changeProperty(taskName, value, property) {
   const res = list.findIndex((item) => item.name === taskName);
   if (res === -1) return console.log("Задача не найдена");
-  list[res].status = status;
+  list[res][property] = value;
 }
 function showList() {
   console.log("Задачи:");
@@ -34,10 +35,11 @@ function showList() {
     console.log(item);
   });
 }
-addTask("123", "Work", "high");
-addTask("456", "Done", "low");
+addTask("Сделать задачи", STATUS.TODO, PRIORITY.HIGH);
+addTask("Работать", STATUS.DONE, PRIORITY.HIGH);
+changeProperty("Сделать задачи", STATUS.DONE, PROPERTY.STATUS);
 showList();
-changeStatus("123", "Done");
+changeProperty("Сделать задачи", PRIORITY.LOW, PROPERTY.PRIORITY);
 showList();
-deleteTask("123");
+deleteTask("Сделать задачи");
 showList();

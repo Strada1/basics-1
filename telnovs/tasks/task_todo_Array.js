@@ -20,13 +20,13 @@ function findIndexList(task){
   return list.findIndex(item => item.name == task);
 }
 
-const addTask = (task) => {
+const addTask = (task, status, priority ) => {
   if(task !== undefined){
      let newTask = findIndexList(task)
       if( newTask !== -1){
           console.log('Такая задача есть !!')
         } else {
-        return list.push({name:task, priority:Priority.low});
+        return list.push({name:task, status:status, priority:priority});
         }
   }else {
     console.log('Введите задачу')
@@ -93,8 +93,9 @@ const showList = (list) => {
 
 
 
-addTask('create a new practice task')
-addTask("go to home")
+
+addTask("creat element",STATUS.In_Progress,Priority.low)
+addTask("go to home",STATUS.In_Progress,Priority.low)
 changeStatus('go to home',STATUS.To_Do)
 changePriority("go to home",Priority.high)
 // console.log(STATUS);
@@ -102,8 +103,6 @@ changePriority("go to home",Priority.high)
 console.log(list)
 deleteTask('create a new practice task')
 // deleteTask('go to home')
-console.log(list)
-addTask("go to home")
 console.log(list)
 
 // showList(list);

@@ -8,8 +8,8 @@ const PRIORITY = {
   HIGH: 'high',
 };
 const list = [
-  { name: 'create a post', status: 'In progress', priority: 'low' },
-  { name: 'test', status: 'Done', priority: 'high' },
+  { name: 'create a post', status: STATUS.IN_PROGRESS, priority: PRIORITY.LOW },
+  { name: 'test', status: STATUS.DONE, priority: PRIORITY.HIGH },
 ];
 function changeStatus(task, status) {
   let pos = list.findIndex((item) => item.name == task);
@@ -58,6 +58,8 @@ function showList() {
       case STATUS.DONE:
         return (done += ' ' + item.name + '\n');
     }
+  });
+  list.map(function (item) {
     switch (item.priority) {
       case PRIORITY.HIGH:
         return (high += ' ' + item.name + '\n');

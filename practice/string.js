@@ -7,7 +7,6 @@ function showVerticalMessage(strada) {
   }
 
   if (strada.length >= 7) {
-    console.log(strada.slice(0, 7))
     strada = strada.slice(0, 7)
   }
 

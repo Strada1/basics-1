@@ -2,16 +2,16 @@ const list = [];  //массив задач todo листа
 const STATUS = [{TO_DO: 'To Do'}, {IN_PROGRESS:'In Progress'}, {DONE:'Done'}]; // массив статусов
 const PRIORITY = [{HIGH: 'High'}, {LOW: 'Low'}]; //массив приоритетов задачи
 
-function addTask (taskName, taskStatus, taskPriority) { // функция добавления задачи в todo лист
-    if (taskName !== undefined && taskStatus !== undefined && taskPriority !== undefined) {
-        list.push({name: taskName, status: taskStatus, priority: taskPriority});
+function addTask (taskName, taskPriority) { // функция добавления задачи в todo лист
+    if (taskName !== undefined && taskPriority !== undefined) {
+        list.push({name: taskName, status: STATUS[0].TO_DO, priority: taskPriority});
     } else return;
 }
 function changeStatus (taskName, taskStatus) { // функция изменения статуса todo листа
     for (let i = 0;  i < list.length; i++) {
         if (list[i].name === taskName && taskStatus !== undefined) {
             list[i].status = taskStatus;
-        } else break;
+        } else return;
     }
 }
 function changePriority (taskName, taskPriority) {
@@ -47,4 +47,5 @@ addTask('todolist', STATUS[0].TO_DO, PRIORITY[1].LOW);
 changeStatus('test', STATUS[2].DONE);
 changePriority('todolist', PRIORITY[1].LOW);
 deleteTask('working in the garden');
+console.log(list);
 showList();

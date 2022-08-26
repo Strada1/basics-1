@@ -17,9 +17,9 @@ function showVerticalMessage(str) {
   if (!str) console.log('Пустая строка');
 }
 
-console.log(showVerticalMessage('strada'));
-// console.log(showVerticalMessage('Hello World! Hi, Max!'));
-// console.log(showVerticalMessage(''));
+showVerticalMessage('strada');
+// showVerticalMessage('');
+// showVerticalMessage('Hello World! Hi, Max!');
 
 /*
 showVerticalMessage('strada')

@@ -41,11 +41,10 @@ function showList () {
 }
 
 //tests
-addTask('test', STATUS[1].IN_PROGRESS, PRIORITY[0].HIGH)
-addTask('working in the garden', STATUS[0].TO_DO, PRIORITY[1].LOW)
-addTask('todolist', STATUS[0].TO_DO, PRIORITY[1].LOW)
-changeStatus('test', STATUS[2].DONE)
+addTask('test', STATUS[1].IN_PROGRESS, PRIORITY[0].HIGH);
+addTask('working in the garden', STATUS[0].TO_DO, PRIORITY[1].LOW);
+addTask('todolist', STATUS[0].TO_DO, PRIORITY[1].LOW);
+changeStatus('test', STATUS[2].DONE);
 changePriority('todolist', PRIORITY[1].LOW);
-deleteTask('working in the garden')
-console.log(list)
+deleteTask('working in the garden');
 showList();

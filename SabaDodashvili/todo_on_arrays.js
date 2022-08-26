@@ -7,7 +7,7 @@ const STATUSES = {
 const PRIORITIES = {
 	Low: 'Low',
 	Medium: 'Medium',
-	High: 'high',
+	High: 'High',
 };
 
 let list = [
@@ -16,13 +16,15 @@ let list = [
 ];
 
 function changeStatus(taskName, newStatus) {
-	if (checkStatus(newStatus) && taskExists(taskName)) list.find(el => el.name === taskName).status = newStatus;
-	else console.log('изминение статуса невозможно');
+	let foundEl = taskExists(taskName);
+
+	checkStatus(newStatus) && foundEl ? (foundEl.status = newStatus) : console.log('status change is not possible');
 }
 
 function changePriority(taskName, newPriority) {
-	if (checkPriority(newPriority) && taskExists(taskName)) list.find(el => el.name === taskName).priority = newPriority;
-	else console.log('изминение статуса невозможно');
+	let foundEl = taskExists(taskName);
+
+	checkPriority(newPriority) && foundEl ? (foundEl.priority = newPriority) : console.log('priority change is not possible');
 }
 
 function addTask(taskName, status = STATUSES.To_Do, priority = PRIORITIES.Low) {
@@ -40,48 +42,48 @@ function deleteTask(taskName) {
 }
 
 function showList() {
+	list = list.sort((a, b) => (a.priority > b.priority ? 1 : -1));
+
 	let toDoStr = 'ToDo:\n';
 	let inProgressStr = 'In Progress:\n';
 	let doneStr = 'Done:\n';
 
 	for (const obj of list) {
-		if (obj.status === 'To Do') toDoStr += `  "${obj.name}",\n`;
-		else if (obj.status === 'In Progress') inProgressStr += `  "${obj.name}",\n`;
-		else if (obj.status === 'Done') doneStr += `  "${obj.name}",\n`;
+		if (obj.status === 'To Do') toDoStr += `  "${obj.name}": ${obj.priority} Priority,\n`;
+		else if (obj.status === 'In Progress') inProgressStr += `  "${obj.name}": ${obj.priority} Priority,\n`;
+		else if (obj.status === 'Done') doneStr += `  "${obj.name}" ${obj.priority} Priority,\n`;
 	}
 
-	console.log(toDoStr + inProgressStr + doneStr);
+	console.log(`${toDoStr}${inProgressStr}${doneStr}`);
 }
 
 function taskExists(taskName) {
-	if (list.find(el => el.name === taskName)) return true;
-	else return false;
+	let elExist = list.find(el => el.name === taskName);
+
+	return elExist ? elExist : false;
 }
 
 function checkStatus(status) {
 	for (const key in STATUSES) {
 		if (status === STATUSES[key]) return true;
 	}
-	return false;
 }
 
 function checkPriority(priority) {
 	for (const key in PRIORITIES) {
 		if (priority === PRIORITIES[key]) return true;
 	}
-	return false;
 }
 
 changeStatus('create a post', 'To Do');
-
 changePriority('test', 'Low');
-
 addTask('complete tasks', 'In Progress', 'Medium');
 addTask('test_2', 'In Progress', 'Medium');
 addTask('test_3', 'Done', 'Medium');
-addTask('test_4', 'Done', 'Medium');
+addTask('test_4', 'Done', 'High');
+addTask('test_5', 'Done', 'Low');
+addTask('test_6', 'Done', 'Medium');
 deleteTask('test');
-
 showList();
 
 console.log(list);

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const statusList = ['To Do', 'In progress', 'Done'];
+        const list = [{ name: 'create a post', status: 'In progress', priority: 'low' }, { name: 'test', status: 'Done', priority: 'high'  }]
+        const todo = {
+            changeStatus(task, status) {
+                let obj = list.find((item) => item.name == task);
+                obj.status = status;
+            },
+            addTask(task, priority) {
+                list.push({name: task, status: statusList[0], priority: priority})
+            },
+            deleteTask(task) {
+                let id = list.findIndex((item) => item.name == task);
+                list.splice(id);
+            },
+            showList() {
+                statusList.forEach(function(status, idx) {
+                    let i = 0;
+                    console.log(status);
+                    list.forEach(function(listItem, idx) {
+                        if (listItem.status == status) {
+                            console.log('    ' + listItem.name);
+                            i++;
+                        }
+                    })
+                    if (i == 0) console.log('    -');
+                })
+            }
+        }
+
+        console.log(todo.showList());
+    </script>
+</body>
+</html>

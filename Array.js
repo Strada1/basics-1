@@ -43,12 +43,10 @@ function deleteTask(task) {
     console.log('Error delete task');
   }
 }
-function showList() {
+function showListStatus() {
   let toDo = '';
   let inProgress = '';
   let done = '';
-  let high = '';
-  let low = '';
   list.map(function (item) {
     switch (item.status) {
       case STATUS.TO_DO:
@@ -57,14 +55,6 @@ function showList() {
         return (inProgress += ' ' + item.name + '\n');
       case STATUS.DONE:
         return (done += ' ' + item.name + '\n');
-    }
-  });
-  list.map(function (item) {
-    switch (item.priority) {
-      case PRIORITY.HIGH:
-        return (high += ' ' + item.name + '\n');
-      case PRIORITY.LOW:
-        return (low += ' ' + item.name + '\n');
     }
   });
   console.log(
@@ -76,18 +66,26 @@ function showList() {
       (inProgress || ' -\n') +
       STATUS.DONE +
       ':\n' +
-      (done || '-\n') +
-      PRIORITY.HIGH +
-      ':\n' +
-      (high || '-\n') +
-      PRIORITY.LOW +
-      ':\n' +
-      (low || '-\n'),
+      (done || '-\n'),
   );
+}
+function showListPriority() {
+  let high = '';
+  let low = '';
+  list.map(function (item) {
+    switch (item.priority) {
+      case PRIORITY.HIGH:
+        return (high += ' ' + item.name + '\n');
+      case PRIORITY.LOW:
+        return (low += ' ' + item.name + '\n');
+    }
+  });
+  console.log(PRIORITY.HIGH + ':\n' + (high || '-\n') + PRIORITY.LOW + ':\n' + (low || '-\n'));
 }
 
 changeStatus('create a post', STATUS.TO_DO);
 changePriority('test', PRIORITY.HIGH);
 addTask('read book', PRIORITY.HIGH);
 deleteTask();
-showList();
+showListStatus();
+showListPriority();

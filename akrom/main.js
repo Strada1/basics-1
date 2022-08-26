@@ -1,22 +1,17 @@
-// let styles = ['Джаз', 'Блюз'];
-// console.log(styles)
-// styles.push('Рок-н-ролл');
-// console.log(styles);
+const STATUS = {
+  TO_DO: 'To Do',
+  DONE: 'Done',
+  IN_PROGRESS: 'In_Progress'
+} 
 
-// styles[1] = 'Классика'
-// console.log(styles);
 
-// let newStyles = styles.shift();
-// console.log(styles)
-// console.log(newStyles)
+const list =  [{ name: 'create a post', status:STATUS.IN_PROGRESS,  priority: 'low' },
+                   {name: 'test', status: 'Done', priority: 'high'  } 
+] 
 
-// styles.unshift('Рэп', 'Регги')
-// console.log(styles)
 
-let arr = ['a', 'b'];
-
-arr.push(function() {
-    console.log(this);
-});
-
-arr[2]()
+function addTask (name) {
+  list.push({name: name, status:STATUS.TO_DO, priority: 'low'})
+}
+addTask('have a walk')
+console.log(list)

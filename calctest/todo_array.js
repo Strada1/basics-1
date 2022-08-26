@@ -1,19 +1,32 @@
+const STATUS = {
+  DONE: 'Done',
+  IN_PROGRESS: 'In Progress',
+};
+
+const PRIORITY = {
+  HIGH: 'high',
+  LOW: 'low',
+};
+
 const list = [
   {
     name: 'create a post',
-    status: 'In progress',
-    priority: 'low',
+    status: STATUS.IN_PROGRESS,
+    priority: PRIORITY.LOW,
   },
   {
     name: 'test',
-    status: 'Done',
-    priority: 'high',
+    status: STATUS.DONE,
+    priority: PRIORITY.HIGH,
   },
 ];
 
+let todoList = list;
+
 // Функция changeStatus - будет менять статус задачи
 function changeStatus(task, status) {
-  return (task = list.filter((task) => task.name === status));
+  let todoList = list.filter((task) => task.status === status);
+  return todoList;
 }
 
 console.log(list);
@@ -29,3 +42,5 @@ changeStatus('test', 'todo');
 // function showList() {}
 
 // showList();
+
+// console.log(list[0][`status`]); // In Progress, узнаем статус в объекте под 0 индексом.

@@ -26,7 +26,7 @@ const addTask = (task) => {
       if( newTask !== -1){
           console.log('Такая задача есть !!')
         } else {
-        return list.push({name:task});
+        return list.push({name:task, priority:Priority.low});
         }
   }else {
     console.log('Введите задачу')

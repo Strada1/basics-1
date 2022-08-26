@@ -1,26 +1,37 @@
 const list = [];
+const STATUS = {
+    todo: 'To-Do',
+    inProgress: 'In progress',
+    done: 'Done',
+}
+
+const PRIORITY = {
+    low: 'low',
+    medium: 'medium',
+    high: 'high',
+}
 
 function addTask () {
     let taskName = prompt ('task name?');
 
     if (taskName === null) {
-        return console.log('bye bye');
+        return alert('bye bye');
     } else if ((list.findIndex(item => item.name == taskName)) !== -1) {
-        return console.log('A task with the same name has already been created');
+        return alert('A task with the same name has already been created');
     }
     
     if (isNaN(taskName) === true) {
         let taskPriority = prompt ('priority? low/medium/high');
         taskPriority = taskPriority.toLowerCase();
         if (taskPriority === 'low' || taskPriority === 'medium'  || taskPriority === 'high') {
-            list.push({name: taskName, status: 'To Do', priority: taskPriority})
-            return console.log("The task has been created");
+            list.push({name: taskName, status: STATUS.todo, priority: taskPriority})
+            return alert("The task has been created");
         } else {
-            console.log(`${taskPriority} - incorrent priority, try again`);
+            alert(`${taskPriority} - incorrent priority, try again`);
             addTask()
         }
     } else {
-        console.log(`${taskName} - incorrent name, try again`);
+        alert(`${taskName} - incorrent name, try again`);
         addTask()
     }
 };
@@ -30,7 +41,7 @@ function deleteTask () {
     let taskIndex = list.findIndex(item => item.name == taskName)
 
     if (taskIndex === -1) {
-        return console.log((`There is no such task "${taskName}"`));
+        return alert((`There is no such task "${taskName}"`));
     }
 
     let confirmDeletion = confirm (
@@ -39,9 +50,9 @@ function deleteTask () {
     
     if (confirmDeletion) {
         list.splice (taskIndex, 1)
-        return console.log(`"${taskName}" was deleted`);
+        return alert(`"${taskName}" was deleted`);
     } else {
-        return console.log('Task hasn\'t been deleted');
+        return alert('Task hasn\'t been deleted');
     }
 };
 
@@ -53,9 +64,9 @@ function changeStatus () {
         let suggestion = confirm (`There is no such task. Want to create a task "${taskName}?"`);
         if (suggestion) {
             addTask()
-            return console.log(`"${taskName}" was created`);
+            return alert(`"${taskName}" was created`);
         } else {
-            return console.log('okay');
+            return alert('okay');
         }
     }
 
@@ -63,12 +74,12 @@ function changeStatus () {
 
    
     if (getStatus === list[taskIndex].status) {
-        return console.log(`The task status is already set to "${getStatus}"`);
-    } else if (getStatus === "To Do" || getStatus === "In progress" || getStatus === "Done") {
+        return alert(`The task status is already set to "${getStatus}"`);
+    } else if (getStatus === STATUS.todo || getStatus === STATUS.inProgress || getStatus === STATUS.done) {
         list[taskIndex].status = getStatus;
-        return console.log("Task status has been changed");
+        return alert("Task status has been changed");
     } else {
-        console.log(`${getStatus} - incorrent status, try again`);
+        alert(`${getStatus} - incorrent status, try again`);
         changeStatus()
     }
 };
@@ -78,12 +89,12 @@ function showList() {
     let inProgressTasks = '';
     let doneTasks = '';
 
-    if (list.length < 1) return console.log('Task list is empty');
+    if (list.length < 1) return alert('Task list is empty');
 
     for (let i = 0; i < list.length; i++) {
-        if (list[i].status === 'To Do') {
+        if (list[i].status === STATUS.todo) {
             todoTasks += `\t${list[i].name}\n`
-        } else if (list[i].status === 'In progress') {
+        } else if (list[i].status === STATUS.inProgress) {
             inProgressTasks += `\t${list[i].name}\n`
         } else {
             doneTasks += `\t${list[i].name}\n`

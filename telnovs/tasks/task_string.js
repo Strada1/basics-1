@@ -6,8 +6,10 @@ function showVerticalMessage(str){
       for(i = 1; i < str.length && i < 7; i++){
           result += `\n${str[i].toLocaleLowerCase()}` 
         }
-  } else console.log("Вы ввели  не строку")
-   
+  } else {
+    console.log("Вы ввели  не строку")
+    }
+    
   if(result !== undefined){ 
     return console.log(result)
   }
@@ -41,7 +43,9 @@ ucFirst('getro');
  let str1 = str.toLocaleLowerCase()
     if (str1.includes('viagra') || str1.includes('xxx')){
       return console.log(true);
-    } else return console.log(false);
+    } else { 
+      return console.log(false);
+    }  
  }
 
  checkSpam('buy ViAgRA now') 

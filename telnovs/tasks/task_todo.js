@@ -27,8 +27,8 @@ const deleteTask = (task) => {
 }
 
 const changeStatus = (task, status) => {
-  if(task && status !== undefined){  
-     if( task in list){
+  if(status !== undefined){  
+     if( task in list ){
       return list[task] = status;
      }else{
       return console.log(" Нет задачи такой ");
@@ -40,6 +40,7 @@ const showList = (list) =>{
   let in_progress = 'In Progress';
   let to_do = 'To Do:';
   let done ='Done:';
+  
   if(list !== undefined){  
     for( let key in list ){
       if(list[key] === STATUS.Done){

@@ -39,51 +39,39 @@ function priorityCheck(newPrioriry) {
             return true;
         }
     }
-    console.log('Wrong priority');
+    console.log('Invalid priority');
     return false;
 }
 
 function changeStatus(taskName, newStatus) {
-    if (taskCheck(taskName) && statusCheck(newStatus)) {
-        for (let task of list) {
-            if (task.name == taskName) {
-                if (task.status !== newStatus) {
-                    task.status = newStatus;
-                } else {
-                    console.log('The same status');
-                }
-            }
-        }
-    }
+    if (!statusCheck(newStatus)) return console.log('Invalid status');
+    let currentTask = list.find(item => item.name == taskName);
+    if (!currentTask) return console.log('Task not found');
+    if (currentTask.status !== newStatus) {
+        currentTask.status = newStatus;
+    } else console.log('The same status!');
 }
 
-function changePriority(taskName, newPriority) {
-    if (taskCheck(taskName) && priorityCheck(newPriority)) {
-        for (let task of list) {
-            if (task.name == taskName) {
-                if (task.priority !== newPriority) {
-                    task.priority = newPriority;
-                } else {
-                    console.log('The same priority');
-                }
-            }
-        }
-    }
+function changePriority(taskName, newPrioriry) {
+    if (!priorityCheck(newPrioriry)) return;
+    let currentTask = list.find(item => item.name == taskName);
+    if (!currentTask) return console.log('Task not found');
+    if (currentTask.priority !== newPrioriry) {
+        currentTask.priority = newPrioriry;
+    } else console.log('The same priority!');
 }
 
-function addTask(newTaskName, priority) {
+function addTask(newTaskName, priority, status = STATUSES.TO_DO) {
     if (taskCheck(newTaskName)) return console.log('This task already exists');
-    if (priorityCheck(priority)) {
-        list.push({name: newTaskName, status: STATUSES.TO_DO, priority: priority});
+    if (priorityCheck(priority) && statusCheck(status)) {
+        list.push({ name: newTaskName, status: status, priority: priority });
     }
 }
 
 
 function deleteTask(taskName) {
     if (!taskCheck(taskName)) return console.log('No such task');
-    let task = list.find(item => item.name == taskName);
-    let num = list.indexOf(task);
-    list.splice(num, 1);
+    list.splice(list.findIndex(item => item.name == taskName), 1);
 }
 
 function showList() {
@@ -103,7 +91,10 @@ function showList() {
     }
 }
 
-changeStatus('wash', 'Done');
-addTask('new task', 'High')
+changeStatus('wash', 'Invalid status');
+changeStatus('walk', STATUSES.DONE)
+addTask('new task', 'High', STATUSES.DONE)
+addTask('very new task', PRIORITY.HIGH)
 deleteTask('wash');
+changePriority('walk', 'High');
 showList();

@@ -4,64 +4,33 @@ const status = {
     STATUS_TO_DO: "To Do",
 }
 
-let list  = {
-
+const priority = {
+    PRIORITY_LOW: "low",
+    PRIORITY_HIGH: "high",
 }
 
-function addTask (name){
-    if ( name in list ){
-        console.log(`Есть задание с таким названием ${name}`)
-    }else {
-        return list[name] = status.STATUS_TO_DO;
-    }
+let list = [ { name: 'create a post', status: status.STATUS_IN_PROGRESS, priority: priority.PRIORITY_HIGH  },
+             { name: 'test', status: status.STATUS_DONE, priority: priority.PRIORITY_LOW  } ]
+
+
+function addTask (nameTask){
+    list.push({name:nameTask, status: status.STATUS_TO_DO, priority: priority.PRIORITY_LOW});
 }
 
-function changeStatus (name, status = status.STATUS_TO_DO) {
-    if ( status ) {
-        list[name] = status;
-    }
-}
-
-function deleteTask(name){
-    if (name in list){
-        delete list[name];
-    }else {
-        console.log(`Вы не можите удалить ${name} , так как не существует`)
-    }
-}
-
-function checkStatus(status){
-    let count = false;
-
-    console.log ( ` \t ${status} : ` );
-    for ( let name in list ) {
-        if ( list[name] === status ) {
-            console.log (` \t \t ${name} `);
-            count = true;
-        }
-    }
-    if ( !count ) {
-        console.log ( ` \t \t - ` );
-    }
-    count = false;
-}
-
-function showList(){
-    console.log('ToDO:')
-    checkStatus (status.STATUS_TO_DO);
-    checkStatus (status.STATUS_IN_PROGRESS);
-    checkStatus (status.STATUS_DONE);
+function deleteTask(nameTask){
+    let result = list.find(function(item) {
+        console.log(nameTask);
+        // test
+        // test
+        // test
+    });
 }
 
 
-addTask('learnJS');
-addTask('eat');
+addTask("JS")
+deleteTask ("test");
 
-changeStatus("learnJS", 'In Progress');
-deleteTask('eat')
-showList();
-
-console.log("---------------------------------------------------------")
+console.log(list);
 
 
 

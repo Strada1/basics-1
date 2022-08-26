@@ -26,6 +26,7 @@ function showList (arr) {
 
 
 
+
 addTask(list, {name: 'finish todo', status: 'in progress', priority: 'high'});
 addTask(list, {name: 'relax', status: 'to do', priority: 'low'});
 changeStatus(list, 'create a post', 'done', 'high');

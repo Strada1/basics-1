@@ -1,47 +1,71 @@
-const taskList = {};
+let taskList = [];
 
-function addTask(task){
-    taskList[task] = 'To Do';
+const STATUS = {
+    TO_DO: 'To Do',
+    IN_PROGRESS: 'In Progress',
+    DONE: 'Done'
+};
+
+function addTask(task, status = 'To Do', priority = 'Низкий'){
+    let newTask = {
+        name: task,
+        status: status,
+        priority: priority
+    };
+    taskList.push(newTask);
 }
 
 function changeStatus(task, status){
-    if(taskList[task]){
-        taskList[task] = status;
-    } else{
-        console.log('Ошибка при смене статуса, задача не существует!');
+    let newStatus = taskList.find(item => (item.name == task) ? item.status = status: false);
+    if(!newStatus){
+        console.log(`Ошибка при смене статуса! Задача "${task}" отсутствует в списке`);
+    }
+}
+
+function changePriority(task, priority){
+    let newPriority = taskList.find(item => (item.name == task) ? item.priority = priority: false);
+    if(!newPriority){
+        console.log(`Ошибка при смене приоритета! Задача "${task}" отсутствует в списке`);
     }
 }
 
 function showList(){
-    let active = 'To Do: \n', progress = 'In progress: \n', done = 'Done: \n';
+    let active = 'To Do: \n', progress = 'In Progress: \n', done = 'Done: \n';
 
-    for(key in taskList){
-        if (taskList[key] == 'To Do'){
-            active += key + "\n";
-        } else if(taskList[key] == 'In progress'){
-            progress += key + "\n";
-        } else{
-            done += key + "\n";
+    taskList.forEach((item) => {
+        let sample = `"${item.name}" - Приоритет: ${item.priority} \n`;
+
+        if(item.status == STATUS.TO_DO){
+            active += sample;
         }
-    }
+
+        if(item.status == STATUS.IN_PROGRESS){
+            progress += sample;
+        }
+
+        if(item.status == STATUS.DONE){
+            done += sample;
+        }
+    });
 
     return (active + '\n' + progress + '\n' + done);
 }
 
 function deleteTask(task){
-    if(!taskList[task]){
-        console.log('Ошибка при удалении, задача ' + task + ' отсутствует в списке!');
-    } else {
-        delete taskList[task];
+    let del = taskList.find((item,index) => (item.name == task) ? taskList.splice(index,index): false);
+    if(!del){
+        console.log(`Ошибка при удалении! Задача "${task}" отсутствует в списке!`);
     }
 }
 
 addTask('Купить молоко');
-addTask('Подготовиться к учебе');
 addTask('Прочитать книгу');
 addTask('Погулять');
 
+addTask('Сделать медитацию','To Do','Высокий');
+
+changeStatus('Погулять', 'In Progress');
 changeStatus('Купить молоко', 'Done');
-changeStatus('Прочитать книгу', 'In progress');
+deleteTask('Сделать медитацию');
 
 console.log(showList());

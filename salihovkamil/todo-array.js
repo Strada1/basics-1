@@ -25,13 +25,23 @@ function sortList() {
 }
 
 function changeStatus(task, status) {
-  let id
-
+  let id;
+  let isStatus;
+  for (key in STATUS) {
+    if (status == STATUS[key]) {
+      isStatus = true;
+    }
+  }
   if (task != undefined && status != undefined) {
-    id = getId(task);
+    if (isStatus) {
+      id = getId(task);
+    }
+    else {
+      return console.log('Нет такого статуса!');
+    }
   }
   else {
-    return 'Не введены задача или статус!'
+    return console.log('Не введены задача или статус!');
   }
 
   if (id != -1) {
@@ -39,7 +49,8 @@ function changeStatus(task, status) {
     console.log('Сменён статус задачи');
   }
   else {
-    return 'Такой задачи нет в списке!'
+    return console.log('Такой задачи нет в списке!');
+
   }
 }
 
@@ -50,9 +61,8 @@ function addTask(task, priority) {
     console.log('Добавлена новая задача!');
   }
   else {
-    return 'Не введены задача или ее приоритет!'
+    return console.log('Не введены задача или ее приоритет!');
   }
-
 }
 
 function deleteTask(task) {
@@ -60,14 +70,16 @@ function deleteTask(task) {
   if (task != undefined) {
     id = getId(task);
   }
-  else ('Не введена задача!')
+  else {
+    return console.log('Не введена задача!');
+  }
 
   if (id != -1) {
     list.splice(id, 1);
     console.log('Успешно удалена задача!');
   }
   else {
-    console.log('Такой задачи нет в списке!');
+    return console.log('Такой задачи нет в списке!');
   }
 }
 
@@ -83,7 +95,7 @@ function showList() {
     }
   }
   else {
-    console.log('В списке нет задач!');
+    return console.log('В списке нет задач!');
   }
 }
 
@@ -95,3 +107,4 @@ changeStatus('strada', STATUS.IN_PROGRESS);
 changeStatus('sport', STATUS.DONE);
 deleteTask('shopping');
 showList();
+

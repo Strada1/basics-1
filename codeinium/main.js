@@ -48,4 +48,4 @@ changeStatus('test', STATUS[2].DONE)
 changePriority('todolist', PRIORITY[1].LOW);
 deleteTask('working in the garden')
 console.log(list)
-// showList();
+showList();

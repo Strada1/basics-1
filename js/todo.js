@@ -52,7 +52,7 @@ function showList(){
 }
 
 function deleteTask(task){
-    let del = taskList.find((item,index) => (item.name == task) ? taskList.splice(index,index): false);
+    let del = taskList.find((item,index) => (item.name == task) ? taskList.splice(index,1): false);
     if(!del){
         console.log(`Ошибка при удалении! Задача "${task}" отсутствует в списке!`);
     }

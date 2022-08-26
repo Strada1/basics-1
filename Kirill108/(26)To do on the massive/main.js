@@ -56,26 +56,64 @@ function deleteTask(task) {
 
 function showList() {
 
-  let GroupTO_Do = '';
-  let GroupIn_Progress= '';
-  let Group_Done = '';
+  let GroupTO_Do = ``;
+  let GroupIn_Progress= ``;
+  let Group_Done = ``;
 
-  let obj = list.filter(function(item){
+  let objTodo = list.filter(function(item){
     return item.status == STATUS.TO_DO;
   })
   
-  GroupTO_Do += obj.Name
-  console.log(GroupTO_Do)
+  objTodo.forEach(function(item){
+    GroupTO_Do += `\n \t ${item.Name} \n \t \t Приоритет: ${item.priority}`
+  })
+
+  let objIn_Progress = list.filter(function(item){
+    return item.status == STATUS.In_Progress;
+  })
+
+  objIn_Progress.forEach(function(item){
+    GroupIn_Progress += `\n \t ${item.Name}\n \t \t Приоритет:  ${item.priority}`
+  })
+
+  let objDone = list.filter(function(item){
+    return item.status == STATUS.Done;
+  })
+
+  objDone.forEach(function(item){
+    Group_Done += `\n \t ${item.Name}\n \t \t Приоритет: ${item.priority}`
+  })
+  
+  if (GroupTO_Do == false) {
+    console.log('Todo: \n \t -')
+  } else {
+    console.log(`\n Todo:  ${GroupTO_Do}`)
+  }
+
+  if (GroupIn_Progress == false) {
+    console.log('In progress: \n \t -')
+  } else {
+    console.log(`\n In progress:  ${GroupIn_Progress}`)
+  }
+ 
+  if (Group_Done == false) {
+    console.log('Done: \n \t -')
+  } else {
+    console.log(`\n Done:  ${Group_Done}`)
+  }
 }
 
-
-addTask("Make to do", "In_Progress", "high")
-addTask("test", STATUS.TO_DO, 'medium')
-addTask("tess", STATUS.TO_DO, 'medium')
-changeStatus("test", "In_Progress")
+addTask("Make to do", "In Progress", "high")
+addTask("Проверка", STATUS.TO_DO, 'medium')
+addTask("Работает!", STATUS.TO_DO, 'medium')
+changeStatus("test", "In Progress")
 changeStatus("chat with mom", "To Do")
 changePriority("chat with mom", "High")
 deleteTask("test")
 
-showList(STATUS.TO_DO)
-console.log(list)
+showList()
+
+
+
+// нет проверок
+// повторяющиеся места кода можно вынести в отдельную функцию?

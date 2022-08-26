@@ -2,17 +2,17 @@ const STATUSES = {
     TO_DO: 'To Do',
     IN_PROGRESS: 'In Progress',
     DONE: 'Done',
-}
+};
 
 const PRIORITY = {
     LOW: 'low',
     HIGH: 'high',
-}
+};
 
 const list = [
     { name: 'create a post', status: 'In progress', priority: 'low'  },
     { name: 'test', status: 'Done', priority: 'high'  }
-]
+];
 
 function ChangeStatus(task, status) {
     let findTaskStatus = list.find(item => item.name === task);
@@ -44,10 +44,22 @@ function findTasksOnStatus(status) {
     if (count === 0) {
         console.log(`\t -`)
     }
-
 }
 
-function showList() {
+function findTasksOnPriority(priority) {
+    let count = 0;
+    list.forEach((item) => {
+        if(item.priority === priority) {
+            console.log('\t' + item.name);
+            count++
+        }
+    })
+    if (count === 0) {
+        console.log(`\t -`)
+    }
+}
+
+function ShowListOnStatus() {
     console.log('To do:');
     findTasksOnStatus(STATUSES.TO_DO);
     console.log('In progress:');
@@ -56,17 +68,28 @@ function showList() {
     findTasksOnStatus(STATUSES.DONE);
 }
 
+function ShowListOnPriority() {
+    console.log('Low:');
+    findTasksOnPriority(PRIORITY.LOW);
+    console.log('High:');
+    findTasksOnPriority(PRIORITY.HIGH);
+}
+
+
+
 ChangeStatus('create a post', 'Done');
 ChangePriority('test', 'low');
 addTask('play in basketball', 'low');
 addTask('read a book', 'low');
-addTask('listen to music', 'high');
+addTask('listen to music', 'low');
 // ChangeStatus('listen to music', 'In Progress');
+// ChangePriority('play in basketball', 'high');
 deleteTask('read a book');
 
 console.log(list);
 
-showList();
+ShowListOnStatus();
+ShowListOnPriority();
 
 
 

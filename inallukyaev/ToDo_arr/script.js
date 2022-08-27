@@ -15,7 +15,7 @@ const toDoList = [
 ];
 
 function examination(task) {
-  let index = toDoList.findIndex(item => item.name == task);
+  const index = toDoList.findIndex(item => item.name == task);
   return index;
 }
 
@@ -32,16 +32,16 @@ function addTask(nameTask, prior) {
 }
 
 function changeStatus(nameTask, statusName) {
-  let index = examination(nameTask);
-  if (toDoList[index].name === nameTask) {
+  const index = examination(nameTask);
+  if (index === -1) {
+    console.log('Такая задача не существует');
+  } else if (toDoList[index].name === nameTask) {
     toDoList[index].status = statusName;
-  } else {
-    console.log(`Введите корректное значение  `);
   }
 }
 
 function deleteTask(nameTask) {
-  let index = examination(nameTask);
+  const index = examination(nameTask);
   if (index !== -1) {
     toDoList.splice(index, 1);
   } else {
@@ -64,11 +64,11 @@ function showList() {
     }
   }
 }
-changeStatus('create a post', STATUS.DONE);
-addTask('Сделать уроки ', PRIORITY.high);
-addTask('Покушать', PRIORITY.high);
-changeStatus('Покушать', STATUS.DONE);
-deleteTask('Покушать');
 
+changeStatus('create a post', STATUS.DONE);
+addTask('Сделать уроки', PRIORITY.high);
+addTask('Сделать уроки', PRIORITY.high);
+addTask('Покушать', STATUS.DONE);
 showList();
+deleteTask('Покушать');
 showList();

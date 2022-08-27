@@ -20,6 +20,7 @@ function str() {
 }
 
 showVerticalMessage("strada");
+showVerticalMessage("Приключения");
 
 
 

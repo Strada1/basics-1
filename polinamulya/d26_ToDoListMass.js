@@ -11,6 +11,7 @@ const list = [
     { name: 'Walk with dog', status: STATUS.TO_DO, priority: 'high'},
 ]
 
+//функция для проверки наличия задачи
 function checkTask(task)
 {
     let item = list.findIndex( ind => ind.name == task );

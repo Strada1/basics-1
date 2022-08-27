@@ -17,7 +17,7 @@ function addTask (newTask, taskStatus, taskPriority) {
 }
 
 function changeStatus (task, newStatus) {
-    let taskToFind = list.find(item => item.name === task); // 1. Найти позицию объекта (элемента массива), в котором свойство name = искомая task
+    let taskToFind = list.find(item => item.name === task); // 1. Найти объект (элемента массива), в котором свойство name = искомая task
     taskToFind.status = newStatus; // 2. Поменять у найденного объекта свойство status на newStatus
 }
 

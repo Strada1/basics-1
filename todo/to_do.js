@@ -1,48 +1,80 @@
-const statusTask = {
+const STATUSTASK = {
   ToDo: "ToDo",
   in_progress: "in Progress",
   Done: "Done",
 };
-const list = {
-  "create a new practice task": statusTask.in_progress,
-  "make a bed": statusTask.Done,
-  "write a post": statusTask.ToDo,
+const PRIORITY = {
+  low: "Low",
+  high: "High",
 };
-function isNotValidTask(keyTask) {
-  return keyTask in list === undefined ? true : false;
+const list = [
+  {
+    name: "create a post",
+    status: STATUSTASK.in_progress,
+    priority: PRIORITY.low,
+  },
+  {
+    name: "test",
+    status: STATUSTASK.Done,
+    priority: PRIORITY.high,
+  },
+];
+function indextask(Task) {
+  return list.findIndex((item) => item.name === Task);
 }
-function changeStatus(keyTask, statusTask) {
-  isNotTask = isNotValidTask(keyTask);
-  if (!isNotTask) {
-    list[keyTask] = statusTask;
+function isNotValidTask(indexTask) {
+  if (~indexTask) {
+    return true;
   }
 }
-function addTask(keyTask) {
-  list[keyTask] = statusTask.in_progress;
+function addTask(task, priorityTask) {
+  list.push({
+    name: task,
+    status: STATUSTASK.in_progress,
+    priority: priorityTask,
+  });
 }
-function deleteTask(keyTask) {
-  isNotTask = isNotValidTask(keyTask);
-  if (!isNotTask) {
-    delete list[keyTask];
+function changeStatus(Task, statusTask) {
+  const indexTask = indextask(Task);
+  if (~indexTask) {
+    list[indexTask].status = statusTask;
+    console.log("Статус изменен");
+    return true;
   }
+  console.log("Такой задачи нет. Статус не изменен.");
+  return false;
+  //
+}
+
+function deleteTask(Task) {
+  const indexTask = indextask(Task);
+  if (~indexTask) {
+    list.splice(indexTask, 1);
+    console.log("Задача удалена");
+    return true;
+  }
+  console.log("Такой задачи нет.");
+  return false;
 }
 function showTaskInStatus(statusTask) {
+  let showList = list.filter((item) => item.status === statusTask);
   console.log(statusTask + ":");
-  let counterEnableTask = 0;
-  for (const key in list) {
-    if (list[key] === statusTask) {
-      console.log(' "' + key + '",');
-      counterEnableTask++;
-    }
+  if (showList.length > 0) {
+    showList.forEach((task) =>
+      console.log("\t" + task.name + ": " + task.priority)
+    );
+  } else {
+    console.log("\t-");
   }
-  if (!counterEnableTask) console.log(" -");
 }
 function showList() {
-  showTaskInStatus(statusTask.ToDo);
-  showTaskInStatus(statusTask.in_progress);
-  showTaskInStatus(statusTask.Done);
+  showTaskInStatus(STATUSTASK.ToDo);
+  showTaskInStatus(STATUSTASK.in_progress);
+  showTaskInStatus(STATUSTASK.Done);
 }
-changeStatus("create a new practice task", statusTask.ToDo);
-deleteTask("make a bed");
-addTask("tururu");
+
+addTask("tururu", PRIORITY.high);
+addTask("finih", PRIORITY.low);
+deleteTask("tururu");
+changeStatus("finih", STATUSTASK.ToDo);
 showList();

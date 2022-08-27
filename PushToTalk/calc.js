@@ -19,4 +19,4 @@ function calc(operation, arg1, arg2) {
 console.log(calc('add', 5, 2))
 console.log(calc('multi', 5, 2))
 console.log(calc('subtract', 5, 2))
-console.log(calc('minus', 5, 2))
+//console.log(calc('minus', 5, 2))

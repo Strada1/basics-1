@@ -3,15 +3,12 @@ function calc(operation, arg1, arg2) {
     
     case 'add':
       return arg1 + arg2;
-      break;
 
     case 'multi': 
       return arg1 * arg2;
-      break;
 
     case 'subtract':
       return arg1 - arg2;
-      break;
 
     default: 
       throw new Error(`Unknown operation: ${operation}`);

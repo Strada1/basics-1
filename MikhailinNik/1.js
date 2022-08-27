@@ -4,12 +4,6 @@ const STATUS = {
 	TO_DO: "To Do",
 };
 
-const list = {
-	"create a new practice task": "In Progress",
-	"make a bed": "Done",
-	"write a post": "To Do",
-};
-
 const list1 = [
 	{ name: 'create a post', status: 'In progress', priority: 'low' },
 	{ name: 'test', status: 'Done', priority: 'high' }
@@ -37,46 +31,37 @@ function deleteTask(task) {
 	list1.splice(findItem, findItem)
 }
 
+function showNameTask(name) {
+	return name.map(item => item.name)
+}
+
 function showList() {
-	let progressList = "";
-	let doneList = "";
-	let toDoList = "";
-
-	list1.forEach(item => {
-		if (item.status === STATUS.IN_PROGRESS) {
-			progressList += item.name + '\n';
-			
-		}
-
-		if (item.status === STATUS.DONE) {
-			doneList += item.name + "\n";
-		}
-
-		if (item.status === STATUS.TO_DO) {
-			toDoList += item.name + "\n";
-		}
-	})
+	const resultToDo = list1.filter(item => item.status === STATUS.TO_DO);
+	const resultDone = list1.filter(item => item.status === STATUS.DONE);
+	const resultProgress = list1.filter(item => item.status === STATUS.IN_PROGRESS);
 
 	console.log(
 		STATUS.IN_PROGRESS +
 			":" +
 		"\n" +
-		progressList
+		showNameTask(resultProgress)
 			 +
 			"\n" +
 			"\n" +
 			STATUS.DONE +
 			":" +
 			`\n` +
-			doneList +
+			showNameTask(resultDone) +
 			"\n" +
 			"\n" +
 			STATUS.TO_DO +
 			":" +
 			`\n` +
-			toDoList
+			showNameTask(resultToDo)
 	);
 }
+
+
 
 changeStatus('test', 'Done')
 addTask('learn Js', 'In Progress', 'high');
@@ -84,7 +69,6 @@ addTask('learn Js', 'Done', 'low');
 addTask('cooking', 'To Do', 'high');
 deleteTask('learn Js')
 showList();
-console.log(list1)
 deleteTask('learn Js')
 
 

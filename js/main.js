@@ -1,0 +1,51 @@
+//if the task is done -> true, not done -> false;)
+
+const list = [
+    { name: 'create a post', status: 'In progress', priority: 'high'  },
+    { name: 'Take a walk', status: 'In progress', priority: 'medium'  },
+    { name: 'pososat\'', status: 'Don\'t want to', priority: 'low'  },
+    { name: 'test', status: 'Done', priority: 'high'  },
+] 
+
+//add task
+const addTask = (arr, name, status = 'Pending', priority = 'low') => {
+    const obj = {};
+    obj.name = name;
+    obj.status = status;
+    obj.priority = priority;
+    arr.push(obj);
+    console.log(`>> Task '${name}' with status '${status}' and priority '${priority}' has been added!`)
+}
+//change status
+const changeStatus = (arr, name, status = 'Done') => {
+    let target = arr.find((item) => item.name == name);
+    if (target != null) {
+        console.log(`>> Task '${name}' now has status '${status}'!`)
+        target.status = status;
+    } else console.log('No task with such name!')
+}
+//delete task
+const deleteTask = (arr, name) => {
+    let targetIndex = arr.findIndex((item) => item.name == name);
+    arr.splice(targetIndex,1);
+    console.log(`>> Task '${name}' has been deleted!`)
+}
+//showList
+const showList = (arr) => {
+    console.log('\n--- YOUR TASKS ---\n');
+
+    const statuses = ['To do', 'In progress', 'Done'];
+    for(let i = 0; i < arr.length; i++) {
+        if (!statuses.includes(arr[i].status)) {
+            statuses.push(arr[i].status);
+        }
+    }
+    for(let i = 0; i < statuses.length; i++) {
+        const atta = arr.filter((item) => item.status == statuses[i]);
+        console.log(`\n${statuses[i]} (${atta.length}):`);
+        console.log(atta)
+    }
+    console.log('\n')
+}
+//tests
+showList(list)

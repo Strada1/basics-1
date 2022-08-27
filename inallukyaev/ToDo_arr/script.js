@@ -4,14 +4,14 @@ const STATUS = {
   TO_DO: 'TO DO',
 };
 
-const priority = {
+const PRIORITY = {
   low: 'low',
   high: 'high',
 };
 
 const toDoList = [
-  { name: 'create a post', status: STATUS.in_Progress, priority: priority.low },
-  { name: 'test', status: STATUS.DONE, priority: priority.high },
+  { name: 'create a post', status: STATUS.in_Progress, PRIORITY: PRIORITY.low },
+  { name: 'test', status: STATUS.DONE, PRIORITY: PRIORITY.high },
 ];
 
 function examination(task) {
@@ -26,17 +26,15 @@ function addTask(nameTask, prior) {
     toDoList.push({
       name: nameTask,
       status: STATUS.TO_DO,
-      priority: prior,
+      PRIORITY: prior,
     });
   }
 }
 
 function changeStatus(nameTask, statusName) {
   let index = examination(nameTask);
-  if (statusName in STATUS) {
-    if (toDoList[index].name === nameTask) {
-      toDoList[index].status = STATUS[statusName];
-    }
+  if (toDoList[index].name === nameTask) {
+    toDoList[index].status = statusName;
   } else {
     console.log(`Введите корректное значение  `);
   }
@@ -66,9 +64,11 @@ function showList() {
     }
   }
 }
-changeStatus('create a post', 'in_Progress');
-addTask('Сделать уроки ', priority.high);
-addTask('Покушать', priority.high);
-showList();
+changeStatus('create a post', STATUS.DONE);
+addTask('Сделать уроки ', PRIORITY.high);
+addTask('Покушать', PRIORITY.high);
+changeStatus('Покушать', STATUS.DONE);
 deleteTask('Покушать');
+
+showList();
 showList();

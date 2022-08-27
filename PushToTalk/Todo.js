@@ -82,13 +82,13 @@ function showList() {
   let inProgressStr = 'In progress:\n'
   let doneStr = 'Done:\n'
 
-  if (toDo.length === 0) {
+  if (!toDo.length) {
     doneStr += '   ' + '-'
   }
-  if (inProgress.length === 0) {
+  if (!inProgress.length) {
     doneStr += '   ' + '-'
   } 
-  if (done.length === 0) {
+  if (!done.length) {
     doneStr += '   ' + '-'
   } 
 

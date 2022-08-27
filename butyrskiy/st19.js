@@ -7,7 +7,6 @@ const STATUS = {
 
 const list = {}
 
-
 function addTask(nameTask, statusTask) {
 	if(typeof(nameTask) === "string" && typeof(statusTask) === "string") {
 		list[nameTask] = statusTask;

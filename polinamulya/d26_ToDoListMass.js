@@ -41,20 +41,20 @@ function deleteTask( task )
 function showList()
 {
     console.log( 'In Rrogress' );
-    let ProgrList = list.filter( item => {
-        if(item.status == "In Progress"){
+    list.forEach( item => {
+        if( item.status == 'In Progress' ){
             console.log( `\t${item.name}`);
         }
     } );
     console.log( 'To Do' );
-    let ToDoList = list.filter( item => {
-        if(item.status == "To Do"){
+    list.forEach( item => {
+        if( item.status == 'To Do' ){
             console.log( `\t${item.name}`);
         }
     } );
     console.log( 'Done' );
-    let DoneList = list.filter( item => {
-        if(item.status == "Done"){
+    list.forEach( item => {
+        if( item.status == 'Done' ){
             console.log( `\t${item.name}`);
         }
     } );

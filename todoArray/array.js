@@ -10,8 +10,8 @@ const PRIORITY = {
 };
 
 const list = [
-  { name: "create a post", status: STATUS.TO_DO, priority: PRIORITY.LOW },
-  { name: "test", status: STATUS.IN_PROGRESS, priority: PRIORITY.HIGH },
+  { name: "create a post", status: STATUS.IN_PROGRESS, priority: PRIORITY.LOW },
+  { name: "test", status: STATUS.TO_DO, priority: PRIORITY.HIGH },
 ];
 
 function addTask(task) {
@@ -45,14 +45,21 @@ function changePriority(task, priority) {
   result2.priority = priority;
 }
 
-function showList(task) {
-    const ToDo = list.filter(function (item){
-       if (item.status === STATUS.TO_DO) {
-        return true
-       }
-    } )
+function showList(status) {
+  const StatusShow = list.filter(function (item) {
+      if (item.status === status) {
+        return true;
+      }});
+      for (let task of StatusShow) {
+        if (StatusShow[task] === status.name) {
+          console.log( '\n' + `${status}:` + '\n' + `${task.name}` + '\n' + `priority: ${task.priority}` + '\n')
+        }
+     
+      }
 }
   
-
-
-showList();
+function fullshow() {
+showList(STATUS.DONE);
+showList(STATUS.TO_DO);
+showList(STATUS.IN_PROGRESS)
+}

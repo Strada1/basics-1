@@ -1,56 +1,26 @@
-let list = {
-	"create a new practice task": "In Progress",
-	"make a bed": "Done",
-	"write a post": "To Do",
-    "write a post1": "To Do",
-}
+let list = [ { name: 'create a post', status: 'In progress', priority: 'low', id: 1  }, { name: 'test', status: 'Done', priority: 'high', id: 2  } ] 
 
-const changeStatus = (task, status) => {
-  list = {...list, [task]: status};
+const changeStatus = (taskId, status) => {
+  list = list.map(task => task.id === taskId ? {...task, status: status} : task)
 }
 
 const addTask = (task) => {
-  list = {...list, [task]: "To Do"};
+  list.push({name: task, status: 'To Do', priority: 'low', id: task})
 }
 
-const deleteTask = (task) => {
-  if (task in list) {
-   return delete list[task];
+const deleteTask = (taskId) => {
+  const isTask = list.find(task => task.id === taskId);
+  if(!isTask) {
+    return console.log('No such task');
   }
-  console.log('No such task');
+  list = list.filter(task => task.id !== taskId)
 }
 
-const showList = () => {
-  const result = {
-    "To Do": [],
-    "In Progress": [],
-    "Done": [],
-  }
-
-  const arr = Object.keys(list);
-
-  arr.forEach(item => {
-    switch (list[item]) {
-      case 'To Do':
-        return result['To Do'].push(item);
-
-      case 'In Progress':
-        return result['In Progress'].push(item);
-
-      case 'Done':
-        return result['Done'].push(item);
-    
-      default:
-        break;
-    }
-  })
-
-  console.log(`To Do: ${result['To Do']}`);
-  console.log(`In Progress: ${result['In Progress']}`);
-  console.log(`Done: ${result['Done']}`);
-}
-
-changeStatus("write a post", "Done");
+console.log(list);
+changeStatus(1, "Done");
+console.log(list);
 addTask("kill him");
-deleteTask("make a bed");
-showList();
+console.log(list);
+deleteTask("kill him");
+console.log(list);
+

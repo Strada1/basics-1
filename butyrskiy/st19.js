@@ -4,6 +4,7 @@ const STATUS = {
 	DONE: "Done",
 }
 
+
 const list = {}
 
 function addTask(nameTask, statusTask) {

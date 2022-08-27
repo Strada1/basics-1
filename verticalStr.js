@@ -1,4 +1,3 @@
-
 function showVerticalMessage(str) {
 
    if (str[0].toUpperCase() == 'S') {

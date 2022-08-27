@@ -9,10 +9,10 @@ function str() {
 
     if(message[0] == "s") {
         message = firstSym + message.slice(1);
-        console.log(str(message));
+        str(message);
         return;
     } if(typeof(message) == "string") {
-        console.log(str(message));
+        str(message);
         return;
     } else {
         console.log("Введена не строка");

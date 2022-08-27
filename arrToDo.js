@@ -87,7 +87,7 @@ function deleteTask(delTaskKey = 'Err: Укажите задачу!') {
    }
 
    LIST.find((item, index) => {
-      console.log(item.name, delTaskKey);
+
       if (item.name === delTaskKey) {
          console.log(`Задача "${delTaskKey}" успешно удалена`);
          return LIST.splice(index, 1)

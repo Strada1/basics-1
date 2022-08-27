@@ -38,24 +38,32 @@ function deleteTask( task )
     } else list.splice( item, 1 );
 }
 
+//функция для сортировки по приоритету
+function arrSortPriority( a, b )
+{
+    if ( a.priority < b.priority ) return -1;
+    if ( a.priority > b.priority ) return 1;
+}
+
 function showList()
 {
+    list.sort(arrSortPriority);
     console.log( 'In Rrogress' );
     list.forEach( item => {
         if( item.status == 'In Progress' ){
-            console.log( `\t${item.name}`);
+            console.log( `\t${item.name}. Приоритет: ${item.priority}`);
         }
     } );
     console.log( 'To Do' );
     list.forEach( item => {
         if( item.status == 'To Do' ){
-            console.log( `\t${item.name}`);
+            console.log( `\t${item.name}. Приоритет: ${item.priority}`);
         }
     } );
     console.log( 'Done' );
     list.forEach( item => {
         if( item.status == 'Done' ){
-            console.log( `\t${item.name}`);
+            console.log( `\t${item.name}. Приоритет: ${item.priority}`);
         }
     } );
 }

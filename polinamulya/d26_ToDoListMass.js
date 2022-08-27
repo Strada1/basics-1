@@ -1,8 +1,14 @@
+const STATUS = {
+    TO_DO: "To Do",
+    IN_PROGRESS: "In Progress",
+    DONE: "Done",
+}
+
 const list = [
-    { name: 'Create a post', status: 'In Progress', priority: 'low'},
-    { name: 'Test', status: 'Done', priority: 'high'},
-    { name: 'Make a bed', status: 'Done', priority: 'low'},
-    { name: 'Walk with dog', status: 'To Do', priority: 'high'},
+    { name: 'Create a post', status: STATUS.IN_PROGRESS, priority: 'low'},
+    { name: 'Test', status: STATUS.DONE, priority: 'high'},
+    { name: 'Make a bed', status: STATUS.DONE, priority: 'low'},
+    { name: 'Walk with dog', status: STATUS.TO_DO, priority: 'high'},
 ]
 
 function checkTask(task)
@@ -23,7 +29,7 @@ function addTask( task )
 {
     if( checkTask(task) == -1 ){
         let newTask = {
-            name: task, status: 'To Do', priority: 'low',
+            name: task, status: STATUS.TO_DO, priority: 'low',
         }
         list.push( newTask );
     } else console.log( `Задача: ${task} - уже есть! Вы можете изменить ее статус.` );
@@ -48,22 +54,22 @@ function arrSortPriority( a, b )
 function showList()
 {
     list.sort(arrSortPriority);
-    console.log( 'In Rrogress' );
+    console.log( STATUS.IN_PROGRESS );
     list.forEach( item => {
-        if( item.status == 'In Progress' ){
-            console.log( `\t${item.name}. Приоритет: ${item.priority}`);
+        if( item.status == STATUS.IN_PROGRESS ){
+            console.log( `\t${item.name}. Priority: ${item.priority}`);
         }
     } );
-    console.log( 'To Do' );
+    console.log( STATUS.TO_DO );
     list.forEach( item => {
-        if( item.status == 'To Do' ){
-            console.log( `\t${item.name}. Приоритет: ${item.priority}`);
+        if( item.status == STATUS.TO_DO ){
+            console.log( `\t${item.name}. Priority: ${item.priority}`);
         }
     } );
-    console.log( 'Done' );
+    console.log( STATUS.DONE );
     list.forEach( item => {
-        if( item.status == 'Done' ){
-            console.log( `\t${item.name}. Приоритет: ${item.priority}`);
+        if( item.status == STATUS.DONE ){
+            console.log( `\t${item.name}. Priority: ${item.priority}`);
         }
     } );
 }

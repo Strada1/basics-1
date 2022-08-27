@@ -1,8 +1,10 @@
 //if the task is done -> true, not done -> false;)
 
 const list = [
-    { name: 'create a post', status: 'In progress', priority: 'low'  },
-    { name: 'test', status: 'Done', priority: 'high'  }
+    { name: 'create a post', status: 'In progress', priority: 'high'  },
+    { name: 'Take a walk', status: 'In progress', priority: 'medium'  },
+    { name: 'pososat\'', status: 'Don\'t want to', priority: 'low'  },
+    { name: 'test', status: 'Done', priority: 'high'  },
 ] 
 
 //add task
@@ -30,8 +32,20 @@ const deleteTask = (arr, name) => {
 }
 //showList
 const showList = (arr) => {
-    console.log('\n--- YOUR TASKS ---')
-    console.log(arr)
+    console.log('\n--- YOUR TASKS ---\n');
+
+    const statuses = ['To do', 'In progress', 'Done'];
+    for(let i = 0; i < arr.length; i++) {
+        if (!statuses.includes(arr[i].status)) {
+            statuses.push(arr[i].status);
+        }
+    }
+    for(let i = 0; i < statuses.length; i++) {
+        const atta = arr.filter((item) => item.status == statuses[i]);
+        console.log(`\n${statuses[i]} (${atta.length}):`);
+        console.log(atta)
+    }
     console.log('\n')
 }
 //tests
+showList(list)

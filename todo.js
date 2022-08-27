@@ -19,7 +19,7 @@ const deleteTask = (taskId) => {
 console.log(list);
 changeStatus(1, "Done");
 console.log(list);
-addTask("kill him");
+addTask("kill him!");
 console.log(list);
 deleteTask("kill him");
 console.log(list);

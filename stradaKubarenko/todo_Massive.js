@@ -8,23 +8,34 @@ const PRIORITY = {
    HIGH : 'high',
 }
 
+const ERROR = {
+   NO_RESULT : 'Нет такого значения!',
+   HAVE_RESULT : 'Такое значение уже существует',
+}
+
 const LIST = [ { name: 'create a post', status: 'In progress', priority: 'low'  }, 
 { name: 'test', status: 'Done', priority: 'high'  } ] 
 
-
 function addTask(task,priority) {
-   let list = {
-      name: task,
-      status: STATUS['TO_DO'],
-      'priority': priority,
+   if (task in LIST){
+      console.log(ERROR['HAVE_RESULT'])
+   } else {
+      let list = {
+         name: task,
+         status: STATUS['TO_DO'],
+         'priority': priority,
+      }
+      LIST.push(list);
+      console.log(LIST)
    }
-   LIST.push(list);
-   console.log(LIST)
 }
 addTask('toLearnJs',PRIORITY['HIGH']);
 addTask('toRide',PRIORITY['LOW']);
+addTask('toRide',PRIORITY['LOW']);
 
 function deleteTask(task) {
-   
+   let obj = LIST.findIndex (item =>item.name === task);
+   LIST.splice(obj,1);
 }
-// console.log(list)
+deleteTask('create a post');
+console.log(LIST)

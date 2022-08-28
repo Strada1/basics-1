@@ -100,14 +100,20 @@ function showList() {
 
    LIST_STATUS.map(status => {
 
+      let count = 0;
+
       console.log(`${status}:\n`);
 
-      LIST.filter(item => {
+      LIST.forEach(item => {
 
          if (item.status === status) {
-            console.log(`\t'${item.name} > priority: ${item.priority}'\n`)
+            ++count;
+            console.log(`\t'${item.name} > priority: ${item.priority}'\n`);
          }
+
       });
+
+      if (count == 0) console.log(`\t-\n`);
 
    })
 

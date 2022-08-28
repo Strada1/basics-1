@@ -120,3 +120,19 @@ function showList() {
 }
 
 showList()
+console.log(`\n`);
+changeStatus('create a post №5', 'In progress');
+changeStatus('create a post №55', 'To Do');
+changeStatus('create a post №5', 'To Dos');
+console.log(`\n`);
+changePriority('create a post №5', 'high');
+changePriority('create a post №55', 'high');
+changePriority('create a post №5', 'high5');
+console.log(`\n`);
+addTask('create a post №5');
+addTask('create a post №55');
+console.log(`\n`);
+deleteTask('create a post №11');
+deleteTask('create a post №55');
+console.log(`\n`);
+showList()

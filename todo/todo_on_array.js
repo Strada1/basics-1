@@ -45,4 +45,4 @@ delTask("добавить задачу2")
 addTask("добавить задачу3", STATUS.INPROGRESS)
 changeStatus('make bed', STATUS.DONE)
 showList()
-// commit & PR test
+// update for visible PR

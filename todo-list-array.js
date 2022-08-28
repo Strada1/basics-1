@@ -12,10 +12,22 @@ const ListPriority = {
   HIGH: 'high'
 };
 
+const ErrorList = {
+  STATUS_ERROR: 'Ошибка названия статуса',
+  PRIORITY_ERROR: 'Ошибка названия приоритета',
+  TASK_NAME_ERROR: 'Ошибка названия задачи',
+  TASK_EXISTS_ERROR: 'Задача с таким именем уже существует',
+  TASK_NOT_FIND_ERROR: 'Задача не найдена'
+};
+
 const list =  [] ;
 
-
+// Проверка - является ли значение строкой
 const isString = (value) => typeof value === 'string';
+
+// Вывод ошибки
+const outputError = (error) => Object.values(ErrorList).includes(error)
+  ? console.log(error) : console.log('Неизвестная ошибка');
 
 // Проверка, есть ли уже такая задача в списке
 const findTask = (name) => list.find((task) => task.name === name);
@@ -29,40 +41,81 @@ const findPriorityValue = (name) => Object.values(ListPriority).includes(name);
 // Проверка, есть ли в списке статусов статус с таким значением
 const findStatusValue = (name) => Object.values(ListStatuses).includes(name);
 
+// Добавление задачи
 const addTask = (name, priority = ListPriority.MEDIUM) => {
-  if (isString(name) && isString(priority) && !findTask(name)) {
-    priority = findPriorityValue(priority) ? priority : ListPriority.MEDIUM;
-    list.push({
-      name,
-      status: ListStatuses.TODO,
-      priority
-    });
-  } else {
-    console.log('Ошибка добавления.');
+  if (!isString(name)) {
+    outputError(ErrorList.TASK_NAME_ERROR);
+    return;
   }
+
+  if (!isString(priority) || !findPriorityValue(priority)) {
+    outputError(ErrorList.PRIORITY_ERROR);
+    return;
+  }
+
+  if(findTask(name)) {
+    outputError(ErrorList.TASK_EXISTS_ERROR);
+    return;
+  }
+
+  list.push({
+    name,
+    status: ListStatuses.TODO,
+    priority
+  });
 };
 
+// Изменение статуса задачи
 const changeStatus = (taskName, status) => {
   const task = findTask(taskName);
-  if (task && findStatusValue(status)) {
-    task.status = status;
+
+  if (!task) {
+    outputError(ErrorList.TASK_NOT_FIND_ERROR);
+    return;
   }
+
+  if (!findStatusValue(status)) {
+    outputError(ErrorList.STATUS_ERROR);
+    return;
+  }
+
+  task.status = status;
 };
 
+// Изменение приоритета задачи
 const changePriority = (taskName, priority) => {
   const task = findTask(taskName);
-  if (task && findPriorityValue(priority)) {
-    task.priority = priority;
+
+  if (!task) {
+    outputError(ErrorList.TASK_NOT_FIND_ERROR);
+    return;
   }
+
+  if (!findPriorityValue(priority)) {
+    outputError(ErrorList.PRIORITY_ERROR);
+    return;
+  }
+
+  task.priority = priority;
 };
 
+// Удаление задачи
 const deleteTask = (name) => {
-  if (findTaskIndex(name) > -1) {
-    list.splice(findTaskIndex(name), 1);
+  if (findTaskIndex(name) === -1) {
+    outputError(ErrorList.TASK_NOT_FIND_ERROR);
+    return;
   }
+
+  list.splice(findTaskIndex(name), 1);
 };
 
+// Выведение списка задач с заданным статусом
 const showListByStatus = (status) => {
+  if (!findStatusValue(status)) {
+    outputError(ErrorList.STATUS_ERROR);
+    return;
+  }
+
   let count = 0;
 
   list.forEach((task) => {
@@ -77,6 +130,7 @@ const showListByStatus = (status) => {
   }
 };
 
+// Выведение списка задач
 const showList = () => {
   for (let status of Object.values(ListStatuses)) {
     console.log(`${status}: `);
@@ -92,15 +146,17 @@ addTask('Почистить зубы');
 addTask('Написать программу');
 
 showList();
+console.log('-------------------');
 
 changeStatus('Погулять', ListStatuses.DONE);
 changePriority('Написать программу', ListPriority.HIGH);
 changeStatus('Написать программу', ListStatuses.IN_PROGRESS);
 
 showList();
+console.log('-------------------');
 
 deleteTask('Побриться');
 changePriority(undefined, ListPriority.LOW)
-deleteTask(undefined);
+deleteTask('Побриться');
 
 showList();

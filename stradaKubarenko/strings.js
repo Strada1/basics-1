@@ -1,19 +1,15 @@
-function showVerticalMessage(str){
-   str = str.toLowerCase();
-   let length = str.length;
+function showVerticalMessage(string){
 
-   if (length => 7) {
-      for (let char of str.slice(0,7)) {
-         console.log(char);
-      }
-
-      if (str[0] == 's') {
-         str = str[0].toUpperCase + str.slice(1,7);
-      } else {}
-      
-   } else if (length < 7) {
-         console.log ('значение слишком короткое')
+   const stringNew = string.toLowerCase();
+   stringNew = stringNew.slice(0,6)
+   if (stringNew[0] === 's') {
+      stringNew = stringNew[0].toUpperCase() + stringNew.slice(1,6)
+   }
+   for (let char of stringNew) {
+         console.log(char)
    }
 }
+showVerticalMessage("STRAdaLEarnJs")
 
-showVerticalMessage('STRAda -is pain')
+
+   

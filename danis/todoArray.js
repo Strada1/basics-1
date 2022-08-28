@@ -50,7 +50,7 @@ function showList() {
 
 addTask("Пойти бегать", PRIORITY.low);
 addTask("Поdsadsaddsaь", PRIORITY.low);
-addTask("Пойти учить", PRIORITY.high);
+addTask("Пойти учить ", PRIORITY.high);
 addTask("Пойти танцевать", PRIORITY.high);
 addTask("Пойти гулять", PRIORITY.high);
 addTask("Пойти смотреть", PRIORITY.high);

@@ -92,7 +92,6 @@ function showList() {
       resultDone += `   -\n`
    }
 
-
    console.log(resultTodo);
    console.log(resultProgress);
    console.log(resultDone);

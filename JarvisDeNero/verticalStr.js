@@ -12,4 +12,4 @@ function showVerticalMessage(str) {
 showVerticalMessage('strada');
 showVerticalMessage('stradastrada');
 showVerticalMessage('21stradastradastradastrada');
-showVerticalMessage('vtradarada');
+showVerticalMessage('vtradarada'); 

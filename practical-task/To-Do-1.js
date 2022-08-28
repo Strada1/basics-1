@@ -32,21 +32,29 @@ function proceed() {
             showList();
         }else if(enter == "ShowList") {
             newShowList();
+        } else {
+            console.log("Вы ввели несуществующую задачу")
         }
 }
 
 function changeStatus(){
     let key = prompt(" Статус какой задачи вы хотите сменить: 'create a new' / 'make a bed' / 'write a post' ", "")
     if(key in list  ) {
-       list[key] = prompt(" На какой: In Progress / Done/ To Do ", "")
-       showList()
-
+       list[key] = prompt(" На какой: In Progress / Done/ To Do ", "") 
+       if(list[key] == "In Progress" || list[key] == "Done" || list[key] == "To Do") {
+        showList()
+    } else {
+        console.log("Введите корректный статус задачи")
+        return;
+    }
 }
+    
+    
 }
 
 function addTask(){
     key = prompt("Введите новую задачу", "")
-    list[key] = prompt(" Введите статус задачи: In Progress/Done/To Do"),
+    list[key] = prompt(" Введите статус задачи: In Progress/ To Do/ Done"),
     showList()
 
 }
@@ -61,21 +69,32 @@ function deleteTask(){
 }
 
 function showList(){
-    let resultTodo = `To Do:\n`;
-   let resultProgress = 'in Progress:\n';
-   let resultDone = 'Done: \n';
+    let resultTodo = "To Do:\n";
+   let resultProgress = "in Progress:\n";
+   let resultDone = "Done: \n";
 
     for (let key in list)  {
     if(list[key] == "To Do"){
         resultTodo += ` ${key}"\n`;
+     }else if ((list[key]) === " ") {
+        resultTodo  = "-" + "\n";
+     }
     }
+    for (let key in list)  {
     if(list[key] == "In Progress"){
         resultProgress  += ` ${key}"\n`;
+     }else if ((list[key]) === " ") {
+        resultProgress  = "-" + "\n";
+     }
     }
+    for (let key in list)  {
     if(list[key] == "Done"){
         resultDone  += ` ${key}"\n`;
+     }else  if ((list[key]) === " ") {
+        resultDone  = "-" + "\n";
+     }
     }
- }
+ 
 
  console.log(resultTodo);
  console.log(resultProgress);

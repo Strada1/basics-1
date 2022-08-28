@@ -8,6 +8,20 @@ function proceed() {
     let proceed = confirm("Хотите продолжить")
     if(proceed == true) {
         let enter = prompt("Привет, что ты бы хотел сделать со своим TODO?: changeStatus/addTask/deleteTask/showList", "");
+        const isValid = (enter !== "")
+        if(isValid == true) {
+            proceedValue(enter);
+        }else {
+            console.log("Введите корректно задачу")
+           
+        }
+    }
+    else {
+        alert("Bye")
+    }
+}
+        function proceedValue(enter){
+        
         if(enter == "changeStatus") {
             changeStatus();
         } else if(enter == "addTask") {
@@ -19,9 +33,6 @@ function proceed() {
         }else if(enter == "ShowList") {
             newShowList();
         }
-    } else {
-        alert("Bye")
-    }
 }
 
 function changeStatus(){

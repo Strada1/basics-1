@@ -58,21 +58,19 @@ function showList(){
     if(list[key] == "To Do"){
         resultTodo += ` ${key}"\n`;
     }
-    if(list[key] == "Done"){
+    if(list[key] == "In Progress"){
         resultProgress  += ` ${key}"\n`;
     }
-    if(list[key] == "In Progress"){
+    if(list[key] == "Done"){
         resultDone  += ` ${key}"\n`;
     }
  }
-
-
 
  console.log(resultTodo);
  console.log(resultProgress);
  console.log(resultDone);
 }
-showList()
+
 proceed()
 
 /* "create a new practice task": prompt("'create a new practice task' Введите статус задачи: In Progress/Done/To Do"),

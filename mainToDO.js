@@ -81,6 +81,19 @@ function showIndividual (status){
 }
 
 
+function showList2(status) {
+    let obj = list.filter(function (item){
+        if (item.status === status) {
+            return true;
+        }
+    } );
+
+            console.log(obj);
+    // let obj2= list.filter(item => item.status === status);
+    //      console.log(obj2);
+
+}
+
 function showList() {
 
     console.log('ToDO:')
@@ -104,3 +117,4 @@ changePriority ("test", PRIORITY.PRIORITY_LOW);
 deleteTask('JS');
 
 showList();
+

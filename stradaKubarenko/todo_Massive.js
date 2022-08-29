@@ -16,6 +16,10 @@ const ERROR = {
 const LIST = [ { name: 'create a post', status: 'In progress', priority: 'low'  }, 
 { name: 'test', status: 'Done', priority: 'high'  } ] 
 
+function changeStatus(){
+   
+}
+
 function addTask(task,priority) {
    // if (LIST.find( item =>item.name === task)){
    if (LIST.find(function(item){return item.name === task})){
@@ -41,4 +45,8 @@ function deleteTask(task) {
    } else {console.log(ERROR['NO_RESULT'])}
 }
 deleteTask('create a post');
+
+
+
+
 console.log(LIST);

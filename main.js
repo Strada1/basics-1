@@ -59,12 +59,3 @@ function showList() {
     ` To Do: \n  ${todo} \n In Progress: \n ${progress} \n Done: \n  ${done} `
   );
 }
-
-addTask("workout");
-addTask("write a new post");
-addTask("learn js");
-changeStatus("workout", STATUS.PROGRESS);
-changeStatus("write a new post", STATUS.TO_DO);
-changeStatus("learn js", STATUS.DONE);
-
-showList();

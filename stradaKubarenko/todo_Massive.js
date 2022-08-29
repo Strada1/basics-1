@@ -6,6 +6,7 @@ const STATUS = {
 const PRIORITY = {
    LOW : 'low',
    HIGH : 'high',
+   EMPTY : '-' ,
 }
 
 const ERROR = {
@@ -14,14 +15,22 @@ const ERROR = {
 }
 
 const LIST = [ { name: 'create a post', status: 'In progress', priority: 'low'  }, 
-{ name: 'test', status: 'Done', priority: 'high'  } ] 
+{ name: 'test', status: 'Done', priority: 'high'},
+{ name: 'krest', status: 'In progress', priority: 'high'} ] 
 
-function changeStatus(){
-   
+function changeStatus(task,status,priority){
+   if(LIST.find(item=>item.name === task)){
+      let obj = LIST.findIndex (item =>item.name === task);
+      LIST[obj].status = status;
+      LIST[obj].priority = priority;
+      console.log(LIST);
+   } else {
+      console.log (ERROR['NO_RESULT']);
+   }
 }
+changeStatus('create a post',STATUS['DONE'],PRIORITY['EMPTY'])
 
 function addTask(task,priority) {
-   // if (LIST.find( item =>item.name === task)){
    if (LIST.find(function(item){return item.name === task})){
       console.log(ERROR['HAVE_RESULT'])
    } else {
@@ -46,7 +55,45 @@ function deleteTask(task) {
 }
 deleteTask('create a post');
 
+function showList(){
+   let to_do = '';
+   let in_progress = '';
+   let done = '';
+   let no_result = '\n\t-';
+   for (let obj of LIST){
+    if(LIST.find(item=> item.status === STATUS['TO_DO'])){
+      to_do += '\n\t' + obj.name
+    }
+   }
+   if (to_do === ''){
+      console.log(`To do:${no_result}`)
 
+   } else {
+      console.log(`To do:${to_do}`)
+   }
 
+   for (let obj of LIST){
+    if(LIST.find(item=> item.status === STATUS['IN_PROGRESS'])){
+      in_progress += '\n\t' + obj.name
+    }
+   }
+   if (in_progress === ''){
+      console.log(`In progress:${no_result}`)
+   } else {
+      console.log(`In progress:${in_progress}`)
+   }
 
-console.log(LIST);
+   for (let obj of LIST){
+    if(LIST.find(item=> item.status === STATUS['DONE'])){
+      done = done + '\n\t' + obj.name
+    }
+   }
+   if (done === ''){
+      console.log(`Done:${no_result}`)
+   } else {
+      console.log(`Done:${done}`)
+   }
+}
+showList();
+
+// console.log(LIST);

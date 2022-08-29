@@ -18,6 +18,22 @@ const LIST = [
    { name: 'create a post №5', status: LIST_STATUS[0], priority: LIST_PRIORITY[1], },
 ];
 
+function sortTaskList() {
+
+   let newArr = LIST.sort((obj_1, obj_2) => {
+
+      let indexPrioity_1 = LIST_PRIORITY.findIndex(task => task === obj_1.priority);
+      let indexPrioity_2 = LIST_PRIORITY.findIndex(task => task === obj_2.priority);
+
+      return (indexPrioity_1 + 1) - (indexPrioity_2 + 1);
+
+   })
+
+   return newArr;
+
+}
+
+
 function changeStatus(taskKey, taskNewStatus) {
 
    let task = LIST.find(item => item.name === taskKey);
@@ -98,13 +114,15 @@ function deleteTask(delTaskKey = 'Err: Укажите задачу!') {
 
 function showList() {
 
+   let sortTaskArr = sortTaskList();
+
    LIST_STATUS.map(status => {
 
       let count = 0;
 
       console.log(`${status}:\n`);
 
-      LIST.forEach(item => {
+      sortTaskArr.forEach(item => {
 
          if (item.status === status) {
             ++count;
@@ -135,4 +153,4 @@ console.log(`\n`);
 deleteTask('create a post №11');
 deleteTask('create a post №55');
 console.log(`\n`);
-showList()
+showList();

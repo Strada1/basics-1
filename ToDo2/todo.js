@@ -1,4 +1,3 @@
-
 const STATUSES = {
   IN_PROGRESS: "In Progress",
   DONE: "Done",
@@ -11,10 +10,7 @@ const list = [
   { name: "new task", status: STATUSES.DONE, priority: "high" },
 ];
 
-console.log(list);
-
-
-// добавление задачи========================================================
+// добавление задачи===============================================================================
 
 function addTask(newTask, newPriority) {
   list.push({
@@ -23,11 +19,8 @@ function addTask(newTask, newPriority) {
     priority: newPriority,
   });
 }
-addTask("run", "low");
 
-console.log(list);
-
-// удаление задачи=================================================================================
+// удаление задачи===================================================================================
 
 function deleteTask(task) {
   let a = list.findIndex((item) => {
@@ -36,26 +29,50 @@ function deleteTask(task) {
   list.splice(a, 1);
 }
 
-deleteTask("make a bed");
 
-console.log(list);
+// изменение статуса задачи===========================================================================
 
-// изменение статуса задачи====================================================================
+function changeTask(task, newStatus) {
+  let b = list.findIndex((item) => {
+    if (item.name == task) {
+      return true;
+    } else {
+      console.log("такой задачи не существует");
+    }
+  });
 
-function changeTask(task,newStatus) {
-
-    let b = list.findIndex((item) => {
-        if (item.name == task) return true;
-    });
-
-    list[b].status = newStatus;
-    
+  list[b].status = newStatus;
 }
 
-changeTask("make a bed",STATUSES.DONE);
 
-console.log(list);
+// вывод задач по статусу===============================================================================
+function showList () {
 
+console.log ('Done:    ')
+for (i=0; i < list.length; i++) {
+  if(list[i].status == STATUSES.DONE){
+    console.log (list[i].name)
+  } 
+}
 
+console.log ('In Progress:    ')
+for (i=0; i < list.length; i++) {
+  if(list[i].status == STATUSES.IN_PROGRESS){
+    console.log (list[i].name)
+  } 
+}
 
+console.log ('Io Do:    ')
+for (i=0; i < list.length; i++) {
+  if(list[i].status == STATUSES.TO_DO){
+    console.log (list[i].name)
+  } 
+}
+}
 
+changeTask("write a post", "Done");
+addTask("fishing", "low");
+addTask("watch film", "low");
+deleteTask("make a bed")
+addTask("run", "low");
+showList();

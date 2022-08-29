@@ -1,154 +1,127 @@
-const LIST_PRIORITY = [
-   'low',
-   'medium',
-   'high',
-];
-
-const LIST_STATUS = [
-   'To Do',
-   'In progress',
-   'Done',
-]
-
 const LIST = [
-   { name: 'create a post №1', status: LIST_STATUS[2], priority: LIST_PRIORITY[2], },
-   { name: 'create a post №2', status: LIST_STATUS[0], priority: LIST_PRIORITY[2], },
-   { name: 'create a post №3', status: LIST_STATUS[2], priority: LIST_PRIORITY[0], },
-   { name: 'create a post №4', status: LIST_STATUS[0], priority: LIST_PRIORITY[0], },
-   { name: 'create a post №5', status: LIST_STATUS[0], priority: LIST_PRIORITY[1], },
+   { name: 'create a post №1', status: STATUSES.DONE, priority: PRIORITY.HIGH, },
+   { name: 'create a post №2', status: STATUSES.TO_DO, priority: PRIORITY.HIGH, },
+   { name: 'create a post №3', status: STATUSES.DONE, priority: PRIORITY.LOW, },
+   { name: 'create a post №4', status: STATUSES.TO_DO, priority: PRIORITY.LOW, },
+   { name: 'create a post №5', status: STATUSES.TO_DO, priority: PRIORITY.MEDIUM, },
 ];
 
-function sortTaskList() {
-
-   LIST.sort((obj_1, obj_2) => {
-
-      let indexPrioity_1 = LIST_PRIORITY.findIndex(priority => priority === obj_1.priority);
-      let indexPrioity_2 = LIST_PRIORITY.findIndex(priority => priority === obj_2.priority);
-
-      return (indexPrioity_1 + 1) - (indexPrioity_2 + 1);
-
-   })
-
+const PRIORITY = {
+   LOW: 'low',
+   MEDIUM: 'medium',
+   HIGH: 'high',
 }
 
+const STATUSES = {
+   TO_DO: 'To Do',
+   IN_PROGRESS: 'In progress',
+   DONE: 'Done',
+}
 
-function changeStatus(taskKey, taskNewStatus) {
+const PRIORITY_LIST = Object.keys(PRIORITY);
+const STATUSES_LIST = [STATUSES.TO_DO, STATUSES.IN_PROGRESS, STATUSES.DONE];
 
-   let task = LIST.find(item => item.name === taskKey);
-   let status = LIST_STATUS.includes(taskNewStatus);
+const PRIORITY_ORDER = {
+   [PRIORITY.LOW]: 0,
+   [PRIORITY.MEDIUM]: 1,
+   [PRIORITY.HIGH]: 2,
+}
+
+const findTask = name => LIST.find(task => task.name === name);
+const { log } = console;
+
+function changeStatus(taskName, taskStatus) {
+   const task = findTask(taskName);
+   const status = STATUSES_LIST.includes(taskStatus) ? taskStatus : null;
 
    if (task && status) {
-
-      console.log(`Статус задачи '${taskKey}' изменён: ${task.status} > ${taskNewStatus}, и имеет приоритет "${task.priority}".`);
-      return task.status = taskNewStatus;
-
+      task.status = status;
+      log(`Статус задачи '${taskName}' изменён: ${task.status} > ${taskStatus}, и имеет приоритет "${task.priority}".`);
    } else if (!task) {
-
-      return console.log(`Такой задачи '${taskKey}' не существует, убедитесь в правильности ввода либо ознакомтесь со списком задач showLost().`);
-
+      log(`Такой задачи '${taskName}' не существует, убедитесь в правильности ввода либо ознакомтесь со списком задач showLost().`);
    } else if (!status) {
-
-      return console.log(`Введённый статус '${taskNewStatus}' недоступен, доступные статусы: '${LIST_STATUS.join("' | '")}'.`);
-
+      log(`Введённый статус '${taskStatus}' недоступен, доступные статусы: '${STATUSES_LIST.join("' | '")}'.`);
    }
-
 }
 
-function changePriority(taskKey, taskNewPriority) {
-
-   let task = LIST.find(item => item.name === taskKey);
-   let priority = LIST_PRIORITY.includes(taskNewPriority);
+function changePriority(taskName, taskPriority) {
+   const task = findTask(taskName);
+   const priority = PRIORITY_LIST.includes(taskPriority) ? taskPriority : null;
 
    if (task && priority) {
-
-      console.log(`Приоритет задачи '${taskKey}' изменён: ${task.priority} > ${taskNewPriority}, и имеет статус "${task.status}".`);
-      return task.priority = taskNewPriority;
-
+      task.priority = taskPriority;
+      log(`Приоритет задачи '${taskName}' изменён: ${task.priority} > ${taskPriority}, и имеет статус "${task.status}".`);
    } else if (!task) {
-
-      return console.log(`Такой задачи '${taskKey}' не существует, убедитесь в правильности ввода либо ознакомтесь со списком задач showLost().`);
-
+      log(`Такой задачи '${taskName}' не существует, убедитесь в правильности ввода либо ознакомтесь со списком задач showLost().`);
    } else if (!priority) {
-
-      return console.log(`Введённый приоритет '${taskNewPriority}' недоступен, доступные статусы: '${LIST_PRIORITY.join("' | '")}'.`);
-
+      log(`Введённый приоритет '${taskPriority}' недоступен, доступные статусы: '${PRIORITY_LIST.join("' | '")}'.`);
    }
-
 }
 
-function addTask(newTask) {
+function addTask(taskName, taskPriority = PRIORITY.LOW) {
+   const task = findTask(taskName);
 
-   const defaultStatus = LIST_STATUS[0];
-   const defaultPriority = LIST_PRIORITY[0];
-
-   let taskCheck = LIST.find(item => item.name === newTask);
-
-   if (!taskCheck) {
-      LIST.push({ name: newTask, status: defaultStatus, priority: defaultPriority });
-      return console.log(`Задача "${newTask}" успешно добавлена и имеет статсу "${defaultStatus}" и приоритет "${defaultPriority}".`);
+   if (task) {
+      log(`Данная задача "${taskName}" уже существует!`);
+      return;
    }
 
-   return console.log(`Данная задача "${newTask}" уже существует!`);
-
+   LIST.push({ name: taskName, status: STATUSES.TO_DO, priority: taskPriority });
+   log(`Задача "${taskName}" успешно добавлена и имеет статсу "${STATUSES.TO_DO}" и приоритет "${taskPriority}".`);
 }
 
-function deleteTask(delTaskKey = 'Err: Укажите задачу!') {
+function deleteTask(taskName = 'Err: Укажите задачу!') {
+   const task = findTask(taskName);
+   const taskIndex = LIST.indexOf(task);
 
-   let taskCheck = LIST.find(item => item.name === delTaskKey);
-
-   if (!taskCheck) {
-      return console.log(`Задачи "${delTaskKey}" не существует, убедитесь в правильности ввода или ознакомтесь со списком задач: showLost()`);
+   if (task) {
+      LIST.splice(taskIndex, 1)
+      log(`Задача "${taskName}" успешно удалена`);
+      return;
    }
 
-   LIST.find((item, index) => {
-
-      if (item.name === delTaskKey) {
-         console.log(`Задача "${delTaskKey}" успешно удалена`);
-         return LIST.splice(index, 1)
-      }
-   })
-
+   log(`Задачи "${taskName}" не существует, убедитесь в правильности ввода или ознакомтесь со списком задач: showLost()`);
 }
 
 function showList() {
+   const sortedByStatus = {};
 
-   sortTaskList();
+   STATUSES_LIST.forEach(status => {
+      sortedByStatus[status] = LIST.filter(task => task.status === status);
+      sortedByStatus[status].sort( (a,b) => {
+         const aObjWeight = PRIORITY_ORDER[a.priority];
+         const bObjWeight = PRIORITY_ORDER[b.priority];
 
-   LIST_STATUS.map(status => {
-
-      let count = 0;
-
-      console.log(`${status}:\n`);
-
-      LIST.forEach(item => {
-
-         if (item.status === status) {
-            ++count;
-            console.log(`\t'${item.name} > priority: ${item.priority}'\n`);
-         }
-
-      });
-
-      if (count == 0) console.log(`\t-\n`);
-
+         return bObjWeight - aObjWeight;
+      })
    })
 
+   for(let key in sortedByStatus){
+      log(`${key}:`);
+      if(sortedByStatus[key].length){
+         log(sortedByStatus[key].map(task => `\t${task.name} (${task.priority})`).join('\n'));
+      }else{
+         log('--none--');
+      }      
+   }
 }
 
 showList()
-console.log(`\n`);
-changeStatus('create a post №5', 'In progress');
-changeStatus('create a post №55', 'To Do');
+log(`\n`);
+changeStatus('create a post №5', STATUSES.IN_PROGRESS);
+changeStatus('create a post №55', STATUSES.TO_DO);
 changeStatus('create a post №5', 'To Dos');
-console.log(`\n`);
-changePriority('create a post №5', 'high');
-changePriority('create a post №55', 'high');
+log(`\n`);
+changePriority('create a post №5', PRIORITY.HIGH);
+changePriority('create a post №55', PRIORITY.HIGH);
 changePriority('create a post №5', 'high5');
-console.log(`\n`);
+log(`\n`);
 addTask('create a post №5');
 addTask('create a post №55');
-console.log(`\n`);
+addTask('create a post №55 high', PRIORITY.HIGH);
+addTask('create a post №55 med', PRIORITY.MEDIUM);
+log(`\n`);
 deleteTask('create a post №11');
 deleteTask('create a post №55');
-console.log(`\n`);
+log(`\n`);
 showList();

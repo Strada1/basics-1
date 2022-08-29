@@ -25,9 +25,17 @@ const list = [
 ];
 
 function addTask(task, status, priority) {
-  list.push({Name: task,
-            status: status,
-            priority: priority,})   
+  let MyObj = list.find(function(item) {
+    return item.Name == task;
+  })
+  
+  if(list[MyObj] === list[MyObj]) {
+    console.log("Уже есть такая задача")
+  } else {
+      list.push({Name: task,
+      status: status,
+      priority: priority,})  
+  } 
 }
 
 function changeStatus(task, NewStatus) {
@@ -103,17 +111,14 @@ function showList() {
   }
 }
 
-addTask("Make to do", "In Progress", "high")
+addTask("Make to do", STATUS.In_Progress, "high")
+addTask("Make to do", STATUS.In_Progress, "high")
 addTask("Проверка", STATUS.TO_DO, 'medium')
 addTask("Работает!", STATUS.TO_DO, 'medium')
-changeStatus("test", "In Progress")
-changeStatus("chat with mom", "To Do")
+changeStatus("test", STATUS.In_Progress)
+changeStatus("chat with mom", STATUS.TO_DO)
 changePriority("chat with mom", "High")
 deleteTask("test")
 
 showList()
-
-
-
-// нет проверок
-// повторяющиеся места кода можно вынести в отдельную функцию?
+console.log(list)

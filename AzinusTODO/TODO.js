@@ -4,7 +4,8 @@ const list = [
 
    function addTask(task){
  if (typeof task === 'string'){
-    list.push({name: 'New task', status:'New', priority:'low'});
+
+    list.push({name: task, status:'New', priority:'low'});
     console.log ('Your task has been added');
  }else{
     console.log('Error', +'/n' + 'There is no any task' );
@@ -12,4 +13,7 @@ const list = [
     }
 
     addTask('New task');
+    addTask('New task-2');
     console.log(list);
+
+    

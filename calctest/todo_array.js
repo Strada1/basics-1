@@ -49,41 +49,36 @@ function deleteTask(task) {
   todoList.splice(todoList.findIndex((item) => item.name === task));
 }
 
-// function filterStatus(query) {
-//   return todoList.filter((item) => item.indexOf(todoList) !== -1);
-// }
+function filterStatus(status) {
+  console.log(todoList.filter((item) => item.status === status));
+}
 
-// // "на выходе получаем:"
-// function showList() {
-//   //   let taskList = todoList.filter((item) => item.status);
-//   console.log(`${STATUS.DONE}: `);
-//   filterStatus(`${STATUS.DONE}`);
-//   console.log(taskList);
-//   //   for (let key of taskList) {
-//   //     if (key === STATUS.DONE) {
-//   //       console.log(`\t ${taskList[key]}`);
-//   //     }
-//   //   }
-//   console.log(`${STATUS.IN_PROGRESS}: `);
-//   console.log(`${STATUS.TODO}: `);
-// }
+// "на выходе получаем:"
+function showList() {
+  console.log(`${STATUS.DONE}: `);
+  filterStatus(STATUS.DONE);
+
+  console.log(`${STATUS.IN_PROGRESS}: `);
+  filterStatus(STATUS.IN_PROGRESS);
+
+  console.log(`${STATUS.TODO}: `);
+  filterStatus(STATUS.TODO);
+}
 
 addTask('test');
 addTask('create a post');
 addTask('write a post');
 addTask('make a bed');
-
-// console.log(todoList);
+addTask('work');
 
 changeStatus('test', STATUS.IN_PROGRESS);
 changeStatus('write a post', STATUS.DONE);
+changeStatus('work', STATUS.DONE);
 
 changePriority('test', PRIORITY.HIGH);
 
 deleteTask('make a bed');
 
-console.log(todoList);
-
-// showList();
+showList();
 
 // console.log(list[0][`status`]); // In Progress, узнаем статус в объекте под 0 индексом.

@@ -20,16 +20,14 @@ const LIST = [
 
 function sortTaskList() {
 
-   let newArr = LIST.sort((obj_1, obj_2) => {
+   LIST.sort((obj_1, obj_2) => {
 
-      let indexPrioity_1 = LIST_PRIORITY.findIndex(task => task === obj_1.priority);
-      let indexPrioity_2 = LIST_PRIORITY.findIndex(task => task === obj_2.priority);
+      let indexPrioity_1 = LIST_PRIORITY.findIndex(priority => priority === obj_1.priority);
+      let indexPrioity_2 = LIST_PRIORITY.findIndex(priority => priority === obj_2.priority);
 
       return (indexPrioity_1 + 1) - (indexPrioity_2 + 1);
 
    })
-
-   return newArr;
 
 }
 
@@ -114,7 +112,7 @@ function deleteTask(delTaskKey = 'Err: Укажите задачу!') {
 
 function showList() {
 
-   let sortTaskArr = sortTaskList();
+   sortTaskList();
 
    LIST_STATUS.map(status => {
 
@@ -122,7 +120,7 @@ function showList() {
 
       console.log(`${status}:\n`);
 
-      sortTaskArr.forEach(item => {
+      LIST.forEach(item => {
 
          if (item.status === status) {
             ++count;

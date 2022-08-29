@@ -41,4 +41,4 @@ function deleteTask(task) {
    } else {console.log(ERROR['NO_RESULT'])}
 }
 deleteTask('create a post');
-console.log(LIST)
+console.log(LIST);

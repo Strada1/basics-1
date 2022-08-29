@@ -24,11 +24,22 @@ const list = [
     },
 ]
 
+const STATUS = {
+    TO_DO: "To Do",
+    IN_PROGRESS: "In progress",
+    DONE: "Done",
+}
+
+const PRIORITY = {
+    HIGH: "High",
+    LOW: "Low",
+}
+
 function addTask(arr) {
     let user = {};
     user.name = prompt("Введите название задачи", 'Задача1');
-    user.status = 'To Do';
-    user.priority = 'low';
+    user.status = STATUS.TO_DO;
+    user.priority = PRIORITY.LOW;
     arr.push(user);
 };
 
@@ -76,20 +87,27 @@ function showList(arr) {
     }
 }
 
-function changeStatus(arr, arg) {
-    statuses = ['To Do','In progress', 'Done'];
-    for (let elem of arr){
-        if (elem.name == arg) {
-            if (elem.status != 'Done') {
-                elem.status = statuses[statuses.indexOf(elem.status)+1];
-            }
-            else {console.log('Already done');}
-        }
+function changeStatus(arr, arg) {    
+    
+    let elementIndex = arr.findIndex(item => item.name == arg);
+
+    if (arr[elementIndex].status == STATUS.TO_DO) {
+        arr[elementIndex].status = STATUS.IN_PROGRESS;
+    }
+    if (arr[elementIndex].status == STATUS.IN_PROGRESS){
+        arr[elementIndex].status = STATUS.DONE;
+    } 
+    if (arr[elementIndex].status == STATUS.DONE) {
+        console.log('Задача уже сделана, статус DONE');
+    }
+    else {
+        arr[elementIndex].status = STATUS.TO_DO;
+        console.log('Статус задачи установлен как TO DO');
     }
 }
 
-addTask(list);
+//addTask(list);
 showList(list);
 changeStatus(list, 'create a post');
-deleteTask(list, 'test');
+//deleteTask(list, 'test');
 showList(list);

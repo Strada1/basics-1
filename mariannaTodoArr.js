@@ -14,7 +14,7 @@ const list = [ { name: 'create a post', status: 'In progress', priority: 'low'  
 const list = [
     { 
         name: 'create a post', 
-        status: 'In progress', 
+        status: 'To Do', 
         priority: 'low'  
     }, 
     { 
@@ -52,62 +52,41 @@ function deleteTask(arr, arg) {
 };
 
 function showList(arr) {
-    let todo = [];
-    let inprogress = [];
-    let done = [];
-    for (let elem of arr){
-        if (elem.status == 'To Do') {
-            todo.push(elem.name);}
-        if (elem.status == 'In progress') {
-            inprogress.push(elem.name);}
-        if (elem.status == 'Done') {
-            done.push(elem.name);
-        } 
-    }
-    console.log('To Do:');
-    if (todo.length>0){
-        for (let element of todo){
-            console.log('    ' + element);
-    }} else {
-        console.log('    ' + '-');
-    }
-    console.log('In progress:');
-    if (inprogress.length>0){
-        for (let element of inprogress){
-            console.log('    ' + element);
-    }} else {
-        console.log('    ' + '-');
-    }
-    console.log('Done:');
-    if (done.length>0){
-        for (let element of done){
-            console.log('    ' + element);
-    }} else {
-        console.log('    ' + '-');
+    for (let key in STATUS) {
+        console.log(STATUS[key] +':');
+        let temp = arr.filter(item=> item.status === STATUS[key]);
+        if (temp.length>0) {
+            temp.forEach((item)=> console.log('    ' + item.name));
+        } else {
+            console.log('    ' + '-');
+        }
     }
 }
 
 function changeStatus(arr, arg) {    
-    
     let elementIndex = arr.findIndex(item => item.name == arg);
-
+    
     if (arr[elementIndex].status == STATUS.TO_DO) {
         arr[elementIndex].status = STATUS.IN_PROGRESS;
+        return;
     }
     if (arr[elementIndex].status == STATUS.IN_PROGRESS){
         arr[elementIndex].status = STATUS.DONE;
+        return;
     } 
     if (arr[elementIndex].status == STATUS.DONE) {
         console.log('Задача уже сделана, статус DONE');
+        return;
     }
     else {
         arr[elementIndex].status = STATUS.TO_DO;
         console.log('Статус задачи установлен как TO DO');
+        return;
     }
 }
 
-//addTask(list);
+addTask(list);
 showList(list);
 changeStatus(list, 'create a post');
-//deleteTask(list, 'test');
+deleteTask(list, 'test');
 showList(list);

@@ -17,7 +17,8 @@ const LIST = [ { name: 'create a post', status: 'In progress', priority: 'low'  
 { name: 'test', status: 'Done', priority: 'high'  } ] 
 
 function addTask(task,priority) {
-   if (task in LIST){
+   // if (LIST.find( item =>item.name === task)){
+   if (LIST.find(function(item){return item.name === task})){
       console.log(ERROR['HAVE_RESULT'])
    } else {
       let list = {
@@ -34,8 +35,10 @@ addTask('toRide',PRIORITY['LOW']);
 addTask('toRide',PRIORITY['LOW']);
 
 function deleteTask(task) {
+   if (LIST.find(item=>item.name === task)){
    let obj = LIST.findIndex (item =>item.name === task);
    LIST.splice(obj,1);
+   } else {console.log(ERROR['NO_RESULT'])}
 }
 deleteTask('create a post');
 console.log(LIST)

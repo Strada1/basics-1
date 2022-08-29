@@ -1,11 +1,3 @@
-const LIST = [
-   { name: 'create a post №1', status: STATUSES.DONE, priority: PRIORITY.HIGH, },
-   { name: 'create a post №2', status: STATUSES.TO_DO, priority: PRIORITY.HIGH, },
-   { name: 'create a post №3', status: STATUSES.DONE, priority: PRIORITY.LOW, },
-   { name: 'create a post №4', status: STATUSES.TO_DO, priority: PRIORITY.LOW, },
-   { name: 'create a post №5', status: STATUSES.TO_DO, priority: PRIORITY.MEDIUM, },
-];
-
 const PRIORITY = {
    LOW: 'low',
    MEDIUM: 'medium',
@@ -26,6 +18,14 @@ const PRIORITY_ORDER = {
    [PRIORITY.MEDIUM]: 1,
    [PRIORITY.HIGH]: 2,
 }
+
+const LIST = [
+   { name: 'create a post №1', status: STATUSES.DONE, priority: PRIORITY.HIGH, },
+   { name: 'create a post №2', status: STATUSES.TO_DO, priority: PRIORITY.HIGH, },
+   { name: 'create a post №3', status: STATUSES.DONE, priority: PRIORITY.LOW, },
+   { name: 'create a post №4', status: STATUSES.TO_DO, priority: PRIORITY.LOW, },
+   { name: 'create a post №5', status: STATUSES.TO_DO, priority: PRIORITY.MEDIUM, },
+];
 
 const findTask = name => LIST.find(task => task.name === name);
 const { log } = console;

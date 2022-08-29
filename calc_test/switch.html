@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+const operations = {
+add: '+',
+sub: '-',
+multi: '*',
+}
+
+function calc (operation,a,b) {
+       
+     switch(operation) {
+
+            case operations.add:
+            return (a+b);
+
+            case operations.sub:
+            return (a-b);
+
+            case operations.multi:
+            return (a*b);
+     }
+}
+     console.log(calc(operations.add,5,5));
+     console.log(calc(operations.sub,5,5));
+     console.log(calc(operations.multi,5,5));
+
+</script>
+
+</body>
+</html>

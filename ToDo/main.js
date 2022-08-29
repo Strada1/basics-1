@@ -29,7 +29,7 @@ function showList(){
             console.log( ` -${key}` );
         };
     }
-    console.log('INPROGRESS:');
+    console.log('In Progerss:');
     for ( let key in list) {
         if ( list[key] == INPROGRESS) {
             console.log( ` -${key}` );

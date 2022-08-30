@@ -14,16 +14,32 @@ let list = [ { name: 'create a post', status: STATUS.STATUS_IN_PROGRESS, priorit
 
 
 function myFindIndex (nameTask){
+
     let result = list.findIndex(item => nameTask === item.name);
     return result;
 }
 
-function addTask (nameTask , statuses = STATUS.STATUS_TO_DO, priorities = PRIORITY.PRIORITY_LOW){
+
+function checkInput(status,priority) {
+
+    let checkInput = (STATUS != status || PRIORITY != priority)
+    if (checkInput) {
+        return true;
+    }
+
+}
+
+function addTask (nameTask , statuses  = STATUS.STATUS_TO_DO , priorities  = PRIORITY.PRIORITY_LOW ){
+
+     if ( checkInput( statuses, priorities) ) {
+         console.log(`неверный статус ${statuses} или приоритет ${priorities}`);
+     }
 
     let result = myFindIndex(nameTask);
     if ( result === -1 ) {
+
         return  ( list.push({name:nameTask, status: statuses, priority: priorities}) );
-    } else {
+    }  else {
         console.log( `Вы не можете добавить ${nameTask} , так как существует` );
     }
 
@@ -90,17 +106,17 @@ function showList() {
 
 }
 
-addTask("JS",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
+addTask("JS", "das",  PRIORITY.PRIORITY_HIGH );
 addTask("VITALIK",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
-addTask("JS",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
-addTask("VITALIK",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
-
-changeStatus ("JS" , STATUS.STATUS_TO_DO);
-changeStatus ("JS" , STATUS.STATUS_DONE);
-
-changePriority ("test", PRIORITY.PRIORITY_HIGH);
-changePriority ("test", PRIORITY.PRIORITY_LOW);
-
-deleteTask('JS');
+// addTask("JS",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
+// addTask("VITALIK",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
+//
+// changeStatus ("JS" , STATUS.STATUS_TO_DO);
+// changeStatus ("JS" , STATUS.STATUS_DONE);
+//
+// changePriority ("test", PRIORITY.PRIORITY_HIGH);
+// changePriority ("test", PRIORITY.PRIORITY_LOW);
+//
+// deleteTask('JS');
 
 showList();

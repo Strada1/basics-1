@@ -15,12 +15,14 @@ function changeStatus(name, status) {
 }
 
 function addTask(name) {
-  todoList[name] = STATUS.TO_DO;
+  todoList[name] = STATUS;
 }
 
 function deleteTask(name) {
   if (todoList[name]){
     delete todoList[name];
+  } else {
+    console.log('nothing to delete');
   }
 }
 
@@ -58,10 +60,10 @@ function showList() {
 
 addTask("workout");
 addTask("go to home");
-addTask("task for to do");
+addTask("task for done");
 changeStatus("workout", STATUS.PROGRESS);
 changeStatus("go to home", STATUS.TO_DO);
-changeStatus("task for to do", STATUS.TO_DO);
+changeStatus("task for done", STATUS.DONE);
 deleteTask("make a bed");
 
 showList();

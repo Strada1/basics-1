@@ -4,6 +4,21 @@ const TASK_STATUS = {
   IN_PROGRESS: 'In Progress',
 };
 
+const TASK_ERROR = {
+  TASK_INCORRECT: 'Ошибка, напишите задачу заново',
+  TASK_NOT_FOUND: 'Ошибка, задача не найдена',
+  STATUS_NOT_FOUND: 'Ошибка, напишите статус заново',
+  TASK_ADDED: 'Задача добавлена',
+  TASK_USED: 'Такая задача уже есть',
+  STATUS_CHANGED: 'статус изменен',
+  TASK_DELETED: 'Задача удалена',
+
+}
+const TASK_PRIORITY = {
+  LOW: 'low',
+  HIGH: 'high',
+}
+
 const listArr = [{ name: 'finish course', status: 'In Progress', priority: 'high' },
   { name: 'cook lunch', status: 'In progress', priority: 'low' },
   { name: 'go for a walk', status: 'To Do', priority: 'low' },
@@ -12,52 +27,58 @@ const listArr = [{ name: 'finish course', status: 'In Progress', priority: 'high
 
 function changeStatus(task, status = TASK_STATUS.TO_DO) {
   if (typeof task !== 'string' || task.trim().length === 0) {
-    return 'Ошибка, напишите задачу заново';
+    return TASK_ERROR.TASK_INCORRECT;
   }
 
-  const checkStatus = status === TASK_STATUS.DONE
-    || status === TASK_STATUS.IN_PROGRESS || status === TASK_STATUS.TO_DO;
+  let checkStatus;
+  for (let key in TASK_STATUS) {
+    if (TASK_STATUS[key] === status) {
+      checkStatus = true;
+      break
+    }
+  }
+
   if (!checkStatus) {
-    return 'Ошибка, напишите статус заново';
+    return TASK_ERROR.STATUS_NOT_FOUND;
   }
 
   const indexTask = listArr.findIndex((item) => item.name === task);
 
   if (indexTask !== -1) {
     listArr[indexTask].status = status;
-    return 'статус изменен';
+    return TASK_ERROR.STATUS_CHANGED;
   } else {
-    return 'Ошибка, задача не найдена';
+    return TASK_ERROR.TASK_NOT_FOUND;
   }
 }
 
-function addTask(task, status = TASK_STATUS.TO_DO, priority = 'low') {
+function addTask(task, status = TASK_STATUS.TO_DO, priority = TASK_PRIORITY.LOW) {
   if (typeof task !== 'string' || task.trim().length === 0) {
-    return 'Ошибка, напишите задачу заново';
+    return TASK_ERROR.TASK_NOT_FOUND;
   }
 
   const indexTask = listArr.findIndex((item) => item.name === task);
 
   if (indexTask !== -1) {
-    return 'Такая задача уже есть';
+    return TASK_ERROR.TASK_USED;
   } else {
     listArr.push({ name: task, status, priority });
-    return 'Задача добавлена';
+    return TASK_ERROR.TASK_ADDED;
   }
 }
 
 function deleteTask(task) {
   if (typeof task !== 'string' || task.trim().length === 0) {
-    return 'Ошибка, напишите задачу заново';
+    return TASK_ERROR.TASK_INCORRECT;
   }
 
   const indexTask = listArr.findIndex((item) => item.name === task);
 
   if (indexTask !== -1) {
     listArr.splice(indexTask, 1);
-    return 'Задача удалена';
+    return TASK_ERROR.TASK_DELETED;
   } else {
-    return 'Задача не найдена';
+    return TASK_ERROR.TASK_NOT_FOUND;
   }
 }
 

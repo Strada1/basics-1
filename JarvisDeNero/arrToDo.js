@@ -35,8 +35,9 @@ function changeStatus(title, taskStatus) {
    const status = STATUSES_LIST.includes(taskStatus) ? taskStatus : null;
 
    if (task && status) {
+      const oldStatus = task.status;
       task.status = status;
-      log(`Статус задачи '${title}' изменён: ${task.status} > ${status}, и имеет приоритет "${task.priority}".`);
+      log(`Статус задачи '${title}' изменён: ${oldStatus} > ${status}, и имеет приоритет "${task.priority}".`);
    } else if (!task) {
       log(`Такой задачи '${title}' не существует, убедитесь в правильности ввода либо ознакомтесь со списком задач showLost().`);
    } else if (!status) {
@@ -49,8 +50,9 @@ function changePriority(title, taskPriority) {
    const priority = PRIORITY_LIST.includes(taskPriority) ? taskPriority : null;
 
    if (task && priority) {
+      const oldPriority = task.priority;
       task.priority = priority;
-      log(`Приоритет задачи '${title}' изменён: ${task.priority} > ${priority}, и имеет статус "${task.status}".`);
+      log(`Приоритет задачи '${title}' изменён: ${oldPriority} > ${task.priority}, и имеет статус "${task.status}".`);
    } else if (!task) {
       log(`Такой задачи '${title}' не существует, убедитесь в правильности ввода либо ознакомтесь со списком задач showLost().`);
    } else if (!priority) {
@@ -84,24 +86,19 @@ function deleteTask(title = 'Err: Укажите задачу!') {
 }
 
 function showList() {
-
    const sortedByStatus = {};
 
    STATUSES_LIST.forEach(status => {
 
       sortedByStatus[status] = TASK_LIST.filter(task => task.status === status);
-
       sortedByStatus[status].sort((a, b) => {
-
          const aObjWeight = PRIORITY_ORDER[a.priority];
          const bObjWeight = PRIORITY_ORDER[b.priority];
-
          return bObjWeight - aObjWeight;
       })
    })
 
    for (let key in sortedByStatus) {
-
       log(`${key}:`);
 
       if (sortedByStatus[key].length) {
@@ -109,7 +106,6 @@ function showList() {
       } else {
          log('--none--');
       }
-
    }
 }
 

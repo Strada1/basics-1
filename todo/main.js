@@ -20,25 +20,33 @@ function myFindIndex (nameTask){
 }
 
 
-function checkInput(status,priority) {
+function checkInput(status) {
 
-    let checkInput = (STATUS != status || PRIORITY != priority)
-    if (checkInput) {
-        return true;
-    }
+// TODO: no complite
+  //  if (checkInput) {
+   //     return true;
+   // }
 
 }
 
-function addTask (nameTask , statuses  = STATUS.STATUS_TO_DO , priorities  = PRIORITY.PRIORITY_LOW ){
+function addTask (nameTask , statuses = STATUS.STATUS_TO_DO, priorities = PRIORITY.PRIORITY_LOW){
 
-     if ( checkInput( statuses, priorities) ) {
-         console.log(`неверный статус ${statuses} или приоритет ${priorities}`);
-     }
+    const checkStatuses = (statuses === STATUS.STATUS_TO_DO || statuses === STATUS.STATUS_IN_PROGRESS || statuses === STATUS.STATUS_DONE );
+    if ( !checkStatuses ) {
+        console.log(`неверный статус ${nameTask} ${statuses}`);
+    }
+
+    const checkPriority = (priorities === PRIORITY.PRIORITY_HIGH || priorities === PRIORITY.PRIORITY_LOW  );
+    if ( !checkPriority ) {
+        console.log(`неверный приоритет ${nameTask} ${statuses}`);
+    }
+
 
     let result = myFindIndex(nameTask);
     if ( result === -1 ) {
 
         return  ( list.push({name:nameTask, status: statuses, priority: priorities}) );
+
     }  else {
         console.log( `Вы не можете добавить ${nameTask} , так как существует` );
     }
@@ -106,7 +114,7 @@ function showList() {
 
 }
 
-addTask("JS", "das",  PRIORITY.PRIORITY_HIGH );
+addTask("JS", "das",  "dsssas" );
 addTask("VITALIK",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
 // addTask("JS",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
 // addTask("VITALIK",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
@@ -114,7 +122,7 @@ addTask("VITALIK",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
 // changeStatus ("JS" , STATUS.STATUS_TO_DO);
 // changeStatus ("JS" , STATUS.STATUS_DONE);
 //
-// changePriority ("test", PRIORITY.PRIORITY_HIGH);
+changePriority ("test","sda");
 // changePriority ("test", PRIORITY.PRIORITY_LOW);
 //
 // deleteTask('JS');

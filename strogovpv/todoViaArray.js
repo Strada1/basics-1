@@ -1,80 +1,135 @@
 const STATUS = {
-  TO_DO: 'To Do',
+  TO_DO: 'To-Do',
   DONE: 'Done',
-  IN_PROGRESS: 'In Progress'
+  IN_PROGRESS: 'In Progress',
 }
-const list = {
-  "create a new practice task": STATUS.IN_PROGRESS,
-  "make a bed": STATUS.DONE,
-  "write a post": STATUS.TO_DO,
-  "call Bob": STATUS.TO_DO,
+const PRIORITY = {
+  LOW: 'low',
+  HIGH: 'high',
+}
+const REPORT = {
+  STATUS_FAILED: `Выберите корректный статус для задачи вместо `,
+  STATUS_CHANGED: `Статус задачи изменен на: `,
+  NO_TASK: `Данной задачи нет в списке ваших дел`,
+  TASK_ADDED: ` данная задача успешно добавлена в ваш список дел`,
+  TASK_WAS_DELETED: ` данная задача была успешно удалена`
+}
+
+const list = [{
+  name: 'TEST IN_PROGRESS1',
+  status: STATUS.IN_PROGRESS,
+  priority: PRIORITY.LOW,
+},
+{
+  name: 'TEST IN_PROGRESS2',
+  status: STATUS.IN_PROGRESS,
+  priority: PRIORITY.LOW,
+},
+{
+  name: 'TEST DONE',
+  status: STATUS.DONE,
+  priority: PRIORITY.HIGH,
+},
+{
+  name: 'TEST DONE2',
+  status: STATUS.DONE,
+  priority: PRIORITY.HIGH,
+},
+{
+  name: 'TEST TO_DO1',
+  status: STATUS.TO_DO,
+  priority: PRIORITY.HIGH,
+},
+{
+  name: 'TEST TO_DO2',
+  status: STATUS.TO_DO,
+  priority: PRIORITY.HIGH,
+}
+]
+
+function taskFormater(task) {
+  let taskFormed = task.toUpperCase();
+  return taskFormed;
+}
+
+function checkStatus(status) {
+  for (let isStatus in STATUS) {
+    if (STATUS[isStatus] === status) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function checkTask(task) {
+  let pattern = task.toUpperCase();
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].name === pattern) {
+      return true;
+    }
+  }
+  return false
+}
+
+function addTask(task, status = STATUS.TO_DO, priority = PRIORITY.HIGH) {
+
+  list.push({
+    name: taskFormater(task),
+    status: status,
+    priority: priority,
+  })
+  return taskFormater(task) + REPORT.TASK_ADDED;
 }
 
 function changeStatus(task, status) {
-  if (list[task] === undefined) return `Задачи "${task}" нет в списке ваших дел`;
-  for (let key in STATUS) {
-    if (STATUS[key] === status) {
-      list[task] = status;
-      return `Статус задачи "${task}" изменен на ${status}`;
-    }
-  }
-  return `Неверно задан статус задачи`;
-}
+  let isStatus = checkStatus(status);
+  let isTask = checkTask(task);
+  let pattern = taskFormater(task);
 
-function addTask(task) {
-  if (list[task] === undefined) {
-    list[task] = STATUS.TO_DO;
-    return `Задача "${task}" успешно добавлена в список ваших дел`;
+  if (!isStatus) {
+    return REPORT.STATUS_FAILED + status;
   }
-  return `Задача "${task}" уже существует в списке ваших дел`;
+
+  if (!isTask) {
+    return REPORT.NO_TASK
+  }
+
+  return `${pattern} ${REPORT.STATUS_CHANGED}  ${status}`
 }
 
 function deleteTask(task) {
-  if (list[task] === undefined) {
-    return `Задачи "${task}" не было в списке ваших дел`;
+  let pattern = taskFormater(task);
+  let isTask = checkTask(task);
+
+  if (!isTask) {
+    return console.log(REPORT.NO_TASK)
   }
-  delete list[task];
-  return `Задача "${task}" была успешно удалена из списка ваших дел`;
+
+  if (isTask) {
+    let indexTaskForDelete = list.findIndex(indexTaskForDelete => indexTaskForDelete.name === pattern);
+    list.splice(indexTaskForDelete, 1);
+    return console.log(pattern + REPORT.TASK_WAS_DELETED)
+  }
 }
 
 function showList() {
-  let outToDo = 'Todo:\n';
-  let inProgress = 'In Progress:\n';
-  let outDone = 'Done:\n';
-
-  for (let key in list) {
-    switch (list[key]) {
-      case STATUS.TO_DO:
-        outToDo += `  "${key}", \n`;
-        continue
-      case STATUS.IN_PROGRESS:
-        inProgress += `  "${key}", \n`;
-        continue
-      case STATUS.DONE:
-        outDone += `  "${key}", \n`;
-        continue
+  for (let statusItem in STATUS) {
+    let out = `Задачи со статусом ${STATUS[statusItem]} \n`;
+    for (let taskItem of list) {
+      if (taskItem.status == STATUS[statusItem]) {
+        out += `   ${taskItem.name} \n`;
+      }
     }
+    console.log(out);
   }
-
-  if (outToDo === `Todo:\n`) outToDo = `Todo:  \n  -\n`;
-  if (inProgress === `In Progress:\n`) inProgress = `In Progress: \n  -\n`;
-  if (outDone === `Done:\n`) outDone = `Done:  \n  -\n`;
-  return `${outToDo}${inProgress}${outDone}`
 }
 
-console.log(addTask('make a bed'));
-console.log(deleteTask('make a bed'));
-console.log(addTask('make a bed'));
-console.log(changeStatus('write a post', STATUS.DONE))
-console.log(showList());
-console.log(changeStatus('write a post', 'In Progress'))
-console.log(showList());
-console.log(changeStatus("create a new practice task", "To Do"));
-console.log(deleteTask('call Bob'));
-console.log(showList());
-console.log(deleteTask("create a new practice task"));
-console.log(deleteTask("make a bed"));
-console.log(deleteTask("make a bed"));
-console.log(deleteTask('write a post'));
-console.log(showList());
+console.log(changeStatus("куПить нос", 'Все ок'));
+console.log(changeStatus("куПить нос", STATUS.TO_DO));
+console.log(addTask("купить носки"));
+console.log(changeStatus("КУПИТЬ НОСКИ", STATUS.DONE));
+console.log(changeStatus("купить носки", STATUS.TO_DO));
 
+showList();
+deleteTask('TEST DONe2')
+deleteTask('TEST DONe2')

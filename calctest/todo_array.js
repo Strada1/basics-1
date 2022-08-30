@@ -45,8 +45,8 @@ function changePriority(task, newPriority) {
 
 // Функция deleteTask - удаляет задачу
 function deleteTask(task) {
-  todoList.find((item) => item.name === task);
-  todoList.splice(todoList.findIndex((item) => item.name === task));
+  const indexItem = todoList.findIndex((item) => item.name === task);
+  todoList.splice(indexItem, 1);
 }
 
 function filterStatus(status) {
@@ -70,12 +70,15 @@ addTask('create a post');
 addTask('write a post');
 addTask('make a bed');
 addTask('work');
+addTask('write code');
 
 changeStatus('test', STATUS.IN_PROGRESS);
 changeStatus('write a post', STATUS.DONE);
 changeStatus('work', STATUS.DONE);
+changeStatus('write code', STATUS.TODO);
 
 changePriority('test', PRIORITY.HIGH);
+changePriority('write code', PRIORITY.HIGH);
 
 deleteTask('make a bed');
 

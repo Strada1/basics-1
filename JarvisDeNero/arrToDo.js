@@ -10,7 +10,7 @@ const STATUSES = {
    DONE: 'Done',
 }
 
-const PRIORITY_LIST = Object.keys(PRIORITY);
+const PRIORITY_LIST = Object.values(PRIORITY);
 const STATUSES_LIST = [STATUSES.TO_DO, STATUSES.IN_PROGRESS, STATUSES.DONE];
 
 const PRIORITY_ORDER = {
@@ -19,7 +19,7 @@ const PRIORITY_ORDER = {
    [PRIORITY.HIGH]: 2,
 }
 
-const LIST = [
+const TASK_LIST = [
    { name: 'create a post №1', status: STATUSES.DONE, priority: PRIORITY.HIGH, },
    { name: 'create a post №2', status: STATUSES.TO_DO, priority: PRIORITY.HIGH, },
    { name: 'create a post №3', status: STATUSES.DONE, priority: PRIORITY.LOW, },
@@ -27,68 +27,72 @@ const LIST = [
    { name: 'create a post №5', status: STATUSES.TO_DO, priority: PRIORITY.MEDIUM, },
 ];
 
-const findTask = name => LIST.find(task => task.name === name);
+const findTask = name => TASK_LIST.find(task => task.name === name);
 const { log } = console;
 
-function changeStatus(taskName, taskStatus) {
-   const task = findTask(taskName);
+function changeStatus(title, taskStatus) {
+   const task = findTask(title);
    const status = STATUSES_LIST.includes(taskStatus) ? taskStatus : null;
 
    if (task && status) {
       task.status = status;
-      log(`Статус задачи '${taskName}' изменён: ${task.status} > ${taskStatus}, и имеет приоритет "${task.priority}".`);
+      log(`Статус задачи '${title}' изменён: ${task.status} > ${status}, и имеет приоритет "${task.priority}".`);
    } else if (!task) {
-      log(`Такой задачи '${taskName}' не существует, убедитесь в правильности ввода либо ознакомтесь со списком задач showLost().`);
+      log(`Такой задачи '${title}' не существует, убедитесь в правильности ввода либо ознакомтесь со списком задач showLost().`);
    } else if (!status) {
-      log(`Введённый статус '${taskStatus}' недоступен, доступные статусы: '${STATUSES_LIST.join("' | '")}'.`);
+      log(`Введённый статус '${status}' недоступен, доступные статусы: '${STATUSES_LIST.join("' | '")}'.`);
    }
 }
 
-function changePriority(taskName, taskPriority) {
-   const task = findTask(taskName);
+function changePriority(title, taskPriority) {
+   const task = findTask(title);
    const priority = PRIORITY_LIST.includes(taskPriority) ? taskPriority : null;
 
    if (task && priority) {
-      task.priority = taskPriority;
-      log(`Приоритет задачи '${taskName}' изменён: ${task.priority} > ${taskPriority}, и имеет статус "${task.status}".`);
+      task.priority = priority;
+      log(`Приоритет задачи '${title}' изменён: ${task.priority} > ${priority}, и имеет статус "${task.status}".`);
    } else if (!task) {
-      log(`Такой задачи '${taskName}' не существует, убедитесь в правильности ввода либо ознакомтесь со списком задач showLost().`);
+      log(`Такой задачи '${title}' не существует, убедитесь в правильности ввода либо ознакомтесь со списком задач showLost().`);
    } else if (!priority) {
-      log(`Введённый приоритет '${taskPriority}' недоступен, доступные статусы: '${PRIORITY_LIST.join("' | '")}'.`);
+      log(`Введённый приоритет '${priority}' недоступен, доступные статусы: '${PRIORITY_LIST.join("' | '")}'.`);
    }
 }
 
-function addTask(taskName, taskPriority = PRIORITY.LOW) {
-   const task = findTask(taskName);
+function addTask(title, priority = PRIORITY.LOW) {
+   const task = findTask(title);
 
    if (task) {
-      log(`Данная задача "${taskName}" уже существует!`);
+      log(`Данная задача "${title}" уже существует!`);
       return;
    }
 
-   LIST.push({ name: taskName, status: STATUSES.TO_DO, priority: taskPriority });
-   log(`Задача "${taskName}" успешно добавлена и имеет статсу "${STATUSES.TO_DO}" и приоритет "${taskPriority}".`);
+   TASK_LIST.push({ name: title, status: STATUSES.TO_DO, priority: priority });
+   log(`Задача "${title}" успешно добавлена и имеет статсу "${STATUSES.TO_DO}" и приоритет "${priority}".`);
 }
 
-function deleteTask(taskName = 'Err: Укажите задачу!') {
-   const task = findTask(taskName);
-   const taskIndex = LIST.indexOf(task);
+function deleteTask(title = 'Err: Укажите задачу!') {
+   const task = findTask(title);
+   const taskIndex = TASK_LIST.indexOf(task);
 
    if (task) {
-      LIST.splice(taskIndex, 1)
-      log(`Задача "${taskName}" успешно удалена`);
+      TASK_LIST.splice(taskIndex, 1)
+      log(`Задача "${title}" успешно удалена`);
       return;
    }
 
-   log(`Задачи "${taskName}" не существует, убедитесь в правильности ввода или ознакомтесь со списком задач: showLost()`);
+   log(`Задачи "${title}" не существует, убедитесь в правильности ввода или ознакомтесь со списком задач: showLost()`);
 }
 
 function showList() {
+
    const sortedByStatus = {};
 
    STATUSES_LIST.forEach(status => {
-      sortedByStatus[status] = LIST.filter(task => task.status === status);
-      sortedByStatus[status].sort( (a,b) => {
+
+      sortedByStatus[status] = TASK_LIST.filter(task => task.status === status);
+
+      sortedByStatus[status].sort((a, b) => {
+
          const aObjWeight = PRIORITY_ORDER[a.priority];
          const bObjWeight = PRIORITY_ORDER[b.priority];
 
@@ -96,13 +100,16 @@ function showList() {
       })
    })
 
-   for(let key in sortedByStatus){
+   for (let key in sortedByStatus) {
+
       log(`${key}:`);
-      if(sortedByStatus[key].length){
+
+      if (sortedByStatus[key].length) {
          log(sortedByStatus[key].map(task => `\t${task.name} (${task.priority})`).join('\n'));
-      }else{
+      } else {
          log('--none--');
-      }      
+      }
+
    }
 }
 

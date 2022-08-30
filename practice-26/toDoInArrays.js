@@ -28,11 +28,19 @@ function getArrayElement(task) {
 }
 
 function isValidStatus(status) {
-    return status == statuses.TODO || status == statuses.INPROGRESS || status == statuses.DONE; 
+    let isValid = false;
+    for (key in statuses) {
+        statuses[key] === status ? isValid = true : isValid;
+    }
+    return isValid;
 }
 
 function isValidPriority(priority) {
-    return priority == priorities.LOW || priority == priorities.NORMAL || priority == priorities.HIGH;
+    let isValid = false;
+    for (key in priorities) {
+       priorities[key] === priority ? isValid = true : isValid;
+    }
+    return isValid;
 }
 
 function isValidTask(task) {
@@ -83,7 +91,7 @@ function showListByPriority() {
 
 addTask('test', 'Low');
 addTask('make homework', 'Low'); // проверка на уже существующую таску
-addTask('go shopping', 'Very high'); // проверка на неправильный статус
+addTask('go shopping', 'Very high'); // проверка на неправильный приоритет
 console.log(list);
 changeStatus('feed the cat', 'In Progress');
 changeStatus('go shopping', 'To Do'); //проверка на тот же самый статус

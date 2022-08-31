@@ -14,33 +14,43 @@ let list = [ { name: 'create a post', status: STATUS.STATUS_IN_PROGRESS, priorit
 
 
 function myFindIndex (nameTask){
-
     let result = list.findIndex(item => nameTask === item.name);
     return result;
 }
 
 
-function checkInput(status) {
+function checkStatus(status) {
+    for ( let key in STATUS ){
+         if  ( STATUS[key] === status ){
+             return false;
+         }
+    }
+   if ( checkStatus ) {
+       return true;
+   }
+}
 
-// TODO: no complite
-  //  if (checkInput) {
-   //     return true;
-   // }
-
+function checkPriority(priority){
+    for ( let key in PRIORITY ){
+        if ( PRIORITY[key] === priority ){
+            return false;
+        }
+    }
+    if (checkPriority){
+        return true;
+    }
 }
 
 function addTask (nameTask , statuses = STATUS.STATUS_TO_DO, priorities = PRIORITY.PRIORITY_LOW){
 
-    const checkStatuses = (statuses === STATUS.STATUS_TO_DO || statuses === STATUS.STATUS_IN_PROGRESS || statuses === STATUS.STATUS_DONE );
-    if ( !checkStatuses ) {
-        console.log(`неверный статус ${nameTask} ${statuses}`);
+
+    if ( checkStatus(statuses)  ) {
+        console.log(`${nameTask} введен  неверный статус  ${statuses}`);
     }
 
-    const checkPriority = (priorities === PRIORITY.PRIORITY_HIGH || priorities === PRIORITY.PRIORITY_LOW  );
-    if ( !checkPriority ) {
-        console.log(`неверный приоритет ${nameTask} ${statuses}`);
+    if ( checkPriority(priorities) ) {
+        console.log(`${nameTask} введен  неверный приоритет  ${statuses}`);
     }
-
 
     let result = myFindIndex(nameTask);
     if ( result === -1 ) {
@@ -116,15 +126,14 @@ function showList() {
 
 addTask("JS", "das",  "dsssas" );
 addTask("VITALIK",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
-// addTask("JS",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
-// addTask("VITALIK",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
-//
-// changeStatus ("JS" , STATUS.STATUS_TO_DO);
-// changeStatus ("JS" , STATUS.STATUS_DONE);
-//
-changePriority ("test","sda");
-// changePriority ("test", PRIORITY.PRIORITY_LOW);
-//
-// deleteTask('JS');
+addTask("JS",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
+addTask("VITALIK",STATUS.STATUS_TO_DO,PRIORITY.PRIORITY_HIGH );
 
+changeStatus ("JS" , STATUS.STATUS_TO_DO);
+changeStatus ("JS" , STATUS.STATUS_DONE);
+
+changePriority ("test","sda");
+changePriority ("test", PRIORITY.PRIORITY_LOW);
+
+deleteTask('JS');
 showList();

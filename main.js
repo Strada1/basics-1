@@ -1,17 +1,21 @@
 // homeWork Learn.js №1 from setInterval
 function printNumbers(from, to) {
-  for (; from <= to; from++) {
-    console.log(from);
-  }
+  setInterval(() => {
+    if (from <= to) {
+      console.log(from);
+      from++;
+    }
+  }, 100);
 }
-let timerId = setInterval(printNumbers, 100, 0, 10);
-setTimeout(() => clearInterval(timerId), 100);
-
+printNumbers(0, 10);
 // from setTimeout
-
 function printNumbers(from, to) {
-  for (; from <= to; from++) {
-    console.log(from);
-  }
+  setTimeout(function run() {
+    if (from <= to) {
+      console.log(from);
+      from++;
+    }
+    setTimeout(run, 100);
+  }, 100);
 }
-let timerId = setTimeout(() => setTimeout(printNumbers, 100, 0, 10), 100);
+printNumbers(0, 10);

@@ -1,10 +1,8 @@
-function printNumbers(from, to) {
+let timerId = setTimeout(function printNumbers(from, to) {
+	let counter = from;
 	
-	let counter = from
-	console.log (from)
-	counter ++
-		
-	
+	console.log(counter);
+	counter++;
 
-}
-setInterval(printNumbers, 1000, 4, 10)
+	timerId = setTimeout(printNumbers, 1000, 4, 10); // (*)
+  }, 1000);

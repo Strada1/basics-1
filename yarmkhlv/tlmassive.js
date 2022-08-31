@@ -5,7 +5,7 @@ const STATUS = {
 };
 
 const list = [
-    {name: 'create a post', status: 'In progress', priority : 'low'},
+    {name: 'create a post', status: 'In Progress', priority : 'low'},
     {name: 'test', status: 'Done', priority: 'high'},
     {name: 'work', status: 'To Do', priority: 'high'},
     {name: 'sleep', status: 'To Do', priority: 'low'},
@@ -57,19 +57,16 @@ console.log(list.find(task => task.name == "haircut"));
 console.log(`ГЛАВНОЕ ЗАДАНИЕ--------------->`);
 
 function showList() {
-    let todoList = "";
-    let inProgressList = "";
-    let doneList = "";
     
-    let statusTodo = list.filter(value => value.status == "To Do");
+    let statusTodo = list.filter(value => value.status == STATUS.TODO);
     statusTodo = statusTodo.map(item => item.name);
     statusTodo = statusTodo.join('\n   ');
     
-    let statusInProgress = list.filter(value => value.status == "In progress");
+    let statusInProgress = list.filter(value => value.status == STATUS.IN_PROGRESS);
     statusInProgress = statusInProgress.map(item => item.name);
     statusInProgress = statusInProgress.join('\n   ');
     
-    let statusDone = list.filter(value => value.status == "Done");
+    let statusDone = list.filter(value => value.status == STATUS.DONE);
     statusDone = statusDone.map(item => item.name);
     statusDone = statusDone.join('\n   ');
 
@@ -86,4 +83,5 @@ Todo:
 In Progress:
    create a post
 Done:
+   ToDoListMassive
 */

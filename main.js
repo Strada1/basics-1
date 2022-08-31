@@ -14,7 +14,4 @@ function printNumbers(from, to) {
     console.log(from);
   }
 }
-let timerId = setTimeout(function run() {
-  printNumbers;
-  setTimeout(printNumbers, 100, 0, 10);
-}, 100);
+let timerId = setTimeout(() => setTimeout(printNumbers, 100, 0, 10), 100);

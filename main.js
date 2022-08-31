@@ -5,7 +5,7 @@ function printNumbers(from, to) {
       console.log(from);
       from++;
     }
-  }, 100);
+  }, 1000);
 }
 printNumbers(0, 10);
 // from setTimeout
@@ -15,7 +15,7 @@ function printNumbers(from, to) {
       console.log(from);
       from++;
     }
-    setTimeout(run, 100);
-  }, 100);
+    setTimeout(run, 1000);
+  }, 1000);
 }
 printNumbers(0, 10);

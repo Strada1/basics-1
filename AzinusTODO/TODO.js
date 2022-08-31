@@ -5,8 +5,8 @@ const list = [
 function addTask(task, priority){
  if (typeof task === 'string'){
    const taskPriority = priority === 'high' ?  'high': 'low';
-   let = taskActuality = list.find(el => el.length == -1);
-       console.log ('no, that has been listed')
+  list.find(item => item.name ===-1);
+       console.log ('no, that has been listed');
       
     
   list.push({name: task, status:'New', priority: taskPriority,});

@@ -5,7 +5,6 @@ function printNumbers(from, to) {
 	let i = 0;
 	while (i < to) {
 		if (arrFromTo[i] < to) {
-			
 			arrFromTo.splice(i, 0, arrFromTo[i] + 1 )
 			i++;
 		}
@@ -24,7 +23,4 @@ function printNumbers(from, to) {
 	}
 	console.log(arrFromTo)
 }
-
 printNumbers(1, 10)
-
-

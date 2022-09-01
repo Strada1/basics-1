@@ -1,5 +1,4 @@
 function showVerticalMessage(string){
-
    let stringNew = string.toLowerCase();
    stringNew = stringNew.trim().slice(0,6)
 

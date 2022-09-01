@@ -30,7 +30,7 @@ function showList() {
     let inProgStr = "";
     let doneStr = "";
 
-    for (let key in todo) {
+    for (let key in list) {
         if (list[key] === STATUS.TO_DO) {
             todoStr += key + "\n";
         }  if (todoStr == "") {
@@ -38,7 +38,7 @@ function showList() {
         }
     }
 
-    for (let key in todo) {
+    for (let key in list) {
         if (list[key] === STATUS.IN_PROGRESS) {
             inProgStr += key + "\n";
         } if (inProgStr === "") {
@@ -46,7 +46,7 @@ function showList() {
         }
     }
 
-    for (let key in todo) {
+    for (let key in list) {
         if (list[key] === STATUS.DONE) {
             doneStr = key + "\n";
         } if (doneStr === "") {

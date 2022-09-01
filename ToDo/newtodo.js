@@ -33,25 +33,25 @@ function showList() {
     for (let key in list) {
         if (list[key] === STATUS.TO_DO) {
             todoStr += key + "\n";
-        }  else if (todoStr == "") {
+        }
+    }   if (todoStr == "") {
             todoStr = "-" + "\n";
         }
-    }
 
     for (let key in list) {
         if (list[key] === STATUS.IN_PROGRESS) {
             inProgStr += key + "\n";
-        } else if (inProgStr === "") {
-            inProgStr = "-" + "\n";
         }
+    }   if (inProgStr === "") {
+            inProgStr = "-" + "\n";
     }
 
     for (let key in list) {
         if (list[key] === STATUS.DONE) {
             doneStr = key + "\n";
-        } else if (doneStr === "") {
+        }
+    }   if (doneStr === "") {
             doneStr = "-" + "\n"
-        };
     }
 
 
@@ -59,7 +59,7 @@ function showList() {
 }
 
 
-addTask("Pet a cat");
+addTask("pet a cat");
 changeStatus("make a bed", STATUS.IN_PROGRESS);
 deleteTask("play games");
 showList();

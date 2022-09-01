@@ -33,7 +33,7 @@ function showList() {
     for (let key in list) {
         if (list[key] === STATUS.TO_DO) {
             todoStr += key + "\n";
-        }  if (todoStr == "") {
+        }  else if (todoStr == "") {
             todoStr = "-" + "\n";
         }
     }
@@ -41,7 +41,7 @@ function showList() {
     for (let key in list) {
         if (list[key] === STATUS.IN_PROGRESS) {
             inProgStr += key + "\n";
-        } if (inProgStr === "") {
+        } else if (inProgStr === "") {
             inProgStr = "-" + "\n";
         }
     }
@@ -49,7 +49,7 @@ function showList() {
     for (let key in list) {
         if (list[key] === STATUS.DONE) {
             doneStr = key + "\n";
-        } if (doneStr === "") {
+        } else if (doneStr === "") {
             doneStr = "-" + "\n"
         };
     }

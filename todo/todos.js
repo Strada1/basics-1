@@ -1,37 +1,57 @@
-const todosList = {
-  // list of todos here
-  'create a new practice task': 'In Progress',
-  'make a bed': 'Done',
-  'write a post': 'To Do',
-}
+const todosList = [
+  {
+    name: 'create a post',
+    status: 'In progress',
+    priority: 'low',
+  },
+  {
+    name: 'test',
+    status: 'Done',
+    priority: 'high',
+  },
+]
 
 const changeStatus = function (todoText, todoStatus) {
-  todosList[todoText] = todoStatus
-  console.log(`You've successfully changed the status of your todo`)
+  todosList.name === todoText
+    ? todosList.status === todoStatus
+    : console.log(`Error`)
 }
 
-const addTask = function (todoText, todoStatus) {
-  todosList[todoText] = todoStatus
-  console.log(`Success! You've successfully added a new todo`)
+const addTask = function (todoText, todoStatus, todoPriority) {
+  todoText.length > 3 && todoStatus.length > 2 && todoPriority
+    ? todosList.push({
+        name: todoText,
+        status: todoStatus,
+        priority: todoPriority,
+      })
+    : console.log('Error')
 }
 
 const deleteTask = function (todoText) {
-  delete todosList[todoText]
-  console.log(`Success! You've successfully deleted todo`)
+  todosList.name === todoText
+    ? delete todosList[todoText]
+    : console.log('Error deleting todo')
 }
 
 const showList = function () {
   console.log(`Your todos are...`)
-  console.log(todosList)
+  console.log(
+    todosList.map(
+      (todo, index) =>
+        `${index + 1}: ${todo.name}, status: ${todo.status}, priority: ${
+          todo.priority
+        }`,
+    ),
+  )
 }
 
-changeStatus('write a post', 'Done')
-changeStatus('make a bed', 'To Do')
+// changeStatus('create a post', 'Done')
+// changeStatus('make a bed', 'To Do')
 
-addTask('learn react', 'To Do')
-addTask('learn redux', 'To Do')
+// addTask('learn react', 'In progress', 'high')
+// addTask('learn redux', 'To Do')
 
-deleteTask('create a new practice task')
-deleteTask('learn redux')
+// deleteTask('learn react')
+// deleteTask('learn redux')
 
 showList()

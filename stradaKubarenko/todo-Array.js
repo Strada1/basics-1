@@ -61,7 +61,7 @@ function showList(){
    let done = '';
    let no_result = '\n\t-';
    for (let obj of LIST){
-    if(LIST.find(item=> item.status === STATUS['TO_DO'])){
+    if(obj.status === STATUS['TO_DO']){
       to_do += '\n\t' + obj.name
     }
    }
@@ -73,7 +73,7 @@ function showList(){
    }
 
    for (let obj of LIST){
-    if(LIST.find(item=> item.status === STATUS['IN_PROGRESS'])){
+    if(obj.status === STATUS['IN_PROGRESS']){
       in_progress += '\n\t' + obj.name
     }
    }
@@ -84,7 +84,7 @@ function showList(){
    }
 
    for (let obj of LIST){
-    if(LIST.find(item=> item.status === STATUS['DONE'])){
+    if(obj.status === STATUS['DONE']){
       done = done + '\n\t' + obj.name
     }
    }
@@ -95,5 +95,3 @@ function showList(){
    }
 }
 showList();
-
-// console.log(LIST);

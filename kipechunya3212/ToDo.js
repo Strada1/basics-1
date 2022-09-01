@@ -1,76 +1,91 @@
 const STATUS = {
-  TO_DO: 'TO_DO',
-  IN_PROGRESS: 'IN_PROGRESS',
-  DONE: 'DONE',
-};
+    TO_DO: 'TO_DO',
+    IN_PROGRESS: 'IN_PROGRESS',
+    DONE: 'DONE',
+  };
 
-
-const taskList = {
-	'create a new practice task': 'IN_PROGRESS',
-	'clean' : 'TO_DO',
-  'study' : 'TO_DO',
-  'drink' : 'IN_PROGRESS',
-  'sleep' : 'IN_PROGRESS',
+const PRIORITY = {
+    HIGH : 'HIGH',
+    MEDIUM : 'MEDIUM',
+    LOW : 'LOW',
 }
 
-function addTask (task) {
-  if (task in taskList) {
-    console.log('task already added');
-  } else  {
-    taskList[task] = STATUS.TO_DO;
-  }
-}
+const DEFAULT_PRIORITY = PRIORITY.LOW;
+const DEFAULT_STATUS = STATUS.TO_DO;
 
-function changeStatuses (task, status) {
-  if (task in taskList) {
-    let trueStatus;
-    for (let stat in STATUS) {
-        if (status == STATUS[stat]) {
-            trueStatus = true;
-        }
-    }
-    if (trueStatus) {
-      taskList[task] = status;
-    } else {
-        console.log('Status Invalid');
-    }
-} else {
-    console.log('no have task');
-}
-};
+let taskList = [ 
+{ name: 'create a post',
+  status: 'IN_PROGRESS',
+  priority: 'LOW'  },
 
-  
-function deleteTask (task) {
-  if (task in taskList) {
-    delete taskList[task];
+{ name: 'test',
+  status: 'DONE',
+  priority: 'HIGH',  }, 
+
+{ name : 'clear',
+  status : 'TO_DO',
+  priority : 'MEDIUM',},
+
+] 
+
+function addTask (newTask) {
+  if (matchCheck(newTask) == -1) {
+    taskList.push({
+      name : newTask,
+      status : DEFAULT_STATUS,
+      priority : DEFAULT_PRIORITY});
   } else {
-    console.log('task already deleted');
+    return console.log('Task already added')
   }
 }
 
-function showList () {
-  let listToDo = '';
-  let listInPr = '';
-  let listDone = '';
+function changeStatus (taskName, newStatus) {
+    if (matchCheck(taskName) != -1) {
+      taskList[matchCheck(taskName)].status = newStatus;
+}   else {
+      return console.log('Invalid task name, please repeat');
+  }
+}
 
-  for (let task in taskList) {
-      switch (taskList[task]) {
-        case STATUS.TO_DO :       
-          listToDo += `\t ${task}\n`;           
-            break;
-        case STATUS.IN_PROGRESS :        
-          listInPr += ` \t${task}\n`;
-            break;
-        case STATUS.DONE :        
-          listDone += ` \t${task}\n`;
-            break;
-        }
-      }
-      console.log(
-      ` ToDo:\n ${listToDo} In Progress:\n ${listInPr} Done:\n ${listDone}`);
-    }
-changeStatuses ('sleep' , 'DONE' )
-changeStatuses ('drink' , 'TO_DO')
+function changePriority (taskName, newPriority) {
+  if (matchCheck(taskName) != -1) {
+    taskList[matchCheck(taskName)].priority = newPriority;
+}   else {
+      return console.log('Invalid priority name, please repeat');
+  }
+}
 
-showList ()
+function deleteTask (deleteTask) {
+  if (matchCheck(deleteTask) != -1) {
+      return taskList.splice(matchCheck(deleteTask), 1);
+  } else {
+      return console.log('no such task was found');
+  }
+}
+  
+function showList() {
+  console.log("TO_DO:");
+  taskList.forEach(item => {
+      if (item.status == "TO_DO") {
+      console.log(`   - ${item.name} (priority ${item.priority})`); }
+  });
+  console.log("IN_PROGRESS:");
+  taskList.forEach(item => {
+      if (item.status == "IN_PROGRESS") {
+      console.log(`   - ${item.name} (priority ${item.priority})`); }
+  });
+  console.log("DONE:");
+  taskList.forEach(item => {
+      if (item.status == "DONE") {
+      console.log(`   - ${item.name} (priority ${item.priority})`); }
+  });
+}
 
+
+function matchCheck (task) {
+  return taskList.findIndex(item => item.name == task);
+}
+
+
+changeStatus('create a post', 'DONE');
+showList()

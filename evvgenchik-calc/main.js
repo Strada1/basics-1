@@ -72,5 +72,3 @@ changeStatus('study', 'dOne')
 changeStatus('study', 'did')
 changeStatus('shower', 'In progress')
 deleteTask('walk')
-showList()
-console.log(list);

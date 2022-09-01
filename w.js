@@ -4,11 +4,24 @@ const STATUS = {
   TODO: 'To Do'
 }
 
-const list = {
-	"create a new practice task": STATUS.PROGRESS,
-	"make a bed": STATUS.DONE,
-	"write a post": STATUS.TODO,
-};
+const list = [ 
+  { 
+    name: 'write a post', 
+    status: STATUS.TODO, 
+    priority: 'low'  
+  }, 
+  { 
+    name: 'code reviews ', 
+    status: STATUS.PROGRESS, 
+    priority: 'low'  
+  }, 
+  
+  { 
+    name: 'wash the dishes', 
+    status: STATUS.DONE, 
+    priority: 'high'  
+  } 
+];
 
 function changeStatus(task, status) {
   list[task] = status;
@@ -59,9 +72,9 @@ function showList() {
 
 };
 
-addTask('write a post', STATUS.PROGRESS);
-changeStatus('create a new practice task', STATUS.TODO);
-deleteTask("make a bed");
-changeStatus('    make a bad', STATUS.TODO);
+// addTask('write a post', STATUS.PROGRESS);
+// changeStatus('create a new practice task', STATUS.TODO);
+// deleteTask("make a bed");
+// changeStatus('    make a bad', STATUS.TODO);
 showList();
 

@@ -58,10 +58,10 @@ function showList() {
   addTask('learn js');
   addTask('do nothing');
   addTask('make a coffie')
+  addTask('play games')
   addTask('')
-  changeStatus('write a post', STATUS.TO_DO);
   changeStatus('learn js', STATUS.PROGRESS);
-  changeStatus('do nothing', STATUS.DONE);
+  changeStatus('do nothing', STATUS.DONE)
   deleteTask('learn react')
 
   showList()

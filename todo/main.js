@@ -15,7 +15,13 @@ function changeStatus(name, status) {
 }
 
 function addTask(name) {
-  todoList[name] = STATUS;
+  if(name in todoList) {
+    console.log("error: task already exists in the list");
+  } else if (name === false || name === undefined || name === '') {
+    console.log("error: empty field, nothing to add");
+  } else {
+    todoList[name] = STATUS.TO_DO;
+  }
 }
 
 function deleteTask(name) {
@@ -31,39 +37,32 @@ function showList() {
   let todo = "";
   let done = "";
 
-  for(let key in todoList) {
-    if(todoList[key] === STATUS.PROGRESS) {
-      progress += key + '\n';
-    } else if (progress === " ") {
-      progress += "-" + '\n';
-    }
-  }
-
-  for(let key in todoList) {
-    if(todoList[key] === STATUS.TO_DO) {
-      todo += key + '\n';
-    } else if (todo === " ") {
-      todo += "-" + "\n";
-    }
-  }
-
-  for(let key in todoList) {
-    if(todoList[key] === STATUS.DONE) {
-      done += key + '\n';
-    } else if (done === " ") {
-      done += "-" + "\n";
+  for (let name in todoList) {
+    switch(todoList[name]) {
+      case STATUS.TO_DO:
+        todo += ` ${name},\n`;
+        break;
+      case STATUS.PROGRESS:
+        progress += ` ${name},\n`;
+        break;
+      case STATUS.DONE:
+        done += ` ${name},\n`
+        break;    
     }
   }
   
-  console.log(`To Do: \n ${todo} \n In Progress: \n ${progress} \n Done: \n ${done} \n`);
-}
+  console.log(`Todo:\n${todo || '-\n'}In progress:\n${progress || '-\n'}Done:\n${done || '-\n'}`);
+  }
 
-addTask("workout");
-addTask("go to home");
-addTask("task for done");
-changeStatus("workout", STATUS.PROGRESS);
-changeStatus("go to home", STATUS.TO_DO);
-changeStatus("task for done", STATUS.DONE);
-deleteTask("make a bed");
+  addTask('write a post');
+  addTask('learn js');
+  addTask('do nothing');
+  addTask('make a coffie')
+  addTask('')
+  changeStatus('write a post', STATUS.TO_DO);
+  changeStatus('learn js', STATUS.PROGRESS);
+  changeStatus('do nothing', STATUS.DONE);
+  deleteTask('learn react')
 
-showList();
+  showList()
+  

@@ -13,23 +13,26 @@ const list = {
 function addTask (goal) {
 
     if (goal in list) {
+
         list[goal] = STATUS.TO_DO;
+        console.log("Task added");
     }
-    console.log("Task added");
 };
 
 function deleteTask (goal) {
     if (goal in list) {
+
         delete list[goal];
+        console.log("Task deleted");
     }
-    console.log("Task deleted");
 };
 
 function changeStatus (goal, status) {
     if (goal in list) {
+
         list[goal] = status;
+        console.log("Status changed");
     }
-    console.log("Status changed");
 };
 
 function showList () {

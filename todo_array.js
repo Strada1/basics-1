@@ -60,7 +60,8 @@ function changeStatus (task, taskStatus) {
 
 function showList () {
 
-    let showTasks = list.filter(function (item) {
+
+	list.filter(function(item) {
 
         if (item.status === STATUS.TO_DO) {
 

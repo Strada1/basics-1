@@ -1,2 +1,1 @@
-# basics-1
-Репозиторий для первого потока "Основы" 
+## solutions form code wars

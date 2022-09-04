@@ -60,31 +60,44 @@ function changeStatus (task, taskStatus) {
 
 function showList () {
 
+    // увидела на эфире в одном из файлов - вроде поняла, без переменных тут не получится
 
-	list.filter(function(item) {
+    let toDo = 'To Do:\n';
+    let inProgress = 'In Progress:\n';
+    let done = 'Done:\n';
+
+    list.forEach(function (item) {
+
+        let showTasks = `\t${item.name}\n`;
 
         if (item.status === STATUS.TO_DO) {
 
-            return `To Do: \n\t${item.name}`;
+            toDo += showTasks;
         }
 
-        if (item.status === STATUS.IN_PROGRESS) {
+        else if (item.status === STATUS.IN_PROGRESS) {
 
-            return `In Progress: \n\t${item.name}`;
+            inProgress += showTasks;
         }
 
-        if (item.status === STATUS.DONE) {
+        else if (item.status === STATUS.DONE) {
 
-            return `Done: \n\t${item.name}`;
+            done += showTasks;
+        }
+
+        else {
+
+            return 'Error';
         }
     });
 
+    return(`${toDo} ${inProgress} ${done}`);
+
 };
 
-
-addTask('hiking', 'To Do', 'low');
-addTask('write some code', 'In Progress', 'high');
-addTask('do shopping', 'To Do', 'low');
+addTask('hiking', STATUS.TO_DO, PRIORITY.LOW);
+addTask('write some code', STATUS.IN_PROGRESS, PRIORITY.HIGH);
+addTask('do shopping', STATUS.TO_DO, PRIORITY.LOW);
 deleteTask('test');
-changeStatus('breakfast', 'Done');
-showList();
+changeStatus('breakfast', STATUS.DONE);
+console.log(showList());

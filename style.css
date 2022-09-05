@@ -1,0 +1,17 @@
+.calc-input {
+    width: 95px;
+    height: 33px;
+    border: 1px solid #000000;
+}
+
+select {
+    background: #1E1E1E;
+    color: #FFFFFF
+}
+
+.equals {
+    width: 39px;
+    height: 33px;
+    border-radius: 4px;
+}
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calc </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="outer">
+        <div class="first">
+            <label for="first"></label>
+            <input
+                type="text"
+                id="first"
+                name="first"
+                required
+                size="10"
+            >
+        </div>
+        <div class="actionselection">
+            <form>
+                <label for="action-select"></label>
+                <select name="action" id="action-select">
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                  <option value="*">*</option>
+                  <option value="/">/</option>
+                </select>
+              </form>
+        </div>
+        <div class="second">
+            <label for="second"></label>
+            <input
+                type="text"
+                id="second"
+                name="second"
+                required
+                size="10"
+            >
+        </div>
+        <div class="button">
+            <button name="button"> = </button>
+        </div>
+        <div class="answer">
+            answer
+        </div>
+    </div>
+</body>
+</html>

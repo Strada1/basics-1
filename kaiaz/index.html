@@ -4,11 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Calculator</title>
   </head>
   <body>
-    <h1>Hello world</h1>
+    <h1>Calculator</h1>
+    <div class="container">
+      <form>
+        <input type="number" id="first_operand" />
 
-    <script src="js/codewars.js"></script>
+        <select name="operation" id="operation">
+          <option value="add">+</option>
+          <option value="subtract">-</option>
+          <option value="multiply">*</option>
+          <option value="divide">/</option>
+        </select>
+        <input type="number" id="second_operand" />
+        <button id="calc">=</button>
+        <span id="result"></span>
+      </form>
+    </div>
+    <script src="js/calc.js"></script>
   </body>
 </html>

@@ -1,0 +1,16 @@
+body {
+  margin: 0 auto;
+  background: #1e1e1e;
+  display: flex;
+  justify-content: center;
+}
+
+section {
+  width: 950px;
+  height: 950px;
+  background: #ffffff;
+  border-radius: 103px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

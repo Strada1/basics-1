@@ -1,0 +1,41 @@
+.calc-body {
+    position:absolute;
+    height: 582px;
+    width: 364px;
+    left: 569px;
+    top: 100px;
+    border-radius: 0px;
+    background: #17171C;
+   
+}
+
+.content {
+    position: relative;
+    height: 599px;
+    width: 324px;
+    left: 20px;
+    top: -42px;
+    border-radius: 0px;  
+}
+
+.work-display {
+    height: 47px;
+    width: 324px;
+    left: 0px;
+    top: 0px;
+    border-radius: nullpx;
+}
+
+.big-display {
+    width: 324px;
+    height: 96px;
+    padding-top: 16px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 96px;
+    line-height: 96px;
+    align-items: center;
+    text-align: right;
+    color: #FFFFFF;    
+}

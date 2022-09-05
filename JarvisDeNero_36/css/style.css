@@ -62,12 +62,25 @@ body::after {
    border-bottom: 2px solid;
    border-color: #1a3f5b1f;
    font-size: 18px;
+   transition: all 0.3s;
 }
 .body__input input:focus,
 .body__select select:focus,
 .body__result input:focus {
-
    border-bottom: 2px solid #39c;
+}
+.equals__btn {
+   background: #fff;   
+   border-radius: 12px;  
+   overflow: hidden;  
+   padding: 17px; 
+   margin: 15px 7.5px 0 7.5px; 
+   box-shadow: inset 0px 0px 4px 0px #000;
+   width: auto;
+   border: none;
+   font-size: 18px;
+   transition: all 0.3s;
+   cursor: pointer;
 }
 .body__input {
    
@@ -81,4 +94,3 @@ body::after {
 }
 .result {
 }
-.result__equals {margin-right: 10px;}

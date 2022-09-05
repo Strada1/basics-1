@@ -1,0 +1,28 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  background-color: black;
+}
+.container {
+  height: 98vh;
+  max-width: 1143px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 103px;
+  background-color: white;
+}
+
+input[type='number'] {
+  width: 95px;
+  height: 33px;
+}
+
+.btn {
+  width: 39px;
+  height: 33px;
+}

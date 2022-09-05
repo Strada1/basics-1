@@ -1,7 +1,13 @@
-const list = [ { name: 'create a post', status: 'in progress', priority: 'low'  }, { name: 'test', status: 'done', priority: 'high'  } ]
+const list = [ { name: 'create a post', status: 'In Progress', priority: 'low'  }, { name: 'test', status: 'Done', priority: 'high'  } ]
+
+const STATUS = {
+    TO_DO: 'To Do',
+    IN_PROGRESS: 'In Progress',
+    DONE: 'Done'
+}
 
 function changeStatus(arr, task, newStatus, newPriority) {
-    let changeTask = arr.find(function(item) {return item.name == task});
+    let changeTask = arr.find(item => item.name === task);
     changeTask.status = newStatus;
     changeTask.priority = newPriority;
 }
@@ -11,24 +17,36 @@ function addTask(arr, task) {
 }
 
 function deleteTask(arr, task) {
-    let index = arr.findIndex(function(item) {return item.name == task});
+    let index = arr.findIndex(item => item.name === task);
     arr.splice(index, 1);
 }
 
 function showList (arr) {
-    console.log('To do:');
-    arr.forEach(function(item) {if (item.status == 'to do') {console.log(item.name, '* priority -', item.priority)}});
-    console.log(('In Progress:'));
-    arr.forEach(function(item) {if (item.status == 'in progress') {console.log(item.name, '* priority -', item.priority)}});
-    console.log('Done:');
-    arr.forEach(function(item) {if (item.status == 'done') {console.log(item.name, '* priority -', item.priority)}});
+    console.log(STATUS.TO_DO + ':');
+    arr.forEach(function(item) {
+        if (item.status === STATUS.TO_DO) {
+            console.log(item.name, '* priority -', item.priority);
+        }
+    });
+    console.log(STATUS.IN_PROGRESS + ':');
+    arr.forEach(function(item) {
+        if (item.status === STATUS.IN_PROGRESS) {
+            console.log(item.name, '* priority -', item.priority);
+        }
+    });
+    console.log(STATUS.DONE + ':');
+    arr.forEach(function(item) {
+        if (item.status === STATUS.DONE) {
+            console.log(item.name, '* priority -', item.priority);
+        }
+    });
 }
 
 
 
 
-addTask(list, {name: 'finish todo', status: 'in progress', priority: 'high'});
-addTask(list, {name: 'relax', status: 'to do', priority: 'low'});
-changeStatus(list, 'create a post', 'done', 'high');
+addTask(list, {name: 'finish todo', status: 'In Progress', priority: 'high'});
+addTask(list, {name: 'relax', status: 'To Do', priority: 'low'});
+changeStatus(list, 'create a post', 'Done', 'high');
 deleteTask(list, 'test');
 showList(list);

@@ -9,6 +9,7 @@ body {
 .container {
   height: 98vh;
   max-width: 1143px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;

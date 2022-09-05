@@ -1,0 +1,9 @@
+.container {
+display: flex;
+justify-content: center;
+margin-top: 120px;
+}
+
+.container input, select, button {
+    margin: 5px;
+}

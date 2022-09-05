@@ -55,9 +55,75 @@ arr.push(function() {
 P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0».
 */
 // не смог решить 
-function sumInput(arr){
-  if(arr !== '' || typeof arr !== 'number' ){
+function sumInput(){
+  let numbers = [];
 
-  }
+  while (true){
+    
+    let promm = prompt('Введите чило')
+    
+    if (promm === "" || promm === null || !isFinite(promm))break;
+
+    numbers.push(+promm)
+
+  }  
+   let sum;
+   for(let namber of nambers){
+    sum += namber;
+   }
+    return sum
 }
 //======================================
+
+/*
+На входе массив чисел, например: arr = [1, -2, 3, 4, -9, 6].
+
+Задача: найти непрерывный подмассив в arr, сумма элементов в котором максимальна.
+
+Функция getMaxSubSum(arr) должна возвращать эту сумму.
+
+Например:
+*/ 
+function  getMaxSubSum(arr){
+  if(arr !== undefined ){
+    
+      let sum;
+      for(i = 0; i < arr.length; i++){
+            
+      } 
+  }  
+}
+
+/*
+Напишите функцию camelize(str), которая преобразует строки вида «my-short-string» в «myShortString».
+
+То есть дефисы удаляются, а все слова после них получают заглавную букву.
+
+Примеры:
+
+camelize("background-color") == 'backgroundColor';
+camelize("list-style-image") == 'listStyleImage';
+camelize("-webkit-transition") == 'WebkitTransition';
+P.S. Подсказка: используйте split, чтобы разбить строку на массив символов, потом переделайте всё как нужно и методом join соедините обратно.
+*/
+
+// function camelize(str){
+//  let newstr = str.split('-').map()
+// //  for (i = 0 ; i < newstr.length ; i++){
+//   console.log(newstr);
+//  }
+
+
+
+// camelize("background-color")
+function buildFun(n){
+
+	var res = []
+
+	for (var i = 0; i< n; i++){
+		res.push(i)
+	}
+	return console.log(res)
+}
+
+buildFun(10)

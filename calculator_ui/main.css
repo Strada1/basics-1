@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 1143px;
+    height: 960px;
+    background: #FFFFFF;
+    border-radius: 103px;
+    
+}
+
+input{
+    margin: 5px;
+}
+p {
+    margin-left: 5px;
+}

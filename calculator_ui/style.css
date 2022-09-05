@@ -7,7 +7,3 @@ margin-top: 120px;
 .container input, select, button {
     margin: 5px;
 }
-
-input[type = text]{
-    width: 20%;
-}

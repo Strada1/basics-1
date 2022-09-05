@@ -1,0 +1,11 @@
+.result {
+    background-color: aquamarine;
+}
+
+.row {
+    display: flex;
+}
+
+.item {
+    margin-right: 10px;
+}

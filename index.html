@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Calculator UI</title>
+</head>
+
+<body>
+  <div class="calculator">
+    <label class="calculator__label">
+      <input class="calculator__input" name="number" value="5" type="number">
+      <span class="visually-hidden">Ввод первого числа</span>
+    </label>
+    <label class="calculator__label">
+      <select class="calculator__select" name="operator">
+        <option class="calculator__option">+</option>
+        <option class="calculator__option">-</option>
+        <option class="calculator__option">*</option>
+        <option class="calculator__option">/</option>
+      </select>
+      <span class="visually-hidden">Выбор оператора</span>
+    </label>
+    <label class="calculator__label">
+      <input class="calculator__input" name="number" value="5" type="number">
+      <span class="visually-hidden">Ввод второго числа</span>
+    </label>
+    <button class="calculator__button" type="button">=</button>
+    <span class="calculator__value">10</span>
+  </div>
+</body>
+
+</html>

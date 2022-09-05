@@ -1,0 +1,26 @@
+body {
+   background-color: #1E1E1E;
+}
+.wrapper {
+   height: 1000px;
+   width: 1143px;
+   border-radius: 103px;
+   background-color: #fff;
+   margin: 0 auto;
+   display: flex;
+}
+.calc {
+   width: 342px;
+   margin: auto;
+}
+input {
+   width: 95px;
+   height: 33px;
+   font-size: 20px;
+}
+span.fz-20 {
+   font-size: 20px;
+}
+.mr-8 {
+   margin-right: 8px;
+}

@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.form {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form input,
+.form select,
+.form button {
+  width: 50px;
+  height: 20px;
+  border: 1px solid #ccc;
+  margin: 5px;
+}
+
+.form button {
+  background-color: white;
+}

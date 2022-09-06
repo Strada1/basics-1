@@ -1,0 +1,64 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-size: 20px;
+  font-weight: 400;
+  background-color: #1E1E1E;
+}
+
+.container{
+  width: 1143px;
+  height: 1000px;
+position:absolute;
+top: 200px;
+left: 600px;
+border-radius: 103px ;
+background-color: #fff;
+}
+.content{
+  position: relative;
+  left: 410px;
+  top: 450px;
+}
+
+#input{
+  
+  height: 33px;
+  width: 95px;
+  font-size: 20px;
+  border: 1px black solid;
+  padding: 5px;
+  
+
+}
+#select{
+  height:33px;
+  width: 39px;
+  background-color: #646464;
+  border-radius: 4px;
+  color: white;
+  position:relative;
+  bottom: 2px;
+ 
+
+}
+button{
+  height: 33px;
+  width: 39px;
+  font-size: 20px;
+ border: 1px black solid;
+ border-radius: 4px;
+ color: #000;
+
+}
+
+button:active{
+  background-color: rgb(140, 127, 127);
+}
+
+#resault{
+  font-size: 20px;
+
+}

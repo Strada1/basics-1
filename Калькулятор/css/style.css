@@ -1,57 +1,27 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	margin-top: 450px;
+}
 
-/* .Rectangle1 {
-	width: 1143px;
-	height: 1000px;
-	color: #FFFFFF;
-	box-sizing: border-box;
-	position: absolute;
-	
-} */
-
-.number1 {
+.number {
 	width: 95px;
 	height: 33px;
-	top: 21px;
-	left: 107px;
-	box-sizing: border-box;
-	position: absolute;
-	margin: 457px 647px 510px 401px;
+	margin-right: 8px;
+
 }
 
-.select_operationh {
-	width: 67px;
-	height: 96px;
-	top: 16px;
-	left: 210px;
-	box-sizing: border-box;
-	position: absolute;
-	margin: 452px 572px 452px 504px;
+.select_operation {
+	margin-right: 8px;
+	width: 37px;
+	height: 39px;
+
 }
 
-.number2 {
-	width: 95px;
-	height: 33px;
-	top: 21px;
-	left: 277px;
-	box-sizing: border-box;
-	position: absolute;
-	margin: 457px 477px 510px 571px;
-}
-/* .Rectangle4 {
+.button {
 	width: 39px;
-	height: 33px;
-	top: 21px;
-	left: 380px;
-	box-sizing: border-box;
-	position: absolute;
-} */
-
-.result {
-	width: 39px;
-	height: 33px;
-	top: 25px;
-	left: 427px;
-	box-sizing: border-box;
-	position: absolute;
-	margin: 461px 442px 515px 687px;
+	height: 39px;
+	margin-right: 8px;
 }

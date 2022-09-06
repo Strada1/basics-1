@@ -1,0 +1,26 @@
+body {
+    background-color: #1E1E1E;
+}
+.main {
+    position: absolute;
+    top: 17%;
+    left: 35%;
+    width: 480px;
+    height: 450px;
+    background-color: #FFFFFF;
+    border-radius: 13%;
+}
+
+.formula {
+    text-align: center;
+    padding-top: 46%;
+}
+.number {
+    box-sizing: border-box;
+
+    width: 65px;
+    height: 23px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+ 
+}

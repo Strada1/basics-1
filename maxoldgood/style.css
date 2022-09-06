@@ -1,41 +1,69 @@
+body {
+    background-color: rgb(20, 20, 20);
+}
 .calc-body {
-    position:absolute;
-    height: 582px;
-    width: 364px;
-    left: 569px;
-    top: 100px;
+    width: 1143px;
+    height: 1000px;
+    margin-left:auto;
+    margin-right:auto;
+    background: #FFFFFF;
+    border-radius: 103px;
+}
+.input-number1 {
+    margin-left:401px;
+    margin-top: 457px;
+    height: 33px;
+    width: 95px;
     border-radius: 0px;
-    background: #17171C;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    }
+.input-number2 {
+    
+    margin-top: 457px;
+    height: 33px;
+    width: 95px;
+    border-radius: 0px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+}
+
+.equal {
+    position: absolute;
+    margin-left:660px;
+    margin-top:-36px;
+    width: 39px;
+    height: 33px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 4px;
+}
+.equalsign {
+    
+    height: 24px;
+    width: 14px;
+    margin-top: 4px;
+    margin-left: 13px;
+    border-radius: "nullpx";
+
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;   
+}    
+
+.result {
    
-}
+width: 22px;
+height: 24px;
+margin-left: 70px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
 
-.content {
-    position: relative;
-    height: 599px;
-    width: 324px;
-    left: 20px;
-    top: -42px;
-    border-radius: 0px;  
-}
-
-.work-display {
-    height: 47px;
-    width: 324px;
-    left: 0px;
-    top: 0px;
-    border-radius: nullpx;
-}
-
-.big-display {
-    width: 324px;
-    height: 96px;
-    padding-top: 16px;
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 96px;
-    line-height: 96px;
-    align-items: center;
-    text-align: right;
-    color: #FFFFFF;    
+color: #000000;
 }

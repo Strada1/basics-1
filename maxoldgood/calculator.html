@@ -9,15 +9,18 @@
 </head>
 <body>
     <div class="calc-body"> <!--фон калькулятора-->
-        <div class="content">
-            <div class="work-display"></div>
-            <div class="big-display"> <!--экран с результатами-->1,258.2</div>
-            <div> <button class="button-c"> C </button> <button> del </button> <button>divide</button> </div>
-            <div> <button> 7 </button> <button> 8 </button> <button> 9 </button> <button> multi </button> </div>
-            <div> <button> 4 </button> <button> 5 </button> <button> 6 </button> <button> substract </button> </div>
-            <div> <button> 1 </button> <button> 2 </button> <button> 3 </button> <button> plus </button> </div>
-            <div> <button> 0 </button> <button> equal </button> </div>
-        </div>
+            <input class="input-number1" type="number">
+            <select>
+                <option>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+            </select>
+            <input class="input-number2" type="number">
+            <div class="equal">
+                <div class="equalsign">=</div>
+            </div>
+            <output class="result">69</output>        
     </div>
 </body>
 </html>

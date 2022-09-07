@@ -10,16 +10,21 @@ h1 {
 }
 
 .section {
-  width: 380px;
-  height: 100px;
-  margin: 0 auto;
-
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
+.calculator {
+  width: 320px;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
 .input {
-  writing-mode: initial !important;
   width: 95px;
   height: 40px;
   font-size: 25px;
@@ -62,11 +67,13 @@ input::-webkit-inner-spin-button {
   border: 1px solid #e30d3f;
   border-radius: 3px;
   cursor: pointer;
-  margin-right: 15px;
 }
 
 .result {
   font-weight: 700;
   font-size: 35px;
   color: green;
+
+  width: 100%;
+  max-width: 25px;
 }

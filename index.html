@@ -8,19 +8,22 @@
   <title>Strada</title>
 </head>
 <body>
-  <h1>Calculator</h1>
+  <h1 id="header">Calculator</h1>
   <div class="section">
-    <input class="input" type="number" />
-    <select class="select" required>
-      <option class="option" value="+">+</option>
-      <option class="option" value="-">-</option>
-      <option class="option" value="*">*</option>
-      <option class="option" value="/">/</option>
-    </select>
-    <input class="input" type="number" />
-    <button class="equally">=</button>
-    <div class="result">10</div>
+    <div class="calculator">
+      <input class="input" type="number" id="num_1" />
+      <select class="select" required id="select">
+        <option class="option" value="+">+</option>
+        <option class="option" value="-">-</option>
+        <option class="option" value="*">*</option>
+        <option class="option" value="/">/</option>
+      </select>
+      <input class="input" type="number" id="num_2"/>
+      <button class="equally" id="equally">=</button>
+    </div>
+    <span class="result" id="result"></span>
   </div>
+
 
   <script src="main.js"></script>
 </body>

@@ -1,0 +1,26 @@
+
+body {
+    padding: 15px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+
+.form__input {
+    padding: 5px 10px;
+    border: 1px solid black;
+    font-size: 13px;
+}
+
+.form__btn {
+padding: 5px 12px;
+margin-right: 10px;
+border: 1px solid black;
+background-color: transparent;
+cursor: pointer;
+}
+
+.form__result {
+    display: inline-block;
+}

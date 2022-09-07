@@ -16,7 +16,7 @@ function Calc() {
         break;
       case '/':
         if (+secondNumb === 0) {
-          result.textContent = 'На 0 делить нельзя';
+          result.textContent = 'Ошибка';
         } else {
           result.textContent = +firstNumb / +secondNumb;
           break;

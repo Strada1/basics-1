@@ -1,36 +1,37 @@
-const operations = {
-  add: "add",
-  multi: "multi",
-  sub: "subtract",
-}
+const calculator = document.querySelector('.calc');
+const firstInput = document.querySelector('.first-input');
+const lastInput = document.querySelector('.last-input');
+const result = document.querySelector('.result');
 
 function calc(operator, a, b) {
-  const {add, multi, sub} = operations;
 
   switch (operator) {
-    case add:
+    case '+':
       return a + b;
-    case multi:
+    case '-':
+      return a - b;
+    case '*':
       return a * b;
-    case sub:
+    case '/':
       return a - b;
     default:
       console.log("Ошибка");
   }
 }
-calc(operations.add, 3, 2);
 
-/////////////////////////////////
+calculator.addEventListener('change', (e) => {
+  const a = calc(e.target.value, +firstInput.value, +lastInput.value);
+  result.textContent = a;
+})
 
-for (let i = 1; i <= 19; i++) {
-  console.log(i);
-}
+firstInput.addEventListener('change', () => {
+  if (+firstInput.value && +lastInput.value) {
+    result.textContent = calc(calculator.value, +firstInput.value, +lastInput.value)
+  }
+})
 
-/////////////////////////////////
-
-let i = 1;
-
-while(i <= 19) {
-  console.log(i);
-  i++;
-}
+lastInput.addEventListener('change', () => {
+  if (+firstInput.value && +lastInput.value) {
+    result.textContent = calc(calculator.value, +firstInput.value, +lastInput.value)
+  }
+})

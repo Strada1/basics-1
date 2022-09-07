@@ -11,7 +11,7 @@ equals.addEventListener("click", function () {
     result.textContent = "Пожалуйста введите все числа";
     result.style.color = "red";
   } else {
-    result.textContent = calc(operator, firstNumber, secondNumber);
+    result.textContent = Number(calc(operator, firstNumber, secondNumber).toFixed(2));
     result.style.color = "green";
   }
 });

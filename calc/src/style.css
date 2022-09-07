@@ -20,19 +20,26 @@ input{
 
 }
 
-.selectValue{
+.operation{
     height: 33px;
     width: 39px;
 }
 
-.result{
+.equals{
     width: 39px;
     height: 33px;
 }
 
-p{
+span{
     margin: 8px;
+    font-size: 30px;
+    font-style: normal;
 }
- 
+
+.clear{
+    margin-left: 50px;
+    width: 70px;
+    height: 33px;
+}
 
  

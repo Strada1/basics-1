@@ -6,19 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="src/style.css">
+
+
 </head>
 <body>
-    <div class="calc">
-        <input type="text">
-        <select class="selectValue" name="select" id="">
+
+    <div class="calc ">
+        <input type="number" class="firstNumber">
+        <select name="select" class="operation" id="">
             <option value="add">+</option>
-            <option value="sub">-</option>
+            <option value="subtract">-</option>
             <option value="multi">*</option>
             <option value="divide">/</option>
         </select>
-        <input type="text">
-        <button class="result">=</button>
-       <p>3333</p>
+        <input type="number" class="secondNumber">
+        <button class="equals">=</button>
+        <span class="result"></span>
+        <div>
+            <button class="clear">очистить</button>
+        </div>
     </div>
+
+
+
+    <script src="src/main.js"></script>
 </body>
 </html>

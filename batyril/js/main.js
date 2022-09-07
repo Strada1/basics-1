@@ -31,7 +31,7 @@ function getResultCalculator(operator, firstValue, secondValue) {
         result = 'you can\'t  divide by zero';
         break;
       }
-      result = (firstValue / secondValue).toFixed(1);
+      result = (firstValue / secondValue).toFixed(7);
       break;
     default:
       result = 'operator not found';
@@ -46,9 +46,9 @@ UI.BUTTON.addEventListener('click', () => {
     OPERATOR: UI.OPERATOR.value,
   };
 
-  UI.RESULT.textContent = String(getResultCalculator(
+  UI.RESULT.textContent = getResultCalculator(
     UI.OPERATOR.value,
     VALUES_CALCULATOR.FIRST_VALUE,
     VALUES_CALCULATOR.SECOND_VALUE,
-  ));
+  );
 });

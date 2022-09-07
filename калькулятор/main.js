@@ -8,20 +8,20 @@ let number1 = document.getElementById("number1").value;
 let number2 = document.getElementById("number2").value;
 let operation = document.getElementById("operation").value;
 	
-	result.innerHTML = calc()
+	result.innerHTML = calc(operation, number1, number2)
 
 		function calc (operation, number1, number2) {
 			let results;
 			switch (operation) {
 				case '+':
-					results = (number1 + number2);
-					return results;
+					results = (+number1 + +number2);
+					return +results;
 				case '*': 
-					results = (number1 * number2);
-					return results;
+					results = (+number1 * +number2);
+					return +results;
 				case '-': 	
-					results = (number1 - number2);
-					return results;
+					results = (+number1 - +number2);
+					return +results;
 		}
 	}
 }

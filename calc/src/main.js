@@ -42,8 +42,8 @@ equals.addEventListener("click", function () {
         console.log("Is not number");
         result.textContent = "Is not number";
     } else {
-        let calc = calcObject(operation, firstNumber, secondNumber);
-        result.textContent =  Number(calc.toFixed(5));
+        let calc = calcObject(operation, firstNumber, secondNumber).toFixed(5);
+        result.textContent =  Number(calc);
     }
 });
 
@@ -58,6 +58,7 @@ const operations = {
 
 
 function calcObject( operation, firstNumber, secondNumber ) {
+    let secondNum = document.querySelector(".secondNumber").value;
 
     switch (operation) {
         case (operations.add):
@@ -67,9 +68,9 @@ function calcObject( operation, firstNumber, secondNumber ) {
         case (operations.subtract):
             return  firstNumber - secondNumber;
         case (operations.divide):
-            if (secondNumber === "0"){
-                result.textContent = "На ноль делить нельзя";
-            } else {
+            if (secondNum === "0"){
+                result.textContent = "can't divide by zero"
+            }else{
                 return  firstNumber / secondNumber;
             }
         default:

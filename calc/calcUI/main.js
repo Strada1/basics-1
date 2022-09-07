@@ -18,7 +18,7 @@ function calc(operator, a, b) {
         case "/":
             return a / b
         default:
-            console.log("Ошибка")
+            console.log("Error")
     }
 }
 

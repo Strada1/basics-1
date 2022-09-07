@@ -26,12 +26,12 @@ calculator.addEventListener('change', (e) => {
 
 firstInput.addEventListener('change', () => {
   if (+firstInput.value && +lastInput.value) {
-    result.textContent = calc(calculator.value, +firstInput.value, +lastInput.value)
+    result.textContent = calc(calculator.value, +firstInput.value, +lastInput.value);
   }
 })
 
 lastInput.addEventListener('change', () => {
   if (+firstInput.value && +lastInput.value) {
-    result.textContent = calc(calculator.value, +firstInput.value, +lastInput.value)
+    result.textContent = calc(calculator.value, +firstInput.value, +lastInput.value);
   }
 })

@@ -6,23 +6,21 @@ function Calc() {
   } else {
     switch (calc.value) {
       case '+':
-        result.textContent = +firstNumb + +secondNumb;
+        result.textContent = +(+firstNumb + +secondNumb).toFixed(10);
         break;
       case '-':
-        result.textContent = +firstNumb - +secondNumb;
+        result.textContent = +(+firstNumb - +secondNumb).toFixed(10);
         break;
       case '*':
-        result.textContent = +firstNumb * +secondNumb;
+        result.textContent = +(+firstNumb * +secondNumb).toFixed(10);
         break;
       case '/':
         if (+secondNumb === 0) {
           result.textContent = 'Ошибка';
         } else {
-          result.textContent = +firstNumb / +secondNumb;
+          result.textContent = +(+firstNumb / +secondNumb).toFixed(10);
           break;
         }
     }
   }
 }
-
-btn.addEventListener('click', Calc);

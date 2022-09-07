@@ -1,0 +1,28 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	margin-top: 450px;
+}
+
+.number {
+	width: 95px;
+	height: 33px;
+	margin-right: 8px;
+	font-size: large;
+
+}
+
+.select_operation {
+	margin-right: 8px;
+	width: 37px;
+	height: 39px;
+
+}
+
+.button {
+	width: 39px;
+	height: 39px;
+	margin-right: 8px;
+}

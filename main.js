@@ -1,4 +1,4 @@
-function Calc() {
+function сalc() {
   let firstNumb = firstnumber.value;
   let secondNumb = secondnumber.value;
   if (firstNumb === '' || secondNumb === '') {

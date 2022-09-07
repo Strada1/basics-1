@@ -34,12 +34,11 @@ function calc() {
                 break;
             }
         case "/":
-            result = (a / b);
+            result = a / b;
             if (!isFinite(result)) {
                 answer.textContent = 'ошибка при делении';
                 break;
             } else {
-                result = a / b;
                 answer.textContent = +result.toFixed(10);
                 break;
             }

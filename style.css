@@ -1,0 +1,39 @@
+body {
+	margin: 0;
+}
+
+.calculator {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin: 457px auto;
+	width: 1143px;
+}
+
+input {
+	width: 95px;
+	height: 33px;
+
+	margin-right: 8px;
+}
+
+select {
+	background: rgb(104, 104, 104);
+	color: white;
+
+	margin-right: 8px;
+
+	border: 1px solid;
+	border-radius: 3px;
+}
+
+button {
+	width: 33px;
+	height: 39px;
+
+	margin-right: 8px;
+
+	border: 1px solid;
+	border-radius: 4px;
+}

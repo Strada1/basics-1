@@ -10,19 +10,22 @@
     <main class="main">
       <form class="calculator">
         <div class="calculator__wrapper">
-          <input class="calculator__field operand-field" type="number" value="5">
-          <select class="calculator__field operand-selector" name="operand-selector">
-            <option value="add">+</option>
-            <option value="multi">-</option>
-            <option value="subtract">*</option>
-            <option value="divide">/</option>
+          <input class="calculator__field operand-field" type="number" value="">
+          <select class="calculator__field operator-selector" name="operator-selector">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
           </select>
-          <input class="calculator__field operand-field" type="number" value="5">
+          <input class="calculator__field operand-field" type="number" value="">
           <button class="calculator__field result-button" type="submit">=</button>
-          <span class="calculator__field result-field">10</span>
+          <span class="calculator__field result-field"></span>
         </div>
+
         <p class="calculator__error error-field error-field--hidden">Ввели неправильное значение</p>
       </form>
     </main>
+
+    <script src="./main.js"></script
   </body>
 </html>

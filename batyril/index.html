@@ -7,21 +7,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="js/main.js" type="text/javascript" defer></script>
 </head>
 <body>
     <div class="calculator">
         <label class="calculator__wrapper">
-            <input class="calculator__number-one" type="number">
+            <input placeholder="123.." class="calculator__number-first" type="number">
             <select class="calculator__operators">
-                <option >+</option>
-                <option >-</option>
-                <option >*</option>
-                <option >/</option>
+                <option value = "+" >+</option>
+                <option value = "-" >-</option>
+                <option value = "*">*</option>
+                <option value = "/" >/</option>
             </select>
-            <input class="calculator__number-second" type="number">
+            <input placeholder="123.."  class="calculator__number-second" type="number">
             <button class="calculator__button" > = </button>
         </label>
-        <div class="calculator__result">345</div>
+        <div class="calculator__result">&#129300;</div>
     </div>
 </body>
 </html>

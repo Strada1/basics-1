@@ -11,19 +11,22 @@ body{
     background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
 .calculator{
-    gap: 14px;
+    gap: 50px;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+
 
 .calculator__wrapper{
     border-radius: 5px;
     display: flex;
     gap: 10px;
 }
-.calculator__number-one, .calculator__number-second{
+.calculator__number-first, .calculator__number-second{
     font-size: 30px;
     padding: 20px;
     border-radius: 5px;
@@ -32,7 +35,7 @@ body{
 }
 
 .calculator__operators{
-    padding: 20px;
+    padding-left: 20px;
     border-radius: 5px;
     width: 100px;
     height: 60px;
@@ -50,5 +53,5 @@ body{
     height: 60px;
 }
 .calculator__result{
-    font-size: 30px;
+    font-size: 130px;
 }

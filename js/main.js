@@ -3,7 +3,7 @@ btn.onclick = function () {
   let firstOperand = document.getElementById('firstInput').value;
   let secondOperand = document.getElementById('secondInput').value;
   let operator = document.getElementById('select').value;
-  if (firstOperand === '' || isNaN(firstOperand) || secondOperand === '' || isNaN(secondOperand)) {
+  if (firstOperand === '' || isNaN(+firstOperand) || secondOperand === '' || isNaN(+secondOperand)) {
     alert('Вы не ввели число!');
     return;
   }

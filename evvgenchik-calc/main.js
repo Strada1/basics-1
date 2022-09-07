@@ -23,7 +23,7 @@ function calc() {
 		case '/': finalResult = firstNum / secondNum
 			break
 	}
-	result.innerHTML = typeof ((finalResult).toFixed(10))
+	result.innerHTML = +((finalResult).toFixed(10))
 }
 
 

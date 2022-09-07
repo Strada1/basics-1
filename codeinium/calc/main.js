@@ -1,28 +1,31 @@
-function Calc() {
-    const elem = document.getElementById('action-select');
-    let first = document.getElementById('first');
-    first = first.textContent;
-    let second = document.getElementById('second');
-    second = second.textContent;
-    let answer = document.getElementById('answer')
-    let result;
 
-    switch (elem) {
-        case elem.value="+":
-            result = +first + +second;
+function calc() {
+    let select = document.getElementById("select");
+    let operation = select.value;
+    let a = +document.getElementById("a").value;
+    let b = +document.getElementById("b").value;
+    let result;
+    switch (operation) {
+        case "+": 
+            result = a + b;
+            answer.textContent = result;
             break;
-        case elem.value="-":
-            result = +first - +second;
+        case "-": 
+            result = a - b;
+            answer.textContent = result;
+            break
+        case "*":
+            result = a * b;
+            answer.textContent = result;
             break;
-        case elem.value="*":
-            result = +first * +second;
+        case "/":
+            result = (a / b).toFixed(3);
+            answer.textContent = result;
             break;
-        case elem.value="/":
-            result = +first / +second;
-            break;
-    }
-    return answer.textContent = result;
+        default: 
+            console.log('error');
+    } 
 }
 
 
-button.addEventListener('click', Calc);
+button.addEventListener('click', calc);

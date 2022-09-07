@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Calc </title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
 </head>
 <body>
     <div class="outer">
@@ -14,7 +13,7 @@
             <label for="first"></label>
             <input
                 type="text"
-                id="first"
+                id="a"
                 name="first"
                 required
                 size="10"
@@ -22,8 +21,7 @@
         </div>
         <div class="actionselection">
             <form>
-                <label for="action-select"></label>
-                <select name="action" id="action-select">
+                <select id="select">
                   <option value="+">+</option>
                   <option value="-">-</option>
                   <option value="*">*</option>
@@ -35,18 +33,19 @@
             <label for="second"></label>
             <input
                 type="text"
-                id="second"
+                id="b"
                 name="second"
                 required
                 size="10"
             >
         </div>
-        <div id="button">
-            <button name="button"> = </button>
+        <div id="but">
+            <button id="button"> = </button>
         </div>
         <div id="answer">
             
         </div>
     </div>
 </body>
+<script src="main.js"></script>
 </html>

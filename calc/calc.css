@@ -1,0 +1,26 @@
+.calc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+ -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  column-gap: 4px;
+  border-radius: 100px;
+  padding: 10px;
+  outline: 5px solid palevioletred;
+  background-color: rgb(247, 219, 224);
+
+}
+
+body {
+  background-image: url("https://funart.pro/uploads/posts/2021-04/1618493065_1-funart_pro-p-oboi-fon-khellou-kitti-1.jpg");
+}
+
+.number {
+  color: palevioletred;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

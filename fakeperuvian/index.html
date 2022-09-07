@@ -7,17 +7,33 @@
   <title>Document</title>
 </head>
 <body>
-    <input type="text">
+  <div class="container">
+    <input type="text" class="num" id="num1">
     <select name="operation" id="operation">
       <option value="+">+</option>
       <option value="-">-</option>
       <option value="*">*</option>
       <option value="/">/</option>
     </select>
-    <input type="text">
-    <class="select"><button>=</button>
-    <label for="text"></label>
+    <input type="text" class="num" id="num2">
+    <class="select"><button id="itog">=</button>
+    <span class="result" id="result"></span>
 
+</div>
+   
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 450px;
+}
 
+.num {
+    width: 95px;
+}
+</style>
+<script src="/basics-1/fakeperuvian/main.js"></script>
 </body>
 </html>

@@ -15,8 +15,12 @@ function changePriority(task,priority){
 }
 
 function showList(){
+    let result = {}
     console.log("To Do:");
-    console.log(list.find(item => item.status === "To Do").name);
+    for (for key in list){
+        result += console.log(list.find(item => item.status === "To Do").name);
+    }
+    console.log(result)
 }
 
 addTask("1","low");
@@ -24,4 +28,5 @@ addTask("af","low");
 addTask("asf","low");
 changeStatus("1","To Do");
 changePriority("1","Pohuy");
+console.log(list)
 showList();

@@ -1,8 +1,9 @@
-let button = document.getElementById("itog");
+const button = document.getElementById("itog");
 let res = document.getElementById("result");
 button.addEventListener("click", calc);
+
 function calc() {
-  let result
+  let result;
     let num1 = document.getElementById("num1").value;
     let num2 = document.getElementById("num2").value;
     let operation = document.getElementById("operation").value;

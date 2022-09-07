@@ -9,7 +9,7 @@ function calc() {
         case "+": 
             result = a + b;
             if (!isNaN(result)){
-                answer.textContent = result;
+                answer.textContent = +result.toFixed(10);
                 break;
             } else {
                 answer.textContent = 'ошибка при сложении'
@@ -18,7 +18,7 @@ function calc() {
         case "-": 
             result = a - b;
             if (!isNaN(result)){
-                answer.textContent = result;
+                answer.textContent = +result.toFixed(10);
                 break;
             } else {
                 answer.textContent = 'ошибка при вычитании'
@@ -27,20 +27,20 @@ function calc() {
         case "*":
             result = a * b;
             if (!isNaN(result)) {
-                answer.textContent = result;
+                answer.textContent = +result.toFixed(10);
                 break;
             } else {
                 answer.textContent = 'ошибка при умножении'
                 break;
             }
         case "/":
-            result = (a / b).toFixed(3);
+            result = (a / b);
             if (!isFinite(result)) {
                 answer.textContent = 'ошибка при делении';
                 break;
             } else {
-                result = (a / b).toFixed(3);
-                answer.textContent = result;
+                result = a / b;
+                answer.textContent = +result.toFixed(10);
                 break;
             }
     } 

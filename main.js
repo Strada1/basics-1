@@ -6,24 +6,23 @@ let button = document.getElementById("button")
 
 let result = document.getElementById("result")
 
-button.addEventListener("click", calc)
+button.addEventListener("click", callCalc)
+
+function callCalc () {
+	result.innerHTML = calc()
+}
 
 function calc (operation, number1, number2) {
 	let results;
 	switch (operation) {
 		case '+':
 			results = (number1 + number2);
-			result.innerHTML = +results
-			break;
+			return results;
 		case '*': 
 			results = (number1 * number2);
-			result.innerHTML = +results
-			break;
+			return results;
 		case '-': 	
 			results = (number1 - number2);
-			result.innerHTML = +results
-			break;
+			return results;
 	}
 }
-
-

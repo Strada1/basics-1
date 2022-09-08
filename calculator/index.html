@@ -9,16 +9,19 @@
   </head>
   <body>
     <form class="form">
-      <input type="text" name="Input" id="" value="5" />
-      <select name="" id="">
-        <option value="plus">+</option>
-        <option value="minus">-</option>
-        <option value="multiply">*</option>
-        <option value="divide">/</option>
+      <input type="text" name="Input" id="operand1" value="5" />
+      <select id="operation">
+        <option value="addition">+</option>
+        <option value="subtraction">-</option>
+        <option value="multiplication">*</option>
+        <option value="division">/</option>
+        <option value="modulo">%</option>
       </select>
-      <input type="text" name="Input" id="" value="5" />
-      <button>=</button>
-      <span>10</span>
+      <input type="text" name="Input" id="operand2" value="5" />
+      <button id="euqalsButton">=</button>
+      <span id="result">10</span>
     </form>
+
+    <script src="main.js"></script>
   </body>
 </html>

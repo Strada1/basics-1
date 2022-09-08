@@ -6,28 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>калькулятор</title>
-    <link rel="stylesheet" href="/calc.css">
+    <link rel="stylesheet" href="calc.css">
 </head>
 
 <body>
+    <div class="allah">
+    <h3>ради аллаха не вводи буковы, я проверки для них не сообразила...</h3>
+    </div>
     <div class="calc">
-        <input type="text" placeholder="0" class="firstnumber">
+        <input type="text" placeholder="0" id="number1">
 
-        <label for="number" class="action"></label>
-        <select>
+        <select id="action">
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="*">*</option>
             <option value="/">/</option>
         </select>
 
-        <input type="text" placeholder="0" class="secondnumber">
+        <input type="text" placeholder="0" id="number2">
 
-        <button class="answer">=</button>
-        <span class="number">10</span>
+        <button id="answer">=</button>
+        <div id="result" class="result">0</div>
 
     </div>
-    <script src="/calc.js"></script>
+    <script src="calc.js"></script>
 </body>
 
 </html>

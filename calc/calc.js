@@ -1,32 +1,43 @@
-let a = document.querySelector('.firstnumber')
-let b = document.querySelector('.secondnumber')
-let action = document.querySelector('.action')
-let answer = document.querySelector('.answer')
+let answer = document.getElementById("answer");
+answer.addEventListener("click", calc);
 
-/*a.addEventListener('click', calc)
-b.addEventListener('click', calc)
-action.addEventListener('click', calc)*/
-
-answer.addEventListener('click', calc)
-
+result1 = document.getElementById("result");
 
 function calc() {
-    switch (action) {
-      case "+":
-        console.log(a + b);
-        break;
+  let action = document.getElementById("action").value;
+  let a = document.getElementById("number1").value;
+  let b = document.getElementById("number2").value;
+  let result2;
 
-      case "-":
-        console.log(a - b);
-        break;
-      
+
+   if (a == '' || b == '') {
+    return result1.textContent = 'введи число пжшка (─‿‿─)'
+   }
+    else {
+    switch (action) {
+        case "+":
+          result2 = (+a + +b);
+          result1.innerHTML = result2;
+          break;
+
+        case "-":
+          result2 = a - b;
+          result1.innerHTML = result2;
+          break;
+
         case "*":
-        console.log(a * b);
-        break;
+          result2 = a * b;
+          result1.innerHTML = result2;
+          break;
 
         case "/":
-          console.log(a / b);
-          break;
-    }
-  }
+          if (+b === 0) {
+            return result1.textContent = 'запрещаю делить \t на ноль (￣︿￣)'
+          } else {
+            result2 = a / b;
+            result1.innerHTML = result2
+          }
+      }
+} 
 
+}

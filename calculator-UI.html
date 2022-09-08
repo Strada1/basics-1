@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Calculator UI</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <section>
+        <form id="calculator">
+            <input type="number" name="input" value="5" placeholder="A">
+            <select id="operator">
+                <option value="-">-</option>
+                <option value="+" selected>+</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="number" name="input" value="5" placeholder="B"/>
+           <input type="button" name="equals" value="=">
+            <span id="result">10</span>
+        </form>
+    </section> 
+
+    <style>
+        body{
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            color: #000000;
+        }  
+        section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        #calculator {
+            height: 33px;
+        }
+        input, select{
+            width:95px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            color: #000000;
+        }
+        select{
+            width:50px;
+            height:30px;
+        }
+        input[name="equals"]{
+            width:30px
+        }
+        </style>
+</body>
+</html>

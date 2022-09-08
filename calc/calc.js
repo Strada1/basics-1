@@ -1,3 +1,4 @@
+let answer = document.getElementById('answer')
 answer.addEventListener('click', calc)
 
 

@@ -1,31 +1,27 @@
-let a = document.querySelector('.firstnumber')
-let b = document.querySelector('.secondnumber')
-let action = document.querySelector('.action')
-let answer = document.querySelector('.answer')
-
-/*a.addEventListener('click', calc)
-b.addEventListener('click', calc)
-action.addEventListener('click', calc)*/
-
 answer.addEventListener('click', calc)
 
 
-function calc() {
+function calc() 
+action = document.getElementById('action').innerHTML
+a = document.getElementById('number1').innerHTML
+b = document.getElementById('number2').innerHTML
+result = document.getElementById('result').innerHTML
+{
     switch (action) {
       case "+":
-        console.log(a + b);
+        result = (a + b);
         break;
 
       case "-":
-        console.log(a - b);
+        result = (a - b);
         break;
       
         case "*":
-        console.log(a * b);
+        result = (a * b);
         break;
 
         case "/":
-          console.log(a / b);
+          result = (a / b);
           break;
     }
   }

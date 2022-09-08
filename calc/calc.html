@@ -11,9 +11,9 @@
 
 <body>
     <div class="calc">
-        <input type="text" placeholder="0" class="firstnumber">
+        <input type="text" placeholder="0" id="number1">
 
-        <label for="number" class="action"></label>
+        <label for="number" id="action"></label>
         <select>
             <option value="+">+</option>
             <option value="-">-</option>
@@ -21,10 +21,10 @@
             <option value="/">/</option>
         </select>
 
-        <input type="text" placeholder="0" class="secondnumber">
+        <input type="text" placeholder="0" id="number2">
 
-        <button class="answer">=</button>
-        <span class="number">10</span>
+        <button id="answer">=</button>
+        <span id="result">0</span>
 
     </div>
     <script src="/calc.js"></script>

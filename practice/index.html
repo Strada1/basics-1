@@ -5,25 +5,25 @@
   <title>Strada</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
 
 <div class="background">
   <label>
-    <input type="number"/>
+    <input id="value1" type="number"/>
   </label>
   <select name="select" id="select">
-    <option value="Чебурашка">+</option>
-    <option selected value="Крокодил Гена">-</option>
-    <option value="Шапокляк">*</option>
-    <option value="Крыса Лариса">/</option>
+    <option value="addition">+</option>
+    <option selected value="subtraction">-</option>
+    <option value="multiplication">*</option>
+    <option value="division">/</option>
   </select>
   <label>
-    <input type="number"/>
+    <input id="value2" type="number"/>
   </label>
+  <button id="buttonClick">click</button>
   <label>
-    <input type="number" placeholder="Результат"/>
+    <span id="result">Result:</span>
   </label>
 </div>
 
@@ -32,6 +32,7 @@
 <script src="toDoObject.js"></script>
 <script src="string.js"></script>
 <script src="toDoArray.js"></script>
+<script src="calc.js"></script>
 
 </body>
 </html>

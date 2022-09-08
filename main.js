@@ -12,16 +12,16 @@ function calc() {
 
         switch (operation.value) {
             case '+':
-                result.textContent = String(Number((Number(a.value) + Number(b.value)).toFixed(3)));
+                result.textContent = `${Number((Number(a.value) + Number(b.value)).toFixed(3))}`;
                 break
             case '*':
-                result.textContent = String(Number((a.value * b.value).toFixed(3)));
+                result.textContent = `${Number((a.value * b.value).toFixed(3))}`;
                 break
             case '-':
-                result.textContent = String(Number((a.value - b.value).toFixed(3)));
+                result.textContent = `${Number((a.value - b.value).toFixed(3))}`;
                 break
             case '/':
-                result.textContent = String(Number((a.value / b.value).toFixed(3)));
+                result.textContent = `${Number((a.value / b.value).toFixed(3))}`;
         }
     }
 

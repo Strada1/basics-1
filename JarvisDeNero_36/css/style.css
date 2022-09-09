@@ -1,0 +1,96 @@
+* {
+   box-sizing: border-box;
+}
+:active, :hover, :focus {
+   outline: 0;
+   outline-offset: 0;
+}
+body {
+   position: relative;
+   height: 100vh;
+   padding: 0 15px;
+   margin: 0;
+   background: #1a3f5b;
+   z-index: 0;
+}
+body::after {
+   content: 'S.T.R.A.D.A';
+   display: inline-block;
+   position: absolute;
+   right: -10%;
+   top: 400px;
+   font-size: 150px;
+   color: #fff;
+   text-shadow: 0px 5px 6px #4102ed;
+   filter: drop-shadow(20px 4px 10px black) opacity(0.3);
+   transform: rotate(90deg);
+   z-index: 0;
+}
+.container {
+   position: relative;
+   max-width: 1170px;
+   margin: 0 auto;
+   height: 100%;
+   background: #282641;
+   box-shadow: inset 0px 0px 10px 4px #1a3f5b, 0px 0px 4px 1px #ffffff;
+   z-index: 23;
+}
+.calc {
+}
+.calc__body {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
+   padding: 3em 0;
+}
+.body__input,
+.body__select,
+.body__result {
+   background: #fff;
+   border-radius: 12px;
+   overflow: hidden;
+   padding: 15px;
+   margin: 15px 7.5px 0 7.5px;
+   box-shadow: inset 0px 0px 4px 0px #000;
+}
+.body__input input,
+.body__select select,
+.body__result input {
+   width: auto;
+   border: none;
+   border-bottom: 2px solid;
+   border-color: #1a3f5b1f;
+   font-size: 18px;
+   transition: all 0.3s;
+}
+.body__input input:focus,
+.body__select select:focus,
+.body__result input:focus {
+   border-bottom: 2px solid #39c;
+}
+.equals__btn {
+   background: #fff;   
+   border-radius: 12px;  
+   overflow: hidden;  
+   padding: 17px; 
+   margin: 15px 7.5px 0 7.5px; 
+   box-shadow: inset 0px 0px 4px 0px #000;
+   width: auto;
+   border: none;
+   font-size: 18px;
+   transition: all 0.3s;
+   cursor: pointer;
+}
+.body__input {
+   
+}
+.body__input input {
+   
+}
+.body__select {
+}
+.body__result {
+}
+.result {
+}

@@ -75,8 +75,20 @@ const calc = (operation, number1, number2) => {
 };
 
 
+const addResultToList = (result) => {
+  const resultItemElement = document.createElement('li');
+  resultItemElement.className = 'calculator__result-item';
+  resultItemElement.textContent = result;
+  resultsListElement.prepend(resultItemElement);
+  resultsListElement.addEventListener('click', (evt) => {
+    evt.target.remove();
+  });
+};
+
+
 const resultButtonElement = document.querySelector('.result-button');
 const resultFieldElement = document.querySelector('.result-field');
+const resultsListElement = document.querySelector('.calculator__results-list');
 
 resultButtonElement.addEventListener('click', (evt) => {
   evt.preventDefault();
@@ -90,5 +102,6 @@ resultButtonElement.addEventListener('click', (evt) => {
 
   if (result !== null && result !== undefined) {
     resultFieldElement.textContent = result;
+    addResultToList(result);
   }
 });

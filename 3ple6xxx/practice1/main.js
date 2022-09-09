@@ -1,32 +1,39 @@
-const operations = {
-    add: '+',
-    multi:'*',
-    subtract: '-',
-    delenie: '/',
-    stepen: '**',
-    ostatok: '%',
-};
-function calc(operator,a,b) {
-    const num1 = Number(a);
-    const num2 = Number(b);
-    switch(operations[operator]) {
-        case '+':
-        return a+b;
-        case '*':
-        return a*b;
-        case '-':
-        return a-b;
-        case '/':
-        return a/b;
-        case '**':
-        return a**b;
-        case '%':
-        return a%b;
-    };
-};
-console.log(calc('add',1,2));
-console.log(calc('multi',1,2));
-console.log(calc('subtract',3,2));
-console.log(calc('delenie',6,2));
-console.log(calc('stepen',3,2));
-console.log(calc('ostatok',7,2));
+const button = document.getElementById("button");
+const result = document.getElementById("result");
+const calculations = document.getElementById("calculations");
+const numberOne = document.getElementById("numberOne");
+const numberTwo = document.getElementById("numberTwo");
+function resultSave(text) {
+  const div = document.createElement("div");
+  div.textContent = text;
+  result.prepend(div);
+  div.addEventListener("click", function () {
+    setTimeout(() => div.remove(), 1000);
+  });
+}
+button.addEventListener("click", function (event) {
+  const arg1 = Number(numberOne.value);
+  const arg2 = Number(numberTwo.value);
+  event.preventDefault();
+  if (arg1 === "" || arg2 === "") {
+    return (result.textContent = "Введите числа");
+  } 
+  const response = calc(calculations.value, arg1, arg2);
+  resultSave(response);
+});
+function calc(calculations, numberOne, numberTwo) {
+  switch (calculations) {
+    case "+":
+      return numberOne + numberTwo;
+    case "*":
+      return numberOne * numberTwo;
+    case "-":
+      return numberOne - numberTwo;
+    case "/":
+      return numberOne / numberTwo;
+    case "**":
+      return umberOne ** numberTwo;
+    case "%":
+      return numberOne % numberTwo;
+  }
+}

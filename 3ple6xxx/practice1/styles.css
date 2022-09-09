@@ -1,0 +1,23 @@
+.arguments {
+  weight: 95px;
+  height: 33px;
+}
+option {
+  color: #fff;
+  background: rgb(62, 63, 65);
+}
+.argument {
+  weight: 33px;
+  height: 39px;
+}
+.container {
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.containerform {
+display: flex;
+}
+

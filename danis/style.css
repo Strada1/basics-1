@@ -1,0 +1,81 @@
+body {
+    background-color: #1E1E1E;
+    margin: 0;
+}
+
+.container-calc {
+    background-color: #fff;
+    max-width: 71.4375rem;
+    width: 100%;
+    height: 75vh;
+    border-radius: 103px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 5rem;
+}
+
+.container-fluid {
+    height: 100vh;
+    align-items: center;
+    display: flex;
+}
+
+.container-parametrs-calc {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container-parametrs-calc  input {
+    width: 6rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid gray;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #303030;
+    background-color: #b7b7c3;
+    transition: all 0.3s ease-in-out;
+}
+
+.container-parametrs-calc  input:hover{
+    background-color: #ccccd0;
+    transition: all 0.3s ease-in-out;
+}
+
+#identifier {
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    color: #303030;
+    cursor: pointer;
+}
+
+.container-parametrs-calc  .disabled {
+    background: none;
+    border: none;
+}
+
+.result {
+    max-width: 5rem;
+    width: 5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#equals {
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: green;
+    border-radius: 0.5rem;
+    border: 1px solid gray;
+}

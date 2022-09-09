@@ -1,0 +1,38 @@
+.container {
+  max-width: auto;
+  height: 900px;
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.calc {
+  display: flex;
+  column-gap: 8px;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+}
+.calc__numb {
+  width: 95px;
+  height: 33px;
+}
+.calc__operation {
+  width: 39px;
+  height: 33px;
+  cursor: pointer;
+}
+.calc__btn {
+  width: 39px;
+  height: 33px;
+  background-color: white;
+  cursor: pointer;
+  border: 1px solid #000000;
+  border-radius: 4px;
+}
+.calc__result {
+  min-height: 400px;
+  margin-top: 383px;
+  cursor: pointer;
+}

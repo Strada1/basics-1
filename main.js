@@ -32,4 +32,3 @@ function сalc() {
 }
 
 btn.addEventListener('click', сalc);
-console.log(0.1);

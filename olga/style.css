@@ -1,0 +1,35 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"); */
+
+body {
+	background-color: #1e1e1e;
+}
+.calculator__wrapper {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.container {
+	max-width: 1440px;
+	width: 100%;
+	margin: 0 auto;
+}
+.calculator__inner {
+	width: 70%;
+	background-color: #fff;
+	border-radius: 6.43rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 8px;
+	min-height: 30rem;
+}
+.calculator__inner input {
+	width: 6rem;
+}
+.result {
+	background-color: transparent;
+	border: 1px solid;
+	border-radius: 4px;
+}

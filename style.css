@@ -15,7 +15,7 @@ body {
     border: 5px solid #8d1818;
     border-radius: 100px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 50px;
     padding-top: 150px;
     display: flex;
 }
@@ -72,4 +72,24 @@ body {
 
 .result {
     margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.error {
+    transition: all .1;
+    height: 50px;
+    width: 400px;
+    position: absolute;
+    left: 565px;
+    margin-top: 100px;
+    background-color: red;
+    border: 5px solid #1E1E1E;
+    border-radius: 10px;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    padding-top: -10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.15s opacity, 0.15s visibility;
 }

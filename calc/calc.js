@@ -12,8 +12,11 @@ function calc() {
 
    if (a == '' || b == '') {
     return result1.textContent = 'введи число пжшка (─‿‿─)'
-   }
-    else {
+   } if (isNaN(a)) {
+    return result1.textContent = 'введи число, это буковы (─‿‿─)'
+   } if (isNaN(b)) {
+    return result1.textContent = 'введи число, это буковы (─‿‿─)'
+   } else {
     switch (action) {
         case "+":
           result2 = (+a + +b);

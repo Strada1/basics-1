@@ -10,6 +10,11 @@ body {
     height: 75vh;
     border-radius: 103px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 5rem;
 }
 
 .container-fluid {
@@ -23,7 +28,7 @@ body {
     gap: 0.5rem;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    flex-wrap: wrap;
 }
 
 .container-parametrs-calc  input {
@@ -74,4 +79,3 @@ body {
     border-radius: 0.5rem;
     border: 1px solid gray;
 }
-

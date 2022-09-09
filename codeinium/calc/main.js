@@ -9,37 +9,37 @@ function calc() {
         case "+": 
             result = a + b;
             if (!isNaN(result)){
-                answer.textContent = +result.toFixed(10);
+                answers.insertAdjacentHTML('afterbegin', `<div onclick="this.remove()" class="answer">${+result.toFixed(10)}</div>`);
                 break;
             } else {
-                answer.textContent = 'ошибка при сложении'
+                answers.insertAdjacentHTML('afterbegin', `<div onclick="this.remove()" class="answer">Ошибка при сложении</div>`);
                 break;
             }
         case "-": 
             result = a - b;
             if (!isNaN(result)){
-                answer.textContent = +result.toFixed(10);
+                answers.insertAdjacentHTML('afterbegin', `<div onclick="this.remove()" class="answer">${+result.toFixed(10)}</div>`);
                 break;
             } else {
-                answer.textContent = 'ошибка при вычитании'
+                answers.insertAdjacentHTML('afterbegin', `<div onclick="this.remove()" class="answer">Ошибка при вычитании</div>`);
                 break;
             }
         case "*":
             result = a * b;
             if (!isNaN(result)) {
-                answer.textContent = +result.toFixed(10);
+                answers.insertAdjacentHTML('afterbegin', `<div onclick="this.remove()" class="answer">${+result.toFixed(10)}</div>`);
                 break;
             } else {
-                answer.textContent = 'ошибка при умножении'
+                answers.insertAdjacentHTML('afterbegin', `<div onclick="this.remove()" class="answer">Ошибка при умножении</div>`);
                 break;
             }
         case "/":
             result = a / b;
             if (!isFinite(result)) {
-                answer.textContent = 'ошибка при делении';
+                answers.insertAdjacentHTML('afterbegin', `<div onclick="this.remove()" class="answer">Ошибка при делении</div>`);
                 break;
             } else {
-                answer.textContent = +result.toFixed(10);
+                answers.insertAdjacentHTML('afterbegin', `<div onclick="this.remove()" class="answer">${+result.toFixed(10)}</div>`);
                 break;
             }
     } 

@@ -1,5 +1,16 @@
 div {
-    display: inline-block;
-    float: left;
-    margin: 2px;    
+    margin: 2px;
+}
+#answers {
+    display: block;
+    height: 21.5px;
+    text-align: left;
+}
+.outer {
+    display: flex; 
+    align-items: center;
+    align-content: center;
+    /* justify-content: center; */
+    margin-top: calc( 50vh - 25.5px );
+    margin-left: calc( 50vw - 125px );
 }

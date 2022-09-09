@@ -40,15 +40,9 @@ function getResultCalculator(operator, firstValue, secondValue) {
 }
 
 UI.BUTTON.addEventListener('click', () => {
-  const VALUES_CALCULATOR = {
-    FIRST_VALUE: Number(UI.FIRST_NUMBER.value),
-    SECOND_VALUE: Number(UI.SECOND_NUMBER.value),
-    OPERATOR: UI.OPERATOR.value,
-  };
-
   UI.RESULT.textContent = getResultCalculator(
     UI.OPERATOR.value,
-    VALUES_CALCULATOR.FIRST_VALUE,
-    VALUES_CALCULATOR.SECOND_VALUE,
+    Number(UI.FIRST_NUMBER.value),
+    Number(UI.SECOND_NUMBER.value),
   );
 });

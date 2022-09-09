@@ -33,7 +33,7 @@ p {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
-    padding: 80px;
+    padding: 30px;
 }
 select {
     font-size: 25px;
@@ -80,4 +80,17 @@ select:hover {
 .calculation:hover {
 background-color: rgb(192, 192, 192);
 
+}
+.history{
+    margin-left: 100px;
+    font-weight: bold;
+}
+.alert{
+    margin-left: 80px;
+    font-size: 18px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    background-color: white;
+    margin-right: 2000px;
 }

@@ -1,4 +1,5 @@
 let equalsButton = document.querySelector('.equals__btn');
+let clearButton = document.querySelector('.clear__all-btn');
 let select = document.querySelector('.select');
 let isFirstTime = true;
 
@@ -58,7 +59,19 @@ function runCalculation() {
     isFirstTime = false;
 }
 
+function clearHistory() {
+    let history = document.querySelectorAll('.result');
+    for (let i = 0; i < history.length; i++) {
+        history[i].remove();
+    }
+    document.querySelectorAll('.input')[0].value = 0;
+    document.querySelectorAll('.input')[1].value = 0;
+    document.querySelector('.actual__result').innerHTML = 0;
+}
+
 equalsButton.addEventListener('click', runCalculation);
 document.addEventListener('keyup', event => {
     if (event.code === 'Enter') runCalculation();
 });
+
+clearButton.addEventListener('click', clearHistory)

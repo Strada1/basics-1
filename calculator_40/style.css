@@ -1,0 +1,82 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  background-color: black;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+span,
+li {
+  width: 10px;
+}
+h3 {
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+li {
+  text-align: center;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 1143px;
+  margin: 0 auto;
+  height: 98vh;
+  background-color: white;
+  border-radius: 103px;
+}
+
+.calc_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+input[type='number'] {
+  width: 95px;
+  height: 33px;
+}
+
+.btn {
+  width: 39px;
+  height: 33px;
+}
+
+.nums {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 300px;
+}
+
+.resultsBlock {
+  height: 100px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.result {
+  margin-top: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.save_results {
+  text-align: center;
+  height: 20px;
+}

@@ -1,0 +1,29 @@
+body {
+    background-color: black;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 1143px;
+    height: 960px;
+    background: #FFFFFF;
+    border-radius: 103px;
+    
+
+    
+}
+
+input,.result{
+    margin: 5px;
+}
+
+
+
+.save{
+    color:red;
+    margin: 2px;
+
+}

@@ -30,10 +30,9 @@
 	font-size: xx-large;
 }
 
-.resultx {
-	font-size: xx-large;
+.answers {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 20px;
+	font-size: xx-large;
 }

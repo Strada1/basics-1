@@ -29,7 +29,7 @@ li {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  width: 1143px;
+  max-width: 1143px;
   margin: 0 auto;
   height: 98vh;
   background-color: white;

@@ -27,10 +27,7 @@ function saveResult(actualResult) {
     actualResult.after(previousResult);
 }
 
-equalsButton.addEventListener('click', function () {
-    let operand1 = +document.querySelectorAll('.input')[0].value;
-    let operand2 = +document.querySelectorAll('.input')[1].value;
-    let actualResult = document.querySelector('.actual__result');
+function errorCheck(operand1, operand2) {
     if (isNaN(operand1) || isNaN(operand2)) {
         let error = document.querySelector('.error');
         let timerId = setInterval(() => {
@@ -45,11 +42,23 @@ equalsButton.addEventListener('click', function () {
         setTimeout(() => {
             clearInterval(timerId);
         }, 3000);
-        return;
+        return true;
     }
+}
+
+function runCalculation() {
+    let operand1 = +document.querySelectorAll('.input')[0].value;
+    let operand2 = +document.querySelectorAll('.input')[1].value;
+    let actualResult = document.querySelector('.actual__result');
+    if (errorCheck(operand1, operand2)) return;
     if (!isFirstTime) {
         saveResult(actualResult);
     }
     actualResult.innerHTML = calculate(operand1, select.value, operand2);
     isFirstTime = false;
-})
+}
+
+equalsButton.addEventListener('click', runCalculation);
+document.addEventListener('keyup', event => {
+    if (event.code === 'Enter') runCalculation();
+});

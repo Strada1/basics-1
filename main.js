@@ -54,7 +54,7 @@ function runCalculation() {
     if (!isFirstTime) {
         saveResult(actualResult);
     }
-    actualResult.innerHTML = calculate(operand1, select.value, operand2);
+    actualResult.innerHTML = +calculate(operand1, select.value, operand2).toFixed(4);
     isFirstTime = false;
 }
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple calc</title>
+</head>
+
+<body>
+    <style>
+        /* стили для сохраняемого DIV */
+        .saveDiv {
+            font-weight: 600;
+            margin: 10px;
+            padding: 10px;
+            border: solid 1px black;
+            width: 20%;
+            font-size: 1.2em;
+            cursor: pointer;
+            background-color: gray;
+        }
+    </style>
+    <input type="text" id="firstNumber">
+    <select id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" id="secondNumber">
+    <input type="button" onclick="runCalc()" name="equals" value="=" size="3">
+    <input type="text" id="result">
+
+    <script src="script.js">
+    </script>
+</body>
+
+</html>

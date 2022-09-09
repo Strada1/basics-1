@@ -39,8 +39,9 @@ button.addEventListener("click", calc)
 		div.addEventListener('click', deleteDiv)
 		document.body.append(div)
 
-		function deleteDiv () {
-			div.remove()
+		function deleteDiv (event) {
+			
+			event.currentTarget.remove()
 		}	
 	}
 }

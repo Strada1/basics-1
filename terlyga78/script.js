@@ -12,7 +12,14 @@ function runCalc() {
         return;
     }
 
-    result.value = calc(operation.value, firstValue, secondValue);
+    let value = calc(operation.value, firstValue, secondValue);
+    result.value = value;
+
+    let div = document.createElement('div');
+    div.className = "saveDiv";
+    div.innerHTML = value;
+    div.onclick = () => div.remove();
+    document.body.append(div);
 }
 
 function convertStringToNumber(text) {

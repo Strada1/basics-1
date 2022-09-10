@@ -12,16 +12,21 @@
         <div  style="background-color: rgb(181, 181, 181); border-radius: 10%; 
         height: 400px; width: 400px; display: flex; justify-content: center;
         align-items: center; gap:5px">
-            <input id="firstNumb" size="5" name="First numb">
-            <select>
-                <option value = "add" title="addition">+</option>
-                <option value = "subtract" title="subtraction">-</option>
-                <option value = "multi" title="multiplication">*</option>
-                <option value = "div" title="division">/</option>
-            </select>
-            <input id="secondNumb" size="5" name="Second numb">
-            <button>=</button>
-            <output id="result" name="Result"></output>
+            <div id="calculator">
+                <input id="firstNumb" size="5" name="First numb">
+                <select>
+                    <option value = "add" title="addition">+</option>
+                    <option value = "subtract" title="subtraction">-</option>
+                    <option value = "multi" title="multiplication">*</option>
+                    <option value = "div" title="division">/</option>
+                </select>
+                <input id="secondNumb" size="5" name="Second numb">
+                <button>=</button>
+                <output id="result" size="5" name="Result"></output>
+                <div id="history" style="text-align: center;" >
+                    <p>История</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>

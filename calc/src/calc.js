@@ -5,9 +5,9 @@ const operations = {
     divide: 'divide'
 };
 
-
 export function calcObject( operation, firstNumber, secondNumber ) {
     let secondNum = document.querySelector(".secondNumber").value;
+    let result = document.querySelector(".result");
 
     switch (operation) {
         case (operations.add):

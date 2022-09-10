@@ -10,6 +10,7 @@ function calculate () {
    let inputNumber2 = document.body.children[0].children[0].children[2].value;
    let operation = document.getElementById('chooseMath').value;
    let results;
+   let result = document.getElementById('result')
    switch (operation) {
       case OPERATIONS.ADD:
          results = Number(inputNumber1) + Number(inputNumber2) ;
@@ -35,5 +36,6 @@ function calculate () {
 let btn = document.getElementById('button')
  
 btn.addEventListener('click', calculate);
+
 
 

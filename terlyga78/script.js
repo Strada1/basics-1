@@ -1,3 +1,8 @@
+import { calc } from './calc.js'
+
+const buttonEquals = document.getElementById("calcButton");
+buttonEquals.onclick = runCalc;
+
 function runCalc() {
     const firstNumber = document.getElementById("firstNumber");
     const operation = document.getElementById("operation");
@@ -24,26 +29,4 @@ function runCalc() {
 
 function convertStringToNumber(text) {
     return +text;
-}
-
-function calc(operation, num1, num2) {
-    const operations = { add: '+', multi: '*', subtract: '-', divide: '/' };
-    let result;
-    switch (operation) {
-        case operations.add:
-            result = num1 + num2;
-            break;
-        case operations.multi:
-            result = num1 * num2;
-            break;
-        case operations.subtract:
-            result = num1 - num2;
-            break;
-        case operations.divide:
-            result = num1 / num2;
-            break;
-        default:
-            result = undefined;
-    };
-    return result;
 }

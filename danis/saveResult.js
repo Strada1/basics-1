@@ -1,5 +1,3 @@
-import {calc} from './calc.js';
-
 //Создаем новый div, который будет содержать в себе сохраненный ответ
 export function saveResult(functionResult) {
 	let containerForNewDiv = document.querySelector(".container__saves-results");

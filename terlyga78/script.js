@@ -30,3 +30,4 @@ function runCalc() {
 function convertStringToNumber(text) {
     return +text;
 }
+

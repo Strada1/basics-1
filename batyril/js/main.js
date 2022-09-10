@@ -48,7 +48,7 @@ function renderingCalculationHistory(arr){
     return
   }
   let divResult = document.createElement('div');
-  divResult.className = 'calculator__previous-result';
+  divResult.classList.add('calculator__previous-result');
   divResult.textContent = `${arr[arr.length-1]}`
   UI.RESULT.after(divResult)
 }

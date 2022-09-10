@@ -9,7 +9,6 @@ function calc() {
   let b = document.getElementById("number2").value;
   let result2;
 
-
    if (a == '' || b == '') {
     return result1.textContent = 'введи число пжшка (─‿‿─)'
    } if (isNaN(a)) {
@@ -21,7 +20,7 @@ function calc() {
         case "+":
           result2 = (+a + +b);
           result1.innerHTML = result2;
-          break;
+         break;
 
         case "-":
           result2 = a - b;
@@ -42,5 +41,10 @@ function calc() {
           }
       }
 } 
-
+answer.addEventListener("click", save);
+ function save() {
+ let saveResult = document.createElement('div')
+ document.body.firstElementChild.nextElementSibling.append(saveResult)
+ saveResult.textContent = result2
+ }
 }

@@ -1,0 +1,46 @@
+body {
+    background: rgb(214, 145, 145);
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0 auto;
+
+}
+a {
+    text-decoration: none;
+    color: black;
+    
+}
+
+header {
+    background: rgb(160, 159, 159);
+    width: 850px;
+    margin: 0 auto;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    padding-top: 300px;
+
+}
+
+input.number {
+    width: 80px;  
+    position: relative;
+}
+
+.listofresults {
+    max-width: 250px;
+    min-height: 500px;;
+    display: block;
+    margin: 18px auto;
+    word-wrap: break-word;
+   
+}
+
+.res {
+    display: inline;
+    font-size: 25px;
+}
+
+

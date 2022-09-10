@@ -32,7 +32,7 @@ function handler() {
   if (firstNumber === '' || secondNumber === '') {
     result.textContent = 'Ошибка, введите число.';
   } else {
-    result.textContent = calc(option, firstNumber, secondNumber).toFixed(1);
+    result.textContent = +calc(option, firstNumber, secondNumber).toFixed(1); // применяем "+" приводим к числовому значению,так целое число запишется без остатка.
   }
   equals.removeEventListener('click', handler); // удаляем событие, так функция отработает лишь раз по клику.
 }

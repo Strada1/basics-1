@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="calculator.js" type="module"></script>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		button {
+			padding: 0;
+			border: none;
+			background: none;
+			cursor: pointer;
+		}
+
+		button,
+		input {
+			font-size: inherit;
+		}
+
+		.calculator {
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 24px;
+			font-family: sans-serif;
+			max-width: 350px;
+			margin-inline: auto;
+
+		}
+
+		.calculator_inner {
+			display: grid;
+			grid-template-columns: 95px 40px 95px 40px 40px;
+			align-items: flex-start;
+			gap: 10px;
+			margin-bottom: 20px;
+		}
+
+		.calculator_input {
+			display: block;
+			padding: 4px;
+		}
+
+		.calculator_input,
+		.calculator_equal {
+			border: 1px solid #000;
+		}
+
+		.calculator_equal,
+		.calculator_operations {
+			border-radius: 4px;
+		}
+
+		.calculator_operations {
+			background-color: #646464;
+			padding: 3px;
+			display: flex;
+			gap: 3px;
+		}
+
+		.calculator_operations-inner {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 3px;
+			flex: 1;
+		}
+
+		.calculator_controls {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 30%;
+			gap: 4px;
+		}
+
+		.calculator_controls button {
+			color: #fff;
+		}
+
+		.calculator_operation {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #fff;
+			width: 100%;
+		}
+
+		.calculator_operation--active {
+			background-color: blue;
+			border-radius: 4px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="calculator">
+		<div class="calculator_inner">
+			<input class="calculator_input" data-value="first-number" type="text">
+			<div class="calculator_operations">
+				<div class="calculator_operations-inner">
+					<button class="calculator_operation calculator_operation--active">+</button>
+					<button class="calculator_operation">-</button>
+					<button class="calculator_operation">*</button>
+					<button class="calculator_operation">/</button>
+				</div>
+				<div class="calculator_controls">
+					<button class="calculator_controls-prev">&#8679;</button>
+					<button class="calculator_controls-next">&#8681;</button>
+				</div>
+			</div>
+			<input class="calculator_input" data-value="second-number" type="text">
+			<button class="calculator_equal">=</button>
+			<div class="calculator_result">10</div>
+		</div>
+		<div class="calculator_results"></div>
+	</div>
+</body>
+
+</html>

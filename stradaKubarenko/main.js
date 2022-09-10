@@ -32,6 +32,8 @@ function calculate () {
    }
 };
 
+let btn = document.getElementById('button')
+ 
+btn.addEventListener('click', calculate);
 
-button.addEventListener('click', calculate);
 

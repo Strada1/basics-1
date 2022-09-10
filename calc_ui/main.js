@@ -1,28 +1,26 @@
 let equals = document.querySelector('.equals');
 let result = document.querySelector('.result');
-let firstNumber = document.querySelector('#first_number');
-let secondNumber = document.querySelector('#second_number');
-let option = document.querySelector('option');
+let firstNumber = document.querySelector('#first_number'.value);
+let secondNumber = document.querySelector('#second_number'.value);
+let option = document.querySelector('option'.value);
 
 function calс(value, a, b) {
   switch (value) {
-    case addition:
+    case 'addition':
       a + b;
       break;
 
-    case subtraction:
+    case 'subtraction':
       a - b;
       break;
 
-    case multiplication:
+    case 'multiplication':
       a * b;
       break;
 
-    case division:
+    case 'division':
       a / b;
       break;
-
-    default:
   }
 }
 

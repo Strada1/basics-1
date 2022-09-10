@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang = "ru">
+<head>
+    <meta charset = "UTF-8">
+    <title>calculator ui</title>
+    <link rel= stylesheet href= 'css/style.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="js/main.js" type="text/javascript" defer></script>
+</head>
+<body>
+    <div class="calculator">
+        <label class="calculator__wrapper">
+            <input placeholder="123.." class="calculator__number-first" type="number">
+            <select class="calculator__operators">
+                <option value = "+" >+</option>
+                <option value = "-" >-</option>
+                <option value = "*">*</option>
+                <option value = "/" >/</option>
+            </select>
+            <input placeholder="123.."  class="calculator__number-second" type="number">
+            <button class="calculator__button" > = </button>
+        </label>
+        <div class="calculator__results">
+            <div class="calculator__result">&#129300;</div>
+        </div>
+
+    </div>
+</body>
+</html>

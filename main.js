@@ -19,6 +19,7 @@ function calc(operator, a, b) {
 			return a / b
 		default:
 			console.log('Ошибка')
+			
 	}
 }
 

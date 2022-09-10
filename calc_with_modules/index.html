@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Калькулятор UI</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+      <div class="container">
+        <div class="calc_wrapper">
+          <div class="nums">
+            <input
+              type="number"
+              class="calc_numOne"
+              placeholder="5"
+              value="5"
+            />
+            <select class="calc_do">
+              <option value="add">+</option>
+              <option value="subtract">-</option>
+              <option value="multi">*</option>
+              <option value="divide">/</option>
+            </select>
+            <input
+              type="number"
+              class="calc_numTwo"
+              placeholder="5"
+              value="5"
+            />
+            <button class="btn">=</button>
+             <span class="fake-result">10</span>
+            
+          </div>
+          <div class="save">
+            <h3>Сохраненные результаты:</h3>
+            <ul class="resultsBlock">
+            </ul>
+          </div>
+          
+        </div>
+
+        
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

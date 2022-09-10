@@ -2,6 +2,7 @@ const calculator = document.querySelector('.calc');
 const firstInput = document.querySelector('.first-input');
 const lastInput = document.querySelector('.last-input');
 const result = document.querySelector('.result');
+const equals = document.querySelector('.equals');
 
 function calc(operator, a, b) {
 
@@ -19,19 +20,13 @@ function calc(operator, a, b) {
   }
 }
 
-calculator.addEventListener('change', (e) => {
-  const a = calc(e.target.value, +firstInput.value, +lastInput.value);
-  result.textContent = a;
-})
-
-firstInput.addEventListener('change', () => {
-  if (+firstInput.value && +lastInput.value) {
-    result.textContent = calc(calculator.value, +firstInput.value, +lastInput.value);
-  }
-})
-
-lastInput.addEventListener('change', () => {
-  if (+firstInput.value && +lastInput.value) {
-    result.textContent = calc(calculator.value, +firstInput.value, +lastInput.value);
-  }
+equals.addEventListener('click', () => {
+    const a = calc(calculator.value, +firstInput.value, +lastInput.value);
+    result.textContent = a;
+    const div = document.createElement('div');
+    div.addEventListener('click', () => {
+      div.remove();
+    })
+    div.textContent = a;
+    document.body.appendChild(div);
 })

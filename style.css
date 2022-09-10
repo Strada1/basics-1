@@ -11,8 +11,8 @@ select {
 }
 
 .equals {
-    width: 39px;
-    height: 33px;
-    border-radius: 4px;
+    padding: 5px 10px;
+    border: 2px solid;
+    cursor: pointer;
 }
 

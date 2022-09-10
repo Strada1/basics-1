@@ -26,7 +26,7 @@ const calc = function (){
             currentResult = firstNum / secondNum;
             break;
     }
-
+    currentResult = Number(currentResult.toFixed(10));
     result.textContent = currentResult;
 
     prevOperation = {
@@ -48,7 +48,7 @@ const showPrevious = function(){
     let placeInput = document.querySelector('.calc__results');
     if(oldResults.length > 1){
         let last = oldResults[oldResults.length - 2];
-        placeInput.insertAdjacentHTML('afterbegin', `<div class="calc__prev-result"><span>${last.id}. ${last.leftOperand} ${last.operator} ${last.rightOperand} = ${last.equal}</span></div>`);
+        placeInput.insertAdjacentHTML('afterbegin', `<div class="calc__prev-result"><span>${last.id}) ${last.leftOperand} ${last.operator} ${last.rightOperand} = ${last.equal}</span></div>`);
         console.log(last);
     }
 }

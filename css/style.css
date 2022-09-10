@@ -1,0 +1,63 @@
+body {
+	margin: 0;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin: 200px auto;
+	margin-bottom: 45px;
+	width: 1143px;
+}
+
+input {
+	width: 95px;
+	height: 33px;
+
+	margin-right: 8px;
+	border-radius: 5px;
+}
+
+select {
+	background: rgb(104, 104, 104);
+	color: white;
+
+	margin-right: 8px;
+
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+button {
+	width: 33px;
+	height: 39px;
+
+	margin-right: 8px;
+
+	border: 1px solid;
+	border-radius: 4px;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	justify-content: center;
+	align-items: flex-end;
+	width: 320px;
+	padding: 0;
+
+	margin: 0 auto;
+}
+
+.item {
+	padding: 5px;
+	border: 1px solid;
+	border-radius: 5px;
+
+	list-style-type: none;
+	margin-bottom: 5px;
+	cursor: pointer;
+}

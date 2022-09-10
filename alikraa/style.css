@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #000000;
+}
+
+.container {
+    margin: auto;
+    width: 1143px;
+    height: 1000px;
+    background-color: white;
+    border-radius: 183px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.firstNumber, .secondNumber, .operation, .equal {
+    margin-right: 7px;
+    border: 1px solid #000000;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+}
+
+.total, .results, .savedResult {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.results {
+    position: absolute;
+    margin: 0 auto;
+    margin-top: 250px;
+    margin-left: 435px; 
+
+    width: 150px;
+    height: 200px;
+    overflow: auto;
+}
+
+.firstNumber, .secondNumber {
+    width: 95px;
+    height: 33px;
+}
+
+.equal, .operation {
+    width: 39px;
+    height: 33px;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.equal:hover, .operation:hover, .operation:focus {
+    background-color: rgb(184, 184, 184);
+    cursor: pointer;
+}
+
+.equal:active, .operation:active {
+    background-color: rgb(121, 119, 119);
+    cursor: pointer;
+}
+
+.savedResult:hover, .savedResult:active {
+    cursor: pointer;
+    text-decoration: underline;
+}

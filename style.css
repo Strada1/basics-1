@@ -1,0 +1,74 @@
+body {background-color: #1E1E1E;}
+
+#mainField {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1143px;
+    height: 1000px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 103px;
+}
+
+@media (max-width: 960px) {
+#mainField {
+    width: 840px;
+    height: 400px;}
+}
+
+@media (max-width: 390px) {
+    #mainField {
+        width: 350px;
+        height: 400px;}
+    }
+    
+#centerField {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    height: 96px;
+    background-color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+@media (max-width: 390px) {
+    #centerField{
+        width: 340px;
+        font-size: 15px;
+    }
+}
+
+#numField1, #numField2 {
+    width: 95px;
+    height: 33px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #1E1E1E;
+    border-radius: 2px;
+}
+
+#sumField  {
+    width: 67px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#equalsField {
+    width: 39px;
+    height: 40px;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+#totalField {
+    width: 95px;
+    height: 33px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #1E1E1E;
+    border-radius: 2px;
+}

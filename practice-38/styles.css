@@ -1,0 +1,109 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    background-image: url('/img/11.jpg');
+    background-repeat:repeat-y;
+    background-position: center;
+    background-attachment: scroll;
+}
+
+.container {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-center;
+    width: 90%;
+    min-height: 50vh;
+    background-color: aliceblue;
+    border-radius: 103px;
+    gap: 4px;
+    padding-top: 300px;
+    padding-bottom: 40px;
+    box-shadow: inset 1px 1px 50px 5px rgb(93, 246, 5);
+    background-color: #000000;
+}
+
+.calculator {
+    width: 550px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+}
+
+.save-result {
+    width: 500px;
+    row-gap: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-left: 4px;
+}
+
+input[type = text] {
+    font-size: 20px;
+    font-family: Inter;
+    box-sizing: border-box;
+    width: 95px;
+    height: 33px;
+    padding: 4px 5px 5px 10px;
+    border: 1px solid #000000;
+    border-radius: 2px;
+    box-shadow: 1px 1px 5px rgb(127, 255, 0);
+}
+
+button {
+    width: 39px;
+    height: 33px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgb(127, 255, 0);
+}
+
+.result {
+    display: flex;
+    align-items: center;
+    background-color: chartreuse;
+    width: 200px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 0 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgb(127, 255, 0);
+}
+
+.result:hover,
+input[type = text]:hover,
+select:hover  {
+    box-shadow: 2px 2px 5px rgb(245, 245, 245);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+select {
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgb(127, 255, 0);
+    height: 30px;
+    border-radius: 50%;
+}
+
+.error::before {
+    content: 'ERROR';
+    letter-spacing: 5px;
+    color: red;
+    font-size: 100px;
+    font-weight: 900;
+    text-shadow: 
+    1px 1px 5px #f4062e,
+    -1px -1px 5px #f4062e;
+    position: absolute;
+    top: 25%;
+}

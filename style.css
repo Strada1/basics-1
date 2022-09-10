@@ -1,0 +1,32 @@
+.calculator {
+    width: 1143px;
+    height: 1000px;
+    border-radius: 103px;
+    background: #fff;
+    margin: 0 auto;
+}
+
+.numbers {
+    height: 100%;
+    width: 342px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto; 
+}
+
+body {
+    background: #000;
+}
+
+.number {
+    width: 95px;
+}
+
+.operation {
+    width: 39px;
+}
+
+.operation-result {
+    cursor: pointer;
+}

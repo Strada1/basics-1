@@ -1,0 +1,30 @@
+body {
+    background-color: #1E1E1E;
+}
+
+.wrapper {
+    width: 600px;
+    height: 600px;
+    background-color: rgb(250, 240, 228);
+    border: 1px solid black;
+    border-radius: 10%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-calc {
+    margin: 50px 100px;
+}
+
+input {
+    width: 95px;
+}
+
+.result-save__item {
+    cursor: pointer;
+    padding-left: 5px;
+    border-left: 2px solid #000;
+}

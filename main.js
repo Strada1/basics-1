@@ -35,6 +35,7 @@ function handler1(){
     let div = document.createElement('div');
     div.className = "list";
     div.innerHTML = result.value;
+    div.onclick = () => div.remove();
     document.body.append(div);
 }
 
@@ -43,6 +44,7 @@ function handler2(){
     let div = document.createElement('div');
     div.className = "list";
     div.innerHTML = result.value;
+    div.onclick = () => div.remove();
     document.body.append(div);
 }
 
@@ -51,6 +53,7 @@ function handler3(){
     let div = document.createElement('div');
     div.className = "list";
     div.innerHTML = result.value;
+    div.onclick = () => div.remove();
     document.body.append(div);
 }
 
@@ -61,6 +64,7 @@ function handler4(){
         let div = document.createElement('div');
         div.className = "list";
         div.innerHTML = result.value;
+        div.onclick = () => div.remove();
         document.body.append(div);
     }
     else {
@@ -68,6 +72,7 @@ function handler4(){
         let div = document.createElement('div');
         div.className = "list";
         div.innerHTML = result.value;
+        div.onclick = () => div.remove();
         document.body.append(div);
     }
     }
@@ -100,7 +105,6 @@ function changeOperation(){
         elem.removeEventListener('click', handler3);
     }
 }
-
 
 
 select.addEventListener("change", changeOperation);

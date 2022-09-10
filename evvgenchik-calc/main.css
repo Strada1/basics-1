@@ -1,0 +1,67 @@
+.wrapper {
+	font-size: 25px;
+}
+
+.container {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.calculator {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	overflow: auto;
+}
+
+.input-one input {
+	border: 1px solid #000000;
+	max-width: 140px;
+	height: 23px;
+	font-size: 20px;
+}
+
+.operatorss {
+	height: 30px;
+}
+.operatorss__list {
+	background-color: grey;
+	height: 100%;
+	font-size: 25px;
+}
+.operatorss::after {
+	content: "^";
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	transform: translate(-48%, 0) rotate(180deg);
+}
+
+.list__operator {
+	font-size: 16px;
+}
+
+.checkmark.fa-solid.fa-check {
+	display: none;
+}
+
+.input-two input {
+	border: 1px solid #000000;
+	max-width: 140px;
+	height: 23px;
+	font-size: 20px;
+}
+
+.equals {
+	height: 25px;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.result {
+	height: 25px;
+	padding-right: 15px;
+}

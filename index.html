@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../main.css" />
+    <title>Calc</title>
+  </head>
+  <body>
+    <div class="container">
+      <section class="calc">
+        <input type="number" class="calc__numb first" id="first-number" />
+        <select class="calc__operation" id="calc">
+          <option id="add">+</option>
+          <option id="sub">-</option>
+          <option id="multi">*</option>
+          <option id="dell">/</option>
+        </select>
+        <input type="number" class="calc__numb second" id="second-number" />
+        <button class="calc__btn" id="btn">=</button>
+      </section>
+      <div class="calc__result" id="result"></div>
+    </div>
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>

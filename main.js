@@ -1,9 +1,31 @@
-//Создать простой калькулятор с именем сalc, который будет принимать значение a и значение b, а так же идентификатор нужного действия.
- 
-//Пример вызова такой функции calc
-//сalc(‘add’, 1, 2) - возвращает 3
-//сalc(‘multi’, 1, 2) - возвращает 2
-//сalc(’subtract’, 3, 2) - возвращает 1
+/*В вашей только что написанной программе “Калькулятор” добавьте сохранение всех результатов: после каждого расчёта (клика по кнопке “=” ) добавляйте новый div под строкой калькулятора и записывайте в него результат вычислений. После нескольких расчетов у вас получится что-то похожее на:
+12
+32
+43
+545
+12
+По клику на каждое из этих чисел - удаляйте его див из разметки. 
+У вас будет 2 операции из новой темы: добавление узла в DOM и удаление узла. А еще вам нужно будет “вешать” события на только что созданные “дивы”. Это не самая простая задача, но разве вас уже можно хоть чем-то напугать
+*/
+
+const firstNumber = document.getElementById("number1");
+const secondNumber = document.getElementById("number2");
+const operation = document.getElementById("operation");
+const result = document.getElementById("result");
+
+function runCalc() {
+    let firstValue = Number(firstNumber.value);
+    let secondValue = Number(secondNumber.value);
+    let value = calc(operation.value, firstValue, secondValue);
+    result.value = value;
+
+    let div = document.createElement('div');
+    div.className = "list";
+    div.innerHTML = result.value;
+    div.onclick = () => div.remove();
+    document.body.append(div);
+}
+
 
 function calc(operation, num1, num2) {
     const operations = {
@@ -30,82 +52,4 @@ function calc(operation, num1, num2) {
     } 
 }
 
-function handler1(){
-    result.value = calc("+", +number1.value, +number2.value);
-    let div = document.createElement('div');
-    div.className = "list";
-    div.innerHTML = result.value;
-    div.onclick = () => div.remove();
-    document.body.append(div);
-}
-
-function handler2(){
-    result.value = calc("-", +number1.value, +number2.value);
-    let div = document.createElement('div');
-    div.className = "list";
-    div.innerHTML = result.value;
-    div.onclick = () => div.remove();
-    document.body.append(div);
-}
-
-function handler3(){
-    result.value = calc("*", +number1.value, +number2.value);
-    let div = document.createElement('div');
-    div.className = "list";
-    div.innerHTML = result.value;
-    div.onclick = () => div.remove();
-    document.body.append(div);
-}
-
-function handler4(){
-    let divideResult = calc(":", +number1.value, +number2.value);
-    if (divideResult===(Math.round(divideResult))) {
-        result.value = divideResult;
-        let div = document.createElement('div');
-        div.className = "list";
-        div.innerHTML = result.value;
-        div.onclick = () => div.remove();
-        document.body.append(div);
-    }
-    else {
-        result.value = divideResult.toFixed(2);
-        let div = document.createElement('div');
-        div.className = "list";
-        div.innerHTML = result.value;
-        div.onclick = () => div.remove();
-        document.body.append(div);
-    }
-    }
-
-function changeOperation(){
-    if (select.value=="sum"){
-        elem.addEventListener('click', handler1);
-
-        elem.removeEventListener('click', handler2);
-        elem.removeEventListener('click', handler3);
-        elem.removeEventListener('click', handler4);
-
-    }
-    if (select.value=="minus"){
-        elem.addEventListener('click', handler2);
-        elem.removeEventListener('click', handler1);
-        elem.removeEventListener('click', handler3);
-        elem.removeEventListener('click', handler4);
-    }
-    if (select.value=="multiply"){
-        elem.addEventListener('click', handler3);
-        elem.removeEventListener('click', handler1);
-        elem.removeEventListener('click', handler2);
-        elem.removeEventListener('click', handler4);
-    }
-    if (select.value=="divide"){
-        elem.addEventListener('click', handler4);
-        elem.removeEventListener('click', handler1);
-        elem.removeEventListener('click', handler2);
-        elem.removeEventListener('click', handler3);
-    }
-}
-
-
-select.addEventListener("change", changeOperation);
-changeOperation();
+elem.onclick = runCalc;

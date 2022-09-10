@@ -13,7 +13,7 @@ export function calcObject( operation, firstNumber, secondNumber ) {
         case (operations.add):
             return +firstNumber + +secondNumber;
         case (operations.multi):
-            return  firstNumber * secondNumber;
+            return  firstNumber * secondNumber ;
         case (operations.subtract):
             return  firstNumber - secondNumber;
         case (operations.divide):

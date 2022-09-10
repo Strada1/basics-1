@@ -4,10 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator UI</title>
 </head>
 <body>
+    <div class="wrapper">
+        <div class="container">
+            <input id="first_number" type="numeric" />
+            <select name="select"> <!--Supplement an id here instead of using 'name'-->
+                <option value="addition" selected> + </option>
+                <option value="subtraction"> - </option>
+                <option value="multiplication"> * </option>
+                <option value="division"> / </option>
+            </select>
+            <input id="second_number" type="numeric" />
+            
+            <div>
+                <button class="equals"> = </button>
+                <span  class="result"></span>
+            </div>
+        </div>
+        <div>
+            <button class="clear">Очистить поля</button>
+        </div>
+    </div>
     
+
+
+    <style>
+
+        .wrapper {
+            text-align: center;
+        }
+
+        .container{
+            display: flex;
+            justify-content: center;
+            margin-top: 120px;
+        }
+
+        .container input, select, button {
+            margin: 5px;
+        }
+
+    </style>
+
     <script src="main.js"></script>
 </body>
 </html>

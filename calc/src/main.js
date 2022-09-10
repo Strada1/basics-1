@@ -1,4 +1,4 @@
-import {divide} from './calcDivide.js';
+import {calcObject} from './calc.js';
 
 
 let equals = document.querySelector(".equals");
@@ -6,36 +6,9 @@ let result = document.querySelector(".result");
 let history = document.querySelector(".history");
 let clear = document.querySelector(".clear");
 
-const operations = {
-    add: 'add',
-    multi:'multi',
-    subtract: 'subtract',
-    divide: 'divide'
-};
 
 
-function calcObject( operation, firstNumber, secondNumber ) {
-    let secondNum = document.querySelector(".secondNumber").value;
 
-    switch (operation) {
-        case (operations.add):
-            return +firstNumber + +secondNumber;
-        case (operations.multi):
-            return  firstNumber * secondNumber;
-        case (operations.subtract):
-            return  firstNumber - secondNumber;
-        // case (operations.divide):
-        //
-        //     if (secondNum === "0"){
-        //         result.textContent = "can't divide by zero"
-        //     } else{
-        //         return  firstNumber / secondNumber;
-        //     }
-
-        default:
-            return "unknown operation";
-    }
-}
 
 function checkInput(firstNumber,secondNumber) {
     let checkInput = (firstNumber === "" || secondNumber === "" )
@@ -62,10 +35,7 @@ equals.addEventListener("click", function () {
     if ( checkInput(firstNumber,secondNumber) ) {
         console.log("Is not number");
         result.textContent = "Is not number";
-    } if ( operation === operations.divide){
-        let calc = divide(firstNumber, secondNumber).toFixed(5);
-        result.textContent =  Number(calc);
-    }else {
+    }  else {
         let calc = calcObject(operation, firstNumber, secondNumber).toFixed(5);
         result.textContent =  Number(calc);
     }

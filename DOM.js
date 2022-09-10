@@ -1,0 +1,6 @@
+export const $arg1 = document.querySelector('#arg1')
+export const $arg2 = document.querySelector('#arg2')
+export const $operation = document.querySelector('select')
+export const $equal = document.querySelector('.equal')
+export const $result = document.querySelector('.result')
+export const $subResults = document.querySelector('.sub-results')

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parcanec_calc</title>
+    <script src="calc.js" defer></script>
+</head>
+<body>
+    <div style="display: flex; justify-content: center;">
+        <div  style="background-color: rgb(181, 181, 181); border-radius: 10%; 
+        height: 400px; width: 400px; display: flex; justify-content: center;
+        align-items: center; gap:5px">
+            <div id="calculator">
+                <input id="firstNumb" size="5" name="First numb">
+                <select>
+                    <option value = "add" title="addition">+</option>
+                    <option value = "subtract" title="subtraction">-</option>
+                    <option value = "multi" title="multiplication">*</option>
+                    <option value = "div" title="division">/</option>
+                </select>
+                <input id="secondNumb" size="5" name="Second numb">
+                <button>=</button>
+                <output id="result" size="5" name="Result"></output>
+                <div id="history" style="text-align: center;" >
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

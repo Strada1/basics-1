@@ -1,31 +1,12 @@
+import {calc} from './calc.js';
+import {saveResult} from './saveResult.js';
+
 let equals = document.querySelector("#equals");
 let result = document.querySelector(".result");
 let operator = document.querySelector("#identifier");
 let firstNumber = document.querySelector(".a");
 let secondNumber = document.querySelector(".b");
 let functionResult;
-
-let containerForNewDiv = document.querySelector(".container__saves-results");
-
-//Создаем новый div, который будет содержать в себе сохраненный ответ
-function saveResult(functionResult) {
-	
-	let myDiv = document.createElement("div");
-
-	//Вешаем на него сразу событие клика, чтобы по клику удалялся
-	myDiv.addEventListener("click", function () {
-		myDiv.remove();
-	});
-
-	//стили для создаваемого div
-	myDiv.style.cursor = "pointer";
-	myDiv.style.width = "fit-content";
-	myDiv.style.margin = "0 auto";
-
-	//Передаем в новый созданный div результат функции
-	myDiv.textContent = functionResult;
-	containerForNewDiv.append(myDiv);
-}
 
 //вешаем событие на кнопку равно
 equals.addEventListener("click", function () {
@@ -48,19 +29,4 @@ equals.addEventListener("click", function () {
 	}
 });
 
-//сама функция калькулятора
-function calc(identifier, a, b) {
-	switch (identifier) {
-		case "+":
-			return Number(a) + Number(b);
 
-		case "*":
-			return a * b;
-
-		case "-":
-			return a - b;
-
-		case "/":
-			return a / b;
-	}
-}

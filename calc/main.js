@@ -1,4 +1,5 @@
 function calc( operator, num1, num2 ) {
+
     const operations = {
         add: '+',
         multi: '*',
@@ -19,4 +20,4 @@ function calc( operator, num1, num2 ) {
 
 calc( '+', 1, 2 );
 calc( '*', 1, 2);
-calc( '-', 3,2);
+calc( '-', 3, 2);

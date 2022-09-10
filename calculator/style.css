@@ -28,11 +28,10 @@ body {
 }
 
 .calculator__form {
-  position: relative;
   min-width: 340px;
   margin-bottom: 10px;
   padding-top: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
 }
 
 .calculator__wrapper {
@@ -98,11 +97,9 @@ body {
 }
 
 .calculator__error {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   max-width: 400px;
-  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .error-field {

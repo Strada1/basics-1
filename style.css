@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 20px;
+    font-weight: 400;
+    background-color: #1E1E1E;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: inherit;
+}
+
+.calculator {
+    background-color: #fff;
+    height: 400px;
+    width: 510px;
+    border: 5px solid #8d1818;
+    border-radius: 100px;
+    margin: auto;
+    margin-top: 50px;
+    padding-top: 150px;
+    display: flex;
+}
+
+.container {
+    max-width: 400px;
+    margin-left: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    flex-wrap: nowrap;
+}
+
+.input {
+    height: 33px;
+    width: 95px;
+    font-size: 20px;
+    border: 3px #8a4949 solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.select {
+    height: 33px;
+    width: 39px;
+    background-color: #646464;
+    border-radius: 5px;
+    color: white;
+    position: relative;
+    bottom: 2px;
+}
+
+.equals__btn {
+    height: 33px;
+    width: 39px;
+    background-color: #646464;
+    border-radius: 5px;
+    border: 1px #646464 solid;
+    color: white;
+    position: relative;
+    bottom: 2px;
+}
+
+.result__container {
+    margin-left: 10px;
+    width: 50px;
+    font-size: 25px;
+}
+
+.actual__result {
+    padding-left: 5px;
+    height: 33px;
+    width: 80px;
+    font-size: 23px;
+    border: 3px solid #d07c7c;
+    border-radius: 5px;
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.result {
+    margin-bottom: 10px;
+    padding-left: 8px;
+    cursor: pointer;
+}
+
+.error {
+    transition: all .1;
+    height: 50px;
+    width: 400px;
+    position: absolute;
+    left: 492px;
+    margin-top: 60px;
+    background-color: red;
+    border: 5px solid #1E1E1E;
+    border-radius: 10px;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    padding-top: -10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.15s opacity, 0.15s visibility;
+}
+
+.clear__all-btn {
+    width: 80px;
+    height: 33px;
+    border: 3px solid #d07c7c;
+    border-radius: 5px;
+    font-size: 20px;
+}

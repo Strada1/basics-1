@@ -53,21 +53,20 @@ function calc() {
           result1.innerHTML = result2;
         }
     }
-    let ul = document.createElement("ul");
-    document.body.append(ul);
-    ul.className = "saveResult";
+  }
+  let ul = document.createElement("ul");
+  document.body.append(ul);
+  ul.className = "saveResult";
+
+  answer.addEventListener("click", save);
+
+  function save() {
+    let save = document.createElement("ol");
+    document.body.lastElementChild.append(save);
+    save.textContent = result2;
     
-    answer.addEventListener("click", save);
-    
-    function save() {
-      let save = document.createElement("ol");
-      document.body.lastElementChild.append(save);
-      save.textContent = result2;
-    }
-    save.addEventListener("click", deleteol);
-    
-    function deleteol() {
+    save.addEventListener("click", function () {
       save.remove();
-    }
+    });
   }
 }

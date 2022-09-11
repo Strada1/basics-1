@@ -1,3 +1,4 @@
+import {rememberAnswer} from './rememberAnswer';
 let button = document.getElementById('button');
 let result = document.querySelector(".result");
 button.addEventListener('click', calc);
@@ -33,12 +34,4 @@ function calc() {
     };
 };
 
-function rememberAnswer(answer) {
-    let div = document.createElement('div');
-    div.className = 'answers';
-    div.innerHTML = answer;
-    document.body.append(div);
-    div.onclick = function(event) {
-        event.currentTarget.remove();
-      };
-}
+rememberAnswer(answer)

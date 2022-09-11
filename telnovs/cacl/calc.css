@@ -93,6 +93,7 @@ body {
   width: 95px;
   height: 33px;
   border:  1px solid  black;
+  text-align: center;
 }
 .calculation , .result{
   display: inline;

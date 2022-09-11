@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <main class="main">
+      <section class="calculator">
+        <form class="calculator__form">
+          <div class="calculator__wrapper">
+            <input class="calculator__field operand-field" type="number" value="">
+
+            <select class="calculator__field operator-selector" name="operator-selector">
+              <option value="+">+</option>
+              <option value="-">-</option>
+              <option value="*">*</option>
+              <option value="/">/</option>
+            </select>
+
+            <input class="calculator__field operand-field" type="number" value="">
+            <button class="calculator__field result-button" type="submit">=</button>
+            <span class="calculator__field result-field"></span>
+          </div>
+
+          <p class="calculator__error error-field error-field--hidden"></p>
+        </form>
+
+        <ul class="calculator__results-list"></ul>
+      </section>
+
+    </main>
+
+    <script src="./js/main.js" type="module"></script>
+  </body>
+</html>

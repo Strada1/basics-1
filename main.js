@@ -1,24 +1,6 @@
-let equalsButton = document.querySelector('.equals__btn');
-let clearButton = document.querySelector('.clear__all-btn');
-let select = document.querySelector('.select');
+import {equalsButton, clearButton, select} from './view.js';
+import {calculate} from './calc.js';
 let isFirstTime = true;
-
-const OPERATIONS = {
-    ADD: 'add',
-    SUBTRACT: 'subtract',
-    MULTI: 'multi',
-}
-
-function calculate(operand1, action, operand2) {
-    switch (action) {
-        case OPERATIONS.ADD:
-            return operand1 + operand2;
-        case OPERATIONS.SUBTRACT:
-            return operand1 - operand2;
-        case OPERATIONS.MULTI:
-            return operand1 * operand2;
-    }
-}
 
 function saveResult(actualResult) {
     let previousResult = document.createElement('div');

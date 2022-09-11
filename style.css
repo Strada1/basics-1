@@ -6,6 +6,7 @@ body {
     font-size: 20px;
     font-weight: 400;
     background-color: #1E1E1E;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
@@ -76,7 +77,7 @@ button {
     padding-left: 5px;
     height: 33px;
     width: 80px;
-    font-size: 25px;
+    font-size: 23px;
     border: 3px solid #d07c7c;
     border-radius: 5px;
     margin-top: 0px;

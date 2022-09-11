@@ -1,3 +1,5 @@
+import addDiv from './addDiv.js'
+
 let result = document.getElementById('calculation');
 
 result.addEventListener('click', calc);
@@ -37,30 +39,9 @@ function calc(){
       }
         
     }
-    let parrent = document.querySelector(".calc")
-    let div =document.createElement('div');
-    div.className = " newDiv";
-    div.style.cssText = 'display: flex; justify-content: right; text-aling: rigth; color:blue'
-    parrent.append(div);
-    div.textContent = `${resultNew}`;
-    div.addEventListener('click', deleteDiv)
-    function deleteDiv (){
-        div.remove()
-        console.dir(div)
-    }
+     addDiv()   
 
   }
 
-  return  result
+  return  resultNew
 }
-
-// function addDiv(){
-//   let parrent = document.querySelector(".calc")
-//   let div =document.createElement('div');
-//   div.className = " newDiv";
-//   div.style =  "text-align: rigth"
-//   parrent.append(div);
-//   // div.insertAdjacentHTML('beforebegin', 'parrent')
-//   console.log(parrent)
-// } 
-// addDiv();

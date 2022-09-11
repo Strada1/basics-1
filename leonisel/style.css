@@ -1,0 +1,46 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 20px;
+}
+
+.container {
+  /* border: 1px solid red; */
+  margin: 20% 42%;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.operand {
+  width: 95px;
+  height: 33px;
+}
+
+.equal-wrapper {
+  border: 1px solid black;
+  width: 39px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.equal-wrapper:hover {
+  transform: scale(1.05);
+  background-color: bisque;
+}
+
+.equal-wrapper:active {
+  transform: scale(1);
+  background-color: rgb(250, 207, 155);
+}

@@ -3,13 +3,14 @@ let result = document.querySelector('.result_number');
 let firstNumber = document.querySelector('#first_number').value;
 let secondNumber = document.querySelector('#second_number').value;
 let option = document.querySelector('.select_value').value;
+let list = document.querySelector('.result_list');
 
 function calc(valueOpt, a, b) {
   let res = 0;
 
   switch (valueOpt) {
     case 'addition':
-      res = +a + +b; // применяем "+" приводим к числовому значению, чтобы не было конкатенации.
+      res = Number(a) + Number(b); // применяем "Number" приводим к числовому значению, убераем конкатенацию.
       break;
 
     case 'subtraction':
@@ -28,13 +29,25 @@ function calc(valueOpt, a, b) {
 }
 
 function handler() {
-  console.log(calc);
   if (firstNumber === '' || secondNumber === '') {
     result.textContent = 'Ошибка, введите число.';
   } else {
-    result.textContent = +calc(option, firstNumber, secondNumber).toFixed(1); // применяем "+" приводим к числовому значению,так целое число запишется без остатка.
+    result.textContent = Number(
+      calc(option, firstNumber, secondNumber).toFixed(1)
+    );
   }
-  equals.removeEventListener('click', handler); // удаляем событие, так функция отработает лишь раз по клику.
+
+  list.insertAdjacentHTML(
+    'afterend',
+    `<div class="item_list">${result.textContent}</div>`
+  );
+
+  let item = document.querySelector('.item_list');
+  function deleteItem(item) {
+    item.currentTarget.remove();
+  }
+
+  item.addEventListener('click', deleteItem);
 }
 
 equals.addEventListener('click', handler);

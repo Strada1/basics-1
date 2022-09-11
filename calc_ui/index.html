@@ -7,42 +7,56 @@
     <title>Calculator UI</title>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="container">
-            <input id="first_number" value="number" type="numeric">
+    
+    <div class="container">
+        <div class="wrapper">
+            <input id="first_number" value="" type="numeric">
             <select class="select_value" name="select"> 
                 <option value="addition"> + </option>
                 <option value="subtraction"> - </option>
                 <option value="multiplication"> * </option>
                 <option value="division"> / </option>
             </select>
-            <input id="second_number" value="number" type="numeric">
-            
-            <div>
-                <button class="equals"> = </button>
+            <input id="second_number" value="" type="numeric">
+            <button class="equals"> = </button>
+            <div class="result_item">
                 <span class="result_number"></span>
             </div>
         </div>
-        <div>
-            <button class="clear">Очистить поля</button>
-        </div>
+        
+        <div class="result_list"></div>
     </div>
-    
 
+    
 
     <style>
 
-        .wrapper {
-            text-align: center;
-        }
-
         .container{
+            text-align: center;
+            margin-top: 120px;
+            font-size: 25px;
+        }
+        .wrapper{
             display: flex;
             justify-content: center;
-            margin-top: 120px;
         }
 
         .container input, select, button {
+            margin: 5px;
+            width: 70px;
+            text-align: center;
+            font-size: 20px;
+        }
+        div.result_item .result_number{
+            margin:  5px;
+            display: inline-block;
+            width: 70px;
+        }
+        .result_number{
+            font-size: 26px;
+        }
+        .result_list{
+            font-size: 25px;
             margin: 5px;
         }
 

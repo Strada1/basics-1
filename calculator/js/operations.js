@@ -7,53 +7,50 @@ const Operations = {
   DIVIDE: '/'
 };
 
-const getSum = (number1, number2) => +(number1 + number2).toFixed(10);
+const Checks = {
+  ZERO: 0,
+  EMPTY: ''
+};
 
-const getMultiplication = (number1, number2) => +(number1 * number2).toFixed(10);
+const getSum = (number1, number2) => Number((number1 + number2).toFixed(10));
 
-const getSubtraction = (number1, number2) => +(number1 - number2).toFixed(10);
+const getMultiplication = (number1, number2) => Number((number1 * number2).toFixed(10));
 
-const getDividing = (number1, number2) => +(number1 / number2).toFixed(10);
+const getSubtraction = (number1, number2) => Number((number1 - number2).toFixed(10));
+
+const getDividing = (number1, number2) => Number((number1 / number2).toFixed(10));
 
 
 const calc = (operation, number1, number2) => {
-  if (!Object.values(Operations).includes(operation)) {
-    showError(Error.OPERATOR_ERROR);
-    return;
-  }
-
-  if (!isFinite(number1) || !isFinite(number2) || number1 === '' || number2 === '') {
+  if (!isFinite(number1) || !isFinite(number2) || number1 === Checks.EMPTY || number2 === Checks.EMPTY) {
     showError(Error.OPERAND_ERROR);
     return;
   }
 
-  let result = null;
-  number1 = +number1;
-  number2 = +number2;
+  number1 = Number(number1);
+  number2 = Number(number2);
 
   switch (operation) {
     case Operations.ADD:
-      result = getSum(number1, number2);
-      break;
+      return getSum(number1, number2);
 
     case Operations.MULTI:
-      result = getMultiplication(number1, number2);
-      break;
+      return getMultiplication(number1, number2);
 
     case Operations.SUBTRACT:
-      result = getSubtraction(number1, number2);
-      break;
+      return getSubtraction(number1, number2);
 
     case Operations.DIVIDE:
-      result = getDividing(number1, number2);
-      if (!isFinite(result)) {
+      if (number2 === Checks.ZERO) {
         showError(Error.ZERO_DIVIDING_ERROR);
         return;
       }
-      break;
-  }
+      return getDividing(number1, number2);
 
-  return result;
+    default:
+      showError(Error.OPERATOR_ERROR);
+      return;
+  }
 };
 
 export { calc };

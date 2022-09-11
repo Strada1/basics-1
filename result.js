@@ -2,11 +2,11 @@ import {calculate} from './main.js';
 
 let buttonResult = document.querySelector('.button');
 
+
 function addResult () {
     let a = document.querySelector('.number1').value;
     let b = document.querySelector('.number2').value;
     let operation = document.querySelector('.operation').value;
-
     let result = calculate(a, b, operation);
 
     let div = document.createElement('div');

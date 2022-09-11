@@ -6,14 +6,13 @@
   position: absolute;
   top: 50%;
   left: 50%;
- -ms-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   column-gap: 4px;
   border-radius: 100px;
   padding: 10px;
   outline: 5px solid palevioletred;
-  background-color: rgb(247, 219, 224);
-
+  background-color:  rgb(247, 219, 224);
 }
 
 body {
@@ -25,20 +24,38 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.allah {
-  color: palevioletred;
+
+.saveResult {
+  color:   rgb(247, 219, 224);
+  background-color:  palevioletred;
+  display: flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 30px;
   outline: 5px solid palevioletred;
-  background-color: rgb(247, 219, 224);
-  border-radius: 100px;
   padding: 10px;
+  margin: 0;
+  position: absolute;
+  left: 27%;
+  top: 65%;
+  width: 600px;
+  height: 20px;
+  overflow:hidden;
+
+}
+
+.SaveResulText {
+  color:  palevioletred;
   outline: 5px solid palevioletred;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color:  rgb(247, 219, 224);
+  border-radius: 100px;
   margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   position: absolute;
-  left: 25%;
-  top: 25%;
-
+  left: 41.5%;
+  top: 56%;
+  padding: 10px;
+ 
 }
-

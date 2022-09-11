@@ -1,35 +1,44 @@
-let button = document.getElementById("button")
+const numbers = {
+	ten: 10,
+	zero: 0
+}
+
+const button = document.getElementById("button")
+const number1 = document.getElementById("number1")
+const number2 = document.getElementById("number2")
+const operation = document.getElementById("operation")
+
 let result = document.getElementById("result")
 
 button.addEventListener("click", calc)
 
 	function calc () {
-		let number1 = document.getElementById("number1").value;
-		let number2 = document.getElementById("number2").value;
-		let operation = document.getElementById("operation").value;
+		let number1Value = Number(number1.value);
+		let number2Value = Number(number2.value);
+		let operationValue = operation.value;
+
 		let results;
 	
-		if (number1 === "" || number2 === "") {
+		if (number1Value === "" || number2Value === "") {
 			alert("Заполните все пустые поля!")
 		} else {
-			switch (operation) {
+			switch (operationValue) {
 				case '+':
-					results = (+number1 + +number2);
-					result.innerHTML = +results.toFixed(10)
+					results = (number1Value + number2Value);
+					result.innerHTML = results.toFixed(numbers.ten)
 					break;
 				case '*': 
-					results = (+number1 * +number2);
-					result.innerHTML = +results.toFixed(10)
+					results = (number1Value * number2Value);
+					result.innerHTML = results.toFixed(numbers.ten)
 					break;
 				case '-': 	
-					results = (+number1 - +number2);
-					result.innerHTML = +results.toFixed(10)
+					results = (number1Value - number2Value);
+					result.innerHTML = results.toFixed(numbers.ten)
 					break;
 				case '/':
-					results = (+number1 / +number2)
-					result.innerHTML = +results.toFixed(10)
-					// проверка специально ниже 
-					if (+number2 === 0){
+					results = (number1Value / number2Value)
+					result.innerHTML = results.toFixed(numbers.ten)
+					if (number2Value === numbers.zero){
 						alert("на ноль делить нельзя")
 					} 
 		}
@@ -40,9 +49,7 @@ button.addEventListener("click", calc)
 		document.body.append(div)
 
 		function deleteDiv (event) {
-			
 			event.currentTarget.remove()
 		}	
 	}
 }
-

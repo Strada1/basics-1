@@ -1,4 +1,4 @@
-import rememberAnswer from './rememberAnswer';
+import {rememberAnswer} from './rememberAnswer.js';
 let button = document.getElementById('button');
 let result = document.querySelector(".result");
 button.addEventListener('click', calc);

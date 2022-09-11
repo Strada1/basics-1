@@ -1,4 +1,4 @@
-export default function rememberAnswer(answer) {
+export function rememberAnswer(answer) {
     let div = document.createElement('div');
     div.className = 'answers';
     div.innerHTML = answer;

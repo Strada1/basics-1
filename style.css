@@ -118,7 +118,7 @@ body {
 .new-task__button {
     width: 15px;
     height: 15px;
-    background-image: url(./img/add-icon.svg);
+    background-image: url(./add-icon.svg);
     border: none;
     background-position: center;
     cursor: pointer;
@@ -148,7 +148,7 @@ span {
     width: 15px;
     height: 15px;
     align-self: center;
-    background-image: url(./img/close-icon.svg);
+    background-image: url(./close-icon.svg);
     border: none;
     background-position: center;
     cursor: pointer;
@@ -176,11 +176,11 @@ span {
     border: 1px solid #998899;
     ;
     border-radius: 50%;
-    background-image: url(./img/check-off.svg);
+    background-image: url(./check-off.svg);
 }
 
 div.checked {
-    background-image: url(./img/done.svg);
+    background-image: url(./done.svg);
     background-position: center;
 }
 

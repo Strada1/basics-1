@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Strada</title>
+</head>
+
+
+<body>
+
+	<div class="todo">
+
+		<div class="todo__wrapper">
+			<h2 class="todo__title">HIGH</h2>
+			<label class="todo__label">
+				<input class="todo__input" type="text" name="name" placeholder="Добавить важных дел">
+				<span class="visually-hidden">Название задачи</span>
+				<button class="todo__button todo__button--add"></button>
+			</label>
+			<ul class="todo__list">
+				<li class="todo__item">
+					<label class="todo__label todo__label--task">
+						<input class="todo__input" type="checkbox" name="task">
+						<span class="todo__name">Вот вам и супер интересная тема.
+							Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи
+							куда-то за
+							пределы основной программы.</span>
+						<button class="todo__button todo__button--remove"></button>
+					</label>
+				</li>
+				<li class="todo__item">
+					<label class="todo__label todo__label--task">
+						<input class="todo__input" type="checkbox" name="task">
+						<span class="todo__name">Сверстать этот TODO list</span>
+						<button class="todo__button todo__button--remove"></button>
+					</label>
+				</li>
+				<li class="todo__item">
+					<label class="todo__label todo__label--checked todo__label--task">
+						<input class="todo__input" type="checkbox" name="task">
+						<span class="todo__name">Начать делать задачу</span>
+						<button class="todo__button todo__button--remove"></button>
+					</label>
+				</li>
+			</ul>
+			<h2 class="todo__title">LOW</h2>
+			<label class="todo__label">
+				<input class="todo__input" type="text" name="name" placeholder="Добавить">
+				<span class="visually-hidden">Название задачи</span>
+				<button class="todo__button todo__button--add" type="button"></button>
+			</label>
+			<ul class="todo__list">
+				<li class="todo__item">
+					<label class="todo__label todo__label--task">
+						<input class="todo__input" type="checkbox" name="task">
+						<span class="todo__name">Посмотреть ютубчик</span>
+						<button class="todo__button todo__button--remove"></button>
+					</label>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+
+	<script type="module" src="js/main.js"></script>
+</body>
+
+</html>

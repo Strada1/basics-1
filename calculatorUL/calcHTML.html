@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="calc.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <input class="number1" type="number" name="nuber1" />
+
+      <select class="select">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+      </select>
+
+      <input class="number2" type="number" name="nuber2" />
+
+      <input type="button" id="elem" class="calculation" value="=" />
+
+      <span type="text" class="result"> </span>
+
+      <div class="save_container"></div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+    <script type="module" src="calc.js"></script>
+  </body>
+</html>

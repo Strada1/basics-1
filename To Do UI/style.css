@@ -1,0 +1,144 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+input[type=text]::placeholder { 
+    color:#bbb;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+    width:300px;
+   
+}
+
+input[type=text] {
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 476px;
+    height: 688px;
+    background-color: #FFF;
+    margin: 0 auto;
+
+
+}
+
+body {
+    background-color: #E5E5E5;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    margin: 20px;
+}
+
+legend {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.list {
+    list-style-type: none;
+}
+
+.to_do_list {
+    padding: 25px 6px;
+}
+
+fieldset { 
+    border: 0;
+    width: 100%;
+
+}
+
+label {
+    border: 2px solid #989898;
+    border-radius: 6px;
+    display: flex;
+    margin-bottom: 8px;
+    padding: 12px;
+    align-items: flex-start;
+}
+
+input {
+    outline:none;
+    border: none;
+    width: 21px;
+    height: 21px;
+}
+
+
+.add_todo {
+    width: 403px;
+}
+
+p {
+    margin-right: 18px;
+    margin-left: 24px;
+    text-align: start;
+    width: 370px;
+}
+
+.btn_add {
+    background:url(img/add_icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: auto;
+    padding: 0%;
+    width: 18px;
+    height: 18px;
+    border: 0;
+}
+
+.btn_exit {
+    background:url(img/close-icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: auto;
+    width: 15px;
+    height: 15px;
+    border: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+input[type="checkbox"] {
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.checkbox {
+    position:absolute;
+    width: 1em;
+    height: 1em;
+    background-image: url(img/checkbox_undone.svg);
+    background-size: contain;
+    
+}
+
+.check_input:checked + .checkbox {
+    background-image: url(img/checkbox_done.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.task_done {
+    background-color: #F4F4F4;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="container">
+        <div class="to_do_list">
+        <fieldset>
+            <legend>High</legend>
+            <ul class="list">
+                <li>
+                    <label>
+                    <input class="add_todo" type="text" name="to_do" placeholder="Добавить важных дел">
+                    <button class="btn_add" type="button"></button>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input class="check_input" type="checkbox" name="to_do">
+                        <span class="checkbox"></span>
+                        <p>Вот вам и супер интересная тема. 
+                            Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.</p>
+                        <button class="btn_exit" type="button"></button>
+                        </label>
+                </li>
+                <li>
+                    <label>
+                    <input class="check_input" type="checkbox" name="to_do">
+                    <span class="checkbox"></span>
+                    <p>Сверстать этот TODO list</p>
+                    <button class="btn_exit" type="button"></button>
+                    </label>
+                </li>
+                <li>
+                    <label class="task_done">
+                    <input class="check_input" type="checkbox" name="done" checked>
+                    <span class="checkbox"></span>
+                    <p>Начать делать задачу</p>
+                    <button class="btn_exit"  type="button"></button>
+                    </label>
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>Low</legend>
+            <ul class="list">
+                <li>
+                    <label>
+                    <input class="add_todo" type="text" name="to_do" placeholder="Добавить">
+                    <button class="btn_add" type="button"></button>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                    <span class="checkbox"></span>
+                    <input class="check_input" type="checkbox" name="to_do">
+                    <p>Посмотреть ютубчик</p>
+                    <button class="btn_exit" type="button"></button>
+                    </label>
+                </li>
+            </ul>
+        </fieldset>
+    </div>
+    </section>
+</body>
+</html>

@@ -1,18 +1,10 @@
+import { CHECKS_TEXT } from './module.js';
+import {CHECKS_VALUE} from './module.js'
+
 const answer = document.getElementById("answer");
 answer.addEventListener("click", calc);
 
-result1 = document.getElementById("result");
-
-const CHECKS_VALUE = {
-  DIVIDE_ZERO: 0,
-  EMPTY_STRING: "",
-};
-
-const CHECKS_TEXT = {
-  EMPTY_STRING: "введи число пжшка (─‿‿─)",
-  THIS_IS_LETTERS: "введи число, это буковы (─‿‿─)",
-  DONT_DIVIDE_BY_ZERO: "запрещаю делить \t на ноль (￣︿￣)",
-};
+let result1 = document.getElementById("result");
 
 function calc() {
   const action = document.getElementById("action").value;

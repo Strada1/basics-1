@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>todoUI</title>
+</head>
+<body>
+    <section class="main">
+        <section class="main__container">
+            <div class="main__blocks">
+
+                <h1 class="main__blocks-heading">HIGH</h1>
+                <div class="blocks__high">
+                    <div class="high__input common-block">
+                        <form class="blocks-form">
+                            <input class="input-block" id="taskNameHigh" type="text" name="taskName" placeholder="Добавить важное дело">
+                        </form>
+                        <span class="task-operation">+</span>
+                    </div>
+                    <div class="high__items">
+                        <div class="items__element common-block">
+                            <div class="items__ellipseButton"></div>
+                            <div class="items__task">test</div>
+                            <span class="task-operation operator-delete">+</span>
+                        </div>
+                        <div class="items__element common-block complited-block">
+                            <div class="items__ellipseButton complited-ellipse"></div>
+                            <div class="items__task">выполненная задача</div>
+                            <span class="task-operation operator-delete">+</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <h1 class="main__blocks-heading">LOW</h1>
+                <div class="blocks__low">
+                    <div class="low_input common-block">
+                        <form class="blocks-form">
+                            <input class="input-block" id="taskNameLow" type="text" name="taskName" placeholder="Добавить">
+                        </form>
+                        <span class="task-operation">+</span>
+                    </div>
+                    <div class="low__items">
+                        <div class="items__element common-block">
+                            <div class="items__ellipseButton"></div>
+                            <div class="items__task">test</div>
+                            <span class="task-operation operator-delete">+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>To do</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title"><strong>HIGH</strong></h1>
+        <form>
+            <div class="new-task">
+                <input class="new-task__input" type="text" placeholder="Добавить важное дело">
+                <button class="new-task__button" type="submit"></button>
+            </div>
+        </form>
+        <ul class="todo-list">
+            <li class="todo-list-item">
+                <label>
+                    <div class="todo-list-input"></div>
+                    <span>
+                        Вот вам и супер интересная тема. 
+                        Вы наверняка заметили что ваши файлы с кодом 
+                        становятся все объемнее, что хочется вынести 
+                        некоторые вещи куда-то за пределы основной программы.
+                    </span>
+                    <input class="todo-list-button" type="button">
+                </label>
+            </li>
+            <li class="todo-list-item">
+                <label>
+                    <div class="todo-list-input"></div>
+                    <span>
+                        Сверстать этот TODO list
+                    </span>
+                    <input class="todo-list-button" type="button">
+                </label>
+            </li>
+            <li class="todo-list-item checked">
+                <label>
+                    <div class="todo-list-input checked"></div>
+                    <span>
+                        Начать делать задачу
+                    </span>
+                    <input class="todo-list-button" type="button">
+                </label>
+            </li>
+        </ul>
+
+        <h1 class="title"><strong>LOW</strong></h1>
+        <form>
+            <div class="new-task">
+                <input class="new-task__input" type="text" placeholder="Добавить">
+                <button class="new-task__button" type="submit"></button>
+            </div>
+        </form>
+        <ul class="todo-list">
+            <li class="todo-list-item">
+                <label>
+                    <div class="todo-list-input"></div>
+                    <span>
+                        Посмотреть ютубчик
+                    </span>
+                    <input class="todo-list-button" type="button">
+                </label>
+            </li>
+        </ul>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 18px;
+  line-height: 1.1;
+  font-weight: 400;
+  color: #202020;
+  background-color: #ffffff;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border: 0;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+.main {
+  flex-grow: 1;
+  padding: 50px 20px;
+}
+
+.todo {
+  box-sizing: border-box;
+  width: 476px;
+  margin: 0 auto;
+  padding: 25px 8px;
+}
+
+.todo__priority-list,
+.todo__tasks-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.todo__priority-title {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 18px;
+  line-height: 1.1;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.todo__add-task-wrapper {
+  position: relative;
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.todo__task-input {
+  flex-grow: 1;
+  padding: 12px 50px 12px 12px;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 18px;
+  line-height: 1.1;
+  color: #202020;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+
+.todo__task-input::placeholder {
+  color: #bbbbbb;
+}
+
+.todo__task-input:hover {
+  border-color: #cccccc;
+}
+
+.todo__add-task {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 14px;
+  bottom: 0;
+  width: 18px;
+  height: 18px;
+  margin: auto 0;
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.todo__add-task::before,
+.todo__add-task::after {
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  width: 1px;
+  height: 18px;
+  content: "";
+  background-color: #998899;
+}
+
+.todo__add-task::after {
+  transform: rotate(90deg);
+}
+
+.todo__add-task:hover::before,
+.todo__add-task:hover::after {
+  background-color: #202020;
+}
+
+.todo__tasks-list {
+  margin-bottom: 12px;
+}
+
+.todo__task-item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.todo__task-label {
+  position: relative;
+  display: block;
+  padding: 12px 45px;
+  line-height: 1.2;
+  border: 1px solid #989898;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.todo__task-label:hover {
+  border-color: #cccccc;
+}
+
+.todo__task-label--done {
+  background-color: #f4f4f4;
+}
+
+.todo__control-mark {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 21px;
+  height: 21px;
+  border: 1px solid #998899;
+  border-radius: 50%;
+}
+
+.todo__control-mark:hover {
+  border-color: #202020;
+}
+
+.todo__task-check:checked + .todo__control-mark::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 15px;
+  height: 15px;
+  content: "";
+  background-color: #c4c4c4;
+  border-radius: 50%;
+}
+
+.todo__delete-task {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 18px;
+  height: 18px;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.todo__delete-task::before,
+.todo__delete-task::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 1px;
+  height: 22px;
+  content: "";
+  background-color: #998899;
+  transform: rotate(45deg);
+}
+
+.todo__delete-task::after {
+  transform: rotate(-45deg);
+}
+
+.todo__delete-task:hover::before,
+.todo__delete-task:hover::after {
+  background-color: #202020;
+}
+
+.todo__task-text {
+  margin-top: 0;
+  margin-bottom: 0;
+}

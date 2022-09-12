@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Strada</title>
+</head>
+
+
+<body>
+
+	<div class="calculator js-calculator">
+		<label class="calculator__label">
+			<input class="calculator__input js-first-operand" name="number" type="number">
+			<span class="visually-hidden">Ввод первого числа</span>
+		</label>
+		<label class="calculator__label">
+			<select class="calculator__select js-operator" name="operator">
+				<option class="calculator__option" value="sum">+</option>
+				<option class="calculator__option" value="sub">-</option>
+				<option class="calculator__option" value="multi">*</option>
+				<option class="calculator__option" value="div">/</option>
+			</select>
+			<span class="visually-hidden">Выбор оператора</span>
+		</label>
+		<label class="calculator__label">
+			<input class="calculator__input js-second-operand" name="number" type="number">
+			<span class="visually-hidden">Ввод второго числа</span>
+		</label>
+		<button class="calculator__button js-button" type="button">=</button>
+		<span class="calculator__value js-value"></span>
+		<ul class="calculator__list js-list">
+		</ul>
+	</div>
+
+	<script type="module" src="js/main.js"></script>
+</body>
+
+</html>

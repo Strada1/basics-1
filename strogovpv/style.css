@@ -1,0 +1,43 @@
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  background-color: royalblue;
+}
+.report{
+  margin: 10px;
+  min-height: 20px;
+}
+.container {
+  max-width: 1000px;
+  min-height: 143px;
+  border-radius: 103px;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.calc-body{
+  /* width: 350px; */
+  min-height: 100px;
+  margin: 10px auto;
+  text-align: center;
+}
+.solve{
+ 
+}
+input[type="number"] {
+  max-width: 95px;
+  
+}
+
+input[type="button"] {
+  width: 40px;
+  
+}
+.history-box{
+  width: 310px;
+  margin: 0 auto;
+  text-align: left;
+}

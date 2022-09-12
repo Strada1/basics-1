@@ -1,0 +1,114 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #cccccc;
+}
+
+.ToDo {
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.wrapper {
+  margin: 200px;
+}
+
+.priority {
+  width: 476px;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+}
+
+.title {
+  text-align: center;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.innerAddtask {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #989898;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 10px;
+}
+
+.inputOne {
+  width: 100%;
+  height: 30px;
+
+  display: block;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 15px 20px;
+}
+
+.inputOne:hover {
+  border-color:red;
+}
+
+
+.BtnADD {
+  position: absolute;
+  top: 18px;
+  right: 25px;
+}
+
+.logo__img {
+  width: 12px;
+  height: 12px;
+}
+
+.completed {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #989898;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 10px;
+  width: 96%;
+}
+
+.inputCompleted {
+  width: 80%;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 0px 35px;
+}
+
+.completed:hover{
+  background-color: #cccccc;
+  transition: cubic-bezier(.11,.73,.83,.67);
+}
+
+.BtnClose {
+  margin-left: auto;
+}
+
+.logo__close {
+  width: 20px;
+  height: 20px;
+}
+
+.check {
+  width: auto;
+  height: 20px;
+}

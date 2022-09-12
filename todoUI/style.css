@@ -1,0 +1,151 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+body {
+    background-color: rgb(229, 229, 229);
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__container {
+    background-color: #fff;
+    max-width: 480px;
+    min-height: 690px;
+    padding-top: 12px;
+}
+
+.main__blocks-heading {
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    margin: 10px;
+}
+
+.common-block {
+    width: 460px;
+    min-height: 45px;
+    border: 1px solid #989898;
+    border-radius: 6px;
+    margin: 0px 8px 8px 8px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.complited-block {
+    background-color: rgb(229, 229, 229);
+}
+
+.high__input,
+.low_input {
+    display: flex;
+    align-items: center;
+}
+
+.blocks-form {
+    display: flex;
+    align-items: center;
+}
+
+.task-operation {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #998899;
+    margin-left: 10px;
+    cursor: pointer;
+
+    font-size: 36px;
+    font-weight: 100;
+    transition: color .3s ease-in-out;
+}
+
+.task-operation:hover {
+    color: rgb(88, 86, 86);
+
+}
+
+.operator-delete {
+    margin-top: 12px;
+    transform: rotate(-45deg);
+}
+
+.input-block {
+    border: 0;
+    margin: 0px 0px 0px 10px;
+    padding: 0;
+    font-size: 12px;
+    width: 400px;
+    outline: none;
+}
+
+.items__element {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-height: 100%;
+
+    padding-right: 18px;
+}
+
+.items__task {
+    width: 360px;
+    word-wrap: break-word;
+    margin: 8.5px 0px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.items__ellipseButton {
+    border: 1px solid #998899;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 12px;
+
+    position: relative;
+}
+
+.items__ellipseButton:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background-color: #C4C4C4;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+
+.items__ellipseButton:hover::after {
+    opacity: 1;
+}
+
+.complited-ellipse::after {
+    opacity: 1;
+}

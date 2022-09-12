@@ -1,12 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ToDo</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <div id="high-priority">
+            <div>HIGH</div>
+            <div class="input-container">
+                <input type="text" id="high-priority-input" placeholder="Добавить важных дел">
+                <img class="add" src="./close-icon.svg">
+            </div>
+            <div class="task-outer">
+                <div class="task-inner">
+                    <div>
+                        <input type="checkbox" name="task">
+                    </div>
+                    <div class="text">
+                        <label for="task"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere culpa, exercitationem recusandae suscipit ullam porro illum velit quibusdam officiis libero! Vel quibusdam repudiandae, ratione iusto molestiae provident rerum quam commodi? </label>
+                    </div>
+                    <div class="close">
+                        <img src="./close-icon-2.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="task-outer">
+                <div class="task-inner">
+                    <div>
+                        <input type="checkbox" name="task">
+                    </div>
+                    <div class="text">
+                        <label for="task"> Lorem ipsum dolor </label>
+                    </div>
+                    <div class="close">
+                        <img src="./close-icon-2.svg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="low-priority">
+            <div>LOW</div>
+            <div class="input-container">
+                <input type="text" id="low-priority-input" placeholder="Добавить">   
+                <img class="add" src="./close-icon.svg">
+            </div>
+            <div class="task-outer">
+                <div class="task-inner">
+                    <div>
+                        <input type="checkbox" name="task">
+                    </div>
+                    <div class="text">
+                        <label for="task"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere culpa, exercitationem recusandae suscipit ullam porro illum velit quibusdam officiis libero! Vel quibusdam repudiandae, ratione iusto molestiae provident rerum quam commodi? </label>
+                    </div>
+                    <div class="close">
+                        <img src="./close-icon-2.svg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
 </body>
 </html>

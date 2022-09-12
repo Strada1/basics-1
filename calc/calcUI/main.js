@@ -24,7 +24,7 @@ function calc(operator, a, b) {
 
 result.addEventListener('click', function () {
     if( valueOne.value !== "" && valueTwo.value !== "" ) {
-        total.textContent = calc(operation.value, valueOne.value, valueTwo.value).toFixed(0)
+        total.textContent = calc(operation.value, valueOne.value, valueTwo.value).toFixed(2)
     } else  {
         total.textContent = 'Заполните поле'
     }

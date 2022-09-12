@@ -1,0 +1,153 @@
+body,
+h1,
+input,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #202020;
+  background-color: #E5E5E5;
+}
+
+.container {
+  width: 476px;
+  height: 688px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.todo__inner {
+  margin: 0 8px;
+  padding-top: 13px;
+}
+
+.todo__title {
+  margin: 12px 0;
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.todo__input-wrapper {
+  position: relative;
+}
+
+.todo__input {
+  height: 45px;
+  padding-left: 12px;
+  padding-right: 36px;
+  width: calc(100% - 50px);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #202020;
+  border-radius: 6px;
+  border: 1px solid #989898;
+}
+
+.todo__input::placeholder{
+  color: #BBBBBB;
+}
+
+
+.todo__add-btn {
+  position: absolute;
+  top: 12px;
+  right: 5px;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  background-image: url('add-icon.svg');
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+}
+
+
+.todo__list {
+  list-style: none;
+}
+
+.todo__list-item {
+  display: flex;
+  margin-top: 8px;
+  background: #FFFFFF;
+  border: 1px solid #989898;
+  border-radius: 6px;
+  padding: 12px;
+  position: relative;
+}
+
+.todo__list-item--active{
+  background-color: #F4F4F4;
+}
+
+.todo__task {
+  display: flex;
+  align-items: flex-start;
+}
+
+.todo__checkbox{
+  width: 21px;
+  height: 21px;
+  opacity: 0;
+  margin-right: 12px;
+}
+
+.todo__checkbox+label::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  margin-left: 12px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 1px solid #998899;
+}
+
+.todo__checkbox:checked+label::after{
+  content: '';
+    position: absolute;
+    left: 0;
+    margin-left: 12px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 1px solid #998899;
+}
+
+.todo__checkbox:checked+label::before{
+  content: '';
+    position: absolute;
+    left: 3px;
+    top: 15px;
+    margin-left: 12px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: none;
+    background-color: #C4C4C4;
+}
+
+.todo__task-text {
+  width: 370px;
+  margin-right: 18px;
+}
+
+.todo__close-btn {
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  background-image: url('close-icon.svg');
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+}

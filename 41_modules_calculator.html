@@ -1,0 +1,58 @@
+<!--создайте для вашего калькулятора хотя бы 1 модуль и вынесите в него часть кода-->
+
+<html>
+    <head>
+    <style>
+        .calculator {
+            font-size: 20px;
+            font-family: Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            height:20%;
+            align-items: center;
+            text-align: center;
+            padding: 0 5px; 
+        }
+        .number {
+            width: 50px;
+            margin: 0 2px;
+        }
+        .equal {
+            background-color:aqua;
+            width: 20px;
+            text-align: center;
+            margin: 0 2px;
+        }
+        .operation {
+            margin: 0 2px;
+            background-color:darkgray;
+            text-align: right;
+        }
+        .result {
+            border: 0ch;
+            width: 50px;
+        }
+        .list {
+            text-align: center;
+        }
+    </style>
+        
+    </head>
+    <body>
+        <form class="calculator">
+            <input type="number" id="number1" class="number">
+            <select name="operation" id="operation" class="operation">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>       
+            <input type="number" id="number2" class="number">
+            <input type="button" id="elem" class="equal" value="=">
+            <input type="number" id="result" class="result" value="0"><br>
+            
+        </form>
+        <div class="list" id="list">Результаты</div>
+    </body>
+    <script type="module" src="./main.js"></script> 
+</html>

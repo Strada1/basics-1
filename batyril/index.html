@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang = "ru">
+<head>
+    <meta charset = "UTF-8">
+    <meta name="keywords" content="to do list">
+    <meta name="author" content="batyril">
+    <meta name="description" content="doing to do list">
+    <title>to do list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+
+<h2 class="title">📝 TO DO LIST </h2>
+
+<section class="to-do">
+
+    <div  class="to-do__priority">
+        <form
+                name="high_form"
+                class="to-do__form">
+            <label
+                    class="to-do__label"
+                    for="high_input">High
+            </label>
+            <div class="to-do__button-plus">➕</div>
+            <input
+                    class="to-do__text-input"
+                    id="high_input"
+                    placeholder="Добавить важных дел"
+                    type ='text'
+                    name='task_text' >
+        </form>
+        <div class="to-do__task-list">
+
+            <div class="to-do__task-block  task-block ">
+                <div class="task-block__checked">
+                    <input type="checkbox">
+                </div>
+                <div class="task-block__text">Покушать</div>
+                <div class="task-block__close">❌</div>
+            </div>
+
+            <div class="to-do__task-block  task-block task-block_done ">
+                <div class="task-block__checked">
+                    <input checked="checked" type="checkbox">
+                </div>
+                <div class="task-block__text">Сверстать</div>
+                <div class="task-block__close">❌</div>
+            </div>
+        </div>
+    </div>
+
+    <div  class="to-do__priority">
+        <form
+                name="low_form"
+                class="to-do__form">
+            <label
+                    class="to-do__label"
+                    for="low_input">LOW
+            </label>
+            <div class="to-do__button-plus">➕</div>
+            <input
+                    class="to-do__text-input"
+                    id="low_input"
+                    placeholder="Добавить важных дел"
+                    type ='text'
+                    name='task_text' >
+        </form>
+        <div class="to-do__task-list">
+
+            <div class="to-do__task-block  task-block ">
+                <div class="task-block__checked">
+                    <input type="checkbox">
+                </div>
+                <div class="task-block__text">Покушать</div>
+                <div class="task-block__close">❌</div>
+            </div>
+
+            <div class="to-do__task-block  task-block task-block_done ">
+                <div class="task-block__checked">
+                    <input checked="checked" type="checkbox">
+                </div>
+                <div class="task-block__text">Сверстать</div>
+                <div class="task-block__close">❌</div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

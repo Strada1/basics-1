@@ -1,0 +1,87 @@
+*
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+  font-family: 'Roboto', sans-serif
+
+.title
+  margin-top: 50px
+  text-align: center
+  font-weight: 500
+  font-size: 60px
+  letter-spacing: 1.5px
+
+.to-do
+  border-radius: 7px
+  padding: 25px 10px 25px 10px
+  margin: 100px auto 50px  auto
+  width: 476px
+  min-height: 100px
+  background-color: rgb(255, 255, 255)
+  border: 1px solid black
+  &__priority:not(:last-child)
+    margin-bottom: 25px
+  &__form
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+  &__button-plus
+    z-index: 1
+    font-size: 20px
+    cursor: pointer
+    position: absolute
+    right: 10px
+    top: 60px
+  &__label
+    font-weight: 450
+    position: relative
+    text-transform: uppercase
+    text-align: center
+    font-size: 25px
+    margin-bottom: 15px
+
+  &__text-input
+    position: relative
+    margin: 0 auto
+    padding: 15px 40px 15px 15px
+    width: 455px
+    min-height: 45px
+    border-radius: 6px
+    font-size: 18px
+
+
+.task-block
+  transition: 0.5s all
+  font-size: 18px
+  margin-top: 10px
+  padding: 15px 40px 15px 45px
+  display: flex
+  width: 455px
+  min-height: 45px
+  border-radius: 6px
+  border: solid 1px rgb(152, 152, 152)
+  position: relative
+  &__close
+    font-size: 18px
+    cursor: pointer
+    top: 12px
+    right: 10px
+    position: absolute
+  &__checked
+    left: 15px
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    input
+      transform: scale(1.6)
+      font-size: 100px
+      cursor: pointer
+  &_done
+    text-decoration: line-through
+    background-color: rgba(152, 152, 152, 0.28)
+
+
+
+

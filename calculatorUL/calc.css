@@ -1,0 +1,38 @@
+.container {
+	display: flex;
+	margin: 0 auto;
+	height: 600px;
+    width: 300px;
+	text-align: center;
+	align-items: center;
+	justify-content: space-between;
+  
+}
+
+.number1 {
+    width: 60px;
+	height: 30px;
+    border-radius:5px;
+}
+
+.select {
+    border-radius:5px;
+}
+
+.number2 {
+    width: 60px;
+	height: 30px;
+    border-radius:5px;
+}
+
+.result {
+    width: 20px;
+	height: 30px;
+    border-radius:5px;
+}
+
+.save_container {
+	width: 20px;
+	height: 30px;
+    border-radius: 5px;
+}

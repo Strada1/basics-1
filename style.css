@@ -36,20 +36,25 @@ body {
   color: #000000;
 }
 
-.todo__input__wrapper {
+.todo__input-wrapper {
   position: relative;
 }
 
 .todo__input {
   height: 45px;
-  padding: 0 12px;
-  width: calc(100% - 26px);
+  padding-left: 12px;
+  padding-right: 36px;
+  width: calc(100% - 50px);
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
-  color: #BBBBBB;
+  color: #202020;
   border-radius: 6px;
   border: 1px solid #989898;
+}
+
+.todo__input::placeholder{
+  color: #BBBBBB;
 }
 
 
@@ -72,18 +77,16 @@ body {
 }
 
 .todo__list-item {
+  display: flex;
   margin-top: 8px;
   background: #FFFFFF;
   border: 1px solid #989898;
   border-radius: 6px;
   padding: 12px;
+  position: relative;
 }
 
-.todo__list-item-active{
-  background-color: #F4F4F4;
-}
-
-.todo__list-item-active .todo__input {
+.todo__list-item--active{
   background-color: #F4F4F4;
 }
 
@@ -92,37 +95,46 @@ body {
   align-items: flex-start;
 }
 
-.todo__radio-btn {
-  margin-right: 12px;
+.todo__checkbox{
   width: 21px;
   height: 21px;
-  border: #C4C4C4;
-  
+  opacity: 0;
+  margin-right: 12px;
 }
 
-.todo__radio-btn:checked::after {
-  content: "";
-  display: block;
-  position: relative;
-  top: -13px;
+.todo__checkbox+label::before{
+  content: '';
+  position: absolute;
   left: 0;
+  margin-left: 12px;
   width: 19px;
   height: 19px;
   border-radius: 50%;
-  border: 1px solid #C4C4C4;
-  background-color: transparent;
+  border: 1px solid #998899;
 }
 
-.todo__radio-btn:checked::before{
-  content: "";
-    display: block;
-    position: relative;
-    top: 4px;
-    left: 4px;
-    width: 13px;
-    height: 13px;
+.todo__checkbox:checked+label::after{
+  content: '';
+    position: absolute;
+    left: 0;
+    margin-left: 12px;
+    width: 19px;
+    height: 19px;
     border-radius: 50%;
-    background: #C4C4C4;
+    border: 1px solid #998899;
+}
+
+.todo__checkbox:checked+label::before{
+  content: '';
+    position: absolute;
+    left: 3px;
+    top: 15px;
+    margin-left: 12px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: none;
+    background-color: #C4C4C4;
 }
 
 .todo__task-text {

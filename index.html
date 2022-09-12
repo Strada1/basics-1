@@ -18,16 +18,16 @@
     <div class="container">
       <div class="todo__inner">
 
-        <div class="todo__high">
+        <div class="todo__section">
           <h1 class="todo__title">HIGH</h1>
-          <div class="todo__input__wrapper">
+          <div class="todo__input-wrapper">
             <input type="text" class="todo__input" placeholder="Добавить важных дел">
             <button class="todo__add-btn"></button>
           </div>
           <ul class="todo__list">
             <li class="todo__list-item">
-              <label class="todo__task">
-                <input class="todo__radio-btn" type="radio">
+              <input class="todo__checkbox" type="checkbox" id="todo__checkbox-1">
+              <label for="todo__checkbox-1" class="todo__task">
                 <div class="todo__task-text">
                   Вот вам и супер интересная тема.
                   Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые
@@ -38,17 +38,19 @@
               </label>
             </li>
             <li class="todo__list-item">
-              <label class="todo__task">
-                <input class="todo__radio-btn" type="radio">
+              <input class="todo__checkbox" type="checkbox" id="todo__checkbox-2">
+              <label for="todo__checkbox-2" class="todo__task">
+                
                 <div class="todo__task-text">
                   Сверстать этот TODO list
                 </div>
                 <button class="todo__close-btn"></button>
               </label>
             </li>
-            <li class="todo__list-item todo__list-item-active">
-              <label class="todo__task">
-                <input class="todo__radio-btn" type="radio" checked>
+            <li class="todo__list-item todo__list-item--active">
+              <input class="todo__checkbox" type="checkbox" id="todo__checkbox-3" checked>
+              <label for="todo__checkbox-3" class="todo__task">
+                
                 <div class="todo__task-text">
                   Начать делать задачу
                 </div>
@@ -58,16 +60,17 @@
           </ul>
         </div>
 
-        <div class="todo__low">
+        <div class="todo__section">
           <h1 class="todo__title">LOW</h1>
-          <div class="todo__input__wrapper">
+          <div class="todo__input-wrapper">
             <input type="text" class="todo__input" placeholder="Добавить">
             <button class="todo__add-btn"></button>
           </div>
           <ul class="todo__list">
             <li class="todo__list-item">
-              <label class="todo__task">
-                <input class="todo__radio-btn" type="radio">
+              <input class="todo__checkbox" type="checkbox" id="todo__checkbox-4">
+              <label for="todo__checkbox-4" class="todo__task">
+                
                 <div class="todo__task-text">
                   Посмотреть ютубчик
                 </div>

@@ -1,0 +1,61 @@
+.calc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  column-gap: 4px;
+  border-radius: 100px;
+  padding: 10px;
+  outline: 5px solid palevioletred;
+  background-color:  rgb(247, 219, 224);
+}
+
+body {
+  background-image: url("https://funart.pro/uploads/posts/2021-04/1618493065_1-funart_pro-p-oboi-fon-khellou-kitti-1.jpg");
+}
+
+.result {
+  color: palevioletred;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.saveResult {
+  color:   rgb(247, 219, 224);
+  background-color:  palevioletred;
+  display: flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 30px;
+  outline: 5px solid palevioletred;
+  padding: 10px;
+  margin: 0;
+  position: absolute;
+  left: 27%;
+  top: 65%;
+  width: 600px;
+  height: 20px;
+  overflow:hidden;
+
+}
+
+.SaveResulText {
+  color:  palevioletred;
+  outline: 5px solid palevioletred;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:  rgb(247, 219, 224);
+  border-radius: 100px;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: absolute;
+  left: 41.5%;
+  top: 56%;
+  padding: 10px;
+ 
+}

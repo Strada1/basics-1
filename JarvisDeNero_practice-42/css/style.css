@@ -42,6 +42,10 @@ body {
     top: calc(50% - 9px);
     z-index: 10;
     cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
 }
 .add-to-list-btn::after,
 .add-to-list-btn::before{
@@ -89,8 +93,6 @@ body {
   background: #ccc
 }
 .task__delete-btn {
-}
-.task__delete-btn {
     position: absolute;
     display: block;
     width: 21px;
@@ -99,6 +101,10 @@ body {
     top: 12px;
     z-index: 10;
     cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
 }
 .task__delete-btn::after,
 .task__delete-btn::before{

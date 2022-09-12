@@ -1,0 +1,33 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border: solid 2px;
+    border-radius: 2px;
+}
+
+input {
+    width: 100%;
+    border: none;
+    outline: 0;
+}
+
+.wrapper-input {
+    width: 100%;
+}
+
+button {
+    border: none;
+    background-color: white;
+}
+
+h4 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.task {
+    padding-left: 10px;
+    padding-right: 10px;
+}

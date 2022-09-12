@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+  font-family: 'Roboto';
+  background-color: #e5e5e5;
+}
+.todo {
+  margin-top: 100px;
+  height: 688px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.conrainer {
+  max-width: 492px;
+  background-color: #fff;
+  padding: 8px 8px 198px;
+}
+.high {
+  display: flex;
+  row-gap: 8px;
+  flex-direction: column;
+}
+.todo__title {
+  text-align: center;
+  font-size: 18px;
+}
+.todo__add {
+  position: relative;
+}
+.todo__add-input {
+  padding: 12px 30px 12px 12px;
+  width: 448px;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+.todo__add-input::placeholder {
+  font-size: 18px;
+  color: #bbbbbb;
+}
+.todo__add-btn {
+  border: none;
+  background-color: inherit;
+  position: absolute;
+  cursor: pointer;
+  right: 478px;
+  top: 9px;
+  left: 450px;
+}
+.todo__task {
+  border: 1px solid #989898;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px 12px;
+}
+
+.todo__task-content {
+  padding-left: 33px;
+}
+.todo__icon-delete {
+  margin-left: 15px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.todo__task-checkbox[type='checkbox'] {
+  display: none;
+}
+.todo__task-text::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #998899;
+  vertical-align: middle;
+  position: absolute;
+  left: -33px;
+}
+.todo__task-checkbox[type='checkbox']:checked + .todo__task-text::before {
+  content: '';
+  text-align: center;
+  background-color: #b4a1b9;
+}
+.todo__task-text {
+  font-size: 18px;
+  width: 370px;
+  position: relative;
+}
+
+.low {
+  display: flex;
+  row-gap: 8px;
+  flex-direction: column;
+}
+.low__task-checkbox[type='checkbox'] {
+  display: none;
+}
+.low__task-text::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #998899;
+  vertical-align: middle;
+  position: absolute;
+  left: -33px;
+}
+.low__task-checkbox[type='checkbox']:checked + .low__task-text::before {
+  content: '';
+  text-align: center;
+  background-color: #b4a1b9;
+}
+
+.low__task-text {
+  font-size: 18px;
+  width: 370px;
+  position: relative;
+}

@@ -1,0 +1,97 @@
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/JetBrainsMono-Regular.woff") format("woff2");
+    font-display: swap;
+  }
+
+body {
+    font-family: "JetBrains Mono";
+    background-color: #E5E5E5;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+input[placeholder] {
+    font-family: inherit;
+    font-size: 18px;
+    padding: 12px 45px 12px 12px;
+    border: 1px solid #989898;
+    border-radius: 6px;
+}
+
+/* input[type="checkbox"]:checked + label {
+    background-color: red;
+} */
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%)translateY(-50%);
+    background-color: #FFFFFF;
+    padding: 25px 8px;
+    /* background-color: red; */
+}
+
+
+label:not(:first-child) {
+    border: 1px solid #989898;
+    border-radius: 6px;
+    padding: 12px 12px;
+}
+
+.control {
+    /* position: relative; */
+    display: grid;
+    grid-template-columns: 45px 280px 45px;
+    /* line-height: 22px; */
+}
+
+.control-mark {
+ 
+    position: relative;
+    width: 21px;
+    height: 21px;
+    border: 1px solid #998899;
+    border-radius: 50%;
+}
+
+.control-input[type="checkbox"]:checked + .control-mark::before {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 17px;
+    height: 17px;
+    background-color: #C4C4C4;
+    border-radius: 50%;
+    content: '';
+}
+
+.high-priority-container,
+.low-priority-container {
+    display: grid;
+    gap: 8px;
+    width: 460px;
+}
+
+.high-priority-container {
+    margin-bottom: 12px;
+}
+
+.high-priority,
+.low-priority {
+    justify-self: center;
+    text-transform: uppercase;
+}
+

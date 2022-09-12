@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ToDo UI by Jarvis De-Nero</title>
+
+   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+   <section class="container app-todo">
+      <div class="app-todo__body">
+
+         <div class="app-todo__list high">
+
+            <div class="app-todo__title-list">
+               High
+            </div>
+
+            <div class="app-todo__add-to-list">
+               <input type="text" placeholder="Добавить важных дел">
+               <span class="add-to-list-btn"></span>
+            </div>
+
+            <div class="app-todo__all-task task">
+
+               <div class="task__item">
+                  <input type="checkbox" id="1">
+                  <label for="1">
+                     Вот вам и супер интересная тема. Вы наверняка заметили что ваши файлы с кодом становятся все
+                     объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.
+                     <span class="task__delete-btn"></span>
+                  </label>
+               </div>
+               <div class="task__item">
+                  <input type="checkbox" id="2">
+                  <label for="2">
+                     Сверстать этот TODO list
+                     <span class="task__delete-btn"></span>
+                  </label>
+               </div>
+               <div class="task__item">
+                  <input type="checkbox" id="3">
+                  <label for="3">
+                     Начать делать задачу
+                     <span class="task__delete-btn"></span>
+                  </label>
+               </div>
+
+            </div>
+
+         </div>
+
+         <div class="app-todo__list low">
+
+            <div class="app-todo__title-list">
+               low
+            </div>
+
+            <div class="app-todo__add-to-list">
+               <input type="text" placeholder="Добавить важных дел">
+               <span class="add-to-list-btn"></span>
+            </div>
+
+            <div class="app-todo__all-task task">
+
+               <div class="task__item">
+                  <input type="checkbox" id="4">
+                  <label for="4">
+                     Посмотреть ютубчик
+                     <span class="task__delete-btn"></span>
+                  </label>
+               </div>
+
+            </div>
+
+         </div>
+
+      </div>
+   </section>
+
+   <script src="./js/main.js"></script>
+</body>
+
+</html>

@@ -21,19 +21,4 @@ button.addEventListener("click", function (event) {
   const response = calc(calculations.value, arg1, arg2);
   resultSave(response);
 });
-function calc(calculations, numberOne, numberTwo) {
-  switch (calculations) {
-    case "+":
-      return numberOne + numberTwo;
-    case "*":
-      return numberOne * numberTwo;
-    case "-":
-      return numberOne - numberTwo;
-    case "/":
-      return numberOne / numberTwo;
-    case "**":
-      return umberOne ** numberTwo;
-    case "%":
-      return numberOne % numberTwo;
-  }
-}
+import calc from "./calc.js";

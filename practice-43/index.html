@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>To Do List</title>
+
+</head>
+<body>
+    <div class="container">
+        <div class="high-priority-container">
+            <label class ="high-priority" for="high-priority">High</label>
+            <input class="task" type="text" id="high-priority" placeholder="Добавить важных дел">
+            <label class="control">
+                <input class="visually-hidden control-input" type="checkbox" name="high" value ="first-value">
+                <span class="control-mark"></span>
+                <span class="control-label">Вот вам и супер интересная тема. 
+                    Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.
+                </span>
+            </label>
+            <label class="control">
+                <input class="visually-hidden control-input" type="checkbox" name="high" value ="second-value">
+                <span class="control-mark"></span>
+                <span class="control-label">Сверстать этот TODO list</span>
+            </label>
+            <label class="control">
+                <input class="visually-hidden control-input" type="checkbox" name="high" value ="third-value" checked>
+                <span class="control-mark"></span>
+                <span class="control-label">Начать делать задачу</span>
+            </label>
+        </div>
+        <div class="low-priority-container">
+            <label class ="low-priority" for="low-priority">Low</label>
+            <input type="text" id="low-priority" placeholder="Добавить">
+            <label class="control">
+                <input class="visually-hidden control-input" type="checkbox" name="high" value ="third-value">
+                <span class="control-mark"></span>
+                <span class="control-label">Посмотреть ютубчик</span>
+            </label>
+        </div>
+    </div>
+</body>
+</html>

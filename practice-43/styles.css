@@ -1,0 +1,142 @@
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/JetBrainsMono-Regular.woff") format("woff2");
+    font-display: swap;
+  }
+
+body {
+    font-family: "JetBrains Mono";
+    background-color: #E5E5E5;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+input[placeholder] {
+    font-family: inherit;
+    font-size: 18px;
+    padding: 12px 45px 12px 12px;
+    border: 1px solid #989898;
+    border-radius: 6px;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%)translateY(-50%);
+    height: 650px;
+    background-color: #FFFFFF;
+    padding: 25px 8px;
+    border-radius: 1px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+
+label:not(:first-child) {
+    border: 1px solid #989898;
+    border-radius: 6px;
+    padding: 12px 12px;
+}
+
+label:active {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.control {
+    display: grid;
+    grid-template-columns: 30px 1fr 25px;
+}
+
+.control-mark {
+    position: relative;
+    width: 21px;
+    height: 21px;
+    border: 1px solid #998899;
+    border-radius: 50%;
+}
+
+.control-input[type="checkbox"]:checked + .control-mark::before {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 17px;
+    height: 17px;
+    background-color: #C4C4C4;
+    border-radius: 50%;
+    content: '';
+}
+
+label[class*='priority'] {
+    width: 50px;
+}
+
+label[class*='priority']::after:active, 
+label[class*='priority']::before:active {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.control-label,
+label[class*='priority'] {
+    position: relative;
+}
+
+label[class*='priority']::after, 
+label[class*='priority']::before {
+    position: absolute;
+    top: 52px;
+    right: -196px;
+    width: 18px;
+    border: 1px solid #998899;
+    content: '';
+}
+
+label[class*='priority']::after {
+    transform: rotate(90deg);
+}
+
+.control-label::after,
+.control-label::before {
+    position: absolute;
+    top: 9px;
+    right: -29px;
+    width: 18px;
+    border: 1px solid #998899;
+    content: '';
+}
+
+.control-label::before {
+    transform: rotate(-45deg);
+}
+
+.control-label::after {
+    transform: rotate(45deg);
+}
+
+.high-priority-container,
+.low-priority-container {
+    display: grid;
+    gap: 8px;
+    width: 460px;
+}
+
+.high-priority-container {
+    margin-bottom: 12px;
+}
+
+.high-priority,
+.low-priority {
+    justify-self: center;
+    text-transform: uppercase;
+}
+

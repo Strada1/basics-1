@@ -135,9 +135,23 @@ select {
   line-height: 21px;
   color: #202020;
 }
+
 .button_add {
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
+  border: none;
+  background-position: center;
+  cursor: pointer;
+  background-color: inherit;
   background-image: url('./img/add-icon.jpg') ; 
-  /* background-image: image('./img/add-icon.svg'); */
 }
+
+.new-task_delite__task {
+  width: 15px;
+  height: 15px;
+  border: none;
+  background-position: center;
+  cursor: pointer;
+  background-color: inherit;
+  background-image: url('./img/close-icon.svg') ;
+} 

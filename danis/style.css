@@ -56,3 +56,11 @@
     display: flex;
     flex-direction: column;
 }
+
+.todo__list__high-task-item {
+    display: flex;
+}
+
+.todo__list__high-task-item input {
+    align-self: flex-start;
+}

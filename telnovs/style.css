@@ -5,6 +5,20 @@
   box-sizing: border-box;
 }
 
+input {
+  outline:none;
+  border: 1px solid white;
+}
+
+:active, :hover, :focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+a:focus {
+  outline: none !important;
+}
+
 /* Remove default margin */
 body,
 h1,
@@ -71,38 +85,59 @@ select {
     scroll-behavior: auto !important;
   }
 }
-
-/*================================================================================================================================================*/
-
-body {
-  background-color: #1E1E1E;
-}
-
+/*===============================================================================*/
 .contener {
-  display: flex;
+  width: 500px;
+  height: 700x;
   margin: 0 auto;
-  width: 1143px;
-  height: 1000px;
-  background: #FFFFFF;
-  border-radius: 103px;
-  text-align: center;
-  align-items:center;
-  justify-content:center;
 }
-.namber1, .namber2{
-  width: 95px;
-  height: 33px;
-  border:  1px solid  black;
-  text-align: center;
-}
-.calculation , .result{
-  display: inline;
+.task-high , .task-low {
+  margin-top: 25px;
 }
 
-.calculation {
-  width: 39px;
-  height: 33px;
-  border: 1px solid #000000;
-  border-radius: 4px;
+.task-name {
+  text-align: center;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 18px;
 }
 
+.task {
+  display: flex;
+  position: relative;
+  margin-top: 25px;
+}
+
+.new-task_delite__task, .new-task_text , .new-task_input {
+  align-self: baseline;
+}
+
+.new-task_delite__task, .button_add {
+  position: absolute;
+  right: 0;
+}
+
+.new-task_input {
+  margin-right: 12px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.new-task_text {
+  margin-right: 18px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #202020;
+}
+.button_add {
+  width: 30px;
+  height: 30px;
+  background-image: url('./img/add-icon.jpg') ; 
+  /* background-image: image('./img/add-icon.svg'); */
+}

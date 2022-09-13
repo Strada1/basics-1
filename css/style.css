@@ -21,6 +21,7 @@
 	border-radius: 6px;
 	position: relative;
 	margin: 0px 8px 0px 8px;
+	padding: 12px 0px 12px 12px;
 }
 
 .input_checkbox {
@@ -31,13 +32,19 @@
 	min-height: 45px;
 	padding: 12px 0px 12px 45px;
 	box-sizing: border-box;
-
+	border-radius: 6px;
 }
 
 .plus1 {
 	position: absolute;
 	margin-top: 81px;
 	margin-left: 437px;
+}
+
+.container_high {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
 

@@ -1,22 +1,21 @@
 const ELEMENTS = {
-    addTaskHigh : document.getElementById('add_task_high'),
-    addTaskLow : document.getElementById('add_task_low'),
+    addTaskHigh : document.querySelector('.add_task_high'),
+    addTaskLow : document.querySelector('.add_task_low'),
     listHigh : document.querySelector('.list_high li:first-child'),
     listLow : document.querySelector('.list_low li:first-child'),
+    highInput : document.querySelector('.high_input'),
+    lowInput : document.querySelector('.low_input'),
 }
 
-function addTask () {
+function addTask (newTask, list) {
 
-let addNewTaskHigh = ELEMENTS.addTaskHigh.value;
-let addNewTaskLow = ELEMENTS.addTaskLow.value;
-
-if(addNewTaskHigh != '') {
-    ELEMENTS.listHigh.insertAdjacentHTML('afterend',
+if(newTask.value.trim() != '') {
+    list.insertAdjacentHTML('afterend',
     `<li>
         <input type="checkbox" id="first_task_high" name="to_do">
             <label for="first_task_high">
                 <p>
-                ${addNewTaskHigh}
+                ${newTask.value}
                 </p>
             </label>
                 <button class="btn_exit" type="button"></button>
@@ -24,22 +23,15 @@ if(addNewTaskHigh != '') {
      );  
 };
 
-if(addNewTaskLow != '' ) {
-    ELEMENTS.listLow.insertAdjacentHTML('afterend',
-    `<li>
-        <input type="checkbox" id="first_task_high" name="to_do">
-            <label for="first_task_high">
-                <p>
-                ${addNewTaskLow}
-                </p>
-            </label>
-                <button class="btn_exit" type="button"></button>
-    </li>`
-     );  
+newTask.value = '';
 };
 
-ELEMENTS.addTaskHigh.value = '';
-ELEMENTS.addTaskLow.value = '';
-};
+ELEMENTS.highInput.addEventListener('submit', (event)=> {
+    addTask(ELEMENTS.addTaskHigh, ELEMENTS.listHigh);
+    event.preventDefault();
+});
 
-
+ELEMENTS.lowInput.addEventListener('submit', (event)=> {
+    addTask(ELEMENTS.addTaskLow, ELEMENTS.listLow);
+    event.preventDefault();
+});

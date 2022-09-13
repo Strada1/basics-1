@@ -10,18 +10,20 @@
 <body>
     <div class="container">
         <div id="high-priority">
-            <div>HIGH</div>
+            <div id="high">HIGH</div>
             <div class="input-container">
-                <input type="text" id="high-priority-input" placeholder="Добавить важных дел">
+                <form onsubmit="createHighTask(); return false;">
+                    <input type="text" id="high-priority-input" placeholder="Добавить важных дел">
+                </form>
                 <img class="add" src="./close-icon.svg">
             </div>
             <div class="task-outer">
                 <div class="task-inner">
-                    <div>
-                        <input type="checkbox" name="task">
-                    </div>
-                    <div class="text">
-                        <label for="task"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere culpa, exercitationem recusandae suscipit ullam porro illum velit quibusdam officiis libero! Vel quibusdam repudiandae, ratione iusto molestiae provident rerum quam commodi? </label>
+                    <div class="text-container">
+                        <label class="text"> 
+                            <input type="checkbox" id="task" name="task"> 
+                            <span>Lorem ipsum dolor fsdafasdf</span>       
+                        </label>
                     </div>
                     <div class="close">
                         <img src="./close-icon-2.svg">
@@ -31,10 +33,10 @@
             <div class="task-outer">
                 <div class="task-inner">
                     <div>
-                        <input type="checkbox" name="task">
-                    </div>
-                    <div class="text">
-                        <label for="task"> Lorem ipsum dolor </label>
+                        <label class="text"> 
+                            <input type="checkbox" id="task" name="task"> 
+                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere culpa, exercitationem recusandae suscipit ullam porro illum velit quibusdam officiis libero! Vel quibusdam repudiandae, ratione iusto molestiae provident rerum quam commodi?</span>       
+                        </label>
                     </div>
                     <div class="close">
                         <img src="./close-icon-2.svg">
@@ -43,18 +45,20 @@
             </div>
         </div>
         <div id="low-priority">
-            <div>LOW</div>
+            <div id="low">LOW</div>
             <div class="input-container">
-                <input type="text" id="low-priority-input" placeholder="Добавить">   
+                <form>
+                    <input type="text" id="low-priority-input" placeholder="Добавить">  
+                </form> 
                 <img class="add" src="./close-icon.svg">
             </div>
             <div class="task-outer">
                 <div class="task-inner">
                     <div>
-                        <input type="checkbox" name="task">
-                    </div>
-                    <div class="text">
-                        <label for="task"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere culpa, exercitationem recusandae suscipit ullam porro illum velit quibusdam officiis libero! Vel quibusdam repudiandae, ratione iusto molestiae provident rerum quam commodi? </label>
+                        <label class="text"> 
+                            <input type="checkbox" id="task" name="task"> 
+                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere culpa, exercitationem recusandae suscipit ullam porro illum velit quibusdam officiis libero! Vel quibusdam repudiandae, ratione iusto molestiae provident rerum quam commodi?</span>       
+                        </label>
                     </div>
                     <div class="close">
                         <img src="./close-icon-2.svg">

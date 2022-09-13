@@ -28,6 +28,12 @@
     width: 100%;
     margin: 8px;
 }
+form {
+    box-sizing: border-box;
+    display: inline-flex;
+    width: 100%;
+    margin: 6px;
+}
 #high-priority-input, #low-priority-input {
     margin: 8px;
     width: 100%;
@@ -39,6 +45,7 @@ input {
 }
 .text {
     width: 100%;
+    display: flex;
 }
 .add {
     margin-right: 6px;
@@ -46,5 +53,10 @@ input {
 .close {
     margin-top: 6px;
     margin-right: 6px;
-
+}
+form {
+    width: 100%;
+}
+.text-container {
+    width: 100%;
 }

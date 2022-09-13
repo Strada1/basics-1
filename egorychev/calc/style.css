@@ -1,0 +1,45 @@
+
+.container {
+    display: flex;
+    vertical-align: center;
+    justify-content: center;
+    align-content: space-between;
+    text-align: center;
+    margin-top: 300px;
+}
+
+input {
+    width: 95px;
+    height: 33px;
+    font-size: 20px;
+    margin-left: 8px;
+}
+
+button {
+    width: 39px;
+    height: 36px;
+    font-size: 18px;
+    margin-left: 8px;
+}
+
+select {
+    width: 39px;
+    height: 33px;
+    text-align: center;
+    font-size: 18px;
+    margin-left: 8px;
+}
+
+.total1 {
+    Width: 40px;
+    Height: 36px;
+    cursor: pointer;
+}
+
+.collum {
+    display: flex;
+    flex-direction: column;
+    /*width: 44px;*/
+    font-size: 22px;
+
+}

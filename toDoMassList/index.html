@@ -13,16 +13,16 @@
 </head>
 
 <body>
-    <script src="ToDoMassList.js"></script>
     <div class="container">
         <div class="toDoListItems">
             <div class="listHighPriorityItems">
                 <div class="caption">HIGH</div>
                 <div class="Items">
-                    <div class="input">
-                        <input type="text" placeholder="Добавить важных дел">
-                        <div class="item-add-button"><img src="./icons/add-icon.svg" alt="add icon"></div>
-                    </div>
+                    <form class="input" action="#" onsubmit="addTask(this);return false">
+                        <input type="text" placeholder="Добавить важных дел" id="text">
+                        <div class="item-add-button" onclick="addTask(this.parentElement);return false"><img
+                                src="./icons/add-icon.svg" alt="add icon"></div>
+                    </form>
                     <div class="item">
                         <div class="checkBox"><input type="checkbox"></div>
                         <div class="item-text">Вот вам и супер интересная тема.
@@ -48,10 +48,11 @@
             <div class="listLowPriorityItems">
                 <div class="caption">LOW</div>
                 <div class="Items">
-                    <div class="input">
-                        <input type="text" placeholder="Добавить важных дел" width="80%">
-                        <div class="item-add-button"><img src="./icons/add-icon.svg" alt="add icon"></div>
-                    </div>
+                    <form class="input" action="#" onsubmit="addTask(this);return false">
+                        <input type="text" placeholder="Добавить" id="text">
+                        <div class="item-add-button" onclick="addTask(this.parentElement);return false"><img
+                                src="./icons/add-icon.svg" alt="add icon"></div>
+                    </form>
                     <div class="item">
                         <div class="checkBox"><input type="checkbox"></div>
                         <div class="item-text">Посмотреть ютубчик
@@ -62,6 +63,7 @@
             </div>
         </div>
     </div>
+    <script src="ToDoMassList.js"></script>
 </body>
 
 </html>

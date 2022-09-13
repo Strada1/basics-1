@@ -80,3 +80,8 @@ body {
     margin-right: 12px;
     text-align: left;
 }
+
+.item-add-button,
+.item-close-button {
+    cursor: pointer;
+}

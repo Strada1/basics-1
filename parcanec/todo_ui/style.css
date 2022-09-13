@@ -47,9 +47,12 @@
 
     .add_task button {
       border: none;
-      background: white;
+      background: none;
       font-size: 24px;
       cursor: pointer;
+    }
+    .add_task button:hover {
+      color: green;
     }
 
     .task_list {
@@ -62,8 +65,13 @@
       margin-bottom: 5px;
       font-size: 18px;
       justify-content: space-between;
-      align-items: start;
+      align-items: baseline;
       gap: 10px;
+      transition: all 0.3s linear;
+    }
+
+    .task_list:hover {
+      background: #c5c5c5;
     }
 
     .task_list label {
@@ -77,12 +85,18 @@
       flex-shrink: 0;
       height: 20px;
       width: 20px;
+      margin: 0;
     }
 
     .task_list button {
       display: inline-block;
       border: none;
-      background: white;
+      background:none;
       font-size: 24px;
       cursor: pointer;
+      align-items: start;
+      transition: all 0.3s linear;
+    }
+    .task_list button:hover {
+      color: red;
     }

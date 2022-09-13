@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+
+	<title>To Do</title>
+</head>
+<body>
+	<div class="container">
+		<h1>HIGH</h1>
+		<form style="width: 460px; height: 45px">
+			<div class="new-task">
+				<input type="text" class="new-task__text" placeholder="Добавить важное дело">
+				<img src="/css/img/close.png" alt="Add" class="new-task__button" />
+			</div>
+		</form>
+		<ul class="todo-list">
+			<li class="item">
+				<lable class="item-label">
+					<div class="check">
+						<!-- <img src="css/img/check.svg" alt="Check"> -->
+					</div>
+					<span>
+						Вот вам и супер интересная тема. 
+						Вы наверняка заметили что ваши файлы с кодом 
+						становятся все объемнее, что хочется вынести 
+						некоторые вещи куда-то за пределы основной программы.
+					</span>
+					<img class="close" src="css/img/close.png" alt="Close">
+				</lable>
+			</li>
+			<li class="item">
+				<lable class="item-label">
+					<div class="check">
+						<!-- <img src="css/img/check.svg" alt="Check"> -->
+					</div>
+					<span>
+						Сверстать этот TODO list
+					</span>
+					<img class="close" src="css/img/close.png" alt="Close">
+				</lable>
+			</li>
+			<li class="item checked">
+				<lable class="item-label">
+					<div class="check checked"></div>
+					<span>
+						Начать делать задачу
+					</span>
+					<img class="close" src="css/img/close.png" alt="Close">
+				</lable>
+			</li>
+		</ul>
+		<h1>LOW</h1>
+		<form style="width: 460px; height: 45px">
+			<div class="new-task">
+				<input type="text" class="new-task__text" placeholder="Добавить">
+				<img src="/css/img/close.png" alt="Add" class="new-task__button" />
+			</div>
+		</form>
+		<ul class="todo-list">
+			<li class="item">
+				<lable class="item-label">
+					<div class="check"></div>
+					<span>
+						Посмотреть ютубчик
+					</span>
+					<img class="close" src="css/img/close.png" alt="Close">
+				</lable>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -11,13 +11,14 @@ input[type=text]::placeholder {
     font-family: Roboto, sans-serif;
     font-size: 18px;
     line-height: 21px;
-    width:300px;
-   
 }
 
 input[type=text] {
     font-family: Roboto, sans-serif;
     font-size: 18px;
+    outline:none;
+    border: none;
+    width: 403px;
 }
 
 
@@ -32,8 +33,6 @@ input[type=text] {
     height: 688px;
     background-color: #FFF;
     margin: 0 auto;
-
-
 }
 
 body {
@@ -49,7 +48,7 @@ legend {
     margin-bottom: 16px;
 }
 
-.list {
+ul {
     list-style-type: none;
 }
 
@@ -60,10 +59,9 @@ legend {
 fieldset { 
     border: 0;
     width: 100%;
-
 }
 
-label {
+li {
     border: 2px solid #989898;
     border-radius: 6px;
     display: flex;
@@ -72,21 +70,9 @@ label {
     align-items: flex-start;
 }
 
-input {
-    outline:none;
-    border: none;
-    width: 21px;
-    height: 21px;
-}
-
-
-.add_todo {
-    width: 403px;
-}
-
 p {
     margin-right: 18px;
-    margin-left: 24px;
+    margin-left: 12px;
     text-align: start;
     width: 370px;
 }
@@ -116,29 +102,36 @@ button {
     cursor: pointer;
 }
 
-
 input[type="checkbox"] {
-    position: absolute;
-    -webkit-appearance: none;
-    appearance: none;
+    display: none;
 }
 
-.checkbox {
-    position:absolute;
-    width: 1em;
-    height: 1em;
-    background-image: url(img/checkbox_undone.svg);
-    background-size: contain;
-    
+li:not(:first-child) label {
+    display: flex;
 }
 
-.check_input:checked + .checkbox {
-    background-image: url(img/checkbox_done.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-
+li:not(:first-child) label::before {
+    content: '';
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    border: 1px solid #998899;
+    border-radius: 50%;
 }
 
-.task_done {
+input[type=checkbox]:checked + label::before { 
+    border: 1px solid #998899;
+    border-radius: 50%;
+    width: 21px;
+    height: 21px;
+    background-color: #C4C4C4;
+    box-shadow: inset 0 0 0 2px #fff;
+}
+
+.done_task_high {
     background-color: #F4F4F4;
+}
+
+.list_low li:last-child {
+    margin: 0;
 }

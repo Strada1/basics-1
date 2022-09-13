@@ -12,7 +12,7 @@
         <div id="high-priority">
             <div id="high">HIGH</div>
             <div class="input-container">
-                <form onsubmit="createHighTask(); return false;">
+                <form class="form" onsubmit="createHighTask()">
                     <input type="text" id="high-priority-input" placeholder="Добавить важных дел">
                 </form>
                 <img class="add" src="./close-icon.svg">
@@ -47,7 +47,7 @@
         <div id="low-priority">
             <div id="low">LOW</div>
             <div class="input-container">
-                <form>
+                <form class="form" onsubmit="createLowTask();">
                     <input type="text" id="low-priority-input" placeholder="Добавить">  
                 </form> 
                 <img class="add" src="./close-icon.svg">

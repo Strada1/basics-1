@@ -1,32 +1,32 @@
 import {calcObject} from './calc.js';
-import {btn} from "./btn.js";
+import {element} from "./element.js";
 
 
 function checkInput(firstNumber,secondNumber) {
-    let checkInput = (firstNumber === "" || secondNumber === "" )
+    let checkInput = (element.firstNumber === "" || element.secondNumber === "" )
     if (checkInput) {
         return true;
     }
 }
 
-btn.clear.addEventListener("click", function (){
-    btn.firstNumber.value = '';
-    btn.secondNumber.value = '';
-    btn.result.textContent = '';
+element.clear.addEventListener("click", function (){
+    element.firstNumber.value = '';
+    element.secondNumber.value = '';
+    element.result.textContent = '';
 });
 
-btn.equals.addEventListener("click", function () {
-    let operation = btn.operation.value;
-    let firstNumber = btn.firstNumber.value;
-    let secondNumber = btn.secondNumber.value;
+element.equals.addEventListener("click", function () {
+    let operation = element.operation.value;
+    let firstNumber = element.firstNumber.value;
+    let secondNumber = element.secondNumber.value;
 
 
     if ( checkInput(firstNumber,secondNumber) ) {
         console.log("Is not number");
-        btn.result.textContent = "Is not number";
+        element.result.textContent = "Is not number";
     }  else {
         let calc = calcObject(operation, firstNumber, secondNumber).toFixed(5);
-        btn.result.textContent =  Number(calc);
+        element.result.textContent =  Number(calc);
     }
 });
 
@@ -37,9 +37,9 @@ function createMyDiv(){
         div.remove();
     });
 
-    div.innerHTML = btn.result.textContent;
-    btn.history.append(div);
+    div.innerHTML = element.result.textContent;
+    element.history.append(div);
     div.style.cursor = "pointer";
 }
 
-btn.equals.addEventListener('click', createMyDiv);
+element.equals.addEventListener('click', createMyDiv);

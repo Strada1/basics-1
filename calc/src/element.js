@@ -1,4 +1,4 @@
-export const btn = {
+export const element = {
     equals: document.querySelector(".equals"),
     result: document.querySelector(".result"),
     history: document.querySelector(".history"),

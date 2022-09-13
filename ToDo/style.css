@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+body {
+  background-color: #E5E5E5;
+}
+
+.container {
+  background-color: white;
+  display: flex;
+  margin: 32px auto;
+  flex-direction: column;
+  align-items: center;
+  width: 480px;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container h1 {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 12px;
+}
+
+.container .create {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 450px;
+  height: 20px;
+  margin:0 8px 8px 8px;
+  padding: 5px;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+
+.container form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 450px;
+  height: 20px;
+}
+
+.container .create .add:hover {
+  cursor: pointer;
+  border: 1px solid #989898;
+  border-radius: 5px;
+}
+
+.container .create input{
+  outline: none;
+  border: none;
+  flex: 0.95;
+}
+
+.container .task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:0 8px 8px 8px;
+  padding: 5px;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+
+.container .done {
+  background-color: #F4F4F4;
+  margin:0 8px 8px 8px;
+  padding: 5px;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+
+.container .task p {
+  text-decoration: none;
+  outline: none;
+  flex: 0.95;
+}
+
+.container .task .check:hover {
+  cursor: pointer;
+  background-color: #C4C4C4;
+  border-radius: 10px;
+}
+
+.container .task .checked {
+  background-color: #C4C4C4;
+  border-radius: 10px;
+}
+
+.container .task .checked:hover {
+  cursor: pointer;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.container .task .xmark:hover {
+  cursor: pointer;
+  border: 1px solid #989898;
+  border-radius: 5px;
+}

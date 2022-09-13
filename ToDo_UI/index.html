@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <title>TODO</title>
+</head>
+<body>
+    
+    <div class="section">
+        <div class="video">
+            <div class="color-overlay"></div>
+            <video autoplay loop muted src="video/bg-video.mp4"></video>
+        </div>
+    </div>
+
+    <div class="todo-app" id="todo-app">
+        <h3>HIGH</h3>
+        <form action="" class="add-todo" id="add-todo">
+            <input type="text" id="todo-text" placeholder="Добавить важных дел">
+            <button>
+                <img src="img/add-task.svg" alt="">
+            </button>
+        </form>
+        <ul class="todo-list" id="todo-list">
+            <li class="item" id="item">
+                <a href="#">
+                    <label class="container">
+                        <input type="checkbox" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                </a>
+                <span class="todo-text">Вот вам и супер интересная тема. Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.</span>
+                <a href="#" class="todo-remove"><img src="img/delete-task.svg" alt=""></i></a>
+            </li>
+            <li>
+                <a href="#">
+                    <label class="container">
+                        <input type="checkbox" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                </a>
+                <span class="todo-text">Сверстать этот TODO list</span>
+                <a href="#" class="todo-remove"><img src="img/delete-task.svg" alt=""></i></a>
+            </li>
+            <li>
+                <a href="#">
+                    <label class="container">
+                        <input type="checkbox" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                </a>
+                <span class="todo-text">Начать делать задачу</span>
+                <a href="#" class="todo-remove"><img src="img/delete-task.svg" alt=""></i></a>
+            </li>
+        </ul>
+            <h3>LOW</h3>
+            <form action="" class="add-todo" id="add-todo">
+                <input type="text" id="todo-text" placeholder="Добавить">
+                <button>
+                    <img src="img/add-task.svg" alt="">
+                </button>
+            </form>
+            <ul class="todo-list"id="todo-list">
+                <li>
+                    <a href="#">
+                        <label class="container">
+                            <input type="checkbox" name="radio" >
+                            <span class="checkmark"></span>
+                        </label>
+                    </a>
+                    <span class="todo-text">Посмотреть ютубчик</span>
+                    <a href="#" class="todo-remove"><img src="img/delete-task.svg" alt=""></i></a>
+                </li>
+                </ul>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

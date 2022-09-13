@@ -1,43 +1,36 @@
+import { calc } from './calcFn.js'
+
+const container = document.querySelector('.container')
 const operand1 = document.querySelector('#operand1')
 const operand2 = document.querySelector('#operand2')
 const operation = document.querySelector('#operation')
 const equalsButton = document.querySelector('#euqalsButton')
 const result = document.querySelector('#result')
 
-const operations = {
-  addition: '+',
-  subtraction: '-',
-  multiplication: '*',
-  division: '/',
-  modulo: '%',
-}
+// adding calc() to UI
+let res
+equalsButton.addEventListener('click', (e) => {
+  e.preventDefault()
 
-function calc(a, b, operation) {
-  switch (operation) {
-    case 'addition':
-      return a + b
-      break
-    case 'subtraction':
-      return a - b
-      break
-    case 'multiplication':
-      return a * b
-      break
-    case 'division':
-      return a / b
-      break
-    case 'modulo':
-      return a % b
-      break
-  }
-}
-// console.log(calc(10, 2, 'addition'))
+  res = calc(+operand1.value, +operand2.value, operation.value)
+  result.textContent = Math.trunc(res)
+})
+
+// rendering list of results
+// let ul = document.createElement('ul')
+let ul = document.querySelector('.allResults')
+// container.append(ul)
+// ul.className = 'allResults'
 
 equalsButton.addEventListener('click', (e) => {
   e.preventDefault()
 
-  console.log(calc(+operand1.value, +operand2.value, operation.value))
-  result.textContent = Math.trunc(
-    calc(+operand1.value, +operand2.value, operation.value),
-  )
+  let li = document.createElement('li')
+  li.textContent = res
+  ul.append(li)
+
+  // removing li when clicking it
+  li.addEventListener('click', (e) => {
+    e.target.remove()
+  })
 })

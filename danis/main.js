@@ -2,7 +2,6 @@ const addTaskButton = document.querySelectorAll(".addTask");
 const list = [];
 const highElement = document.querySelector('.todo__list__high-task');
 
-
 for (let i = 0; i < addTaskButton.length; i++) {
 	addTaskButton[i].addEventListener("click", function () {
 		let presentValue = addTaskButton[i].parentElement.querySelector('input').value;

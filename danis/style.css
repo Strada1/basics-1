@@ -73,3 +73,7 @@
     background-color: #000;
     font-size: 4rem;
 }
+
+.addTask {
+    align-self: flex-start;
+}

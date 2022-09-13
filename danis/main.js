@@ -17,18 +17,28 @@ function createTaskElement(button) {
 	nameTask.textContent = presentValue;
 	let highParent = button.parentElement.parentElement;
 	highParent.append(myDiv);
-	
+}
+
+function errorMessage() {
+	let myDiv = document.createElement('div');
+	myDiv.textContent = "Ошибка!";
+	myDiv.className = "error__message"
+	document.body.append(myDiv);
+	setTimeout(function() {
+		myDiv.remove();
+	}, 1500)
 }
 
 function addTask(nameTask, button) {
 	let result = list.findIndex(function (item) {
 		return item.name === nameTask;
 	});
-	if (result === -1) {
+	if ((result === -1) && (nameTask !== "")) {
+		console.log(nameTask);
 		list.push({ name: nameTask});
 		createTaskElement(button);
 	} else {
-		console.log("Такая задача уже существует");
+		errorMessage();
 	}
 }
 

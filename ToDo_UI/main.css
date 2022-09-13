@@ -106,10 +106,11 @@ body {
 .todo-list li:not(:first-child) {
     margin-top: 8px;
 } */
-.addlist {
+.addlistHight {
     list-style: none;
+    
 }
-.addlist li{
+.addlistHight li{
     margin-bottom: 8px;
 }
 /* .todo-text {
@@ -136,7 +137,7 @@ body {
     max-width: 460px;
     padding: 12px 0;
 } */
-.addlist li {
+.addlistHight  li {
     display: flex;
     position: relative;
     background: #FFFFFF;
@@ -150,7 +151,11 @@ body {
     background-color: #F4F4F4;
 } */
 
-.todo-remove {
+.todo-remove-high {
+    position: absolute;
+    left: 425px;
+}
+.todo-remove-low {
     position: absolute;
     left: 425px;
 }
@@ -171,8 +176,33 @@ body {
     border:1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 } */
-.addlist li {
+.addlistHight li {
     
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.addlistLow li{
+    margin-bottom: 8px;
+}
+.addlistLow  li {
+    display: flex;
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #989898;
+    border-radius:6px;
+    max-width: 460px;
+    padding: 12px 0;
+}
+.addlistLow {
+    list-style: none;
+
+}
+.addlistLow li {
+        
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -207,4 +237,3 @@ body {
     height: 15px;
     background: #C4C4C4;
 }
-

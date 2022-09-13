@@ -11,14 +11,14 @@
 
 <body>
     <div class="todo_container">
-        <form class="todo_container-high" onsubmit="return false;">
+        <div class="todo_container-high">
             <div class="todo_title">
                 high
             </div>
-            <div class="todo__add_new-task-container">
+            <form onsubmit="return false;" class="todo__add_new-task-container">
                 <input type="text" placeholder="Добавить важных дел">
-                <button class="addTask">+</button>
-            </div>
+                <input type="submit" value="+" class="addTask"></input>
+            </form>
             <div class="todo__list__high-task">
                 <div class="todo__list__high-task-item">
                     <input type="checkbox">
@@ -37,22 +37,22 @@
                 </div>
                 <button>x</button>
             </div>
-        </form>
-        <form class="todo_container-low" onsubmit="return false;">
+        </div>
+        <div class="todo_container-low">
             <div class="todo_title">
                 low
             </div>
-            <div class="todo__add_new-task-container">
+            <form onsubmit="return false;" class="todo__add_new-task-container">
                 <input type="text" placeholder="Добавить важных дел">
-                <button class="addTask">+</button>
-            </div>
+                <input type="submit" value="+" class="addTask"></input>
+            </form>
             <div class="todo__list__high-task">
                 <div class="todo__list__high-task-item">
                     <input type="checkbox">Посмотреть ютубчик
                 </div>
                 <button>x</button>
             </div>
-        </form>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>

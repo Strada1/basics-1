@@ -15,7 +15,7 @@
     text-align: center;
 }
 
-.todo__add_new-task-container input {
+.todo__add_new-task-container input:first-child {
     flex: 0 0 80%;
     border-radius: 6px;
     border: 1px solid #989898;

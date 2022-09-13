@@ -35,16 +35,106 @@
 	border-radius: 6px;
 }
 
-.plus1 {
+.plus1_1 {
+	box-sizing: border-box;	
 	position: absolute;
 	margin-top: 81px;
 	margin-left: 437px;
+	z-index: 1;
 }
+
+.plus1_2 {
+	box-sizing: border-box;	
+	position: absolute;
+	margin-top: 72px;
+	margin-left: 447px;
+	z-index: 1;
+}
+
+.plus2_1 {
+	box-sizing: border-box;	
+	position: absolute;
+	margin-top: 393px;
+	margin-left: 437px;
+	z-index: 1;
+}
+
+.plus2_2 {
+	box-sizing: border-box;	
+	position: absolute;
+	margin-top: 385px;
+	margin-left: 447px;
+	z-index: 1;
+}
+
+.cross1_1 {
+	box-sizing: border-box;	
+	position: absolute;
+	margin-top: 123px;
+	margin-left: 441px;
+	z-index: 1;
+}
+
+.cross1_2 {
+	box-sizing: border-box;	
+	position: absolute;
+	margin-top: 123px;
+	margin-left: 441px;
+	z-index: 1;
+}
+
+.cross2_1 {
+	box-sizing: border-box;	
+	position: absolute;
+	margin-top: 227px;
+	margin-left: 441px;
+	z-index: 1;
+}
+
+.cross2_2 {
+	box-sizing: border-box;	
+	position: absolute;
+	margin-top: 227px;
+	margin-left: 441px;
+	z-index: 1;
+}
+
+.cross3_1 {
+	box-sizing: border-box;	
+	position: absolute;
+	margin-top: 280px;
+	margin-left: 441px;
+	z-index: 1;
+}
+
+.cross3_2 {
+	box-sizing: border-box;	
+	position: absolute;
+	margin-top: 280px;
+	margin-left: 441px;
+	z-index: 1;
+}
+
+.cross4_1 {
+	box-sizing: border-box;	
+	position: absolute;
+	margin-top: 440px;
+	margin-left: 441px;
+	z-index: 1;
+}
+
+.cross4_2 {
+	box-sizing: border-box;	
+	position: absolute;
+	margin-top: 440px;
+	margin-left: 441px;
+	z-index: 1;
+}
+
 
 .container_high {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
 }
 
 

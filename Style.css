@@ -1,0 +1,90 @@
+
+html.body {
+  width: 100%;
+  height: 100%;
+}
+
+.bodytodo{
+  background-color: rgb(230, 230, 230);
+}
+
+.bodycalc{
+    width: 300px;
+    height: 500px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: white;
+  
+}
+
+.HIGHtasks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin: 12px;
+}
+
+.LOWtasks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin: 12px;
+}
+
+.text-field{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-field__input{
+  display: flex;
+  width: 250px;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-field__input:invalid,
+.text-field__input:valid {
+  border-radius: 6px;
+  padding-right: 2.25rem;
+  background-position: right 0.5625rem center;
+  background-size: 1.125rem 1.125rem;
+  height: 25px;
+}
+.text-field__input:valid {
+  border-color: #989898;
+
+}
+
+.BtnClose {
+  display: flex;
+  width: 10px;
+  height: 10px;
+  margin-left: 245px;
+}
+
+.BtnADD {
+  display: flex;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+
+  right: 15px;
+}
+
+.words{
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #989898;
+  border-radius: 6px;
+  padding: 5px;
+  margin: 5px;
+  width: 93%;
+}

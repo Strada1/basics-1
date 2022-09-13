@@ -12,7 +12,7 @@ a {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background:  #F4F4F4;
+    /* background:  #F4F4F4; */
 
 }
 .section {
@@ -42,6 +42,7 @@ body {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 
 }
+
 .todo-app {
     width: 476px;
     height: 688px;
@@ -67,28 +68,31 @@ body {
     display: flex;
     margin-bottom: 8px;
     margin-top: 12px;;
+    
 }
 .add-todo input {
     flex: 1;
+    word-wrap: break-word;
     background: #fff;
     border: 1px solid #989898;
     border-radius: 6px;
-    height: 45px;
+    min-height: 45px;
     padding: 0 10px;
     outline: none;
     font-size: 18px;
 }
+
 .add-todo button {
     border: 0;
     position: absolute;
     left: 421px;
-
     color: #989898;
     background: transparent;
     width: 45px;
     height: 45px;
     cursor: pointer;
 }
+
 .add-todo ::placeholder {
     color: #BBBBBB;
     font-size: 18px;
@@ -96,31 +100,56 @@ body {
     line-height: 21;
 }
 
-.todo-list {
+/* .todo-list {
     list-style: none;
 }
 .todo-list li:not(:first-child) {
     margin-top: 8px;
+} */
+.addlist {
+    list-style: none;
 }
+.addlist li{
+    margin-bottom: 8px;
+}
+/* .todo-text {
+    font-size: 18px;
+    max-width: 370px;
+    margin-left: 12px;
+    line-height: 21px;
+    color: #202020;
+} */
 .todo-text {
+    word-wrap: break-word;
     font-size: 18px;
     max-width: 370px;
     margin-left: 12px;
     line-height: 21px;
     color: #202020;
 }
-.todo-list li {
+/* .todo-list li {
     display: flex;
     position: relative;
     background: #FFFFFF;
     border: 1px solid #989898;
     border-radius:6px;
-    max-width: 4600px;
+    max-width: 460px;
+    padding: 12px 0;
+} */
+.addlist li {
+    display: flex;
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #989898;
+    border-radius:6px;
+    max-width: 460px;
     padding: 12px 0;
 }
-.todo-list li:nth-child(3) {
+
+/* .todo-list li:nth-child(3) {
     background-color: #F4F4F4;
-}
+} */
+
 .todo-remove {
     position: absolute;
     left: 425px;
@@ -131,6 +160,25 @@ body {
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
+    
+}
+/* .todo-list li {
+    
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+} */
+.addlist li {
+    
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 .container input {
     position: absolute;
@@ -143,8 +191,9 @@ body {
     height: 21px;
     width: 21px;
     color: red;
-    background-color: #fff;
-    border: 1px solid #998899;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    /* background-color: #fff; */
+    border: 1px solid #FFFFFF;
     border-radius: 50%;
   }  
 
@@ -158,3 +207,4 @@ body {
     height: 15px;
     background: #C4C4C4;
 }
+

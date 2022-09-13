@@ -1,0 +1,35 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background {
+    margin: 50px 0;
+    background-color: azure;
+    border-radius: 50px;
+    width: 1000px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+label {
+    margin: 0 10px;
+}
+
+select {
+    padding: 1px 10px;
+}
+
+.elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -15,18 +15,13 @@
 </head>
 <body>
 
-<h2 class="title">📝 TO DO LIST </h2>
-
 <section class="to-do">
 
     <div  class="to-do__priority">
         <form
                 name="high_form"
                 class="to-do__form">
-            <label
-                    class="to-do__label"
-                    for="high_input">High
-            </label>
+            <div class="to-do__title">High</div>
             <div class="to-do__button-plus">➕</div>
             <input
                     class="to-do__text-input"
@@ -38,20 +33,19 @@
         <div class="to-do__task-list">
 
             <div class="to-do__task-block  task-block ">
-                <div class="task-block__checked">
-                    <input type="checkbox">
-                </div>
-                <div class="task-block__text">Покушать</div>
+                <label class="task-block__label">
+                    <input class="task-block__checked"  type="checkbox">
+                    <div class="task-block__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, at consequuntur corporis dicta inventore ipsa nostrum odit provident quasi ratione reiciendis repellendus sequi similique sunt suscipit totam vitae voluptatem voluptatibus!</div>
+                </label>
                 <div class="task-block__close">❌</div>
             </div>
 
             <div class="to-do__task-block  task-block task-block_done ">
-                <div class="task-block__checked">
-                    <input checked="checked" type="checkbox">
-                </div>
-                <div class="task-block__text">Сверстать</div>
+                <label class="task-block__label">
+                    <input class="task-block__checked"  type="checkbox">
+                    <div class="task-block__text">сверстать</div>
+                </label>
                 <div class="task-block__close">❌</div>
-            </div>
         </div>
     </div>
 
@@ -59,10 +53,7 @@
         <form
                 name="low_form"
                 class="to-do__form">
-            <label
-                    class="to-do__label"
-                    for="low_input">LOW
-            </label>
+            <div class="to-do__title">low</div>
             <div class="to-do__button-plus">➕</div>
             <input
                     class="to-do__text-input"
@@ -74,18 +65,18 @@
         <div class="to-do__task-list">
 
             <div class="to-do__task-block  task-block ">
-                <div class="task-block__checked">
-                    <input type="checkbox">
-                </div>
-                <div class="task-block__text">Покушать</div>
+                <label class="task-block__label">
+                    <input class="task-block__checked"  type="checkbox">
+                    <div class="task-block__text">сверстать</div>
+                </label>
                 <div class="task-block__close">❌</div>
             </div>
 
             <div class="to-do__task-block  task-block task-block_done ">
-                <div class="task-block__checked">
-                    <input checked="checked" type="checkbox">
-                </div>
-                <div class="task-block__text">Сверстать</div>
+                <label class="task-block__label">
+                    <input class="task-block__checked"  type="checkbox">
+                    <div class="task-block__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi autem consequuntur dolore fugiat ipsum libero modi non praesentium, quasi quia quod ratione sequi, voluptate voluptatem voluptatum. Architecto cumque excepturi tenetur!</div>
+                </label>
                 <div class="task-block__close">❌</div>
             </div>
         </div>

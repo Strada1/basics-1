@@ -1,0 +1,21 @@
+input{
+    font-size: 20px;
+    width: 95px;
+    height: 33px;
+}
+.displayResult{
+    border-style: none;
+}
+button{
+    width: 39px;
+    height: 33px;
+    border-radius: 4px;
+    font-size: 20px;
+}
+select{
+    width: 33;
+    font-size: 20px;
+}
+div{
+   margin: 2% 35%;
+}

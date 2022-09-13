@@ -11,12 +11,9 @@ for (let i = 0; i < addTaskButton.length; i++) {
 }
 
 function createTaskElement(button) {
-	let presentValue = button.parentElement.querySelector('input').value;
 	let myDiv = highElement.cloneNode(true);
-	let nameTask = myDiv.querySelector('.todo__list__high-task-item-text');
-	nameTask.textContent = presentValue;
-	let highParent = button.parentElement.parentElement;
-	highParent.append(myDiv);
+	myDiv.querySelector('.todo__list__high-task-item-text').textContent = button.parentElement.querySelector('input').value;
+	button.parentElement.parentElement.append(myDiv);
 }
 
 function errorMessage() {
@@ -34,7 +31,6 @@ function addTask(nameTask, button) {
 		return item.name === nameTask;
 	});
 	if ((result === -1) && (nameTask !== "")) {
-		console.log(nameTask);
 		list.push({ name: nameTask});
 		createTaskElement(button);
 	} else {

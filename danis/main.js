@@ -1,18 +1,27 @@
-const addTaskButton = document.querySelectorAll(".addTask");
+const addFroms = document.querySelectorAll(".todo__add_new-task-container");
 const list = [];
 const highElement = document.querySelector('.todo__list__high-task');
 
-for (let i = 0; i < addTaskButton.length; i++) {
-	addTaskButton[i].addEventListener("click", function () {
-		let presentValue = addTaskButton[i].parentElement.querySelector('input').value;
-		addTask(presentValue, addTaskButton[i]);
+for (let i = 0; i < addFroms.length; i++) {	
+	addFroms[i].addEventListener("submit", function (event) {
+		// отменяем поведение по-умолчанию
+		event.preventDefault();
+		// получаем форму из currentTarget
+		const form = event.currentTarget;
+		// получаем input[type=text] у нашей формы
+		const input = form.querySelector('input[type=text]')
+		if(addTask(input.value)){
+			createTaskElement(input);
+			//чистим инпут
+			input.value = '';
+		}		
 	});
 }
 
-function createTaskElement(button) {
+function createTaskElement(input) {
 	let myDiv = highElement.cloneNode(true);
-	myDiv.querySelector('.todo__list__high-task-item-text').textContent = button.parentElement.querySelector('input').value;
-	button.parentElement.parentElement.append(myDiv);
+	myDiv.querySelector('.todo__list__high-task-item-text').textContent = input.value;
+	input.parentElement.parentElement.append(myDiv);
 }
 
 function errorMessage() {
@@ -31,9 +40,10 @@ function addTask(nameTask, button) {
 	});
 	if ((result === -1) && (nameTask !== "")) {
 		list.push({ name: nameTask});
-		createTaskElement(button);
+		return true;		
 	} else {
 		errorMessage();
+		return false;		
 	}
 }
 

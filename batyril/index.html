@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
-
+    <script type="module" src="js/main.js" ></script>
 </head>
 <body>
 
@@ -30,22 +30,9 @@
                     type ='text'
                     name='task_text' >
         </form>
-        <div class="to-do__task-list">
+        <div id="list_high" class="to-do__task-list">
 
-            <div class="to-do__task-block  task-block ">
-                <label class="task-block__label">
-                    <input class="task-block__checked"  type="checkbox">
-                    <div class="task-block__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, at consequuntur corporis dicta inventore ipsa nostrum odit provident quasi ratione reiciendis repellendus sequi similique sunt suscipit totam vitae voluptatem voluptatibus!</div>
-                </label>
-                <div class="task-block__close">❌</div>
-            </div>
 
-            <div class="to-do__task-block  task-block task-block_done ">
-                <label class="task-block__label">
-                    <input class="task-block__checked"  type="checkbox">
-                    <div class="task-block__text">сверстать</div>
-                </label>
-                <div class="task-block__close">❌</div>
         </div>
     </div>
 
@@ -62,23 +49,9 @@
                     type ='text'
                     name='task_text' >
         </form>
-        <div class="to-do__task-list">
+        <div id="list_low" class="to-do__task-list">
 
-            <div class="to-do__task-block  task-block ">
-                <label class="task-block__label">
-                    <input class="task-block__checked"  type="checkbox">
-                    <div class="task-block__text">сверстать</div>
-                </label>
-                <div class="task-block__close">❌</div>
-            </div>
 
-            <div class="to-do__task-block  task-block task-block_done ">
-                <label class="task-block__label">
-                    <input class="task-block__checked"  type="checkbox">
-                    <div class="task-block__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi autem consequuntur dolore fugiat ipsum libero modi non praesentium, quasi quia quod ratione sequi, voluptate voluptatem voluptatum. Architecto cumque excepturi tenetur!</div>
-                </label>
-                <div class="task-block__close">❌</div>
-            </div>
         </div>
     </div>
 </section>

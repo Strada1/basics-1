@@ -27,5 +27,6 @@ ELEMENTS.ADD_BTN.addEventListener('focus', function () {
     let task = ELEMENTS.ADD_INPUT.value;
     if (task === '') return false;
     addTask(task);
+    return false;
   };
 });

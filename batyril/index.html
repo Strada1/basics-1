@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = "ru">
+<head>
+    <meta charset = "UTF-8">
+    <meta name="keywords" content="to do list">
+    <meta name="author" content="batyril">
+    <meta name="description" content="doing to do list">
+    <title>to do list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+    <script type="module" src="js/main.js" ></script>
+</head>
+<body>
+
+<section class="to-do">
+
+    <div  class="to-do__priority">
+        <form
+                name="high_form"
+                class="to-do__form">
+            <div class="to-do__title">High</div>
+            <div class="to-do__button-plus">➕</div>
+            <input
+                    class="to-do__text-input"
+                    id="high_input"
+                    placeholder="Добавить важных дел"
+                    type ='text'
+                    name='task_text' >
+        </form>
+        <div id="list_high" class="to-do__task-list">
+
+
+        </div>
+    </div>
+
+    <div  class="to-do__priority">
+        <form
+                name="low_form"
+                class="to-do__form">
+            <div class="to-do__title">low</div>
+            <div class="to-do__button-plus">➕</div>
+            <input
+                    class="to-do__text-input"
+                    id="low_input"
+                    placeholder="Добавить важных дел"
+                    type ='text'
+                    name='task_text' >
+        </form>
+        <div id="list_low" class="to-do__task-list">
+
+
+        </div>
+    </div>
+</section>
+</body>
+</html>

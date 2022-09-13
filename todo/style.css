@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    background-color: #E5E5E5
+}
+.container {
+    width: 476px;
+    height: 688px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.high, .low{
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    padding-top: 15px;
+    margin-top: 10px;
+}

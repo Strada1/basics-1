@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="high">
+            <h2 class="todo__title">HIGH</h2>
+            <form id="inp__form__high" onsubmit="return false;">
+                <div class="input__wrapper">
+                    <input type="text" class="todo__input__hihg" name="pwd">
+                    <button class="add__btn__high">+</button>
+                </div>
+            </form>
+            <div class="todo__list__high">
+                <div class="inkine">
+                    <label class="todo__task">
+                        <input type="checkbox">
+                        <div class="task__text">
+                            Что-то сделал
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="low">
+            <h2 class="todo_title">LOW</h2>
+            <form id="inp__form__low" onsubmit="return false;">
+                <div class="input__wrapper">
+                    <input type="text" class="todo__input__low" name="pwd">
+                    <button class="add__btn__low">+</button>
+                </div>
+            </form>
+            <div class="todo__list__low">
+                <label class="todo__task">
+                    <input type="checkbox">
+                    <div class="task__text">
+                        Что-то сделал Low
+                    </div>
+                </label>
+            </div>
+        
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

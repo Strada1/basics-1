@@ -8,20 +8,24 @@
     <title>Document</title>
   </head>
   <body>
-    <form class="form">
-      <input type="text" name="Input" id="operand1" value="5" />
-      <select id="operation">
-        <option value="addition">+</option>
-        <option value="subtraction">-</option>
-        <option value="multiplication">*</option>
-        <option value="division">/</option>
-        <option value="modulo">%</option>
-      </select>
-      <input type="text" name="Input" id="operand2" value="5" />
-      <button id="euqalsButton">=</button>
-      <span id="result">10</span>
-    </form>
+    <div class="container">
+      <form class="form">
+        <input type="text" name="Input" id="operand1" value="5" />
+        <select id="operation">
+          <option value="addition">+</option>
+          <option value="subtraction">-</option>
+          <option value="multiplication">*</option>
+          <option value="division">/</option>
+          <option value="modulo">%</option>
+        </select>
+        <input type="text" name="Input" id="operand2" value="5" />
+        <button id="euqalsButton">=</button>
+        <span id="result">10</span>
+      </form>
+    </div>
+    <ul class="allResults"></ul>
 
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="calcFn.js"></script>
   </body>
 </html>

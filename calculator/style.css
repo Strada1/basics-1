@@ -1,19 +1,24 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
-}
+.container {
+  width: 100%;
+  height: 50vh;
 
-.form {
-  height: 100%;
   display: flex;
+  align-items: flex-end;
   justify-content: center;
+}
+
+.allResults {
+  list-style: none;
+  margin-top: 10px;
+
+  display: flex;
   align-items: center;
+  flex-direction: column;
 }
 
 .form input,
@@ -23,8 +28,4 @@ body {
   height: 20px;
   border: 1px solid #ccc;
   margin: 5px;
-}
-
-.form button {
-  background-color: white;
 }

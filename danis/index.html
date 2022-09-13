@@ -11,7 +11,7 @@
 
 <body>
     <div class="todo_container">
-        <div class="todo_container-high">
+        <form class="todo_container-high" onsubmit="return false;">
             <div class="todo_title">
                 high
             </div>
@@ -24,8 +24,7 @@
                     <input type="checkbox">
                     <div class="todo__list__high-task-item-text"> Вот вам и супер интересная тема.
                         Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести
-                        некоторые
-                        вещи
+                        некоторые вещи
                         куда-то за пределы основной программы.
                     </div>
                 </div>
@@ -38,8 +37,8 @@
                 </div>
                 <button>x</button>
             </div>
-        </div>
-        <div class="todo_container-low">
+        </form>
+        <form class="todo_container-low" onsubmit="return false;">
             <div class="todo_title">
                 low
             </div>
@@ -53,7 +52,7 @@
                 </div>
                 <button>x</button>
             </div>
-        </div>
+        </form>
     </div>
     <script src="main.js"></script>
 </body>

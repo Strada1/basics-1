@@ -17,6 +17,7 @@ function createTaskElement(button) {
 	nameTask.textContent = presentValue;
 	let highParent = button.parentElement.parentElement;
 	highParent.append(myDiv);
+	
 }
 
 function addTask(nameTask, button) {

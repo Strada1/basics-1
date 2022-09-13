@@ -70,6 +70,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      align-items: start;
     }
 
     .task_list input {

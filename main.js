@@ -43,7 +43,7 @@ function checkTask (newTask) {
   const tasks = document.querySelectorAll('.todo__task-text');
   
   for (let i = 0; i<tasks.length; i++) {
-    if (newTask === tasks[i].innerHTML.trim()) {
+    if (newTask.trim() === tasks[i].innerHTML.trim() || newTask === tasks[i].innerHTML) {
       return true;
     }
   }

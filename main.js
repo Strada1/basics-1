@@ -1,20 +1,15 @@
-
-
 const input_addtask = document.getElementById("input_addtask")
 const input_checkbox = document.getElementById("input_checkbox")
+const form_addtask = document.getElementById("form_addtask")
 
-input_addtask.addEventListener("click", event)
+form_addtask.addEventListener("submit", addtask)
 
- function event (event) {
-	event.preventDefault()
-}
+function addtask (event) {
+	event.preventDefault();
 
-input_addtask.addEventListener("click", addtask)
-
-
-function addtask () {
 	const value_input = input_addtask.value;
-	input_checkbox.insertAdjacentHTML("afterend", 
+
+	form_addtask.insertAdjacentHTML("afterend", 
 	`
 	<div> 
 		<label class="input_checkbox" id="input_checkbox">

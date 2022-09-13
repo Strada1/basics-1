@@ -11,6 +11,12 @@ function createTask (event) {
   const todoUl = this.todoForm.nextElementSibling;
   const tasks = document.querySelectorAll('.todo__task-text');
   const newTask = todoInput.value;
+
+  if (newTask.trim() === '') {
+    alert('Не введена задача');
+    return;
+  }
+
   if (tasks[0]!= undefined) {
     if (checkTask(newTask)) {
       alert('Такая задача уже есть!');

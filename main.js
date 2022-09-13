@@ -14,6 +14,4 @@ function addtask () {
 		</label>
 	`
 	)
-
-	alert(value_input)
 }

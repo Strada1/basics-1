@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  font-weight: 400;
+}
+body {
+  font-family: 'Roboto';
+  background-color: #e5e5e5;
+}
+.todo {
+  margin-top: 100px;
+  height: 688px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.conrainer {
+  max-width: 492px;
+  background-color: #fff;
+  padding: 8px 8px 198px;
+}
+.high {
+  display: flex;
+  row-gap: 8px;
+  flex-direction: column;
+}
+.todo__title {
+  text-align: center;
+  font-size: 18px;
+  height: 58px;
+}
+.todo__add {
+  position: relative;
+  padding: 12px 30px 12px 12px;
+  width: 91.1%;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+.todo__add-input {
+  width: 436px;
+  border: none;
+}
+.todo__add-input:focus {
+  outline: none;
+}
+.todo__add-input::placeholder {
+  font-size: 18px;
+  color: #bbbbbb;
+}
+
+.todo__add-btn {
+  background-image: url('/img/add-icon.svg');
+  background-repeat: no-repeat;
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 455px;
+  top: 12px;
+  background-size: 20px 20px;
+  outline: none;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.todo__task {
+  border: 1px solid #989898;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px 12px;
+}
+
+.todo__task-content {
+  padding-left: 33px;
+}
+.todo__icon-delete {
+  margin-left: 15px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.todo__task-checkbox[type='checkbox'] {
+  display: none;
+}
+.todo__name::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #998899;
+  vertical-align: middle;
+  position: absolute;
+  left: -33px;
+}
+.todo__task-checkbox[type='checkbox']:checked + .todo__name::before {
+  content: '';
+  text-align: center;
+  background-color: #b4a1b9;
+}
+.todo__task-text {
+  font-size: 18px;
+  width: 370px;
+  position: relative;
+}
+
+.low {
+  display: flex;
+  row-gap: 8px;
+  flex-direction: column;
+}
+.low__task-checkbox[type='checkbox'] {
+  display: none;
+}
+
+.low__task-text {
+  font-size: 18px;
+  width: 370px;
+  position: relative;
+}

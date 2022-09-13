@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../main.css" />
+    <title>TODO list</title>
+  </head>
+  <body>
+    <section class="todo">
+      <div class="conrainer">
+        <div class="high">
+          <div class="todo__title">
+            <h1>HIGH</h1>
+          </div>
+          <form class="todo__add">
+            <input type="text" class="todo__add-input" placeholder="Добавить важные дела" />
+            <input type="submit" class="todo__add-btn" value="">
+            </input>
+          </form>
+          <div class="todo__task">
+            <div class="todo__task-content">
+              <label  class="todo__task-text"> 
+                <input type="checkbox" id="high__task1" class="todo__task-checkbox" size="400px" />
+                <span class="todo__name">
+                  Вот вам и супер интересная тема. Вы наверняка заметили что ваши файлы с кодом
+                  становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы
+                  основной программы.
+                </span>
+              </label>
+            </div>
+            <button class="todo__icon-delete">
+              <img src="../img/delete-icon.svg" alt="icon" />
+            </button>
+          </div>
+          <div class="todo__task">
+            <div class="todo__task-content">
+              <label  class="todo__task-text"> 
+                <input type="checkbox" id="high__task1" class="todo__task-checkbox" />
+                <span class="todo__name">
+                  Сверстать этот TODO list
+                </span>
+              </label>
+            </div>
+            <button class="todo__icon-delete">
+              <img src="../img/delete-icon.svg" alt="icon" />
+            </button>
+          </div>
+          <div class="todo__task active">
+            <div class="todo__task-content">
+              <label  class="todo__task-text"> 
+                <input type="checkbox" id="high__task1" class="todo__task-checkbox" />
+                <span class="todo__name">
+                  Начать делать задачу
+                </span>
+              </label>
+            </div>
+            <button class="todo__icon-delete">
+              <img src="../img/delete-icon.svg" alt="icon" />
+            </button>
+          </div>
+        </div>
+
+        <div class="low">
+          <div class="todo__title">
+            <h1>LOW</h1>
+          </div>
+          <form class="todo__add">
+            <input type="text" class="todo__add-input" placeholder="Добавить важные дела" />
+            <input type="submit" class="todo__add-btn" value="">
+            </input>
+          </form>
+          <div class="todo__task">
+            <div class="todo__task-content">
+              <label  class="todo__task-text"> 
+                <input type="checkbox" id="high__task1" class="todo__task-checkbox" />
+                <span class="todo__name">
+                  Посмотреть ютубчик
+                </span>
+              </label> 
+            </div>
+            <button class="todo__icon-delete">
+              <img src="../img/delete-icon.svg" alt="icon" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

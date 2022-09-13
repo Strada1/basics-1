@@ -40,7 +40,7 @@ body {
     /* height: 58px; */
 }
 
-.todo__add {
+.todo__add-high, .todo__add-low {
     position: relative;
     padding: 12px 30px 12px 12px;
     width: 460px;
@@ -93,6 +93,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 435px;
 }
 
 .todo__task-checkbox[type='checkbox'] {
@@ -121,12 +122,10 @@ body {
 .todo__task-btn {
     display: inline-block;
     width: 20px;
-    height: 17px;
-    margin-left: 15px;
+    height: 17x;
+    /* margin-left: 12px; */
     border: none;
     background-color: inherit;
     cursor: pointer;
-    margin-top: 1px;
-    position: absolute;
-    left: 558px;
+    /* margin-top: 1px; */
 }

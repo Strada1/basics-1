@@ -16,7 +16,7 @@ input {
     width: 100%;
 }
 
-button {
+.btn {
     border: none;
     background-color: white;
 }

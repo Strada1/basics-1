@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+}
+
+.calc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:   50vh  0 0 0  ;
+    width: 100%;
+
+    /*height: 100vh;*/
+}
+
+input{
+    width: 95px;
+    height: 33px;
+    margin: 8px;
+    font-size: 20px;
+    font-style: normal;
+
+}
+
+.operation{
+    height: 33px;
+    width: 39px;
+}
+
+.equals{
+    width: 39px;
+    height: 33px;
+}
+
+span{
+    margin: 8px;
+    font-size: 30px;
+    font-style: normal;
+}
+
+.clear{
+    margin-left: 50px;
+    width: 70px;
+    height: 33px;
+}
+
+.history{
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+}
+
+ 

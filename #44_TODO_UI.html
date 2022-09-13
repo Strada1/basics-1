@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>ToDo UI</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="rectangle">
+                <div class="high" id="high">
+                    <div class="title">HIGH</div>
+                    <form onsubmit="newTask('inputTaskHigh', 'high');return false" class="newtask-high">
+                        <input type="text" id="inputTaskHigh" class="input-hightask" placeholder="Добавить важных дел">
+                        <input type="image" class="plus" src="plus.png"  width="20" height="20">
+                    </form>
+                    <div class="task" id="hightask">
+                        <input type="radio" class="ellipse">
+                        <div class="task-description">Вот вам и супер интересная тема. Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.</div>
+                        <input type="image" class="cross" src="cross.png"  width="18" height="18">
+                    </div>
+                </div>
+                <div class="low" id="low">
+                    <div class="title">LOW</div>
+                    <form onsubmit="newTask('inputTaskLow', 'low');return false"  class="newtask-low">
+                        <input type="text" id="inputTaskLow" class="input-lowtask" placeholder="Добавить ">
+                        <input type="image" class="plus" src="plus.png"  width="20" height="20">
+                    </form>
+                </div>
+            </div>
+        </div>   
+    </body>
+    <script src="./main.js"></script> 
+</html>

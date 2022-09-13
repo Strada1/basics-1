@@ -1,47 +1,25 @@
-import {
-  calculator,
-  calcButton,
-  firstInput,
-  secondInput,
-  operator,
-  value,
-  list,
-} from "./consts.js";
+const forms = document.querySelectorAll(`.js-form`);
 
-function calc() {
-  let firstOperand = +firstInput.value;
-  let secondOperand = +secondInput.value;
-  switch (operator.value) {
-    case `sum`:
-      value.innerHTML = firstOperand + secondOperand;
-      break;
-    case `sub`:
-      value.innerHTML = firstOperand - secondOperand;
-      break;
-    case `multi`:
-      value.innerHTML = firstOperand * secondOperand;
-      break;
-    case `div`:
-      value.innerHTML = firstOperand / secondOperand;
-      break;
-    default:
-      console.log(`Error`);
-  }
+if (forms.length) {
+  forms.forEach((form) => {
+    const input = form.querySelector(`.js-input`);
+    const taskList = form.querySelector(`.js-list`);
 
-  list.insertAdjacentHTML(
-    `beforeend`,
-    `<li class="js-item">${value.innerHTML}</li>`
-  );
-
-  const items = calculator.querySelectorAll(`.js-item`);
-
-  items.forEach((item) => {
-    function deleteItem() {
-      item.remove();
+    function addTask(event) {
+      let taskName = input.value;
+      taskList.insertAdjacentHTML(
+        `beforeend`,
+        ` <li class="todo__item">
+            <label class="todo__label todo__label--task">
+              <input class="todo__input" type="checkbox" name="task">
+              <span class="todo__name">${taskName}</span>
+              <button class="todo__button todo__button--remove"></button>
+            </label>
+          </li>`
+      );
+      event.preventDefault();
     }
 
-    item.addEventListener(`click`, deleteItem);
+    form.addEventListener(`submit`, addTask);
   });
 }
-
-calcButton.addEventListener(`click`, calc);

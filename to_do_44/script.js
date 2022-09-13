@@ -29,7 +29,7 @@ function createTaskElem(task, priority) {
 }
 
 inputs.forEach(item => {
-  item.addEventListener('keyup', function (e) {
+  item.addEventListener('keydown', function (e) {
     if (
       e.key === 'Enter' &&
       e.target.classList.contains('high-input') &&
@@ -39,16 +39,15 @@ inputs.forEach(item => {
     } else if (
       e.key === 'Enter' &&
       e.target.classList.contains('low-input') &&
-      inputLowTask.value !== ''
+      inputHighTask.value !== ''
     ) {
-      lowBlock.insertAdjacentHTML('afterBegin', createTaskElem(inputLowTask));
+      lowBlock.insertAdjacentHTML('afterBegin', createTaskElem(inputHighTask));
     }
   });
 });
 
 addBtns.forEach(item => {
   item.addEventListener('click', e => {
-    console.log(e.target);
     if (e.target.classList.contains('high') && inputHighTask.value !== '') {
       highBlock.insertAdjacentHTML('afterBegin', createTaskElem(inputHighTask));
     } else if (

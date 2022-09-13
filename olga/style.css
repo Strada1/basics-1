@@ -1,0 +1,84 @@
+.todo {
+}
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+.todo__inner {
+  width: 35%;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-bottom: 4rem;
+  background-color: #e5e5e5;
+}
+.todo__item {
+  margin-top: 1rem;
+}
+.todo__priority {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.todo__item--form {
+}
+.todo__item--add {
+}
+.todo__item--task.todo_input {
+  padding-left: 48px;
+}
+.todo_input {
+  border: 1px solid #998899;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #fff;
+  padding: 12px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+.todo_input input {
+  border-color: transparent;
+  background-color: transparent;
+}
+.todo__item--add {
+  padding: 8px;
+  align-items: center;
+}
+.todo__item--add.todo_input input {
+  padding: 5px;
+  width: 100%;
+}
+.button {
+  background-color: transparent;
+  border: none;
+}
+.todo__task {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.todo__task + label:before {
+  content: "";
+  width: 21px;
+  height: 21px;
+  border: 1px solid #998899;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border-radius: 50%;
+}
+.todo__task:checked + label:after {
+  content: "";
+  width: 21px;
+  height: 21px;
+  border: 1px solid #998899;
+  background-color: #c4c4c4;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border-radius: 50%;
+}

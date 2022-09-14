@@ -45,7 +45,7 @@ input, button {
     background-color: white;
     box-sizing: border-box;
 }
-.text, .text-container, .task {
+.text, .text-container{
     width: 100%;
     display: flex;
 }
@@ -54,7 +54,11 @@ input, button {
     margin-top: 6px;
 
 }
-form {
+form, span {
+    width: 100%;
+    word-wrap: break-word;
+}
+.texttask {
     width: 100%;
     word-wrap: break-word;
 }

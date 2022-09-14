@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #202020;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    /* align-content: center; */
+    justify-content: center;
+    /* overflow: auto; */
+    overflow-y: scroll;
+}
+
+.toDoListItems {
+    /* background: #60a839; */
+    width: 476px;
+    max-height: 888px;
+    border: 1px solid #989898;
+    border-radius: 6px;
+    padding: 13px 8px 8px 8px;
+}
+
+.caption {
+    margin: 12px;
+}
+
+.listHighPriorityItems,
+.listLowPriorityItems {
+    text-align: center;
+}
+
+.input {
+    border: 1px solid #989898;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    padding: 12px;
+}
+
+.input input {
+    width: 60%;
+    border: none;
+}
+
+.item {
+    display: flex;
+    /* justify-content: space-between; */
+    border: 1px solid #989898;
+    border-radius: 6px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 12px;
+}
+
+.item-close-button {
+    margin-right: 2px;
+    margin-left: auto;
+}
+
+.item-text {
+    margin-left: 12px;
+    margin-right: 12px;
+    text-align: left;
+}
+
+.item-add-button,
+.item-close-button {
+    cursor: pointer;
+}

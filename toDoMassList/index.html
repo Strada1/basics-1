@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="toDoListItems">
+            <div class="listHighPriorityItems">
+                <div class="caption">HIGH</div>
+                <div class="Items">
+                    <form class="input" id="formHighPriority" action="#"
+                        onsubmit="addItem(this,'','High');return false">
+                        <input type="text" placeholder="Добавить важных дел" id="text">
+                        <div class="item-add-button" onclick="addItem(this.parentElement,'','High');return false"><img
+                                src="./icons/add-icon.svg" alt="add icon"></div>
+                    </form>
+                    <div class="item">
+                        <div class="checkBox"><input type="checkbox"></div>
+                        <div class="item-text">Вот вам и супер интересная тема.
+                            Вы наверняка заметили что ваши файлы с кодом становятся все объемнее,
+                            что хочется вынести некоторые вещи куда-то за пределы основной программы.
+                        </div>
+                        <div class="item-close-button"><img src="./icons/close-icon.svg" alt="add icon"></div>
+                    </div>
+                    <div class="item">
+                        <div class="checkBox"><input type="checkbox"></div>
+                        <div class="item-text">Сверстать этот TODO list
+                        </div>
+                        <div class="item-close-button"><img src="./icons/close-icon.svg" alt="add icon"></div>
+                    </div>
+                    <div class="item">
+                        <div class="checkBox"><input type="checkbox"></div>
+                        <div class="item-text">Начать делать задачу
+                        </div>
+                        <div class="item-close-button"><img src="./icons/close-icon.svg" alt="add icon"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="listLowPriorityItems">
+                <div class="caption">LOW</div>
+                <div class="Items">
+                    <form class="input" id="formLowPriority" action="#" onsubmit="addItem(this,'','Low');return false">
+                        <input type="text" placeholder="Добавить" id="text">
+                        <div class="item-add-button" onclick="addItem(this.parentElement,'','Low');return false"><img
+                                src="./icons/add-icon.svg" alt="add icon"></div>
+                    </form>
+                    <div class="item">
+                        <div class="checkBox"><input type="checkbox"></div>
+                        <div class="item-text">Посмотреть ютубчик
+                        </div>
+                        <div class="item-close-button"><img src="./icons/close-icon.svg" alt="add icon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="ToDoMassList.js"></script>
+</body>
+
+</html>

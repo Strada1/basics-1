@@ -1,0 +1,106 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.todo__wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.todo__title {
+  text-align: center;
+}
+
+.todo__list {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo__item {
+  position: relative;
+}
+
+.todo__label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+
+.todo__item--checked {
+  background-color: #F4F4F4;
+}
+
+.todo__label--task {
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 12px;
+}
+
+.todo__input {
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  outline: none;
+  border-radius: 6px;
+}
+
+.todo__input::placeholder {
+  color: #BBBBBB;
+}
+
+.todo__button {
+  position: absolute;
+  top: 13px;
+  right: 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.todo__button::after,
+.todo__button::before {
+  position: absolute;
+  content: "";
+  width: calc(100% - 2px);
+  height: 1px;
+  background-color: #998899;
+}
+
+.todo__button--add::before {
+  transform: rotate(90deg);
+}
+
+.todo__button--remove::before {
+  transform: rotate(45deg);
+}
+
+.todo__button--remove::after {
+  transform: rotate(-45deg);
+}

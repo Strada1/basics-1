@@ -15,54 +15,58 @@
 	<div class="todo">
 
 		<div class="todo__wrapper">
-			<form action="#" class="js-form">
+			<form action="#" class="js-form" data-form-type="hight">
 				<h2 class="todo__title">HIGH</h2>
-				<label class="todo__label">
-					<input class="todo__input js-input" type="text" name="name" placeholder="Добавить важных дел">
-					<span class="visually-hidden">Название задачи</span>
+				<div class="todo__item">
+					<label class="todo__label">
+						<input class="todo__input js-input" type="text" name="name" placeholder="Добавить важных дел">
+						<span class="visually-hidden">Название задачи</span>
+					</label>
 					<button type="submit" class="todo__button todo__button--add"></button>
-				</label>
+				</div>
 				<ul class="todo__list js-list">
-					<li class="todo__item">
+					<li class="todo__item js-item">
 						<label class="todo__label todo__label--task">
 							<input class="todo__input" type="checkbox" name="task">
 							<span class="todo__name">Вот вам и супер интересная тема.
 								Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи
 								куда-то за
 								пределы основной программы.</span>
-							<button class="todo__button todo__button--remove"></button>
 						</label>
+						<button type="button" class="todo__button todo__button--remove js-remove"></button>
 					</li>
-					<li class="todo__item">
+					<li class="todo__item js-item">
 						<label class="todo__label todo__label--task">
 							<input class="todo__input" type="checkbox" name="task">
 							<span class="todo__name">Сверстать этот TODO list</span>
-							<button class="todo__button todo__button--remove"></button>
 						</label>
+						<button type="button" class="todo__button todo__button--remove js-remove"></button>
 					</li>
-					<li class="todo__item">
-						<label class="todo__label todo__label--checked todo__label--task">
-							<input class="todo__input" type="checkbox" name="task">
+					<li class="todo__item todo__item--checked js-item">
+						<label class="todo__label todo__label--task">
+							<input class="todo__input" type="checkbox" name="task" checked>
 							<span class="todo__name">Начать делать задачу</span>
-							<button class="todo__button todo__button--remove"></button>
 						</label>
+						<button type="button" class="todo__button todo__button--remove js-remove"></button>
 					</li>
 				</ul>
 			</form>
-			<form action="#" class="js-form">
+			<form action="#" class="js-form" data-form-type="low">
 				<h2 class="todo__title">LOW</h2>
-				<label class="todo__label">
-					<input class="todo__input js-input" type="text" name="name" placeholder="Добавить">
-					<span class="visually-hidden">Название задачи</span>
+				<div class="todo__item">
+					<label class="todo__label">
+						<input class="todo__input js-input" type="text" name="name" placeholder="Добавить">
+						<span class="visually-hidden">Название задачи</span>
+					</label>
 					<button class="todo__button todo__button--add" type="submit"></button>
-				</label>
+				</div>
 				<ul class="todo__list js-list">
 					<li class="todo__item">
 						<label class="todo__label todo__label--task">
 							<input class="todo__input" type="checkbox" name="task">
 							<span class="todo__name">Посмотреть ютубчик</span>
-							<button class="todo__button todo__button--remove"></button>
 						</label>
+						<button type="button" class="todo__button todo__button--remove"></button>
 					</li>
 				</ul>
 			</form>

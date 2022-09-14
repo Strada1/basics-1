@@ -10,28 +10,28 @@
 </head>
 
 <body style="background-color: rgb(128, 128, 128)">
-  <div class="todo_form">
-    <div class="priority_area">
-      <span class="priority_name">HIGH</span>
-      <form id="addTask" class="add_task">
-        <input id="addHigh" placeholder="Добавить важное дело" type="text">
-        <button id="addButton" type="submit">+</button>
-      </form>
-      <div id='highList'>
-      
-      </div>
+<div class="todo_form">
 
-  <div class="priority_area">
+  <div class="priority_area" id='high'>
+    <span class="priority_name">HIGH</span>
+    <form class="add_task">
+      <input placeholder="Добавить важное дело" type="text">
+      <button id="addButton" type="submit">+</button>
+    </form>
+    <div class='list'></div>
+  </div>
+
+  <div class="priority_area" id='low'>
     <span class="priority_name">LOW</span>
-      <form id="addTask" class="add_task_low">
-        <input id="addLow" placeholder="Добавить важное дело" type="text">
-        <button id="addButton" type="submit">+</button>
-      </form>
-      <div id='lowList'>
-      
-      </div>
+    <form class="add_task">
+      <input placeholder="Добавить не очень важное дело" type="text">
+      <button id="addButton" type="submit">+</button>
+    </form>
+    <div class='list'></div>
   </div>
-  </div>
+
+</div>
+
 </body>
 
 </html>

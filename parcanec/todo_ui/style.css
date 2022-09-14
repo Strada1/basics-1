@@ -2,6 +2,7 @@
 
     body {
       font-family: 'Roboto', sans-serif;
+      background-color: grey
     }
 
     .todo_form {
@@ -33,23 +34,11 @@
       margin-bottom: 5px;
       justify-content: space-between;
     }
-                .add_task_low {
-                  border: 1px solid;
-                  border-radius: 5px;
-                  width: auto;
-                  display: flex;
-                  background: white;
-                  padding: 8px 12px;
-                  margin-bottom: 5px;
-                  justify-content: space-between;
-                }
+
 
     .add_task input:focus {
       outline: none;
     }
-                .add_task_low input:focus {
-                  outline: none;
-                }
 
     .add_task input {
       border: none;
@@ -57,12 +46,7 @@
       height: 28px;
       font-size: 18px;
     }
-                .add_task_low input {
-                  border: none;
-                  width: 100%;
-                  height: 28px;
-                  font-size: 18px;
-                }
+
 
     .add_task button {
       border: none;
@@ -70,18 +54,10 @@
       font-size: 24px;
       cursor: pointer;
     }
-                .add_task_low button {
-                  border: none;
-                  background: none;
-                  font-size: 24px;
-                  cursor: pointer;
-                }
+
     .add_task button:hover {
       color: green;
     }
-                .add_task_low button:hover {
-                  color: green;
-                }
 
     .task_list {
       border: 1px solid;
@@ -119,12 +95,13 @@
     .task_list button {
       display: inline-block;
       border: none;
-      background:none;
+      background: none;
       font-size: 24px;
       cursor: pointer;
       align-items: start;
       transition: all 0.3s linear;
     }
+
     .task_list button:hover {
       color: red;
     }

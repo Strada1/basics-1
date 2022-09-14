@@ -37,6 +37,8 @@ function calc (operation, a, b) {
     let div = document.createElement('div');
     div.innerHTML = ELEMENTS.RESULT.value;
     div.style.cssText = `margin-left:401px;`;
-
     ELEMENTS.RESULT.after(div);
+    
+    div.setAttribute("onclick", "this.remove()");
 }
+

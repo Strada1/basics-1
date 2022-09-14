@@ -8,20 +8,24 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="calc-wrapper">
-      <input type="number" class="first-input" />
-      <select class="calc">
-        <option class="inc">+</option>
-        <option class="dec">-</option>
-        <option class="multiplication">*</option>
-        <option class="division">/</option>
-      </select>
-      <input type="number" class="last-input" />
-      <span class="equals">=</span>
-      <span class="result">result</span>
-    </div>
-    <script src="./main.js"></script>
-    <!-- <script src="./todo.js"></script> -->
+  <div class="root">
+
+   <div class="todo-wrapper">
+    <span class="todo-title">High</span>
+
+    <input type="text" class="high-todo" placeholder="Добавить важных дел"/>
+
+    <div class="high-todo-list"></div>
+     <p class="todo-title">Low</p>
+
+     <input type="text" class="low-todo" placeholder="Добавить"/>
+
+     <div class="low-todo-list"></div>
+   </div>
+
+  </div>
+    <!-- <script src="./main.js"></script> -->
+    <script src="./todo.js"></script>
     <!-- <script src="./verticalMessage.js"></script> -->
   </body>
 </html>

@@ -1,10 +1,4 @@
-
-const FIRSTNUMBER = document.getElementById('first_Number');
-const SECONDNUMBER = document.getElementById('second_Number');
-const EQUALS = document.getElementById('equals');
-const OPERATORS = document.getElementById('opr');
-const COLUMDIV = document.getElementById('colum');
-
+import {FIRSTNUMBER, SECONDNUMBER, OPERATORS, EQUALS, COLUMDIV} from "./module.js";
 
 let firstNum = null;
 let secondNum = null;

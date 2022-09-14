@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto&display=swap');
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21.09px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	padding: 8px;
+	max-width: 480px;
+}
+
+.priority {
+
+	&__block {}
+}
+
+.block-priority {
+
+	&__input {
+
+		border: 1px solid #989898;
+		border-radius: 6px;
+		height: 45px;
+		margin-bottom: 8px;
+		position: relative;
+
+
+
+		input {
+			padding-left: 12px;
+			border: 1px solid #989898;
+			border-radius: 6px;
+			height: 45px;
+			width: 100%;
+			padding-right: 40px;
+		}
+	}
+
+	.input-priority__add {
+		padding: 0;
+		border: 0;
+		top: 22px;
+		right: 32px;
+		position: absolute;
+
+		&::before {
+			content: "";
+			position: absolute;
+			width: 20px;
+			height: 1px;
+			background-color: #998899;
+			transform: rotate(0deg);
+		}
+
+		&::after {
+			content: "";
+			width: 20px;
+			height: 1px;
+			background-color: #998899;
+			position: absolute;
+			transform: rotate(90deg);
+		}
+	}
+
+	&__title {
+		text-align: center;
+		margin-bottom: 12px;
+	}
+
+	&__checkbox {}
+}
+
+.checkbox {
+
+
+	&__task {
+		margin-bottom: 8px;
+		display: block;
+		border: 1px solid #989898;
+		border-radius: 6px;
+		padding: 12px 45px;
+		position: relative;
+		max-width: 460px;
+
+		&.done {
+			span {
+				text-decoration: line-through;
+			}
+		}
+	}
+
+	&__input {
+		margin-left: -20px;
+	}
+
+	&__close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 15px;
+		height: 15px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			width: 20px;
+			height: 1px;
+			top: 22px;
+			right: 12px;
+			background-color: #998899;
+			transform: rotate(45deg);
+		}
+
+		&::after {
+			content: "";
+			width: 20px;
+			height: 1px;
+			background-color: #998899;
+			position: absolute;
+			top: 22px;
+			right: 12px;
+			transform: rotate(-45deg);
+		}
+	}
+}

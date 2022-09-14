@@ -95,7 +95,6 @@ function changeStatus(task, status) {
 // render
 
 function render() {
-  console.log(list);
   document.querySelectorAll('.todo__task').forEach(function (task) {
     task.remove();
   });
@@ -140,6 +139,11 @@ function render() {
         break;
       default:
         alert('Error list');
+    }
+    if (itemTask.status === STATUS.DONE) {
+      document.querySelectorAll('.todo__task-checkbox').forEach(function (task) {
+        task.classList.add('check');
+      });
     }
   });
 }

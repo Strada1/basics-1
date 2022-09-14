@@ -19,7 +19,7 @@ const STATUS = {
 const list = [
   {
     name: '1',
-    status: STATUS.TO_DO,
+    status: STATUS.DONE,
     priority: PRIORITY.HIGH,
   },
   {
@@ -107,7 +107,7 @@ function render() {
           `<div class="todo__task">
             <div class="todo__task-content">
               <label  class="todo__task-text">
-                <input type="checkbox" id="high__task1" class="todo__task-checkbox" onclick = 'changeStatus("${itemTask.name}", "done")' />
+                <input type="checkbox" id="high__task1" class="todo__task-checkbox" onclick = 'changeStatus("${itemTask.name}", "${STATUS.DONE}")' />
                 <span class="todo__name">
                   ${itemTask.name}
                 </span>
@@ -125,7 +125,7 @@ function render() {
           `<div class="todo__task">
             <div class="todo__task-content">
               <label  class="todo__task-text">
-                <input type="checkbox" id="high__task1" class="todo__task-checkbox" onclick = 'changeStatus("${itemTask.name}", "done")'/>
+                <input type="checkbox" id="high__task1" class="todo__task-checkbox" onclick = 'changeStatus("${itemTask.name}", "${STATUS.DONE}")'/>
                 <span class="todo__name">
                   ${itemTask.name}
                 </span>

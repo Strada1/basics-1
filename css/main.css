@@ -1,0 +1,108 @@
+html, body {
+    height: 100%;
+  }
+
+body {
+    background-color: rgb(226, 224, 224);
+    font-family: sans-serif;
+    color: rgb(78, 78, 78);
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.container {
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    min-height: 90%;
+    margin: auto;
+    background-color: white;
+}
+
+.block {
+    padding: 10px;
+}
+
+.title {
+    text-align: center;
+}
+
+.list-item {
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: rgb(191, 190, 190);
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.list-item:hover {
+    background-color: aliceblue;
+}
+
+.list-item input {
+    margin-top: 5px;
+    margin-bottom: auto;
+}
+
+.list-item .text {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 2px;
+    margin-bottom: auto;
+}
+
+.add {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: rgb(191, 190, 190);
+}
+
+.add form {
+    width: 100%;
+    display: flex;
+}
+
+.add form input {
+    width: 100%;
+    margin-right: 10px;
+    height: 25px;
+    border-style: none;
+}
+
+.add input:focus {
+    border-style: none;
+    outline-width: 0;
+}
+
+.icon-add button {
+    background-color: white;
+    border-style: none;
+}
+
+.icon-action:hover {
+    cursor: pointer;
+}
+
+i .fa:hover  {
+    cursor: pointer;
+}
+
+.icon-close {
+    margin-left: auto; 
+    margin-right: 0;
+    padding-top: 4px;
+}
+
+.icon-add {
+    margin-left: auto; 
+    margin-right: 0;
+    padding-top: 4px;
+}

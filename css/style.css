@@ -9,6 +9,9 @@ body {
 	font-size: 18px;
 
 	margin: 0;
+
+	background: url(./img/back.jpg) no-repeat;
+	background-size: 1423px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -32,6 +35,8 @@ input, textarea, button, select {
 	width: 476px;
 	height: 650px;
 
+	background-color: rgba(255, 255, 255, 0.5);
+
 	margin: 10px auto;
 
 	display: flex;
@@ -45,13 +50,10 @@ input, textarea, button, select {
 .new-task {
 	display: flex;
 	height: 45px;
-	/* width: 460px; */
 
 	background: #FFFFFF;
 	border: 1px solid #989898;
 	border-radius: 6px;
-	/* margin-right: 0; */
-	/* margin-left: 4px; */
 }
 
 .new-task__text {
@@ -65,13 +67,15 @@ input, textarea, button, select {
 }
 
 .new-task__button {
-	margin-right: 12px;
-	margin-top: 12px;
 	width: 15px;
-	height: 15px;
-	transform: rotate(45deg);
-
-	cursor: pointer;
+    height: 15px;
+    background-image: url(./img/add.svg);
+    border: none;
+    background-position: center;
+    cursor: pointer;
+    background-color: inherit;
+    margin-right: 13px;
+		margin-top: 13px;
 }
 
 .todo-list {
@@ -92,7 +96,7 @@ input, textarea, button, select {
 }
 
 
-span {
+.item-text {
 	display: inline-block;
 	width: 370px;
 	margin: 12px 0;
@@ -118,7 +122,7 @@ div.checked {
 	cursor: pointer;
 }
 
-li.checked {
+.checked {
 	background: #F4F4F4;
 }
 
@@ -130,4 +134,8 @@ li.checked {
 	margin-right: 12px;
 
 	cursor: pointer;
+}
+
+.hide {
+	display: none;
 }

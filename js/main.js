@@ -3,21 +3,12 @@
 const iconTask = document.querySelectorAll('.input-priority__add');
 const parentListLow = document.querySelector('#low-list');
 const parentListHigh = document.querySelector('#high-list')
+const parentLists = document.querySelectorAll('.checkbox')
 
 
-const arrTasksList = [
+const arrTasksList = []
 
-]
-
-parentListHigh.addEventListener('click', chaseFunc)
-parentListLow.addEventListener('click', chaseFunc)
-iconTask.forEach(el => {
-	el.addEventListener('click', addTask)
-	el.addEventListener('click', showList)
-})
-
-
-function chaseFunc(event) {
+parentLists.forEach(el => el.addEventListener('click', function (event) {
 	event.preventDefault()
 	console.log(event.target.tagName);
 	if (event.target.tagName === 'INPUT') {
@@ -27,8 +18,12 @@ function chaseFunc(event) {
 		deleteTask(event.target)
 		showList()
 	}
-
-}
+})
+)
+iconTask.forEach(el => {
+	el.addEventListener('click', addTask)
+	el.addEventListener('click', showList)
+})
 
 
 function addTask(event) {
@@ -66,15 +61,10 @@ function changeStatus(event) {
 	}
 }
 
-
-
 function deleteTask(event) {
 	let TaskChange = event.closest('label').querySelector('span').textContent;
 	arrTasksList.splice(arrTasksList.findIndex(task => task.name === TaskChange), 1)
 }
-
-
-/*........................................................*/
 
 function showList() {
 	parentListHigh.innerHTML = '';

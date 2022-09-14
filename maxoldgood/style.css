@@ -9,7 +9,7 @@ body {
     background: #FFFFFF;
     border-radius: 103px;
 }
-.input-number1 {
+.inputnumber1 {
     margin-left:401px;
     margin-top: 457px;
     height: 33px;
@@ -18,7 +18,7 @@ body {
     background: #FFFFFF;
     border: 1px solid #000000;
     }
-.input-number2 {
+.inputnumber2 {
     
     margin-top: 457px;
     height: 33px;
@@ -40,18 +40,10 @@ body {
 }
 .equalsign {
     
-    height: 24px;
-    width: 14px;
-    margin-top: 4px;
-    margin-left: 13px;
-    border-radius: "nullpx";
-
-    font-family: "Inter";
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;   
+   
+    width: 39px;
+    height: 33px;
+  
 }    
 
 .result {

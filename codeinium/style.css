@@ -39,24 +39,22 @@ form {
     width: 100%;
     text-align: left;
 }
-input {
+input, button {
     outline: none; 
     border: none;
+    background-color: white;
+    box-sizing: border-box;
 }
-.text {
+.text, .text-container, .task {
     width: 100%;
     display: flex;
 }
-.add {
-    margin-right: 6px;
-}
+
 .close {
     margin-top: 6px;
-    margin-right: 6px;
+
 }
 form {
     width: 100%;
-}
-.text-container {
-    width: 100%;
+    word-wrap: break-word;
 }

@@ -12,21 +12,19 @@
         <div id="high-priority">
             <div id="high">HIGH</div>
             <div class="input-container">
-                <form class="form" onsubmit="createHighTask()">
+                <form class="form">
                     <input type="text" id="high-priority-input" placeholder="Добавить важных дел">
+                    <button id="high-add-button"> <img class="add" src="./img/add-icon.svg"> </button>
                 </form>
-                <img class="add" src="./close-icon.svg">
-            </div>
+            </div>  
             <div class="task-outer">
                 <div class="task-inner">
                     <div class="text-container">
                         <label class="text"> 
                             <input type="checkbox" id="task" name="task"> 
-                            <span>Lorem ipsum dolor fsdafasdf</span>       
+                            <div class="task">Lorem ipsum dolor fsdafasdf</div>     
+                            <button class="close"> <img src="./img/close-icon.svg"> </button>
                         </label>
-                    </div>
-                    <div class="close">
-                        <img src="./close-icon-2.svg">
                     </div>
                 </div>
             </div>
@@ -35,11 +33,9 @@
                     <div>
                         <label class="text"> 
                             <input type="checkbox" id="task" name="task"> 
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere culpa, exercitationem recusandae suscipit ullam porro illum velit quibusdam officiis libero! Vel quibusdam repudiandae, ratione iusto molestiae provident rerum quam commodi?</span>       
+                            <div class="task"> ipsum dolor, sit amet consectetur adipisicing elit. Facere culpa, exercitationem recusandae suscipit ullam porro illum velit quibusdam officiis libero! Vel quibusdam repudiandae, ratione iusto molestiae provident rerum quam commodi?</div>
+                            <button onclick="removeTask()"> <img src="./img/close-icon.svg"> </button>
                         </label>
-                    </div>
-                    <div class="close">
-                        <img src="./close-icon-2.svg">
                     </div>
                 </div>
             </div>
@@ -47,21 +43,19 @@
         <div id="low-priority">
             <div id="low">LOW</div>
             <div class="input-container">
-                <form class="form" onsubmit="createLowTask();">
+                <form class="form">
                     <input type="text" id="low-priority-input" placeholder="Добавить">  
+                    <button id="low-add-button"> <img class="add" src="./img/add-icon.svg"> </button>
                 </form> 
-                <img class="add" src="./close-icon.svg">
             </div>
             <div class="task-outer">
                 <div class="task-inner">
                     <div>
                         <label class="text"> 
                             <input type="checkbox" id="task" name="task"> 
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere culpa, exercitationem recusandae suscipit ullam porro illum velit quibusdam officiis libero! Vel quibusdam repudiandae, ratione iusto molestiae provident rerum quam commodi?</span>       
+                            <div class="task">ipsum dolor, sit amet consectetur adipisicing elit. Facere culpa, exercitationem recusandae suscipit ullam porro illum velit quibusdam officiis libero! Vel quibusdam repudiandae, ratione iusto molestiae provident rerum quam commodi?</div>
+                            <button class="close"> <img src="./img/close-icon.svg"> </button>
                         </label>
-                    </div>
-                    <div class="close">
-                        <img src="./close-icon-2.svg">
                     </div>
                 </div>
             </div>

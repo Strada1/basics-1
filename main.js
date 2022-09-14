@@ -82,12 +82,6 @@ function deleteTask(task) {
   render();
 }
 
-for (let btn of ELEMENTS.DELETE_BTN) {
-  btn.addEventListener('click', function () {
-    deleteTask(btn.parentNode.innerText);
-  });
-}
-
 // render
 
 function render() {
@@ -135,6 +129,9 @@ function render() {
       default:
         alert('Error list');
     }
+  });
+  ELEMENTS.HIGH_FORM.querySelector('.todo__icon-delete').addEventListener('click', function () {
+    deleteTask(ELEMENTS.HIGH_FORM.querySelector('.todo__icon-delete').parentNode.innerText);
   });
   list.splice(0);
 }

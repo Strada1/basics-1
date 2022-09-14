@@ -1,6 +1,5 @@
 const STATUS  = {
 	TO_DO: "To Do",
-	In_Progress: "In Progress",
 	Done: "Done",
   }
 
@@ -11,9 +10,11 @@ const PRIORITY = {
 
 const input_addtask = document.getElementById("input_addtask")
 const input_checkbox = document.getElementById("input_checkbox")
-const form_addtask = document.getElementById("form_addtask")
+const form_addtask = document.getElementById("form_addtask")	
+const del_task = document.querySelector(".btn_close")
 
 form_addtask.addEventListener("submit", addtask)
+
 
 const list = [ ];
 
@@ -35,7 +36,8 @@ function addtask (event) {
 		<div> 
 			<label class="input_checkbox" id="input_checkbox">
 				<input type="checkbox" name="value" value="option">
-				${value_input} (${STATUS.TO_DO})
+				<input type="submit" value="&#9746" class="btn_close">
+				${value_input}
 			</label>
 		</div>
 		`
@@ -46,51 +48,19 @@ function addtask (event) {
 	  }
 }
 
-  
-  function changeStatus(task, newStatus) {
-	const indexObj = list.findIndex(function(item){
-	  return item.Name == task
-	})
-	if(indexObj == -1) {
-	  console.log(`Нет такой задачи "${task}"`)
-	} else {
-	  const MyObj = list.find(function(item) {
-		return item.Name == task;
-		})
-	
-		MyObj.status = newStatus;
-	} 
-  }
-  
-  function changePriority(task, newPriopity) {
-	const indexObj = list.findIndex(function(item){
-	  return item.Name == task
-	})
-	if(indexObj == -1) {
-	  console.log(`Нет такой задачи "${task}"`)
-	} else {
-	  const MyObj = list.find(function(item) {
-		return item.Name == task;
-	  })
-	  MyObj.priority = newPriopity;
-	}
-  }
-  
-  
-  function deleteTask(task) {
-	const IndexObj = list.findIndex(function(item){
-	  return item.Name == task
-	})
-	if(IndexObj == -1) {
-	  console.log(`Нет такой задачи "${task}"`)
-	} else {
-	  const IndexObj = list.findIndex(function(item) {
-		return item.Name == task;
-	  })
-	
-	  list.splice(IndexObj, 1)
-	}
-  }
+//   function deleteTask(event) {
+	 
+// 	let elem_del = event.currentTarget
+
+// 	  const IndexObj = list.findIndex(function(item) {
+// 		return item.Name == task;
+// 	  })
+
+// 	  list.splice(IndexObj, 1)
+
+// 	  form_addtask.remove()
+// 	}
+
   
   function showList() {
   

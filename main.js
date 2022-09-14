@@ -6,6 +6,7 @@ const ELEMENTS = {
   DELETE_BTN: document.querySelectorAll('.todo__icon-delete'),
   TODO_TASK: document.querySelectorAll('.todo__task'),
   TODO_SPAN: document.querySelectorAll('.todo__name'),
+  BODY: document.body,
 };
 const PRIORITY = {
   LOW: 'low',
@@ -17,22 +18,22 @@ const STATUS = {
 };
 const list = [
   {
-    name: document.querySelector('#high__name1').innerText,
+    name: '1',
     status: STATUS.TO_DO,
     priority: PRIORITY.HIGH,
   },
   {
-    name: document.querySelector('#high__name2').innerText,
+    name: '2',
     status: STATUS.TO_DO,
     priority: PRIORITY.HIGH,
   },
   {
-    name: document.querySelector('#high__name3').innerText,
+    name: '3',
     status: STATUS.TO_DO,
     priority: PRIORITY.HIGH,
   },
   {
-    name: document.querySelector('#low__name1').innerText,
+    name: '4',
     status: STATUS.TO_DO,
     priority: PRIORITY.LOW,
   },
@@ -70,11 +71,12 @@ ELEMENTS.LOW_FORM.onsubmit = function (event) {
   event.preventDefault();
   checkTask(ELEMENTS.LOW_ADD_INPUT, PRIORITY.LOW);
 };
-
+ELEMENTS.BODY.onload = function () {
+  render();
+};
 // delete
 
 function deleteTask(task) {
-  console.log(task);
   let pos = list.findIndex((item) => item.name == task);
   if (pos !== -1) {
     list.splice([pos], 1);
@@ -82,12 +84,22 @@ function deleteTask(task) {
   render();
 }
 
+// changeStatus
+function changeStatus(task, status) {
+  let pos = list.findIndex((item) => item.name == task);
+  if (pos !== -1 && typeof status == 'string' && status !== '') {
+    list[pos].status = status;
+  }
+  render();
+}
 // render
 
 function render() {
-  for (let defaultTask of ELEMENTS.TODO_TASK) {
-    defaultTask.remove();
-  }
+  console.log(list);
+  document.querySelectorAll('.todo__task').forEach(function (task) {
+    task.remove();
+  });
+
   list.map(function (itemTask) {
     switch (itemTask.priority) {
       case PRIORITY.HIGH:
@@ -96,13 +108,13 @@ function render() {
           `<div class="todo__task">
             <div class="todo__task-content">
               <label  class="todo__task-text">
-                <input type="checkbox" id="high__task1" class="todo__task-checkbox" />
+                <input type="checkbox" id="high__task1" class="todo__task-checkbox" onclick = 'changeStatus("${itemTask.name}", "done")' />
                 <span class="todo__name">
                   ${itemTask.name}
                 </span>
               </label>
             </div>
-            <button class="todo__icon-delete">
+            <button class="todo__icon-delete" onclick = 'deleteTask("${itemTask.name}")'>
               <img src="../img/delete-icon.svg" alt="icon" />
             </button>
           </div>`,
@@ -114,13 +126,13 @@ function render() {
           `<div class="todo__task">
             <div class="todo__task-content">
               <label  class="todo__task-text">
-                <input type="checkbox" id="high__task1" class="todo__task-checkbox" />
+                <input type="checkbox" id="high__task1" class="todo__task-checkbox" onclick = 'changeStatus("${itemTask.name}", "done")'/>
                 <span class="todo__name">
                   ${itemTask.name}
                 </span>
               </label>
             </div>
-            <button class="todo__icon-delete">
+            <button class="todo__icon-delete" onclick = 'deleteTask("${itemTask.name}")'>
               <img src="../img/delete-icon.svg" alt="icon" />
             </button>
           </div>`,
@@ -130,8 +142,4 @@ function render() {
         alert('Error list');
     }
   });
-  ELEMENTS.HIGH_FORM.querySelector('.todo__icon-delete').addEventListener('click', function () {
-    deleteTask(ELEMENTS.HIGH_FORM.querySelector('.todo__icon-delete').parentNode.innerText);
-  });
-  list.splice(0);
 }

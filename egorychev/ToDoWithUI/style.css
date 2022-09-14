@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    background-color: #4E505F;
+}
+
+.container {
+    width: 476px;
+    height: 688px;
+    background: #FFFFFF;
+    margin:20px auto;
+    padding:12px 8px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.add_new_task_inner {
+    display:flex;
+    flex-direction: row;
+    height: 45px;
+    background: #FFFFFF;
+    border: 1px solid #989898;
+    box-sizing: border-box;
+    border-radius: 6px;
+    position: relative;
+}
+
+.add_new_task__text {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    padding-left: 12px;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.add_new_task__btn {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    width: 14px;
+    height: 14px;
+    background-image: url('./img/close-icon.svg');
+    background-size: 20px;
+    cursor: pointer;
+    transform: rotate(-45deg);
+    background-repeat: no-repeat;
+    background-color: inherit;
+    background-position: center;
+    border: none;
+}
+
+.task_list_inner {
+    display: flex;
+    width: 460px;
+    min-height: 45px;
+    padding-right: 45px;
+    padding-left: 8px;
+    border: 1px solid #989898;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-align: left;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+.custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #998899;
+    border-radius: 0.5em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 75% 75%;
+}
+
+.custom-checkbox:checked+label::before {
+    background-image: url("img/Ellipse 4.svg");
+
+}
+
+.list_task__btn {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 20px;
+    height: 20px;
+    background-image: url('./img/close-icon (1).svg');
+    background-size: 20px;
+    cursor: pointer;
+    transform: rotate(-45deg);
+    background-repeat: no-repeat;
+    background-color: inherit;
+    background-position: center;
+    border: none;
+}

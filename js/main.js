@@ -27,6 +27,7 @@ function chaseFunc(event) {
 		deleteTask(event.target)
 		showList()
 	}
+
 }
 
 

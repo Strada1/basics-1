@@ -27,7 +27,7 @@ body {
 
 .toDoListItems {
     /* background: #60a839; */
-    max-width: 476px;
+    width: 476px;
     max-height: 888px;
     border: 1px solid #989898;
     border-radius: 6px;

@@ -18,9 +18,10 @@
             <div class="listHighPriorityItems">
                 <div class="caption">HIGH</div>
                 <div class="Items">
-                    <form class="input" action="#" onsubmit="addTask(this);return false">
+                    <form class="input" id="formHighPriority" action="#"
+                        onsubmit="addItem(this,'','High');return false">
                         <input type="text" placeholder="Добавить важных дел" id="text">
-                        <div class="item-add-button" onclick="addTask(this.parentElement);return false"><img
+                        <div class="item-add-button" onclick="addItem(this.parentElement,'','High');return false"><img
                                 src="./icons/add-icon.svg" alt="add icon"></div>
                     </form>
                     <div class="item">
@@ -48,9 +49,9 @@
             <div class="listLowPriorityItems">
                 <div class="caption">LOW</div>
                 <div class="Items">
-                    <form class="input" action="#" onsubmit="addTask(this);return false">
+                    <form class="input" id="formLowPriority" action="#" onsubmit="addItem(this,'','Low');return false">
                         <input type="text" placeholder="Добавить" id="text">
-                        <div class="item-add-button" onclick="addTask(this.parentElement);return false"><img
+                        <div class="item-add-button" onclick="addItem(this.parentElement,'','Low');return false"><img
                                 src="./icons/add-icon.svg" alt="add icon"></div>
                     </form>
                     <div class="item">

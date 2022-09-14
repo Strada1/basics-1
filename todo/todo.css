@@ -1,0 +1,65 @@
+.ToDo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5e5e5;
+  position: relative;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.HighTasks {
+  border: 1px solid #989898;
+  border-radius: 6px;
+  padding: 7px;
+  margin-bottom: 10px;
+}
+
+.LowTasks {
+  border: 1px solid #989898;
+  border-radius: 6px;
+  padding: 7px;
+  margin-bottom: 10px;
+}
+
+.addHigh {
+  border-radius: 6px;
+  padding: 7px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.addHigh button {
+  position: absolute;
+  top: 18%;
+  left: 58.5%;
+}
+
+.addLow button{
+  position: absolute;
+  top: 78.5%;
+  left: 58.5%;
+}
+
+
+.addLow {
+  border-radius: 6px;
+  padding: 7px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.addTask {
+  height:30px; 
+  width: 230px;
+  font-size:14pt;
+  border-radius: 8px;
+  padding: 2px;
+ background-color: #e5e5e5;
+
+ 
+}

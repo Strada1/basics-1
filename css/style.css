@@ -1,0 +1,62 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: black;
+    border: none;
+    background: none;
+}
+body {
+    font-family: 'Inter';
+}
+.main {
+}
+.container {
+    margin: 0 auto;
+}
+.calc__container {
+    background: rgb(37, 150, 190);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calc__row {
+    padding: 30px;
+    aspect-ratio: 1;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    gap: 8px;
+}
+.calc__row * {
+    font-size: 1.25rem;
+}
+.calc__number-input {
+    padding: 0.25em 0.625em;
+    max-width: 95px;
+    border: 1px solid #000;
+}
+.operator-select {
+    border: 5px solid #80d3e2;
+    border-radius: 10px;
+    padding: 0.1em;
+}
+.btn {
+    cursor: pointer;
+}
+.hov-act{transition: .2s;}
+.hov-act:hover {transform: scale(1.01);}
+.hov-act:active {transform: scale(.99);}
+.equal-btn {
+    padding: 0.25em 0.625em;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+.answer {
+}
+.footer {
+}

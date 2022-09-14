@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Calculator UI</title>
+</head>
+<body>
+    <header class="header"></header>
+    <div class="main">
+        <div class="container calc__container">
+            <div class="calc__row">
+                <input type="number" class="calc__number-input" id="a" value="5" />
+                <select class="hov-act operator-select" name="calc-operator" id="operator">
+                    <option value="+" name="add">+</option>
+                    <option value="-" name="subtrack">-</option>
+                    <option value="*" name="multiple">*</option>
+                    <option value="/" name="divide">/</option>
+                </select>
+                <input type="number" class="calc__number-input" id="b" value="5" />
+                <button class="btn hov-act equal-btn">=</button>
+                <span class="answer">10</span>
+            </div>
+        </div>
+        <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
+        <div id="text" style="margin-bottom: 50px;">Текст</div></div>
+    <footer class="footer"></footer>
+    <script src="./basics-1/js/main.js"></script>
+</body>
+</html>

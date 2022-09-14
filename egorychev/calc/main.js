@@ -1,15 +1,16 @@
 
 const FIRSTNUMBER = document.getElementById('first_Number');
 const SECONDNUMBER = document.getElementById('second_Number');
-const RESULT = document.getElementById('result');
+const EQUALS = document.getElementById('equals');
 const OPERATORS = document.getElementById('opr');
-const columDiv = document.getElementById('colum');
-const totalDivRemove = document.getElementsByClassName('total1');
+const COLUMDIV = document.getElementById('colum');
+
 
 let firstNum = null;
 let secondNum = null;
 let operator = null;
-let totalDiv = null;
+
+
 
 
 function calc(firstNum, secondNum, operator) {
@@ -30,22 +31,23 @@ function calc(firstNum, secondNum, operator) {
 };
 
 
+    EQUALS.addEventListener("click", runCalc);
 
-    RESULT.addEventListener("click", function () {
-        totalDiv = document.createElement('div');
-        totalDiv.className = 'total1';
 
+    function runCalc() {
         firstNum = FIRSTNUMBER.value;
         secondNum = SECONDNUMBER.value;
         operator = OPERATORS.value;
-        totalDiv.innerHTML = calc(firstNum, secondNum, operator);
-
-        columDiv.insertAdjacentElement('afterbegin', totalDiv);
+        let result = calc(firstNum, secondNum, operator);
 
 
-});
+        let div = document.createElement('div');
+        div.className = 'total1';
+        div.innerHTML = result;
+        div.addEventListener('click',function () {div.remove()});
+        COLUMDIV.prepend(div);
 
-    totalDivRemove.addEventListener('click', function () {
-        totalDivRemove.remove();
-    });
+    }
+
+
 

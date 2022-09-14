@@ -1,28 +1,66 @@
 
-function showVerticalMessage(string) {
-    let newString;
+function buildFun(n){
 
-    if (string.length > 7) {
-        string = string.slice(0,6);
+    var res = [];
+
+    for (var i = 0; i < n; i++) {
+        res.push(function(){
+            console.log(i);
+            return i;
+        })
     }
-
-    if(string[0] === 's') {
-        newString = string[0].toUpperCase() + string.slice(1);
-    }
-
-    for (let char of newString) {
-        console.log(char);
-    }
-
+    return res;
 }
 
-showVerticalMessage('strada')
+console.log(buildFun(10));
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function showVerticalMessage(string) {
+//     let newString;
+//
+//     if (string.length > 7) {
+//         string = string.slice(0,6);
+//     }
+//
+//     if(string[0] === 's') {
+//         newString = string[0].toUpperCase() + string.slice(1);
+//     }
+//
+//     for (let char of newString) {
+//         console.log(char);
+//     }
+//
+// }
+//
+// showVerticalMessage('strada')
+//
+//
+//
+//
+//
+//
 
 
 

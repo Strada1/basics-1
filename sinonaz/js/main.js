@@ -71,7 +71,10 @@ if (forms.length) {
         );
         taskItem.classList.add(`todo__item--checked`);
       } else {
-        console.log(`Something went wrong`);
+        taskItem.classList.remove(`todo__item--checked`);
+        console.log(
+          `Task '${taskName.textContent}' status has been changed to '${status.TODO}'`
+        );
       }
     }
 

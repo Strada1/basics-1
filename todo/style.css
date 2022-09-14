@@ -65,7 +65,7 @@ body {
   text-transform: uppercase;
 }
 
-.todo__add-task-wrapper {
+.todo__add-task-form {
   position: relative;
   display: flex;
   margin-bottom: 8px;
@@ -147,7 +147,8 @@ body {
 }
 
 .todo__task-label--done {
-  background-color: #f4f4f4;
+  color: #3c763d;
+  background-color: #dff0d8;
 }
 
 .todo__control-mark {
@@ -164,6 +165,10 @@ body {
   border-color: #202020;
 }
 
+.todo__task-check:checked + .todo__control-mark {
+  border-color: #3c763d;
+}
+
 .todo__task-check:checked + .todo__control-mark::before {
   position: absolute;
   top: 0;
@@ -174,7 +179,7 @@ body {
   width: 15px;
   height: 15px;
   content: "";
-  background-color: #c4c4c4;
+  background-color: #3c763d;
   border-radius: 50%;
 }
 
@@ -210,7 +215,7 @@ body {
 
 .todo__delete-task:hover::before,
 .todo__delete-task:hover::after {
-  background-color: #202020;
+  background-color: #e04226;
 }
 
 .todo__task-text {

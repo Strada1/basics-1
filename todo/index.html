@@ -8,93 +8,37 @@
 
   <body>
     <main class="main">
-      <form class="todo">
+      <section class="todo">
         <ul class="todo__priority-list">
-          <li class="todo__priority-item">
-            <h2 class="todo__priority-title">High</h2>
-            <div class="todo__add-task-wrapper">
-              <input class="todo__task-input" type="text" placeholder="Добавить важных дел">
-              <button class="todo__add-task" type="button"></button>
-            </div>
-
-            <ul class="todo__tasks-list">
-              <li class="todo__task-item">
-                <label class="todo__task-label">
-                  <input class="todo__task-check visually-hidden" type="checkbox" name="task">
-                  <span class="todo__control-mark"></span>
-                  <p class="todo__task-text">
-                    Вот вам и супер интересная тема. Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.
-                  </p>
-                  <button class="todo__delete-task" type="button"></button>
-                </label>
-              </li>
-              <li class="todo__task-item">
-                <label class="todo__task-label">
-                  <input class="todo__task-check visually-hidden" type="checkbox" name="task">
-                  <span class="todo__control-mark"></span>
-                  <p class="todo__task-text">Сверстать этот TODO list</p>
-                  <button class="todo__delete-task" type="button"></button>
-                </label>
-              </li>
-              <li class="todo__task-item">
-                <label class="todo__task-label todo__task-label--done">
-                  <input class="todo__task-check visually-hidden" type="checkbox" name="task">
-                  <span class="todo__control-mark"></span>
-                  <p class="todo__task-text">
-                    Начать делать задачу
-                  </p>
-                  <button class="todo__delete-task" type="button"></button>
-                </label>
-              </li>
-            </ul>
-          </li>
-
-          <li class="todo__priority-item">
-            <h2 class="todo__priority-title">Low</h2>
-            <div class="todo__add-task-wrapper">
-              <input class="todo__task-input" type="text" placeholder="Добавить">
-              <button class="todo__add-task" type="button"></button>
-            </div>
-
-            <ul class="todo__tasks-list">
-              <li class="todo__task-item">
-                <label class="todo__task-label">
-                  <input class="todo__task-check visually-hidden" type="checkbox" name="task">
-                  <span class="todo__control-mark"></span>
-                  <p class="todo__task-text">
-                    Посмотреть ютубчик
-                  </p>
-                  <button class="todo__delete-task" type="button"></button>
-                </label>
-              </li>
-
-              <li class="todo__task-item">
-                <label class="todo__task-label">
-                  <input class="todo__task-check visually-hidden" type="checkbox" name="task">
-                  <span class="todo__control-mark"></span>
-                  <p class="todo__task-text">
-                    Посмотреть ютубчик
-                  </p>
-                  <button class="todo__delete-task" type="button"></button>
-                </label>
-              </li>
-
-              <li class="todo__task-item">
-                <label class="todo__task-label">
-                  <input class="todo__task-check visually-hidden" type="checkbox" name="task">
-                  <span class="todo__control-mark"></span>
-                  <p class="todo__task-text">
-                    Посмотреть ютубчик
-                  </p>
-                  <button class="todo__delete-task" type="button"></button>
-                </label>
-              </li>
-            </ul>
-          </li>
         </ul>
-      </form>
+      </section>
     </main>
 
-    <script src="" type="module"></script>
+
+    <template id="todo-priority-item">
+      <li class="todo__priority-item">
+        <h2 class="todo__priority-title"></h2>
+        <form class="todo__add-task-form">
+          <input class="todo__task-input" data-priority="" type="text" placeholder="Добавить важных дел">
+          <button class="todo__add-task" type="submit"></button>
+        </form>
+
+        <ul class="todo__tasks-list" data-priority="">
+        </ul>
+      </li>
+    </template>
+
+    <template id="todo-task-item">
+      <li class="todo__task-item">
+        <label class="todo__task-label">
+          <input class="todo__task-check visually-hidden" type="checkbox" name="status">
+          <span class="todo__control-mark"></span>
+          <p class="todo__task-text"></p>
+          <button class="todo__delete-task" type="button"></button>
+        </label>
+      </li>
+    </template>
+
+    <script src="./js/main.js" type="module"></script>
   </body>
 </html>

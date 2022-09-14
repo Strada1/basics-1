@@ -32,6 +32,9 @@
     display: flex;
     gap: 1rem;
     justify-content: space-between;
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #989898;
 }
 
 .todo__list__high-task-item {
@@ -78,6 +81,6 @@
     align-self: flex-start;
 }
 
-.todo__list__high-task.done .todo__list__high-task-item{
+.todo__list__high-task.done {
     background-color: green;
 }

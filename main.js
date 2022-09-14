@@ -74,17 +74,16 @@ ELEMENTS.LOW_FORM.onsubmit = function (event) {
 // delete
 
 function deleteTask(task) {
+  console.log(task);
   let pos = list.findIndex((item) => item.name == task.innerText);
   if (pos !== -1) {
     list.splice([pos], 1);
-  } else {
-    console.log('Error delete task');
   }
   render();
 }
 
 for (let btn of ELEMENTS.DELETE_BTN) {
-  btn.addEventListener('click', () => {
+  btn.addEventListener('click', function () {
     for (let task of ELEMENTS.TODO_SPAN) {
       deleteTask(task);
     }

@@ -91,6 +91,11 @@
 		position: relative;
 		max-width: 460px;
 
+		&.done {
+			span {
+				text-decoration: line-through;
+			}
+		}
 	}
 
 	&__input {

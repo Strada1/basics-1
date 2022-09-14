@@ -68,6 +68,9 @@
   position: relative;
   max-width: 460px;
 }
+.checkbox__task.done span {
+  text-decoration: line-through;
+}
 .checkbox__input {
   margin-left: -20px;
 }

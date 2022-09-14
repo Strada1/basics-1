@@ -1,9 +1,9 @@
 const forms = document.querySelectorAll('form');
-const listHigh = document.querySelector('.high-list');
-const listLow = document.querySelector('.low-list');
+const priorityHigh = document.querySelector('.high-list');
+const priorityLow = document.querySelector('.low-list');
 const addButton = document.querySelector('.new-task__button')
 
-function createTask(levelList) {
+function createTask(priority) {
 	const task = document.createElement('li');
 	const label = document.createElement('label');
 	const divCheck = document.createElement('div');
@@ -18,7 +18,7 @@ function createTask(levelList) {
 	closeBtn.src = 'css/img/close.png';
 	
 	
-	levelList.prepend(task)
+	priority.prepend(task)
 	task.append(label);
 	label.append(divCheck);
 	label.append(span)
@@ -40,9 +40,9 @@ function createTask(levelList) {
 
 }
 
-function getClassName(levelList, evt) {
-	let res = createTask(levelList);
-	const span = res.querySelector('span');
+function getClassName(priority, evt) {
+	let task = createTask(priority);
+	const span = task.querySelector('span');
 
 	span.textContent = evt.target[0].value;
 }
@@ -51,7 +51,7 @@ forms.forEach((form) => {
 	form.addEventListener('submit', (evt) => {
 		evt.preventDefault();
 
-		evt.target.className === 'high' ? getClassName(listHigh, evt) : getClassName(listLow, evt)
+		evt.target.className === 'high' ? getClassName(priorityHigh, evt) : getClassName(priorityLow, evt)
 		
 	})
 })

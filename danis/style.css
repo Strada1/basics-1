@@ -77,3 +77,7 @@
 .addTask {
     align-self: flex-start;
 }
+
+.todo__list__high-task.done .todo__list__high-task-item{
+    background-color: green;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="todo">
+      <div class="container">
+        <div class="todo__inner">
+          <div class="todo__item">
+            <div class="todo__priority">HIGH</div>
+            <form class="todo__item--form high">
+              <div class="todo__item--add todo_input">
+                <input type="text" placeholder="Добавить важных дел" class="todo__add--task" />
+                <button class="button button__add">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      y1="-0.5"
+                      x2="18.0096"
+                      y2="-0.5"
+                      transform="matrix(0.999988 -0.00481873 0.0748716 0.997193 1 10)"
+                      stroke="#998899"
+                    />
+                    <line
+                      y1="-0.5"
+                      x2="18.0401"
+                      y2="-0.5"
+                      transform="matrix(-0.0192905 -0.999814 0.998699 0.0509976 10.5404 18.8444)"
+                      stroke="#998899"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="todo__container"></div>
+            </form>
+          </div>
+          <div class="todo__item">
+            <div class="todo__priority">LOW</div>
+            <form class="todo__item--form low">
+              <div class="todo__item--add todo_input">
+                <input type="text" placeholder="Добавить" class="todo__add--task" />
+                <button class="button button__add">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      y1="-0.5"
+                      x2="18.0096"
+                      y2="-0.5"
+                      transform="matrix(0.999988 -0.00481873 0.0748716 0.997193 1 10)"
+                      stroke="#998899"
+                    />
+                    <line
+                      y1="-0.5"
+                      x2="18.0401"
+                      y2="-0.5"
+                      transform="matrix(-0.0192905 -0.999814 0.998699 0.0509976 10.5404 18.8444)"
+                      stroke="#998899"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="todo__container"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="./main.js"></script>
+  </body>
+</html>

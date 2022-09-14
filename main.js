@@ -5,8 +5,8 @@ const ELEMENTS = {
   LOW_ADD_INPUT: document.querySelector('#low__add-input'),
   DELETE_BTN: document.querySelectorAll('.todo__icon-delete'),
   TODO_TASK: document.querySelectorAll('.todo__task'),
+  TODO_SPAN: document.querySelectorAll('.todo__name'),
 };
-const defaultTaskArray = document.querySelectorAll('.todo__name');
 const PRIORITY = {
   LOW: 'low',
   HIGH: 'high',
@@ -50,6 +50,12 @@ function addNewTask(task, priority) {
 
 function checkTask(input, priority) {
   let newTask = input.value;
+  let defaultTaskArray = document.querySelectorAll('.todo__name');
+  for (let defaultTask of defaultTaskArray) {
+    if (defaultTask.innerText === newTask) {
+      return false;
+    }
+  }
   if (newTask === '' || !isNaN(newTask)) return false;
   addNewTask(newTask, priority);
   return false;
@@ -65,13 +71,32 @@ ELEMENTS.LOW_FORM.onsubmit = function (event) {
   checkTask(ELEMENTS.LOW_ADD_INPUT, PRIORITY.LOW);
 };
 
+// delete
+
+function deleteTask(task) {
+  let pos = list.findIndex((item) => item.name == task.innerText);
+  if (pos !== -1) {
+    list.splice([pos], 1);
+  } else {
+    console.log('Error delete task');
+  }
+  render();
+}
+
+for (let btn of ELEMENTS.DELETE_BTN) {
+  btn.addEventListener('click', () => {
+    for (let task of ELEMENTS.TODO_SPAN) {
+      deleteTask(task);
+    }
+  });
+}
+
 // render
 
 function render() {
   for (let defaultTask of ELEMENTS.TODO_TASK) {
     defaultTask.remove();
   }
-
   list.map(function (itemTask) {
     switch (itemTask.priority) {
       case PRIORITY.HIGH:
@@ -114,4 +139,5 @@ function render() {
         alert('Error list');
     }
   });
+  list.splice(0);
 }

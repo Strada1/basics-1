@@ -11,8 +11,9 @@ const OPERATIONS = {
     SUB: '-',
     DIVIDE: '/',
 };
-function calc (operation, a, b) {
-        
+
+function calc (operation, a, b) {   
+
     switch(operation) {
      case OPERATIONS.ADD:
          return a+b;
@@ -30,5 +31,12 @@ function calc (operation, a, b) {
  };
  
  ELEMENTS.EQUAL_SIGN.onclick = function (){
-    ELEMENTS.RESULT.value = calc (ELEMENTS.OPERATION.value, Number(ELEMENTS.FIRST_NUMBER.value), Number(ELEMENTS.SECOND_NUMBER.value));    
+
+    ELEMENTS.RESULT.value = calc (ELEMENTS.OPERATION.value, Number(ELEMENTS.FIRST_NUMBER.value), Number(ELEMENTS.SECOND_NUMBER.value)); 
+
+    let div = document.createElement('div');
+    div.innerHTML = ELEMENTS.RESULT.value;
+    div.style.cssText = `margin-left:401px;`;
+
+    ELEMENTS.RESULT.after(div);
 }

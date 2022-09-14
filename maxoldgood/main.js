@@ -1,41 +1,34 @@
-const operations = {
-    add: '+',
-    multi: '*',
-    sub: '-',
-};
-
-// 1. Юзер вводит число в первый инпут
-// 2. Юзер выбирает селект
-// 3. Юзер ввводит число во второй инпут
-// 4. Юзер жмет на кнопку "="
-// 5. В аутпут возвращается результат функции калк:
-//          Оперэйшн - получает значение value из селекта
-//          а и b - получают значение из инпутов
-
-let equalsign = document.getElementById('equalsign');
-equalsign.onclick = function (){
-    let action = document.getElementById('select').value;
-    let firstNumber = +document.querySelector('.inputnumber1').value;
-    let secondNumber = +document.querySelector('.inputnumber2').value;
-    
-    document.querySelector('.result').value = calc(action, firstNumber, secondNumber)
-    
-    function calc (operation, a, b) {
-        
-        switch(operation) {
-         case operations.add:
-             return a+b;
-             break;
-         case operations.multi:
-             return a*b;
-             break;
-         case operations.sub:
-             return a-b;
-             break;
-     }
-     };
+const ELEMENTS = {
+    OPERATION: document.getElementById('select'),
+    FIRST_NUMBER: (document.querySelector('.number-1')),
+    SECOND_NUMBER: (document.querySelector('.number-2')),
+    EQUAL_SIGN: document.getElementById('equalsign'),
+    RESULT: document.querySelector('.result'),
 }
-
-
-
+const OPERATIONS = {
+    ADD: '+',
+    MULTI: '*',
+    SUB: '-',
+    DIVIDE: '/',
+};
+function calc (operation, a, b) {
+        
+    switch(operation) {
+     case OPERATIONS.ADD:
+         return a+b;
+         break;
+     case OPERATIONS.MULTI:
+         return a*b;
+         break;
+     case OPERATIONS.SUB:
+         return a-b;
+         break;
+    case OPERATIONS.DIVIDE:
+         return a/b;
+         break;
+ }
+ };
  
+ ELEMENTS.EQUAL_SIGN.onclick = function (){
+    ELEMENTS.RESULT.value = calc (ELEMENTS.OPERATION.value, Number(ELEMENTS.FIRST_NUMBER.value), Number(ELEMENTS.SECOND_NUMBER.value));    
+}

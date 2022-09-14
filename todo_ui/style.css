@@ -27,7 +27,7 @@ h2{
     padding: 30px 5px;
 }
 
-.todo_block_size{
+.todo_list_task{
     width: 460px;
     min-height: 45px;
 }
@@ -36,7 +36,7 @@ h2{
     padding: 12px 12px;
 }
 
-.todo_task{
+.todo_list{
     border: 1px solid #989898;
     border-radius: 4px;
     width: 460px;

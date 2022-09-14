@@ -14,76 +14,94 @@
             <div class="todo_block">
                 <h2>High</h2>
                 <div class="todo_list_high">
-                    <div >
-                        <input class="todo_task_add todo_block_size" type="text" placeholder="Добавить важные дела">
-
-                        <button class="btn_task task_add">
+                    <form id="todo_task_high" class="todo_list_high_task">
+                        <input id="todo_task_add" class="todo_task_add todo_list_task" type="text" placeholder="Добавить важные дела">
+                        <button class="btn_task task_add" type="submit">
                             <img src="img/icon_add.svg" alt="add_icon">
                         </button>
-                    </div>
-                    
-                    <div class="todo_task">
-                        <label class="todo_block_size">
+                    </form>
+
+                    <!-- <div class="todo_list">
+                        <label class="todo_list_task">
                             <input type="checkbox" class="todo_task_input">
                             <span class="check-style"></span>
-                            Вот вам и супер интересная тема. 
-                        Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.</label>
+                            <span class="task_name"></span>
+                        </label>
+                        <button class="btn_task task_del">
+                            <img src="img/icon_delete.svg" alt="del_icon">
+                        </button>
+                    </div> -->
+                    
+                    <!-- <div class="todo_list">
+                        <label class="todo_list_task">
+                            <input type="checkbox" class="todo_task_input">
+                            <span class="check-style"></span>
+                            <span class="task_name">
+                                Вот вам и супер интересная тема.Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.
+                            </span>
+                        </label>
+                        <button class="btn_task task_del">
+                            <img src="img/icon_delete.svg" alt="del_icon">
+                        </button>
+                    </div> -->
+                    
+                    <!-- <div class="todo_list">
+                        <label class="todo_list_task">
+                            <input type="checkbox" class="todo_task_input">
+                            <span class="check-style"></span>
+                            <span class="task_name">
+                                Сверстать этот TODO list
+                            </span>
+                        </label>
+                        <button class="btn_task task_del">
+                            <img src="img/icon_delete.svg" alt="del_icon">
+                        </button>
+                    </div> -->
+                    
+                    <!-- <div class="todo_list">
+                        <label class="todo_list_task">
+                            <input type="checkbox" class="todo_task_input">
+                            <span class="check-style"></span>
+                            <span class="task_name">
+                                Начать делать задачу
+                            </span>
+                        </label>
                         <button class="btn_task task_del">
                             <img src="img/icon_delete.svg" alt="del_icon">
                         </button>
                     </div>
-                    
-                    <div class="todo_task">
-                        <label class="todo_block_size">
-                            <input type="checkbox" class="todo_task_input">
-                            <span class="check-style"></span>
-                            Сверстать этот TODO list</label>
-                            <button class="btn_task task_del">
-                                <img src="img/icon_delete.svg" alt="del_icon">
-                            </button>
-
-                    </div>
-                    
-                    <div class="todo_task">
-                        <label class="todo_block_size">
-                            <input type="checkbox" class="todo_task_input">
-                            <span class="check-style"></span>
-                            Начать делать задачу</label>
-                            <button class="btn_task task_del">
-                                <img src="img/icon_delete.svg" alt="del_icon">
-                            </button>
-
-                    </div>
-                    
-                </div>
+                </div> -->
 
                 <h2>Low</h2>
                 <div class="todo_list_low">
-                    <div>
-                        <input class="todo_task_add todo_block_size" type="text" placeholder="Добавить">
-
-                        <button class="btn_task task_add">
+                    <form id="todo_task_low" class="todo_list_low_task">
+                        <input class="todo_task_add todo_list_task" type="text" placeholder="Добавить">
+                        <button class="btn_task task_add" type="submit">
                             <img src="img/icon_add.svg" alt="add_icon">
                         </button>
-                    </div>
+                    </form>
                     
 
-                    <div class="todo_task">
-                        <label class="todo_block_size">
+                    <!-- <div class="todo_list">
+                        <label class="todo_list_task">
                             <input type="checkbox" class="todo_task_input">
                             <span class="check-style"></span>
-                            Посмотреть ютубчик</label>
-
-                            <button class="btn_task task_del">
-                                <img src="img/icon_delete.svg" alt="del_icon">
-                            </button>
-                        
-                    </div>
+                            <span class="task_name">
+                                Посмотреть ютубчик
+                            </span>
+                        </label>
+                        <button class="btn_task task_del">
+                            <img src="img/icon_delete.svg" alt="del_icon">
+                        </button>
+                    </div> -->
                     
                 </div>
             </div>
         </div>
     </div>
+
+
+<script src="main.js"></script>
 
 </body>
 </html>

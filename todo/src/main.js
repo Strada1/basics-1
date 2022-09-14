@@ -95,7 +95,7 @@ console.log(list);
 
 
 
-//
+
 // function addTask (nameTask , statuses = STATUS.STATUS_TO_DO, priorities = PRIORITY.PRIORITY_LOW){
 //
 //     let result = myFindIndex(nameTask);

@@ -2,74 +2,46 @@ const STATUS = {
 	toDO: "to do",
 	done: "done",
 };
-const addTaskButton = document.querySelectorAll(".addTask");
-const list = [];
-const highElement = document.querySelector(".todo__list__high-task");
-const deleteNameTask = document.querySelectorAll(".todo__list__high-task");
 
-for (let i = 0; i < addTaskButton.length; i++) {
-	addTaskButton[i].addEventListener("click", function () {
-		let presentValue =
-			addTaskButton[i].parentElement.querySelector("input").value;
-		addTask(presentValue, addTaskButton[i]);
+const PRIORITET = {
+	low: "low",
+	high: "high",
+};
+
+const list = [
+	{
+		name: "пойти бегать",
+		status: 'to do'
+	},
+];
+
+const form = document.querySelector(".container");
+const addFroms = document.querySelectorAll(".todo__add_new-task-container");
+
+for (let i = 0; i < addFroms.length; i++) {	
+	addFroms[i].addEventListener("submit", function (event) {
+		event.preventDefault();
+		const form = event.currentTarget;
+		const input = form.querySelector('input[type=text]')
+		addTask(input.value)
 	});
 }
 
-function createTaskElement(button) {
-	let myDiv = highElement.cloneNode(true);
-	myDiv.querySelector(".todo__list__high-task-item-text").textContent =
-		button.parentElement.querySelector("input").value;
-	button.parentElement.parentElement.append(myDiv);
-	const buttonDelete = myDiv.querySelector("button");
-	const buttonCheckBox = myDiv.querySelector("input[type=checkbox]");
-	buttonCheckBox.addEventListener("change", function () {
-		myDiv.classList.toggle("done");
-		if (buttonCheckBox.checked) {
-			changeStatus(button.parentElement.querySelector("input").value, STATUS.done);
-			console.log('asd');
-		} else {
-			changeStatus(button.parentElement.querySelector("input").value, STATUS.toDO);
-		}
-		console.log(list);
-	});
-	buttonDelete.addEventListener("click", function () {
-		deleteTask(button.parentElement.querySelector("input").value);
-		myDiv.remove();
-	});
-}
-
-function errorMessage() {
-	let myDiv = document.createElement("div");
-	myDiv.textContent = "Ошибка!";
-	myDiv.className = "error__message";
-	document.body.append(myDiv);
-	setTimeout(function () {
-		myDiv.remove();
-	}, 1500);
-}
-
-function addTask(nameTask, button) {
+function addTask(nameTask) {
 	let result = list.findIndex(function (item) {
 		return item.name === nameTask;
 	});
-	if (result === -1 && nameTask !== "") {
+	if ((result === -1) && (nameTask !== "")) {
 		list.push({ name: nameTask, status: STATUS.toDO });
-		createTaskElement(button);
-		console.log(list);
+		render();
 	} else {
 		errorMessage();
 	}
 }
 
 function deleteTask(nameTask) {
-	let result = list.findIndex(function (item) {
-		return item.name === nameTask;
-	});
-	if (result === -1) {
-		errorMessage();
-	} else {
-		list.splice(result, 1);
-	}
+		list.splice(nameTask, 1);
+		render();
 }
 
 function changeStatus(nameTask, status) {
@@ -84,24 +56,66 @@ function changeStatus(nameTask, status) {
 	}
 }
 
-// function showList() {
-// 	for (let status in STATUS) {
-// 		console.log(STATUS[status] + ":");
-// 		list.filter(function (item) {
-// 			if (item.status === STATUS[status]) {
-// 				console.log(" " + item.name);
-// 			}
-// 		});
-// 	}
-// }
 
-// function showPriotiry() {
-// 	for (let priority in PRIORITY) {
-// 		console.log(PRIORITY[priority] + ":");
-// 		list.filter(function (item) {
-// 			if (item.priority === PRIORITY[priority]) {
-// 				console.log(" " + item.name);
-// 			}
-// 		});
-// 	}
-// }
+function errorMessage() {
+	let myDiv = document.createElement("div");
+	myDiv.textContent = "Ошибка!";
+	myDiv.className = "error__message";
+	document.body.append(myDiv);
+	setTimeout(function () {
+		myDiv.remove();
+	}, 1500);
+}
+
+function render() {
+	form.innerHTML = "";
+	list.forEach(function (item) {
+		form.insertAdjacentHTML(
+			"beforeend",
+			`<div class="todo__list__high-task">
+				<div class="todo__list__high-task-item">
+						<input type="checkbox">
+						<div class="todo__list__high-task-item-text"> ${item.name} </div>
+				</div>
+				<button>x</button>
+			</div>`
+		);
+
+		let buttonDeleteTask = document.querySelectorAll("button");
+		for (let i = 0; i < buttonDeleteTask.length; i++) {
+			buttonDeleteTask[i].addEventListener("click", function () {
+				deleteTask(item.name);
+			});
+		}
+
+		let buttonCheckBox = document.querySelectorAll("input[type=checkbox]");
+		let inputTaskElement = document.querySelectorAll(".todo__list__high-task");
+
+		for (let i = 0; i < buttonCheckBox.length; i++) {
+			buttonCheckBox[i].addEventListener("change", function () {
+				
+				inputTaskElement[i].classList.toggle("done");
+
+				if (buttonCheckBox[i].checked) {
+					changeStatus(item.name, STATUS.done);
+				} else {
+					changeStatus(item.name, STATUS.toDO);
+				}
+			});
+		}
+		console.log(list);
+	});
+
+	// const addTaskButton = document.querySelectorAll(".addTask");
+	// 	for (let i = 0; i < addTaskButton.length; i++) {
+	// 		addTaskButton[i].addEventListener("click", function () {
+	// 			let presentValue = addTaskButton[i].parentElement.querySelector("input").value;
+	// 			addTask(presentValue, addTaskButton[i]);
+	// 		});
+	// 	}
+	
+}
+
+
+
+render();

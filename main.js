@@ -47,96 +47,96 @@ function addtask (event) {
 }
 
   
-//   function changeStatus(task, newStatus) {
-// 	const indexObj = list.findIndex(function(item){
-// 	  return item.Name == task
-// 	})
-// 	if(indexObj == -1) {
-// 	  console.log(`Нет такой задачи "${task}"`)
-// 	} else {
-// 	  const MyObj = list.find(function(item) {
-// 		return item.Name == task;
-// 		})
+  function changeStatus(task, newStatus) {
+	const indexObj = list.findIndex(function(item){
+	  return item.Name == task
+	})
+	if(indexObj == -1) {
+	  console.log(`Нет такой задачи "${task}"`)
+	} else {
+	  const MyObj = list.find(function(item) {
+		return item.Name == task;
+		})
 	
-// 		MyObj.status = newStatus;
-// 	} 
-//   }
+		MyObj.status = newStatus;
+	} 
+  }
   
-//   function changePriority(task, newPriopity) {
-// 	const indexObj = list.findIndex(function(item){
-// 	  return item.Name == task
-// 	})
-// 	if(indexObj == -1) {
-// 	  console.log(`Нет такой задачи "${task}"`)
-// 	} else {
-// 	  const MyObj = list.find(function(item) {
-// 		return item.Name == task;
-// 	  })
-// 	  MyObj.priority = newPriopity;
-// 	}
-//   }
+  function changePriority(task, newPriopity) {
+	const indexObj = list.findIndex(function(item){
+	  return item.Name == task
+	})
+	if(indexObj == -1) {
+	  console.log(`Нет такой задачи "${task}"`)
+	} else {
+	  const MyObj = list.find(function(item) {
+		return item.Name == task;
+	  })
+	  MyObj.priority = newPriopity;
+	}
+  }
   
   
-//   function deleteTask(task) {
-// 	const IndexObj = list.findIndex(function(item){
-// 	  return item.Name == task
-// 	})
-// 	if(IndexObj == -1) {
-// 	  console.log(`Нет такой задачи "${task}"`)
-// 	} else {
-// 	  const IndexObj = list.findIndex(function(item) {
-// 		return item.Name == task;
-// 	  })
+  function deleteTask(task) {
+	const IndexObj = list.findIndex(function(item){
+	  return item.Name == task
+	})
+	if(IndexObj == -1) {
+	  console.log(`Нет такой задачи "${task}"`)
+	} else {
+	  const IndexObj = list.findIndex(function(item) {
+		return item.Name == task;
+	  })
 	
-// 	  list.splice(IndexObj, 1)
-// 	}
-//   }
+	  list.splice(IndexObj, 1)
+	}
+  }
   
-//   function showList() {
+  function showList() {
   
-// 	let GroupTO_Do = ``;
-// 	let GroupIn_Progress= ``;
-// 	let Group_Done = ``;
+	let GroupTO_Do = ``;
+	let GroupIn_Progress= ``;
+	let Group_Done = ``;
   
-// 	const objTodo = list.filter(function(item){
-// 	  return item.status == STATUS.TO_DO;
-// 	})
+	const objTodo = list.filter(function(item){
+	  return item.status == STATUS.TO_DO;
+	})
 	
-// 	objTodo.forEach(function(item){
-// 	  GroupTO_Do += `\n \t ${item.Name}, (${item.priority})`
-// 	})
+	objTodo.forEach(function(item){
+	  GroupTO_Do += `\n \t ${item.Name}, (${item.priority})`
+	})
   
-// 	const objIn_Progress = list.filter(function(item){
-// 	  return item.status == STATUS.In_Progress;
-// 	})
+	const objIn_Progress = list.filter(function(item){
+	  return item.status == STATUS.In_Progress;
+	})
   
-// 	objIn_Progress.forEach(function(item){
-// 	  GroupIn_Progress += `\n \t ${item.Name}, (${item.priority})`
-// 	})
+	objIn_Progress.forEach(function(item){
+	  GroupIn_Progress += `\n \t ${item.Name}, (${item.priority})`
+	})
   
-// 	const objDone = list.filter(function(item){
-// 	  return item.status == STATUS.Done;
-// 	})
+	const objDone = list.filter(function(item){
+	  return item.status == STATUS.Done;
+	})
   
-// 	objDone.forEach(function(item){
-// 	  Group_Done += `\n \t ${item.Name}, (${item.priority})`
-// 	})
+	objDone.forEach(function(item){
+	  Group_Done += `\n \t ${item.Name}, (${item.priority})`
+	})
 	
-// 	if (GroupTO_Do == false) {
-// 	  console.log('Todo: \n \t -')
-// 	} else {
-// 	  console.log(`\n Todo:  ${GroupTO_Do}`)
-// 	}
+	if (GroupTO_Do == false) {
+	  console.log('Todo: \n \t -')
+	} else {
+	  console.log(`\n Todo:  ${GroupTO_Do}`)
+	}
   
-// 	if (GroupIn_Progress == false) {
-// 	  console.log('In progress: \n \t -')
-// 	} else {
-// 	  console.log(`\n In progress:  ${GroupIn_Progress}`)
-// 	}
+	if (GroupIn_Progress == false) {
+	  console.log('In progress: \n \t -')
+	} else {
+	  console.log(`\n In progress:  ${GroupIn_Progress}`)
+	}
    
-// 	if (Group_Done == false) {
-// 	  console.log('Done: \n \t -')
-// 	} else {
-// 	  console.log(`\n Done:  ${Group_Done}`)
-// 	}
-//   }
+	if (Group_Done == false) {
+	  console.log('Done: \n \t -')
+	} else {
+	  console.log(`\n Done:  ${Group_Done}`)
+	}
+  }

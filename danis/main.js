@@ -78,7 +78,7 @@ function changeStatus(nameTask, status) {
 	});
 
 	if (result === -1) {
-		console.log("Такой задачи нет");
+		console.log("Такой задачи нет ");
 	} else {
 		list[result].status = status;
 	}

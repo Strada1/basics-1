@@ -12,6 +12,10 @@ body {
     background-color: bisque;
 }
 
+li {
+    list-style-type: none;
+}
+
 .todo {
     margin-top: 20px;
 
@@ -79,6 +83,10 @@ body {
     cursor: pointer;
 }
 
+.high__list-item {
+    margin-bottom: 12px;
+}
+
 .todo__task {
     min-width: 460px;
     border: 1px solid #989898;
@@ -123,9 +131,7 @@ body {
     display: inline-block;
     width: 20px;
     height: 17x;
-    /* margin-left: 12px; */
     border: none;
     background-color: inherit;
     cursor: pointer;
-    /* margin-top: 1px; */
 }

@@ -20,12 +20,12 @@ input[type=text] {
     width: 403px;
 }
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 .container {
     width: 480px;
     height: 688px;
@@ -54,6 +54,7 @@ ul {
 .to_do_list {
     padding: 25px 6px;
 }
+
 fieldset { 
     border: 0;
     width: 100%;
@@ -69,11 +70,12 @@ li {
 }
 
 p {
-    margin-right: 18px;
-    margin-left: 12px;
+    margin-right: 12px;
+    margin-left: 18px;
     text-align: start;
     width: 370px;
 }
+
 .btn_add {
     cursor: pointer;
     background:url(img/add_icon.svg);
@@ -85,7 +87,8 @@ p {
     height: 18px;
     border: 0;
 }
-.btn_exit {
+
+.btn_delete {
     cursor: pointer;
     background:url(img/close_icon.svg);
     background-repeat: no-repeat;
@@ -105,25 +108,28 @@ li:not(:first-child) label {
     display: flex;
 }
 
-li:not(:first-child) label::before {
+
+
+.task_name::before {
     content: '';
     display: inline-block;
     cursor: pointer;
     background:url(img/checkbox_undone.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 2px;
+    margin-left: -20px;
     width: 20px;
     height: 20px;
-    border: 0;
+    vertical-align: middle;
+    position: relative;
 }
 
-input[type=checkbox]:checked + label::before { 
+input[type=checkbox]:checked + .task_name::before { 
     cursor: pointer;
     background:url(img/checkbox_done_icon.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 2px;
+    margin-left: -20px;
     width: 20px;
     height: 20px;
     border: 0;

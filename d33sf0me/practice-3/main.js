@@ -1,6 +1,17 @@
-let form_high_submit = document.getElementById('form_high_submit');
-let form_low_submit = document.getElementById('form_low_submit');
+import { addTask } from '/modulus/addTask.js';
+//import { deleteTask } from '/modulus/deleteTask.js';
+import { changeStatus } from '/modulus/changeStatus.js';
+import { showList, allTask } from '/modulus/render.js';
+
+let list_high = document.querySelector('.list_high');
+let list_low = document.querySelector('.list_low');
+
+showList()
+
+let form_high_submit = document.getElementById('task_HIGH');
+let form_low_submit = document.getElementById('task_LOW');
 let add_high_task = document.getElementById('add_high_task');
+let add_low_task = document.getElementById('add_low_task');
 
 form_high_submit.addEventListener('submit', (event)=> {
     addTask(add_high_task, form_high_submit);
@@ -12,18 +23,6 @@ form_low_submit.addEventListener('submit', (event)=> {
     event.preventDefault();
 });
 
-function addTask(newTask, form) {
-    if(newTask.value.trim() != '') {
-        form.insertAdjacentHTML('afterend',
-        `<li>
-            <input type="checkbox" id="task" name="to_do">
-            <label for="task">
-                <p>${newTask.value}
-                </p>
-            </label>
-            <button class="btn_exit" type="button"></button>
-        </li>`);
-    };
 
-    newTask.value = '';
-};
+
+export { list_high, list_low }

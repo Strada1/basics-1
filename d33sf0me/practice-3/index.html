@@ -14,61 +14,27 @@
         <fieldset>
             <legend>High</legend>
             <ul class="list_high">
-                <form id="form_high_submit">
+                <form id="task_HIGH">
                   <li>
-                    <input type="text" id="add_high_task" name="to_do" placeholder="Добавить важных дел">
+                    <input type="text" id="add_high_task" placeholder="Добавить важных дел">
                     <input class="btn_add" type="submit" value=" ">
                   </li>
                 </form>
-                
-                <li>
-                    <input type="checkbox" id="first_task_high" name="to_do">
-                    <label for="first_task_high">
-                          <p>Вот вам и супер интересная тема. 
-                            Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.
-                          </p>
-                    </label>
-                    <button class="btn_exit" type="button"></button>
-                </li>
-                
-                <li>
-                    <input id="second_task_high" type="checkbox" name="to_do">
-                    <label for="second_task_high">
-                        <p>Сверстать этот TODO list</p>
-                    </label>
-                    <button class="btn_exit" type="button"></button>
-                </li>
-
-                <li class="done_task_high">
-                    <input id="task_done" type="checkbox" name="done" checked>
-                    <label for="task_done">
-                        <p>Начать делать задачу</p>
-                    </label>
-                    <button class="btn_exit"  type="button"></button>
-                </li>
             </ul>
         </fieldset>
         <fieldset>
             <legend>Low</legend>
             <ul class="list_low">
-                <form id="form_low_submit">
+                <form id="task_LOW">
                   <li>
                       <input type="text" id="add_low_task" name="to_do" placeholder="Добавить не очень важных дел">
                       <input class="btn_add" type="submit" value=" ">
                   </li>
                 </form>
-                
-                <li>
-                    <input id="first_task_low" type="checkbox" name="to_do">
-                    <label for="first_task_low">
-                        <p>Посмотреть ютубчик</p>
-                    </label>
-                    <button class="btn_exit" type="button"></button>
-                </li>
             </ul>
         </fieldset>
     </div>
     </section>
-    <script src="main.js"></script>
+    <script src="main.js" type="module"></script>
 </body>
 </html>

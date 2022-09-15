@@ -41,25 +41,28 @@ const list = [
 
 // add
 function addNewTask(task, priority) {
-  let pos = list.findIndex((item) => item.name == task);
-  if (pos === -1) {
-    list.push({ name: task, status: STATUS.TO_DO, priority: priority });
+  try {
+    let pos = list.findIndex((item) => item.name == task);
+    if (pos === -1) {
+      list.push({ name: task, status: STATUS.TO_DO, priority: priority });
+    } else {
+      throw new Error('Такая задача уже есть');
+    }
+    render();
+  } catch (err) {
+    if (err.name === 'Error') alert(err.message);
   }
-
-  render();
 }
 
 function checkTask(input, priority) {
-  let newTask = input.value;
-  if (newTask === '' || !isNaN(newTask)) {
-    throw new Error('Введите корректные данные');
-  }
   try {
+    let newTask = input.value;
+    if (newTask === '' || !isNaN(newTask)) {
+      throw new Error('Введите корректные данные');
+    }
     addNewTask(newTask, priority);
   } catch (err) {
-    if (err.name === 'Error') console.log(err.message);
-  } finally {
-    addNewTask(newTask, priority);
+    if (err.name === 'Error') alert(err.message);
   }
 }
 
@@ -93,21 +96,21 @@ function changeStatus(index) {
 // render
 
 function render() {
-  document.querySelectorAll('.todo__task').forEach(function (task) {
-    task.remove();
-  });
-
-  list.map(function (itemTask, index) {
-    switch (itemTask.priority) {
-      case PRIORITY.HIGH:
-        ELEMENTS.HIGH_FORM.insertAdjacentHTML(
-          'afterend',
-          `<div class="todo__task" ${itemTask.status ? 'style="background-color: #e0b6ea"' : ''}>
+  try {
+    document.querySelectorAll('.todo__task').forEach(function (task) {
+      task.remove();
+    });
+    list.map(function (itemTask, index) {
+      switch (itemTask.priority) {
+        case PRIORITY.HIGH:
+          ELEMENTS.HIGH_FORM.insertAdjacentHTML(
+            'afterend',
+            `<div class="todo__task" ${itemTask.status ? 'style="background-color: #e0b6ea"' : ''}>
             <div class="todo__task-content">
               <label  class="todo__task-text">
                 <input class="todo__task-checkbox" onclick = 'changeStatus("${index}")' type="checkbox" ${
-            itemTask.status ? 'checked' : ''
-          }/>
+              itemTask.status ? 'checked' : ''
+            }/>
                 <span class="todo__name">
                   ${itemTask.name}
                 </span>
@@ -117,17 +120,17 @@ function render() {
               <img src="../img/delete-icon.svg" alt="icon" />
             </button>
           </div>`,
-        );
-        break;
-      case PRIORITY.LOW:
-        ELEMENTS.LOW_FORM.insertAdjacentHTML(
-          'afterend',
-          `<div class="todo__task" ${itemTask.status ? 'style="background-color: #e0b6ea"' : ''}>
+          );
+          break;
+        case PRIORITY.LOW:
+          ELEMENTS.LOW_FORM.insertAdjacentHTML(
+            'afterend',
+            `<div class="todo__task" ${itemTask.status ? 'style="background-color: #e0b6ea"' : ''}>
             <div class="todo__task-content">
               <label  class="todo__task-text">
                 <input class="todo__task-checkbox" onclick = 'changeStatus("${index}")' type="checkbox" ${
-            itemTask.status ? 'checked' : ''
-          }/>
+              itemTask.status ? 'checked' : ''
+            }/>
                 <span class="todo__name">
                   ${itemTask.name}
                 </span>
@@ -137,8 +140,11 @@ function render() {
               <img src="../img/delete-icon.svg" alt="icon" />
             </button>
           </div>`,
-        );
-        break;
-    }
-  });
+          );
+          break;
+      }
+    });
+  } catch (err) {
+    alert(err.message);
+  }
 }

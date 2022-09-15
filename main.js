@@ -23,27 +23,33 @@ const list = [ { name: 'Изучить новую тему', priority: PRIORITY.
                { name: 'Начать делать задачу', priority: PRIORITY.high, status: STATUS.toDo},
                { name: 'Посмотреть ютубчик', priority: PRIORITY.low, status: STATUS.toDo},];
 
+
+// Add new task
+
 function addTask (event, newTask, priority) {
 
 if(newTask.value.trim() != '' && list.findIndex (function (item) {return item.name == newTask.value; }) == -1) {
-
  list.push({'name': newTask.value, 'priority': priority, 'status' : STATUS.toDo});
-
 };
+
 event.preventDefault();
 newTask.value = '';
 render();
 };
 
+// Add listener for addTask
+
 ELEMENTS.highInput.addEventListener('submit', (event)=> {
-    addTask(event, ELEMENTS.addTaskHigh, PRIORITY.high);
-    
+    addTask(event, ELEMENTS.addTaskHigh, PRIORITY.high);  
 });
+
 
 ELEMENTS.lowInput.addEventListener('submit', (event)=> {
     addTask(event, ELEMENTS.addTaskLow, PRIORITY.low);
 });
 
+
+// Remove selected task
 
 function deleteTask(task) {
     if(list.findIndex (function (item) {return item.name ===  task; }) !== -1) {
@@ -52,10 +58,11 @@ function deleteTask(task) {
         });
         list.splice(deleteItem, 1);
     };
-
     render();
 };
 
+
+// Change task status
 
 function changeStatus(task) { 
     if(list.findIndex (function (item) {return item.name ===  task; }) !== -1) {
@@ -73,6 +80,7 @@ function changeStatus(task) {
     render();
 };
 
+// Page update
 
 function render () {
 

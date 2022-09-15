@@ -6,28 +6,30 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Калькулятор</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 	<div class="calculator">
 		<div class="container">
-			<form action="" class="calc">
-				<input type="text" class="calc__input">
-				<select name="" id="">
-					<option value="">+</option>
-					<option value="">-</option>
-					<option value="">*</option>
-					<option value="">/</option>
+			<div class="calc">
+				<input id="firstInput" type="text" class="calc__input">
+				<select name="" id="select">
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="*">*</option>
+					<option value="/">/</option>
 				</select>
-				<input type="text" class="calc__input">
-				<button class="calc__btn">
+				<input id="secondInput" type="text" class="calc__input">
+				<button id="btn" class="calc__btn">
 					=
 				</button>
-				<span class="calc__result">10</span>
-			</form>
+				<span id="calc_result" class="calc__result"></span>
+			</div>
 		</div>
 	</div>
+
+	<script src="js/main.js"></script>
 </body>
 
 </html>

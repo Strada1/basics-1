@@ -65,9 +65,8 @@ function render() {
             highTaskName.textContent = elem.name
 
             let checkboxHigh = document.querySelector('.chb-high')
-            checkboxHigh.addEventListener('click', (evt) => {
+            checkboxHigh.addEventListener('click', () => {
                 
-                // checkboxHigh.innerHTML = `<input type="checkbox" class="chb-high" checked>`
                 list.forEach((elem) => {
                     if (elem.name === highTaskName.textContent) {
                         elem.priority = PRIORITY.DONE

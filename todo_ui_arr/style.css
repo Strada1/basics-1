@@ -1,0 +1,103 @@
+
+input, label {
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #E5E5E5;
+    font-family: sans-serif;
+}
+
+h2{
+    text-transform: uppercase;
+}
+
+.page{
+    text-align: center;
+    font-size: 18px;
+}
+
+.container{
+    display: inline-block;
+    width: 478px;
+    background-color: #fff;
+    border: 2px solid #989898;
+    border-radius: 15px;
+    padding: 30px 5px;
+}
+
+.todo_list_task{
+    width: 460px;
+    min-height: 45px;
+}
+
+.todo_task_add{
+    padding: 12px 12px;
+}
+
+.todo_list{
+    border: 1px solid #989898;
+    border-radius: 4px;
+    width: 460px;
+    min-height: 45px;
+    text-align: start;
+    padding: 12px 50px;
+    margin: 8px 9px; 
+    box-sizing: border-box;
+    align-items: center;
+    position: relative;
+}
+
+
+
+/* скрываем стандартые checkbox */
+.todo_task_input{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin-left: 27px;
+  }
+  /* Добавляем новые checkbox стилизованные */
+  .check-style{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #998899;
+    border-radius: 50%;
+    margin-left: -40px;
+    
+  }
+  
+  /* При нажатии на checkbox */
+  .todo_task_input:checked + .check-style::before{
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: #C4C4C4;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .task_add{
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    position: relative;
+    top: -35px;
+    left: 208px;
+  }
+
+  .task_del {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    right: 8px;
+  }

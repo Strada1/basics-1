@@ -1,0 +1,164 @@
+/* default stuff*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+body {
+  font-family: 'Roboto';
+  color: #202020;
+}
+
+ul {
+  list-style: none;
+}
+
+h2 {
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/*сетка*/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/*todo*/
+.task,
+.input-new-task {
+  padding: 12px;
+  margin: 8px;
+}
+
+.input-new-task {
+  width: 460px;
+  height: 45px;
+
+  background: #ffffff;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+
+.input-new-task:focus {
+  outline: none;
+  border: 1px solid #555;
+  transition: 0.5s;
+}
+
+.task {
+  width: 460px;
+  border: 1px solid #eee;
+  border-radius: 2px;
+
+  display: flex;
+}
+
+.task label {
+  max-width: 410px;
+}
+
+.task-checked {
+  background: #f4f4f4;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+
+.task,
+.task-checked {
+  user-select: none;
+}
+
+/*выравниваю свг*/
+
+form {
+  position: relative;
+}
+
+svg {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/*выравниваю таск*/
+
+.task {
+  align-items: baseline;
+}
+
+.task input[type='checkbox'] {
+  display: flex;
+  flex: 1;
+}
+
+label {
+  display: flex;
+  flex: 14;
+
+  cursor: pointer;
+  position: relative;
+}
+
+/*кастомный чекбокс*/
+.task {
+  position: relative;
+}
+
+.task input[type='checkbox'] {
+  /* display: none; */
+  /* visibility: hidden; */
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.task input[type='checkbox'] + label {
+  display: inline-flex;
+}
+
+.task input[type='checkbox'] + label::before {
+  content: '';
+  display: inline-block;
+
+  width: 1em;
+  height: 1em;
+
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  border: 1px solid #998899;
+  border-radius: 0.5em;
+  margin-right: 0.5em;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 75% 75%;
+}
+
+.task input[type='checkbox']:checked + label::before {
+  background-image: url('Ellipse 4.svg');
+}
+
+.task svg {
+  display: flex;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transform: rotate(-45deg);
+}

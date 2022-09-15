@@ -13,14 +13,13 @@ const input_checkbox = document.getElementById("input_checkbox")
 const form_addtask = document.getElementById("form_addtask")	
 const del_task = document.querySelector(".btn_close")
 
-form_addtask.addEventListener("submit", addtask)
+form_addtask.addEventListener("submit", addtask_High)
 
 
 const list = [ ];
 
-function addtask () {
+function addtask_High () {
 	try {
-		
 		const value_input = input_addtask.value;
 	
 		const indexObj = list.findIndex(function(item){
@@ -32,19 +31,7 @@ function addtask () {
 			  priority: PRIORITY.High,}) 
 			
 			  render()
-		 
-			// form_addtask.insertAdjacentHTML("afterend", 
-			// `
-			// <div> 
-			// 	<label class="input_checkbox" id="input_checkbox">
-			// 		<input type="checkbox" name="value" value="option">
-			// 		<input type="submit" value="&#9746" class="btn_close">
-			// 		${value_input}
-			// 	</label>
-			// </div>
-			// `
-			// )
-			
+	
 		  } else {
 			alert("Уже есть такая задача")
 		  }
@@ -59,21 +46,29 @@ function render (event) {
 		location. reload()
 		event.preventDefault();
 
-		if () {
-			
-			
-			
-			form_addtask.reset()
-		}
+		list.forEach(function(item) {
+
+			if (item.status === STATUS.TO_DO && item.priority === PRIORITY.High) {
+				
+				form_addtask.insertAdjacentHTML("afterend", 
+			`
+			<div> 
+				<label class="input_checkbox" id="input_checkbox">
+					<input type="checkbox" name="value" value="option">
+					<input type="submit" value="&#9746" class="btn_close">
+					${item.Name}
+				</label>
+			</div>
+			`
+			)
+				form_addtask.reset()
+			}
+		})
+		
 
 	} catch (err) {
 		alert(err)
 	}
-	
-	
-
-
-
 }
 
 //   function deleteTask(event) {

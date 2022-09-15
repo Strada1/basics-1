@@ -53,7 +53,7 @@ function addTask(nameTask, prioritet) {
 }
 
 function deleteTask(item) {
-	list.splice(list.indexOf(item), 1);
+	list.splice(list.indexOf(item),  1);
 	render();
 }
 

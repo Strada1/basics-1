@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+input[type=text]::placeholder {
+    color: #bbb;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+input[type=text] {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    width: 399px;
+    margin-right: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E5E5E5;
+    font-family: 'Roboto', sans-serif;
+    line-height: 21px;
+    font-size: 16px;
+    margin: 20px;
+}
+
+.wrapper {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: #FFF;
+    font-weight: normal;
+    min-height: 700px;
+    width: 500px;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.content {
+    width: 100%;
+}
+
+.list .list__title {
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.list {
+    list-style-type: none;
+}
+
+.list li {
+    border: 1px solid #989898;
+    border-radius: 6px;
+    display: flex;
+    margin-bottom: 8px;
+    padding: 15px;
+    align-items: flex-start;
+}
+
+.high-input {
+    border: 1px solid #989898;
+    border-radius: 6px;
+    display: flex;
+    margin-bottom: 8px;
+    padding: 15px;
+    align-items: flex-start;
+}
+
+.low-input {
+    border: 1px solid #989898;
+    border-radius: 6px;
+    display: flex;
+    margin-bottom: 8px;
+    padding: 15px;
+    align-items: flex-start;
+}
+
+.list-item__text {
+    margin-left: 15px;
+    text-align: start;
+    width: 370px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.list__btn-add {
+    background: url(img/add-icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: auto;
+    padding: 0%;
+    width: 18px;
+    height: 18px;
+    border: 0;
+}
+
+.list-item__button {
+    background: url(img/close-icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: auto;
+    padding: 0%;
+    width: 15px;
+    height: 15px;
+    border: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-bottom: 8px;
+    display: block;
+    border: 1px solid #989898;
+    border-radius: 6px;
+    padding: 12px 45px;
+    position: relative;
+    max-width: 460px;
+}
+
+input[type="checkbox"]:checked+p.list-item__text {
+    text-decoration: line-through;
+}

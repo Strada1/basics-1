@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="todoList">
+        <fieldset>
+            <legend>High</legend>
+            <ul class="list">
+                <li>
+                    <label>
+                        <input class="addToDo" type="text" placeholder="Добавить важных дел" name="toDo">
+                    </label>
+                    <button class="butnAdd" type="button"></button>
+                </li>
+                <li>
+                    <label>
+                        <input class="checkInput" type="checkbox" name="toDo">
+                        <span class="checkBox"></span>
+                        <p>Вот вам и супер интересная тема.
+                            Вы наверняка заметили, что ваши файлы с кодом становятся все объемнее, что хочется вынести
+                            некоторые вещи куда-то за пределы основной программы.
+                        </p>
+                        <button class="btnExit" type="button"></button>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="toDo" class="checkInput">
+                        <span class="checkBox"></span>
+                        <p>Сверстать этот ToDo list</p>
+                        <button class="btnExit" type="button"></button>
+                    </label>
+                </li>
+                <li>
+                    <label class="TaskDone">
+                        <input type="checkbox" class="checkInput" name="done" checked>
+                        <span class="checkBox"></span>
+                        <p>Начать делать задачу</p>
+                        <button class="btnExit" type="button"></button>
+                    </label>
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>Low</legend>
+            <ul class="list">
+                <li>
+                    <label>
+                        <input type="text" class="addToDo" name="toDo" placeholder="Добавить">
+                        <button class="btnAdd" type="button"></button>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <span class="checkBox"></span>
+                        <input type="checkbox" class="checkInput" name="toDo">
+                        <p>Посмотреть ютубчик</p>
+                        <button class="btnExit" type="button"></button>
+                    </label>
+                </li>
+            </ul>
+        </fieldset>
+    </div>
+</body>
+
+</html>

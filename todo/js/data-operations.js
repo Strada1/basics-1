@@ -17,59 +17,69 @@ const findStatusValue = (name) => Object.values(ListStatuses).includes(name);
 
 // Изменение статуса задачи
 const changeStatus = (taskName, status) => {
-  const task = findTask(taskName);
+  try {
+    const task = findTask(taskName);
 
-  if (!task) {
-    outputError(ErrorList.TASK_NOT_FIND_ERROR);
+    if (!task) {
+      throw new Error(ErrorList.TASK_NOT_FIND_ERROR);
+    }
+
+    if (!findStatusValue(status)) {
+      throw new Error(ErrorList.STATUS_ERROR);
+    }
+
+    task.status = status;
+    return true;
+  } catch (err) {
+    console.log(err.message);
     return;
   }
-
-  if (!findStatusValue(status)) {
-    outputError(ErrorList.STATUS_ERROR);
-    return;
-  }
-
-  task.status = status;
-  return true;
 };
 
 
 // Удаление задачи
 const deleteTask = (name) => {
-  if (findTaskIndex(name) === -1) {
-    outputError(ErrorList.TASK_NOT_FIND_ERROR);
+  try {
+    if (findTaskIndex(name) === -1) {
+      throw new Error(ErrorList.TASK_NOT_FIND_ERROR);
+    }
+
+    list.splice(findTaskIndex(name), 1);
+    return true;
+  } catch (err) {
+    console.log(err.message);
     return;
   }
-
-  list.splice(findTaskIndex(name), 1);
-  return true;
 };
 
 
 // Добавление задачи
 const addTask = (name, priority = ListPriority.LOW) => {
-  if (!isString(name)) {
-    outputError(ErrorList.TASK_NAME_ERROR);
+  try {
+    if (!isString(name)) {
+      throw new Error(ErrorList.TASK_NAME_ERROR);
+    }
+
+    if (!isString(priority) || !findPriorityValue(priority)) {
+      throw new Error(ErrorList.PRIORITY_ERROR);
+    }
+
+    if(findTask(name)) {
+      outputError(ErrorList.TASK_EXISTS_ERROR);
+      return;
+    }
+
+    list.push({
+      name,
+      status: ListStatuses.TODO,
+      priority
+    });
+
+    return true;
+  } catch (err) {
+    console.log(err.message);
     return;
   }
-
-  if (!isString(priority) || !findPriorityValue(priority)) {
-    outputError(ErrorList.PRIORITY_ERROR);
-    return;
-  }
-
-  if(findTask(name)) {
-    outputError(ErrorList.TASK_EXISTS_ERROR);
-    return;
-  }
-
-  list.push({
-    name,
-    status: ListStatuses.TODO,
-    priority
-  });
-
-  return true;
 };
 
 

@@ -1,4 +1,4 @@
-import { list, ListPriority, ListStatuses } from './data.js';
+import { list, ListPriority, ListStatuses, HIGH_PRIORITY_ADD_PLACEHOLDER } from './data.js';
 import { findPriorityValue, addTask, deleteTask, changeStatus } from './data-operations.js';
 import { outputError, ErrorList } from './error.js';
 
@@ -43,20 +43,18 @@ const getTaskElement = (name, status) => {
 
 // Выведение списка задач с заданным приоритетом
 const getListOfOnePriority = (priority) => {
-  if (!findPriorityValue(priority)) {
-    outputError(ErrorList.PRIORITY_ERROR);
-    return;
+  if (findPriorityValue(priority)) {
+    const taskItemsFragment = document.createDocumentFragment();
+
+    list.forEach((task) => {
+      if (task.priority === priority) {
+        taskItemsFragment.append(getTaskElement(task.name, task.status));
+      }
+    });
+    return taskItemsFragment;
   }
 
-  const taskItemsFragment = document.createDocumentFragment();
-
-  list.forEach((task) => {
-    if (task.priority === priority) {
-      taskItemsFragment.append(getTaskElement(task.name, task.status));
-    }
-  });
-
-  return taskItemsFragment;
+  return;
 };
 
 
@@ -67,10 +65,11 @@ const getPriorityItemElement = (priority) => {
   const priorityTitleElement = priorityItemElement.querySelector('.todo__priority-title');
   const taskListElement = priorityItemElement.querySelector('.todo__tasks-list');
   const addTaskFormElement = priorityItemElement.querySelector('.todo__add-task-form');
-  const taskInputElement = priorityItemElement.querySelector('.todo__task-input');
+  const taskInputElement = priorityItemElement.querySelector('.todo__task-input[name="add-task"]');
 
   priorityTitleElement.textContent = priority;
   taskListElement.dataset.priority = priority;
+  (priority === ListPriority.HIGH) && (taskInputElement.placeholder = HIGH_PRIORITY_ADD_PLACEHOLDER);
   taskListElement.append(getListOfOnePriority(priority));
 
   addTaskFormElement.addEventListener('submit', (evt) => {

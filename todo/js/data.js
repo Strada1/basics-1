@@ -9,6 +9,8 @@ const ListPriority = {
   LOW: 'low'
 };
 
+const HIGH_PRIORITY_ADD_PLACEHOLDER = 'Добавить важных дел';
+
 const list =  [
   {
     name: 'Посмотреть ютубчик.',
@@ -39,7 +41,7 @@ const list =  [
     name: 'Погулять.',
     status: ListStatuses.DONE,
     priority: ListPriority.LOW
-  },
+  }
 ];
 
-export { list, ListStatuses, ListPriority };
+export { list, ListStatuses, ListPriority, HIGH_PRIORITY_ADD_PLACEHOLDER };

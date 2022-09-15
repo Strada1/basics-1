@@ -6,6 +6,7 @@ const PRIORITY = {
     LOW: "Low"
 }
 const ELEMENTS = {
+    BODY: document.body,
     CONTAINERTODO: document.querySelector('.container'),
     HIGHPRIORITYINPUT: document.getElementById('high-priority-input'),
     LOWPRIORITYINPUT: document.getElementById('low-priority-input'),
@@ -15,8 +16,7 @@ const ELEMENTS = {
     LOWTASKFORM: document.getElementsByClassName('form')[1],
     HIGHADDBUTTON: document.querySelector('#high-add-button'),
     LOWADDBUTTON: document.querySelector('#low-add-button'),
-    TASKOUTER: document.querySelectorAll('.task-outer'),
-    BODY: document.body
+    CHECBOXES: document.querySelectorAll(".box"),
 }
 const nullString = ''
 
@@ -27,7 +27,7 @@ function createTaskUI(inputelem, place, priority) {
         place.insertAdjacentHTML('afterend', `
             <div id="task-outer${i}">
                 <div class="text-container">
-                    <input type="checkbox" class="box" id="${i}" name="task"> 
+                    <input type="checkbox" class="box" id="${i}" name="checkbox"> 
                     <label for="${i}" class="texttask">${inputelem.value}</label>      
                     <button id="button${i}"> <img src="./img/close-icon.svg"> </button>
                 </div>
@@ -35,58 +35,49 @@ function createTaskUI(inputelem, place, priority) {
             `);
         const button = ELEMENTS.CONTAINERTODO.querySelector(`#button${i}`)
         const div = document.querySelector(`#task-outer${i}`)
+        
         button.addEventListener('click', () => {
             div.remove();
-            removeTaskFromList(i);
+            removeTaskFromList(inputelem.value);
         });
-        // const checkbox = ELEMENTS.CONTAINERTODO.querySelector(`#${i}`)
-        // checkbox.addEventListener('change', () => {
-        //     if (this.checked) {
-        //         changeStatusFromList(i, STATUS.DONE);
-        //     } else {
-        //         changeStatusFromList(i, STATUS.TO_DO)
-        //     };
-        // });
-        list.push({id: i, status: STATUS.TO_DO, priority});
+        list.push({id: i, name: inputelem.value, status: STATUS.TO_DO, priority});
         inputelem.value = nullString;
-        render();
     } else {
         alert('Введите что-нибудь');
     }
 }
 
 function removeTaskFromList(elem) {
-    if (list.find(item => item.id === elem)) {
-        list.splice(list.findIndex(item => item.id === elem, 0), 1);
+    if (list.find(item => item.name === elem.name)) {
+        list.splice(list.findIndex(item => item.name === elem.name, 0), 1);
     }
 }
 
 
 function changeStasusUI() {
-    let checkboxes = document.querySelectorAll(".box");
-    for (elem of checkboxes) {
-        elem.addEventListener('change', () => {
-            if (this.checked) {
-                changeStatusFromList(elem.id, STATUS.DONE);
+    for (let checkbox of ELEMENTS.CHECBOXES) {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                changeStatusFromList(checkbox.id, STATUS.DONE);
             } else {
-                changeStatusFromList(elem.id, STATUS.TO_DO)
+                changeStatusFromList(checkbox.id, STATUS.TO_DO);
             };
         });
     };
 }
 
-function changeStatusFromList(id, taskStatus) { // функция изменения статуса todo листа
-    if (list.find(item => item.id == id)) {
-        list[i].status = taskStatus;
+function changeStatusFromList(checkboxId, taskStatus) { // функция изменения статуса todo листа
+    for (let i = 0;  i < list.length; i++) {
+        if (list[i].id === checkboxId) {
+            list[i].status = taskStatus;
+        } 
     }
 }
 
 function render() {
-    list.forEach(() => {
-        cre
-    })
-
+    //что сюда????
 }
+
 ELEMENTS.HIGHADDBUTTON.addEventListener('click', (event) => {
     event.preventDefault(); 
     createTaskUI(ELEMENTS.HIGHPRIORITYINPUT, ELEMENTS.HIGHINPUTCONTAINER, PRIORITY.HIGH);
@@ -106,7 +97,5 @@ ELEMENTS.LOWTASKFORM.addEventListener('submit', (event) => {
     event.preventDefault(); 
     createTaskUI(ELEMENTS.LOWPRIORITYINPUT, ELEMENTS.LOWINPUTCONTAINER, PRIORITY.LOW);
 })
-ELEMENTS.BODY.onload(() => {
-    render()
-})
+
 

@@ -18,23 +18,24 @@
 					<div class="block-priority__title">HIGH</div>
 					<div class="block-priority__input input-priority">
 						<form>
-							<input placeholder="Добавить важных дел" type="text">
-							<button id="high" type="submit" class="input-priority__add"></button>
+							<input id="input-high" placeholder="Добавить важных дел" type="text">
+							<button id="button-high" type="submit" class="input-priority__add"></button>
 						</form>
 					</div>
 					<div id="high-list" class="block-priority__checkbox checkbox">
-						<label for="html" class="checkbox__task"><input type="checkbox" class="checkbox__input">
-							<span>2</span>
+						<div class="checkbox__task">
+							<input type="checkbox" class="checkbox__input">
+							<div class="checkbox-task__name">2</div>
 							<div class="checkbox__close"></div>
-						</label>
+						</div>
 					</div>
 				</div>
 				<div class="priority__block block-priority">
 					<div class="block-priority__title">LOW</div>
 					<form>
 						<div class="block-priority__input input-priority">
-							<input placeholder="Добавить" type="text">
-							<button id="low" type="submit" class="input-priority__add"></button>
+							<input id="input-low" placeholder="Добавить" type="text">
+							<button id="button-low" type="submit" class="input-priority__add"></button>
 						</div>
 					</form>
 					<div id="low-list" class="block-priority__checkbox checkbox">

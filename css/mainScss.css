@@ -61,15 +61,13 @@
 }
 .checkbox__task {
   margin-bottom: 8px;
-  display: block;
+  display: flex;
+  gap: 15px;
   border: 1px solid #989898;
   border-radius: 6px;
   padding: 12px 45px;
   position: relative;
   max-width: 460px;
-}
-.checkbox__task.done span {
-  text-decoration: line-through;
 }
 .checkbox__input {
   margin-left: -20px;

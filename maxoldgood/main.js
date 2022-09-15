@@ -4,6 +4,8 @@ const ELEMENTS = {
     SECOND_NUMBER: (document.querySelector('.number-2')),
     EQUAL_SIGN: document.getElementById('equalsign'),
     RESULT: document.querySelector('.result'),
+    DARK: document.querySelector('.dark'),
+    CALC_BODY: document.querySelector('.calc-body'),
 }
 const OPERATIONS = {
     ADD: '+',
@@ -42,3 +44,18 @@ function calc (operation, a, b) {
     div.setAttribute("onclick", "this.remove()");
 }
 
+ELEMENTS.DARK.onclick = function () {
+    ELEMENTS.CALC_BODY.style.backgroundColor="#383838";
+    ELEMENTS.DARK.style.backgroundColor="white";
+    ELEMENTS.DARK.value="светлая тема";
+    ELEMENTS.DARK.className="white";
+    document.querySelector(".white").onclick = function () {
+        ELEMENTS.CALC_BODY.style.backgroundColor="white";
+        ELEMENTS.DARK.style.backgroundColor="black";
+        ELEMENTS.DARK.value="тёмная тема";
+        ELEMENTS.DARK.className="dark";
+    
+    }
+
+
+}

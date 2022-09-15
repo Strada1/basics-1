@@ -17,11 +17,11 @@
         <div class="priority">HIGH</div>
 
         <form class="add-task"  id="form_high" type="reset" onsubmit = return false;>
-            <input class="input-task" id="input_task"  type="text" placeholder="Добавить важных дел">
-            <div id="high_task" class="close" id="addTask"></div>
+            <input class="input-task" id="input_task_high"  type="text" placeholder="Добавить важных дел">
+            <div id="add_task" class="close" id="addTask"></div>
         </form>
 
-        <div class="task" id="tasks">
+        <div class="task" id="tasks_high">
 <!--            <div class="vue-task">-->
 <!--                <div class="check">-->
 <!--                    <input  name="add" type="checkbox">-->
@@ -32,26 +32,14 @@
         </div>
 
         <div class="priority">LOW</div>
+<!--        id="input_task_low"-->
+        <form class="add-task" id="form_low" type="reset">
+            <input class="input-task" id="input_task_low" type="text" placeholder="Добавить">
+            <div class="close" id="add_task_low"></div>
+        </form>
 
-        <div class="add-task">
-            <input class="input-task" id="form_lov" type="text" placeholder="Добавить">
-            <div class="close" id="www"></div>
-        </div>
+        <div class="task" id="tasks_low">
 
-        <div class="task">
-
-
-            <div class="vue-task">
-                <div class="check">
-                    <input  name="add" type="checkbox">
-                </div>
-                <div class="new-task">
-                    Вот вам и супер интересная тема.
-                    Вы наверняка заметили что ваши файлы с кодом становятся все объемнее,
-                    что хочется вынести некоторые вещи куда-то за преде,
-                </div>
-                <div class="close" id="deleteTask"></div>
-            </div>
 
         </div>
     </div>

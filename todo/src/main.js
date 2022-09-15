@@ -1,6 +1,12 @@
-const INPUT_TASK = document.querySelector("#input_task");
+const INPUT_TASK_HIGH = document.querySelector("#input_task_high");
 const FORM_HIGH = document.querySelector("#form_high");
+const ADD_TASK_HIGH = document.querySelector("#add_task");
 
+const INPUT_TASK_LOW = document.querySelector("#input_task_low");
+const FORM_LOW = document.querySelector("#form_low");
+const ADD_TASK_LOW = document.querySelector("#add_task_low");
+
+const INPUT_TASK = document.querySelector(".input-task");
 
 const STATUS = {
     STATUS_IN_PROGRESS: "In Progress",
@@ -23,28 +29,98 @@ function myFindIndex (nameTask){
 
 function addTask (nameTask , statuses = STATUS.STATUS_TO_DO, priorities = PRIORITY.PRIORITY_LOW){
 
-    let result = myFindIndex(nameTask);
-    if ( result === -1 ) {
-        return  ( list.push({name:nameTask, status: statuses, priority: priorities}) );
-    } else {
-        console.log( `Вы не можете добавить ${nameTask} , так как существует` );
+    try{
+        let result = myFindIndex(nameTask);
+        if (result !== -1) {
+            throw new Error(`Вы не можете добавить ${nameTask} , так как существует в list`);
+        }
+        return (list.push({name: nameTask, status: statuses, priority: priorities}));
+
+    }catch (err) {
+       alert(err.message);
     }
 
 }
 
+function changeStatus(nameTask, newStatus) {
 
-function inputMyTask (event){
-
-    event.preventDefault();
-    let value_input = INPUT_TASK.value;
-    addTask(value_input);
-    FORM_HIGH.reset();
-    render();
+    let result = myFindIndex(nameTask);
+    if ( result === -1 ) {
+        console.log( `Вы не можете поменять статус ${newStatus} , так как не существует` );
+    } else {
+        return (list[result].status = newStatus);
+    }
 
 }
 
-FORM_HIGH.addEventListener('submit',inputMyTask);
+// function inputMyTask (event){
+//
+//     try {
+//         event.preventDefault();
+//         let value_input = INPUT_TASK_HIGH.value;
+//         if (value_input.trim() !== "") {
+//             addTask(value_input);
+//             FORM_HIGH.reset();
+//             render();
+//         } else {
+//             throw new Error("Введите данные")
+//         }
+//     } catch (err) {
+//         alert(err.message);
+//     }
+//
+// }
 
+// ADD_TASK_HIGH.addEventListener("click", inputMyTask);
+// FORM_HIGH.addEventListener('submit',inputMyTask);
+// ADD_TASK_LOW.addEventListener('click',inputMyTask);
+
+function inputMyTaskHigh (event){
+
+    try {
+        event.preventDefault();
+        let value_input = INPUT_TASK_HIGH.value;
+        if (value_input.trim() !== "") {
+            addTask(value_input);
+            changePriority(value_input,PRIORITY.PRIORITY_HIGH);
+
+            FORM_HIGH.reset();
+            render();
+        } else {
+            throw new Error("Введите данные")
+        }
+    } catch (err) {
+        alert(err.message);
+    }
+
+}
+
+ADD_TASK_HIGH.addEventListener("click", inputMyTaskHigh);
+FORM_HIGH.addEventListener('submit',inputMyTaskHigh);
+
+function inputMyTaskLow (event){
+
+    try {
+        event.preventDefault();
+        let value_input = INPUT_TASK_LOW.value;
+
+        if (value_input.trim() !== "") {
+            addTask(value_input);
+            changePriority(value_input,PRIORITY.PRIORITY_LOW);
+
+            FORM_LOW.reset();
+            render();
+        } else {
+            throw new Error("Введите данные")
+        }
+    } catch (err) {
+        alert(err.message);
+    }
+
+}
+
+ADD_TASK_LOW.addEventListener('click',inputMyTaskLow);
+FORM_LOW.addEventListener('submit',inputMyTaskLow);
 
 
 function deleteTask(nameTask){
@@ -58,40 +134,112 @@ function deleteTask(nameTask){
 
     render();
 }
+function changePriority(nameTask, newPriority) {
+
+    let result = myFindIndex(nameTask);
+    if ( result === -1 ) {
+        console.log( `Вы не можете поменять приоритет ${newPriority} , так как не существует` );
+    } else {
+        return (list[result].priority = newPriority);
+    }
+
+}
+// function changeStatus(nameTask, newStatus) {
+//
+//     let result = myFindIndex(nameTask);
+//     if ( result === -1 ) {
+//         console.log( `Вы не можете поменять статус ${newStatus} , так как не существует` );
+//     } else {
+//         return (list[result].status = newStatus);
+//     }
+// }
 
 
 let taskId = 0;
 
 function render(){
-    let tasks = document.querySelector(".task");
-    tasks.innerHTML = "";
+    let tasks_high = document.querySelector("#tasks_high");
+    let tasks_low = document.querySelector("#tasks_low");
+
+    tasks_high.innerHTML = "";
+    tasks_low.innerHTML = "";
+
     for (let task of list){
         let task_id = "task_id" + taskId;
-        tasks.insertAdjacentHTML("afterbegin",
+        if (task.priority === PRIORITY.PRIORITY_HIGH){
+            tasks_high.insertAdjacentHTML("afterbegin",
                 `
-                    <div class="vue-task" id="${task_id}">
-                        <div class="check">
-                            <input  name="add" type="checkbox">
-                        </div>
+                   <div class="vue-task ` +
+                (task.status === STATUS.STATUS_DONE?`checked"  ` : `"`)
+                + ` id="${task_id}">
+                   
+                         <div class="check">
+                             <input type="checkbox" name="add" ` +
+                (task.status === STATUS.STATUS_DONE?`checked ` : ``)
+                + `> 
+                        </div> 
                             <div class="new-task">
                                  ${task.name}                         
-                            </div>
+                            </div> 
                             <div class="close"></div>
                     </div>
             `
             )
+        }  else  {
+            tasks_low.insertAdjacentHTML("afterbegin",
+                `
+                   <div class="vue-task ` +
+                (task.status === STATUS.STATUS_DONE?`checked"  ` : `"`)
+                + ` id="${task_id}">
+                   
+                         <div class="check">
+                             <input type="checkbox" name="add" ` +
+                (task.status === STATUS.STATUS_DONE?`checked ` : ``)
+                + `> 
+                        </div> 
+                            <div class="new-task">
+                                 ${task.name}                         
+                            </div> 
+                            <div class="close"></div>
+                    </div>
+            `
+            )
+        }
+
+
         document.getElementById(task_id).children[2].addEventListener("click", function () {
             deleteTask(task.name);
         });
+
+        document.getElementById(task_id).children[0].addEventListener("change", function () {
+            if (task.status === STATUS.STATUS_TO_DO) {
+                changeStatus (task.name , STATUS.STATUS_DONE);
+                render();
+            } else {
+                changeStatus (task.name , STATUS.STATUS_TO_DO);
+                render();
+
+                //document.getElementById(task_id).style.backgroundColor = null;
+            }
+        })
+        // document.querySelector(".checked").addEventListener("change", function () {
+        //     if (this.checked) {
+        //         changeStatus (task.name , STATUS.STATUS_DONE);
+        //         document.getElementById(task_id).style.backgroundColor = "#bbbbbb";
+        //     } else {
+        //         changeStatus (task.name , STATUS.STATUS_TO_DO);
+        //         document.getElementById(task_id).style.backgroundColor = null;
+        //     }
+        // })
+
         taskId++;
     }
 }
 
+
 render();
 
 console.log(list);
-
-
 
 
 

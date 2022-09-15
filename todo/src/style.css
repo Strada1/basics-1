@@ -98,3 +98,8 @@ body{
 .close:after {
     transform: rotate(-45deg);
 }
+
+.checked{
+    background: #989898;
+    text-decoration: line-through;
+}

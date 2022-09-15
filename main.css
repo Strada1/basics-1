@@ -97,15 +97,19 @@ body {
   position: absolute;
   left: -33px;
 }
+todo__task-checkbox[type='checkbox']:checked + .todo__task {
+  color: #777;
+  text-decoration: line-through;
+}
+
 .todo__task-checkbox[type='checkbox']:checked + .todo__name::before {
   content: '';
   text-align: center;
   background-color: #b4a1b9;
 }
-.check + .todo__name::before {
-  content: '';
-  text-align: center;
-  background-color: #b4a1b9;
+.todo__task.checked {
+  background-color: #5a2766;
+  opacity: 0.5;
 }
 .todo__task-text {
   font-size: 18px;

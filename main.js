@@ -13,27 +13,27 @@ const PRIORITY = {
   HIGH: 'high',
 };
 const STATUS = {
-  TO_DO: 'To do',
-  DONE: 'Done',
+  TO_DO: false,
+  DONE: true,
 };
 const list = [
   {
-    name: '1',
-    status: STATUS.DONE,
-    priority: PRIORITY.HIGH,
-  },
-  {
-    name: '2',
+    name: 'Сверстать TODO LIST',
     status: STATUS.TO_DO,
     priority: PRIORITY.HIGH,
   },
   {
-    name: '3',
+    name: 'Купить хлеб',
     status: STATUS.TO_DO,
     priority: PRIORITY.HIGH,
   },
   {
-    name: '4',
+    name: 'Посмотреть ютубчик',
+    status: STATUS.TO_DO,
+    priority: PRIORITY.HIGH,
+  },
+  {
+    name: 'Прочитать про тихоходок',
     status: STATUS.TO_DO,
     priority: PRIORITY.LOW,
   },
@@ -85,12 +85,14 @@ function deleteTask(task) {
 }
 
 // changeStatus
-function changeStatus(task, status) {
-  let pos = list.findIndex((item) => item.name == task);
-  if (pos !== -1 && typeof status == 'string' && status !== '') {
-    list[pos].status = status;
-  }
+function changeStatus(index) {
+  list[index].status = !list[index].status;
   render();
+  if (list[index].status) {
+    document.querySelectorAll('.todo__task')[index].classList.add('checked');
+  } else {
+    document.querySelectorAll('.todo__task')[index].classList.add('checked');
+  }
 }
 // render
 
@@ -99,7 +101,7 @@ function render() {
     task.remove();
   });
 
-  list.map(function (itemTask) {
+  list.map(function (itemTask, index) {
     switch (itemTask.priority) {
       case PRIORITY.HIGH:
         ELEMENTS.HIGH_FORM.insertAdjacentHTML(
@@ -107,7 +109,9 @@ function render() {
           `<div class="todo__task">
             <div class="todo__task-content">
               <label  class="todo__task-text">
-                <input type="checkbox" id="high__task1" class="todo__task-checkbox" onclick = 'changeStatus("${itemTask.name}", "${STATUS.DONE}")' />
+                <input class="todo__task-checkbox" onclick = 'changeStatus("${index}")' type="checkbox" ${
+            itemTask.status ? 'checked' : ''
+          }/>
                 <span class="todo__name">
                   ${itemTask.name}
                 </span>
@@ -125,7 +129,9 @@ function render() {
           `<div class="todo__task">
             <div class="todo__task-content">
               <label  class="todo__task-text">
-                <input type="checkbox" id="high__task1" class="todo__task-checkbox" onclick = 'changeStatus("${itemTask.name}", "${STATUS.DONE}")'/>
+                <input class="todo__task-checkbox" onclick = 'changeStatus("${index}")' type="checkbox" ${
+            itemTask.status ? 'checked' : ''
+          }/>
                 <span class="todo__name">
                   ${itemTask.name}
                 </span>
@@ -137,13 +143,6 @@ function render() {
           </div>`,
         );
         break;
-      default:
-        alert('Error list');
-    }
-    if (itemTask.status === STATUS.DONE) {
-      document.querySelectorAll('.todo__task-checkbox').forEach(function (task) {
-        task.classList.add('check');
-      });
     }
   });
 }

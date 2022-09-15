@@ -65,8 +65,9 @@ function render() {
             highTaskName.textContent = elem.name
 
             let checkboxHigh = document.querySelector('.chb-high')
-            checkboxHigh.addEventListener('click', () => {
+            checkboxHigh.addEventListener('click', (evt) => {
                 
+                // checkboxHigh.innerHTML = `<input type="checkbox" class="chb-high" checked>`
                 list.forEach((elem) => {
                     if (elem.name === highTaskName.textContent) {
                         elem.priority = PRIORITY.DONE
@@ -138,6 +139,9 @@ function render() {
             doneTitle.insertAdjacentHTML('afterend', `
                 <div  class="row row-div" >
                     <div>
+                        <label>
+                             <input type="checkbox" class="chb-high" checked>
+                         </label>
                     </div>
                     <div class="task-done" style="text-align: center">
                     </div>

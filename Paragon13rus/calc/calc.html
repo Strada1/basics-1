@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <style>
+        body{
+            background-color: #1E1E1E;
+         }
+
+        section{
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: #FFFFFF;
+            border-radius: 103px;
+            }
+
+        .calc{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%)
+            }
+    </style>
+</head>
+<body>
+    <section class="conteiner">
+        <div class="calc">
+            <input type="number" placeholder="0" id="firstNumber">
+            <select name="operations" id="math-operations">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="number" placeholder="0" id="secondNumber">
+            <button class="equal" id="equal">=</button>
+            <span id="totalResult"></span>
+        </div>
+    </section>
+    <script src='/calc/main.js'></script>
+</body>
+</html>

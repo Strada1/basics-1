@@ -18,34 +18,62 @@ form_addtask.addEventListener("submit", addtask)
 
 const list = [ ];
 
-function addtask (event) {
-	event.preventDefault();
+function addtask () {
+	try {
+		
+		const value_input = input_addtask.value;
+	
+		const indexObj = list.findIndex(function(item){
+			return item.Name == value_input;
+		  })
+		  if (indexObj == -1) {
+			list.push({Name: value_input,
+			  status: STATUS.TO_DO,
+			  priority: PRIORITY.High,}) 
+			
+			  render()
+		 
+			// form_addtask.insertAdjacentHTML("afterend", 
+			// `
+			// <div> 
+			// 	<label class="input_checkbox" id="input_checkbox">
+			// 		<input type="checkbox" name="value" value="option">
+			// 		<input type="submit" value="&#9746" class="btn_close">
+			// 		${value_input}
+			// 	</label>
+			// </div>
+			// `
+			// )
+			
+		  } else {
+			alert("Уже есть такая задача")
+		  }
+		
+	} catch (err) {
+		alert(err)
+	}
+}
 
-	const value_input = input_addtask.value;
+function render (event) {
+	try {
+		location. reload()
+		event.preventDefault();
 
-	const indexObj = list.findIndex(function(item){
-		return item.Name == value_input;
-	  })
-	  if (indexObj == -1) {
-		list.push({Name: value_input,
-		  status: STATUS.TO_DO,
-		  priority: PRIORITY.High,}) 
-	 
-		form_addtask.insertAdjacentHTML("afterend", 
-		`
-		<div> 
-			<label class="input_checkbox" id="input_checkbox">
-				<input type="checkbox" name="value" value="option">
-				<input type="submit" value="&#9746" class="btn_close">
-				${value_input}
-			</label>
-		</div>
-		`
-		)
-		form_addtask.reset()
-	  } else {
-		alert("Уже есть такая задача")
-	  }
+		if () {
+			
+			
+			
+			form_addtask.reset()
+		}
+
+	} catch (err) {
+		alert(err)
+	}
+	
+	
+
+
+
 }
 
 //   function deleteTask(event) {

@@ -18,11 +18,27 @@
     margin-right: -50%;
     transform: translate(-50%, -50%)
 }
-.inputCalcOne, .inputCalcTwo   {
+
+.inputCalcOne, .inputCalcTwo {
     width: 50px;
     padding: 5px;
 
 }
+
 .calculateSelect {
     padding: 6px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.saveResult {
+    justify-content:space-between;
+    display: flex;
+    font-size: 16px;
+    cursor: pointer;
+    flex-direction: column;
+
 }

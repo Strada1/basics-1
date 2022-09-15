@@ -88,11 +88,6 @@ function deleteTask(task) {
 function changeStatus(index) {
   list[index].status = !list[index].status;
   render();
-  if (list[index].status) {
-    document.querySelectorAll('.todo__task')[index].classList.add('checked');
-  } else {
-    document.querySelectorAll('.todo__task')[index].classList.add('checked');
-  }
 }
 // render
 
@@ -106,7 +101,7 @@ function render() {
       case PRIORITY.HIGH:
         ELEMENTS.HIGH_FORM.insertAdjacentHTML(
           'afterend',
-          `<div class="todo__task">
+          `<div class="todo__task" ${itemTask.status ? 'style="background-color: #e0b6ea"' : ''}>
             <div class="todo__task-content">
               <label  class="todo__task-text">
                 <input class="todo__task-checkbox" onclick = 'changeStatus("${index}")' type="checkbox" ${
@@ -126,7 +121,7 @@ function render() {
       case PRIORITY.LOW:
         ELEMENTS.LOW_FORM.insertAdjacentHTML(
           'afterend',
-          `<div class="todo__task">
+          `<div class="todo__task" ${itemTask.status ? 'style="background-color: #e0b6ea"' : ''}>
             <div class="todo__task-content">
               <label  class="todo__task-text">
                 <input class="todo__task-checkbox" onclick = 'changeStatus("${index}")' type="checkbox" ${

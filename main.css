@@ -107,10 +107,6 @@ todo__task-checkbox[type='checkbox']:checked + .todo__task {
   text-align: center;
   background-color: #b4a1b9;
 }
-.todo__task.checked {
-  background-color: #5a2766;
-  opacity: 0.5;
-}
 .todo__task-text {
   font-size: 18px;
   width: 370px;

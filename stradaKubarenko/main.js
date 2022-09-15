@@ -6,55 +6,35 @@ const OPERATIONS = {
 };
 
 const ELEMENTS = {
-   FIRST_INPUT: document.getElementById('input1'),
-   SECOND_INPUT: document.getElementById('input2'),
-   MATH : document.getElementById('chooseMath'),
-   EQUAL : document.getElementById('button'),
+   FIRST_INPUT : document.getElementById('firstInput'),
+   SECOND_INPUT : document.getElementById('secondInput'),
+   EQUAL : document.getElementById('equalButton'),
    RESULT : document.getElementById('result'),
-   // NEW_RESULT : document.createElement('div'),
 }
 
 function calculate () {
-   let inputNumber1 = +ELEMENTS.FIRST_INPUT.value;
-   let inputNumber2 = +ELEMENTS.SECOND_INPUT.value;
-   let operation = ELEMENTS.MATH.value;
-   let results;
-   let result = ELEMENTS.RESULT;
+   let result ;
+   if (isFinite(ELEMENTS.FIRST_INPUT.value) && isFinite(ELEMENTS.SECOND_INPUT.value)) {
 
-   let newResult = document.createElement('div');
-   newResult.className = "newResult";
-   newResult.innerHTML = result.innerHTML;  
-   result.after(newResult);
-   // ELEMENTS.NEW_RESULT.className = "newResult";
-   // ELEMENTS.NEW_RESULT.innerHTML = result.innerHTML;  
-   // result.after(ELEMENTS.NEW_RESULT);
-
-   switch (operation) {
-      case OPERATIONS.ADD:
-         results = inputNumber1 + inputNumber2 ;
-         result.innerHTML = results;
+   switch (document.getElementById('chooseMath').value) {
+      case OPERATIONS.ADD :
+         result = Number(ELEMENTS.FIRST_INPUT.value) + Number(ELEMENTS.SECOND_INPUT.value);
          break;
-      case OPERATIONS.SUBSTRACT:
-         results = inputNumber1 - inputNumber2 ;
-         result.innerHTML = results;
+      case OPERATIONS.SUBSTRACT :
+         result = Number(ELEMENTS.FIRST_INPUT.value) - Number(ELEMENTS.SECOND_INPUT.value);
          break;
-      case OPERATIONS.MULTIPLE:
-         results = inputNumber1 * inputNumber2;
-         result.innerHTML = results;
+      case OPERATIONS.MULTIPLE :
+         result = Number(ELEMENTS.FIRST_INPUT.value) * Number(ELEMENTS.SECOND_INPUT.value);
          break;
-      case OPERATIONS.DIVISION:
-         results = inputNumber1 / inputNumber2 ;
-         result.innerHTML = results;
+      case OPERATIONS.DIVISION :
+         result = Number(ELEMENTS.FIRST_INPUT.value) / Number(ELEMENTS.SECOND_INPUT.value);
          break;
-      default :
-         return "Ошибка"
    }
-};
+   }else {
+      return alert ('Введите только числа')}
 
-ELEMENTS.EQUAL.addEventListener('click', calculate);
-
-function del() {
-   
+   ELEMENTS.RESULT.innerHTML = result.toFixed(10);
 }
-newResult.addEventListener('click',del )
+
+ ELEMENTS.EQUAL.addEventListener('click',calculate);
 

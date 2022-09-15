@@ -9,7 +9,7 @@ body {
    margin: 0 auto;
    display: flex;
 }
-.calc {
+.calcucator {
    margin: auto;
 }
 input {
@@ -22,9 +22,4 @@ span.fz-20 {
 }
 .mr-8 {
    margin-right: 8px;
-}
-.newResult {
-   font-size: 20px;
-   text-align: end;
-   padding-bottom: 7px;
 }

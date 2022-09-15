@@ -1,36 +1,35 @@
 
-let operator = document.getElementById("math-operations").value;
-let a = Number(document.getElementById("firstNumber").value);
-let b = Number(document.getElementById("secondNumber").value);
-let result = document.getElementById("totalResult").textContent;
+let operator = document.getElementById("math-operations");
+let a = document.getElementById("firstNumber");
+let b = document.getElementById("secondNumber");
+let result = document.getElementById("totalResult");
+let counter = document.getElementById("equal");
 
 
-document.getElementById("equal").addEventListener("click", showResult);
+counter.addEventListener("click", ()=> {
+  const total = calc(operator.value, Number(a.value), Number(b.value));
+  result.innerHTML = total.toFixed(3);
+});
 
-function showResult(){
-     document.getElementById("totalResult").innerHTML = calc()
-    
- }
 
-function calc (operator, a, b){
+
+function calc(operator, a, b){
     // 
   switch (operator){
-      case '+':
-        result = (a + b);
-     break;
+    case "+":
+      return (a + b);
     case '*':
-        result = a * b;
-     break;
+      return a * b;
     case 'subtract':
-        result = a - b;
-     break;
+      return a - b;
+    case '/':
+      return a / b;
     default:
-        result = 0;
+      "Fail"
   }
-  return result;
 }
 
 console.log(operator)
-console.log(firstNumber)
-console.log(secondNumber)
+console.log(a)
+console.log(b)
 console.log(result)

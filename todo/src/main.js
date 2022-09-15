@@ -6,7 +6,6 @@ const INPUT_TASK_LOW = document.querySelector("#input_task_low");
 const FORM_LOW = document.querySelector("#form_low");
 const ADD_TASK_LOW = document.querySelector("#add_task_low");
 
-const INPUT_TASK = document.querySelector(".input-task");
 
 const STATUS = {
     STATUS_IN_PROGRESS: "In Progress",
@@ -53,27 +52,6 @@ function changeStatus(nameTask, newStatus) {
 
 }
 
-// function inputMyTask (event){
-//
-//     try {
-//         event.preventDefault();
-//         let value_input = INPUT_TASK_HIGH.value;
-//         if (value_input.trim() !== "") {
-//             addTask(value_input);
-//             FORM_HIGH.reset();
-//             render();
-//         } else {
-//             throw new Error("Введите данные")
-//         }
-//     } catch (err) {
-//         alert(err.message);
-//     }
-//
-// }
-
-// ADD_TASK_HIGH.addEventListener("click", inputMyTask);
-// FORM_HIGH.addEventListener('submit',inputMyTask);
-// ADD_TASK_LOW.addEventListener('click',inputMyTask);
 
 function inputMyTaskHigh (event){
 
@@ -144,15 +122,7 @@ function changePriority(nameTask, newPriority) {
     }
 
 }
-// function changeStatus(nameTask, newStatus) {
-//
-//     let result = myFindIndex(nameTask);
-//     if ( result === -1 ) {
-//         console.log( `Вы не можете поменять статус ${newStatus} , так как не существует` );
-//     } else {
-//         return (list[result].status = newStatus);
-//     }
-// }
+
 
 
 let taskId = 0;
@@ -218,19 +188,8 @@ function render(){
             } else {
                 changeStatus (task.name , STATUS.STATUS_TO_DO);
                 render();
-
-                //document.getElementById(task_id).style.backgroundColor = null;
             }
         })
-        // document.querySelector(".checked").addEventListener("change", function () {
-        //     if (this.checked) {
-        //         changeStatus (task.name , STATUS.STATUS_DONE);
-        //         document.getElementById(task_id).style.backgroundColor = "#bbbbbb";
-        //     } else {
-        //         changeStatus (task.name , STATUS.STATUS_TO_DO);
-        //         document.getElementById(task_id).style.backgroundColor = null;
-        //     }
-        // })
 
         taskId++;
     }

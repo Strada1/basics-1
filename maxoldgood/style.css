@@ -39,7 +39,10 @@ body {
 
 }
 
-
+::placeholder {
+   color: #BBBBBB;
+   opacity: 1;
+}
 .input-task {
     width: 230px;
     height: 21px;
@@ -50,8 +53,9 @@ body {
     font-size: 18px;
     line-height: 21px;
     color: #BBBBBB;
+    
 
-    margin-top: 10px;
+    margin-top: 13px;
     margin-left: 12px;
     border:none;
 }
@@ -60,6 +64,48 @@ body {
     border:none;
     background-color: transparent;
     font-size: larger;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-left: 175px;
+}
+
+.added-task {
+    box-sizing: border-box;
+    margin-top: 50px;
+  
+    width: 460px;
+    height: 130px;
+    margin-left:8px;
+    
+    background: #FFFFFF;
+    border: 1px solid #989898;
+    border-radius: 6px;
+}
+
+.task-text {
+    width: 370px;
+    height: 106px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #202020;
+
+    margin-top: 12px;
+    margin-left: 46px;
+    border-radius: nullpx;
+
+}
+
+.checkbox {
+    box-sizing: border-box;
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    border: 1px solid #998899;
+    border-radius: 0px;
+    margin-top: -105px;
+    margin-left: 12px;
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <ul class="list" id="listHigh">
+                <p class="list__title">High</p>
+
+                <form class="high-input">
+                    <input class="list__input" id="highAdd" type="text" placeholder="Добавить важных дел">
+                    <button class="list__btn-add" type="submit"></button>
+                </form>
+
+                <li class="list-item">
+                    <input class="list-item__checkbox" type="checkbox">
+                    <p class="list-item__text">Вот вам и супер интересная тема. Вы наверняка заметили что ваши файлы с
+                        кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной
+                        программы.</p>
+                    <button class="list-item__button" type="button"></button>
+                </li>
+
+                <li class="list-item">
+                    <input class="list-item__checkbox" type="checkbox">
+                    <p class="list-item__text">Сверстать этот TODO list</p>
+                    <button class="list-item__button" type="button"></button>
+                </li>
+
+                <li class="list-item">
+                    <input class="list-item__checkbox" type="checkbox">
+                    <p class="list-item__text">Начать делать задачу</p>
+                    <button class="list-item__button" type="button"></button>
+                </li>
+            </ul>
+
+            <ul class="list" id="listLow">
+                <p class="list__title">Low</p>
+
+                <form class="low-input">
+                    <input class="list__input" type="text" id="lowAdd" placeholder="Добавить">
+                    <button class="list__btn-add" type="submit"></button>
+                </form>
+
+                <li class="list-item">
+                    <input class="list-item__checkbox" type="checkbox">
+                    <p class="list-item__text">Посмотреть ютубчик</p>
+                    <button class="list-item__button" type="button"></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

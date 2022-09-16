@@ -1,3 +1,6 @@
+import { calc } from './calc.js';
+import { removeResult } from './removeResult.js';
+
 let btn = document.getElementById('btn');
 btn.onclick = function () {
 	let firstOperand = document.getElementById('firstInput').value;
@@ -28,26 +31,3 @@ btn.onclick = function () {
 	let resultsArr = document.querySelectorAll('.result');
 	removeResult(resultsArr);
 };
-
-function removeResult(results) {
-	for (let result of results) {
-		result.onclick = function () {
-			result.remove();
-		};
-	}
-}
-
-function calc(operator, firstOperand, secondOperand) {
-	switch (operator) {
-		case '+':
-			return firstOperand + secondOperand;
-		case '*':
-			return firstOperand * secondOperand;
-		case '-':
-			return +(firstOperand - secondOperand).toFixed(10);
-		case '/':
-			return (firstOperand / secondOperand).toFixed(2);
-		default:
-			return 'Такого действия нет.';
-	}
-}

@@ -35,7 +35,7 @@ input, textarea, button, select {
 
 .container {
 	width: 476px;
-	height: 650px;
+	height: auto;
 
 	background-color: rgba(255, 255, 255, 0.5);
 

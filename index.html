@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="styles.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>Strada</title>
+</head>
+<body>
+<div class="container">
+  <!--  High  -->
+  <div class="toDo">
+    <div class="high">
+      <h3 class="header">High</h3>
+      <form class="addTask" id="formTaskHigh">
+        <input type="text" class="input__addTask" placeholder="Добавть важных дел" id="inputTaskHigh">
+        <button type="submit" class="btn btn__addTask" id="btnTaskHigh">
+          <svg width="18" height="18" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <line y1="-0.5" x2="18.0096" y2="-0.5" transform="matrix(0.999988 -0.00481873 0.0748716 0.997193 1 10)" stroke="#998899"/>
+            <line y1="-0.5" x2="18.0401" y2="-0.5" transform="matrix(-0.0192905 -0.999814 0.998699 0.0509976 10.5404 18.8444)" stroke="#998899"/>
+          </svg>
+        </button>
+      </form>
+
+      <div id="itemsTasksHigh" class="todoItems"></div>
+
+      <!--   Low   -->
+      <div class="low">
+        <h3 class="header">Low</h3>
+        <form class="addTask" id="formTaskLow">
+          <input type="text" class="input__addTask" placeholder="Добавть важных дел" id="inputTaskLow">
+          <button class="btn btn__addTask" id="btnTaskLow">
+            <svg width="18" height="18" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <line y1="-0.5" x2="18.0096" y2="-0.5" transform="matrix(0.999988 -0.00481873 0.0748716 0.997193 1 10)" stroke="#998899"/>
+              <line y1="-0.5" x2="18.0401" y2="-0.5" transform="matrix(-0.0192905 -0.999814 0.998699 0.0509976 10.5404 18.8444)" stroke="#998899"/>
+            </svg>
+          </button>
+        </form>
+        <div id="itemsTasksLow" class="todoItems"></div>
+      </div>  <!-- low -->
+
+    </div>  <!-- to do -->
+  </div> <!-- container -->
+
+  <script src="main.js"></script>
+</body>
+</html>

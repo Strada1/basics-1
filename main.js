@@ -69,9 +69,8 @@ function addtask_Low () {
 
 function deleteTask(event) {
 	try {
-		
-		task = event.target 
-
+		task = event.target.previousSibling.innerText
+		alert(task)
 		const IndexObj = list.findIndex(function(item){
 			return item.Name == task
 		  })

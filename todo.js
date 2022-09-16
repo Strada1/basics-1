@@ -9,9 +9,7 @@ export const PRIORITY = {
     LOW: 'Low',
 }
 
-export let list = [
-    {name: 'task 1', status: STATUSES.TO_DO, priority: PRIORITY.HIGH},
-];
+export let list = [];
 
 export function taskCheck(taskName) {
     for (let task of list) {

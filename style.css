@@ -18,7 +18,6 @@ li {
 
 .todo {
     margin-top: 20px;
-
 }
 
 .container {
@@ -83,7 +82,7 @@ li {
     cursor: pointer;
 }
 
-.high__list-item {
+.list__item {
     margin-bottom: 12px;
 }
 

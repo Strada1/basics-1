@@ -13,6 +13,10 @@ const highTaskList = getDomElement('.app-todo__all-task.high');
 const lowTaskList = getDomElement('.app-todo__all-task.low');
 const highInput = getDomElement('input[data-priority="high"]');
 const lowInput = getDomElement('input[data-priority="low"]');
+const popup = getDomElement('.popup');
+const popupCloseBtn = getDomElement('.popup__close');
+const popupTitle = getDomElement('.popup__title');
+const popupText = getDomElement('.popup__text');
 
 let conterIdForTask = 0;
 
@@ -45,15 +49,19 @@ for (form of allAddForm) {
 
 appBody.addEventListener('click', (event) => {
    if (event.target.classList.contains('task__delete-btn')) {
-      deleteTaskFromArr(event.target.dataset.id);
+      (confirm('Точно хотитет удалить задачу?')) ? deleteTaskFromArr(event.target.dataset.id) : '';
    }
 
 })
 
-appBody.addEventListener('input', (event) => {
+appBody.addEventListener('change', (event) => {
    if (event.target.classList.contains('task__checkbox')) {
       setTaskStatus(event.target)
    }
+})
+
+popupCloseBtn.addEventListener('click', () => {
+   popup.classList.remove('open');
 })
 
 // RENDER ------------------------------------------------------------
@@ -73,7 +81,7 @@ function addTaskToList(value, status, priority, id) {
    task.innerHTML = `
       <input class="task__checkbox" type="checkbox" id="${id}" ${(status === STATUSES.DONE) ? 'checked' : ''}>
       <label for="${id}">
-         ${value ? value : 'Значение не задано!'}
+         ${value}
       </label>
       <button class="task__delete-btn" data-id="${id}"></button>
    `;
@@ -81,28 +89,34 @@ function addTaskToList(value, status, priority, id) {
    if (priority === 'high') {
       return highTaskList.append(task);
    }
-
    return lowTaskList.append(task);
 }
 
 // ADD TASK TO ARR ------------------------------------------------------------
 
 function pushToArrTask(currentForm) {
-   const currentInput = (currentForm.contains(highInput)) ? highInput : lowInput;
-   const currentId = conterIdForTask++;
-   const currentStatus = (currentInput.checked) ? STATUSES.DONE : STATUSES.TO_DO;
-   const currentPriority = (currentInput.dataset.priority === PRIORITY.HIGH) ? PRIORITY.HIGH : PRIORITY.LOW;
+   try {
+      const currentInput = (currentForm.contains(highInput)) ? highInput : lowInput;
+      if (!currentInput.value.trim()) {
+         throw new Error("Значение value (текст задачи) отсутствует!");
+      }
+      const currentId = conterIdForTask++;
+      const currentStatus = (currentInput.checked) ? STATUSES.DONE : STATUSES.TO_DO;
+      const currentPriority = (currentInput.dataset.priority === PRIORITY.HIGH) ? PRIORITY.HIGH : PRIORITY.LOW;
 
-   TASK_LIST.push({
-      name: currentInput.value,
-      status: currentStatus,
-      priority: currentPriority,
-      id: currentId,
-   })
+      TASK_LIST.push({
+         name: currentInput.value,
+         status: currentStatus,
+         priority: currentPriority,
+         id: currentId,
+      })
 
-   render(TASK_LIST);
+      render(TASK_LIST);
 
-   return currentInput.value = '';
+      return currentInput.value = '';
+   } catch (error) {
+      popupMessage(error.name, error.message);
+   }
 }
 
 // DELETE TASK ------------------------------------------------------------
@@ -121,4 +135,11 @@ function setTaskStatus(input) {
    TASK_LIST[taskIndex].status = input.checked ? STATUSES.DONE : STATUSES.TO_DO;
 
    render(TASK_LIST);
+}
+
+// POPUPS ------------------------------------------------------------
+function popupMessage(nameErr, msgErr) {
+   popupTitle.textContent = nameErr;
+   popupText.textContent = msgErr;
+   popup.classList.add('open');
 }

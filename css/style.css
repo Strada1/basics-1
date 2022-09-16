@@ -10,8 +10,10 @@ body {
 
 	margin: 0;
 
-	background: url(./img/back.jpg) no-repeat;
-	background-size: 1423px;
+	/* background: url(./img/back.jpg) no-repeat; */
+	/* background-size: 1423px; */
+	background: rgb(238,174,202);
+	background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -19,7 +21,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
-ul {
+ul, li {
 	list-style-type: none;
 }
 

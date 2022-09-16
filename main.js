@@ -36,6 +36,7 @@ function addtask_High () {
 			  priority: PRIORITY.High,}) 
 			
 			  render(event)
+			//   clearall()
 	
 		  } else {
 			alert("Уже есть такая задача")
@@ -69,12 +70,19 @@ function addtask_Low () {
 	}
 }
 
+// function clearall () {
+// 	task_High.remove()
+// 	render(event)
+// }
+
+
 function render (event) {
 	try {
 		// location. reload()
 		event.preventDefault();
 
 		task_High = " "
+		
 
 		list.forEach(function(item) {
 

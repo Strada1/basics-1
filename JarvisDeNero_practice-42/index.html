@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ToDo UI by Jarvis De-Nero</title>
+
+   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+   <section class="container app-todo">
+      <div class="app-todo__body">
+
+         <div class="app-todo__list">
+
+            <div class="app-todo__title-list">
+               High
+            </div>
+
+            <div class="app-todo__add-to-list">
+               <form>
+                  <input data-priority="high" type="text" placeholder="Добавить важных дел">
+                  <button type="submit" class="add-to-list-btn"></button>
+               </form>
+            </div>
+
+            <div class="app-todo__all-task task high">
+
+            </div>
+
+         </div>
+
+         <div class="app-todo__list">
+
+            <div class="app-todo__title-list">
+               low
+            </div>
+
+            <div class="app-todo__add-to-list">
+               <form>
+                  <input data-priority="low" type="text" placeholder="Добавить важных дел">
+                  <button type="submit" class="add-to-list-btn"></button>
+               </form>
+            </div>
+
+            <div class="app-todo__all-task task low">
+
+            </div>
+
+         </div>
+
+      </div>
+   </section>
+
+   <section class="popup">
+      <div class="popup__box">
+         <div class="popup__title"></div>
+         <div class="popup__text"></div>
+         <button class="popup__close"></button>
+      </div>
+
+   </section>
+
+   <script src="./js/main.js"></script>
+</body>
+
+</html>

@@ -9,14 +9,6 @@
 	position: relative;
 }
 
-.container2 {
-	margin-left: 1300px;
-	margin-top: -500px;
-	width: 476px;
-	min-height: 200px;
-	border: 1px solid black;
-}
-
 .header_priority {
 	text-align: center;
 }
@@ -60,6 +52,4 @@
 	flex-direction: column;
 }
 
-.done {
-	background-color: #446fe788;
-}
+

@@ -13,7 +13,6 @@ const input_addtask_Low = document.getElementById("input_addtask_Low")
 const input_checkbox = document.getElementById("input_checkbox")
 const task_High = document.getElementById("task_High")
 const task_Low = document.getElementById("task_Low")
-let task_done = document.getElementById("task_done")
 
 const form_addtask_High = document.getElementById("form_addtask_High")	
 const form_addtask_Low = document.getElementById("form_addtask_Low")
@@ -100,16 +99,22 @@ function changePriority(event) {
 		  })
 
 		  console.log(indexObj)
-
-		list[indexObj].status = STATUS.Done
-
-		console.log(list)
+		  
+		//   list[indexObj].classList.add('done')
+		  
+		// 	const MyObj = list.find(function(item) {
+		// 	  return item.Name == task;
+		// 	})
+		// 	MyObj.priority = newPriopity;
 
 			render(event)
 
 	} catch (err) {
 		alert(err)
 	}
+	
+	
+	
   }
 
 function render (event) {
@@ -118,7 +123,6 @@ function render (event) {
 
 		task_High.innerHTML = ""
 		task_Low.innerHTML = ""
-		task_done.innerHTML = ""
 
 		list.forEach(function(item) {
 
@@ -150,18 +154,6 @@ function render (event) {
 					`
 			)
 			form_addtask_Low.reset()
-			} else if (item.status === STATUS.Done) {
-				task_done.insertAdjacentHTML("afterbegin", 
-					`
-					<div> 
-						<label class="input_checkbox done" id="input_checkbox">
-							<input type="checkbox" name="value" value="option" onclick="changePriorityToDo(event)">
-							<input type="submit" value="&#9746" class="btn_close" id="close_Task" onclick="deleteTask(event)">
-							${item.Name} 		(done)
-						</label>
-					</div>
-					`
-			)
 			}
 		})
 

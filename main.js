@@ -17,125 +17,135 @@ const task_Low = document.getElementById("task_Low")
 const form_addtask_High = document.getElementById("form_addtask_High")	
 const form_addtask_Low = document.getElementById("form_addtask_Low")
 
-const del_task = document.querySelector(".btn_close")
-
-let this_task_High = document.getElementById("this_task_High")
-
 form_addtask_High.addEventListener("submit", addtask_High)
 form_addtask_Low.addEventListener("submit", addtask_Low)
 
 
 const list = [ ];
 
-function addtask_High () {
-	try {
-		const value_input = input_addtask_High.value;
-	
-		const indexObj = list.findIndex(function(item){
-			return item.Name == value_input;
-		  })
-		  if (indexObj == -1) {
-			list.push({Name: value_input,
-			  status: STATUS.TO_DO,
-			  priority: PRIORITY.High,}) 
-			
-			  render(event)
-
-		  } else {
-			alert("Уже есть такая задача")
-		  }
+	function addtask_High () {
+		try {
+			const value_input = input_addtask_High.value;
 		
-	} catch (err) {
-		alert(err)
-	}
-}
-
-function addtask_Low () {
-	try {
-		const value_input = input_addtask_Low.value;
-	
-		const indexObj = list.findIndex(function(item){
-			return item.Name == value_input;
-		  })
-		  if (indexObj == -1) {
-			list.push({Name: value_input,
-			  status: STATUS.TO_DO,
-			  priority: PRIORITY.Low,}) 
-			
-			  render(event)
-	
-		  } else {
-			alert("Уже есть такая задача")
-		  }
-		
-	} catch (err) {
-		alert(err)
-	}
-}
-
-function render (event) {
-	try {
-		event.preventDefault();
-
-		// if (!list.length === 0) {
-		// 	this_task_High.remove()
-		// }
-		task_High.innerHTML = ""
-		task_Low.innerHTML = ""
-
-		
-		
-
-		list.forEach(function(item) {
-
-			if (item.status === STATUS.TO_DO && item.priority === PRIORITY.High) {
+			const indexObj = list.findIndex(function(item){
+				return item.Name == value_input;
+			})
+			if (indexObj == -1) {
+				list.push({Name: value_input,
+				status: STATUS.TO_DO,
+				priority: PRIORITY.High,}) 
 				
-				task_High.insertAdjacentHTML("afterbegin", 
-					`
-					<div id="this_task_High"> 
-						<label class="input_checkbox" id="input_checkbox">
-							<input type="checkbox" name="value" value="option">
-							<input type="submit" value="&#9746" class="btn_close">
-							${item.Name}
-						</label>
-					</div>
-					`
-			)
-				form_addtask_High.reset()
-
-			} else if (item.status === STATUS.TO_DO && item.priority === PRIORITY.Low) {
-				task_Low.insertAdjacentHTML("afterbegin", 
-					`
-					<div> 
-						<label class="input_checkbox" id="input_checkbox">
-							<input type="checkbox" name="value" value="option">
-							<input type="submit" value="&#9746" class="btn_close">
-							${item.Name}
-						</label>
-					</div>
-					`
-			)
-			form_addtask_Low.reset()
+				render(event)
+				add_Listner_In_Task()
+			} else {
+				alert("Уже есть такая задача")
 			}
-		})
-		
-	} catch (err) {
-		alert(err)
+			
+		} catch (err) {
+			alert(err)
+		}
 	}
-}
 
-//   function deleteTask(event) {
-	 
-// 	let elem_del = event.currentTarget
+	function addtask_Low () {
+		try {
+			const value_input = input_addtask_Low.value;
+		
+			const indexObj = list.findIndex(function(item){
+				return item.Name == value_input;
+			})
+			if (indexObj == -1) {
+				list.push({Name: value_input,
+				status: STATUS.TO_DO,
+				priority: PRIORITY.Low,}) 
+				
+				render(event)
+				add_Listner_In_Task()
+		
+			} else {
+				alert("Уже есть такая задача")
+			}
+			
+		} catch (err) {
+			alert(err)
+		}
+	}
 
-// 	  const IndexObj = list.findIndex(function(item) {
-// 		return item.Name == task;
-// 	  })
+	function add_Listner_In_Task () {
+		const close_Task = document.getElementById("close_Task")
 
-// 	  list.splice(IndexObj, 1)
+		close_Task.addEventListener("click", deleteTask)
+	}
 
-// 	  form_addtask.remove()
-// 	}
+	function deleteTask(event) {
+		try {
+
+			const deleteTask = event.currentTarget
+			let IndexObj = list.findIndex(function(item){
+				return item.Name == deleteTask
+			  })
+			  
+				 IndexObj = list.findIndex(function(item) {
+				  return item.Name == deleteTask;
+				})
+			  
+				list.splice(IndexObj, 1)
+			  
+
+			  render(event)
+
+		} catch (err) {
+			alert(err)
+		}
+		
+	  }
+
+
+
+	function render (event) {
+		try {
+			event.preventDefault();
+
+			task_High.innerHTML = ""
+			task_Low.innerHTML = ""
+
+			list.forEach(function(item) {
+
+				if (item.status === STATUS.TO_DO && item.priority === PRIORITY.High) {
+					
+					task_High.insertAdjacentHTML("afterbegin", 
+						`
+						<div> 
+							<label class="input_checkbox" id="input_checkbox">
+								<input type="checkbox" name="value" value="option">
+								<input type="submit" value="&#9746" class="btn_close" id="close_Task">
+								${item.Name}
+							</label>
+						</div>
+						`
+				)
+					form_addtask_High.reset()
+
+				} else if (item.status === STATUS.TO_DO && item.priority === PRIORITY.Low) {
+					task_Low.insertAdjacentHTML("afterbegin", 
+						`
+						<div> 
+							<label class="input_checkbox" id="input_checkbox">
+								<input type="checkbox" name="value" value="option">
+								<input type="submit" value="&#9746" class="btn_close" id="close_Task">
+								${item.Name}
+							</label>
+						</div>
+						`
+				)
+				form_addtask_Low.reset()
+				}
+			})
+			
+		} catch (err) {
+			alert(err)
+		}
+	}
+
 
 
   function showList() {

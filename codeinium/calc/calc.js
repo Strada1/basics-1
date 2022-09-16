@@ -35,12 +35,7 @@ export function calc() {
         } 
     } catch(err) {
         answers.insertAdjacentHTML('afterbegin', `<div onclick="this.remove()" class="answer">${err.message}</div>`);
-    }
-    
-
-    
-
-    
+    }    
 }
 
 

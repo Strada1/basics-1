@@ -59,6 +59,10 @@
   text-align: center;
   margin-bottom: 12px;
 }
+.checkbox .done {
+  background-color: rgba(0, 0, 0, 0.2);
+  text-decoration: line-through;
+}
 .checkbox__task {
   margin-bottom: 8px;
   display: flex;
@@ -74,10 +78,11 @@
 }
 .checkbox__close {
   position: absolute;
-  top: 0;
+  top: 0px;
   right: 0;
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 45px;
+  z-index: 22;
 }
 .checkbox__close::before {
   content: "";

@@ -80,6 +80,7 @@ const list = [ ];
 		try {
 
 			const deleteTask = event.currentTarget
+			
 			let IndexObj = list.findIndex(function(item){
 				return item.Name == deleteTask
 			  })
@@ -88,7 +89,8 @@ const list = [ ];
 				  return item.Name == deleteTask;
 				})
 			  
-				list.splice(IndexObj, 1)
+				// list.splice(IndexObj, 1)
+				list[IndexObj].status = STATUS.Done
 			  
 
 			  render(event)

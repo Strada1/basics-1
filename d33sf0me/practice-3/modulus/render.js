@@ -31,8 +31,8 @@ function showList() {
             list_high.insertAdjacentHTML('beforeend', 
         `<li class="task_undone">
         <label>
-        <input type="checkbox" name="task" onchange = "changeStatus('${task.name}')" ${(task.status == STATUS.task_done) ? 'checked' : ''}>
-             <p class="task_name">
+        <input type="checkbox" name="task" ${(task.status == STATUS.task_done) ? 'checked' : ''}>
+             <p class="task_name" name="task">
              ${task.name}
              </p>
         </label>

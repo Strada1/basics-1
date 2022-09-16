@@ -23,6 +23,10 @@ form_low_submit.addEventListener('submit', (event)=> {
     event.preventDefault();
 });
 
+document.getElementById("container").addEventListener("click", function(event) {
+    changeStatus(event.target.textContent);
+    event.preventDefault();
+}, false);
 
 
 export { list_high, list_low }

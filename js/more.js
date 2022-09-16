@@ -4,23 +4,37 @@ let i = 0;
 
 export function addTask(task, status = STATUS.TO_DO, priority) {
 	i += 1;
-
-	const newTask = {
-		id: i,
-		name: task,
-		status: status,
-		priority: priority,
+	try {
+		if (task) {
+			const newTask = {
+				id: i,
+				name: task,
+				status: status,
+				priority: priority,
+			}
+	
+			return list.push(newTask)
+		} else {
+			throw new Error('Должно быть имя задачи')
+		}
+	} catch (error) {
+		console.log(error.message)
 	}
-
-	return list.push(newTask)
 };
 
 function deleteTask(task) {
 	const findItem = list.findIndex(item => item.name === task.name);
-
-	if (findItem !== -1) {
-    list.splice([findItem], 1);
-  }
+	
+	try {
+		if (findItem !== -1) {
+			list.splice([findItem], 1);
+		} else {
+			throw new Error('Задача не может быть удалена(индекс = -1)')
+		}
+	} catch (error) {
+		console.log(error.message)
+	}
+	
 };
 
 function changeStatus(task, status) {

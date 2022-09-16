@@ -40,6 +40,7 @@ input, textarea, button, select {
 	background-color: rgba(255, 255, 255, 0.5);
 
 	margin: 10px auto;
+	padding-top: 10px;
 
 	display: flex;
 	flex-direction: column;
@@ -80,8 +81,13 @@ input, textarea, button, select {
 		margin-top: 13px;
 }
 
+h1 {
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
 .todo-list {
-	margin: 8px;
+	margin: 10px;
 	width: 476px;
 }
 

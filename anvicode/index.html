@@ -1,39 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Калькулятор</title>
+	<title>Document</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-	<div id="calculator" class="calculator">
+
+	<div class="todo">
 		<div class="container">
-			<div class="calc">
-				<input id="firstInput" type="text" class="calc__input">
-				<select name="" id="select">
-					<option value="+">+</option>
-					<option value="-">-</option>
-					<option value="*">*</option>
-					<option value="/">/</option>
-				</select>
-				<input id="secondInput" type="text" class="calc__input">
-				<button id="btn" class="calc__btn">
-					=
-				</button>
-				<span id="calc_result" class="calc__result"></span>
-			</div>
-			<div id="results" class="results">
+			<div class="todo__inner">
+
+				<div class="todo__section">
+					<h1 class="todo__title">HIGH</h1>
+					<div class="todo__input-wrapper">
+						<input type="text" class="todo__input" placeholder="Добавить важных дел">
+						<button class="todo__add-btn"></button>
+					</div>
+					<ul class="todo__list">
+						<li class="todo__list-item">
+							<input class="todo__checkbox" type="checkbox" id="todo__checkbox-1">
+							<label for="todo__checkbox-1" class="todo__task">
+								<div class="todo__task-text">
+									задача 1
+								</div>
+								<button class="todo__close-btn"></button>
+							</label>
+						</li>
+						<li class="todo__list-item">
+							<input class="todo__checkbox" type="checkbox" id="todo__checkbox-2">
+							<label for="todo__checkbox-2" class="todo__task">
+
+								<div class="todo__task-text">
+									задача 2
+								</div>
+								<button class="todo__close-btn"></button>
+							</label>
+						</li>
+						<li class="todo__list-item todo__list-item--active">
+							<input class="todo__checkbox" type="checkbox" id="todo__checkbox-3" checked>
+							<label for="todo__checkbox-3" class="todo__task">
+
+								<div class="todo__task-text">
+									задача 3
+								</div>
+								<button class="todo__close-btn"></button>
+							</label>
+						</li>
+					</ul>
+				</div>
+
+				<div class="todo__section">
+					<h1 class="todo__title">LOW</h1>
+					<div class="todo__input-wrapper">
+						<input type="text" class="todo__input" placeholder="Добавить">
+						<button class="todo__add-btn"></button>
+					</div>
+					<ul class="todo__list">
+						<li class="todo__list-item">
+							<input class="todo__checkbox" type="checkbox" id="todo__checkbox-4">
+							<label for="todo__checkbox-4" class="todo__task">
+
+								<div class="todo__task-text">
+									задача 4
+								</div>
+								<button class="todo__close-btn"></button>
+							</label>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-
 	</div>
 
-	<script type="module" src="js/main.js"></script>
-	<script type="module" src="js/calc.js"></script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>

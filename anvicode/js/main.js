@@ -5,9 +5,13 @@ const STATUS = {
 	TO_DO: 'To Do',
 	DONE: 'Done',
 };
-const taskList = [];
 
-let checkboxCounter = 1;
+const ERROR = {
+	EMPTY_INPUT: 'Ошибка: Не введена задача!',
+	TASK_DUPLICATION: 'Ошибка: Такая задача уже есть!',
+	NO_TASK: 'Ошибка: Такой задачи нет в списке!',
+};
+const taskList = [];
 
 firstTodoForm.addEventListener('submit', {
 	handleEvent: addTask,
@@ -19,53 +23,74 @@ secondTodoForm.addEventListener('submit', {
 });
 
 function addTask(event) {
-	event.preventDefault();
-	const todoInput = this.todoForm.querySelector('input');
-	const task = todoInput.value;
-	const priority = this.todoForm.previousElementSibling.innerHTML;
-	if (task.trim() === '') {
-		alert('Не введена задача');
-		return;
-	}
+	try {
+		event.preventDefault();
+		const todoInput = this.todoForm.querySelector('input');
+		const task = todoInput.value;
+		const priority = this.todoForm.previousElementSibling.innerHTML;
+		if (task.trim() === '') {
+			throw new SyntaxError(ERROR.EMPTY_INPUT);
+		}
 
-	if (taskList[0] != undefined) {
-		if (checkTask(task)) {
-			alert('Такая задача уже есть!');
-			return;
+		if (taskList[0] != undefined) {
+			if (checkTask(task)) {
+				throw new SyntaxError(ERROR.TASK_DUPLICATION);
+			}
+		}
+
+		taskList.push({ name: task, status: STATUS.TO_DO, priority: priority });
+		render();
+	} catch (error) {
+		if (error.name === 'SyntaxError') {
+			alert(error.message);
+		} else {
+			throw error;
 		}
 	}
-
-	taskList.push({ name: task, status: STATUS.TO_DO, priority: priority });
-	render();
 }
 
 function changeStatus(event) {
-	const checkbox = event.currentTarget;
-	const li = checkbox.closest('.todo__list-item');
-	const taskID = checkbox.id.slice(15);
-	const task = li.querySelector('.todo__task-text').innerHTML.trim();
-	if (!checkTask(task)) {
-		alert('Такой задачи нет в списке!');
-		return;
+	try {
+		const checkbox = event.currentTarget;
+		const li = checkbox.closest('.todo__list-item');
+		const taskID = checkbox.id.slice(15);
+		const task = li.querySelector('.todo__task-text').innerHTML.trim();
+		if (!checkTask(task)) {
+			throw new SyntaxError(ERROR.NO_TASK);
+		}
+		if (taskList[taskID].status === STATUS.TO_DO) {
+			taskList[taskID].status = STATUS.DONE;
+		} else if (taskList[taskID].status === STATUS.DONE) {
+			taskList[taskID].status = STATUS.TO_DO;
+		}
+		render();
+	} catch (error) {
+		if (error.name === 'SyntaxError') {
+			alert(error.message);
+		} else {
+			throw error;
+		}
 	}
-	if (taskList[taskID].status === STATUS.TO_DO) {
-		taskList[taskID].status = STATUS.DONE;
-	} else if (taskList[taskID].status === STATUS.DONE) {
-		taskList[taskID].status = STATUS.TO_DO;
-	}
-	render();
 }
 
 function deleteTask(event) {
-	const btn = event.currentTarget;
-	const label = btn.closest('.todo__task');
-	const taskID = label.previousElementSibling.id.slice(15);
-	const task = label.querySelector('.todo__task-text').innerHTML.trim();
-	if (!checkTask(task)) {
-		alert('Такой задачи нет в списке!');
+	try {
+		const btn = event.currentTarget;
+		const label = btn.closest('.todo__task');
+		const taskID = label.previousElementSibling.id.slice(15);
+		const task = label.querySelector('.todo__task-text').innerHTML.trim();
+		if (!checkTask(task)) {
+			throw new SyntaxError(ERROR.NO_TASK);
+		}
+		taskList.splice(taskID, 1);
+		render();
+	} catch (error) {
+		if (error.name === 'SyntaxError') {
+			alert(error.message);
+		} else {
+			throw error;
+		}
 	}
-	taskList.splice(taskID, 1);
-	render();
 }
 
 function render() {

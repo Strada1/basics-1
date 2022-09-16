@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+
+	<title>To Do</title>
+</head>
+<body>
+	<div class="container">
+		<h1>HIGH</h1>
+		<form style="width: 460px; height: 45px" class="high">
+			<div class="new-task">
+				<input type="text" class="new-task__text text_high" placeholder="Добавить важное дело">
+				<button type='submit' class="new-task__button"></button>
+			</div>
+		</form>
+		<ul class="todo-list high-list">
+		</ul>
+		<h1>LOW</h1>
+		<form style="width: 460px; height: 45px" class="low">
+			<div class="new-task">
+				<input type="text" class="new-task__text text_low" placeholder="Добавить">
+				<button class="new-task__button" type="submit"></button>
+			</div>
+		</form>
+		<ul class="todo-list low-list">
+		</ul>
+	</div>
+
+	<script type="module" src="js/index.js"></script>
+</body>
+</html>

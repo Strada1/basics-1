@@ -1,0 +1,200 @@
+/* default stuff*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+body {
+  font-family: 'Roboto';
+  color: #202020;
+  /* background-image: linear-gradient(120deg, #26305c, #2a1a32); */
+  /* color: white; */
+}
+
+ul {
+  list-style: none;
+}
+
+h2 {
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 15px;
+}
+
+form {
+  max-height: 60px;
+}
+
+.add-task-btn {
+  border: none;
+}
+
+/*сетка*/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/*todo*/
+.todo-item,
+.input-new-task {
+  padding: 12px;
+  margin: 8px;
+}
+
+.input-new-task {
+  width: 460px;
+  height: 45px;
+
+  background: #ffffff;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+
+.input-new-task:focus {
+  outline: none;
+  border: 1px solid #555;
+  transition: 0.5s;
+}
+
+.todo-item {
+  width: 460px;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  /* cursor: pointer; */
+}
+
+/* удаляем таску с анимацией */
+.todo-item.deletion {
+  animation: opacity 0.3s ease-in-out;
+}
+/*  */
+
+.todo-item label {
+  max-width: 410px;
+}
+
+.task-checked {
+  background: #f4f4f4;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+
+.todo-item,
+.task-checked {
+  user-select: none;
+}
+
+/*выравниваю свг*/
+
+form {
+  position: relative;
+}
+
+svg {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+/*выравниваю 1 таску*/
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.description {
+  display: flex;
+}
+
+.description-text {
+  margin-left: 10px;
+}
+
+/* кастомный чекбокс*/
+
+.todo-item {
+  position: relative;
+}
+
+.btn-complete {
+  position: absolute;
+  top: 12px;
+  left: 22px;
+  opacity: 0;
+  width: 21px;
+  height: 21px;
+
+  cursor: pointer;
+}
+
+.btn-complete + .description-text {
+  display: inline-flex;
+}
+
+.btn-complete + .description-text::before {
+  content: '';
+  display: inline-block;
+
+  width: 1em;
+  height: 1em;
+
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  border: 1px solid #998899;
+  border-radius: 0.5em;
+  margin-right: 0.5em;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 75% 75%;
+}
+
+.btn-complete:checked + .description-text::before {
+  background-image: url('./Ellipse\ 4.svg');
+}
+
+/* Кнопка удалить таксу */
+/* Кастомизация кнопки удаления таска */
+
+.btn-delete {
+  background-color: transparent;
+  background-image: url(./close-icon.svg);
+  background-size: 100% 100%;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  cursor: pointer;
+  transform: rotate(-45deg);
+}
+
+/* выполненная таска */
+.checked {
+  background: #f4f4f4;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+
+@keyframes opacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

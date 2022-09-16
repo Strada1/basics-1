@@ -8,9 +8,11 @@ const PRIORITY = {
 	Low: "low",
   }
 
-const input_addtask = document.getElementById("input_addtask")
+const input_addtask_High = document.getElementById("input_addtask_High")
+const input_addtask_Low = document.getElementById("input_addtask_Low")
 const input_checkbox = document.getElementById("input_checkbox")
 const task_High = document.getElementById("task_High")
+const task_Low = document.getElementById("task_Low")
 
 const form_addtask_High = document.getElementById("form_addtask_High")	
 const form_addtask_Low = document.getElementById("form_addtask_Low")
@@ -27,7 +29,7 @@ const list = [ ];
 
 function addtask_High () {
 	try {
-		const value_input = input_addtask.value;
+		const value_input = input_addtask_High.value;
 	
 		const indexObj = list.findIndex(function(item){
 			return item.Name == value_input;
@@ -50,7 +52,7 @@ function addtask_High () {
 
 function addtask_Low () {
 	try {
-		const value_input = input_addtask.value;
+		const value_input = input_addtask_Low.value;
 	
 		const indexObj = list.findIndex(function(item){
 			return item.Name == value_input;
@@ -73,10 +75,15 @@ function addtask_Low () {
 
 function render (event) {
 	try {
-		// location. reload()
 		event.preventDefault();
 
-		this_task_High = " "
+		// if (!list.length === 0) {
+		// 	this_task_High.remove()
+		// }
+		task_High.innerHTML = ""
+		task_Low.innerHTML = ""
+
+		
 		
 
 		list.forEach(function(item) {
@@ -97,7 +104,7 @@ function render (event) {
 				form_addtask_High.reset()
 
 			} else if (item.status === STATUS.TO_DO && item.priority === PRIORITY.Low) {
-				form_addtask_Low.insertAdjacentHTML("afterend", 
+				task_Low.insertAdjacentHTML("afterbegin", 
 					`
 					<div> 
 						<label class="input_checkbox" id="input_checkbox">
@@ -108,6 +115,7 @@ function render (event) {
 					</div>
 					`
 			)
+			form_addtask_Low.reset()
 			}
 		})
 		

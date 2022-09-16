@@ -70,14 +70,16 @@ function addtask_Low () {
 function deleteTask(event) {
 	try {
 		const task = event.target.parentNode.innerText
-		alert(task)
+		task.trim()
+		console.log(`task: ${task}`)
+		
 		const IndexObj = list.findIndex(function(item){
 			return item.Name == task
 		  })
 		  
 			list.splice(IndexObj, 1)
 
-			alert(IndexObj)
+			console.log(`IndexObj: ${IndexObj}`)
 
 			render(event)
 

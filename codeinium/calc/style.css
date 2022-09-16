@@ -10,7 +10,6 @@ div {
     display: flex; 
     align-items: center;
     align-content: center;
-    /* justify-content: center; */
     margin-top: calc( 50vh - 25.5px );
     margin-left: calc( 50vw - 125px );
 }

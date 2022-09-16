@@ -1,33 +1,62 @@
-import { calc } from './calc.js';
-import { removeResult } from './removeResult.js';
+const firstTodoForm = document.getElementById('form-1');
+const secondTodoForm = document.getElementById('form-2');
+let checkboxCounter = 1;
 
-let btn = document.getElementById('btn');
-btn.onclick = function () {
-	let firstOperand = document.getElementById('firstInput').value;
-	let secondOperand = document.getElementById('secondInput').value;
-	let operator = document.getElementById('select').value;
-	if (
-		firstOperand === '' ||
-		isNaN(firstOperand) ||
-		secondOperand === '' ||
-		isNaN(secondOperand)
-	) {
-		alert('Вы не ввели число!');
+firstTodoForm.addEventListener('submit', {
+	handleEvent: createTask,
+	todoForm: firstTodoForm,
+});
+secondTodoForm.addEventListener('submit', {
+	handleEvent: createTask,
+	todoForm: secondTodoForm,
+});
+
+function createTask(event) {
+	event.preventDefault();
+	const todoInput = this.todoForm.querySelector('input');
+	const todoUl = this.todoForm.nextElementSibling;
+	const tasks = document.querySelectorAll('.todo__task-text');
+	const newTask = todoInput.value;
+
+	if (newTask.trim() === '') {
+		alert('Не введена задача');
 		return;
-	} else {
-		firstOperand = +firstOperand;
-		secondOperand = +secondOperand;
 	}
 
-	let result = calc(operator, firstOperand, secondOperand);
-	document.getElementById('calc_result').textContent = result;
+	if (tasks[0] != undefined) {
+		if (checkTask(newTask)) {
+			alert('Такая задача уже есть!');
+			return;
+		}
+	}
 
-	let resultsDiv = document.getElementById('results');
-	resultsDiv.insertAdjacentHTML(
+	todoUl.insertAdjacentHTML(
 		'beforeend',
-		`<div class="result">${result}</div>`
+		`
+            <li class="todo__list-item">
+              <input class="todo__checkbox" type="checkbox" id="todo__checkbox-${checkboxCounter}">
+              <label for="todo__checkbox-${checkboxCounter}" class="todo__task">
+                <div class="todo__text">
+                  <p class="todo__task-text">
+                    ${newTask}
+                  </p>
+                </div>
+                <button class="todo__close-btn"></button>
+              </label>
+            </li>`
 	);
+	checkboxCounter++;
+}
 
-	let resultsArr = document.querySelectorAll('.result');
-	removeResult(resultsArr);
-};
+function checkTask(newTask) {
+	const tasks = document.querySelectorAll('.todo__task');
+
+	for (let i = 0; i < tasks.length; i++) {
+		if (
+			newTask.trim() === tasks[i].innerHTML.trim() ||
+			newTask === tasks[i].innerHTML
+		) {
+			return true;
+		}
+	}
+}

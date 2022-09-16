@@ -17,7 +17,8 @@ body {
 
 .container {
 	width: 476px;
-	height: 688px;
+	padding-bottom: 13px;
+	border-radius: 5px;
 	margin: 0 auto;
 	background-color: #fff;
 }
@@ -36,7 +37,7 @@ body {
 	color: #000000;
 }
 
-.todo__input-wrapper {
+.todo__form {
 	position: relative;
 }
 
@@ -137,7 +138,8 @@ body {
 
 .todo__task-text {
 	width: 370px;
-	margin-right: 18px;
+	margin: 1px;
+	word-wrap: break-word;
 }
 
 .todo__close-btn {

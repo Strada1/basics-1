@@ -17,6 +17,8 @@ const form_addtask_Low = document.getElementById("form_addtask_Low")
 
 const del_task = document.querySelector(".btn_close")
 
+let this_task_High = document.getElementById("this_task_High")
+
 form_addtask_High.addEventListener("submit", addtask_High)
 form_addtask_Low.addEventListener("submit", addtask_Low)
 
@@ -36,8 +38,7 @@ function addtask_High () {
 			  priority: PRIORITY.High,}) 
 			
 			  render(event)
-			//   clearall()
-	
+
 		  } else {
 			alert("Уже есть такая задача")
 		  }
@@ -70,27 +71,21 @@ function addtask_Low () {
 	}
 }
 
-// function clearall () {
-// 	task_High.remove()
-// 	render(event)
-// }
-
-
 function render (event) {
 	try {
 		// location. reload()
 		event.preventDefault();
 
-		task_High = " "
+		this_task_High = " "
 		
 
 		list.forEach(function(item) {
 
 			if (item.status === STATUS.TO_DO && item.priority === PRIORITY.High) {
 				
-				task_High.insertAdjacentHTML("beforeend", 
+				task_High.insertAdjacentHTML("afterbegin", 
 					`
-					<div> 
+					<div id="this_task_High"> 
 						<label class="input_checkbox" id="input_checkbox">
 							<input type="checkbox" name="value" value="option">
 							<input type="submit" value="&#9746" class="btn_close">

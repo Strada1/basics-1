@@ -1,0 +1,45 @@
+body {
+    background: #000;
+}
+
+
+.container {
+    position: absolute;
+    width: 342px;
+    height: 96px;
+    top: 452px;
+    left: 401px;
+
+}
+
+.wrapper {
+    position: relative;
+    width:1143px;
+    height: 1000px;
+    margin: auto;
+    border-radius: 103px;
+    background-color: #FFF;
+}
+
+.operand1, .operand2 {
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    width: 95px;
+    height: 33px;
+}
+
+.equal {
+    box-sizing: border-box;
+    
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 4px;
+}
+
+
+
+.alert {
+    color: red;
+}
+

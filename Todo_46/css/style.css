@@ -8,6 +8,9 @@ body {
   font-style: normal;
   line-height: 21px;
   background-color: #d9d9d9;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
 }
 .container {
   margin: 0 auto;
@@ -30,10 +33,17 @@ input {
   outline: none;
 }
 
-.title-high {
+.title-style {
   margin-top: 25px;
   margin-bottom: 12px;
   text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.title-style.title-low {
+  margin-top: 12px;
 }
 
 .task-text {

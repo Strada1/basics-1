@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #E5E5E5;
+}
+
+.wrapper {
+    margin: 50px auto;
+    width: 476px;
+    height: auto;
+    background-color: #FFFFFF;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.high__priority, .low__priority {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+
+    margin-bottom: 12px;
+}
+
+.input__new__task, .add__new__task, .delete__task {
+    border: none;
+    outline: none;
+}
+
+.input__new__task {
+    width: 400px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.input__new__task::placeholder {
+    color: #BBBBBB;
+}
+
+.add__new__task, .delete__task {
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.add__new__task:active, .delete__task:active {
+    background-color: #E5E5E5;
+    border-radius: 50%;
+}
+
+.add__task {
+    width: 460px;
+    height: 45px;
+    border: 1px solid #998899;
+    border-radius: 6px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    margin-top: 8px;
+
+    width: 460px;
+    overflow: hidden;
+    padding: 12px 10px 12px 40px;
+    border: 1px solid #998899;
+    border-radius: 6px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.task__text {
+    max-width: 390px;
+    word-break: normal;
+}
+
+.task__status {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.custom__checkbox::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    left: 620px;
+    cursor: pointer;
+    border: 1px solid #998899;
+}
+
+.task__status:checked + .custom__checkbox::before {
+    background-color: rgb(115, 233, 99);    
+}
+
+.delete__task {
+    position: absolute;
+    right: 620px;
+}
+
+.low__priority {
+    margin-top: 12px;
+}
+
+label {
+    cursor: pointer;
+}

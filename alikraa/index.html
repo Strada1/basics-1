@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="high__priority">
+            <h1 class="header">HIGH</h1>
+            <form method="get" class="add__task">
+                <input type="text" class="input__new__task" id="high" placeholder="Добавить важных дел">
+                <button type="submit" class="add__new__task">
+                    <img src="add.svg" alt="Add Task">
+                </button>
+            </form>
+
+            <div class="container" id="container__high">
+
+            </div>
+
+            <div class="low__priority">
+                <h1 class="header">LOW</h1>
+                <form method="get" class="add__task">
+                    <input type="text" class="input__new__task" id="low" placeholder="Добавить важных дел">
+                    <button type="submit" class="add__new__task">
+                        <img src="add.svg" alt="Add">
+                    </button>
+                </form>
+
+                <div class="container" id="container__low">
+
+                </div>
+            </div>
+
+        </div>
+        <script src="main.js" type="module"></script>
+</body>
+</html>

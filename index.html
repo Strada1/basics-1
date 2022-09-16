@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="container">
+        <div class="to_do_list">
+        <fieldset>
+            <legend>High</legend>
+            <ul class="list_high">
+                <li>
+                    <form class="high_input">
+                    <input type="text" class="add_task_high" name="to_do" placeholder="Добавить важных дел">
+                    <button class="btn_add" type="submit"></button>
+                    </form>
+                </li>
+                <li class="task_todo">
+                    <label>
+                    <input type="checkbox" name="to_do">
+                         <p class="task_name">Вот вам и супер интересная тема 
+                         </p>
+                    </label>
+                    <button class="btn_exit" type="button"></button>
+                </li>
+                <li class="task_todo">
+                    <label>
+                    <input type="checkbox" name="to_do">
+                        <p class="task_name">Сверстать этот TODO list</p>
+                    </label>
+                    <button class="btn_exit" type="button"></button>
+                </li>
+                <li class="task_todo">
+                    <label>
+                    <input type="checkbox" name="done">
+                        <p class="task_name">Начать делать задачу</p>
+                    </label>
+                    <button class="btn_exit"  type="button"></button>
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>Low</legend>
+            <ul class="list_low">
+                <li>
+                    <form class="low_input">
+                    <input class="add_task_low" type="text" name="to_do" placeholder="Добавить">
+                    <button class="btn_add" type="submit"></button>
+                    </form>
+                </li>
+                <li class="task_todo">
+                    <label>
+                    <input id="first_task_low" type="checkbox" name="to_do">
+                        <p class="task_name">Посмотреть ютубчик</p>
+                    </label>
+                    <button class="btn_exit" type="button"></button>
+                </li>
+            </ul>
+        </fieldset>
+    </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>

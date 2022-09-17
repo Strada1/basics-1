@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>todo ui</title>
+</head>
+<body>
+    <div class="todo">
+        <div class="todo__window">
+            <div class="todo__section todo__high-level" data-priority="High">
+                <div class="todo__create">
+                    <h2>High</h2>
+                    <div class="todo__buttons">
+                        <form>
+                            <input class="todo__input todo__input-high" type="text" placeholder="Добавить задачу" value="">
+                            <input type="submit" class="todo__add todo__submit" value="+">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="todo__list">
+
+                </div>
+            </div>
+
+            <div class="todo__section todo__low-level" data-priority="Low">
+                <div class="todo__create">
+                    <h2>Low</h2>
+                    <div class="todo__buttons">
+                        <form>
+                            <input class="todo__input todo__input-high" type="text" placeholder="Добавить задачу" value="">
+                            <input type="submit" class="todo__add todo__submit" value="+">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="todo__list">
+
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

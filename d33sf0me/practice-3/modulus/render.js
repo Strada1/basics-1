@@ -1,4 +1,4 @@
-import { list_high, list_low } from '../main.js'
+import { list_high, list_low, changeStatus, deleteTask } from '../main.js'
 
 const STATUS = {
     task_done: 'task_done',
@@ -31,12 +31,12 @@ function showList() {
             list_high.insertAdjacentHTML('beforeend', 
         `<li class="task_undone">
         <label>
-        <input type="checkbox" name="task" ${(task.status == STATUS.task_done) ? 'checked' : ''}>
+        <input type="checkbox" class="checkbox" ${(task.status == STATUS.task_done) ? 'checked' : ''}>
              <p class="task_name" name="task">
              ${task.name}
              </p>
         </label>
-        <button class="btn_exit" type="button" onclick = 'deleteTask("${task.name}")'></button>
+        <button class="btn_delete" type="button"></button>
         </li>`
             )
         };
@@ -47,12 +47,12 @@ function showList() {
             list_low.insertAdjacentHTML('beforeend', 
         `<li class="task_undone">
         <label>
-        <input type="checkbox" name="task" onchange = "changeStatus('${task.name}')" ${(task.status == STATUS.task_done) ? 'checked' : ''}>
+        <input type="checkbox" class="checkbox" ${(task.status == STATUS.task_done) ? 'checked' : ''}>
              <p class="task_name">
              ${task.name}
              </p>
         </label>
-        <button class="btn_exit" type="button" onclick = 'deleteTask("${task.name}")'></button>
+        <button class="btn_delete" type="button"></button>
         </li>`
             )
         };
@@ -64,6 +64,8 @@ function showList() {
             li.classList.add('status_done');
         }
     }
+    deleteTask()
+    changeStatus();
 };
 
 

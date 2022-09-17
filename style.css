@@ -1,0 +1,92 @@
+.container {
+    position: absolute;
+    display: block;
+    width: 1500px;
+    height: 1500px;
+    background-color: #E5E5E5;
+}
+.rectangle {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:40px;
+    padding-top: 25px;
+    width: 476px;
+    min-height: 688px;
+    background: #FFFFFF; 
+    border: 1px solid #989898;
+}
+.title {
+    font-family: 'Roboto';
+    font-style: 'Regular';
+    font-size: 18px;
+    line-height: 21px;
+    line-height: 100%;
+    text-align: left;
+    vertical-align: top;
+    text-align: center;    
+    text-decoration-style:solid;
+    font-weight: 400;
+}
+.newtask-high, .newtask-low {
+    box-sizing: border-box;
+    position: relative;
+    width: 460px;
+    min-height: 45px;
+    background: #FFFFFF;
+    border: 1px solid #989898;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 8px; 
+}
+.task {
+    box-sizing: border-box;
+    position: relative;
+    width: 460px;
+    min-height: 45px;
+    background: #FFFFFF;
+    border: 1px solid #989898;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 8px; 
+}
+
+.ellipse {
+    display:inline-block;
+    float:left;
+    margin-top: 2px;
+    margin-right: 12px;
+    margin-left: 0;
+    width: 21px;
+    height: 21px;
+}
+.cross {
+    display:inline-block;
+    float:right;
+}
+.plus {
+    display:inline-block;
+    float:right;
+}
+.task-description {
+    display:inline-block;
+    width: 370px;
+    min-height: 45px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #202020;
+}
+.input-hightask, .input-lowtask {
+    display:inline-block;
+    width: 230px;
+    height: 21px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    border: none;
+}

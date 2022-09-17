@@ -21,74 +21,20 @@ const ELEMENTS = {
     CHECBOXES: document.querySelectorAll('input[type="checkbox"]'),
     TASK: document.querySelectorAll("#task-outer")
 }
+const ERRORS = {
+    NULLSTRING: 'Введите что-нибудь',
+}
 const nullString = ''
 
-let i = 0;
 function createTaskUI(elem, priority) {
-    i += 1;
+    let i = Date.now();
     if (elem.value !== nullString) {
-        list.push({id: i, name: elem.value, status: STATUS.TO_DO, priority});
-        elem.value = nullString;   
+        list.push({id: i, name: elem.value, status: STATUS.TO_DO, priority}); 
+        elem.value = nullString;    
     } else {
-        alert('Введите что-нибудь');
+        alert(ERRORS.NULLSTRING);
     }
     render();
-}
-
-function changeStatus(name, i) {
-    let checkbox = document.querySelector(`#checkbox${i}`)
-    for (let i = 0;  i < list.length; i++) {
-        if (list[i].name === name) {
-            if (checkbox.checked) {
-                list[i].status = STATUS.DONE;
-            } else {
-                list[i].status = STATUS.TO_DO;  
-            }
-        }
-    } 
-    render()
-}
-
-function removeTask(name, i) {
-    let button = ELEMENTS.CONTAINERTODO.querySelector(`#button${i}`);
-    let div = document.querySelector(`#task-outer${i}`).remove();
-    for (let i = 0;  i < list.length; i++) {
-        if (list.find(item => item.name === name)) {
-            list.splice(list.findIndex(item => item.name === name, 0), 1);
-        }
-    }
-    render();
-}
-function render() {
-    let deleteTask = document.querySelectorAll('.task-todo');
-    deleteTask.forEach((item) => item.remove());
-
-    for (let i = 0;  i < list.length; i++) {
-        if (list[i].priority === PRIORITY.HIGH) {
-            ELEMENTS.HIGHINPUTCONTAINER.insertAdjacentHTML('afterend', `
-            <div class='task-todo' id="task-outer${i}">
-                <div class="text-container">
-                    <input onchange="changeStatus('${list[i].name}', ${i})" class="checkbox" type="checkbox" id="checkbox${i}" name="checkbox${i}"> 
-                    <label for="checkbox${i}" class="texttask">${list[i].name}</label>      
-                    <button onclick="removeTask('${list[i].name}', ${i})" id="button${i}"> <img src="./img/close-icon.svg"> </button>
-                </div>
-            </div>
-            `); 
-        }    
-
-        if (list[i].priority === PRIORITY.LOW) {
-            ELEMENTS.LOWINPUTCONTAINER.insertAdjacentHTML('afterend', `
-            <div class="task-todo"id="task-outer${i}">
-                <div class="text-container">
-                    <input onchange="changeStatus('${list[i].name}', ${i})" type="checkbox" class="checkbox" id="checkbox${i}" name="checkbox${i}"> 
-                    <label for="checkbox${i}" class="texttask">${list[i].name} </label>      
-                    <button onclick="removeTask('${list[i].name}', ${i})" id="button${i}"> <img src="./img/close-icon.svg"> </button>
-                </div>
-            </div>
-            `);
-        }
-        
-    }
 }
 
 ELEMENTS.HIGHADDBUTTON.addEventListener('click', (event) => {
@@ -110,4 +56,62 @@ ELEMENTS.LOWTASKFORM.addEventListener('submit', (event) => {
     event.preventDefault(); 
     createTaskUI(ELEMENTS.LOWPRIORITYINPUT, PRIORITY.LOW)
 }) 
+
+function changeStatus(name, i) {
+    let checkbox = document.querySelector(`#checkbox${i}`)
+    for (let i = 0;  i < list.length; i++) {
+        if (list[i].id === name) {
+            if (checkbox.checked) {
+                list[i].status = STATUS.DONE;
+                render()
+            } else {
+                list[i].status = STATUS.TO_DO;  
+                render()
+            }
+        }              
+    } 
+}
+
+function removeTask(name, i) {
+    let button = ELEMENTS.CONTAINERTODO.querySelector(`#button${i}`);
+    let div = document.querySelector(`#task-outer${i}`).remove();
+    for (let i = 0;  i < list.length; i++) {
+        if (list.find(item => item.id === name)) {
+            list.splice(list.findIndex(item => item.id === name, 0), 1);
+        }
+    }
+    render();
+}
+
+function render() {
+    const deleteTask = document.querySelectorAll('.task-todo');
+    deleteTask.forEach(function(item) {
+        item.remove()
+    });
+
+    for (let i = 0;  i < list.length; i++) {
+        if (list[i].priority === PRIORITY.HIGH) {
+            ELEMENTS.HIGHINPUTCONTAINER.insertAdjacentHTML('afterend', `
+            <div class='task-todo' id="task-outer${i}">
+                <div class="text-container">
+                    <input ${list[i].status === STATUS.DONE ? "checked" : ' '} onchange="changeStatus(${list[i].id}, ${i})" class="checkbox" type="checkbox" id="checkbox${i}" name="checkbox${i}"> 
+                    <label for="checkbox${i}" class="texttask">${list[i].name}</label>      
+                    <button onclick="removeTask(${list[i].id}, ${i})" id="button${i}"> <img src="./img/close-icon.svg"> </button>
+                </div>
+            </div>
+            `); 
+        }    
+        if (list[i].priority === PRIORITY.LOW) {
+            ELEMENTS.LOWINPUTCONTAINER.insertAdjacentHTML('afterend', `
+            <div class='task-todo' id="task-outer${i}">
+                <div class="text-container">
+                    <input ${list[i].status === STATUS.DONE ? "checked" : ' '} onchange="changeStatus(${list[i].id}, ${i})" class="checkbox" type="checkbox" id="checkbox${i}" name="checkbox${i}"> 
+                    <label for="checkbox${i}" class="texttask">${list[i].name}</label>      
+                    <button onclick="removeTask(${list[i].id}, ${i})" id="button${i}"> <img src="./img/close-icon.svg"> </button>
+                </div>
+            </div>
+            `); 
+        }
+    }
+}
 

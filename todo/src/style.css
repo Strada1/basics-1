@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.container{
+    position: absolute;
+    width: 476px;
+    height: 688px;
+    margin-left: 40%;
+}
+
+.priority{
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    font-style: normal;
+    margin-top: 20px;
+}
+
+
+.add-task{
+    width: 460px;
+    margin: 8px;
+    display: flex;
+    padding: 10px;
+
+}
+
+.input-task{
+    border:3px solid gray;
+    border-radius: 10px;
+    height: 45px;
+    width: 100%;
+    padding: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.task{
+    width: 460px;
+    padding: 10px;
+    margin: 8px;
+    /*padding: 10px;*/
+}
+
+
+.vue-task{
+    display: flex;
+
+    top: 10px;
+    border:3px solid gray;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    min-height: 35px;
+}
+
+.new-task{
+    padding: 8px 25px;
+    width: 430px;
+    margin-left: 10px;
+}
+
+.check{
+    position: absolute;
+    margin: 10px;
+}
+
+.close {
+    position: absolute;
+    margin-top: 10px;
+    right: 32px;
+    width: 25px;
+    height: 25px;
+    opacity: 0.3;
+}
+.close:hover {
+    opacity: 1;
+}
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 25px;
+    width: 2px;
+    background-color: #333;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.checked{
+    background: #989898;
+    text-decoration: line-through;
+}
+
+

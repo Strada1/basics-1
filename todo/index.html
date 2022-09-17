@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>TODO</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="priority">HIGH</div>
+
+        <form class="add-task"  id="form_high" type="reset" onsubmit = return false;>
+            <input class="input-task" id="input_task_high"  type="text" placeholder="Добавить важных дел">
+            <div id="add_task" class="close" id="addTask"></div>
+        </form>
+
+        <div class="task" id="tasks_high">
+<!--            <div class="vue-task">-->
+<!--                <div class="check">-->
+<!--                    <input  name="add" type="checkbox">-->
+<!--                </div>-->
+<!--                    <div class="new-task">2231</div>-->
+<!--                    <div class="close"></div>-->
+<!--            </div>-->
+        </div>
+
+        <div class="priority">LOW</div>
+<!--        id="input_task_low"-->
+        <form class="add-task" id="form_low" type="reset">
+            <input class="input-task" id="input_task_low" type="text" placeholder="Добавить">
+            <div class="close" id="add_task_low"></div>
+        </form>
+
+        <div class="task" id="tasks_low">
+
+
+        </div>
+    </div>
+    <script src="src/main.js"></script>
+</body>
+</html>
+
+
+

@@ -13,6 +13,12 @@ const PRIORITY = {
 };
 
 const addTask = function(task, priority, status = STATUS.TO_DO){
+    for(elem of taskList){
+        if(task == elem.name){
+            return alert('Такая задача существует в списке!');
+        }
+    }
+
     if(task != ''){
         let newTask = {
             name: task,
@@ -64,6 +70,7 @@ const createItem = function(task, status, priority){
 
     let buttonsDelete = document.querySelectorAll('.todo__delete');
     deleteTask(buttonsDelete);
+    changeStatus();
 }
 
 const changeStatus = function(){
@@ -96,5 +103,4 @@ buttonsAdd.forEach(button => button.addEventListener('click', function(event){
     let priority = event.target.closest('.todo__section').dataset.priority;
 
     addTask(task, priority);
-    changeStatus();
 }));

@@ -1,3 +1,5 @@
+import { onlyNum } from "./module.js";
+const ONLY_NUMBERS = onlyNum
 const OPERATIONS = {
    ADD : "+",
    SUBSTRACT : "-",
@@ -19,22 +21,22 @@ function calculate () {
    let secondInput = Number(ELEMENTS.SECOND_INPUT.value);
    if (isFinite(ELEMENTS.FIRST_INPUT.value) && isFinite(ELEMENTS.SECOND_INPUT.value)) {
 
-   switch (document.getElementById('chooseMath').value) {
-      case OPERATIONS.ADD :
-         result = firstInput + secondInput;
-         break;
-      case OPERATIONS.SUBSTRACT :
-         result = firstInput - secondInput;
-         break;
-      case OPERATIONS.MULTIPLE :
-         result = firstInput * secondInput;
-         break;
-      case OPERATIONS.DIVISION :
-         result = firstInput / secondInput;
-         break;
-   }
+      switch (document.getElementById('chooseMath').value) {
+         case OPERATIONS.ADD :
+            result = firstInput + secondInput;
+            break;
+         case OPERATIONS.SUBSTRACT :
+            result = firstInput - secondInput;
+            break;
+         case OPERATIONS.MULTIPLE :
+            result = firstInput * secondInput;
+            break;
+         case OPERATIONS.DIVISION :
+            result = firstInput / secondInput;
+            break;
+      }
    }else {
-      return alert ('Введите только числа')
+      return ONLY_NUMBERS();
    }
 
    ELEMENTS.RESULT.textContent = result;
@@ -48,10 +50,10 @@ newResult.setAttribute('id','newResult')
 newResult.textContent = ELEMENTS.RESULT.textContent;
 ELEMENTS.RESULT.after(newResult);
 
-function deleteNewResult() {
-   this.remove()
-}
-ELEMENTS.NEW_RESULT.addEventListener('click', deleteNewResult)
+// function deleteNewResult() {
+//    this.remove()
+// }
+// ELEMENTS.NEW_RESULT.addEventListener('click', deleteNewResult)
 
 
 

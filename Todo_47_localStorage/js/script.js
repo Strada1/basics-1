@@ -177,5 +177,4 @@ function checkLocaleStorage() {
     render();
   }
 }
-localStorage.clear();
 checkLocaleStorage();

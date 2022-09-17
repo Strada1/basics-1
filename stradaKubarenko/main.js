@@ -38,22 +38,22 @@ function calculate () {
    }
 
    ELEMENTS.RESULT.textContent = result;
-
-   let newResult = document.createElement('div');
-   newResult.classList = "newResult";
-   newResult.setAttribute('id','newResult')
-   newResult.textContent = ELEMENTS.RESULT.textContent;
-   ELEMENTS.RESULT.after(newResult);
-   
 }
 
 ELEMENTS.EQUAL.addEventListener('click',calculate);
 
+let newResult = document.createElement('div');
+newResult.classList = "newResult";
+newResult.setAttribute('id','newResult')
+newResult.textContent = ELEMENTS.RESULT.textContent;
+ELEMENTS.RESULT.after(newResult);
+
 function deleteNewResult() {
    this.remove()
 }
-
 ELEMENTS.NEW_RESULT.addEventListener('click', deleteNewResult)
+
+
 
 
 

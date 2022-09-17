@@ -20,47 +20,47 @@ const PRIORITY = {
 
 let list = [ { name: 'create a post', status: STATUS.STATUS_IN_PROGRESS, priority: PRIORITY.PRIORITY_HIGH  }]
 
-
 function myFindIndex (nameTask){
     let result = list.findIndex(item => nameTask === item.name);
     return result;
 }
 
-function addTask (nameTask , statuses = STATUS.STATUS_TO_DO, priorities = PRIORITY.PRIORITY_LOW){
-
-    try{
-        let result = myFindIndex(nameTask);
-        if (result !== -1) {
-            throw new Error(`Вы не можете добавить ${nameTask} , так как существует в list`);
-        }
-        return (list.push({name: nameTask, status: statuses, priority: priorities}));
-
-    }catch (err) {
-       alert(err.message);
+function addTask (nameTask , priorities, statuses = STATUS.STATUS_TO_DO){
+   // try{
+    let result = myFindIndex(nameTask);
+    if (result !== -1) {
+        alert(`Вы не можете добавить ${nameTask} , так как существует в  ${list.name}`);
+        return 0;
     }
+        list.push({name: nameTask, status: statuses, priority: priorities});
 
+
+    // }catch (err) {
+    //    alert(err.message);
+    // }
 }
 
+
 function changeStatus(nameTask, newStatus) {
-
-    let result = myFindIndex(nameTask);
-    if ( result === -1 ) {
-        console.log( `Вы не можете поменять статус ${newStatus} , так как не существует` );
-    } else {
+    try{
+        let result = myFindIndex(nameTask);
+        if ( result === -1 ) {
+            throw new Error( `Вы не можете поменять статус ${newStatus} , так как не существует` );
+        }
         return (list[result].status = newStatus);
+    }catch (err) {
+        alert(err.message);
     }
-
 }
 
 
 function inputMyTaskHigh (event){
-
     try {
         event.preventDefault();
         let value_input = INPUT_TASK_HIGH.value;
         if (value_input.trim() !== "") {
-            addTask(value_input);
-            changePriority(value_input,PRIORITY.PRIORITY_HIGH);
+            addTask(value_input,PRIORITY.PRIORITY_HIGH);
+            //changePriority(value_input,PRIORITY.PRIORITY_HIGH);
 
             FORM_HIGH.reset();
             render();
@@ -70,21 +70,19 @@ function inputMyTaskHigh (event){
     } catch (err) {
         alert(err.message);
     }
-
 }
 
 ADD_TASK_HIGH.addEventListener("click", inputMyTaskHigh);
 FORM_HIGH.addEventListener('submit',inputMyTaskHigh);
 
 function inputMyTaskLow (event){
-
     try {
         event.preventDefault();
         let value_input = INPUT_TASK_LOW.value;
 
         if (value_input.trim() !== "") {
-            addTask(value_input);
-            changePriority(value_input,PRIORITY.PRIORITY_LOW);
+            addTask(value_input, PRIORITY.PRIORITY_LOW);
+           // changePriority(value_input,PRIORITY.PRIORITY_LOW);
 
             FORM_LOW.reset();
             render();
@@ -94,36 +92,29 @@ function inputMyTaskLow (event){
     } catch (err) {
         alert(err.message);
     }
-
 }
 
 ADD_TASK_LOW.addEventListener('click',inputMyTaskLow);
 FORM_LOW.addEventListener('submit',inputMyTaskLow);
 
-
 function deleteTask(nameTask){
-
     let result = myFindIndex(nameTask);
     if ( result === -1 ) {
         console.log( `Вы не можете удалить ${nameTask} , так как не существует` );
     } else {
          list.splice( result, 1 );
     }
-
     render();
 }
-function changePriority(nameTask, newPriority) {
 
+function changePriority(nameTask, newPriority) {
     let result = myFindIndex(nameTask);
     if ( result === -1 ) {
         console.log( `Вы не можете поменять приоритет ${newPriority} , так как не существует` );
     } else {
         return (list[result].priority = newPriority);
     }
-
 }
-
-
 
 let taskId = 0;
 
@@ -139,14 +130,9 @@ function render(){
         if (task.priority === PRIORITY.PRIORITY_HIGH){
             tasks_high.insertAdjacentHTML("afterbegin",
                 `
-                   <div class="vue-task ` +
-                (task.status === STATUS.STATUS_DONE?`checked"  ` : `"`)
-                + ` id="${task_id}">
-                   
+                   <div class="vue-task ` + (task.status === STATUS.STATUS_DONE && PRIORITY.PRIORITY_HIGH?`checked"  ` : `"`) + ` id="${task_id}"> 
                          <div class="check">
-                             <input type="checkbox" name="add" ` +
-                (task.status === STATUS.STATUS_DONE?`checked ` : ``)
-                + `> 
+                             <input type="checkbox" name="add" ` + (task.status === STATUS.STATUS_DONE && PRIORITY.PRIORITY_HIGH?`checked ` : ``) + `> 
                         </div> 
                             <div class="new-task">
                                  ${task.name}                         
@@ -158,14 +144,9 @@ function render(){
         }  else  {
             tasks_low.insertAdjacentHTML("afterbegin",
                 `
-                   <div class="vue-task ` +
-                (task.status === STATUS.STATUS_DONE?`checked"  ` : `"`)
-                + ` id="${task_id}">
-                   
+                   <div class="vue-task ` + (task.status === STATUS.STATUS_DONE && PRIORITY.PRIORITY_LOW?`checked"  ` : `"`) + ` id="${task_id}">
                          <div class="check">
-                             <input type="checkbox" name="add" ` +
-                (task.status === STATUS.STATUS_DONE?`checked ` : ``)
-                + `> 
+                             <input type="checkbox" name="add" ` + (task.status === STATUS.STATUS_DONE && PRIORITY.PRIORITY_LOW?`checked ` : ``) + `> 
                         </div> 
                             <div class="new-task">
                                  ${task.name}                         
@@ -175,7 +156,6 @@ function render(){
             `
             )
         }
-
 
         document.getElementById(task_id).children[2].addEventListener("click", function () {
             deleteTask(task.name);
@@ -197,7 +177,6 @@ function render(){
 
 
 render();
-
 console.log(list);
 
 

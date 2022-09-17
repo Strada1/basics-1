@@ -66,6 +66,7 @@ body{
 .new-task{
     padding: 8px 25px;
     width: 430px;
+    margin-left: 10px;
 }
 
 .check{
@@ -103,3 +104,5 @@ body{
     background: #989898;
     text-decoration: line-through;
 }
+
+

@@ -10,31 +10,50 @@ const ELEMENTS = {
    SECOND_INPUT : document.getElementById('secondInput'),
    EQUAL : document.getElementById('equalButton'),
    RESULT : document.getElementById('result'),
+   NEW_RESULT : document.getElementById('newResult')
 }
 
 function calculate () {
    let result ;
+   let firstInput = Number(ELEMENTS.FIRST_INPUT.value);
+   let secondInput = Number(ELEMENTS.SECOND_INPUT.value);
    if (isFinite(ELEMENTS.FIRST_INPUT.value) && isFinite(ELEMENTS.SECOND_INPUT.value)) {
 
    switch (document.getElementById('chooseMath').value) {
       case OPERATIONS.ADD :
-         result = Number(ELEMENTS.FIRST_INPUT.value) + Number(ELEMENTS.SECOND_INPUT.value);
+         result = firstInput + secondInput;
          break;
       case OPERATIONS.SUBSTRACT :
-         result = Number(ELEMENTS.FIRST_INPUT.value) - Number(ELEMENTS.SECOND_INPUT.value);
+         result = firstInput - secondInput;
          break;
       case OPERATIONS.MULTIPLE :
-         result = Number(ELEMENTS.FIRST_INPUT.value) * Number(ELEMENTS.SECOND_INPUT.value);
+         result = firstInput * secondInput;
          break;
       case OPERATIONS.DIVISION :
-         result = Number(ELEMENTS.FIRST_INPUT.value) / Number(ELEMENTS.SECOND_INPUT.value);
+         result = firstInput / secondInput;
          break;
    }
    }else {
-      return alert ('Введите только числа')}
+      return alert ('Введите только числа')
+   }
 
-   ELEMENTS.RESULT.innerHTML = result.toFixed(10);
+   ELEMENTS.RESULT.textContent = result;
+
+   let newResult = document.createElement('div');
+   newResult.classList = "newResult";
+   newResult.textContent = ELEMENTS.RESULT.textContent;
+   ELEMENTS.RESULT.after(newResult);
+   
 }
 
- ELEMENTS.EQUAL.addEventListener('click',calculate);
+ELEMENTS.EQUAL.addEventListener('click',calculate);
+
+function deleteNewResult() {
+   let del = ELEMENTS.NEW_RESULT.onmouseover
+   del.remove()
+}
+
+ELEMENTS.NEW_RESULT.addEventListener('click', deleteNewResult)
+
+
 

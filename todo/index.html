@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To Do</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+
+		ul li {
+			list-style: none;
+		}
+
+		p {
+			margin: 0;
+		}
+
+		button {
+			border: none;
+			background: none;
+			padding: 0;
+			cursor: pointer;
+		}
+
+		button img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.todo {
+			font-family: 'Roboto', sans-serif;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 21px;
+			color: #202020;
+			max-width: 480px;
+			margin: auto;
+		}
+
+		.todo_group {
+			margin-bottom: 12px;
+		}
+
+		.todo_group:last-child {
+			margin-bottom: 0;
+		}
+
+		.todo_title {
+			text-transform: uppercase;
+			margin-bottom: 12px;
+			text-align: center;
+		}
+
+		.todo_form {
+			margin-bottom: 8px;
+		}
+
+		.todo_input-box	{
+			position: relative;
+		}
+
+		.todo_input {
+			display: block;
+			font-family: inherit;
+			width: 100%;
+			padding: 12px 40px 12px 12px;
+			font-size: inherit;
+			border: 1px solid #989898;
+			border-radius: 6px;
+		}
+
+		.todo_input::placeholder {
+			color: #BBBBBB;
+		}
+
+		.todo_add {
+			position: absolute;
+			right: 12px;
+			top: 50%;
+			translate: 0 -50%;
+		}
+
+		.todo_item {
+			display: flex;
+			align-items: flex-start;
+			column-gap: 12px;
+			border: 1px solid #989898;
+			border-radius: 6px;
+			padding: 12px;
+			margin-bottom: 8px;
+		}
+
+		.todo_item--active {
+			background-color: #f4f4f4;
+		}
+
+		.todo_item:last-child {
+			margin-bottom: 0;
+		}
+
+		.todo_checkbox {
+			position: absolute;
+			visibility: hidden;
+		}
+
+		.todo_checkbox-custom {
+			width: 21px;
+			height: 21px;
+			border: 1px solid #989898;
+			border-radius: 100%;
+			display: flex;
+			cursor: pointer;
+		}
+
+		.todo_checkbox-custom:before {
+			content: "";
+			display: none;
+			width: 15px;
+			height: 15px;
+			background-color: #C4C4C4;
+			border-radius: 100%;
+			margin: auto;
+		}
+
+		.todo_checkbox:checked + .todo_checkbox-custom:before {
+			display: inline-block;
+		}
+
+		.todo_remove {
+			flex-shrink: 0;
+			margin-left: auto;
+			rotate: 45deg;
+		}
+	</style>
+	<script src="main.js" type="module"></script>
+</head>
+<body>
+	<div class="todo">
+		<div class="todo_group">
+			<h2 class="todo_title">High</h2>
+			<form class="todo_form" data-priority="high">
+				<div class="todo_input-box">
+					<input class="todo_input" type="text" placeholder="Добавить важных дел">
+					<button class="todo_add">
+						<img src="images/close-icon.svg" alt="close">
+					</button>
+				</div>
+			</form>
+			<ul class="todo_list" data-priority="high"></ul>
+		</div>
+		<div class="todo_group">
+			<h2 class="todo_title">Low</h2>
+			<form class="todo_form" data-priority="low">
+				<div class="todo_input-box">
+					<input class="todo_input" type="text" placeholder="Добавить важных дел">
+					<button class="todo_add">
+						<img src="images/close-icon.svg" alt="close">
+					</button>
+				</div>
+			</form>
+			<ul class="todo_list" data-priority="low"></ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,5 +1,4 @@
 let buttonsAdd = document.querySelectorAll('.todo__submit');
-let buttonsDelete;
 const taskList = [];
 let checkboxId = 0;
 
@@ -14,14 +13,18 @@ const PRIORITY = {
 };
 
 const addTask = function(task, priority, status = STATUS.TO_DO){
-    let newTask = {
-        name: task,
-        status: status,
-        priority: priority
-    };
-    taskList.push(newTask);
-    render();
-}
+    if(task != ''){
+        let newTask = {
+            name: task,
+            status: status,
+            priority: priority
+        };
+        taskList.push(newTask);
+        render();
+    } else{
+        alert('Введите задачу!');
+    }
+};
 
 const render = function(){
     document.querySelectorAll('.todo__list').forEach(list => list.innerHTML = "");
@@ -45,11 +48,9 @@ const createItem = function(task, status, priority){
     if(status == STATUS.DONE){
         statusChange = 'todo_item_checked';
         checked = 'checked';
-        console.log(0);
     } else{
         statusChange = '';
         checked = '';
-        console.log(1);
     }
 
     insertionPoint.insertAdjacentHTML("afterbegin", `
@@ -61,26 +62,22 @@ const createItem = function(task, status, priority){
         </div>    
         `);
 
-    buttonsDelete = document.querySelectorAll('.todo__delete');
+    let buttonsDelete = document.querySelectorAll('.todo__delete');
     deleteTask(buttonsDelete);
-    changeStatus();
 }
 
 const changeStatus = function(){
-    let inputs = document.querySelectorAll('.todo__checkbox');
-    inputs.forEach(checkbox => {
-        checkbox.addEventListener('click', e => {
-            if (e.target.checked) {
-                taskList.filter(item => item.status = STATUS.DONE);
-                checkbox.closest('.todo__item').classList.add('todo_item_checked');
-                console.log(taskList)
-            } else {
-                taskList.filter(item => item.status = STATUS.TO_DO);
-                checkbox.closest('.todo__item').classList.remove('todo_item_checked');
-                console.log(taskList)
-            }
+    let checkboxes = document.querySelectorAll('.todo__checkbox');
+    checkboxes.forEach(checkbox => checkbox.addEventListener('change', e => {
+        if (e.target.checked) {
+            taskList.map((item) => (e.target.nextElementSibling.nextElementSibling.textContent == item.name) ? item.status = STATUS.DONE: false);
+            checkbox.closest('.todo__item').classList.add('todo_item_checked');
+        } else {
+            taskList.map((item) => (e.target.nextElementSibling.nextElementSibling.textContent == item.name) ? item.status = STATUS.TO_DO: false);
+            checkbox.closest('.todo__item').classList.remove('todo_item_checked');
+        }
         })
-    })
+    )
 }
 
 const deleteTask = function(buttons){
@@ -99,4 +96,5 @@ buttonsAdd.forEach(button => button.addEventListener('click', function(event){
     let priority = event.target.closest('.todo__section').dataset.priority;
 
     addTask(task, priority);
+    changeStatus();
 }));

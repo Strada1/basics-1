@@ -41,6 +41,7 @@ function calculate () {
 
    let newResult = document.createElement('div');
    newResult.classList = "newResult";
+   newResult.setAttribute('id','newResult')
    newResult.textContent = ELEMENTS.RESULT.textContent;
    ELEMENTS.RESULT.after(newResult);
    
@@ -49,8 +50,7 @@ function calculate () {
 ELEMENTS.EQUAL.addEventListener('click',calculate);
 
 function deleteNewResult() {
-   let del = ELEMENTS.NEW_RESULT.onmouseover
-   del.remove()
+   this.remove()
 }
 
 ELEMENTS.NEW_RESULT.addEventListener('click', deleteNewResult)

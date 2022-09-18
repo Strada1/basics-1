@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="/stasantipov/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="main">
+        <section class="todo">
+            <div class="todo__high">
+                <h2 class="todo__title title">HIGH</h2>
+                <form class="form">
+                    <input class="form__input" type="text" placeholder="Добавить важных дел" required>
+                    <button class="form__btn"></button>
+                </form>
+                <ul class="task-list todo__high-list">
+                </ul>
+            </div>
+            <div class="todo__low">
+                <h2 class="todo__title title">LOW</h2>
+                <form class="form">
+                    <input class="form__input" type="text" placeholder="Добавить" required>
+                    <button class="form__btn"></button>
+                </form>
+                <ul class="task-list todo__low-list">
+                </ul>
+            </div>
+        </section>
+    </main>
+    <template id="task">
+        <li class="task-list__task-item">
+            <label class="task-list__check check">
+                <input class="check__input visually-hidden" type="checkbox">
+                <span class="check__box"></span>
+                <span class="check__text"></span>
+            </label>
+            <button class="task-list__btn"></button>
+        </li>
+    </template>
+    <script src="/stasantipov/js/main.js"></script>
+</body>
+
+</html>

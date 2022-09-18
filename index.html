@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="form">
+        <input type="text" name="Input" id="operand1" value="5" />
+        <select id="operation">
+          <option value="addition">+</option>
+          <option value="subtraction">-</option>
+          <option value="multiplication">*</option>
+          <option value="division">/</option>
+          <option value="modulo">%</option>
+        </select>
+        <input type="text" name="Input" id="operand2" value="5" />
+        <button id="euqalsButton">=</button>
+        <span id="result">10</span>
+      </form>
+    </div>
+    <ul class="allResults"></ul>
+
+    <script type="module" src="main.js"></script>
+    <script type="module" src="calcFn.js"></script>
+  </body>
+</html>

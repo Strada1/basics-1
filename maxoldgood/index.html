@@ -6,22 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="base">
-        <div class="high">HIGH</div>
-        <div class="new-task">
-            <input class= "input-task" type="text" placeholder="Добавить важных дел">
-            <input class="add-button" type="image" src="img\close-icon.svg">
-        </div>
-        <div class="added-task">
-            <div class="task-text">Вот вам и супер интересная тема. 
-                Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, 
-                что хочется вынести некоторые вещи куда-то за пределы основной программы.
+    <div class="toDo-body">
+        <div class ="task-block priority-high">
+            <p class="priority-name">HIGH</p>
+            <div class="add-task">
+                <form id="add-high-task-form">
+                    <input id="add-high-task-input" placeholder="Add task">
+                    <input id="add-high-task-button" type="image" src="img\plus-icon.svg">
+                </form>
             </div>
-            <input type="checkbox" class="checkbox">
+            <div class="task">
+                <input class="complete-task-button" type="checkbox">
+                <div class="task-name">
+                    Вот вам и супер интересная тема. 
+                    Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, 
+                    что хочется вынести некоторые вещи куда-то за пределы основной программы.
+                </div>
+                <input class="delete-task-button" type="image" src="./img/close-icon.svg">
+            </div>
+            <div class="task">
+                <input class="complete-task-button" type="checkbox">
+                <div class="task-name">
+                    Сверстать этот TODO list
+                </div>
+                <input class="delete-task-button" type="image" src="./img/close-icon.svg">
+            </div>
+            <div class="task">
+                <input class="complete-task-button" type="checkbox">
+                <div class="task-name">
+                    Начать делать задачу
+                </div>
+                <input class="delete-task-button" type="image" src="./img/close-icon.svg">
+            </div>
+        </div>
+        <div class ="task-block priority-low">
+            <p class="priority-name">LOW</p>
+            <div class="add-task">
+                <form id="add-low-task-form">
+                    <input id="add-low-task-input" placeholder="Add task">
+                    <input id="add-low-task-button" type="image" src="./img/plus-icon.svg">
+                </form>
+            </div>
+            <div class="task">
+                <input class="complete-task-button" type="checkbox">
+                <div class="task-name">
+                    Посмотреть ютубчик
+                </div>
+                <input class="delete-task-button" type="image" src="./img/close-icon.svg">
+            </div>
         </div>
     </div>
-    
+<script src="./main.js"></script>
 </body>
 </html>

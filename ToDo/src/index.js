@@ -49,6 +49,33 @@ function addTask(form, type, status) {
   }
 }
 
+function deleteTask(task) {
+  try {
+    todo.splice(Number(task.id), 1)
+  } catch (error) {
+    alert(error.message)
+  }
+  
+}
+
+function changeStatus(task, str) {
+  try {
+    if (str === 'onChecked') {
+      this.event.target.classList.value = 'checked'
+      task.classList.value = 'task done'
+      todo[task.id].status = 'checked'
+    } else if (str === 'onCheck') {
+      this.event.target.classList.value = 'check'
+      task.classList.value = 'task'
+      todo[task.id].status = 'check'
+    } else {
+      throw new Error('Не удалось изменить статус задачи')
+    }
+  } catch (error) {
+    alert(error.message)
+  }
+}
+
 function render() {
   let sumHigh = `<h1>HIGH</h1>
   <div class="create">
@@ -155,16 +182,12 @@ function render() {
     task.addEventListener('click', (event) => {
       try {
         if (event.target.classList.value === 'xmark' || event.target.tagName === 'line') {
-          todo.splice(Number(task.id), 1)
+          deleteTask(task)
           render()
         } else if (event.target.classList.value === 'check') {
-          event.target.classList.value = 'checked'
-          task.classList.value = 'task done'
-          todo[task.id].status = 'checked'
+          changeStatus(task, 'onChecked')
         } else if (event.target.classList.value === 'checked') {
-          event.target.classList.value = 'check'
-          task.classList.value = 'task'
-          todo[task.id].status = 'check'
+          changeStatus(task, 'onCheck')
         } else if (event.target.tagName === 'P' || event.target.tagName === 'DIV') {
           return 
         } else {

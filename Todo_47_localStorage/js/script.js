@@ -40,43 +40,55 @@ function deleteTask(nameTask) {
 }
 
 function createTask(task, parent) {
-  parent.insertAdjacentHTML(
-    'beforeEnd',
-    `<div class="new-task" id = 'newTask_${task.id}'>
-  <label class="connect">
-    <input type="checkbox" class="check-box" id = "check_${task.id}" >
-    <span class="check-style"></span>
-    <div class="task-text">${task.name}</div>
+  const newTask = document.createElement('div');
+  const checkboxes = document.createElement('input');
+  const labelCon = document.createElement('label');
+  const checkStyle = document.createElement('span');
+  const taskText = document.createElement('div');
+  const taskClose = document.createElement('button');
+  const closeImg = document.createElement('img');
 
-  </label>
-  <div class="task-close" id = 'close_${task.id}'>
-    <img src="images/close.svg" alt="">
-  </div>
-</div>`
-  );
-  let newTask = document.getElementById(`newTask_${task.id}`);
-  let checkboxes = document.getElementById(`check_${task.id}`);
-  let taskClose = document.getElementById(`close_${task.id}`);
+  taskClose.appendChild(closeImg);
+  newTask.className = 'new-task';
+  labelCon.className = 'connect';
+  taskText.className = 'task-text';
+  checkStyle.className = 'check-style';
+  checkboxes.setAttribute('type', 'checkbox');
+  checkboxes.className = 'check-box';
+  taskClose.className = 'task-close';
+  closeImg.src = 'images/close.svg';
+  taskText.textContent = task.name;
 
   if (task.status === 'done') {
     newTask.classList.add('add');
     checkboxes.checked = true;
   }
 
-  checkboxes.addEventListener('change', () => {
+  function changeColorOnCheckbox() {
     newTask.classList.toggle('add');
     if (checkboxes.checked) {
       changeStatus(task.name, STATUS.DONE);
     } else {
       changeStatus(task.name, STATUS.TO_DO);
     }
-  });
+  }
 
-  taskClose.addEventListener('click', () => {
+  function deleteTaskInHtml() {
     deleteTask(task.name);
     recordToStorage(toDoList);
     newTask.remove();
-  });
+  }
+
+  checkboxes.addEventListener('change', changeColorOnCheckbox);
+
+  taskClose.addEventListener('click', deleteTaskInHtml);
+
+  labelCon.appendChild(checkboxes);
+  labelCon.appendChild(checkStyle);
+  labelCon.appendChild(taskText);
+  newTask.appendChild(labelCon);
+  newTask.appendChild(taskClose);
+  parent.appendChild(newTask);
 }
 
 function addTask(nameTask, prior) {
@@ -102,7 +114,7 @@ function addTask(nameTask, prior) {
 function render() {
   highBlock.innerHTML = '';
   lowBlock.innerHTML = '';
-  let toDoListReverse = [...toDoList].reverse();
+  const toDoListReverse = [...toDoList].reverse();
 
   toDoListReverse.forEach(item => {
     if (item.PRIORITY === 'high') {
@@ -115,10 +127,10 @@ function render() {
 
 addTaskInTodoList.forEach(item => {
   item.addEventListener('click', e => {
-    let Id = e.target.classList.contains('high') ? 'high' : 'low';
-    let inputUser = document.querySelector(`.${Id}-input`);
+    const Id = e.target.classList.contains('high') ? 'high' : 'low';
+    const inputUser = document.querySelector(`.${Id}-input`);
     try {
-      if (inputUser.value !== '') {
+      if (inputUser.value) {
         addTask(inputUser.value, Id);
         inputUser.value = '';
       } else {
@@ -134,13 +146,13 @@ form.forEach(item => {
   item.addEventListener('submit', e => e.preventDefault());
 });
 
-if (localStorage.length !== 0) {
+if (localStorage.length) {
   toDoList.push(...getInfoStorage());
   render();
 }
 
 function getInfoStorage() {
-  let task = JSON.parse(localStorage.getItem('Task'));
+  const task = JSON.parse(localStorage.getItem('Task'));
   return task;
 }
 

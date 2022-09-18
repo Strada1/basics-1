@@ -1,4 +1,4 @@
-import { render } from './components/render.js'
+import { render } from './modules/render.js'
 
 const high = document.querySelector('.high')
 const low = document.querySelector('.low')

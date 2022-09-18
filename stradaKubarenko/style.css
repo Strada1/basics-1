@@ -1,0 +1,70 @@
+*,
+*::after,
+*::before {
+   box-sizing: border-box;
+}
+body,h2,section,ul,li {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+.wrapper {
+  background: #E5E5E5;
+  height: 100vh;
+  padding-top: 200px;
+  font-size: 18px;
+}
+.container {
+   background-color: #fff;
+   width: 476px;
+}
+.box {
+   width: 460px;
+   min-height: 45px;
+   border: 1px solid #989898;
+   border-radius: 6px;
+   padding: 12px 45px;
+   margin-bottom: 8px;
+   font-size: inherit;
+}
+.title {
+   text-align: center;
+   border: none;
+   padding: 12px 0;
+   font-size: inherit;
+}
+.flex {
+   display: flex;
+   flex-direction: column;
+   margin: auto;
+}
+.x {
+   position: relative;
+}
+li.x:before, li.x:after {
+   content: "";
+   position: absolute;
+   top: 20px;
+   width: 24px;
+   height: 1px; 
+   background: gray;
+   right: 10px;
+   cursor: pointer;
+}
+li.x:before {transform: rotate(45deg);}
+li.x:after {transform: rotate(-45deg);}
+
+.plus {
+   position: relative;
+}
+div.plus:before, div.plus:after {
+   content: "";
+   position: absolute;
+   top: 40%;
+   right: 12px;
+   width: 20px;
+   height: 1px; 
+   background: gray;
+   cursor: pointer;
+}
+div.plus:before {transform: rotate(90deg);}

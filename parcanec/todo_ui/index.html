@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo list by iPetrik</title>
+  <script src="main.js" defer></script>
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+
+<body>
+<!-- начало туду списка -->
+<div class="todo_form">
+  <!-- зона высокого приоритета -->
+    <div class="priority_area" id='high'>
+      <span class="priority_name">HIGH</span>
+      <form class="add_task">
+        <input id='highValue' placeholder="Добавить важное дело" type="text">
+        <button id="addButtonHigh" type="submit">+</button>
+      </form>
+      <div class='list' id="high_list">
+    <!-- тут будет вставлена задача -->
+      </div>
+    </div>
+  
+  <!-- зона низкого приоритета -->
+    <div class="priority_area" id='low'>
+      <span class="priority_name">LOW</span>
+      <form class="add_task">
+        <input id='lowValue' placeholder="Добавить не очень важное дело" type="text">
+        <button id="addButtonLow" type="submit">+</button>
+      </form>
+      <div class='list' id="low_list">
+    <!-- тут будет вставлена задача -->
+      </div>
+    </div>
+</div>
+<!-- конец туду списка -->
+  
+</body>
+
+</html>

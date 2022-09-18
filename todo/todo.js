@@ -4,7 +4,7 @@ const EmptyDivHigh = document.querySelector(".EmptyDivHigh");
 const AddTaskFormLow = document.querySelector(".add-task-form-low");
 const InputAddTasklow = document.querySelector(".add-task-input-low");
 const EmptyDivLow = document.querySelector(".EmptyDivLow");
-const deleteTaskHigh = document.querySelector('.delete')
+//const deleteTask = document.querySelectorAll('.delete')
 
 const STATUS = {
   TO_DO: "To Do",
@@ -104,22 +104,15 @@ EmptyDivLow.insertAdjacentHTML(
   }
 }
 
-function ssa(event) {
-    event.preventDefault();
-    deleteTaskH();
-} 
+const deleteTask = document.querySelectorAll('.delete')
+deleteTask.forEach( (task) => {
+  task.addEventListener('click', deleteTasklist)
+});
 
-deleteTaskHigh.addEventListener("click", ssa)
+function deleteTasklist() {
+  let newlist = list.filter((task) => {
+  (!(task.name === deleteTask))
+  })
+}
 
-function deleteTaskH(task) {
-
-    let result = list.findIndex(function (index) {
-        return index === task;
-      });
-      list.splice(result, 1);
-      console.log("You have successfully deleted the task");
-    }
-
-
-
-    console.log(list)
+console.log(list)

@@ -1,0 +1,125 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #000000;
+    background-color: #E5E5E5;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.title,
+.form__input {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+.main {
+    padding: 15px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo {
+    width: 480px;
+    padding: 13px 8px 25px 8px;
+    background-color: white;
+}
+
+.todo__title {
+    text-align: center;
+    margin: 12px 0;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 12px;
+    border: 1px solid #989898;
+    border-radius: 6px;
+}
+
+.form__input {
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin-right: 12px;
+    outline: none;
+}
+
+.form__btn {
+    display: flex;
+    align-self: center;
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-image: url(/stasantipov/img/add-icon.svg);
+}
+
+.task-list {
+    margin: 0;
+    padding: 0;
+}
+
+.task-list__task-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    list-style: none;
+    margin-top: 8px;
+    padding: 12px;
+    border: 1px solid #989898;
+    border-radius: 6px;
+}
+
+.task-list__task-item--checked {
+    background-color: #F4F4F4;
+}
+
+.task-list__check {
+    padding-left: 33px;
+    margin-right: 12px;
+}
+
+.check__box {
+    position: absolute;
+    margin-left: -33px;
+    width: 21px;
+    height: 21px;
+    background-image: url('/stasantipov/img/check.svg');
+    cursor: pointer;
+}
+
+.check__input:checked+.check__box {
+    background-image: url('/stasantipov/img/checked.svg');
+}
+
+.task-list__btn {
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    width: 18px;
+    height: 16px;
+    background-image: url(/stasantipov/img/close-icon.svg);
+}

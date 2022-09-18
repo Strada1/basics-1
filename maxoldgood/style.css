@@ -1,5 +1,5 @@
 body {
-    
+    background-image: url(img/dom-lampy-fon.jpg);
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -9,9 +9,12 @@ body {
 .toDo-body {
     height: 688px;
     width: 476px;
-    background-image: url(img\dom-lampy-fon.jpg);
-    background-color: #FFFFFF;
+   
+    background-color: #333333;
+    opacity: 0.8;
     margin: auto;
+    margin-top: 50px;
+    border-radius: 30px;
 }
 
 .task-block {
@@ -21,6 +24,7 @@ body {
 .priority-name {
     width: 43px;
     height: 21px;
+    color:antiquewhite;
 
     margin: auto;
     padding-top: 25px;
@@ -59,6 +63,7 @@ body {
     margin-top: 12px;
     margin-left: 12px;
     border: none;
+    outline: none;
 }
 
 ::placeholder {
@@ -88,6 +93,7 @@ body {
 
     margin-left: 12px;
     margin-top: 12px;
+    color-scheme: red;
 }
 
 .task-name {  
@@ -105,6 +111,11 @@ body {
 
 }
 
-.task ~ .complete-task-button:checked {
-    background-color: #F4F4F4;
+.task:has(.complete-task-button:checked) {
+    background-color: #51cc99;
+    text-decoration: line-through;
+}
+
+.complete-task-button:checked {
+    accent-color: rgb(3, 90, 78);
 }

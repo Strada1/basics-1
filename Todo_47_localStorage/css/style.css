@@ -8,6 +8,9 @@ body {
   font-style: normal;
   line-height: 21px;
   background-color: #d9d9d9;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
 }
 .container {
   margin: 0 auto;
@@ -17,6 +20,7 @@ body {
 .add {
   background-color: #d9d9d9;
 }
+
 .Todo {
   width: 476px;
   margin: 0 auto;
@@ -24,26 +28,33 @@ body {
   padding: 0px 8px 198px 8px;
   background-color: white;
 }
+
 input {
   outline: none;
-}
-
-.done {
-  background-color: white;
 }
 
 .title-high {
   margin-top: 25px;
   margin-bottom: 12px;
   text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
 }
+
+.title-high.title-low {
+  margin-top: 12px;
+}
+
 .task-text {
   margin-right: 20px;
   min-width: 370px;
 }
+
 .task-add {
   position: relative;
 }
+
 .task-plus {
   background-color: rgba(0, 0, 0, 0);
   border: none;
@@ -53,6 +64,7 @@ input {
   transform: translate(-50%, -43%);
   cursor: pointer;
 }
+
 .input-style {
   position: relative;
   width: 460px;

@@ -104,6 +104,3 @@ body {
 .task_list button:hover {
   color: red;
 }
-.done {
-  text-decoration: overline;
-}

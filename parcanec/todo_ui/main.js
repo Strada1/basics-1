@@ -53,9 +53,9 @@ for (let task of LIST) {
     const div = document.createElement('div')
         div.classList.add('task_list')
         div.insertAdjacentHTML('afterbegin', `
-            <label><input type="radio">${task.name}</label>
-            <button id="delButton">×</button>`)
-        div.querySelector('#delButton').addEventListener('click', delTask)
+        <label><input type="radio" ${task.status==="Done"?"checked":''}>${task.name}</label>
+        <button id="delButton">×</button>`)
+    div.querySelector('#delButton').addEventListener('click', delTask)
         div.querySelector('input').addEventListener('click', changeStatus)
         priorityDiv.querySelector('.list').append(div)
     }    
@@ -101,8 +101,13 @@ function delTask(event, name) {
     render()
 }
 
-//пока изменение не связано с массивом
-function changeStatus () {
-    console.log(`Нажатие по чекбоксу`)
+function changeStatus(event, name) {
+    name = event.target.parentNode.textContent
+    let position = LIST.findIndex(item => item.name == name)
+    if (LIST[position].status == 'Done') {
+        LIST[position].status = STATUS.TODO
+    } else {
+        LIST[position].status = STATUS.DONE
+    }
     render()
 }

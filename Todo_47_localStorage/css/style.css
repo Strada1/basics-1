@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  line-height: 21px;
+  background-color: #d9d9d9;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+.container {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+.add {
+  background-color: #d9d9d9;
+}
+
+.Todo {
+  width: 476px;
+  margin: 0 auto;
+  border: 1px solid white;
+  padding: 0px 8px 198px 8px;
+  background-color: white;
+}
+
+input {
+  outline: none;
+}
+
+.title-high {
+  margin-top: 25px;
+  margin-bottom: 12px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.title-high.title-low {
+  margin-top: 12px;
+}
+
+.task-text {
+  margin-right: 20px;
+  min-width: 370px;
+}
+
+.task-add {
+  position: relative;
+}
+
+.task-plus {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -43%);
+  cursor: pointer;
+}
+
+.input-style {
+  position: relative;
+  width: 460px;
+  height: 45px;
+  border: 1px solid #998899;
+  padding: 12px 35px 12px 12px;
+  border-radius: 6px;
+}
+
+::placeholder {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.new-task {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px #989898 solid;
+  padding: 12px 12px 12px 12px;
+  width: 460px;
+  margin-top: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.custom-checkbox {
+  position: relative;
+  min-width: 20px;
+  height: 20px;
+  border: 1px solid #998899;
+  border-radius: 100%;
+  margin-right: 12px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+label {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.task-text {
+  cursor: pointer;
+  padding-left: 33px;
+  width: 370px;
+}
+
+.check-box {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.check-style {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #998899;
+  border-radius: 50%;
+  left: 0;
+}
+
+.task-close {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.check-box:checked + .check-style::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

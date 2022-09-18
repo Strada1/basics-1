@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TODO app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="Todo">
+        <h2 class="title-high">HIGH</h2>
+        <div class="task-add-block">
+          <div class="task-add high">
+            <form>
+              <input
+                type="text"
+                class="high-input input-style"
+                placeholder="Добавить важных дел"
+              />
+              <button class="task-plus high unique_btn-add">
+                <img src="images/plus.svg" alt="" class="plus high" />
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="high-block unique_block-add"></div>
+        <h2 class="title-high title-low">LOW</h2>
+        <div class="task-add-block">
+          <div class="task-add low">
+            <form>
+              <input
+                type="text"
+                class="low-input input-style"
+                placeholder="Добавить"
+              />
+              <button class="task-plus unique_btn-add low">
+                <img src="images/plus.svg" alt="" class="plus low" />
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="low-block"></div>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -2,13 +2,12 @@ const highBlock = document.querySelector('.high-block');
 const lowBlock = document.querySelector('.low-block');
 const addBlock = document.querySelector('task-add-block');
 const highTaskInput = document.querySelector('.high-input');
-const lowTaskInput = document.querySelector('.low-input');
+const laowTaskInput = document.querySelector('.low-input');
 const addTaskInTodoList = document.querySelectorAll('.unique_btn-add');
 const inputs = document.querySelectorAll('input[type = "text"]');
 const form = document.querySelectorAll('form');
 const highBtnAdd = document.querySelector('.task-plus.high');
 const lowBtnAdd = document.querySelector('.task-plus.low');
-let unique_id = 0;
 const STATUS = {
   in_Progress: 'In Progress',
   DONE: 'done',
@@ -31,17 +30,7 @@ function changeStatus(nameTask, statusName) {
     return false;
   } else if (toDoList[index].name === nameTask) {
     toDoList[index].status = statusName;
-    for (let i = 0; i < localStorage.length; i++) {
-      let NameOfTheTask = localStorage.key(i);
-      let itemStorage = JSON.parse(localStorage.getItem(NameOfTheTask));
-
-      if (itemStorage.name === nameTask) {
-        localStorage.setItem(
-          `Task${toDoList[index].id}`,
-          JSON.stringify(toDoList[index])
-        );
-      }
-    }
+    recordToStorage(toDoList);
   }
 }
 
@@ -85,14 +74,12 @@ function createTask(task, parent) {
 
   taskClose.addEventListener('click', () => {
     deleteTask(task.name);
-
-    localStorage.removeItem(`Task${task.id}`);
+    recordToStorage(toDoList);
     newTask.remove();
   });
 }
 
 function addTask(nameTask, prior) {
-  unique_id++;
   nameTask = nameTask.trim();
   try {
     if (examination(nameTask) !== -1) {
@@ -102,12 +89,9 @@ function addTask(nameTask, prior) {
         name: nameTask,
         status: STATUS.TO_DO,
         PRIORITY: prior,
-        id: unique_id,
+        id: new Date().toLocaleString() + new Date().getMilliseconds(),
       });
-      localStorage.setItem(
-        `Task${unique_id}`,
-        JSON.stringify(toDoList[toDoList.length - 1])
-      );
+      recordToStorage(toDoList);
       render();
       return true;
     }
@@ -115,7 +99,6 @@ function addTask(nameTask, prior) {
     alert(e.message);
   }
 }
-
 function render() {
   highBlock.innerHTML = '';
   lowBlock.innerHTML = '';
@@ -151,30 +134,17 @@ form.forEach(item => {
   item.addEventListener('submit', e => e.preventDefault());
 });
 
-function maxIdInLocalStorage() {
-  let arrStorage = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    let NameOfTheTask = localStorage.key(i);
-    arrStorage.push(JSON.parse(localStorage.getItem(NameOfTheTask)));
-  }
-  const maxId = [];
-  arrStorage.forEach(item => {
-    maxId.push(item.id);
-  });
-  return Math.max(...maxId);
+if (localStorage.length !== 0) {
+  toDoList.push(...getInfoStorage());
+  render();
 }
 
-function checkLocaleStorage() {
-  if (localStorage.length !== 0) {
-    let keys = Object.keys(localStorage);
-    keys = keys.sort();
-
-    for (let i = 0; keys.length > i; i++) {
-      toDoList.push(JSON.parse(localStorage.getItem(keys[i])));
-
-      unique_id = maxIdInLocalStorage();
-    }
-    render();
-  }
+function getInfoStorage() {
+  let task = JSON.parse(localStorage.getItem('Task'));
+  return task;
 }
-checkLocaleStorage();
+
+function recordToStorage(tasks) {
+  const tasksStorage = JSON.stringify(tasks);
+  localStorage.setItem('Task', tasksStorage);
+}

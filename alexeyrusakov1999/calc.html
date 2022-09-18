@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="./calc.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="calc">
+            <input type="number" id="first-input">
+
+            <select size="1" id="operation">
+                <option value="plus" id="plus">+</option>
+                <option value="mines" id="mines">-</option>
+                <option value="multiply" id="multiply">*</option>
+                <option value="divide" id="divide">/</option>
+            </select>
+
+            <input type="number" id="second-input">
+            <button class="equal" type="button" id="equal">=</button>
+            <span class="result">0</span>
+        </div>
+    </div>
+    <script src="calc.js"></script>
+</body>
+
+</html>

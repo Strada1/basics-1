@@ -1,5 +1,5 @@
 body {
-    background-color: #E5E5E5;
+    
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -9,6 +9,7 @@ body {
 .toDo-body {
     height: 688px;
     width: 476px;
+    background-image: url(img\dom-lampy-fon.jpg);
     background-color: #FFFFFF;
     margin: auto;
 }

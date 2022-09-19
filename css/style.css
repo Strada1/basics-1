@@ -1,0 +1,149 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+
+body {
+	font-family: 'roboto', sans-serif;
+	font-size: 18px;
+
+	margin: 0;
+
+	/* background: url(./img/back.jpg) no-repeat; */
+	/* background-size: 1423px; */
+	background: rgb(238,174,202);
+	background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin-bottom: 0px;
+}
+
+
+ul, li {
+	list-style-type: none;
+}
+
+input, textarea, button, select {
+	font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+		outline: none;
+}
+
+.container {
+	width: 476px;
+	height: auto;
+
+	background-color: rgba(255, 255, 255, 0.5);
+
+	margin: 10px auto;
+	padding-top: 10px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	border-radius: 10px;
+}
+
+.new-task {
+	display: flex;
+	height: 45px;
+
+	background: #FFFFFF;
+	border: 1px solid #989898;
+	border-radius: 6px;
+}
+
+.new-task__text {
+	width: 460px;
+	height: 30px;
+
+	display: flex;
+	line-height: 40px;
+	padding-top: 5px;
+	padding-left: 12px;
+}
+
+.new-task__button {
+	width: 15px;
+    height: 15px;
+    background-image: url(./img/add.svg);
+    border: none;
+    background-position: center;
+    cursor: pointer;
+    background-color: inherit;
+    margin-right: 13px;
+		margin-top: 13px;
+}
+
+h1 {
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+.todo-list {
+	margin: 10px;
+	width: 476px;
+}
+
+.item {
+	
+	border: 1px solid #989898;
+	border-radius: 5px;
+	margin: 8px;
+}
+
+.item-label {
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.item-text {
+	display: inline-block;
+	width: 370px;
+	margin: 12px 0;
+}
+
+.check {
+	width: 21px;
+	height: 21px;
+	align-self: flex-start;
+	margin-top: 12px;
+	margin-left: 12px;
+	margin-right: 0;
+	border: 1px solid #998899;
+	border-radius: 50%;
+
+	cursor: pointer;
+}
+
+div.checked {
+	background-image: url(./img/done.svg);
+	background-position: center;
+
+	cursor: pointer;
+}
+
+.checked {
+	background: #F4F4F4;
+}
+
+.close {
+	width: 15px;
+	height: 15px;
+
+	margin-top: 12px;
+	margin-right: 12px;
+
+	cursor: pointer;
+}
+
+.hide {
+	display: none;
+}

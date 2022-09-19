@@ -1,17 +1,16 @@
-import { list } from './const.js';
+function readData(data) {
+	return JSON.stringify(data);
+};
 
-export function useLocalStorage() {
-	const serialData = JSON.stringify(list);
-
+export function writeData(data) {
 	try {
-		localStorage.setItem('data', serialData);
+		localStorage.setItem('data', readData(data));
 		let returnData = JSON.parse(localStorage.getItem('data'));
 
 		return returnData;
 	} catch (error) {
 		if (error === QUOTA_EXCEED_ERR) {
 			console.log(error)
-		}
-	}
+		};
+	};
 };
-

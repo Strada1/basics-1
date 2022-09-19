@@ -1,6 +1,6 @@
 import { createTask, addTask } from './more.js';
 import { STATUS, PRIORITY, list, forms, priorityHigh, priorityLow } from './const.js';
-import { useLocalStorage } from './localStorage.js';
+import { writeData } from './localStorage.js';
 
 forms.forEach((form) => {
 	form.addEventListener('submit', (evt) => {
@@ -25,7 +25,7 @@ forms.forEach((form) => {
 function render() {
 	document.querySelectorAll('.item').forEach(task => task.remove());
 
-	useLocalStorage();
+	writeData(list);
 
 	list.map((task) => {
 		if (task.priority === PRIORITY.HIGH) {

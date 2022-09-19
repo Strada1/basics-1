@@ -12,12 +12,12 @@
       <div class="container flex">
          <section class="flex">
             <h2 class="title">HIGH</h2>
-            <form action="" class="flex">
-               <div class="plus">
-                  <input type="text" class="box" placeholder="Добавить важных дел" >
-                  <button type="submit" class="addButton" id="add_task_high">+</button>
+            <form action="" class="flex" id="add_task_high">
+               <div class="plus" id="textInputHigh">
+                  <input type="text" class="box" placeholder="Добавить важных дел">
+                  <button type="submit" class="addButton">+</button>
                </div>
-               <ul class="flex">
+               <ul class="flex" id="listHigh">
                   <li class="box delete">
                      <label>
                         <input type="checkbox">
@@ -45,12 +45,12 @@
          </section>
          <section class="flex">
             <h2 class="title">LOW</h2>
-            <form action="">
+            <form action="" id="add_task_low">
                <div class="plus">
-                  <input type="text" class="box" placeholder="Добавить">
-                  <button type="submit" class="addButton"  id="add_task_low">+</button>
+                  <input type="text" class="box" placeholder="Добавить" id="textInputLow">
+                  <button type="submit" class="addButton"  >+</button>
                </div>
-               <ul class="flex">
+               <ul class="flex" id="listLow">
                   <li class="box delete">
                      <label>
                         <input type="checkbox">

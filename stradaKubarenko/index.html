@@ -12,43 +12,57 @@
       <div class="container flex">
          <section class="flex">
             <h2 class="title">HIGH</h2>
-            <form action="" class="flex">
+            <form action="" class="flex" id="form_high">
                <div class="plus">
-                  <input type="text" class="box" placeholder="Добавить важных дел">
+                  <input type="text" class="box" placeholder="Добавить важных дел" >
+                  <button type="submit" class="addButton" id="add_task_high">+</button>
                </div>
                <ul class="flex">
-                  <li class="box x">
-                     <input type="checkbox" id="97">
-                     <label for="97">Вот вам и супер интересная тема.
+                  <li class="box delete">
+                     <label>
+                        <input type="checkbox">
+                        Вот вам и супер интересная тема.
                         Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.
+                        <button type="submit" class="delButton">del</button>
                      </label>
                   </li>
-                  <li class="box x">
-                     <input type="checkbox" id="98">
-                     <label for="98">Сверстать этот TODO list</label>
+                  <li class="box delete">
+                     <label>
+                        <input type="checkbox">
+                        Сверстать этот TODO list
+                        <button type="submit" class="delButton">del</button>
+                     </label>
                   </li>
-                  <li class="box x">
-                     <input type="checkbox" id="99">
-                     <label for="99">Начать делать задачу</label>
+                  <li class="box delete">
+                     <label>
+                        <input type="checkbox">
+                        Начать делать задачу
+                        <button type="submit" class="delButton">del</button>
+                     </label>
                   </li>
                </ul>
             </form>
          </section>
          <section class="flex">
             <h2 class="title">LOW</h2>
-            <form action="">
+            <form action="" id="form_low">
                <div class="plus">
                   <input type="text" class="box" placeholder="Добавить">
+                  <button type="submit" class="addButton"  id="add_task_low">+</button>
                </div>
                <ul class="flex">
-                  <li class="box x">
-                     <input type="checkbox" id="100">
-                     <label for="100">Посмотреть ютубчик</label>
+                  <li class="box delete">
+                     <label>
+                        <input type="checkbox">
+                        Посмотреть ютубчик
+                        <button type="submit" class="delButton">del</button>
+                     </label>
                   </li>
                </ul>
             </form>
          </section>
       </div>
    </div>
+   <script src="main.js"></script>
 </body>
 </html>

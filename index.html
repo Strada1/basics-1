@@ -13,23 +13,26 @@
 <body>
   <div class="container">
     <div class="title">HIGH</div>
-    <div class="input-wrapper">
-      <input class="enter-data" type="text" placeholder="Добавить важных дел">
-      <div class="plus"></div>
-    </div>
+    <form class="form form-high">
+      <input class="input-data" name="text" type="text" placeholder="Добавить важных дел">
+      <input class="plus plus1" type="submit" value=""></input>
+    </form>
 
-    <div class="new-task-wrapper">
-      <input class="new-task" type="checkbox" id="new">
-      <label class="new-task-label" for="new"></label>
-      <div class="close-task"></div>
-    </div>
+    <template id="template">
+      <div class="new-task-wrapper">
+        <input class="new-task" type="checkbox" id="new">
+        <label class="new-task-label" for="new"></label>
+        <div class="close-task"></div>
+        <span class="new-text"></span>
+      </div>
+    </template>
     
     <div class="title title-low">LOW</div>
     
-    <div class="input-wrapper">
-      <input class="enter-data" type="text" placeholder="Добавить">
-      <div class="plus"></div>
-    </div>
+    <form class="form form-low">
+      <input class="input-data" type="text" placeholder="Добавить">
+      <input class="plus plus2" type="submit" value=""></input>
+    </form>
   </div>
   <script src="./todo.js"></script>
 </body>

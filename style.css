@@ -28,7 +28,7 @@ body {
   margin-bottom: 12px;
 }
 
-.enter-data {
+.input-data {
   width: 460px;
   height: 45px;
   background: #FFFFFF;
@@ -42,7 +42,7 @@ body {
   line-height: 21px;
   /* border: 1px solid red; */
   transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-
+  padding-right: 44px;
 }
 
 .enter-data:focus {
@@ -61,7 +61,7 @@ body {
   color: #BBBBBB;
 }
 
-.input-wrapper {
+.form {
   position: relative;
   /* border: 1px solid red; */
   display: flex;
@@ -82,6 +82,7 @@ body {
   background-position:center;
   background-size: 50% 1px,1px 50%;
   background-repeat:no-repeat;
+  border: none;
 }
 
 .plus:hover {
@@ -93,6 +94,7 @@ body {
 }
 
 .new-task-wrapper {
+  display: flex;
   width: 460px;
   min-height: 45px;
   background: #FFFFFF;
@@ -109,7 +111,6 @@ body {
   margin-top: 8px;
   position: relative;
   /* border: 1px solid red; */
-  display: flex;
   flex-direction: row;
 }
 
@@ -150,6 +151,7 @@ body {
   user-select: none;
 }
 .new-task+label::before {
+  margin-right: 10px;
   content: '';
   display: inline-block;
   width: 21px;
@@ -160,9 +162,16 @@ body {
   border-radius: 30px;
   background-repeat: no-repeat;
   background-position: center center;
-
 }
 
 .new-task:checked+label::before {
   background: #C4C4C4;
+}
+
+.new-text {
+  padding-right: 18px;
+}
+
+.task-checked {
+  background: #F4F4F4;
 }

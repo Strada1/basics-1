@@ -1,67 +1,130 @@
+const form = document.querySelectorAll('.form');
+let checkboxIdCount = 0;
+
+//Основной массив 
+const arrayTodo = [];
+
 const STATUS = {
-  PROGRESS: 'In Progress',
-  DONE: 'Done',
-  TODO: 'To Do'
+  TODO: 'todo',
+  DONE: 'done'
 }
 
-const list = {
-	"create a new practice task": STATUS.PROGRESS,
-	"make a bed": STATUS.DONE,
-	"write a post": STATUS.TODO,
-};
+const PRIORITY = {
+  HIGH: 'high',
+  LOW: 'low'
+}
 
-function changeStatus(task, status) {
-  list[task] = status;
-};
+//Шаблон таска в HTML
+const template = document.getElementById('template').content.querySelector('.new-task-wrapper');
 
-function addTask(newTask, status) {
-  list[newTask] = status;
-};
 
-function deleteTask(byTask) {
-  delete list[byTask];
-};
+//Навешиваю событие на форму
+form.forEach((form) => {
+  form.addEventListener('submit', hundlerSubmit);
+})
 
-function showList() {
+//Определяю приоритет таска
+function hundlerSubmit(event) {
+  event.preventDefault();
+  const setPriority = event.target.closest('.form-high')
+  ? PRIORITY.HIGH
+  : PRIORITY.LOW;
+  addTask(event, setPriority);
+}
 
-  let todoStr = '';
-  for(let key in list) {
-    if(list[key] === STATUS.TODO) { 
-      todoStr += `${key}\n`;
-    } 
+//Добавляю таск в массив
+function addTask(event, priority) {
+  const dataFromInput = event.target.querySelector('.input-data').value;
+  arrayTodo.push({
+    data: dataFromInput,
+    status: STATUS.TODO,
+    priority: priority
+  });
+  event.target.reset();
+  render();
+}
+
+//Прохожусь по массиву, стираю и добавляю -> отрисовываю таски в UI
+function render() {
+  const allTask = document.querySelectorAll('.new-task-wrapper');
+  allTask.forEach((task) => {task.remove()});
+
+  const tasksAreHighPriority = arrayTodo.filter((task) => task.priority === PRIORITY.HIGH).reverse();
+  const tasksAreLowPriority = arrayTodo.filter((task) => task.priority == PRIORITY.LOW).reverse();
+
+  for(let i = 0; i < tasksAreHighPriority.length; i++){
+    const copyElement = template.cloneNode(true);
+    
+    copyElement.querySelector('.new-text').textContent = tasksAreHighPriority[i].data;
+    copyElement.querySelector('.new-task').id = 'new'+checkboxIdCount;
+    copyElement.querySelector('.new-task-label').htmlFor = 'new'+checkboxIdCount;
+    checkboxIdCount++;
+    if(tasksAreHighPriority[i].status === STATUS.DONE) {
+      copyElement.querySelector('.new-task').checked = true;
+      copyElement.style.background = '#F4F4F4';
+    }
+    const formHigh = document.querySelector('.form-high');
+    formHigh.after(copyElement);
   }
-  if(todoStr == '') {
-    todoStr = '    -';
-  };
-  console.log(`Todo:\n    ${todoStr}`);
 
-  let progressStr = '';
-  for(let key in list) {
-    if(list[key] == STATUS.PROGRESS) {
-      progressStr += `${key}\n`;
-    } 
+  for(let i = 0; i < tasksAreLowPriority.length; i++){
+    const copyElement = template.cloneNode(true);
+    
+    copyElement.querySelector('.new-text').textContent = tasksAreLowPriority[i].data;
+    copyElement.querySelector('.new-task').id = 'new'+checkboxIdCount;
+    copyElement.querySelector('.new-task-label').htmlFor = 'new'+checkboxIdCount;
+    checkboxIdCount++;
+    if(tasksAreLowPriority[i].status === STATUS.DONE) {
+      copyElement.querySelector('.new-task').checked = true;
+      copyElement.style.background = '#F4F4F4';
+    }
+  const formLow = document.querySelector('.form-low');
+  formLow.after(copyElement);
   }
-  if(progressStr == '') {
-    progressStr = '    -';
-  };
-  console.log(`In Progress:\n    ${progressStr}`);
 
-  let doneStr = '';
-  for(let key in list) {
-    if(list[key] == STATUS.DONE) {
-      doneStr += `${key}\n`;
-    } 
-  }
-  if(doneStr == '') {
-    doneStr = '    -';
-  };
-  console.log(`Done:\n    ${doneStr}`);
+  //Удаление таска из массива
+  const closeTaskBtn = document.querySelectorAll('.close-task');
+  console.log(closeTaskBtn);
+  closeTaskBtn.forEach((closeTaskButton) => {
+    closeTaskButton.addEventListener('click', function deleteTask(event) {
+      const inputText = event.target.nextElementSibling.textContent;
+      const curentTask = arrayTodo.findIndex((element) => element.data === inputText);
+      arrayTodo.splice(curentTask, 1);
+      render();
+    });
+  })
 
-};
+  //Изменение статуса таска при чекпоинте
+  const changeStatus = document.querySelectorAll('.new-task');
+  changeStatus.forEach((checkbox) => {
+    checkbox.addEventListener('click', function(event){
+      if(event.target.checked) {
+        console.log(event.target)
+        event.target.closest('.new-task-wrapper').classList.add('task-checked');
+        console.log(event.target.closest('.new-task-wrapper'));
+        const curentText = event.target.closest('.new-task-wrapper').lastElementChild.textContent;
+        console.log(curentText);
+        const taskIndex = arrayTodo.findIndex((elem) => elem.data === curentText);
+        
+        arrayTodo[taskIndex].status = STATUS.DONE;
+        console.log(arrayTodo);
+        console.log(taskIndex);
+        return;
+      }
 
-addTask('write a post', STATUS.PROGRESS);
-changeStatus('create a new practice task', STATUS.TODO);
-deleteTask("make a bed");
-changeStatus('    make a bad', STATUS.TODO);
-showList();
+      event.target.closest('.new-task-wrapper').classList.remove('task-checked');
+        console.log(event.target.closest('.new-task-wrapper'));
+        const curentText = event.target.closest('.new-task-wrapper').lastElementChild.textContent;
+        console.log(curentText);
+        const taskIndex = arrayTodo.findIndex((elem) => elem.data === curentText);
+        
+        arrayTodo[taskIndex].status = STATUS.DONE;
+        console.log(arrayTodo);
+        console.log(taskIndex);
+    })
+  })
+}
+
+
+
 

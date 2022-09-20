@@ -1,6 +1,3 @@
-let a = document.querySelector("#first-input").value; // присваиваю первое число инпуту
-let b = document.querySelector("#second-input").value; // присваиваю второе число инпуту
-let operation = document.querySelector("#operation").value;
 let result = document.querySelector(".result");
 let lastResults = document.querySelector(".SavesResults");
 
@@ -20,6 +17,10 @@ function saveResult() {
 // сама функция calc
 
 const calc = () => {
+  let a = document.querySelector("#first-input").value; // присваиваю первое число инпуту
+  let b = document.querySelector("#second-input").value; // присваиваю второе число инпуту
+  let operation = document.querySelector("#operation").value;
+
   if (a == "" || b == "") {
     result.textContent = "Вы не ввели число!";
   }

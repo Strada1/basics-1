@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ToDo-o-o-o-o</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="menu" class="menu">
+        <div>
+                <p>HIGH</p>
+                <form id="addTaskForHigh" class="addTask" >
+                    <input type="text" id="TaskNameForHigh" class="TaskNameField" placeholder="Добавить важную задачу..." ><!--value="new task wiht Hight priority"-->
+                    <button type="button" class="plus" value="+"></button>
+                </form>
+                <div id="outputForHigh"></div>
+        </div>
+        <div>
+            <p>LOW</p>
+            <form id="addTaskForLow" class="addTask" >
+                <input type="text" id="TaskNameForLow" class="TaskNameField" placeholder="Добавить важную задачу..." > <!--value="new task with low priority"-->
+                <button type="button" class="plus" value="+"></button>
+            </form>
+            <div id="outputForLow"></div>
+        </div>
+    </div>
+    <script src="logic.js" type="module"></script>
+    <script src="arrays.js" type="module"></script>
+</body>
+</html>

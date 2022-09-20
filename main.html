@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Calculator UI</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+        <div class="formula">
+        <input type= "text" id="firstNumber" class="number" value="5">
+        <select id="choiceOperate">
+            <option>+</option>
+            <option>*</option>
+            <option>-</option>
+            <option>/</option>
+        </select>
+        <input type= "text" id="secondNumber" class="number" value="5">
+        <input type="button" id="button"  value="=" > 
+        <label id="outputWindow">  <!--output--> </label>
+        <input type="button" class="deleteButton" onclick="deleteResult()"  value="clear" > 
+        </div>
+         
+    </div>
+    <script src="calc.js"></script>
+</body>
+</html>

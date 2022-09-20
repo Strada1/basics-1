@@ -102,3 +102,7 @@ input[type="radio"] {
   background-repeat: no-repeat;
   cursor: pointer;
 }
+
+.change-status[input] {
+  background-color: green;
+}

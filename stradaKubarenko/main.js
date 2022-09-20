@@ -14,9 +14,10 @@ const ERROR = {
    HAVE_RESULT : 'Такое значение уже существует',
 }
 
-const LIST = [ { name: 'create a post', status: 'In progress', priority: 'low'  }, 
-{ name: 'test', status: 'Done', priority: 'high'},
-{ name: 'krest', status: 'In progress', priority: 'high'} ] 
+const LIST = [ 
+   { name: 'create a post', status: 'In progress', priority: 'low'  }, 
+   { name: 'test', status: 'Done', priority: 'high'},
+   { name: 'krest', status: 'In progress', priority: 'high'} ] 
 
 function changeStatus(task,status,priority){
    if(LIST.find(item=>item.name === task)){

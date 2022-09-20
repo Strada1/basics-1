@@ -1,0 +1,32 @@
+body {
+    background-color: #1E1E1E;
+}
+
+.main {
+    position: absolute;
+    top: 17%;
+    left: 15%;
+    right: 15%;
+    height: 450px;
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    padding-top: 40px;
+}
+
+.formula {
+    text-align: center;
+}
+.number {
+    box-sizing: border-box;
+    width: 65px;
+    height: 23px;
+}
+
+#outputWindow {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    position: absolute;
+    top: 41px;
+    left: 670px;
+}

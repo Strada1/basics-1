@@ -1,0 +1,53 @@
+*,
+*::after,
+*::before {
+   box-sizing: border-box;
+}
+body,h2,section,ul,li {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+.wrapper {
+  background: #E5E5E5;
+  height: 100vh;
+  padding-top: 200px;
+  font-size: 18px;
+}
+.container {
+   background-color: #fff;
+   width: 476px;
+}
+.box {
+   width: 460px;
+   min-height: 45px;
+   border: 1px solid #989898;
+   border-radius: 6px;
+   padding: 12px 45px;
+   margin-bottom: 8px;
+   font-size: inherit;
+}
+.title {
+   text-align: center;
+   border: none;
+   padding: 12px 0;
+   font-size: inherit;
+}
+.flex {
+   display: flex;
+   flex-direction: column;
+   margin: auto;
+}
+.delete , .plus {
+   position: relative;
+}
+.addButton {
+   position: absolute;
+   top: 25%;
+   right: 10px;
+}
+.delButton {
+   position: absolute;
+   top: 25%;
+   right: 10px;
+}

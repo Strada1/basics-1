@@ -8,9 +8,7 @@ const PRIORITY = {
   LOW: "Low",
 };
 
-const list = [
-
-];
+const list = [];
 
 const formHigh = document.querySelector(".add-task-form-high");
 const formLow = document.querySelector(".add-task-form-low");
@@ -41,7 +39,6 @@ function addTask(nameTask, taskPriority) {
   render();
 }
 
-
 //удаление
 
 function deleteTask(nameTask) {
@@ -52,52 +49,69 @@ function deleteTask(nameTask) {
   render();
 }
 
-
 //поменять статус
 
 function chengeStatus(nameTask) {
-  const statusTask = list.find(function (item) {
+  list.find(function (item) {
     item.name === nameTask;
+    if (item.status === STATUS.TO_DO) {
+      item.status === STATUS.DONE;
+    } else {
+      item.status === STATUS.TO_DO;
+    }
   });
-  nameTask.status = STATUS.DONE
   render();
-};
-
-
+}
 
 //добавление в верстку
 
 function render() {
   const highForm = document.querySelector(".high-task");
   const lowForm = document.querySelector(".low-task");
-  inputHigh.value = ''
-  inputLow.value = ''
-  highForm.innerHTML = ''
-  lowForm.innerHTML = ''
-  list.forEach(function(item) {
-   if (item.priority === PRIORITY.HIGH) {
-    highForm.insertAdjacentHTML('afterbegin', `<div class="high-task-form"> 
-    <input type="radio" class="TasksBoxHigh" id="HighTasks">
+  inputHigh.value = "";
+  inputLow.value = "";
+  highForm.innerHTML = "";
+  lowForm.innerHTML = "";
+  list.forEach(function (item) {
+    if (item.priority === PRIORITY.HIGH) {
+      highForm.insertAdjacentHTML(
+        "afterbegin",
+        `<div class="high-task-form"> 
+    <input type="checkbox" class="TasksBoxHigh" id="HighTasks">
     <span class="tasks-span">${item.name}</span>
     <button class="delete-high">х</button>
-</div>`)
-const deleteHigh = document.querySelector('.delete-high')
-deleteHigh.addEventListener('click', function(){
-deleteTask(item.name);
-})
+</div>`
+      );
+      const deleteHigh = document.querySelector(".delete-high");
+      deleteHigh.addEventListener("click", function () {
+        deleteTask(item.name);
+      });
 
-   } else {
-    lowForm.insertAdjacentHTML('afterbegin', `<div class="low-task-form"> 
-    <input type="radio" class="TasksBoxLow" id="HighTasks">
+      const checkbox = document.querySelector(".TasksBoxHigh");
+      const taskformHigh = document.querySelectorAll(".high-task-form");
+      
+      taskformHigh.forEach((item) => {
+        checkbox.addEventListener("change", function () {
+          if (this.checked) {
+            item.style.backgroundColor = "green";
+          } else {
+            item.style.backgroundColor = "white";
+          }
+        });
+      });
+    } else {
+      lowForm.insertAdjacentHTML(
+        "afterbegin",
+        `<div class="low-task-form"> 
+    <input type="checkbox" class="TasksBoxLow" id="HighTasks">
     <span class="tasks-span">${item.name}</span>
     <button class="delete-low">х</button>
-</div>`)
-const deleteLow = document.querySelector('.delete-low')
-deleteLow.addEventListener('click', function(){
-deleteTask(item.name);
-})
-   }
-  })
+</div>`
+      );
+      const deleteLow = document.querySelector(".delete-low");
+      deleteLow.addEventListener("click", function () {
+        deleteTask(item.name);
+      });
+    }
+  });
 }
-
-

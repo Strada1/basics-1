@@ -1,53 +1,35 @@
-let result = document.querySelector(".result");
-let lastResults = document.querySelector(".SavesResults");
+import { calc } from "./saveResult.js";
 
-// создаю функцию, которая сохраняет результаты и удаляет по нажатию
+let button = document.querySelector(".equal");
 
-function saveResult() {
-  let lastResult = document.createElement("div");
+// function calc() {
+//   let a = +document.querySelector("#first-input").value;
+//   let b = +document.querySelector("#second-input").value;
+//   let operation = document.querySelector("#operation").value;
 
-  lastResult.addEventListener("click", () => {
-    lastResult.remove();
-  });
+//   switch (operation) {
+//     case "+":
+//       result = Number(a + b).toFixed(10);
+//       break;
+//     case "*":
+//       result = Number(a * b).toFixed(10);
+//       break;
+//     case "-":
+//       result = Number(a - b).toFixed(10);
+//       break;
+//     case "/":
+//       result = Number(a / b).toFixed(10);
+//       break;
+//   }
+//   document.querySelector(".result").innerHTML = Number(result);
+// }
 
-  lastResult.textContent = result.textContent;
-  lastResults.append(lastResult);
-}
-
-// сама функция calc
-
-const calc = () => {
-  let a = document.querySelector("#first-input").value; // присваиваю первое число инпуту
-  let b = document.querySelector("#second-input").value; // присваиваю второе число инпуту
-  let operation = document.querySelector("#operation").value;
-
-  if (a == "" || b == "") {
-    result.textContent = "Вы не ввели число!";
-  }
-
-  switch (operation) {
-    case "plus":
-      result.textContent = +Number(+a + +b).toFixed(10);
-      break;
-    case "multiply":
-      result.textContent = +Number(+a * +b).toFixed(10);
-      break;
-    case "mines":
-      result.textContent = +Number(+a - +b).toFixed(10);
-      break;
-    case "divide":
-      result.textContent = +Number(+a / +b).toFixed(10);
-      break;
-    default:
-      alert("Эта операция не поддерживается");
-  }
-
-  console.log(result.textContent);
-};
-
-// обработчик событий с двумя функциями
-
-equal.addEventListener("click", () => {
+button.addEventListener("click", () => {
   calc();
-  saveResult();
+
+  let newDiv = document.createElement("div");
+  newDiv.textContent = Number(result);
+  let lastResults = document.querySelector(".SavesResults");
+  lastResults.append(newDiv);
+  newDiv.addEventListener("click", () => newDiv.remove());
 });

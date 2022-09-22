@@ -1,0 +1,42 @@
+body {
+    background-color: rgb(77, 79, 139);
+    background-image: url(mountains.png);
+    background-size: 100%;
+    margin: 150px;
+}
+
+div {
+    background-color:rgba(179, 171, 198, 0.2);
+    width: 500px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 20px;
+    
+
+}
+
+form {
+    margin-right: 10px;
+}
+
+.addName {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 16px;
+    outline:none;
+}
+
+.button {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #4650d7;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+}

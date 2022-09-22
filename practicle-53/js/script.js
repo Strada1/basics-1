@@ -1,3 +1,5 @@
+import { popupMessage } from '../modules/showMessage/showMessage.js';
+
 const input = document.querySelector('.app__input');
 const form = document.querySelector('.app__form');
 const resultList = document.querySelector('.show-result');
@@ -20,7 +22,7 @@ function getGender(name) {
             createGenderAnswer(result.name, result.gender);
          });
    } catch (error) {
-      alert(`${error.name}: ${error.message}`);
+      popupMessage(error.message, error.name);
    }
 }
 
@@ -38,6 +40,6 @@ function createGenderAnswer(name, gender) {
       p.innerText = `${name} is ${gender}!`;
       resultList.append(p);
    } catch (error) {
-      alert(`${error.name}: ${error.message}`);
+      popupMessage(error.message, error.name);
    }
 }

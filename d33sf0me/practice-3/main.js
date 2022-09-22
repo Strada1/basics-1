@@ -19,31 +19,39 @@ form_low_submit.addEventListener('submit', (event)=> {
 });
 
 const changeStatus = function() {
-    let checkboxes = document.querySelectorAll('.checkbox');
-    checkboxes.forEach(checkbox => checkbox.addEventListener('click', event => {
-        let task_name = event.target.nextElementSibling.textContent;
-        for (let task of allTask) {
-            if (task.name === task_name.trim()) {
-                if (task.status === STATUS.task_undone) {
-                    task.status = STATUS.task_done;
-                } else task.status = STATUS.task_undone;
+    try {
+        let checkboxes = document.querySelectorAll('.checkbox');
+        checkboxes.forEach(checkbox => checkbox.addEventListener('click', event => {
+            let task_name = event.target.nextElementSibling.textContent;
+            for (let task of allTask) {
+                if (task.name === task_name.trim()) {
+                    if (task.status === STATUS.task_undone) {
+                        task.status = STATUS.task_done;
+                    } else task.status = STATUS.task_undone;
+                };
             };
-        };
-        showList();
-    }));
+            showList();
+        }));
+    } catch(err) {
+        alert(`Ошибка: ${err.message}`);
+    }
 };
 
 const deleteTask = function() {
-    let btns_delete = document.querySelectorAll('.btn_delete');
-    btns_delete.forEach(btn_delete => btn_delete.addEventListener('click', event => {
-        let task_name = event.target.previousElementSibling.textContent;
-        for (let i = 0; i < allTask.length; i++) {
-            if (allTask[i].name === task_name.trim()) {
-                allTask.splice(i, 1);
+    try {
+        let btns_delete = document.querySelectorAll('.btn_delete');
+        btns_delete.forEach(btn_delete => btn_delete.addEventListener('click', event => {
+            let task_name = event.target.previousElementSibling.textContent;
+            for (let i = 0; i < allTask.length; i++) {
+                if (allTask[i].name === task_name.trim()) {
+                    allTask.splice(i, 1);
+                };
             };
-        };
-        showList();
-    }));
+            showList();
+        }));
+    } catch(err) {
+        alert(`Ошибка: ${err.message}`);
+    }
 };
 
 showList();

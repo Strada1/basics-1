@@ -20,49 +20,52 @@ const allTask = [
 ];
 
 function showList() {
-
-    let deleteTasks = document.querySelectorAll('.task_undone');
-    deleteTasks.forEach((task) => {
-        task.remove();
-    });
-
-    for (let task of allTask) {
-        if (task.priority === PRIORITY.task_HIGH) {
-            list_high.insertAdjacentHTML('beforeend', 
-        `<li class="task_undone">
-        <label>
-        <input type="checkbox" class="checkbox" ${(task.status == STATUS.task_done) ? 'checked' : ''}>
-             <p class="task_name" name="task">
-             ${task.name}
-             </p>
-        </label>
-        <button class="btn_delete" type="button"></button>
-        </li>`
-            )
+    try {
+        let deleteTasks = document.querySelectorAll('.task_undone');
+        deleteTasks.forEach((task) => {
+            task.remove();
+        });
+    
+        for (let task of allTask) {
+            if (task.priority === PRIORITY.task_HIGH) {
+                list_high.insertAdjacentHTML('beforeend', 
+            `<li class="task_undone">
+            <label>
+            <input type="checkbox" class="checkbox" ${(task.status == STATUS.task_done) ? 'checked' : ''}>
+                 <p class="task_name" name="task">
+                 ${task.name}
+                 </p>
+            </label>
+            <button class="btn_delete" type="button"></button>
+            </li>`
+                )
+            };
         };
-    };
-
-    for (let task of allTask) {
-        if (task.priority === PRIORITY.task_LOW) {
-            list_low.insertAdjacentHTML('beforeend', 
-        `<li class="task_undone">
-        <label>
-        <input type="checkbox" class="checkbox" ${(task.status == STATUS.task_done) ? 'checked' : ''}>
-             <p class="task_name">
-             ${task.name}
-             </p>
-        </label>
-        <button class="btn_delete" type="button"></button>
-        </li>`
-            )
+    
+        for (let task of allTask) {
+            if (task.priority === PRIORITY.task_LOW) {
+                list_low.insertAdjacentHTML('beforeend', 
+            `<li class="task_undone">
+            <label>
+            <input type="checkbox" class="checkbox" ${(task.status == STATUS.task_done) ? 'checked' : ''}>
+                 <p class="task_name">
+                 ${task.name}
+                 </p>
+            </label>
+            <button class="btn_delete" type="button"></button>
+            </li>`
+                )
+            };
         };
-    };
-
-    for (let task of document.querySelectorAll('input[type=checkbox]')) {
-        if (task.checked) {
-            let li = task.parentNode.parentNode;
-            li.classList.add('status_done');
+    
+        for (let task of document.querySelectorAll('input[type=checkbox]')) {
+            if (task.checked) {
+                let li = task.parentNode.parentNode;
+                li.classList.add('status_done');
+            }
         }
+    } catch(err) {
+        alert(`Ошибка: ${err.message}`);
     }
     deleteTask()
     changeStatus();

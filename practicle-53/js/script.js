@@ -15,7 +15,7 @@ function getGender(name) {
       if (!name.trim()) {
          throw new Error('Укажите имя!');
       }
-      const url = finalUrl(name);
+      const url = finalUrl(name.trim());
       const resultGender = fetch(url);
       resultGender.then(result => result.json())
          .then(result => {

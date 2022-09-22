@@ -4,7 +4,7 @@ const formSubmit = document.getElementById('formSubmit')
 
 formSubmit.addEventListener("submit", getGender)
 
-function getGender(event) {
+async function getGender(event) {
 	try {
 		event.preventDefault();
 
@@ -12,9 +12,9 @@ function getGender(event) {
 		const serverUrl = 'https://api.genderize.io';
 		const url = `${serverUrl}?name=${firstName}`;
 
-		let response = fetch(url);
-		let json = response.json();
-		console.log(json)
+		let response = await fetch(url);
+		let json = await response.json();
+		alert(`${firstName} is ${json.gender}`)
 		
 		formSubmit.reset()
 

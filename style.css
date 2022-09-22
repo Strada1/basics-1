@@ -1,0 +1,48 @@
+body,
+input,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #7C609F;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.gender {
+  width: 340px;
+  height: 500px;
+  border-radius: 20px;
+  margin: 0 auto;
+  background-color: #cbcbcb;
+  box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.25);
+}
+
+.gender__inner{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gender__form{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.gender__input{
+  margin-bottom: 20px;
+  height: 40px;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+
+.gender__button{
+  height: 25px;
+  border-radius: 10px;
+}
+

@@ -1,16 +1,25 @@
+
+
 .form-wrap {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-content: center;
-	margin-top: 100px;
-	margin: 0 auto;
+	margin: 150px auto 0 auto;
+
+	background-color: rgba(220, 220, 220, 0.1);
+	
 
 	border: 1px solid rgb(234, 234, 234);
 	border-radius: 20px;
+	box-shadow: 2px 2px 15px grey;
 
 	width: 500px;
 	height: 200px;
+
+	
+	z-index: 1;
+
 }
 
 .profile {
@@ -28,6 +37,7 @@ form {
 	display: flex;
 	flex-direction: column;
 
+
 	gap: 10px;
 }
 
@@ -36,6 +46,7 @@ label {
 }
 
 input {
+	height: 20px;
 	margin-left: 10px;
 	border: solid 1px grey;
 	border-radius: 5px;
@@ -48,12 +59,15 @@ button {
 
 	cursor: pointer;
 
-	background-color: rgb(212, 255, 255);
+	background-color: rgb(249, 249, 249);
 
 	border: 1px solid;
 	border-radius: 5px;
 }
 
-button:hover {
-	opacity: 0.8;
+button:hover,
+button:focus {
+	transition: all 0.4s ease-out;
+	color: white;
+	background-color: rgb(175, 175, 175);
 }

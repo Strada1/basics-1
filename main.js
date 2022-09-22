@@ -12,12 +12,12 @@ function getGender(event) {
 		const serverUrl = 'https://api.genderize.io';
 		const url = `${serverUrl}?name=${firstName}`;
 
-		let response = fetch(url);
-		let json = response.json();
-
-		console.log(json)
+		let response =fetch(url);
 		
-		// console.log (`response:\n ${response}`)
+		console.log (`response:\n ${response}`)
+		console.log (typeof response)
+		console.log (response.gender)
+
 		formSubmit.reset()
 
 	} catch(error) {

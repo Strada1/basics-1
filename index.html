@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Get gender by name.</title>
+</head>
+
+<body>
+    <form action="" name="mainForm" class="row col-md-4 border border-primary mx-auto p-5 mt-5">
+        <legend>Get gender by name.</legend>
+        <div class="col-auto offset-md-2">
+            <span class="form-text">
+                Enter the name.
+            </span>
+        </div>
+        <div class="row g-2 align-items-center" id="">
+            <div class="col-md-2">
+                <label for="inputName" class="col-form-label">Name</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" id="inputName" class="form-control" value="artem">
+            </div>
+        </div>
+        <div class="row g-2 align-items-center">
+            <div class="col-md-2">
+                <label for="giveGender" class="col-form-label">Gender</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" id="giveGender" class="form-control">
+            </div>
+            <div class="col-auto">
+                <input type="submit" class="btn btn-primary" value="Go" onclick="takeGender();return false;">
+            </div>
+        </div>
+    </form>
+    <script src="./script.js"></script>
+</body>
+
+</html>

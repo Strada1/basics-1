@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  line-height: 21px;
+  background-color: #d9d9d9;
+}
+
+button {
+  cursor: pointer;
+}
+.container {
+  text-align: center;
+  margin: 0 auto;
+  width: 1200px;
+}
+.userInput {
+  text-align: center;
+}
+.default {
+  text-align: center;
+}
+
+.userInput {
+  outline: none;
+}

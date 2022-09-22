@@ -1,0 +1,73 @@
+
+
+.form-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	margin: 150px auto 0 auto;
+
+	background-color: rgba(220, 220, 220, 0.1);
+	
+
+	border: 1px solid rgb(234, 234, 234);
+	border-radius: 20px;
+	box-shadow: 2px 2px 15px grey;
+
+	width: 500px;
+	height: 200px;
+
+	
+	z-index: 1;
+
+}
+
+.profile {
+	width: 128px;
+	margin: 0;
+}
+
+img {
+	margin-left: 30px;
+	width: 50%;
+	height: auto;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+
+
+	gap: 10px;
+}
+
+label {
+	margin-top: 20px;
+}
+
+input {
+	height: 20px;
+	margin-left: 10px;
+	border: solid 1px grey;
+	border-radius: 5px;
+}
+
+button {
+	width: 100px;
+	height: 25px;
+	margin-top: 70px;
+
+	cursor: pointer;
+
+	background-color: rgb(249, 249, 249);
+
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+button:hover,
+button:focus {
+	transition: all 0.4s ease-out;
+	color: white;
+	background-color: rgb(175, 175, 175);
+}

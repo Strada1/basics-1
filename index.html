@@ -5,38 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Calculator UI</title>
+    <title>TODO UI</title>
 </head>
 <body>
     <header class="header"></header>
     <div class="main">
-        <div class="container calc__container">
-            <div class="calc__row">
-                <input type="number" class="calc__number-input" id="a" value="5" />
-                <select class="hov-act operator-select" name="calc-operator" id="operator">
-                    <option value="+" name="add">+</option>
-                    <option value="-" name="subtrack">-</option>
-                    <option value="*" name="multiple">*</option>
-                    <option value="/" name="divide">/</option>
-                </select>
-                <input type="number" class="calc__number-input" id="b" value="5" />
-                <button class="btn hov-act equal-btn">=</button>
-                <span class="answer">10</span>
-            </div>
-            <div class="history">
-                <h3 class="title">History ...</h3>
-                <div class="history__list">
-                    <ul class="list">
-                        <li class="list__item">23</li>
-                        <li class="list__item">253</li>
-                    </ul>
+        <div class="container">
+            <section class="high section">
+                <h3 class="section__title title">high</h3>
+                <div class="add-task-div">
+                    <input type="text" class="task-add-input" placeholder="Добавить важное дело" />
+                    <button class="add-task-button button">
+                        <img src="./img/cross-icon.svg" alt="+" class="add-task-img" />
+                    </button>
                 </div>
-            </div>
+                <!-- place for content -->
+            </section>
+            <section class="medium section">
+                <h3 class="section__title title">medium</h3>
+                <div class="add-task-div">
+                    <input type="text" class="task-add-input" placeholder="Добавить дело средней важности" />
+                    <button class="add-task-button button">
+                        <img src="./img/cross-icon.svg" alt="+" class="add-task-img" />
+                    </button>
+                </div>
+                <!-- place for content -->
+            </section>
+            <section class="low section">
+                <h3 class="section__title title">low</h3>
+                <div class="add-task-div">
+                    <input type="text" class="task-add-input" placeholder="Добавить неважное дело" />
+                    <button class="add-task-button button">
+                        <img src="./img/cross-icon.svg" alt="+" class="add-task-img" />
+                    </button>
+                </div>
+                <!-- <div class="task-div">
+                    <input type="checkbox" id="task-4" class="task-checkbox">
+                    <label for="task-4" class="task-label">
+                        <p class="task__name">Посмотреть ютубчик</p>
+                    </label>
+                    <button class="finish-task-button button">
+                        <img src="./img/cross-icon.svg" alt="x" class="finish-task-img" />
+                    </button>
+                </div> -->
+            </section>
         </div>
+    </div>
+    
     <footer class="footer"></footer>
-    <script src="./js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/sayHi.js"></script>
 </body>
 </html>

@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: large;
+}
+
+.container {
+    margin: 100px auto;
+    max-width: 450px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form {
+    width: 330px;
+    display: flex;
+    gap: 30px;
+    align-items: center;    
+}
+
+.name__input {
+    padding: 12px 30px 12px 12px;
+    width: 200px;
+    border: 1px solid #989898;
+    border-radius: 6px;
+}
+
+.submit {
+    height: 50px;
+    width: 100px;
+    border: 1px solid #989898;
+    border-radius: 6px;
+}
+
+.answer {
+    margin-left: 30px;
+}

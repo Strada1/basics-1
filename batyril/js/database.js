@@ -14,7 +14,12 @@ export const DB_TASKS = [{ task: 'did to do', status: 'In Progress', priority: '
   { task: 'jump', status: 'In Progress', priority: 'high' },
   { task: 'read', status: 'In Progress', priority: 'low' }];
 
-export function addTaskDB(db, task, priority = TASK_PRIORITY.LOW, status = TASK_STATUS.IN_PROGRESS) {
+export function addTaskDB(
+  db,
+  task,
+  priority = TASK_PRIORITY.LOW,
+  status = TASK_STATUS.IN_PROGRESS,
+) {
   db.push({ task, status, priority });
 }
 

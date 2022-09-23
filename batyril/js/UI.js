@@ -17,6 +17,7 @@ export function addTaskUI(text, list, status = 'In Progress') {
   const statusCheckbox = status === 'In Progress' ? "" : 'checked="checked"';
   const statusClass = status === 'In Progress' ? "" : 'task-block_done';
   const statusPlace = status === 'In Progress' ? 'afterbegin' : 'beforeend';
+  //TODO: переделать из за безопасности
   list.insertAdjacentHTML(statusPlace, `
        <div class="to-do__task-block  task-block ${statusClass} ">
           <label class="task-block__label">
@@ -28,6 +29,7 @@ export function addTaskUI(text, list, status = 'In Progress') {
 }
 
 export function renderingDbTask(db, lowList = ELEMENTS_UI.TASK_LIST_LOW, highList = ELEMENTS_UI.TASK_LIST_HIGH) {
+  //TODO: переделать из за безопасности
   lowList.innerHTML = '';
   highList.innerHTML = '';
   db.forEach((task) => {

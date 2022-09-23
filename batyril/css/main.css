@@ -1,0 +1,44 @@
+*{
+    font-family: 'Roboto', sans-serif;
+
+}
+.genderize{
+    transition: all 1s;
+    background: linear-gradient(90deg, rgba(180,58,123,1) 0%, rgba(253,29,29,0.34409219009869574) 50%, rgba(69,112,252,1) 100%);
+    gap: 15px;
+    flex-direction: column;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.genderize__form{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.genderize__title{
+    font-weight: normal;
+    font-size: 40px;
+}
+
+.genderize__input{
+    text-align: center;
+    font-size: 20px;
+    border-radius: 15px;
+    border: none;
+    height: 40px;
+    width: 300px;
+}
+.genderize__button{
+    font-size: 20px;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    height: 40px;
+    width: 40px;
+}

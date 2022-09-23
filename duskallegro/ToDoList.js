@@ -1,4 +1,6 @@
 const list = {
+    obligatory: ["Todo", "In Progress", "Done"],
+
     changeStatus: function(task, progress)  {
         if (this.hasTask(task))  {
             this[task] = progress;
@@ -36,9 +38,12 @@ const list = {
             }
         }
 
-        if (!printed.includes("Done"))  {
-            this.showTasks("Done");
-        }
+        this.obligatory.forEach((o) =>  {
+           if (!printed.includes(o))  {
+               console.log(o + ":");
+               console.log("   -");
+           }
+        });
     },
     showTasks: function(progress)  {
         console.log(progress + ":");

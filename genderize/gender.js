@@ -1,10 +1,8 @@
 const inputName = document.querySelector('.input-name')
-const buttonGender = document.querySelector('.button-gender');
+const genderForm = document.querySelector('.gender-form');
 
 
-
-
-buttonGender.addEventListener('submit', gender);
+genderForm.addEventListener('submit', gender);
 function gender(event) {
     event.preventDefault();
  const firstName = inputName.value

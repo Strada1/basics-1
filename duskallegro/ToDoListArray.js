@@ -1,9 +1,22 @@
-// Task 19
+// Task 26
 
 const list = {
     obligatory: ["Todo", "In Progress", "Done"],
     tasks: [],
     countTasks: 0,
+
+    changePriority: function (task, priority) {
+      if (this.hasTask(task))  {
+          for (let i = 0; i < this.tasks.length; i++) {
+              if (this.tasks[i].name === task)  {
+                  this.tasks[i].priority = priority;
+                  return true;
+              }
+          }
+      }
+
+      return false;
+    },
 
     changeStatus: function(task, progress)  {
         let result = false;
@@ -60,7 +73,7 @@ const list = {
         console.log(progress + ":");
         for (const task of this.tasks)  {
             if (task.status === progress)  {
-                console.log("   \"" + task.name + "\"" + ",");
+                console.log("   \"" + task.name + ` (${task.priority})` + "\"" + ",");
             }
         }
     },
@@ -95,5 +108,9 @@ list.showList();
 console.log("--------------------");
 
 list.deleteTask("write a post");
+list.showList();
+console.log("--------------------");
+
+list.changePriority("make a bed", "high");
 list.showList();
 console.log("--------------------");

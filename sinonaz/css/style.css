@@ -104,3 +104,31 @@
 .todo__button--remove::after {
   transform: rotate(-45deg);
 }
+
+.calculator {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  gap: 8px;
+}
+
+.calculator__label {
+  display: flex;
+  max-width: 95px;
+}
+
+.calculator__input {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+}
+
+.calculator__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

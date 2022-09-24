@@ -30,7 +30,7 @@ const list = {
     showList: function()  {
         let printed = [];
         for (const [key, value] of Object.entries(this))  {
-            if (value instanceof Function)  {
+            if (value instanceof Function || Array.isArray(value))  {
                 continue;
             }
 

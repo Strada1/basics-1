@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <form class="search__form">
+            <input class="search__form-input" type="text" placeholder="Aktobe">
+            <input type="image" src="./image/search-btn.svg" class="search__form-button">
+        </form>
+        <div class="content">
+            <div class="forecast">
+                <div class="tabs__body">
+                    <div id="now" class="tabs__item"></div>
+                    <div id="details" class="tabs__item"></div>
+                    <div id="forecast" class="tabs__item"></div>
+                </div>
+                <nav class="tabs__nav">
+                    <a href="#now" class="tabs__nav-item"><span>Now</span></a>
+                    <a href="#details" class="tabs__nav-item"><span>Details</span></a>
+                    <a href="#forecast" class="tabs__nav-item"><span>Forecast</span></a>
+                </nav>
+            </div>
+            <div class="locations"></div>
+        </div>
+    </div>
+</body>
+</html>

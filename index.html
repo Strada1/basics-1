@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="weather">
+    <div class="container">
+      <div class="weather__inner">
+        <div class="weather__search">
+          <form class="weather__search-form" action="">
+            <input class="weather__search-input" type="text" placeholder="Aktobe">
+            <button class="weather__search-button"></button>
+          </form>
+        </div>
+        <div class="weather__content">
+          
+          <div class="weather__block">
+            <div class="weather__tabs-block">
+              <div class="tabs__block" id="tab_01">
+               <div class="tabs__block-temperature">14&deg</div>
+               <div class="tabs__block-icon">
+                <img src="cloud-icon.png" alt="cloud icon" class="tabs__block-img">
+               </div>
+               
+               <div class="tabs__block-footer">
+                <h4 class="tabs__block-city">Aktobe</h4>
+                <button class="tabs__block-button"></button>
+               </div>
+              </div>
+              <div class="tabs__block" id="tab_02">
+                <h4 class="tabs__block-title">
+                  Aktobe
+                </h4>
+                <ul class="tabs__block-list">
+                  <li class="tabs__block-list-item">
+                    Temperature: <span>14&deg</span>
+                  </li>
+                  <li class="tabs__block-list-item">
+                    Feels like: <span>10&deg</span>
+                  </li>
+                  <li class="tabs__block-list-item">
+                    Weather: <span>Clouds</span>
+                  </li>
+                  <li class="tabs__block-list-item">
+                    Sunrise: <span>03:21</span>
+                  </li>
+                  <li class="tabs__block-list-item">
+                    Sunset: <span>18:54</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="tabs__block" id="tab_03">
+                <h4 class="tabs__block-title">
+                  Aktobe
+                </h4>
+                <div class="tabs__boxes">
+                  <div class="tabs__box">
+                  <div class="tabs__box-top">
+                    <p class="tabs__box-date">17 May</p>
+                    <p class="tabs__box-time">12:00</p>
+                  </div>
+                  <div class="tabs__box-bottom">
+                    <div class="tabs__box-temperature">
+                      <p class="tabs__box-temp">
+                        Temperature: <span>13&deg</span>
+                      </p>
+                      <p class="tabs__box-feel">
+                        Feels like: <span>10&deg</span>
+                      </p>
+                    </div>
+                    <p class="tabs__box-sky">Rain</p>
+                  </div>
+                </div>
+                  <div class="tabs__box">
+                  <div class="tabs__box-top">
+                    <p class="tabs__box-date">17 May</p>
+                    <p class="tabs__box-time">12:00</p>
+                  </div>
+                  <div class="tabs__box-bottom">
+                    <div class="tabs__box-temperature">
+                      <p class="tabs__box-temp">
+                        Temperature: <span>13&deg</span>
+                      </p>
+                      <p class="tabs__box-feel">
+                        Feels like: <span>10&deg</span>
+                      </p>
+                    </div>
+                    <p class="tabs__box-sky">Rain</p>
+                  </div>
+                </div>
+                  <div class="tabs__box">
+                  <div class="tabs__box-top">
+                    <p class="tabs__box-date">17 May</p>
+                    <p class="tabs__box-time">12:00</p>
+                  </div>
+                  <div class="tabs__box-bottom">
+                    <div class="tabs__box-temperature">
+                      <p class="tabs__box-temp">
+                        Temperature: <span>13&deg</span>
+                      </p>
+                      <p class="tabs__box-feel">
+                        Feels like: <span>10&deg</span>
+                      </p>
+                    </div>
+                    <p class="tabs__box-sky">Rain</p>
+                  </div>
+                </div>
+                </div>
+                
+              </div>
+            </div>
+
+            <nav class="tabs__items">
+              <a onclick="activeTab(event)" href="#tab_01" class="tabs__item">Now</a>
+              <a onclick="activeTab(event)" href="#tab_02" class="tabs__item">Details</a>
+              <a onclick="activeTab(event)" href="#tab_03" class="tabs__item">Forecast</a>
+            </nav>
+          </div>
+
+          <div class="weather__block">
+            <h3 class="weather__block-title">
+              Added Locations:
+            </h3>
+            <div class="weather__cities">
+              <ul class="weather__cities-list">
+                <li class="weather__city">
+                  <button class="weather__city-button">
+                    Amur
+                  </button>
+                </li>
+                <li class="weather__city">
+                  <button class="weather__city-button">
+                    Samara
+                  </button>
+                </li>
+                <li class="weather__city">
+                  <button class="weather__city-button">
+                    Bali
+                  </button>
+                </li>
+                <li class="weather__city">
+                  <button class="weather__city-button">
+                    Dane
+                  </button>
+                </li>
+                <li class="weather__city">
+                  <button class="weather__city-button">
+                    Kilo
+                  </button>
+                </li>
+                <li class="weather__city">
+                  <button class="weather__city-button">
+                    Nur-Sultan
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

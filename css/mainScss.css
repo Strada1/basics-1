@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto&display=swap");
 .wrapper {
-  display: flex;
-  justify-content: center;
-  font-family: Roboto;
+  font-size: 24px;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 21.09px;
+  line-height: 1.2;
+}
+.wrapper a {
+  text-decoration: none;
+  color: #000;
 }
 
 * {
@@ -13,94 +13,146 @@
 }
 
 .container {
-  padding: 8px;
-  max-width: 480px;
+  margin: 0 auto;
+  padding-top: 100px;
+  max-width: 590px;
 }
 
-.block-priority__input {
-  border: 1px solid #989898;
-  border-radius: 6px;
-  height: 45px;
-  margin-bottom: 8px;
+.title {
   position: relative;
 }
-.block-priority__input input {
-  padding-left: 12px;
-  border: 1px solid #989898;
-  border-radius: 6px;
-  height: 45px;
+.title__input {
+  box-sizing: border-box;
+  padding-left: 10px;
   width: 100%;
-  padding-right: 40px;
+  height: 40px;
+  border: 1px solid #000000;
 }
-.block-priority .input-priority__add {
-  padding: 0;
-  border: 0;
-  top: 22px;
-  right: 32px;
+.title__button {
   position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(0, -40%);
 }
-.block-priority .input-priority__add::before {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 1px;
-  background-color: #998899;
-  transform: rotate(0deg);
-}
-.block-priority .input-priority__add::after {
-  content: "";
-  width: 20px;
-  height: 1px;
-  background-color: #998899;
-  position: absolute;
-  transform: rotate(90deg);
-}
-.block-priority__title {
-  text-align: center;
-  margin-bottom: 12px;
-}
-.checkbox .done {
-  background-color: rgba(0, 0, 0, 0.2);
-  text-decoration: line-through;
-}
-.checkbox__task {
-  margin-bottom: 8px;
+
+.main {
   display: flex;
-  gap: 15px;
-  border: 1px solid #989898;
-  border-radius: 6px;
-  padding: 12px 45px;
+}
+
+.now:target {
+  display: block;
+}
+
+.details:target {
+  display: block;
+}
+
+.forecast:target {
+  display: block;
+}
+
+.now {
+  display: none;
+  height: 350px;
+  width: 300px;
+}
+.now__container {
+  border: 1px solid #000000;
   position: relative;
-  max-width: 460px;
+  padding: 20px;
 }
-.checkbox__input {
-  margin-left: -20px;
+.now__degrees {
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 1.2;
+  margin-bottom: 40px;
 }
-.checkbox__close {
+.now__icon {
+  max-width: 78px;
+  margin: 0 auto;
+  margin-bottom: 98px;
+}
+.now__city {
+  font-size: 24px;
+  line-height: 1.2;
+}
+.now__favorite {
   position: absolute;
-  top: 0px;
-  right: 0;
-  width: 30px;
-  height: 45px;
-  z-index: 22;
+  bottom: 20px;
+  right: 26px;
 }
-.checkbox__close::before {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 1px;
-  top: 22px;
-  right: 12px;
-  background-color: #998899;
-  transform: rotate(45deg);
+
+.details {
+  height: 350px;
+  display: none;
+  border: 1px solid #000000;
+  padding: 10px;
 }
-.checkbox__close::after {
-  content: "";
-  width: 20px;
-  height: 1px;
-  background-color: #998899;
-  position: absolute;
-  top: 22px;
-  right: 12px;
-  transform: rotate(-45deg);
+.forecast {
+  display: none;
+  height: 350px;
+  overflow: scroll;
+  overflow: scroll;
+  border: 1px solid #000000;
+}
+.forecast__city {
+  padding: 10px 0 0 18px;
+}
+.forecast__block {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.time {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+.date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sky {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #000;
+}
+.tabs__item {
+  padding: 12px 16px;
+  border-right: 1px solid #000000;
+}
+.tabs__item:first-child {
+  border-left: 1px solid #000000;
+}
+.tabs__item:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.locations {
+  height: 404px;
+  overflow: scroll;
+  width: 300px;
+  border: 1px solid #000000;
+  border-left: none;
+}
+.locations__title {
+  border-bottom: 1px solid #000000;
+  padding: 33px 98px 7px 18px;
+}
+
+.list {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow: scroll;
 }/*# sourceMappingURL=mainScss.css.map */

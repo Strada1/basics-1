@@ -12,42 +12,31 @@
       <div class="container flex">
          <section class="flex">
             <h2 class="title">HIGH</h2>
-            <form action="" class="flex" id="add_task_high">
+            <form action="" id="form_high">
                <div class="plus" >
-                  <input type="text" class="box clear" placeholder="Добавить важных дел" id="textInputHigh">
+                  <input type="text" class="box clearHigh" placeholder="Добавить важных дел" id="textInputHigh">
                   <button type="submit" class="addButton" >+</button>
                </div>
             </form>
                <ul class="flex" id="listHigh">
-                  <li class="box delete">
-                     <label>
-                        <input type="checkbox">
-                        Сверстать этот TODO list
-                        <button type="submit" class="delButton">del</button>
-                     </label>
-                  </li>
+ 
                </ul>
          </section>
          <section class="flex">
             <h2 class="title">LOW</h2>
-            <form action="" id="add_task_low">
+            <form action="" id="form_low">
                <div class="plus">
-                  <input type="text" class="box" placeholder="Добавить" id="textInputLow">
+                  <input type="text" class="box clearLow" placeholder="Добавить" id="textInputLow">
                   <button type="submit" class="addButton"  >+</button>
                </div>
                <ul class="flex" id="listLow">
-                  <li class="box delete">
-                     <label>
-                        <input type="checkbox">
-                        Посмотреть ютубчик
-                        <button type="submit" class="delButton">del</button>
-                     </label>
-                  </li>
+
                </ul>
             </form>
          </section>
       </div>
    </div>
-   <script src="main.js"></script>
+   <script src="todo.js"></script>
+   
 </body>
 </html>

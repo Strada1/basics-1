@@ -1,0 +1,43 @@
+.container {
+    width: 600px;
+    height: 440px;
+    background-color: rgb(223, 236, 250);
+    margin: auto;
+    margin-top: 400px;
+    box-shadow: 0 0 10px;
+    border-radius: 5px;
+}
+
+input[type=text]::placeholder { 
+    color:rgb(196, 196, 196);
+    font-family: Trebuchet MS, sans-serif;
+    font-size: 20px;
+    line-height: 21px;
+    text-indent: 15px;
+}
+
+input[type=text] {
+    font-family: Trebuchet MS, sans-serif;
+    font-size: 20px;
+    outline:none;
+    border: none;
+
+    text-indent: 15px;
+    background-color: rgb(223, 236, 250);
+}
+ 
+ul{ 
+    margin-top: -5px;
+    padding: 0;
+}
+
+li {
+    border: 2px solid #0f0b0b;
+    border-radius: 5px;
+    display: flex;
+    padding: 10px;
+    margin-top:5px;
+    width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}

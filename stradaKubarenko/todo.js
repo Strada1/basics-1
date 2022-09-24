@@ -54,9 +54,12 @@ function addTaskLow() {
   render(event);
 }
 
-function deleteTask() {
+const deleteButton = document.querySelectorAll('.delButton');
+
+
+function deleteTask(event) {
    try {
-      let objIndex = LIST.findIndex (obj => obj.task === ? );
+      let objIndex = LIST.findIndex (obj => obj.task === );
       LIST.splice(objIndex,1);
       render();
    }catch(err) {
@@ -77,7 +80,7 @@ function render(event) {
             <label>
             <input type="checkbox">
             <span>${item.task}</span>
-            <button type="submit" onclick="deleteTask()" class="delButton">del</button>
+            <button type="submit" class="delButton">del</button>
             </label>
          </li>`);
       document.querySelector('.clearHigh').value = '';
@@ -88,7 +91,7 @@ function render(event) {
             <label>
             <input type="checkbox">
             <span>${item.task}</span>
-            <button type="submit" onclick="deleteTask()" class="delButton">del</button>
+            <button type="submit" class="delButton">del</button>
             </label>
          </li>`);
          document.querySelector('.clearLow').value = '';

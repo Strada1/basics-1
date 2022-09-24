@@ -11,6 +11,6 @@ function gender(event) {
 const serverUrl = 'https://api.genderize.io';
 const url = `${serverUrl}?name=${firstName}`;
 const response = fetch(url);
-result = response.json()
-alert(`${firstName.value} is ${result.gender}`)
+const result = response.json()
+alert(`${firstName} is ${result.gender}`)
 }

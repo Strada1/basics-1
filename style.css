@@ -232,6 +232,31 @@ ul {
     padding: 35px 10px 35px 18px;
 }
 
+.added__locations-list {
+    height: 255px;
+    overflow-y: auto;
+}
+
+.added__locations-list::-webkit-scrollbar {
+    width: 12px;
+    /* ширина всей полосы прокрутки */
+}
+
+.added__locations-list::-webkit-scrollbar-track {
+    background-color: #b6b6b6;
+    border-radius: 6px;
+    /* цвет зоны отслеживания */
+}
+
+.added__locations-list::-webkit-scrollbar-thumb {
+    background-color: #696969;
+    /* цвет бегунка */
+    border-radius: 20px;
+    /* округлось бегунка */
+    /* border: 3px solid orange; */
+    /* отступ вокруг бегунка */
+}
+
 .list__item {
     margin-bottom: 15px;
 }

@@ -2,14 +2,12 @@
     margin: 0;
     padding: 0;
     background-color: #b2b2b2;
-
-
 }
 
 .form-input{
     text-align: center;
     justify-content: center;
-    width: 300px;
+    /*width: 300px;*/
     width: 100%;
     margin-top: 50vh;
 

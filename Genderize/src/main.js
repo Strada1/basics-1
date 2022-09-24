@@ -10,7 +10,7 @@ function send_Request(event){
 
     fetch(url)
         .then((response) => response.json())
-        .then((commits) => (  console.log(`${firstName.value} is ${commits.gender}`) ));
+        .then((commits) => (  alert(`${firstName.value} is ${commits.gender}`) ));
 
 }
 

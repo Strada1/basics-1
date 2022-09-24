@@ -56,8 +56,7 @@ function addTaskLow() {
 }
 
 function deleteTask(event) {
-   let elem = elem.parentNode.innerText;
-   alert(elem)
+   let elem = event.target.parentNode.innerText;
    if (LIST.find(item=>item.task === elem)){
    let obj = LIST.findIndex (item =>item.task === elem);
    LIST.splice(obj,1);

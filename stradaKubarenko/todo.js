@@ -1,6 +1,5 @@
 const STATUS = {
    TO_DO : 'To do',
-   // IN_PROGRESS : 'In progress',
    DONE : 'Done',
 }
 const PRIORITY = {
@@ -55,14 +54,16 @@ function addTaskLow() {
   render(event);
 }
 
-function deleteTask(event) {
-   let elem = event.target.parentNode.innerText;
-   if (LIST.find(item=>item.task === elem)){
-   let obj = LIST.findIndex (item =>item.task === elem);
-   LIST.splice(obj,1);
-   } else {alert(ERROR['NO_RESULT'])}
-   render(event);
+function deleteTask() {
+   try {
+      let objIndex = LIST.findIndex (obj => obj.task === ? );
+      LIST.splice(objIndex,1);
+      render();
+   }catch(err) {
+      alert(err.stack);
+   }
 }
+
 
 function render(event) {
    event.preventDefault();
@@ -80,20 +81,18 @@ function render(event) {
             </label>
          </li>`);
       document.querySelector('.clearHigh').value = '';
-      } else if (item.priority === PRIORITY.LOW) {
+      } else if (item.priority === PRIORITY.LOW && item.status === STATUS.TO_DO) {
          // let textLowPriority = elements.TEXT_INPUT_LOW.value;
          elements.UL_LOW.insertAdjacentHTML("afterbegin", `
          <li class="box delete"> 
             <label>
             <input type="checkbox">
             <span>${item.task}</span>
-            <button type="submit" class="delButton">del</button>
+            <button type="submit" onclick="deleteTask()" class="delButton">del</button>
             </label>
          </li>`);
          document.querySelector('.clearLow').value = '';
-        } else if(item.status === STATUS.DONE) {
-         this.remove()
-        }
+        } 
    });
    console.log(LIST);
 }

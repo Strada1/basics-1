@@ -1,0 +1,255 @@
+/* default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 24px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.app {
+  width: 621px;
+  height: 462px;
+}
+
+/* grid */
+
+.grid-container {
+  width: 600px;
+  height: 435px;
+  border: 1px solid black;
+  margin: 14px 9px 13px 12px;
+
+  display: grid;
+  grid-template-rows: 1fr 4fr 4fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0px;
+}
+
+.search {
+  /* background-color: #386641; */
+  border-bottom: 1px solid black;
+  grid-row-start: 1;
+  grid-column-start: 1;
+
+  grid-row-end: 2;
+  grid-column-end: 5;
+}
+
+/* left side */
+/* Now tab, Details tab and Forecast */
+.now,
+.details,
+.forecast {
+  /* background-color: #6a994e; */
+  /* border: 1px solid black; */
+  grid-row-start: 2;
+  grid-column-start: 1;
+
+  grid-row-end: 4;
+  grid-column-end: 3;
+}
+
+/* Tabs list */
+.tabs {
+  /* background-color: #c9c5c9; */
+  border-top: 1px solid black;
+  grid-row-start: 4;
+  grid-column-start: 1;
+
+  grid-row-end: 5;
+  grid-column-end: 3;
+}
+
+/* right side*/
+
+.locations {
+  /* background-color: #56d8ab; */
+  border-left: 1px solid black;
+  grid-row-start: 2;
+  grid-column-start: 3;
+
+  grid-row-end: 5;
+  grid-column-end: 5;
+}
+
+/* styling search */
+
+.search {
+  position: relative;
+}
+
+.search__input {
+  font-size: 18px;
+  width: 100%;
+  border: none;
+
+  padding: 11px 16px;
+
+  background-color: #eee;
+}
+
+.search__icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 11px;
+  right: 20px;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+/* styling Now tab */
+
+.now {
+  background-image: url('./img/cloud.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.now__temperature {
+  display: inline-block;
+  padding: 20px 35px;
+  font-size: 70px;
+}
+
+.now__city {
+  height: 215px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.now__city-name {
+  margin: 10px;
+}
+
+.now__icon--like {
+  margin: 10px 25px;
+  cursor: pointer;
+}
+
+/* styling tabs list */
+
+.tabs-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-item {
+  font-size: 18px;
+  padding: 10px 15px;
+  width: 100%;
+  text-align: center;
+  border-right: 1px solid black;
+  cursor: pointer;
+}
+
+.tab-item:last-child {
+  border: none;
+}
+
+.tab-item--current {
+  background-color: black;
+  color: white;
+}
+
+/* styling locations */
+
+.added-locations {
+  min-height: 50px;
+  border-bottom: 1px solid black;
+}
+
+.added-locations--text {
+  display: inline-block;
+  padding: 30px 45px 10px 10px;
+}
+
+.locations-list {
+  padding-top: 15px;
+}
+
+.location-item {
+  padding: 8px 15px;
+}
+
+/* styling Details tab */
+
+.details__city {
+  min-height: 50px;
+}
+
+.details__city-name {
+  display: inline-block;
+  padding: 30px 45px 10px 10px;
+}
+
+.details-list {
+  padding-top: 15px;
+}
+
+.detail-item {
+  padding: 8px 9px;
+}
+
+/* styling Forecast tab */
+.forecast {
+  overflow: hidden;
+}
+
+.forecast span {
+  font-size: 18px;
+}
+
+.forecast__block {
+  width: 265px;
+  height: 120px;
+  border: 1px solid black;
+  margin: 7px 16px 9px 18px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.forecast__date {
+  display: flex;
+  justify-content: space-between;
+  height: 50%;
+}
+
+.forecast__date--day {
+  padding: 6px 8px;
+  padding-bottom: 0;
+  margin-bottom: 38px;
+}
+.forecast__date--hour {
+  padding: 6px 12px;
+  padding-bottom: 0;
+}
+
+.forecast__data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forecast__data-temperature {
+  padding: 13px 10px;
+  padding-top: 0;
+}
+
+.forecast__data-condition {
+  display: flex;
+  flex-direction: column;
+
+  padding-right: 10px;
+  margin-bottom: 9px;
+}

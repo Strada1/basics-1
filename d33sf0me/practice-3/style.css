@@ -1,0 +1,140 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.woff2') format('woff2');
+    font-size: 15px;
+    font-style: normal;
+}
+
+input[type=text]::placeholder { 
+    color:#bbb;
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+}
+
+input[type=text] {
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    outline:none;
+    border: none;
+    width: 403px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 480px;
+    height: 688px;
+    background-color: #FFF;
+    margin: 0 auto;
+    box-shadow: 0 0 10px;
+    border-radius: 15px;
+}
+
+body {
+    background-color: #E5E5E5;
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    margin: 20px;
+}
+legend {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.to_do_list {
+    padding: 25px 6px;
+}
+
+fieldset { 
+    border: 0;
+    width: 100%;
+}
+
+li {
+    border: 2px solid #ede5e5;
+    border-radius: 6px;
+    display: flex;
+    margin-bottom: 10px;
+    padding: 12px;
+    align-items: flex-start;
+}
+
+p {
+    margin-right: 12px;
+    margin-left: 18px;
+    text-align: start;
+    width: 370px;
+}
+
+.btn_add {
+    cursor: pointer;
+    background:url(img/add_icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: auto;
+    padding: 0%;
+    width: 18px;
+    height: 18px;
+    border: 0;
+}
+
+.btn_delete {
+    cursor: pointer;
+    background:url(img/close_icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: auto;
+    width: 18px;
+    height: 18px;
+    border: 0;
+}
+
+input[type="checkbox"] {
+    display: none;
+    cursor: pointer;
+}
+
+li:not(:first-child) label {
+    display: flex;
+}
+
+
+
+.task_name::before {
+    content: '';
+    display: inline-block;
+    cursor: pointer;
+    background:url(img/checkbox_undone.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: -20px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    position: relative;
+}
+
+input[type=checkbox]:checked + .task_name::before { 
+    cursor: pointer;
+    background:url(img/checkbox_done_icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: -20px;
+    width: 20px;
+    height: 20px;
+    border: 0;
+}
+
+.done_task_high {
+    background-color: #F4F4F4;
+}

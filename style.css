@@ -172,13 +172,15 @@ body {
 
 .tabs__block:nth-child(3) {
   padding-left: 18px;
-  height: 345px;
-  overflow: scroll;
+  /* height: 345px;
+  overflow: scroll; */
 }
 
 .tabs__boxes{
+  height: 370px;
   overflow: scroll;
 }
+
 
 .tabs__box {
   margin-top: 10px;
@@ -283,6 +285,8 @@ body {
   padding-top: 35px;
   padding-left: 18px;
   padding-bottom: 50px;
+  height: 322px;
+  overflow: scroll;
 }
 
 .weather__cities-list {

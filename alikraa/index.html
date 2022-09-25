@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Weather</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <div class="search__field">
+                <form action="get" class="serach__city">
+                    <input type="text" class="searching" placeholder="Aktobe">
+                    <button class="searching__button">
+                        <img src="img/search-icon.svg" alt="Search">
+                    </button>
+                </form>
+            </div>
+    
+            <div class="data">
+                <div class="tabs__content">
+                    <nav class="navigation">
+                        <div class="now"><a href="#now">Now</a></div>
+                        <div class="details"><a href="#details">Details</a></div>
+                        <div class="forecast"><a href="#forecast">Forecast</a></div>
+                    </nav>
+    
+                    <div class="tabs">
+                        <div class="tab__now" id="now">
+                            <p class="temperature">14&#176</p>
+                            <img src="img/cloud-icon.svg" alt="Cloud" class="cloud">
+                            <div class="city">
+                                <p class="name">Aktobe</p>
+                                <img src="img/favourite-icon.svg" alt="Add to favorites" class="heart">
+                            </div>
+                        </div>
+    
+                        <div class="tab__details" id="details">
+                            <div class="head__city">
+                                <p class="header__city">Actobe</p>
+                            </div>
+                            <div class="information">
+                                <p class="characteristics">Temperature: 14&#176</p>
+                                <p class="characteristics">Feels like: 10&#176</p>
+                                <p class="characteristics">Weather: Clouds</p>
+                                <p class="characteristics">Sunrise: 03:21</p>
+                                <p class="characteristics">Sunset: 18:54</p>
+                            </div>
+                        </div>
+    
+                        <div class="tab__forecast" id="forecast">
+                            <div class="head__city">
+                                <p class="header__city">Actobe</p>
+                            </div>
+                            <div class="cards">
+                                <div class="card-1">
+                                    <div class="card__wrapper">
+                                        <div class="card__part-1">
+                                            <p class="date">17 May</p>
+                                            <p class="time">12:00</p>
+                                        </div>
+                                        <div class="card__part-2">
+                                            <div class="weather__data">
+                                                <p class="temp">Temperature: 13&#176</p>
+                                                <p class="temp">Feels like: 10&#176</p>
+                                            </div>
+                                            <div class="img__wrap">
+                                                <figure>
+                                                    <figcaption>Rain</figcaption>
+                                                    <img src="img/rain-icon.svg" alt="Rain">
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="card-2">
+                                    <div class="card__wrapper">
+                                        <div class="card__part-1">
+                                            <p class="date">17 May</p>
+                                            <p class="time">15:00</p>
+                                        </div>
+                                        <div class="card__part-2">
+                                            <div class="weather__data">
+                                                <p class="temp">Temperature: 13&#176</p>
+                                                <p class="temp">Feels like: 10&#176</p>
+                                            </div>
+                                            <div class="img__wrap">
+                                                <figure>
+                                                    <figcaption>Rain</figcaption>
+                                                    <img src="img/rain-icon.svg" alt="Rain">
+                                                </figure>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="card-3">
+                                    <div class="card__wrapper">
+                                        <div class="card__part-1">
+                                            <p class="date">17 May</p>
+                                            <p class="time">18:00</p>
+                                        </div>
+                                        <div class="card__part-2">
+                                            <div class="weather__data">
+                                                <p class="temp">Temperature: 13&#176</p>
+                                                <p class="temp">Feels like: 10&#176</p>
+                                            </div>
+                                            <div class="img__wrap">
+                                                <figure>
+                                                    <figcaption>Rain</figcaption>
+                                                    <img src="img/rain-icon.svg" alt="Rain">
+                                                </figure>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="card-4">
+                                    <div class="card__wrapper">
+                                        <div class="card__part-1">
+                                            <p class="date">17 May</p>
+                                            <p class="time">21:00</p>
+                                        </div>
+                                        <div class="card__part-2">
+                                            <div class="weather__data">
+                                                <p class="temp">Temperature: 13&#176</p>
+                                                <p class="temp">Feels like: 10&#176</p>
+                                            </div>
+                                            <div class="img__wrap">
+                                                <figure>
+                                                    <figcaption>Rain</figcaption>
+                                                    <img src="img/rain-icon.svg" alt="Rain">
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="locations">
+                    <div class="head">
+                        <p class="header">Added Locations:</p>
+                    </div>
+                    <div class="list__locations">
+                        <div class="cities">
+                            <p class="city__name">Amur</p>
+                            <p class="city__name">Samara</p>
+                            <p class="city__name">Bali</p>
+                            <p class="city__name">Dane</p>
+                            <p class="city__name">Kilo</p>
+                            <p class="city__name">Nur-Sultan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

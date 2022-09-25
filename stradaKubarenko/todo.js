@@ -21,8 +21,19 @@ const LIST = [] ;
 const formHighPriority = document.getElementById('form_high');
 const formLowPriority = document.getElementById('form_low');
 
-formHighPriority.addEventListener('submit',addTaskHigh)
+
+formHighPriority.addEventListener('submit',addTaskHigh);
 formLowPriority.addEventListener('submit',addTaskLow);
+
+const delButton = document.querySelector('.delButton');
+
+LIST.forEach(delButton => delButton.addEventListener('click', deleteTask));
+
+// for (i=0; i<LIST.length; i++){
+//       LIST[0].addEventListener('click', deleteTask)
+// }
+
+// delButton.addEventListener('click', deleteTask);
 
 function addTaskHigh() {
    let task = elements.TEXT_INPUT_HIGH.value;
@@ -54,17 +65,15 @@ function addTaskLow() {
   render(event);
 }
 
-const deleteButton = document.querySelectorAll('.delButton');
-
-
 function deleteTask(event) {
-   try {
-      let objIndex = LIST.findIndex (obj => obj.task === );
-      LIST.splice(objIndex,1);
-      render();
-   }catch(err) {
-      alert(err.stack);
-   }
+   console.log('меня вызвали')
+   // try {
+   //    let objIndex = LIST.findIndex (obj => obj.task === );
+   //    LIST.splice(objIndex,1);
+   //    render();
+   // }catch(err) {
+   //    alert(err.stack);
+   // }
 }
 
 

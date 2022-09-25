@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../main.css" />
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="search">
+        <input type="text" class="search__iput" placeholder="Aktobe" />
+        <button class="search__btn">
+          <img src="../img/search.svg" alt="image" />
+        </button>
+      </form>
+      <div class="main">
+        <div class="tabs">
+          <div class="tabs__body">
+            <div id="tab__01" class="tabs__block now">
+              <div class="now__temperature">
+                <h1>14</h1>
+              </div>
+              <div class="now__city">
+                <span>Aktobe</span>
+              </div>
+            </div>
+
+            <div id="tab__02" class="tabs__block details">
+              <div class="details__city">
+                <h1>Aktobe</h1>
+              </div>
+              <ul class="details__list">
+                <li class="details__list-item">Temperature: 14</li>
+                <li class="details__list-item">Feels like: 10</li>
+                <li class="details__list-item">Weather: Clouds</li>
+                <li class="details__list-item">Sunrise: 03:21</li>
+                <li class="details__list-item">Sunset: 18:54</li>
+              </ul>
+            </div>
+
+            <div id="tab__03" class="tabs__block forecast">
+              <div class="forecast__city">
+                <h1>Aktobe</h1>
+              </div>
+              <div class="forecast__list">
+                <div class="forecast__item">
+                  <div class="forecast__time">
+                    <span>17 May</span>
+                    <span>12:00</span>
+                  </div>
+                  <div class="forecast__weather">
+                    <div class="forecast__temperature">
+                      <span>Temperature: 13</span>
+                      <span>Feels like: 10</span>
+                    </div>
+                    <div class="forecast__icon">
+                      <span>Rain</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="forecast__item">
+                  <div class="forecast__time">
+                    <span>17 May</span>
+                    <span>13:00</span>
+                  </div>
+                  <div class="forecast__weather">
+                    <div class="forecast__temperature">
+                      <span>Temperature: 13</span>
+                      <span>Feels like: 10</span>
+                    </div>
+                    <div class="forecast__icon">
+                      <span>Rain</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="forecast__item">
+                  <div class="forecast__time">
+                    <span>17 May</span>
+                    <span>14:00</span>
+                  </div>
+                  <div class="forecast__weather">
+                    <div class="forecast__temperature">
+                      <span>Temperature: 13</span>
+                      <span>Feels like: 10</span>
+                    </div>
+                    <div class="forecast__icon">
+                      <span>Rain</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="forecast__item">
+                  <div class="forecast__time">
+                    <span>17 May</span>
+                    <span>15:00</span>
+                  </div>
+                  <div class="forecast__weather">
+                    <div class="forecast__temperature">
+                      <span>Temperature: 13</span>
+                      <span>Feels like: 10</span>
+                    </div>
+                    <div class="forecast__icon">
+                      <span>Rain</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <nav class="tabs-items">
+            <a href="#tab__01" class="tabs-item"><span>Now</span></a>
+            <a href="#tab__02" class="tabs-item center"><span>Details</span></a>
+            <a href="#tab__03" class="tabs-item"><span>Forecast</span></a>
+          </nav>
+        </div>
+
+        <div class="locations">
+          <div class="title">
+            <h1>Added Locations:</h1>
+          </div>
+          <ul class="list">
+            <li class="list-item"><a href="!#">Amur</a></li>
+            <li class="list-item"><a href="!#">Samara</a></li>
+            <li class="list-item"><a href="!#">Bali</a></li>
+            <li class="list-item"><a href="!#">Dane</a></li>
+            <li class="list-item"><a href="!#">Kilo</a></li>
+            <li class="list-item"><a href="!#">Nur-Sultan</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

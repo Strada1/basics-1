@@ -15,6 +15,7 @@ li {
 }
 a {
   text-decoration: none;
+  color: white;
 }
 
 .container {
@@ -122,12 +123,14 @@ input {
   display: flex;
   justify-content: space-between;
   border-top: 1px solid;
+  margin-bottom: -1px;
 }
 
 .tab-item {
   width: 100px;
   text-align: center;
   padding: 12px 0 12px 0;
+  background-color: black;
 }
 
 .tab-item + .tab-item {
@@ -163,25 +166,15 @@ input {
   display: flex;
   justify-content: space-between;
 }
-.date_current {
-}
-.time_current {
-}
+
 .temp_wrapper {
   display: flex;
   justify-content: space-between;
   margin-top: 38px;
 }
-.temp_block {
-}
-.temp {
-}
-.feels_like {
-}
+
 .temp_img {
   text-align: center;
-}
-.temp_text {
 }
 
 #tab_3 {
@@ -190,4 +183,16 @@ input {
 
 .tab3__name {
   margin-bottom: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: gray;
+}
+::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20px;
+  border: 3px solid black;
 }

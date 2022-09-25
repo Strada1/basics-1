@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="src/style.css">
+    <title>Weather</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="container">
+
+        <form   class="form-input" type="reset" onsubmit = return false;>
+            <input class="input-city" placeholder="Введите название города" type="text">
+            <img class="search" src="img/Shape.png">
+        </form>
+
+
+<!--        <div class="vertical-line"></div>-->
+
+
+        <div class="container-weather">
+
+            <div class="content">
+
+
+                <div class="tabs__body">
+                    <div id="tab_01" class="tabs__block">
+                         Первая вкладка.
+                    </div>
+
+                    <div id="tab_02" class="tabs__block">
+                        Вторая вкладка
+                    </div>
+                    <div id="tab_03" class="tabs__block">
+                        Третья вкладка.
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <nav class="tabs__items">
+                        <a href="#tab_01" class="tabs__item"><span>Now</span></a>
+                        <a href="#tab_02" class="tabs__item"><span>Details</span></a>
+                        <a href="#tab_03" class="tabs__item"><span>Forecast</span></a>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="location">
+
+            <div class="added-location">Added Locations:</div>
+            <div class="line"></div>
+
+            <div class="locations">
+                <div class="city-name">Amur</div>
+                <div class="city-name">Amur</div>
+                <div class="city-name">Amur</div>
+                <div class="city-name">Amur</div>
+                <div class="city-name">Amur</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

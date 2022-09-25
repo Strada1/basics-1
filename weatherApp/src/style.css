@@ -1,0 +1,244 @@
+/*Обнуление*/
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+    background-color: #b6b6b6;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: #fff;
+    font-size: 16px;
+    overflow:  hidden;
+}
+
+.wrapper {
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+}
+
+.container {
+    width: 621px;
+    height: 462px;
+    margin: 140px auto;
+    background-color: #a8a8a8;
+    border: 2px solid  black;
+}
+
+.form-input{
+    display: flex;
+}
+
+.input-city{
+    width: 100%;
+    padding-left: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    height: 30px;
+    outline:none;
+}
+
+.search{
+    position: absolute;
+    width: 22px;
+    height: 21px;
+    margin: 4px 0 0 580px;
+}
+
+.content{
+    width: 311px;
+    margin-bottom: auto;
+}
+
+.tabs{
+
+    border: 2px solid #000000;
+    font-size: 18px;
+    height: 45px;
+
+}
+
+.tabs__items{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+
+}
+
+/*.vertical-line{*/
+/*    border-left: 2px solid #000000;*/
+/*    height: 100%;*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    margin-left: -3px;*/
+/*    top: 0;*/
+/*}*/
+
+/*.content{*/
+/*    width: 311px;*/
+/*}*/
+
+/*.container-weather{*/
+/*    position: relative;*/
+/*    display: flex;*/
+/*    height: 93.555%;*/
+/*}*/
+
+
+
+/*.locations{*/
+/*    width: 310px;*/
+
+/*}*/
+
+/*.count{*/
+/*    font-weight: 400;*/
+/*    font-size: 70px;*/
+/*    line-height: 82px;*/
+/*    color: #000000;*/
+/*}*/
+
+/* */
+
+/*.icon-cloud{*/
+/*    width: 78px;*/
+/*    height: 59px;*/
+/*    margin: 40px 0 0 80px;*/
+/*    display: flex;*/
+/*}*/
+
+/*.city-like{*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    margin-top: 135px;*/
+/*}*/
+
+/*.like{*/
+/*    width: 22px;*/
+/*    height: 22px;*/
+/*}*/
+
+/*.city-name{*/
+/*    height: 28px;*/
+/*    font-style: normal;*/
+/*    font-weight: 400;*/
+/*    font-size: 24px;*/
+/*}*/
+
+/*.tabs{*/
+/*    width: 308px;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    font-size: 18px;*/
+/*    padding: 8px;*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*}*/
+
+/*.added-location{*/
+/*    margin: 40px 0 0 10px;*/
+/*    padding: 7px;*/
+/*}*/
+
+/*.line {*/
+/*    border-bottom: 2px solid #000000; !* Параметры линии *!*/
+/*}*/
+
+/*.locations{*/
+/*    padding: 42px;*/
+/*    font-size: 24px;*/
+/*}*/
+
+
+
+
+
+
+
+/*Табы*/
+
+/*.tabs {*/
+/*    !*margin: 0px 0px 50px 0px;*!*/
+/*        width: 311px;*/
+/*        !*display: flex;*!*/
+/*        justify-content: space-between;*/
+/*        font-size: 18px;*/
+/*}*/
+
+
+/*.tabs__items {*/
+/*    display: flex;*/
+
+/*}*/
+
+/*.tabs__item {*/
+/*    flex: 0 1 33.333%;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    text-transform: uppercase;*/
+/*    color: #fff;*/
+/*    text-decoration: none;*/
+/*}*/
+
+
+/*.tabs__item span {*/
+/*    position: relative;*/
+/*    z-index: 2;*/
+/*}*/
+
+/*.tabs__body {*/
+/*}*/
+/*.tabs__block {*/
+/*    position: relative;*/
+/*    padding: 20px;*/
+/*    font-size: 18px;*/
+/*    line-height: 24px;*/
+/*    display: none;*/
+/*}*/
+
+
+/*.tabs__block:before {*/
+/*    content: "";*/
+/*    height: 50px;*/
+/*    width: 33.333%;*/
+/*    position: absolute;*/
+/*    top: -50px;*/
+/*}*/
+
+
+/*.tabs__block:nth-child(1) {*/
+/*    background-color: #eb8698;*/
+/*}*/
+/*.tabs__block:nth-child(1):before {*/
+/*    background-color: #eb8698;*/
+/*    left: 0;*/
+/*}*/
+/*.tabs__block:nth-child(2) {*/
+/*    background-color: #9278aa;*/
+/*}*/
+/*.tabs__block:nth-child(2):before {*/
+/*    background-color: #9278aa;*/
+/*    left: 33.333%;*/
+/*}*/
+/*.tabs__block:nth-child(3) {*/
+/*    background-color: #97c67d;*/
+/*}*/
+/*.tabs__block:nth-child(3):before {*/
+/*    background-color: #97c67d;*/
+/*    right: 0;*/
+/*}*/
+
+/*.tabs__block:target {*/
+/*    display: block;*/
+/*}*/

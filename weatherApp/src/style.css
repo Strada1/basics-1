@@ -2,9 +2,9 @@
 *,
 *:before,
 *:after {
-    padding: 0;
+    /*padding: 0;*/
     margin: 0;
-    border: 0;
+    border: none;
     box-sizing: border-box;
 }
 html,
@@ -21,11 +21,11 @@ body {
     min-height: 100%;
     position: relative;
     overflow: hidden;
-    width: 100%;
-
 }
 
+
 .container {
+    /*position: relative;*/
     width: 621px;
     height: 462px;
     margin: 140px auto;
@@ -46,6 +46,7 @@ body {
     line-height: 21px;
     height: 30px;
     outline:none;
+    border: 0;
 }
 
 .search{
@@ -56,197 +57,206 @@ body {
 }
 
 .content{
+    display: flex;
+}
+
+
+.container-weather{
+    border-right: 2px solid  black;
+    display: flex;
+    flex-direction: column;
+    height: auto;
     width: 311px;
-    margin-bottom: auto;
+    /*height: 382px;*/
 }
 
-.tabs{
 
-    border: 2px solid #000000;
-    font-size: 18px;
+
+.tabs {
+    /*margin: 0px 0px 50px 0px;*/
+    border-top: 2px solid  black;
+
+}
+
+.tabs__items {
+    display: flex;
+}
+
+
+
+.tabs__item:after{
+    background-color: #000000;
+
+}
+
+.tabs__item {
+    flex: 0 1 33.333%;
     height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    border-right: 2px solid #000000;
+}
+
+.tabs__item:last-child{
+    border-right: none;
+}
+
+
+.tabs__item span {
+    position: relative;
+    z-index: 2;
+}
+
+.tabs__body {
+    height: 380px;
+}
+
+.scroll{
+    padding-right: 15px;
+    height: 333px;
+    margin-top: 0;
+    width: 290px;
+    /*overflow-y: scroll;*/
+
+    overflow-y: auto;
 
 }
 
-.tabs__items{
+
+.scroll::-webkit-scrollbar {
+    width: 0;
+}
+.locations::-webkit-scrollbar {
+    width: 0;
+}
+
+.tabs__block {
+    position: relative;
+    padding: 20px;
+    font-size: 18px;
+    line-height: 24px;
+    display: none;
+}
+.tabs__block:before {
+    content: "";
+    height: 50px;
+    width: 33.333%;
+    position: absolute;
+    top: -50px;
+}
+
+
+
+.tabs__block:target {
+    display: block;
+}
+
+
+.count{
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 82px;
+    color: #000000;
+}
+
+.icon-cloud{
+    width: 78px;
+    height: 59px;
+    margin: 40px 0 0 80px;
+    display: flex;
+}
+
+.city-like{
     display: flex;
     justify-content: space-between;
-    margin: 10px;
+    margin-top: 135px;
+}
 
+.like{
+    width: 22px;
+    height: 22px;
+}
+
+
+.city-name{
+    height: 28px;
+    padding-left: 25px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+
+
+.container-location{
+    width: 306px;
+}
+
+.added-location{
+    margin: 20px 0 0 10px;
+    padding: 7px;
+}
+
+.locations{
+    margin-top: 8px;
+    height: 365px;
+    overflow-y: scroll;
+
+}
+
+.city_name{
+    display: inline-block;
+    line-height: 24px;
+}
+
+.statistics{
+    padding: 10px;
+}
+
+.statistic{
+
+    margin: 8px;
+}
+
+
+
+.forecast{
+    border: 2px solid  black;
+    padding: 5px;
+    margin-top: 6px;
 }
 
 
 
 
+.forecast_content{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+}
 
+.temperature{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+}
 
+.feels{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+}
 
+.weather_feels{
+    width: 31px;
+    height: 31px;
+}
 
+hr{
+    border-top: 2px solid  black;
+}
 
-/*.vertical-line{*/
-/*    border-left: 2px solid #000000;*/
-/*    height: 100%;*/
-/*    position: absolute;*/
-/*    left: 50%;*/
-/*    margin-left: -3px;*/
-/*    top: 0;*/
-/*}*/
-
-/*.content{*/
-/*    width: 311px;*/
-/*}*/
-
-/*.container-weather{*/
-/*    position: relative;*/
-/*    display: flex;*/
-/*    height: 93.555%;*/
-/*}*/
-
-
-
-/*.locations{*/
-/*    width: 310px;*/
-
-/*}*/
-
-/*.count{*/
-/*    font-weight: 400;*/
-/*    font-size: 70px;*/
-/*    line-height: 82px;*/
-/*    color: #000000;*/
-/*}*/
-
-/* */
-
-/*.icon-cloud{*/
-/*    width: 78px;*/
-/*    height: 59px;*/
-/*    margin: 40px 0 0 80px;*/
-/*    display: flex;*/
-/*}*/
-
-/*.city-like{*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    margin-top: 135px;*/
-/*}*/
-
-/*.like{*/
-/*    width: 22px;*/
-/*    height: 22px;*/
-/*}*/
-
-/*.city-name{*/
-/*    height: 28px;*/
-/*    font-style: normal;*/
-/*    font-weight: 400;*/
-/*    font-size: 24px;*/
-/*}*/
-
-/*.tabs{*/
-/*    width: 308px;*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    font-size: 18px;*/
-/*    padding: 8px;*/
-/*    position: absolute;*/
-/*    bottom: 0;*/
-/*}*/
-
-/*.added-location{*/
-/*    margin: 40px 0 0 10px;*/
-/*    padding: 7px;*/
-/*}*/
-
-/*.line {*/
-/*    border-bottom: 2px solid #000000; !* Параметры линии *!*/
-/*}*/
-
-/*.locations{*/
-/*    padding: 42px;*/
-/*    font-size: 24px;*/
-/*}*/
-
-
-
-
-
-
-
-/*Табы*/
-
-/*.tabs {*/
-/*    !*margin: 0px 0px 50px 0px;*!*/
-/*        width: 311px;*/
-/*        !*display: flex;*!*/
-/*        justify-content: space-between;*/
-/*        font-size: 18px;*/
-/*}*/
-
-
-/*.tabs__items {*/
-/*    display: flex;*/
-
-/*}*/
-
-/*.tabs__item {*/
-/*    flex: 0 1 33.333%;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    text-transform: uppercase;*/
-/*    color: #fff;*/
-/*    text-decoration: none;*/
-/*}*/
-
-
-/*.tabs__item span {*/
-/*    position: relative;*/
-/*    z-index: 2;*/
-/*}*/
-
-/*.tabs__body {*/
-/*}*/
-/*.tabs__block {*/
-/*    position: relative;*/
-/*    padding: 20px;*/
-/*    font-size: 18px;*/
-/*    line-height: 24px;*/
-/*    display: none;*/
-/*}*/
-
-
-/*.tabs__block:before {*/
-/*    content: "";*/
-/*    height: 50px;*/
-/*    width: 33.333%;*/
-/*    position: absolute;*/
-/*    top: -50px;*/
-/*}*/
-
-
-/*.tabs__block:nth-child(1) {*/
-/*    background-color: #eb8698;*/
-/*}*/
-/*.tabs__block:nth-child(1):before {*/
-/*    background-color: #eb8698;*/
-/*    left: 0;*/
-/*}*/
-/*.tabs__block:nth-child(2) {*/
-/*    background-color: #9278aa;*/
-/*}*/
-/*.tabs__block:nth-child(2):before {*/
-/*    background-color: #9278aa;*/
-/*    left: 33.333%;*/
-/*}*/
-/*.tabs__block:nth-child(3) {*/
-/*    background-color: #97c67d;*/
-/*}*/
-/*.tabs__block:nth-child(3):before {*/
-/*    background-color: #97c67d;*/
-/*    right: 0;*/
-/*}*/
-
-/*.tabs__block:target {*/
-/*    display: block;*/
-/*}*/

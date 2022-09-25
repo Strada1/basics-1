@@ -1,0 +1,146 @@
+.body {
+	background: rgb(181, 180, 164);
+}
+
+.container {
+	box-sizing: border-box;
+	width: 700px;
+	height: 535px;
+	margin: 0 auto;
+	margin-top: 100px;
+	background-color: rgba(255, 255, 255, 0.911);
+}
+
+.conteiner_1 {
+	
+	box-sizing: border-box;
+	width: 600px;
+	height: 435px;
+	margin: 0 auto;
+	margin-top: 200px;
+
+	
+	border: 1px solid #000000;
+}
+
+.content {
+	max-width: 621px;
+	margin: 0px auto;
+}
+/* ТАБЫ ------------------------------------------------------------------------------ */
+.tabs__items {
+	/* display: flex; */
+}
+
+.tabs__block {
+	/* display: none; */
+}
+
+.tabs__block:target {
+	display: block;
+}
+
+/* ИНПУТ + КНОПКА ПОИСКА------------------------------------------------------------------------------ */
+
+.input_serch_element {
+	box-sizing: border-box;
+	width: 562px;
+	height: 40px;
+	padding-left: 16px;
+
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 21px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+.button_search {
+	box-sizing: border-box;
+	float: right;
+	width: 35px;
+	height:40px;
+	padding: 10px;
+	background-color: white;
+	color: white;
+	font-size: 17px;
+	border: 1px solid grey;
+	border-left: none; 
+	cursor: pointer;
+}
+
+.img_search {
+	width: 20px;
+	height: 23px;
+}
+/* ------------------------------------------------------------------------------ */
+
+.container_article_1 {
+	display: flex;
+	flex-direction: column;
+	width: 310px;
+	height: 350px;
+	border: 1px solid #000000;
+}
+
+.temperature {
+	box-sizing: border-box;
+	width: 95px;
+	height: 83px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 70px;
+	line-height: 82px;
+
+	color: #000000;
+
+	padding: 20px 0px 0px 25px;
+}
+
+.img_cloud {
+	box-sizing: border-box;
+	padding: 68px 0px 0px 135px;
+}
+
+.section1_text {
+	display: flex;
+	flex-direction: column;
+	width: 76px;
+	height: 28px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 28px;
+
+	padding-left: 15px;
+}
+
+.img_love {
+	display: flex;
+	flex-direction: column;
+}
+/* ------------------------------------------------------------------------------ */
+
+.container_article_2 {
+	display: flex;
+	flex-direction: column;
+	width: 310px;
+	height: 45px;
+	border: 1px solid #000000;
+}
+/* ------------------------------------------------------------------------------ */
+
+.city {
+	width: 113px;
+	height: 238px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 28px;
+}

@@ -1,0 +1,33 @@
+body {
+    margin: 200px;
+    background-color: darkgray;
+}
+
+
+.gender {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 200px;
+    margin: auto;
+    border-radius: 10px;
+    outline: 2px solid black
+    
+}
+
+.button-gender {
+    background-color: darkgray;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 6px;
+
+}
+
+.input-name {
+    background-color: darkgray;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 6px;
+    font-size: 16px;
+}

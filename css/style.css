@@ -16,6 +16,10 @@ ul, li {
 	list-style: none;
 }
 
+a {
+	text-decoration:none;
+}
+
 h1 {
 	width: 95px;
 	height: 83px;

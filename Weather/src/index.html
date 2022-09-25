@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="search">
+        <input type="text" placeholder="Город" value="Aktobe" />
+        <button class="buttonSearch">
+          <img src="../public/img/search.png" alt="Поиск" />
+        </button>
+      </form>
+      <div class="windows">
+        <div class="leftWindow">
+          <div class="status">
+            <div id="tab_01" class="tabsBlock">
+              <h1>14&deg</h1>
+              <img class="cloud" src="../public/img/cloud.png" alt="Облачно" />
+              <div>
+                <p>Aktobe</p>
+                <button class="buttonFavorite">
+                  <img src="../public/img/shape.png" alt="Избранное" />
+                </button>
+              </div>
+            </div>
+            <div id="tab_02" class="tabsBlock">
+              <h1>Aktobe</h1>
+              <ul class="details">
+                <li class="detail">Temperature: 14&deg</li>
+                <li class="detail">Feels like: 10&deg</li>
+                <li class="detail">Weather: Clouds</li>
+                <li class="detail">Sunrise: 03:21</li>
+                <li class="detail">Sunset: 18:54</li>
+              </ul>
+            </div>
+            <div id="tab_03" class="tabsBlock">
+              <h1>Aktobe</h1>
+              <div class="card">
+                <div class="date">
+                  <span>17 May</span>
+                  <span>12:00</span>
+                </div>
+                <div class="details">
+                  <ul>
+                    <li class="detail">Temperature: 14&deg</li>
+                    <li class="detail">Feels like: 10&deg</li>
+                  </ul>
+                  <div>
+                    <h1>Rain</h1>
+                    <img src="../public/img/rain.png" alt="Дождь" />
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="date">
+                  <span>17 May</span>
+                  <span>15:00</span>
+                </div>
+                <div class="details">
+                  <ul>
+                    <li class="detail">Temperature: 14&deg</li>
+                    <li class="detail">Feels like: 10&deg</li>
+                  </ul>
+                  <div>
+                    <h1>Rain</h1>
+                    <img src="../public/img/rain.png" alt="Дождь" />
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="date">
+                  <span>17 May</span>
+                  <span>18:00</span>
+                </div>
+                <div class="details">
+                  <ul>
+                    <li class="detail">Temperature: 14&deg</li>
+                    <li class="detail">Feels like: 10&deg</li>
+                  </ul>
+                  <div>
+                    <h1>Rain</h1>
+                    <img src="../public/img/rain.png" alt="Дождь" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tabs">
+            <nav class="tabsItems">
+              <a href="#tab_01" class="tabsItem active">Now</a>
+              <a href="#tab_02" class="tabsItem">Details</a>
+              <a href="#tab_03" class="tabsItem">Forecast</a>
+            </nav>
+          </div>
+        </div>
+        <div class="rightWindow">
+          <h1>Added Locations:</h1>
+          <div>
+            <ul>
+              <li>Amur</li>
+              <li>Samara</li>
+              <li>Bali</li>
+              <li>Dane</li>
+              <li>Kilo</li>
+              <li>Nur-Sultan</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

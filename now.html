@@ -7,19 +7,19 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="./css/style.css">
 
 	<title>Погода</title>
 </head>
 <body>
-	<div class="nav_search">
+	<form class="nav_search">
 		<input type="text" placeholder="Aktobe" class="nav_search__input">
 		<svg class="nav_search__image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><g id="_01_align_center" data-name="01 align center"><path d="M24,22.586l-6.262-6.262a10.016,10.016,0,1,0-1.414,1.414L22.586,24ZM10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18Z"/></g></svg>
-	</div>
+	</form>
 	<div class="container">
 		<div class="main_weather">
-			<div class="main_weather__city">
-					<h1>14&deg</h1>
+			<div class="main_weather__city-now">
+					<h1 class="temperature">14&deg</h1>
 				<div class="image_cloud">
 					<img class="cloud" src="./css/img/cloud.png" alt="Cloud">
 
@@ -31,13 +31,13 @@
 			</div>
 			<div class="main_weather__nav">
 				<div class="nav_now">
-					<a href="#tab-1">Now</a>
+					<a class="now_tab" href="#tab-1">Now</a>
 				</div>
 				<div class="nav_details">
-					<a href="#tab-2">Details</a>
+					<a class="details_tab" href="#tab-2">Details</a>
 				</div>
 				<div class="nav_forecast">
-					<a href="#tab-3">Forecast</a>
+					<a class="forecast_tab" href="#tab-3">Forecast</a>
 				</div>
 			</div>
 		</div>
@@ -60,6 +60,6 @@
 		</div>
 		
 	</div>
-	<script src="./js/index.js"></script>
+	<script type="module" src="./js/index.js"></script>
 </body>
 </html>

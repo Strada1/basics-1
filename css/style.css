@@ -16,8 +16,12 @@ ul, li {
 	list-style: none;
 }
 
+a.text:active, /* активная/посещенная ссылка */
+a.text:hover,  /* при наведении */
+a.text,
 a {
-	text-decoration:none;
+  text-decoration: none;
+  color: #666;
 }
 
 h1 {
@@ -112,12 +116,7 @@ input {
 	display: flex;
 	justify-content: space-between;
 
-	margin-top: 0;
-	
-	padding-left: 5px;
-	padding-right: 5px;
-	/* border: 1px solid; */
-	
+	margin-top: 0;	
 
 	outline: 1px solid;
 }
@@ -219,3 +218,28 @@ input {
 	display: flex;
 	justify-content: space-between;
 }
+
+.nav_now,
+.nav_details,
+.nav_forecast {
+	transition: all 0.5s ease-in-out;
+}
+
+.now_tab:hover,
+.details_tab:hover,
+.forecast_tab:hover,
+.now_tab:focus,
+.details_tab:focus,
+.forecast_tab:focus {
+	color: white;
+}
+
+.nav_now:hover, 
+.nav_details:hover,
+.nav_forecast:hover,
+.nav_now:focus, 
+.nav_details:focus,
+.nav_forecast:focus {
+	background-color: black;
+}
+

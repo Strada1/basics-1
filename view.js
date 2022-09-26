@@ -28,7 +28,7 @@ export function renderNow(){
       const name = weatherData.name;
       ELEMENT.NOW_TEMPERATURE.textContent = temperature.toFixed(0) + '°';
       ELEMENT.NOW_ICON.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-      ELEMENT.NOW_CITY.textContent = cityName;
+      ELEMENT.NOW_CITY.textContent = name;
     })
 }
 

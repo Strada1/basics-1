@@ -17,12 +17,16 @@ function checkCityName(cityName, urlTemperature) {
   if (!cityName || !isNaN(cityName)) {
     alert('Enter a correct city');
   } else {
-    changeCity(cityName);
+    changeCity(urlTemperature);
     changeTemperatureIcon(urlTemperature);
   }
 }
-function changeCity(cityName) {
-  ELEMENTS.CITY_NOW.textContent = cityName;
+function changeCity(urlTemperature) {
+  fetch(urlTemperature)
+    .then((response) => response.json())
+    .then((result) => {
+      ELEMENTS.CITY_NOW.textContent = result.name;
+    });
 }
 
 function changeTemperatureIcon(urlTemperature) {

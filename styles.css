@@ -112,27 +112,37 @@ ul {
   background-image: url('./img/cloud.svg');
   background-repeat: no-repeat;
   background-position: center;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .now__temperature {
+  height: 50%;
+  display: flex;
+}
+
+.now__temperature span {
   display: inline-block;
-  padding: 20px 35px;
+  margin: 20px 23px;
   font-size: 70px;
 }
 
 .now__city {
-  height: 215px;
+  height: 50%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
 .now__city-name {
-  margin: 10px;
+  margin-bottom: 17px;
+  margin-left: 12px;
 }
 
 .now__icon--like {
-  margin: 10px 25px;
+  margin-bottom: 23px;
+  margin-right: 26px;
   cursor: pointer;
 }
 

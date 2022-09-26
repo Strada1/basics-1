@@ -16,7 +16,7 @@
   <body>
     <main class="app">
       <div class="grid-container">
-        <div class="search">
+        <form class="search">
           <input class="search__input" type="search" placeholder="Aktobe" />
           <img
             class="search__icon"
@@ -24,17 +24,24 @@
             alt="Search"
             srcset=""
           />
-        </div>
-
+        </form>
         <!-- This is Now Tab -->
 
-        <!-- <div class="now">
-          <span class="now__temperature">14°</span>
-          <div class="now__city">
-            <span class="now__city-name">Aktobe</span>
-            <img class="now__icon--like" src="./img/like.svg" alt="Like" />
+        <div class="now">
+          <div class="now__temperature">
+            <span></span>
           </div>
-        </div> -->
+          <div class="now__city">
+            <span class="now__city-name"></span>
+            <img
+              class="now__icon--like"
+              src="./img/like.svg"
+              alt="Like"
+              width="22"
+              height="22"
+            />
+          </div>
+        </div>
 
         <!-- This is Details Tab -->
 
@@ -53,7 +60,7 @@
 
         <!-- This is Forecast Tab -->
 
-        <div class="forecast">
+        <!-- <div class="forecast">
           <div class="details__city">
             <span class="details__city-name">Aktobe</span>
           </div>
@@ -123,13 +130,13 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="tabs">
           <ul class="tabs-list">
-            <li class="tab-item">Now</li>
+            <li class="tab-item tab-item--current">Now</li>
             <li class="tab-item">Details</li>
-            <li class="tab-item tab-item--current">Forecast</li>
+            <li class="tab-item">Forecast</li>
           </ul>
         </div>
         <div class="locations">
@@ -147,5 +154,7 @@
         </div>
       </div>
     </main>
+
+    <script src="app.js"></script>
   </body>
 </html>

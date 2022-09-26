@@ -150,6 +150,7 @@ ul {
 }
 
 .temperature {
+    display: flex;
     width: 95px;
     height: 83px;
     margin-left: 23px;
@@ -161,13 +162,16 @@ ul {
 }
 
 .weather__icon-holder {
-    width: 78px;
-    height: 59px;
-    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin: 40px auto; 
 }
 
 .now__bottom {
-    margin: 120px 26px 23px 12px;
+    margin: 84px 26px 23px 12px;
     display: flex;
     justify-content: space-between;
 }

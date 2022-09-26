@@ -9,6 +9,10 @@ const btnCurrent = document.querySelectorAll('.tab-item');
 const currentWeatherIcon = document.querySelector('.images_current_weather');
 const currentDegrees = document.querySelector('.current_degrees');
 const feelsLike = document.querySelectorAll('.feels_like');
+FORM.addEventListener('submit', e => {
+  e.preventDefault();
+  addCity();
+});
 
 function addCity() {
   if (cityName.value) {
@@ -36,7 +40,6 @@ function addCity() {
       .catch(e => alert(e.message));
   }
 }
-FORM.addEventListener('submit', addCity);
 changeColorTabs.addEventListener('click', e => {
   btnCurrent.forEach(item => {
     if (item === e.target || item === e.target.parentElement) {

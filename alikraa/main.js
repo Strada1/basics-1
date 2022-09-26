@@ -8,7 +8,7 @@ const ELEMENTS = {
 
 const KEYS = {
     SERVER_URL: 'http://api.openweathermap.org/data/2.5/weather',
-    API_KEY: '3a93792a7ff7223513e2ff98278e394d',
+    API_KEY: 'f660a2fb1e4bad108d6160b7f58c555f',
 }
 
 ELEMENTS.FORM.addEventListener('submit', getCityName);

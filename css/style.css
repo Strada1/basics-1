@@ -3,16 +3,19 @@
 }
 
 .container {
+	position: relative;
 	box-sizing: border-box;
 	width: 700px;
 	height: 535px;
 	margin: 0 auto;
 	margin-top: 100px;
 	background-color: rgba(255, 255, 255, 0.911);
+
 }
 
 .conteiner_1 {
-	
+	margin-top: 10px;
+	position: relative;
 	box-sizing: border-box;
 	width: 600px;
 	height: 435px;
@@ -21,19 +24,45 @@
 
 	
 	border: 1px solid #000000;
+	border-left: none;
 }
 
 .content {
 	max-width: 621px;
 	margin: 0px auto;
 }
+
 /* ТАБЫ ------------------------------------------------------------------------------ */
 .tabs__items {
 	/* display: flex; */
+	margin-top: 36px;
+	width: 311px;
+	height: 42px;
+	border: 1px solid #000000;
+	border-bottom: none;
+	
+	
+}
+
+.tabs__item {
+	padding: 10px;
+
+	width: 37px;
+	height: 21px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
 }
 
 .tabs__block {
 	/* display: none; */
+}
+
+.show_tab {
+	display: block;
 }
 
 .tabs__block:target {
@@ -104,6 +133,8 @@
 	padding: 68px 0px 0px 135px;
 }
 
+
+
 .section1_text {
 	display: flex;
 	flex-direction: column;
@@ -117,22 +148,57 @@
 	line-height: 28px;
 
 	padding-left: 15px;
+	margin-top: 100px;
+}
+
+.love_button {
+	display: flex;
+	flex-direction: column;
+	margin-left: 250px;
+	margin-top: -28px;
 }
 
 .img_love {
 	display: flex;
 	flex-direction: column;
+	width: 22px;
+	height: 22px;
 }
 /* ------------------------------------------------------------------------------ */
 
 .container_article_2 {
 	display: flex;
-	flex-direction: column;
-	width: 310px;
+	flex-direction: column;	
 	height: 45px;
 	border: 1px solid #000000;
+	margin-left: 312px;
+	margin-top: -352px;
+	border-left: none;
+	border-right: none;
+}
+
+.text_addedLocations {
+	width: 186px;
+	height: 28px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 28px;
+
+	padding: 17px 98px 7px 18px;
 }
 /* ------------------------------------------------------------------------------ */
+
+.container_article_3 {
+	height: 45px;
+	margin-left: 331px;
+	padding-top: 18px;
+	width: 260px;
+	height: 250px;
+	overflow-y: scroll;
+}
 
 .city {
 	width: 113px;
@@ -142,5 +208,86 @@
 	font-style: normal;
 	font-weight: 400;
 	font-size: 24px;
+	line-height: 28px;	
+}
+
+/* TAb 2------------------------------------------------------------------------------ */
+
+.Actobe_text {
+	width: 76px;
+	height: 28px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
 	line-height: 28px;
+
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
+.data_Wether {
+	width: 175px;
+	height: 196px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 28px;
+
+	margin-top: 35px;
+	margin-left: 30px;
+}
+
+/* TAB 3------------------------------------------------------------------------------ */
+
+.scrol_day { 
+	overflow-y: scroll;
+}
+
+.container_day {
+	width: 256px;
+	height: 120px;
+	border: 1px solid #000000;
+	margin-left: 30px;
+
+	margin-bottom: 9px;
+}
+
+.elements_day {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
+}
+
+.element_data {
+	margin-top: 6px;
+	margin-left: 8px
+}
+
+.element_temperature {
+	margin-top: 38px;
+	margin-left: 8px
+}
+
+.element_feelsLike {
+	margin-left: 8px
+}
+
+.element_time {
+	margin-left: 210px;
+	margin-top: -100px;
+}
+
+.element_wether {
+	margin-left: 210px;
+	margin-top: 39px;
+}
+
+.element_img {
+	margin-left: 210px;
 }

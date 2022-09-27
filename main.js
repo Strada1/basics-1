@@ -24,7 +24,7 @@ function changeNow(urlTemperature) {
   fetch(urlTemperature)
     .then((response) => {
       if (!response.ok) {
-        throw new Error('Error');
+        throw new Error('data not received from the server');
       }
       return response.json();
     })

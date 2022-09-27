@@ -6,8 +6,8 @@
 body {
 	margin: 0;
 	padding: 0;
-	width: 621px;
-	height: 462px;
+	width: 1280px;
+	height: 900px;
 
 	font-family: 'Roboto';
 }
@@ -73,6 +73,7 @@ input {
 	height:  389px;
 
 	border: 1px solid;
+	border-top: none;
 }
 
 .main_weather {
@@ -96,11 +97,16 @@ input {
 }
 
 .image_cloud {
+	width: 78px;
+	height: 59px;
+
 	display: flex;
 	justify-content: center;
+	align-items: center;
 
 	margin-top: 40px;
 	margin-bottom: 98px;
+	margin-left: 112px;
 }
 
 .favorite {
@@ -127,13 +133,14 @@ input {
 	justify-content: center;
 
 	border-right: 1px solid;
+	border-bottom: none;
 
 	width: 99px;
 	height: 44px;
 }
 
 .nav_forecast {
-	border-right: 0 solid;
+ border-right: none;
 
 }
 
@@ -228,11 +235,17 @@ input {
 .now_tab:hover,
 .details_tab:hover,
 .forecast_tab:hover,
-.now_tab:focus,
-.details_tab:focus,
-.forecast_tab:focus {
+.nav_now:hover,
+.nav_details:hover,
+.nav_forecast:hover	{ 
 	color: white;
 }
+
+/* .now_tab:focus,
+.details_tab:focus,
+.forecast_tab:focus {
+	color: white
+}  */
 
 .nav_now:hover, 
 .nav_details:hover,

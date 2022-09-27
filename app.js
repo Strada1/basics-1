@@ -11,9 +11,14 @@ const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
 const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
 
 // default city's weather
-document.addEventListener('DOMContentLoaded', () => {
-  fetchWeatherData();
-});
+try {
+  document.addEventListener('DOMContentLoaded', () => {
+    fetchWeatherData();
+  });
+} catch (error) {
+  alert('Ошибка!');
+  console.error(error.message);
+}
 
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -25,8 +30,13 @@ searchForm.addEventListener('submit', (e) => {
     // change cityName from default city to the one you search
     cityName = searchInput.value;
 
-    // fetch data from the weather API
-    fetchWeatherData();
+    try {
+      // fetch data from the weather API
+      fetchWeatherData();
+    } catch (error) {
+      alert('Ошибка!');
+      console.error(error.message);
+    }
 
     // remove text after entering
     searchInput.value = '';
@@ -43,10 +53,14 @@ function fetchWeatherData() {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      // console.log(data);
 
       // adding temperature
       temperature.innerHTML = Math.floor(data.main.temp) + '°';
       city.innerHTML = data.name;
+    })
+    .catch((error) => {
+      alert('Ошибка!');
+      console.error(error.message);
     });
 }

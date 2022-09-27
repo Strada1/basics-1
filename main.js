@@ -21,21 +21,10 @@ function checkCityName(cityName, urlTemperature) {
   }
 }
 function changeNow(urlTemperature) {
-  let promiseCity = new Promise((resolve, reject) => {
+  let promiseCity = new Promise((resolve) => {
     fetch(urlTemperature).then((response) => {
       resolve(response.json());
-      reject(new Error('Ошибка!'));
-      if (Number(response.cod) === 404) {
-        throw new ErrorCity('The city is not found');
-      }
     });
-  });
-  promiseCity.catch((err) => {
-    if (err.name === 'Error') {
-      alert(err.message);
-    } else if (err.name === 'ErrorCity') {
-      alert(err.message);
-    }
   });
   promiseCity.then((result) => {
     ELEMENTS.CITY_NOW.textContent = result.name;
@@ -43,9 +32,13 @@ function changeNow(urlTemperature) {
   promiseCity.then((result) => {
     ELEMENTS.TEMPERATURE.textContent = Math.round(result.main.temp) + '°';
   });
-  promiseCity.then((result) => {
-    let iconCode = result.weather[0].icon;
-    let urlWeather = ` https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-    ELEMENTS.ICON_NOW.src = urlWeather;
-  });
+  promiseCity
+    .then((result) => {
+      let iconCode = result.weather[0].icon;
+      let urlWeather = ` https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+      ELEMENTS.ICON_NOW.src = urlWeather;
+    })
+    .catch(() => {
+      alert('Error');
+    });
 }

@@ -5,7 +5,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Ппогода UI</title>
+   <title>Погода UI</title>
    <link rel="stylesheet" href="./css/style.css">
    <link rel="stylesheet" href="./modules/showMessage/showMessage.css">
    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
@@ -23,23 +23,24 @@
          <div class="weather-app__sidebar left-sidebar">
             <div class="left-sidebar__tabs-blocks">
                <div id="now" class="tabs-block active">
-                  <div class="tabs-block__temperature">14<sup>&deg;</sup></div>
-                  <div class="tabs-block__weather-img"><img src="./img/icons8-cloud-96-1.png" alt=""></div>
-                  <div class="tabs-block__selected-city">Aktobe</div>
+                  <div class="tabs-block__temperature"><span data-current_temp>0</span><sup>&deg;</sup></div>
+                  <div class="tabs-block__weather-img"><img src="./img/icons8-cloud-96-1.png" data-weather-icon alt="">
+                  </div>
+                  <div class="tabs-block__selected-city" data-current_city>City</div>
                   <div class="tabs-block__save-city"><img src="./img/Shape-1.png" alt=""></div>
                </div>
                <div id="details" class="tabs-block">
-                  <div class="tabs-block__city-details">Aktobe</div>
+                  <div class="tabs-block__city-details" data-current_city>City</div>
                   <ul class="detalis-list">
-                     <li class="detalis-temperature">Temperature: 14<sup>&deg;</sup></li>
-                     <li class="detalis-feels-like">Feels like: 10<sup>&deg;</sup></li>
-                     <li class="detalis-weather">Weather: Clouds</li>
-                     <li class="detalis-sunrise">Sunrise: 03:21</li>
-                     <li class="detalis-sunset">Sunset: 18:54</li>
+                     <li class="detalis-temperature">Temperature: <span data-current_temp>0</span><sup>&deg;</sup></li>
+                     <li class="detalis-feels-like">Feels like: <span data-feels-like>0</span><sup>&deg;</sup></li>
+                     <li class="detalis-weather">Weather: <span data-weather>Clouds</span></li>
+                     <li class="detalis-sunrise">Sunrise: <span data-sunrise>00:00</span></li>
+                     <li class="detalis-sunset">Sunset: <span data-sunset>00:00</span></li>
                   </ul>
                </div>
                <div id="forecast" class="tabs-block">
-                  <div class="tabs-block__city-forecast">Aktobe</div>
+                  <div class="tabs-block__city-forecast" data-current_city>City</div>
                   <div class="forecast__item-list">
                      <div class="forecast__item">
                         <div class="forecast__item-header item-header">

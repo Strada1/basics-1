@@ -1,0 +1,38 @@
+body {
+    margin-top: 60px;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+}
+.todo {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70vh;
+    height: 80vh;
+}
+header {
+    text-transform: uppercase;
+    align-content: center;
+    margin: 10px;
+}
+.todo__add-task--high, .todo__add-task--low {
+    border: 1px solid;
+    width: 460px;
+    height: 45px;
+    margin-bottom: 10px;
+}
+.high-task, .low-task {
+    display: flex;
+    justify-content: space-between;
+    border: solid 1px;
+    width: 460px;
+}
+.add__task {
+    margin-left: -5%;
+    font-size: 20px;
+}
+.high__delete {
+    margin-left: -5%;
+}

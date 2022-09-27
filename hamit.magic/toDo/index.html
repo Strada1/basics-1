@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js"></script>
+    
+</head>
+<body>
+    <div class="todo">
+        <form id="high" onsubmit="addTask(`high`); return false">
+            <header>High</header>
+            <input type="text" class="todo__add-task--high" value="Добавить важных дел">
+            <span class="add__task" onclick="addTask(`high`); return false">+</span>
+        </form>
+        
+        <form id="low" onsubmit="addTask(`low`); return false">
+            <header>Low</header>
+            <input type="text" class="todo__add-task--low" value="Добавить">
+            <span class="add__task" onclick="addTask(`low`); return false">+</span>
+        </form>
+
+    </div>
+</body>
+</html>

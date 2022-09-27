@@ -1,0 +1,38 @@
+header {
+    top: 200px;
+    display: flex;
+    flex-flow: row wrap;
+    width: 700px;
+    height: 500px;
+    border: 3px;
+    align-items:center;
+    justify-content: center;
+    font-size: 50px;
+}
+#numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+
+}
+#operators{
+    display: grid;
+    grid-template-columns: 1fr;
+    color: red;
+}
+
+#result{
+    border: 2px;
+    width: 100vw;
+    border-color: red;
+
+}
+.nums {
+    margin: 20px;
+    width: 60px;
+    height: 60px;
+    font-size: 50px;
+}
+.operator {
+    margin: 20px;;
+}

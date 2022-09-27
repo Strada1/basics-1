@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./calc.css">
+    <script src="./calc.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALC</title>
+</head>
+<body>
+    <header id="header">
+        <div id="result">1</div>
+        <div id="numbers">
+            <input type="button" class="nums" id="one" onclick="changeInnerHTML('1')" value='1'>
+            <input type="button" class="nums" id="two" onclick="changeInnerHTML('2')" value='2'>
+            <input type="button" class="nums" id="three" onclick="changeInnerHTML('3')" value='3'>
+            <input type="button" class="nums" id="four" onclick="changeInnerHTML('4')" value='4'>
+            <input type="button" class="nums" id="five" onclick="changeInnerHTML('5')" value='5'>
+            <input type="button" class="nums" id="six" onclick="changeInnerHTML('6')" value='6'>
+            <input type="button" class="nums" id="seven" onclick="changeInnerHTML('7')" value='7'>
+            <input type="button" class="nums" id="eight" onclick="changeInnerHTML('8')" value='8'>
+            <input type="button" class="nums" id="nine" onclick="changeInnerHTML('9')" value='9'>
+            <input type="button" class="nums" id="clear" onclick="reset()" value="C">
+            <input type="button" class="nums" id="zero" onclick="changeInnerHTML('0')" value='0'>
+            <input type="button" class="nums" id="dot" onclick="handleDot()" value=','>
+        </div>
+        <div id="operators">
+            <div class="operator" onclick="plus()">+</div>
+            <div class="operator" onclick="minus()">-</div>
+            <div class="operator" onclick="multy()">*</div>
+            <div class="operator" onclick="solve()">=</div>
+        </div>
+    </header>
+</body>
+</html>

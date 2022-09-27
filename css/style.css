@@ -34,14 +34,12 @@
 
 /* ТАБЫ ------------------------------------------------------------------------------ */
 .tabs__items {
-	/* display: flex; */
 	margin-top: 36px;
-	width: 311px;
+	width: 310px;
 	height: 42px;
 	border: 1px solid #000000;
 	border-bottom: none;
-	
-	
+	border-top: none;
 }
 
 .tabs__item {
@@ -67,6 +65,7 @@
 
 .tabs__block:target {
 	display: block;
+	display:flex;
 }
 
 /* ИНПУТ + КНОПКА ПОИСКА------------------------------------------------------------------------------ */
@@ -248,7 +247,7 @@
 }
 
 .container_day {
-	width: 256px;
+	width: 252px;
 	height: 120px;
 	border: 1px solid #000000;
 	margin-left: 30px;

@@ -9,12 +9,12 @@ export const UI_NOW = {
 };
 
 function getImageLink(imageNumber) {
-  const mainLink = 'http://openweathermap.org/img/wn/';
-  const imageFormat = '@2x.png';
-  return `${mainLink}${imageNumber}${imageFormat}`;
+  const SERVER_URL = 'http://openweathermap.org/img/wn/';
+  const IMAGE_FORMAT = '@2x.png';
+  return `${SERVER_URL}${imageNumber}${IMAGE_FORMAT}`;
 }
 
-export function updateNowTab(jsonWeatherCity, place) {
+export function renderNowTab(jsonWeatherCity, place) {
   place.TEMPERATURE.textContent = Math.trunc(jsonWeatherCity.main.temp - 273) + '°';
   place.CITY_NAME.textContent = jsonWeatherCity.name;
   place.IMAGE.src = getImageLink(jsonWeatherCity.weather[0].icon);

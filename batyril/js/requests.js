@@ -1,4 +1,4 @@
-import { UI_NOW, updateNowTab } from "./UI.js";
+import { UI_NOW, renderNowTab } from "./UI.js";
 
 export function getCityWeather(cityName) {
   const SERVER_URL = 'http://api.openweathermap.org/data/2.5/weather';
@@ -6,5 +6,6 @@ export function getCityWeather(cityName) {
   const url = `${SERVER_URL}?q=${cityName}&appid=${API_KEY}`;
   fetch(url)
     .then((response) => response.json())
-    .then((weather) => updateNowTab(weather, UI_NOW));
+    .then((weather) => renderNowTab(weather, UI_NOW))
+    .catch((error) => alert(error.message));
 }

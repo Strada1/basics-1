@@ -21,24 +21,18 @@ function checkCityName(cityName, urlTemperature) {
   }
 }
 function changeNow(urlTemperature) {
-  let promiseCity = new Promise((resolve) => {
-    fetch(urlTemperature).then((response) => {
-      resolve(response.json());
-    });
-  });
-  promiseCity.then((result) => {
-    ELEMENTS.CITY_NOW.textContent = result.name;
-  });
-  promiseCity.then((result) => {
-    ELEMENTS.TEMPERATURE.textContent = Math.round(result.main.temp) + '°';
-  });
-  promiseCity
+  fetch(urlTemperature)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Error');
+      }
+      return response.json();
+    })
     .then((result) => {
+      ELEMENTS.CITY_NOW.textContent = result.name;
+      ELEMENTS.TEMPERATURE.textContent = Math.round(result.main.temp) + '°';
       let iconCode = result.weather[0].icon;
       let urlWeather = ` https://openweathermap.org/img/wn/${iconCode}@2x.png`;
       ELEMENTS.ICON_NOW.src = urlWeather;
     })
-    .catch(() => {
-      alert('Error');
-    });
-}
+    .catch(alert);

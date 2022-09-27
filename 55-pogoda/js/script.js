@@ -13,27 +13,34 @@ const generateUrl = (cityName) => `${SERVER_URL}?q=${cityName}&appid=${API_KEY}&
 const isInputValid = (cityName) => !!cityName && !!cityName.trim && !!cityName.trim();
 const getDataWeather = (cityName) => {
    const url = generateUrl(cityName);
-   return fetch(url).then(result => result.json());
+   return fetch(url).then(result => result.json()).catch(error => {
+      popupMessage(error.message, error.name);
+   });
 }
 
-const handlerApp = async (e) => {
+const handlerApp = (e) => {
    e.preventDefault();
 
    try {
       if (!isInputValid(searchInput.value)) {
          throw new Error(`Название города не определено. Попробуйте заново!`)
       }
-      const {
-         name: nameCity,
-         main: { feels_like, temp },
-         sys: { sunrise, sunset },
-         weather: [weatherArr],
-      } = await getDataWeather(searchInput.value);
-      const {
-         main: weatherMain,
-         icon,
-      } = weatherArr;
-      render(nameCity, temp, feels_like, weatherMain, icon, sunrise, sunset);
+      getDataWeather(searchInput.value).then(result => {
+         const {
+            name: nameCity,
+            main: { feels_like, temp },
+            sys: { sunrise, sunset },
+            weather: [weatherArr],
+         } = result;
+         const {
+            main: weatherMain,
+            icon,
+         } = weatherArr;
+
+         render(nameCity, temp, feels_like, weatherMain, icon, sunrise, sunset);
+      }).catch(error => {
+         popupMessage(error.message, error.name)
+      })
    } catch (error) {
       popupMessage(error.message, error.name)
    } finally {

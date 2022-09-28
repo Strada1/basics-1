@@ -1,25 +1,21 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="src/style.css">
     <title>Weather</title>
 </head>
 <body>
 
     <div class="wrapper">
-
-
     <div class="container">
 
         <form   class="form-input" type="reset" onsubmit = return false;>
-            <input class="input-city" placeholder="Введите название города" type="text">
-            <img class="search" src="img/Shape.png">
+            <input class="input-city" placeholder="Введете имя" type="text">
+<!--            <img class="search" src="img/Shape.png">-->
+            <button class="search"><img src="img/Shape.png"></button>
         </form>
-
 
 <!--        <div class="vertical-line"></div>-->
 
@@ -28,16 +24,7 @@
 
                         <div class="tabs__body">
                             <div id="tab_01" class="tabs__block">
-                                <div class="degrees">
-                                    <span class="count">14°</span>
-                                </div>
-                                <img class="icon-cloud" src="img/icons8-cloud-96%201.png">
-
-                                <div class="city-like">
-                                    <span class="city-name">Akdope</span>
-                                    <img class="like" src="img/like.png">
-                                </div>
-
+                                <div class="divRemove"></div>
                             </div>
 
                             <div id="tab_02" class="tabs__block">
@@ -155,6 +142,6 @@
     </div>
 
 
-<script type="module" src="src/main.js"></script>
+    <script type="module" src="src/main.js"></script>
 </body>
 </html>

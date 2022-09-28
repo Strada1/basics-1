@@ -54,6 +54,13 @@ body {
     width: 22px;
     height: 21px;
     margin: 4px 0 0 580px;
+
+
+    border: none;
+    background-color: transparent;
+
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .content{
@@ -164,16 +171,16 @@ body {
 }
 
 .icon-cloud{
-    width: 78px;
-    height: 59px;
-    margin: 40px 0 0 80px;
+    width: 150px;
+    height: 150px;
+    margin: 20px 0 0 68px;
     display: flex;
 }
 
 .city-like{
     display: flex;
     justify-content: space-between;
-    margin-top: 135px;
+    margin-top: 66px;
 }
 
 .like{
@@ -259,4 +266,5 @@ body {
 hr{
     border-top: 2px solid  black;
 }
+
 

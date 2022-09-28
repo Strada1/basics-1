@@ -159,14 +159,14 @@
 	line-height: 28px;
 
 	padding-left: 15px;
-	margin-top: 100px;
+	margin-top: -29px;
 }
 
 .love_button {
 	display: flex;
 	flex-direction: column;
 	margin-left: 250px;
-	margin-top: -28px;
+	margin-top: 84px;
 }
 
 .img_love {

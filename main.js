@@ -22,7 +22,6 @@ async function addTown(event) {
 		let responce = await fetch(url);
 		let json = await responce.json();
 		
-
 		console.log(json)
 
 		let temperature = (json.main.temp)
@@ -40,10 +39,14 @@ function render(temperature, cityName, icon) {
 	const temperatureNow = document.getElementById('temperatureNow')
 	const city = document.getElementById('city')
 	
-	let link_img = `https://openweathermap.org/img/wn/${icon}.png`
+	let link_img = `https://openweathermap.org/img/wn/${icon}@2x.png`
 	console.log(link_img)
 	
-
+	// картинка в now
+	let img_weather = document.createElement('img');
+	img_weather.className = "img_cloud";
+	img_weather.src  = link_img;
+	temperatureNow.prepend(img_weather)
 	
 	// температура
 	let div_temperature = document.createElement('div')
@@ -62,9 +65,5 @@ function render(temperature, cityName, icon) {
 	div_name.textContent = cityName;
 	temperatureNow.append(div_name)
 
-	// картинка в now
-	let img_weather = createElement("img");
-	img_weather.className = "img_cloud";
-	img_weather.src  = link_img;
-	temperatureNow.prepend(img_weather)
+	
 }

@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script src="./script.js"></script>
     <link href="./normalize.css" rel="stylesheet" type="text/css">
     <link href="./style.css" rel="stylesheet" type="text/css">
     <title>Weather</title>
@@ -18,17 +17,18 @@
     <main>
         <div class="container">
             <div class="search-container">
-                <input type="text" size="40">
-                <img src="./img/search.svg" alt="search">
+                <input type="text" size="40" id="inputCity" value="boston">
+                <img src="./img/search.svg" alt="search" onclick="searchClick()">
             </div>
             <div class="container-wrapper">
                 <div class="container-left">
                     <div id="Now" class="now tabcontent">
                         <div class="now-wraper">
-                            <div class="now-temperature">14<img src="./img/temperature.svg" alt="temperature"></div>
+                            <div class="now-temperature"><span id="nowTemperature">14</span><img
+                                    src="./img/temperature.svg" alt="temperature"></div>
                             <div class="now-picture"><img src="./img/cloud.svg" alt="cloud"></div>
-                            <div class="now-actube">
-                                <span>Actube</span>
+                            <div class="now-bottom">
+                                <span id="nowCity">City</span>
                                 <img src="./img/heart.svg" alt="heart">
                             </div>
                         </div>
@@ -116,9 +116,9 @@
                         </div>
                     </div>
                     <div class="tab">
-                        <button class="tablinks" onclick="openCity(event, 'Now')">Now</button>
-                        <button class="tablinks" onclick="openCity(event, 'Details')">Details</button>
-                        <button class="tablinks" onclick="openCity(event, 'Forecast')">Forecast</button>
+                        <button class="tablinks" onclick="openTab(event, 'Now')">Now</button>
+                        <button class="tablinks" onclick="openTab(event, 'Details')">Details</button>
+                        <button class="tablinks" onclick="openTab(event, 'Forecast')">Forecast</button>
                     </div>
                 </div>
 
@@ -144,6 +144,7 @@
             </div>
         </div>
     </main>
+    <script src="./script.js"></script>
 </body>
 
 </html>

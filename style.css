@@ -37,6 +37,10 @@ main {
     line-height: 21px;
 }
 
+.search-container img {
+    cursor: pointer;
+}
+
 .container-wrapper {
     display: flex;
     justify-content: center;
@@ -129,7 +133,7 @@ main {
     align-items: center;
 }
 
-.now-actube {
+.now-bottom {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

@@ -13,35 +13,34 @@ const favorite = document.querySelector('.now__favorite');
 const cityList = [];
 let cityName
 
-form.addEventListener('submit', getCity)
+form.addEventListener('submit', getNameCity)
 
 
-function getCity(name) {
+function getNameCity(name) {
 	cityName = input.value ? input.value : name;
 	fetch(`${SERVER_URL}?q=${cityName}&appid=${API_KEY}&units=metric`)
 		.then(response => response.json())
 		.then(json => {
-			changeDegree(json.main.temp)
-			changeIcon(json.weather)
-			changeCity(json.name)
+			changeDegreeNow(json.main.temp)
+			changeIconNow(json.weather)
+			changeCityNow(json.name)
 		})
 		.catch(err => console.log(err))
 	input.value = ''
 };
-function changeDegree(degree) {
+function changeDegreeNow(degree) {
 	degreePlace.textContent = degree;
 }
-function changeIcon(arr) {
+function changeIconNow(arr) {
 	let icon = (arr.map(element => element.icon)).join('');
 	img.src = `http://openweathermap.org/img/wn/${icon}@4x.png`
 }
-function changeCity(cityNameForChange) {
+function changeCityNow(cityNameForChange) {
 	cityPlace.textContent = cityNameForChange;
 	cityName = cityPlace.textContent
 }
 
 
-favorite.addEventListener('click', addCityToList)
 
 
 
@@ -80,6 +79,8 @@ function removeCity(e) {
 
 function showCityWeather(e) {
 	let name = e.target.textContent;
-	getCity(name)
+	getNameCity(name)
 }
+
+favorite.addEventListener('click', addCityToList)
 

@@ -21,12 +21,13 @@ async function addTown(event) {
 
 		let responce = await fetch(url);
 		let json = await responce.json();
+		
 
 		console.log(json)
 
 		let temperature = (json.main.temp)
+
 		render(temperature, cityName)
-		
 
 		formSumbit.reset()
 	} catch(error) {
@@ -44,16 +45,9 @@ function render(temperature, cityName) {
 	div_temperature.className = "temperature";
 	div_temperature.innerHTML = temperature;
 
-	// localStorage.setItem(div_temperature, div_temperature.innerText)
-
-	// elem.prepend(localStorage.getItem(div_temperature))
-
 	temperatureNow.prepend(div_temperature)
 
 	let div_location = document.createElement('div');
 	div_location.innerHTML = cityName;
 	city.append(div_location)
-
-
-
 }

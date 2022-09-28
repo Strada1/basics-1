@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Weather</title>
+	<link rel="stylesheet" href="/css/mainScss.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div class="container">
+			<div class="weather">
+				<div class="weather__title title">
+					<form>
+						<input class="title__input" placeholder="Aktobe" type="text">
+						<button type="submit" class="title__button button">
+							<img class="button__search" src="/img/search.jpg" alt="button search">
+						</button>
+					</form>
+				</div>
+				<div class="weather__main main">
+					<div class="main__block">
+						<div class="main__tabs">
+							<div id="Now" class="now__container now">
+								<div class="now__degrees">14° </div>
+								<div class="now__icon icon">
+									<img class="icon__cloud" src="/img/cloud.png" alt="">
+								</div>
+								<div class="now__city">Aktobe</div>
+								<div class="now__favorite favorite">
+									<img class="favorite__img" src="/img/heart.jpg" alt="icon heart">
+								</div>
+							</div>
+							<div id="Details" class="details__container details">
+								<p class="details__city">Aktobe</p>
+								<p class="details__temperature">
+									Temperature: 14°
+								</p>
+								<p class="details__feels">Feels like: 10</p>
+								<p class="details__weather">Weather: Clouds</p>
+								<p class="details__sunrise">Sunrise: 03:21</p>
+								<p class="details__sunset">Sunset: 18:54</p>
+							</div>
+							<div id="Forecast" class="forecast__container forecast">
+								<div class="forecast__city">Aktobe</div>
+								<div class="forecast__block">
+									<div class="forecast__time time">
+										<div class="time__date date">
+											<p class="date__number">17 may</p>
+											<p class="date__hour">12:00</p>
+										</div>
+										<div class="time__sky sky">
+											<div class="sky__temperature">
+												Temperature: 13<br>
+												Feels like: 10
+											</div>
+											<div class="sky__precipitation precipitation">
+												<div class="preciptation__text">Rain</div>
+												<div class="preciptation__icon"><img src="/img/rain.png" alt=""></div>
+											</div>
+										</div>
+									</div>
+									<div class="forecast__time time">
+										<div class="time__date date">
+											<p class="date__number">17 may</p>
+											<p class="date__hour">12:00</p>
+										</div>
+										<div class="time__sky sky">
+											<div class="sky__temperature">
+												Temperature: 13<br>
+												Feels like: 10
+											</div>
+											<div class="sky__precipitation precipitation">
+												<div class="preciptation__text">Rain</div>
+												<div class="preciptation__icon"><img src="/img/rain.png" alt=""></div>
+											</div>
+										</div>
+									</div>
+									<div class="forecast__time time">
+										<div class="time__date date">
+											<p class="date__number">17 may</p>
+											<p class="date__hour">12:00</p>
+										</div>
+										<div class="time__sky sky">
+											<div class="sky__temperature">
+												Temperature: 13 <br>
+												Feels like: 10
+											</div>
+											<div class="sky__precipitation precipitation">
+												<div class="preciptation__text">Rain</div>
+												<div class="preciptation__icon"><img src="/img/rain.png" alt=""></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<nav class="aktobe__tabs tabs">
+							<a href="#Now" class="tabs__item">Now</a>
+							<a href="#Details" class="tabs__item">Details</a>
+							<a href="#Forecast" class="tabs__item">Forecast</a>
+						</nav>
+					</div>
+					<div class="main__locations locations">
+						<div class="locations__title">
+							Added Locations:
+						</div>
+						<ul class="locations__list list">
+							<div class="list__item"><a href="#">Amur</a></div>
+							<div class="list__item"><a href="#">Samara</a></div>
+							<div class="list__item"><a href="#">Bali</a></div>
+							<div class="list__item"><a href="#">Dane</a></div>
+							<div class="list__item"><a href="#">Kilo</a></div>
+							<div class="list__item"><a href="#">Nur-Sultan</a></div>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/js/main.js"></script>
+
+</body>
+
+</html>

@@ -6,8 +6,8 @@
 body {
 	margin: 0;
 	padding: 0;
-	width: 621px;
-	height: 462px;
+	width: 1280px;
+	height: 900px;
 
 	font-family: 'Roboto';
 }
@@ -16,12 +16,12 @@ ul, li {
 	list-style: none;
 }
 
-a.text:active, /* активная/посещенная ссылка */
-a.text:hover,  /* при наведении */
+/* a.text:active, /* активная/посещенная ссылка */
+/* a.text:hover,  при наведении */
 a.text,
 a {
   text-decoration: none;
-  color: #666;
+  color: rgb(0, 0, 0);
 }
 
 h1 {
@@ -73,6 +73,7 @@ input {
 	height:  389px;
 
 	border: 1px solid;
+	border-top: none;
 }
 
 .main_weather {
@@ -96,11 +97,16 @@ input {
 }
 
 .image_cloud {
+	width: 78px;
+	height: 59px;
+
 	display: flex;
 	justify-content: center;
+	align-items: center;
 
 	margin-top: 40px;
 	margin-bottom: 98px;
+	margin-left: 112px;
 }
 
 .favorite {
@@ -127,13 +133,14 @@ input {
 	justify-content: center;
 
 	border-right: 1px solid;
+	border-bottom: none;
 
 	width: 99px;
 	height: 44px;
 }
 
 .nav_forecast {
-	border-right: 0 solid;
+ border-right: none;
 
 }
 
@@ -156,13 +163,15 @@ input {
 }
 
 .added_cities {
+	max-height: 292px;
+
 	display: flex;
 	flex-direction: column;
 
 	margin-top: 35px;
 	margin-left: 18px;
 
-	
+	overflow: auto;
 }
 
 .add__city {
@@ -222,15 +231,21 @@ input {
 .nav_now,
 .nav_details,
 .nav_forecast {
+	cursor: pointer;
+}
+
+.nav_now,
+.nav_details,
+.nav_forecast {
 	transition: all 0.5s ease-in-out;
 }
 
 .now_tab:hover,
 .details_tab:hover,
 .forecast_tab:hover,
-.now_tab:focus,
-.details_tab:focus,
-.forecast_tab:focus {
+.nav_now:hover,
+.nav_details:hover,
+.nav_forecast:hover	{ 
 	color: white;
 }
 
@@ -243,3 +258,31 @@ input {
 	background-color: black;
 }
 
+.favorite_btn {
+	cursor: pointer;
+}
+
+.favorite_btn:hover {
+	fill: rgb(209, 209, 209);
+}
+
+.item {
+	margin-right: 10px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.delete {
+	cursor: pointer;
+}
+
+.add__city {
+	cursor: pointer;
+}
+
+.active {
+	background: black;
+	color: white;
+}

@@ -9,7 +9,6 @@ window.addEventListener('unhandledrejection', function(event) {
 list = [];
 
 formSumbit.addEventListener("submit", addTown)
-formSumbit.addEventListener("submit", getCityName)
 
 async function addTown(event) {
 	try {
@@ -24,7 +23,6 @@ async function addTown(event) {
 		let responce = await fetch(url);
 		let json = await responce.json();
 		
-		// console.log(json)
 
 		let temperature = (json.main.temp)
 		const icon = (json.weather[0].icon) 
@@ -55,30 +53,28 @@ function renderNow(temperature, cityName, icon) {
 	// температура
 	let div_temperature = document.createElement('div')
 	div_temperature.className = "temperature";
-	div_temperature.textContent = temperature;
+	div_temperature.textContent = `${temperature}°`;
 	temperatureNow.prepend(div_temperature)
 
 	// локация во вкладке now
 	let div_name = document.createElement('div');
 	div_name.className = "section1_text";
+	div_name.id = "cityName"
 	div_name.textContent = cityName;
 	temperatureNow.append(div_name)
 
 	//loveButton
 	loveButton.classList.add('after__render')
+	
 	loveButton.addEventListener('click', addLocation)
 	
 }
 
-function getCityName() {
-	let cityName = Town.value;
-	return cityName
-}
-
 function addLocation() {
-	let cityName =  getCityName()
 
-	console.log(`city name: \n ${cityName}`)
+	let cityValue = document.getElementById("cityName")
+	let cityName = cityValue.textContent
+
 	const indexObj = list.findIndex(function(item){
 		return item == cityName;
 	})
@@ -90,8 +86,6 @@ function addLocation() {
 	} else {
 		alert("Уже есть такой город")
 	}
-
-	
 }
 
 function renderAddedLocation(event) {
@@ -100,10 +94,78 @@ function renderAddedLocation(event) {
 
 	list.forEach(function(item) {
 
+
+
 		let div_location = document.createElement('div');
 		div_location.textContent = item;
+		div_location.onclick = showNowTab
 		city.append(div_location)
+
+		let cross = document.createElement('input');
+		cross.value = '☒';
+		cross.type = 'submit'
+		cross.classList = 'button_close';
+		cross.onclick = deleteTown
+		city.append(cross)
+
+
 	})
 	console.log(`list: ${list}`)
 }
+
+function deleteTown(event) {
+	let town = event.target.previousSibling.textContent 
+	town = town.trim()
+
+	const IndexObj = list.findIndex(function(item){
+		return item == town
+	  })
+
+	  list.splice(IndexObj, 1)
+	  console.log(list)
+	  renderAddedLocation()
+}
+
+async function showNowTab(event) {
+	cityName = event.target.textContent
+
+	const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
+	const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
+	const url = `${serverUrl}?q=${cityName}&appid=${apiKey}&units=metric`;
+
+	let responce = await fetch(url);
+	let json = await responce.json();
+	
+
+	let temperature = (json.main.temp)
+	const icon = (json.weather[0].icon) 
+
+	renderNow(temperature, cityName, icon)
+
+
+
+
+	// меняю цвет города по которому кликнул
+	event.target.classList = "showTown"
+	setTimeout(() => event.target.className = "delete__class", 350)
+	
+}
+
+// function showTown() {
+// 	const city = document.getElementById('city')
+// }
+
+
+
+// добавить цвет при клике на ссылку
+
+// const tabNow = document.getElementById("tabNow")
+// const tabDetalis = document.getElementById("tabDetalis")
+// const tabForecast = document.getElementById("tabForecast")
+
+// tabNow.addEventListener('click', changeBackgroundNow) 
+
+// function changeBackgroundNow() {
+// 	tabNow.classList = 'active'
+// }
 

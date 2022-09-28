@@ -207,6 +207,12 @@
 
 	padding: 17px 98px 7px 18px;
 }
+
+.button_close {
+	margin-left: 206px;
+	margin-top: -24px;
+	position: absolute;
+}
 /* ------------------------------------------------------------------------------ */
 
 .container_article_3 {
@@ -227,6 +233,10 @@
 	font-weight: 400;
 	font-size: 24px;
 	line-height: 28px;	
+}
+
+.showTown {
+	background: gray;
 }
 
 /* TAb 2------------------------------------------------------------------------------ */
@@ -309,3 +319,4 @@
 .element_img {
 	margin-left: 210px;
 }
+

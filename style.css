@@ -15,6 +15,11 @@ ul {
     list-style: none;
 }
 
+button {
+    border: none;
+    background: #fff;
+}
+
 
 .container {
     width: 600px;
@@ -136,6 +141,10 @@ ul {
     padding: 33px 10px 7px 18px;
 }
 
+.list__item span {
+    cursor: pointer;
+}
+
 .details__content-list {
     padding: 35px 10px 35px 18px;
 }
@@ -176,7 +185,22 @@ ul {
     justify-content: space-between;
 }
 
-.current__city-nowtab {}
+.like__button {
+    height: 35px;
+    width: 35px;
+}
+
+.like__button svg {
+    transition: 200ms;  
+    width: 25px;
+    height: 25px;
+}
+
+.like__button:hover svg {
+    width: 32px;
+    height: 32px;
+    fill: rgb(255, 0, 0);
+}
 
 .tabs__item:nth-child(3) {
     /* background-color: beige; */
@@ -262,5 +286,9 @@ ul {
 }
 
 .list__item {
+    padding-right: 20px;
     margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
 }
+

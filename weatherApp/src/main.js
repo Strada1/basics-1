@@ -1,16 +1,23 @@
-import { UIELEMENTS } from './uielements.js'
+import { UIELEMENTS } from './src/uielements.js'
 
+
+const list = [{cityName: "Bali"}];
 
 UIELEMENTS.form_input.addEventListener('submit', function (event, TODO) {
     event.preventDefault();
-
-    // const divRemove = document.querySelector("divRemove");
-    // divRemove.remove();
-    renderNow();
-
-    // setTimeout(() => divRemove.remove(), 1000);
+    const inputCity = getWeatherPromise(UIELEMENTS.cityName.value.split(' ').join(''));
+    renderNow(inputCity);
     //TODO: divRemove нужно доделать
+
+
+    UIELEMENTS.form_input.reset();
 })
+
+
+// function remove(divRemove){
+//     divRemove = document.querySelector("divRemove");
+//     divRemove.remove();
+// }
 
 function getWeatherPromise(cityName){
 
@@ -35,8 +42,8 @@ function getWeatherPromise(cityName){
 
 
 
-function renderNow(node){
-    const inputCity = getWeatherPromise(UIELEMENTS.cityName.value.split(' ').join(''));
+function renderNow(inputCity){
+
     console.log(inputCity);
     const  tabNow = document.querySelector("#tab_01");
     let promise = inputCity;
@@ -66,20 +73,81 @@ function renderNow(node){
 
         const city_name = document.createElement("span");
         city_name.className = "city-name";
+        city_name.id = "nowIdCity";
         city_name.textContent = data.name;
         city_like.appendChild(city_name);
 
         const likeImg = document.createElement("img");
         likeImg.className = "like";
         likeImg.src  = "img/like.png";
+        likeImg.id = "nowIdLike"
         city_like.appendChild(likeImg);
 
         tabNow.append(divRemove);
 
         console.log(tabNow);
 
+        const like_location = document.querySelector("#nowIdLike");
+        like_location.addEventListener("click", likeLocation);
     })
         .catch(error => alert(error.message))
 
+
+    // const divRemove = document.querySelector("divRemove");
+    // divRemove.remove();
+
 }
 
+
+
+function likeLocation(){
+
+    try {
+        const likeCity = document.querySelector("#nowIdCity");
+        const  locations = document.querySelector(".locations");
+        const  selectLocation = document.createElement("div");
+        selectLocation.className = "selectLocation";
+
+        const result = list.findIndex(item => likeCity.textContent === item.cityName);
+
+        // if(result !== -1){
+        //     throw new Error(`${likeCity.textContent}  уже существует в избранных `)
+        // }
+
+        const div = document.createElement("div");
+        div.className = "city-name";
+        div.textContent = likeCity.textContent;
+
+
+        const remove = document.createElement("img");
+        remove.className = "removeLocation";
+        remove.src  = "img/remove.png";
+        remove.id = "removeId"
+        selectLocation.appendChild(div);
+        selectLocation.appendChild(remove);
+        locations.append(selectLocation);
+
+
+
+        document.getElementById("removeId").addEventListener("click", function () {
+            deleteLikeCity(likeCity.textContent);
+        });
+        list.push({cityName: likeCity.textContent});
+
+    }catch (e) {
+        alert(e.message);
+    }
+
+}
+
+function deleteLikeCity(likeCity){
+    const result = list.findIndex(item => likeCity.textContent === item.cityName);
+
+    if(result !== -1){
+        throw new Error(`${likeCity.textContent}  уже существует в избранных `)
+    } else {
+        list.splice( result, 1 );
+    }
+}
+
+console.log(list);

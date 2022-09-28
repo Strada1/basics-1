@@ -3,7 +3,7 @@ const formInput = document.querySelector('.search__form-input');
 const likeButton = document.querySelector('.like__button');
 const currentCity = document.querySelector('.current__city-nowtab');
 const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
-    const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
+const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
 let addedLocationsMassive = [];
 
 form.addEventListener('submit', (e) => {
@@ -25,6 +25,15 @@ function getWeatherInfo(cityName) {
 function renderNowTab(weatherInfo) {
     const temperatureValue = document.querySelector('.temperature__value');
     const weatherIcon = document.querySelector('.weather__icon');
+    const likeIcon = document.querySelector('.like__button svg');
+    likeIcon.addEventListener('click', () => {
+        likeIcon.setAttribute('fill', 'red');
+    })
+    if (cityPresenceCheck(weatherInfo.name)) {
+        likeIcon.setAttribute('fill', 'red');
+    } else {
+        likeIcon.setAttribute('fill', 'none');
+    }
     temperatureValue.textContent = Math.trunc(weatherInfo.main.temp);
     currentCity.textContent = weatherInfo.name;
     formInput.placeholder = weatherInfo.name;
@@ -47,7 +56,7 @@ function addCityToFavorite() {
         alert('Такой город уже есть');
         return;
     }
-    let newCity = {name: currentCity.textContent, url: `${serverUrl}?q=${currentCity.textContent}&appid=${apiKey}&units=metric`}
+    let newCity = { name: currentCity.textContent, url: `${serverUrl}?q=${currentCity.textContent}&appid=${apiKey}&units=metric` }
     addedLocationsMassive.push(newCity);
     renderLocationList(addedLocationsMassive);
     // console.log(addedLocationsMassive);
@@ -55,6 +64,7 @@ function addCityToFavorite() {
 
 function deleteCityFromFavorite(cityName) {
     addedLocationsMassive = addedLocationsMassive.filter(item => item.name !== cityName);
+    getWeatherInfo(cityName);
 }
 
 function renderLocationList(list) {

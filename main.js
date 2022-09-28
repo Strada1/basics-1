@@ -66,7 +66,6 @@ function renderNow(temperature, cityName, icon) {
 
 	//loveButton
 	loveButton.classList.add('after__render')
-	return cityName
 	loveButton.addEventListener('click', addLocation)
 	
 }

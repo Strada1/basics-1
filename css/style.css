@@ -34,6 +34,7 @@ body {
 .weather--main {
     display: flex;
     flex-direction: row;
+    /* height: 435px; */
 }
 
 .weather--tabsbar,
@@ -109,28 +110,12 @@ body {
 }
 
 .now--icon {
-    -webkit-flex: 0 1 auto;
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    align-self: center;
-    width: 100%;
-    position: relative;
-}
-
-.now--icon::before {
-    content: '';
-    width: 80px;
-    height: 60px;
-    background: url('../images/big_cloud_icon.png') center no-repeat;
-    position: absolute;
-    left: 0;
-    top: -50px;
-    right: 0;
-    bottom: 0;
+    width: 150px;
+    height: 84px;
+    background: url('../images/big_cloud_icon.png') no-repeat center;
     margin: 0 auto;
 }
+
 
 .now-city {
     flex: 1;
@@ -162,7 +147,7 @@ body {
 
 }
 
-.weather--now,
+.weather--forecast,
 .weather--details {
     display: none;
 }
@@ -227,6 +212,7 @@ body {
     flex-direction: column;
     padding: 6px 12px;
     border: 1px solid #000000;
+    margin-bottom: 10px;
 }
 
 .forecast--dateblock{

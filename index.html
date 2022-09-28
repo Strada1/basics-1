@@ -19,11 +19,12 @@
       <div class="weather--wrapper">
         <div class="weather--box">
           <div class="weather--searchbar">
-            <form action="" class="weather--searchform">
+            <form action="" class="weather--searchform" id="searchCity">
               <input
                 type="text"
                 class="weather--searchinput"
                 placeholder="New York"
+                id="searchField"
               />
               <input type="submit" class="weather--searchbtn" value="" />
             </form>
@@ -32,10 +33,10 @@
             <div class="weather--tabsbar column">
               <div class="wheather--screens">
                 <div class="weather--now">
-                  <div class="now--temperature">14</div>
-                  <div class="now--icon"></div>
+                  <div class="now--temperature" id="nowTemperature">14</div>
+                  <div class="now--icon" id="nowWeatherIcon"></div>
                   <div class="now--location">
-                    <div class="now-city">Aktobe</div>
+                    <div class="now-city" id="cityName"">Aktobe</div>
                     <button class="now-btn"></button>
                   </div>
                 </div>
@@ -51,19 +52,65 @@
                 </div>
                 <div class="weather--forecast">
                   <h3 class="weather--header city">Aktobe</h3>
-                  <div class="forecast--card">
-                    <div class="forecast--dateblock">
-                      <div class="forecast--date">17 May</div>
-                      <div class="forecast--date">22:00</div>
-                    </div>
-                    <div class="forecast--weatherblock">
-                      <div class="forecast--temperaturebox">
-                        <div class="forecast--tempereture">Temperature: 13</div>
-                        <div class="forecast--tempereture">Feels like: 10</div>
+                  <div class="forecast--cards">
+                    <div class="forecast--card">
+                      <div class="forecast--dateblock">
+                        <div class="forecast--date">17 May</div>
+                        <div class="forecast--date">22:00</div>
                       </div>
-                      <div class="forecast--weatherbox">
-                        <div class="forecast--weather">Rain</div>
-                        <div class="forecast--icon"></div>
+                      <div class="forecast--weatherblock">
+                        <div class="forecast--temperaturebox">
+                          <div class="forecast--tempereture">
+                            Temperature: 13
+                          </div>
+                          <div class="forecast--tempereture">
+                            Feels like: 10
+                          </div>
+                        </div>
+                        <div class="forecast--weatherbox">
+                          <div class="forecast--weather">Rain</div>
+                          <div class="forecast--icon"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="forecast--card">
+                      <div class="forecast--dateblock">
+                        <div class="forecast--date">17 May</div>
+                        <div class="forecast--date">22:00</div>
+                      </div>
+                      <div class="forecast--weatherblock">
+                        <div class="forecast--temperaturebox">
+                          <div class="forecast--tempereture">
+                            Temperature: 13
+                          </div>
+                          <div class="forecast--tempereture">
+                            Feels like: 10
+                          </div>
+                        </div>
+                        <div class="forecast--weatherbox">
+                          <div class="forecast--weather">Rain</div>
+                          <div class="forecast--icon"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="forecast--card">
+                      <div class="forecast--dateblock">
+                        <div class="forecast--date">17 May</div>
+                        <div class="forecast--date">22:00</div>
+                      </div>
+                      <div class="forecast--weatherblock">
+                        <div class="forecast--temperaturebox">
+                          <div class="forecast--tempereture">
+                            Temperature: 13
+                          </div>
+                          <div class="forecast--tempereture">
+                            Feels like: 10
+                          </div>
+                        </div>
+                        <div class="forecast--weatherbox">
+                          <div class="forecast--weather">Rain</div>
+                          <div class="forecast--icon"></div>
+                        </div>
                       </div>
                     </div>
                   </div>

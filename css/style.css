@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
 
 .container {
     width: 100%;
@@ -10,4 +14,262 @@
     max-width: 2134px;
     margin: 0 auto;
     position: relative;
+}
+
+.weather--wrapper   {
+    width: 622px;
+    padding: 14px;
+    height: 470px;
+    margin: 0 auto;
+}
+
+.weather--box {
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column;
+}
+
+
+
+.weather--main {
+    display: flex;
+    flex-direction: row;
+}
+
+.weather--tabsbar,
+.weather--locatiosnbar {
+    width: 50%;
+}
+
+.details--list,
+.weather--locationslist {
+    list-style-type: none;
+    font-size: 24px;
+}
+
+.weather--searchbar {
+    width: 100%;
+    position: relative;
+}
+
+.weather--searchinput {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #000000;
+    padding: 12px 16px;
+    font-size: 18px;
+}
+
+.weather--searchbtn {
+    position: absolute;
+    display: block;
+    right: 16px;
+    top: 12px;
+    border: none;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    background: url('../images/search_icon.png') center no-repeat;
+    z-index: 3;
+}
+.weather--tabsbar {
+    display: flex;
+    flex-direction: column;
+}
+
+.wheather--screens {
+    display: flex;
+    flex: 2;
+    margin: 33px 18px 0;
+}
+
+.weather--now {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    width: 262px;
+}
+
+.now--temperature {
+    font-size: 70px;
+}
+
+.now--icon {
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    width: 100%;
+    position: relative;
+}
+
+.now--icon::before {
+    content: '';
+    width: 80px;
+    height: 60px;
+    background: url('../images/big_cloud_icon.png') center no-repeat;
+    position: absolute;
+    left: 0;
+    top: -50px;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+}
+
+.now-city {
+    flex: 1;
+}
+
+.now--location {
+    padding: 15px 0;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.now-btn {
+    border: none;
+    background: tranparent;
+    cursor: pointer;
+}
+
+.now-btn::after {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 23px;
+    position: absolute;
+    right: 0;
+    top: 14px;
+    background: url('../images/like_icon.png') no-repeat center;
+    background-size: cover;
+
+}
+
+.weather--now,
+.weather--details {
+    display: none;
+}
+
+.wheather--tabs {
+    display: flex;
+}
+.tabs--btn {
+    width: 100%;
+    border: none;
+    background: #fff;
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+    padding: 9px 0px;
+    cursor: pointer;
+}
+
+.tabs--btn:last-child {
+    border-right: none;
+}
+
+.tabs--active {
+    background: #000;
+    color: #fff;
+}
+
+.weather--locations,
+.location-headerbox {
+    padding: 33px 18px 0px;
+}
+
+.column:first-child{
+    border-right: 1px solid #000000;
+}
+
+.location-headerbox {
+    border-bottom: 1px solid #000;
+}
+
+.location-header {
+    margin-bottom: 7px;
+}
+.weather--locations {
+    padding-top: 35px;
+}
+
+.locations--item,
+.details--item {
+    margin-bottom: 16px;
+}
+
+.details--list {
+    margin-top: 42px;
+}
+
+.weather--forecast {
+    width: 100%;
+}
+
+.forecast--card {
+    display: flex;
+    flex-direction: column;
+    padding: 6px 12px;
+    border: 1px solid #000000;
+}
+
+.forecast--dateblock{
+    display: flex;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.forecast--date {
+    width: 50%;
+}
+
+.forecast--weatherblock {
+    display: flex;
+}
+
+
+.forecast--temperaturebox {
+    flex: 1
+}
+
+.forecast--weatherbox {
+    width: 30%;
+    text-align: right;
+    position: relative;
+}
+
+.forecast--date:last-child {
+    text-align: right;
+}
+
+.forecast--icon {
+    width: 31px;
+    height: 31px;
+}
+
+.forecast--icon::before {
+    content: '';
+    width: 31px;
+    height: 31px;
+    display: block;
+    position: absolute;
+    right:0;
+    top: 18px;
+    background: url('../images/rain_cloud_icon.png') no-repeat center;
 }

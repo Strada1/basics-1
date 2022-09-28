@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
     <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <title>Just Weather</title>
   </head>
@@ -14,52 +20,69 @@
         <div class="weather--box">
           <div class="weather--searchbar">
             <form action="" class="weather--searchform">
-              <input type="text" class="weather--searchinput" />
-              <input type="submit" class="weather--searchbutton" />
+              <input
+                type="text"
+                class="weather--searchinput"
+                placeholder="New York"
+              />
+              <input type="submit" class="weather--searchbtn" value="" />
             </form>
           </div>
           <div class="weather--main">
-            <div class="weather--tabsbar">
-              <div class="weather--now">
-                <div class="now--temperature">14</div>
-                <div class="now--icon"></div>
-                <div class="now--location">Aktobe</div>
-              </div>
-              <div class="weather--details">
-                <h3 class="weather--header city">Aktobe</h3>
-                <ul class="details--list">
-                  <li class="details--item">Temperature: 14</li>
-                  <li class="details--item">Feels like: 10</li>
-                  <li class="details--item">Weather: Clouds</li>
-                  <li class="details--item">Sunrise: 03:21</li>
-                  <li class="details--item">Sunset: 18:54</li>
-                </ul>
-              </div>
-              <div class="weather--forecast">
-                <h3 class="weather--header city">Aktobe</h3>
-                <div class="forecast--card">
-                  <div class="forecast-dateblock">
-                    <div class="date">17 May</div>
-                    <div class="time">22:00</div>
+            <div class="weather--tabsbar column">
+              <div class="wheather--screens">
+                <div class="weather--now">
+                  <div class="now--temperature">14</div>
+                  <div class="now--icon"></div>
+                  <div class="now--location">
+                    <div class="now-city">Aktobe</div>
+                    <button class="now-btn"></button>
                   </div>
-                  <div class="forecast--weatherblock">
-                    <div class="forecast--temperaturebox">
-                      <div class="forecast--tempereture">Temperature: 13</div>
-                      <div class="forecast--temperaturefeels">
-                        Feels like: 10
-                      </div>
+                </div>
+                <div class="weather--details">
+                  <h3 class="weather--header city">Aktobe</h3>
+                  <ul class="details--list">
+                    <li class="details--item">Temperature: 14</li>
+                    <li class="details--item">Feels like: 10</li>
+                    <li class="details--item">Weather: Clouds</li>
+                    <li class="details--item">Sunrise: 03:21</li>
+                    <li class="details--item">Sunset: 18:54</li>
+                  </ul>
+                </div>
+                <div class="weather--forecast">
+                  <h3 class="weather--header city">Aktobe</h3>
+                  <div class="forecast--card">
+                    <div class="forecast--dateblock">
+                      <div class="forecast--date">17 May</div>
+                      <div class="forecast--date">22:00</div>
                     </div>
-                    <div class="forecast--weatherbox">
-                      <div class="forecast--weather">Rain</div>
-                      <div class="forecast--icon"></div>
+                    <div class="forecast--weatherblock">
+                      <div class="forecast--temperaturebox">
+                        <div class="forecast--tempereture">Temperature: 13</div>
+                        <div class="forecast--tempereture">Feels like: 10</div>
+                      </div>
+                      <div class="forecast--weatherbox">
+                        <div class="forecast--weather">Rain</div>
+                        <div class="forecast--icon"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div class="wheather--tabs">
+                <button class="tabs--btn tabs--active">Now</button
+                ><button class="tabs--btn">Details</button
+                ><button class="tabs--btn">Forecast</button>
+              </div>
             </div>
-            <div class="weather--locatiosnbar">
+            <div class="weather--locatiosnbar column">
               <div class="weather--headerbox">
-                <h3 class="weather--header">Added Locations:</h3>
+                <div class="location-headerbox">
+                  <h3 class="weather--header location-header">
+                    Added Locations:
+                  </h3>
+                </div>
+
                 <div class="weather--locations">
                   <div class="weather--locationslist">
                     <li class="locations--item">Amur</li>

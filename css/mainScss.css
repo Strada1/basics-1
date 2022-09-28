@@ -153,4 +153,9 @@
   flex-direction: column;
   gap: 15px;
   overflow: scroll;
+}
+.list .list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }/*# sourceMappingURL=mainScss.css.map */

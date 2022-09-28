@@ -12,7 +12,14 @@ form.addEventListener('submit', (e) => {
     formInput.value = '';
 })
 
-likeButton.addEventListener('click', addCityToFavorite)
+likeButton.addEventListener('click', () => {
+    if (cityPresenceCheck(currentCity.textContent)) {
+        deleteCityFromFavorite(currentCity.textContent);
+    } else {
+        addCityToFavorite(currentCity.textContent);
+    }
+    
+})
 
 function getWeatherInfo(cityName) {
     const url = `${serverUrl}?q=${cityName}&appid=${apiKey}&units=metric`;
@@ -28,6 +35,7 @@ function renderNowTab(weatherInfo) {
     const likeIcon = document.querySelector('.like__button svg');
     likeIcon.addEventListener('click', () => {
         likeIcon.setAttribute('fill', 'red');
+        // deleteCityFromFavorite(weatherInfo.name);
     })
     if (cityPresenceCheck(weatherInfo.name)) {
         likeIcon.setAttribute('fill', 'red');
@@ -65,6 +73,7 @@ function addCityToFavorite() {
 function deleteCityFromFavorite(cityName) {
     addedLocationsMassive = addedLocationsMassive.filter(item => item.name !== cityName);
     getWeatherInfo(cityName);
+    renderLocationList(addedLocationsMassive);
 }
 
 function renderLocationList(list) {

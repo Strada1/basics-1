@@ -9,6 +9,7 @@ window.addEventListener('unhandledrejection', function(event) {
 list = [];
 
 formSumbit.addEventListener("submit", addTown)
+formSumbit.addEventListener("submit", getCityName)
 
 async function addTown(event) {
 	try {
@@ -65,13 +66,20 @@ function renderNow(temperature, cityName, icon) {
 
 	//loveButton
 	loveButton.classList.add('after__render')
-
+	return cityName
 	loveButton.addEventListener('click', addLocation)
+	
+}
+
+function getCityName() {
+	let cityName = Town.value;
 	return cityName
 }
 
 function addLocation() {
+	let cityName =  getCityName()
 
+	console.log(`city name: \n ${cityName}`)
 	const indexObj = list.findIndex(function(item){
 		return item == cityName;
 	})
@@ -84,7 +92,7 @@ function addLocation() {
 		alert("Уже есть такой город")
 	}
 
-	console.log(`first ${list}`)
+	
 }
 
 function renderAddedLocation(event) {
@@ -97,6 +105,6 @@ function renderAddedLocation(event) {
 		div_location.textContent = item;
 		city.append(div_location)
 	})
-	console.log(`second ${list}`)
+	console.log(`list: ${list}`)
 }
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whether</title>
+    <title>Weather</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -17,31 +17,35 @@
                 <img src="./icons/find.svg">
             </button>
         </div>
-        <div class="whether">
+        <div class="weather">
             <div class="tabs">
                 <div class="tabs-body">
                     <div id="tab-1" class="tabs-block">
                         <div class="temperature">
-                            <span id="temperature">
-                                14°
-                            </span>
+                            <div class="temp">
+                                <span id="temperature">
+                
+                                </span>
+                            </div>
                             <div class="status">
-                                <img id='weather-icon' alt="whether-status" src="./icons/cloud.svg">
+                                <img id='weather-icon'>
                             </div>
                             <div class="location">
-                                <span id="loca">City</span>
-                                <button id="add-button"> 
-                                    <img src="./icons/like.svg">
+                                <div class="spancontainer">
+                                    <span id="loca">  </span>
+                                </div>
+                                <button id="add-button">
+                                    <img id="add-icon" src="./icons/like.svg" hidden>
                                 </button>
                             </div>
                         </div> 
                     </div>
                     <div id="tab-2" class="tabs-block">
                         <div class="city">
-                            <span>City</span>
+                            <span id="city">City</span>
                         </div>
                         <div class="details">
-                            <ul>
+                            <ol>
                                 <li>
                                     <span id="temp">Temperature: </span>
                                 </li>
@@ -49,15 +53,15 @@
                                     <span id="feel">Feels like: </span>
                                 </li>
                                 <li>
-                                    <span id="feel">Whether: </span>
+                                    <span id="weather">Weather: </span>
                                 </li>
                                 <li>
-                                    <span id="feel">Sunrise: </span>
+                                    <span id="sunrise">Sunrise: </span>
                                 </li>
                                 <li>
-                                    <span id="feel">Sunset: </span>
+                                    <span id="sunset">Sunset: </span>
                                 </li>
-                            </ul>                 
+                            </ol>                 
                         </div>
                     </div>
                     <nav class="tabs-items">
@@ -69,34 +73,12 @@
             <div class="cities">
                 <div class="liked-cities"> <span>Added locations:  </span></div>
                 <div class="locations">
-                    <ul>
-                        <li>
-                            City
-                        </li>
-                        <li>
-                            City
-                        </li>
-                        <li>
-                            City
-                        </li>
-                        <li>
-                            City
-                        </li>
-                        <li>
-                            City
-                        </li>
-                        <li>
-                            City
-                        </li>
-                        <li>
-                            City
-                        </li>
- 
-                    </ul>
+                    <ol id="added-locations"> </ol>
                 </div>
             </div>
         </div>
     </div>
 </body>
 <script src="./main.js"> </script>
+<!-- <script type="module" src="./localstorage.js"></script> -->
 </html>

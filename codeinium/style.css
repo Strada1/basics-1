@@ -14,10 +14,11 @@ body {
     padding: 70px 0;
 }
 
-ul { 
+ol { 
     list-style-type: none;
 }
 li {
+    display: flex;
     margin-top: 8px;
 }
 .container {
@@ -50,7 +51,7 @@ li {
     border: none;
     margin-right: 8px;
 }
-.whether {
+.weather {
     display: flex;
 }
 .tabs {
@@ -106,6 +107,7 @@ li {
 .tabs-block:nth-child(1) {
     
 }
+
 .tabs-block:nth-child(1):before {
     background-color: #000;
     color: white;
@@ -115,6 +117,7 @@ li {
 .tabs-block:nth-child(2) {
     
 }
+
 .tabs-block:nth-child(2):before {
     background-color: #000;
     color: white;
@@ -125,6 +128,10 @@ li {
     display: block;
 }
 
+.locations {
+    height: 300px;
+    overflow-y: scroll;
+}
 .liked-cities {
     border-bottom: 1px solid #000;
     width: 300px;
@@ -133,11 +140,16 @@ li {
     align-items: center;
     padding-top: 20px;
 }
-.locations, .liked-cities span {
+
+#added-locations , .liked-cities span {
     margin: 25px;
     font-size: 24px;
+    list-style-type: none;
 }
 
+.temp {
+    height: 33.333%;
+}
 .temperature span {
     font-size: 70px;
     height: 33.333%;
@@ -151,24 +163,29 @@ li {
 }
 
 .location {
-    height: 100px;   
     padding-top: 60px;
-    justify-items: end;
+    display: flex;
+    font-size: 24px;
 }
 
-.location img {
-    justify-self: end;
-} 
-
-.location span{
+.spancontainer {
     width: 100%;
     font-size: 24px;
 }
 
-.city span {
+#loca, .city span {
     font-size: 24px;
 }
 .details {
     margin-top: 28px;
     font-size: 24px;
+}
+button {
+    font-size: 24px;
+    background-color: white;
+}
+
+.location-button {
+    text-align: left;
+    width: 100%;
 }

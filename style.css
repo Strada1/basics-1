@@ -215,15 +215,15 @@ main {
     overflow: auto;
 }
 
-.container-right-caption {
+.container-caption {
     margin: 33px 0 0 18px;
 }
 
-.container-right-items {
+.container-items {
     margin: 35px 0 0 18px;
     list-style-type: none;
 }
 
-.container-right-item:not(:last-child) {
+.container-item:not(:last-child) {
     margin-bottom: 10px;
 }

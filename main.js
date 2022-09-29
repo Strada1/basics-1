@@ -80,30 +80,32 @@ function addLocation() {
 
 	if (indexObj == -1) {
 		list.push(cityName) // (заменить на concat или оператор расширения)
-		localStorage.setItem('cityName', list)
-		let cityInLocalStorage = allStorage()
-		 
+		console.log(`Массив после клика на сердечко: \n ${list}`)
+
+
+		toStorage(cityName)
+		cityName = JSON.parse(localStorage.getItem("cityName"))
+		console.log(cityName)
+		// localStorage.setItem('cityName', JSON.stringify(list) )
+		// let arrInStorage = JSON.parse(list)
+		// console.log(arrInStorage)
+		
+	
 		// let favoriteCities = localStorage.getItem('cityName')
 		// console.log(`storage: \n ${favoriteCities}` )
 
-		console.log(`allStorage: \n ${allStorage()}`)
 	
-		renderAddedLocation(cityInLocalStorage)
+		renderAddedLocation()
 	} else {
 		alert("Уже есть такой город")
 	}
 }
 
-function renderAddedLocation(cityInLocalStorage) {
+function renderAddedLocation() {
 	const city = document.getElementById('city')
 	city.textContent = "";
 
-
-	console.log(`Arr: ${cityInLocalStorage}`)
-	console.log(`Arr: ${Array.isArray(cityInLocalStorage)}`)
-	
-
-	cityInLocalStorage.forEach(function(item) {
+	list.forEach(function(item) {
 
 		let div_location = document.createElement('div');
 		div_location.textContent = item;
@@ -117,7 +119,7 @@ function renderAddedLocation(cityInLocalStorage) {
 		cross.onclick = deleteTown // переделать AddEventListner 
 		city.append(cross)
 	})
-	console.log(`list: ${list}`)
+	// console.log(`list: ${list}`)
 }
 
 function deleteTown(event) {
@@ -153,19 +155,9 @@ async function showNowTab(event) {
 	setTimeout(() => event.target.className = "delete__class", 350)
 }
 
-// modul.js LocalStorage 
-//localStorage.clear()
-
-function allStorage() {
-
-    let values = [],
-        keys = Object.keys(localStorage),
-        i = keys.length;
-
-    while ( i-- ) {
-        values.push( localStorage.getItem(keys[i]) );
-    }
-
-    return values;
+function toStorage(cityName) {
+    let citiesArray = JSON.stringify(cityName)
+    localStorage.setItem('citiesArray', citiesArray)
 }
 
+// localStorage.clear()

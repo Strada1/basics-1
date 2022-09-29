@@ -43,8 +43,8 @@ function addCity() {
   if (checkCityList(cityName)){
     return;
   }
-  cityList.push({ name: cityName });
-  saveCityList(cityList);
+  const updateCityList = cityList.concat([{ name: cityName }]);
+  saveCityList(updateCityList);
   addCurrentCity(cityName);
   renderCityList()
 }
@@ -54,7 +54,6 @@ function deleteCity(event) {
   const cityName = deleteButton.previousElementSibling.textContent;
   if (checkCityList(cityName)){
     const cityID = getCityID(cityName);
-    cityList.splice(cityID, 1);
     deleteCityFromStorage(cityName);
     renderCityList();
   }
@@ -85,6 +84,7 @@ function showCity(event){
 
 
 export function renderCityList() {
+  const cityList = getCityList();
   const UL = document.querySelectorAll('.weather__city');
   UL.forEach(li => li.remove());
 

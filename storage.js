@@ -5,12 +5,12 @@ export function saveCityList(cityList) {
 }
 
 export function getCityList() {
-  const list = []
+  const list = [];
   for (let key in localStorage) {
     if (!localStorage.hasOwnProperty(key) || key === 'currentCity') {
       continue;
     }
-    list.push({ 'name': localStorage.getItem(key) })
+    list.push({ 'name': localStorage.getItem(key) });
   }
   return list;
 }

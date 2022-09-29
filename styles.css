@@ -140,10 +140,16 @@ ul {
   margin-left: 12px;
 }
 
-.now__icon--like {
+.now__city--like {
   margin-bottom: 23px;
   margin-right: 26px;
   cursor: pointer;
+  user-select: none;
+}
+
+.now__city--favorite {
+  filter: invert(10%) sepia(100%) saturate(6762%) hue-rotate(1deg)
+    brightness(103%) contrast(107%);
 }
 
 /* styling tabs list */
@@ -161,6 +167,7 @@ ul {
   text-align: center;
   border-right: 1px solid black;
   cursor: pointer;
+  user-select: none;
 }
 
 .tab-item:last-child {
@@ -190,7 +197,27 @@ ul {
 
 .location-item {
   padding: 8px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+
+  display: flex;
+  justify-content: space-between;
 }
+
+.location-item__favorite > .location-item__button {
+  font-size: 16px;
+  border: none;
+  margin: 0 5px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* .location-item__button {
+  font-size: 16px;
+  border: none;
+  margin: 0 5px;
+  background-color: transparent;
+} */
 
 /* styling Details tab */
 

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="./normalize.css" rel="stylesheet" type="text/css">
+    <link href="./style.css" rel="stylesheet" type="text/css">
+    <title>Weather</title>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="search-container">
+                <input type="text" size="40" id="inputCity">
+                <img src="./img/search.svg" alt="search" onclick="searchClick()">
+            </div>
+            <div class="container-wrapper">
+                <div class="container-left">
+                    <div id="Now" class="now tabcontent">
+                        <div class="now-wraper">
+                            <div class="now-temperature"><span id="nowTemperature"></span><img
+                                    src="./img/temperature.svg" alt="temperature"></div>
+                            <div class="now-picture"><img src="./img/cloud.svg" alt="cloud"></div>
+                            <div class="now-bottom">
+                                <span id="nowCity"></span>
+                                <img src="./img/heart.svg" alt="heart" onclick="addToFavorites()">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Details" class="tabcontent">
+                        <div class="ditails-wraper1">
+                            <p class="container-caption" id="detailsCity">City</p>
+
+                            <ul class="container-items">
+                                <li class="container-item">Temperature: <span id="detailsTemperature">t</span><sup><img
+                                            src="./img/temperature-small.svg" alt="temperature"></sup>
+                                </li>
+                                <li class="container-item">Feels like: <span id="detailsFeelsLike">t</span><sup><img
+                                            src="./img/temperature-small.svg" alt="temperature"></sup>
+                                </li>
+                                <li class="container-item">Weather: <span id="detailsWeather"></span></li>
+                                <li class="container-item">Sunrise: <span id="detailsSunrise"></span></li>
+                                <li class="container-item">Sunset: <span id="detailsSunset"></span></li>
+                            </ul>
+                            <!-- <div class="ditailsaktobe">Aktobe</div>
+                            <div class="detailslist ditail-temperature">Temperature: 14<sup><img
+                                        src="./img/temperature-small.svg" alt="temperature"></sup></div>
+                            <div class="detailslist ditail-feelslike">Feels like: 10<sup><img
+                                        src="./img/temperature-small.svg" alt="temperature"></sup></div>
+                            <div class="detailslist ditail-weatherclouds">Weather: Clouds</div>
+                            <div class="detailslist ditail-sunrise">Sunrise: 03:21</div>
+                            <div class="detailslist ditail-sunset">Sunset: 18:54</div> -->
+                        </div>
+                    </div>
+                    <div id="Forecast" class="tabcontent">
+                        <div class="forecast-wrapper">
+                            <p class="forecast-aktobe">
+                                Aktobe
+                            </p>
+                            <div class="forecast-card">
+                                <div class="forecast-card-date">
+                                    <span class="forecast-card-string-date">17 May</span>
+                                    <span class="forecast-card-string-time">12:00</span>
+                                </div>
+                                <div class="forecast-card-main">
+                                    <div class="forecast-card-main-temperature">
+                                        <p>Temperature: 13
+                                            <sup><img src="./img/temperature-small.svg" alt="temperature"></sup>
+                                        </p>
+                                        <p>Feels like: 10
+                                            <sup><img src="./img/temperature-small.svg" alt="temperature"></sup>
+                                        </p>
+                                    </div>
+                                    <div class="forecast-card-main-weather">
+                                        <p>rain</p>
+                                        <p><img src="./img/rain.svg" alt="weather icon"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="forecast-card">
+                                <div class="forecast-card-date">
+                                    <span class="forecast-card-string-date">17 May</span>
+                                    <span class="forecast-card-string-time">12:00</span>
+                                </div>
+                                <div class="forecast-card-main">
+                                    <div class="forecast-card-main-temperature">
+                                        <p>Temperature: 13
+                                            <sup><img src="./img/temperature-small.svg" alt="temperature"></sup>
+                                        </p>
+                                        <p>Feels like: 10
+                                            <sup><img src="./img/temperature-small.svg" alt="temperature"></sup>
+                                        </p>
+                                    </div>
+                                    <div class="forecast-card-main-weather">
+                                        <p>rain</p>
+                                        <p><img src="./img/rain.svg" alt="weather icon"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="forecast-card">
+                                <div class="forecast-card-date">
+                                    <span class="forecast-card-string-date">17 May</span>
+                                    <span class="forecast-card-string-time">12:00</span>
+                                </div>
+                                <div class="forecast-card-main">
+                                    <div class="forecast-card-main-temperature">
+                                        <p>Temperature: 13
+                                            <sup><img src="./img/temperature-small.svg" alt="temperature"></sup>
+                                        </p>
+                                        <p>Feels like: 10
+                                            <sup><img src="./img/temperature-small.svg" alt="temperature"></sup>
+                                        </p>
+                                    </div>
+                                    <div class="forecast-card-main-weather">
+                                        <p>rain</p>
+                                        <p><img src="./img/rain.svg" alt="weather icon"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <button class="tablinks" onclick="openTab(event, 'Now')">Now</button>
+                        <button class="tablinks" onclick="openTab(event, 'Details')">Details</button>
+                        <button class="tablinks" onclick="openTab(event, 'Forecast')">Forecast</button>
+                    </div>
+                </div>
+
+                <div class="container-right">
+                    <p class="container-caption">Added Locations:</p>
+                    <hr>
+                    <ul class="container-items" id="addedLocations">
+                        <li class="container-item flex-row addedLocation">
+                            <span class="container-item-city" onclick="chooseClick(this.innerText)">Amur</span>
+                            <span class="close"><img src="./img/close.svg" alt="close"
+                                    onclick="deleteCityClick()"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>

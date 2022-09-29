@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+body {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    /* width: 600px; */
+    /* height: 435px; */
+    border: solid black 1px;
+    margin: 5px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: solid black 1px;
+    padding: 16px;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.search-container img {
+    cursor: pointer;
+}
+
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* container-left */
+
+.container-left {
+    /* float: left; */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 390px;
+    width: 300px;
+    border-right: 1px solid black;
+}
+
+.tabcontent {
+    display: none;
+    flex-grow: 1;
+    /*     padding: 6px 12px; */
+    overflow: auto;
+    height: 345px;
+}
+
+.tab {
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    align-self: stretch;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px;
+    flex-grow: 1;
+    transition: 0.3s;
+    font-family: 'Roboto';
+    font-size: 18px;
+    line-height: 21px;
+    border-top: 1px solid black;
+}
+
+.tab button:hover {
+    background-color: gray;
+}
+
+.tab button.active {
+    background-color: #000;
+    color: #fff;
+}
+
+.tabcontent {
+    display: none;
+    flex-grow: 1;
+    /*     padding: 6px 12px; */
+    overflow: auto;
+    height: 345px;
+}
+
+.now {
+    display: flex;
+}
+
+.now-wraper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 26px 23px 12px;
+    width: 100%;
+}
+
+.now-temperature {
+    display: flex;
+    align-items: flex-start;
+    font-size: 70px;
+    line-height: 82px;
+}
+
+.now-picture {
+    background-color: white;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.now-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* .ditails-wraper {
+    margin: 33px 0 0 15px;
+} */
+
+/* .ditailsaktobe {
+    margin-bottom: 42px;
+} */
+
+.detailslist:not(:last-child) {
+    margin-bottom: 14px;
+}
+
+.addedlocations {
+    padding-left: 18px;
+    padding-top: 33px;
+    border-bottom: 1px solid black;
+}
+
+.addedlocations-wraper {
+    margin-top: 35px;
+    margin-left: 18px;
+}
+
+.addedlocation:not(:last-child) {
+    margin-bottom: 14px;
+}
+
+/* Forecast */
+.forecast-wrapper {
+    display: block;
+    padding: 10px;
+}
+
+.forecast-aktobe {
+    margin-top: 17px;
+}
+
+.forecast-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6px;
+    border: 1px solid black;
+    height: 120px;
+    width: 265px;
+    font-size: 18px;
+    line-height: 21px;
+    margin-top: 7px;
+    padding-bottom: 9px;
+}
+
+.forecast-card-date,
+.forecast-card-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.forecast-card-main-weather {
+    text-align: center;
+}
+
+/* container-right */
+
+.container-right {
+    /* float: right; */
+    flex-grow: 1;
+    height: 390px;
+    width: 300px;
+    /* border: 1px solid black; */
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.container-caption {
+    margin: 33px 0 0 18px;
+}
+
+.container-items {
+    margin: 35px 10px 0 18px;
+    list-style-type: none;
+}
+
+.container-item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.container-item-city,
+.close {
+    cursor: pointer;
+}

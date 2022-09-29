@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="./toDo.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to Do List</title>
+    <script src="https://kit.fontawesome.com/5d0350ba1b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="high-priority">
+            <h2 class="title">HIGH</h2>
+            <div class="addTask_box">
+                <form class="toDo_add" name="highForm" type="submit">
+                    <input class='input1' type="text" name="nameInput" placeholder="  Добавить важное дело">
+                    <i class="fa-solid fa-plus" id="iconPlus1"></i>
+                </form>
+            </div>
+            <div class="taskContainerHigh">
+                <div class="task-container" id="task-container_high">
+                    <label>
+                        <input type="checkbox" class="input_task" id="qwe">
+                        <span class="input_text">
+                            Вот вам супер-интересная тема. Вот вам супер-интересная тема. Вот вам
+                            супер-интересная тема.
+                            Вот вам
+                            супер-интересная тема.
+                        </span>
+                    </label>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+        </div>
+        <div class="low-priority">
+            <h2 class="title">LOW</h2>
+            <div class="addTask_box">
+                <form class="toDo_add" name="lowForm">
+                    <input class="input2" type="text" name="nameInput" placeholder="  Добавить дело">
+                    <i class="fa-solid fa-plus" id="iconPlus2"></i>
+                </form>
+            </div>
+            <div class="taskContainerLow">
+                <div class="task-container">
+                    <label>
+                        <input type="checkbox" class="input_task" id="qwe">
+                        <span class="input_text">
+                            Сделать много домашних дел, устроиться на работу
+                        </span>
+                    </label>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <div class="task-container">
+                    <label>
+                        <input type="checkbox" class="input_task" id="qwe">
+                        <span class="input_text">
+                            Посмотреть ютубчик
+                        </span>
+                    </label>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="toDo.js"></script>
+</body>
+
+</html>

@@ -10,6 +10,10 @@ const lowTaskContainer = document.querySelector(".taskContainerLow");
 // Функция добавления задачи без перезагрузки страницы
 
 function addTask(text, container) {
+  if (text === "") {
+    return alert("Вы ввели пустую задачу");
+  }
+
   let divContainer = document.createElement("div");
   divContainer.setAttribute("class", "task-container");
   divContainer.setAttribute("id", "task-container_high");
@@ -23,7 +27,6 @@ function addTask(text, container) {
 
   let span = document.createElement("span");
   span.setAttribute("class", "input_text");
-  span.textContent = text;
 
   let icon = document.createElement("i");
   icon.setAttribute("class", "fa-solid fa-xmark");
@@ -36,16 +39,6 @@ function addTask(text, container) {
 
   container.append(divContainer);
 }
-
-// Слушатели на кнопки + для добавления задач с функцией добавления задачи внутри
-
-btnAddHigh.addEventListener("click", () => {
-  addTask(highInput.value, highTaskContainer);
-});
-
-btnAddLow.addEventListener("click", () => {
-  addTask(lowInput.value, lowTaskContainer);
-});
 
 // Слушатели на формы для добавления задач без обновления страницы и с функцией добавления задач внутри
 

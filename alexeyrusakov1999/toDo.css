@@ -45,10 +45,12 @@ body {
 }
 
 
-.addTask_box i {
+.addTask_box button {
     position: absolute;
     right: 14px;
-    top: 20px;
+    top: 17px;
+    border: 0;
+    background: white
 }
 
 .fa-solid {

@@ -285,7 +285,7 @@ button {
     /* отступ вокруг бегунка */
 }
 
-.list__item {
+.list__item, .details__content-list__item {
     padding-right: 20px;
     margin-bottom: 15px;
     display: flex;

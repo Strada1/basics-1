@@ -1,0 +1,122 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+.search {
+    width: 10px;
+    height: 10px;
+}
+.main {
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 85vh;
+    border: 1px solid;
+}
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-items: left;
+    border: 1px solid;
+    height: 100%;
+}
+#city__location{
+    width: 95%;
+}
+form {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+header {
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+form .city {
+    display: flex;
+    justify-content: space-between ;
+    flex-flow: nowrap row;
+}
+.left, .right {
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid;
+    width: 100%;
+    height: 100%;
+}
+.left__upper-box {
+    height: 93%;
+}
+.left__bottom-box {
+    display: flex;
+    height: 7%;
+    border: 1px solid;
+    width: 100%;
+}
+.now, .details, .forecast {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    flex: 1;
+}
+.now:focus, .details:focus, .forecast:focus {
+    color: white;
+    background-color: black;
+}
+.right__upper-box {
+    border: 1px solid;
+    height: 10%;
+    display: flex;
+    align-items: end;
+}
+.right__bottom-box {
+    display: flex;
+    flex-flow: nowrap column;
+    border: 1px solid;
+    flex: 1 1 auto;
+    padding: 10px;
+}
+.weather {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    margin: 10px;
+    flex-flow: column nowrap;
+}
+.weather > .city .degrees {
+    height: 10%;
+    font-size: 40px;
+}
+.image {
+    display: flex;
+    justify-content: center;
+}
+.weather-image {
+    width: 180px;
+    height: 180px;
+    align-self: center;
+}
+.weather-deteils {
+    display: flex;
+    flex-direction: column;
+}
+.city {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notFavourite {
+    background-color: white;
+    border-radius: 35%;
+}
+.favourite {
+    background-color: red;
+    border-radius: 35%;
+}
+.city-list {
+    display: flex;
+    justify-content: space-between;
+}

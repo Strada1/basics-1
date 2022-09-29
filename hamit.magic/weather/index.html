@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <script type="module" src="./index.js"></script>
+    <title>weather</title>
+</head>
+<body>
+    <div class="main">
+        <header>
+            <form class="city" onsubmit="sendWeatherRequest(); return false">
+                <input type="text" id="city__location" placeholder="Almaty" value="Almaty">
+                <button>
+                    <img src="img/search-icon.svg" alt="найти город" class="search">
+                </button>
+            </form>
+        </header>
+        <div class="content">
+            <div class="left">
+                <div class="left__upper-box">
+                    <div class="weather">
+                        <span class="degrees"></span>
+                        <span class="image"></span>
+                        <span class="city"></span>
+                    </div>
+                </div>
+                <div class="left__bottom-box">
+                    <input type="button" class="now" onclick="sendWeatherRequest()" value='Now'>
+                    <input type="button" class="details" onclick="sendWeatherRequest()" value='Details'>
+                    <input type="button" class="forecast" onclick="sendWeatherRequest()" value='Forecast'>
+                </div>
+            </div>
+            <div class="right">
+                <div class="right__upper-box">Added Locations:</div>
+                <div class="right__bottom-box">
+                    <span>Almaty</span>
+                    <span>Almaty</span>
+                    <span>Almaty</span>
+                    <span>Almaty</span>
+                    <span>Almaty</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

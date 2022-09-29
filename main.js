@@ -13,7 +13,7 @@ const ELEMENTS = {
 };
 const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
 const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
-const CITY = ['Amur', 'Samara', 'Bali'];
+let CITY = ['Amur', 'Samara', 'Bali'];
 
 ELEMENTS.BTN.addEventListener('click', function (event) {
   event.preventDefault();
@@ -49,6 +49,9 @@ function changeNow(url) {
 }
 
 ELEMENTS.BODY.onload = function () {
+  if (localStorage.getItem('cityes')) {
+    CITY = JSON.parse(localStorage.getItem('cityes'));
+  }
   getLocalStorageCityes();
   getLocalStorageCurrentCity();
 };
@@ -68,12 +71,15 @@ function addCityArray() {
 }
 
 function saveLocalStorageCityes() {
+  console.log(CITY);
   localStorage.setItem('cityes', JSON.stringify(CITY));
 }
 function getLocalStorageCityes() {
-  let cityes = localStorage.getItem('cityes');
-  cityes = JSON.parse(cityes);
-  renderLocation(cityes);
+  if (localStorage.getItem('cityes')) {
+    let cityes = localStorage.getItem('cityes');
+    cityes = JSON.parse(cityes);
+    renderLocation(cityes);
+  }
 }
 
 function getLocalStorageCurrentCity() {
@@ -87,7 +93,7 @@ function renderLocation(cityes) {
   document.querySelectorAll('.list-item').forEach(function (city) {
     city.remove();
   });
-  console.log(cityes);
+
   cityes.forEach((city) => {
     let li = document.createElement('li');
     li.className = 'list-item';
@@ -106,6 +112,11 @@ function renderLocation(cityes) {
       localStorage.setItem('currentCity', JSON.stringify(p.textContent));
       getLocalStorageCurrentCity();
     });
-    btn.addEventListener('click', () => li.remove());
+    btn.addEventListener('click', () => {
+      let deleteCity = JSON.parse(localStorage.getItem('cityes'));
+      let newCityes = deleteCity.filter((city) => city !== p.textContent);
+      localStorage.setItem('cityes', JSON.stringify(newCityes));
+      li.remove();
+    });
   });
 }

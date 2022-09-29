@@ -17,18 +17,18 @@
     <main>
         <div class="container">
             <div class="search-container">
-                <input type="text" size="40" id="inputCity" value="boston">
+                <input type="text" size="40" id="inputCity">
                 <img src="./img/search.svg" alt="search" onclick="searchClick()">
             </div>
             <div class="container-wrapper">
                 <div class="container-left">
                     <div id="Now" class="now tabcontent">
                         <div class="now-wraper">
-                            <div class="now-temperature"><span id="nowTemperature">14</span><img
+                            <div class="now-temperature"><span id="nowTemperature"></span><img
                                     src="./img/temperature.svg" alt="temperature"></div>
                             <div class="now-picture"><img src="./img/cloud.svg" alt="cloud"></div>
                             <div class="now-bottom">
-                                <span id="nowCity">City</span>
+                                <span id="nowCity"></span>
                                 <img src="./img/heart.svg" alt="heart" onclick="addToFavorites()">
                             </div>
                         </div>
@@ -139,11 +139,11 @@
                     <p class="container-caption">Added Locations:</p>
                     <hr>
                     <ul class="container-items" id="addedLocations">
-                        <!-- <li class="container-item flex-row addedLocation">
+                        <li class="container-item flex-row addedLocation">
                             <span class="container-item-city" onclick="chooseClick(this.innerText)">Amur</span>
                             <span class="close"><img src="./img/close.svg" alt="close"
                                     onclick="deleteCityClick()"></span>
-                        </li> -->
+                        </li>
                     </ul>
                 </div>
             </div>

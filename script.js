@@ -10,8 +10,9 @@ const detailsWeather = document.getElementById("detailsWeather");
 const detailsSunrise = document.getElementById("detailsSunrise");
 const detailsSunset = document.getElementById("detailsSunset");
 const addedLocations = document.getElementById("addedLocations");
+const currentCity = getCurrentCity();
 
-const сitySet = new Set();
+const сitySet = getFavoriteCities();
 
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
@@ -31,6 +32,8 @@ function openTab(evt, tabName) {
 }
 
 async function searchClick() {
+
+    localStorage.setItem('currentCity', inputCity.value);
 
     let url = `${serverUrl}?q=${inputCity.value.trim()}&appid=${apiKey}`;
     let json;
@@ -78,17 +81,23 @@ async function searchClick() {
 }
 
 function chooseClick(cityName) {
+
     inputCity.value = cityName;
+
     searchClick();
 }
 
 function addToFavorites() {
     сitySet.add(inputCity.value);
+    saveFavoriteCities(сitySet);
+
     refreshAddedLocation();
 }
 
 function deleteCityClick(element) {
     сitySet.delete(element.attributes.cityName.value);
+    saveFavoriteCities(сitySet);
+
     refreshAddedLocation();
 }
 
@@ -107,8 +116,28 @@ function refreshAddedLocation() {
 
 }
 
+function saveFavoriteCities(favoriteCities) {
 
+    localStorage.setItem('сitySet', JSON.stringify(Array.from(сitySet)));
 
+}
+
+function getFavoriteCities() {
+
+    if (localStorage.getItem('сitySet') !== null) {
+        return new Set(JSON.parse(localStorage.getItem("сitySet")));
+    } else {
+        return new Set();
+    }
+}
+
+function getCurrentCity() {
+    if (localStorage.getItem('currentCity') !== null) inputCity.value = localStorage.getItem('currentCity');
+}
+
+getCurrentCity();
+
+refreshAddedLocation();
 
 
 

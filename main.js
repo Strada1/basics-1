@@ -18,7 +18,6 @@ likeButton.addEventListener('click', () => {
     } else {
         addCityToFavorite(currentCity.textContent);
     }
-    
 })
 
 function getWeatherInfo(cityName) {
@@ -32,10 +31,9 @@ function getWeatherInfo(cityName) {
 function renderNowTab(weatherInfo) {
     const temperatureValue = document.querySelector('.temperature__value');
     const weatherIcon = document.querySelector('.weather__icon');
-    const likeIcon = document.querySelector('.like__button svg');
+    const likeIcon = likeButton.childNodes[1];
     likeIcon.addEventListener('click', () => {
         likeIcon.setAttribute('fill', 'red');
-        // deleteCityFromFavorite(weatherInfo.name);
     })
     if (cityPresenceCheck(weatherInfo.name)) {
         likeIcon.setAttribute('fill', 'red');
@@ -47,7 +45,6 @@ function renderNowTab(weatherInfo) {
     formInput.placeholder = weatherInfo.name;
     weatherIcon.src = `http://openweathermap.org/img/wn/${weatherInfo.weather[0]['icon']}@4x.png`;
     weatherIcon.alt = weatherInfo.weather[0]['main'];
-    // console.log(weatherInfo);
 }
 
 function cityPresenceCheck(cityName) {
@@ -60,14 +57,9 @@ function cityPresenceCheck(cityName) {
 }
 
 function addCityToFavorite() {
-    if (cityPresenceCheck(currentCity.textContent)) {
-        alert('Такой город уже есть');
-        return;
-    }
     let newCity = { name: currentCity.textContent, url: `${serverUrl}?q=${currentCity.textContent}&appid=${apiKey}&units=metric` }
     addedLocationsMassive.push(newCity);
     renderLocationList(addedLocationsMassive);
-    // console.log(addedLocationsMassive);
 }
 
 function deleteCityFromFavorite(cityName) {
@@ -83,7 +75,6 @@ function renderLocationList(list) {
     list.forEach(element => {
         addedLocationsList.append(createItem(element));
     });
-    // console.log(list)
 }
 
 function createItem(element) {

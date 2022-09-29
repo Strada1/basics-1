@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Forecast</title>
+    <link rel="stylesheet" href="/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body class="body">
+    <div class="container">
+        <div class="content">
+            <form class="forecast-form" action="">
+                <input type="text" class="inputForm" placeholder="Aktobe">
+                <button class="button" type="submit"></button>
+            </form>
+        <div class="forecast-container">
+        <section class="main-forecast">
+            <div class="forecast-now forecast" id="tab-01">
+                <div class="degrees">
+             <span></span>
+        </div>
+            <img class="cloud" src="./img/cloud.svg" alt="icon of cloud" width="78px" height="59px">
+
+            <div class="forecast-months">
+            <img src="./img/heart.svg" id="favoriteAdd" alt="icon of heart" width="22px" height="22px">
+        </div>
+            </div>
+            <div class="forecast-details forecast" id="tab-02">
+                <div class="locations-header forecast-details ">
+                    <p class="text-locations">Aktobe</p>
+                </div>
+                <ul class="details-items">
+                    <li>Temperature: 14°</li>
+                    <li>Feels like: 10°</li>
+                    <li>Weather: Clouds</li>
+                    <li>Sunrise: 03:21</li>
+                    <li>Sunset: 18:54</li>
+
+                </ul>
+            </div>
+            <div class="forecast-table forecast" id="tab-03">
+                <div class="locations-header forecast-details ">
+                    <p class="text-locations">Aktobe</p>
+                </div>
+                <div class="table-items">
+                <div class="table-container">
+                        <div class="forecast-date">
+                        <p>17 May  </p>
+                        <p>12:00</p>
+                    </div>
+                    <div class="forecast-weather">
+                        <div class="forecast-temperature">
+                        <p>Temperature: 13°</p>
+                        <p>Feels like: 10°</p>
+                    </div>
+                    <div class="weather-icon">
+                        <p class="rain">Rain</p>
+                        <p class="forecast-icons"></p>
+                    </div>
+                </div>
+            </div>
+                <div class="table-container">
+                        <div class="forecast-date">
+                        <p>17 May  </p>
+                        <p>15:00</p>
+                    </div>
+                    <div class="forecast-weather">
+                        <div class="forecast-temperature">
+                        <p>Temperature: 13°</p>
+                        <p>Feels like: 10°</p>
+                    </div>
+                    <div class="weather-icon">
+                        <p class="rain">Rain</p>
+                        <p class="forecast-icons"></p>
+                    </div>
+                </div>
+            </div>
+                <div class="table-container">
+                        <div class="forecast-date">
+                        <p>17 May  </p>
+                        <p>18:00</p>
+                    </div>
+                    <div class="forecast-weather">
+                        <div class="forecast-temperature">
+                        <p>Temperature: 13°</p>
+                        <p>Feels like: 10°</p>
+                    </div>
+                    <div class="weather-icon">
+                        <p class="rain">Rain</p>
+                        <p class="forecast-icons"></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+            <nav class="tabs-items">
+                <a href="#tab-01" class="tabs-item tabs-item-1">Now</a>
+                <a href="#tab-02" class="tabs-item tabs-item-2">Details</a>
+                <a href="#tab-03" class="tabs-item tabs-item-3">Forecast</a>
+            </nav>  
+        </section>
+        <section class="main-locations">
+            <div class="locations-header">
+            <p class="text-locations" >Added Locations:</p>
+        </div>
+            <ul class="locations-items">
+            </ul>
+        </section>
+    </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

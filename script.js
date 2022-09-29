@@ -9,6 +9,9 @@ const detailsFeelsLike = document.getElementById("detailsFeelsLike");
 const detailsWeather = document.getElementById("detailsWeather");
 const detailsSunrise = document.getElementById("detailsSunrise");
 const detailsSunset = document.getElementById("detailsSunset");
+const addedLocations = document.getElementById("addedLocations");
+
+const сitySet = new Set();
 
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
@@ -54,7 +57,7 @@ async function searchClick() {
     } catch (err) {
         inputCity.value = "Ошибка HTTP: " + err; // TypeError: failed to fetch
     }
-
+    // Через Promise
     // let url = `${serverUrl}?q=${inputCity.value.trim()}&appid=${apiKey}`;
     // fetch(url).then(response => response.json())
     //     .catch(err => inputCity.value = "Ошибка HTTP: ")
@@ -73,6 +76,39 @@ async function searchClick() {
     //     )
     //}
 }
+
+function chooseClick(cityName) {
+    inputCity.value = cityName;
+    searchClick();
+}
+
+function addToFavorites() {
+    сitySet.add(inputCity.value);
+    refreshAddedLocation();
+}
+
+function deleteCityClick(element) {
+    сitySet.delete(element.attributes.cityName.value);
+    refreshAddedLocation();
+}
+
+function refreshAddedLocation() {
+
+    addedLocations.innerHTML = '';
+
+    сitySet.forEach(value => {
+        let li = `<li class="container-item flex-row addedLocation">
+            <span class="container-item-city" onclick="chooseClick(this.innerText)">${value}</span>
+            <img class="close" src="./img/close.svg" alt="close"
+            onclick="deleteCityClick(this)" cityName="${value}"></li>`;
+        addedLocations.insertAdjacentHTML('afterbegin', li);
+    }
+    );
+
+}
+
+
+
 
 
 

@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 body {
     font-family: 'Roboto';
     font-style: normal;
@@ -139,13 +146,13 @@ main {
     flex-wrap: wrap;
 }
 
-.ditails-wraper {
+/* .ditails-wraper {
     margin: 33px 0 0 15px;
-}
+} */
 
-.ditailsaktobe {
+/* .ditailsaktobe {
     margin-bottom: 42px;
-}
+} */
 
 .detailslist:not(:last-child) {
     margin-bottom: 14px;
@@ -220,10 +227,15 @@ main {
 }
 
 .container-items {
-    margin: 35px 0 0 18px;
+    margin: 35px 10px 0 18px;
     list-style-type: none;
 }
 
 .container-item:not(:last-child) {
     margin-bottom: 10px;
+}
+
+.container-item-city,
+.close {
+    cursor: pointer;
 }

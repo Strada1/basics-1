@@ -29,7 +29,7 @@
                             <div class="now-picture"><img src="./img/cloud.svg" alt="cloud"></div>
                             <div class="now-bottom">
                                 <span id="nowCity">City</span>
-                                <img src="./img/heart.svg" alt="heart">
+                                <img src="./img/heart.svg" alt="heart" onclick="addToFavorites()">
                             </div>
                         </div>
                     </div>
@@ -138,19 +138,12 @@
                 <div class="container-right">
                     <p class="container-caption">Added Locations:</p>
                     <hr>
-                    <ul class="container-items">
-                        <li class="container-item">Amur</li>
-                        <li class="container-item">Samara</li>
-                        <li class="container-item">Bali</li>
-                        <li class="container-item">Dane</li>
-                        <li class="container-item">Kilo</li>
-                        <li class="container-item">Nur-Sultan</li>
-
-                        <li class="container-item">Samara</li>
-                        <li class="container-item">Bali</li>
-                        <li class="container-item">Dane</li>
-                        <li class="container-item">Kilo</li>
-                        <li class="container-item">Nur-Sultan</li>
+                    <ul class="container-items" id="addedLocations">
+                        <!-- <li class="container-item flex-row addedLocation">
+                            <span class="container-item-city" onclick="chooseClick(this.innerText)">Amur</span>
+                            <span class="close"><img src="./img/close.svg" alt="close"
+                                    onclick="deleteCityClick()"></span>
+                        </li> -->
                     </ul>
                 </div>
             </div>

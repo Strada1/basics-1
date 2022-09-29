@@ -17,34 +17,20 @@ let cityName = 'Aktobe'
 let addedLocations = []
 let locationsElems = []
 
-// ? USE CLASSES
+!localStorage.addedLocations
+  ? (addedLocations = [])
+  : (addedLocations = JSON.parse(localStorage.getItem('addedLocations')))
+
 function Location(name) {
   this.name = name
-  this.isAdded = false
+  this.isAdded = true
 }
-// -----------------------on page start---------------------
-// render addedLocations initially
-renderAddedLocations(addedLocations, locationsList)
-// fetch default city's weather
-fetchWeatherData()
-// update storage on every render
-updateLocalStorage()
-// ---------------------------------------------------------
 
-!localStorage.addedLocations
-  ? JSON.stringify(localStorage.setItem('addedLocations', addedLocations))
-  : JSON.parse(localStorage.getItem('addedLocations', addedLocations))
+like.addEventListener('click', cb)
 
-window.addEventListener('load', () => {
-  like.addEventListener('click', (e) => {
-    e.target.classList.toggle('now__city--favorite')
-    addedLocations.push(
-      new Location(e.target.previousElementSibling.textContent),
-    )
-    updateLocalStorage()
-    renderAddedLocations(addedLocations, locationsList)
-  })
-})
+function cb() {
+  addToFavorite()
+}
 
 const createTemplate = (addedLocation, index) => {
   return `
@@ -55,7 +41,7 @@ const createTemplate = (addedLocation, index) => {
   `
 }
 
-function renderAddedLocations(addedLocations, locationsList) {
+function renderAddedLocations() {
   locationsList.innerHTML = ''
   if (addedLocations.length > 0) {
     addedLocations.forEach((item, index) => {
@@ -71,20 +57,32 @@ function updateLocalStorage() {
 }
 
 function addToFavorite(index) {
-  addedLocations[index].isAdded = !addedLocations[index].isAdded
-  if (addedLocations[index].isAdded) {
-    locationsElems[index].classList.add('location-item__favorite')
-  } else {
-    locationsElems[index].classList.remove('location-item__favorite')
-  }
-  updateLocalStorage('addedLocations', addedLocations)
-  fillHtmlList(addedLocations, locationsList)
+  // addedLocations[index].isAdded = !addedLocations[index].isAdded
+  // if (addedLocations[index].isAdded) {
+  //   locationsElems[index].classList.add('location-item__favorite')
+  //   // like.removeEventListener('click', cb)
+  // } else {
+  //   locationsElems[index].classList.remove('location-item__favorite')
+  // }
+  // updateLocalStorage('addedLocations', addedLocations)
+  // fillHtmlList()
+
+  like.classList.add('now__city--favorite')
+  addedLocations.push(new Location(cityName))
+  updateLocalStorage()
+  renderAddedLocations()
+  isAdded()
 }
 
 function deleteFromFavorites(index) {
+  like.classList.remove('now__city--favorite')
+
+  addedLocations[index].isAdded = false
   addedLocations.splice(index, 1)
+
   updateLocalStorage('addedLocations', addedLocations)
-  renderAddedLocations(addedLocations, locationsList)
+  renderAddedLocations()
+  isAdded()
 }
 
 // search for a city
@@ -102,6 +100,7 @@ searchForm.addEventListener('submit', (e) => {
     }
     searchInput.value = ''
   }
+  isAdded()
 })
 
 // fetch data from the weather API
@@ -120,3 +119,25 @@ async function fetchWeatherData() {
     console.error(error.message)
   }
 }
+
+function isAdded() {
+  const cityInLocations = addedLocations.some((loc) => loc.name === cityName)
+
+  if (cityInLocations) {
+    like.classList.add('now__city--favorite')
+    like.removeEventListener('click', cb)
+  } else {
+    like.classList.remove('now__city--favorite')
+    like.addEventListener('click', cb)
+  }
+}
+
+// like.classList.add('now__city--favorite')
+// -----------------------on page start---------------------
+// render addedLocations initially
+renderAddedLocations()
+// fetch default city's weather
+fetchWeatherData()
+// check is city already in addedLocations
+isAdded()
+// ---------------------------------------------------------

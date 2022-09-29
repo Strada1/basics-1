@@ -1,150 +1,111 @@
 const ELEMENTS = {
-  HIGH_FORM: document.querySelector('#high__form'),
-  HIGH_ADD_INPUT: document.querySelector('#high__add-input'),
-  LOW_FORM: document.querySelector('#low__form'),
-  LOW_ADD_INPUT: document.querySelector('#low__add-input'),
-  DELETE_BTN: document.querySelectorAll('.todo__icon-delete'),
-  TODO_TASK: document.querySelectorAll('.todo__task'),
-  TODO_SPAN: document.querySelectorAll('.todo__name'),
+  INPUT: document.querySelector('.search__input'),
+  BTN: document.querySelector('.search__btn'),
+  TEMPERATURE: document.querySelector('.now__temperature'),
+  ICON_NOW: document.querySelector('.now__icon-img'),
+  CITY_NOW: document.querySelector('.now__city'),
+  DELETE_LOCATION: document.querySelectorAll('.locations__delete'),
+  ADD_LOCATION: document.querySelector('.now__heart'),
+  LIST_LOCATION: document.querySelector('.list'),
+  NOW_CITY_NAME: document.querySelector('.now__city-name'),
+  LIST_CITY: document.querySelectorAll('.list-item'),
   BODY: document.body,
 };
-const PRIORITY = {
-  LOW: 'low',
-  HIGH: 'high',
-};
-const STATUS = {
-  TO_DO: false,
-  DONE: true,
-};
-const list = [
-  {
-    name: 'Сверстать TODO LIST',
-    status: STATUS.TO_DO,
-    priority: PRIORITY.HIGH,
-  },
-  {
-    name: 'Купить хлеб',
-    status: STATUS.TO_DO,
-    priority: PRIORITY.HIGH,
-  },
-  {
-    name: 'Посмотреть ютубчик',
-    status: STATUS.TO_DO,
-    priority: PRIORITY.HIGH,
-  },
-  {
-    name: 'Прочитать про тихоходок',
-    status: STATUS.TO_DO,
-    priority: PRIORITY.LOW,
-  },
-];
+const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
+const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
+const CITY = ['Amur', 'Samara', 'Bali'];
 
-// add
-function addNewTask(task, priority) {
-  try {
-    let pos = list.findIndex((item) => item.name == task);
-    if (pos === -1) {
-      list.push({ name: task, status: STATUS.TO_DO, priority: priority });
-    } else {
-      throw new Error('Такая задача уже есть');
-    }
-    render();
-  } catch (err) {
-    if (err.name === 'Error') alert(err.message);
-  }
-}
-
-function checkTask(input, priority) {
-  try {
-    let newTask = input.value;
-    if (newTask === '' || !isNaN(newTask)) {
-      throw new Error('Введите корректные данные');
-    }
-    addNewTask(newTask, priority);
-  } catch (err) {
-    if (err.name === 'Error') alert(err.message);
-  }
-}
-
-ELEMENTS.HIGH_FORM.onsubmit = function (event) {
+ELEMENTS.BTN.addEventListener('click', function (event) {
   event.preventDefault();
-  checkTask(ELEMENTS.HIGH_ADD_INPUT, PRIORITY.HIGH);
-};
+  let cityName = ELEMENTS.INPUT.value;
+  let url = `${serverUrl}?q=${cityName}&appid=${apiKey}&units=metric`;
+  checkCityName(cityName, url);
+});
 
-ELEMENTS.LOW_FORM.onsubmit = function (event) {
-  event.preventDefault();
-  checkTask(ELEMENTS.LOW_ADD_INPUT, PRIORITY.LOW);
-};
-ELEMENTS.BODY.onload = function () {
-  render();
-};
-// delete
-
-function deleteTask(task) {
-  let pos = list.findIndex((item) => item.name == task);
-  if (pos !== -1) {
-    list.splice([pos], 1);
+function checkCityName(cityName, url) {
+  if (!cityName || !isNaN(cityName)) {
+    alert('Enter a correct city');
+  } else {
+    changeNow(url);
   }
-  render();
 }
 
-// changeStatus
-function changeStatus(index) {
-  list[index].status = !list[index].status;
-  render();
-}
-// render
-
-function render() {
-  try {
-    document.querySelectorAll('.todo__task').forEach(function (task) {
-      task.remove();
-    });
-    list.map(function (itemTask, index) {
-      switch (itemTask.priority) {
-        case PRIORITY.HIGH:
-          ELEMENTS.HIGH_FORM.insertAdjacentHTML(
-            'afterend',
-            `<div class="todo__task" ${itemTask.status ? 'style="background-color: #e0b6ea"' : ''}>
-            <div class="todo__task-content">
-              <label  class="todo__task-text">
-                <input class="todo__task-checkbox" onclick = 'changeStatus("${index}")' type="checkbox" ${
-              itemTask.status ? 'checked' : ''
-            }/>
-                <span class="todo__name">
-                  ${itemTask.name}
-                </span>
-              </label>
-            </div>
-            <button class="todo__icon-delete" onclick = 'deleteTask("${itemTask.name}")'>
-              <img src="../img/delete-icon.svg" alt="icon" />
-            </button>
-          </div>`,
-          );
-          break;
-        case PRIORITY.LOW:
-          ELEMENTS.LOW_FORM.insertAdjacentHTML(
-            'afterend',
-            `<div class="todo__task" ${itemTask.status ? 'style="background-color: #e0b6ea"' : ''}>
-            <div class="todo__task-content">
-              <label  class="todo__task-text">
-                <input class="todo__task-checkbox" onclick = 'changeStatus("${index}")' type="checkbox" ${
-              itemTask.status ? 'checked' : ''
-            }/>
-                <span class="todo__name">
-                  ${itemTask.name}
-                </span>
-              </label>
-            </div>
-            <button class="todo__icon-delete" onclick = 'deleteTask("${itemTask.name}")'>
-              <img src="../img/delete-icon.svg" alt="icon" />
-            </button>
-          </div>`,
-          );
-          break;
+function changeNow(url) {
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('data not received from the server');
       }
-    });
-  } catch (err) {
-    alert(err.message);
+      return response.json();
+    })
+    .then((result) => {
+      ELEMENTS.NOW_CITY_NAME.textContent = result.name;
+      ELEMENTS.TEMPERATURE.textContent = Math.round(result.main.temp) + '°';
+      let iconCode = result.weather[0].icon;
+      let urlWeather = ` https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+      ELEMENTS.ICON_NOW.src = urlWeather;
+    })
+    .catch(alert);
+}
+
+ELEMENTS.BODY.onload = function () {
+  getLocalStorageCityes();
+  getLocalStorageCurrentCity();
+};
+
+ELEMENTS.ADD_LOCATION.addEventListener('click', () => addCityArray());
+
+function addCityArray() {
+  let nowCity = ELEMENTS.NOW_CITY_NAME.textContent;
+  let pos = CITY.findIndex((city) => city === nowCity);
+  if (pos === -1) {
+    CITY.push(nowCity);
+  } else {
+    alert('City already added');
   }
+  saveLocalStorageCityes();
+  getLocalStorageCityes();
+}
+
+function saveLocalStorageCityes() {
+  localStorage.setItem('cityes', JSON.stringify(CITY));
+}
+function getLocalStorageCityes() {
+  let cityes = localStorage.getItem('cityes');
+  cityes = JSON.parse(cityes);
+  renderLocation(cityes);
+}
+
+function getLocalStorageCurrentCity() {
+  let currentCity = localStorage.getItem('currentCity');
+  currentCity = JSON.parse(currentCity);
+  let url = `${serverUrl}?q=${currentCity}&appid=${apiKey}&units=metric`;
+  changeNow(url);
+}
+
+function renderLocation(cityes) {
+  document.querySelectorAll('.list-item').forEach(function (city) {
+    city.remove();
+  });
+  console.log(cityes);
+  cityes.forEach((city) => {
+    let li = document.createElement('li');
+    li.className = 'list-item';
+    ELEMENTS.LIST_LOCATION.prepend(li);
+    let p = document.createElement('p');
+    p.className = 'list-item-city';
+    p.textContent = city;
+    li.append(p);
+    let btn = document.createElement('button');
+    btn.className = 'locations__delete';
+    btn.textContent = 'X';
+    li.append(btn);
+    li.addEventListener('click', () => {
+      let url = `${serverUrl}?q=${p.textContent}&appid=${apiKey}&units=metric`;
+      changeNow(url);
+      localStorage.setItem('currentCity', JSON.stringify(p.textContent));
+      getLocalStorageCurrentCity();
+    });
+    btn.addEventListener('click', () => li.remove());
+  });
 }

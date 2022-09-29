@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+* img {
+  object-fit: cover;
+}
 
 body {
   background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
@@ -109,9 +112,20 @@ body {
 .favorites__list {
   height: 100%;
   overflow-y: auto;
-  padding-top: 35px;
-  padding-bottom: 35px;
-  padding-left: 30px;
+  padding: 35px 30px 35px 30px;
+}
+.favorites__list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.favorites__list li span {
+  cursor: pointer;
+}
+.favorites__list img {
+  cursor: pointer;
+  max-width: 5%;
+  height: 100%;
 }
 
 #tab-1 {

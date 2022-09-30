@@ -53,8 +53,8 @@ async function searchClick() {
                 detailsTemperature.innerHTML = temperature;
                 detailsFeelsLike.innerHTML = Math.floor(Number(json.main.feels_like) - 273.15);
                 detailsWeather.innerHTML = json.weather[0].main;
-                detailsSunrise.innerHTML = json.sys.sunrise;
-                detailsSunset.innerHTML = json.sys.sunset;
+                detailsSunrise.innerHTML = new Date(json.sys.sunrise * 1000).toLocaleTimeString();
+                detailsSunset.innerHTML = new Date(json.sys.sunset * 1000).toLocaleTimeString();
             }
         }
     } catch (err) {

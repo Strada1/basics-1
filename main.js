@@ -56,7 +56,7 @@ function renderNowTab(weatherInfo) {
     }
     temperatureValue.textContent = Math.round(weatherInfo.main.temp);
     currentCity.textContent = weatherInfo.name;
-    formInput.placeholder = weatherInfo.name;
+    // formInput.placeholder = weatherInfo.name;
     weatherIcon.src = `http://openweathermap.org/img/wn/${weatherInfo.weather[0]['icon']}@4x.png`;
     weatherIcon.alt = weatherInfo.weather[0].main;
     addedLocationsMassive.forEach(element => {
@@ -71,6 +71,7 @@ function renderNowTab(weatherInfo) {
             continue;
         }
     }
+    renderLocationList(addedLocationsMassive);
 }
 
 function renderDetailsTab(weatherInfo) {
@@ -128,24 +129,33 @@ function renderLocationList(list) {
     let citiesForDelete = document.querySelectorAll('.list__item');
     citiesForDelete.forEach((item) => item.remove());
     const addedLocationsList = document.querySelector('.added__locations-list');
+    console.log(addedLocationsMassive)
     list.forEach(element => {
+        if (element.isSelected === true) {
+            let element1 = createItem(element);
+            element1.classList.remove('.list__item');
+            element1.classList.add('list__item-selected'); 
+            addedLocationsList.append(element1);
+            return;
+        }
         addedLocationsList.append(createItem(element));
     });
 }
 
 function createItem(element) {
     listItem = document.createElement('li');
+    listItem.classList.remove('.list__item');
     listItem.classList.add('list__item');
     cityNameHolder = document.createElement('span');
     cityNameHolder.textContent = element.name;
     closeButton = document.createElement('button');
-    closeButton.classList.add('close-btn');
+    closeButton.classList.add('close__btn');
     closeButtonIcon = document.createElement('img');
     closeButtonIcon.src = './image/delete-btn.svg';
     closeButton.append(closeButtonIcon);
     listItem.append(cityNameHolder);
     listItem.append(closeButton);
-    cityNameHolder.addEventListener('click', () => {
+    listItem.addEventListener('click', () => {
         getWeatherInfo(element.name);
     })
     closeButton.addEventListener('click', () => {

@@ -39,10 +39,11 @@ button {
 
 .search__form-input {
     background-color: transparent;
+    padding: 10px 6px;
     width: 500px;
     border: none;
-    font-size: 24px;
-    
+    font-size: 20px;
+    transition: all .2s;
 }
 
 .search__form-input::placeholder {
@@ -53,6 +54,29 @@ button {
 
 .search__form-input:focus {
     outline: none;
+    background-color: #d7d7d7;
+    border-radius: 6px;
+}
+
+.search__form-input:hover {
+    outline: none;
+    background-color: #d7d7d7;
+    border-radius: 6px;
+}
+
+.search__form-button {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+}
+
+.search__form-button:hover {
+    background-color: #000;
+    background: url(./image/search-btn-hover.svg);
+    background-repeat: no-repeat;
+    background-position: 0%;
+    background-size: cover;
+    /* opacity: 100%; */
 }
 
 .content {
@@ -80,6 +104,7 @@ button {
 }
 
 .tabs__nav-item {
+    padding-top: 10px;
     width: 33.333%;
     text-align: center;
     text-decoration: none;
@@ -88,6 +113,11 @@ button {
     line-height: 21px;
     border: 2px solid #000;
     border-right: none;
+    transition: all .5s;
+}
+
+.tabs__nav-item:hover {
+    background-color: #888888;
 }
 
 .tabs__nav-item:last-child {
@@ -141,6 +171,7 @@ button {
     padding: 33px 10px 7px 18px;
 }
 
+
 .list__item span {
     cursor: pointer;
 }
@@ -176,22 +207,33 @@ button {
     justify-content: center;
     width: 100px;
     height: 100px;
-    margin: 40px auto; 
+    margin: 40px auto;
 }
 
 .now__bottom {
-    margin: 84px 26px 23px 12px;
+    margin: 80px 10px 23px 12px;
     display: flex;
     justify-content: space-between;
 }
 
+.current__city-now {
+    padding: 4px;
+    border-radius: 6px;
+    transition: all .2s;
+}
+
+.current__city-now:hover {
+    background-color: #d7d7d7;
+}
+
 .like__button {
+    margin-top: 4px;
     height: 35px;
     width: 35px;
 }
 
 .like__button svg {
-    transition: 200ms;  
+    transition: 200ms;
     width: 25px;
     height: 25px;
 }
@@ -285,10 +327,51 @@ button {
     /* отступ вокруг бегунка */
 }
 
-.list__item, .details__content-list__item {
-    padding-right: 20px;
-    margin-bottom: 15px;
+.list__item,
+.details__content-list__item {
+    height: 34.2px;
+    padding-right: 10px;
+    border-radius: 6px;
+    padding-left: 0px;
+    margin-bottom: 6px;
+    margin-right: 10px;
+    border-radius: 6px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    transition: all .1s;
 }
 
+.list__item:hover {
+    background-color: #d7d7d7;
+    padding-left: 6px;
+}
+
+.list__item-selected {
+    cursor: pointer;
+    height: 34.2px;
+    padding-right: 10px;
+    border-radius: 6px;
+    padding-left: 0px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d7d7d7;
+    padding-left: 6px;
+}
+
+.close__btn {
+    height: 23px;
+    width: 23px;
+    border-radius: 50%;
+    padding-top: 3px;
+    transition: all .2s;
+    background: transparent;
+}
+
+.close__btn:hover {
+    background-color: #464646;
+    opacity: 70%;
+}

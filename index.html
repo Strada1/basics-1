@@ -20,7 +20,7 @@
                 <div class="tabs__body">
                     <div id="now" class="tabs__item">
                         <div class="temperature">
-                            <span class="temperature__value">??</span>
+                            <span class="temperature__value"></span>
 
                             <svg width="17" height="40" viewBox="0 0 17 17" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -58,19 +58,36 @@
                             <ul class="details__content-list">
                                 <li class="details__content-list__item">
                                     <span>Temperature:</span>
-                                    <span class="details__temperature"></span> 
+                                    <div>
+                                        <span class="details__temperature"></span>
+                                        <svg width="8" height="25" viewBox="0 0 20 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M8.5 15C12.0899 15 15 12.0899 15 8.5C15 4.91015 12.0899 2 8.5 2C4.91015 2 2 4.91015 2 8.5C2 12.0899 4.91015 15 8.5 15Z"
+                                                stroke="black" stroke-width="4" />
+                                        </svg>
+                                    </div>
                                 </li>
                                 <li class="details__content-list__item">
                                     <span>Feels like:</span>
-                                    <span class="details__feelslike"></span> 
+                                    <div>
+                                        <span class="details__feelslike"></span>
+                                        <svg width="8" height="25" viewBox="0 0 20 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M8.5 15C12.0899 15 15 12.0899 15 8.5C15 4.91015 12.0899 2 8.5 2C4.91015 2 2 4.91015 2 8.5C2 12.0899 4.91015 15 8.5 15Z"
+                                                stroke="black" stroke-width="4" />
+                                        </svg>
+                                    </div>
+
                                 </li>
                                 <li class="details__content-list__item">
                                     <span>Weather:</span>
-                                    <span class="details__weather"></span> 
+                                    <span class="details__weather"></span>
                                 </li>
                                 <li class="details__content-list__item">
                                     <span>Sunrise:</span>
-                                    <span class="details__sunrise"></span> 
+                                    <span class="details__sunrise"></span>
                                 </li>
                                 <li class="details__content-list__item">
                                     <span>Sunset:</span>
@@ -91,9 +108,15 @@
                     </div>
                 </div>
                 <nav class="tabs__nav">
-                    <a href="#now" class="tabs__nav-item"><span>Now</span></a>
-                    <a href="#details" class="tabs__nav-item"><span>Details</span></a>
-                    <a href="#forecast" class="tabs__nav-item"><span>Forecast</span></a>
+                    <a href="#now" class="tabs__nav-item">
+                        <span>Now</span>
+                    </a>
+                    <a href="#details" class="tabs__nav-item">
+                        <span>Details</span>
+                    </a>
+                    <a href="#forecast" class="tabs__nav-item">
+                        <span>Forecast</span>
+                    </a>
                 </nav>
             </div>
             <div class="locations">
@@ -102,12 +125,7 @@
                 </div>
                 <div class="added__locations">
                     <ul class="added__locations-list">
-                        <!-- <li class="list__item">
-                            <span>Amur</span>
-                            <button class="close-btn">
-                                <img src="./image/delete-btn.svg" alt="delete task">
-                            </button>
-                        </li> -->
+
                     </ul>
                 </div>
             </div>

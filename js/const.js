@@ -6,8 +6,9 @@ const img = contentWeather.querySelector('.cloud');
 const favoriteCity = contentWeather.querySelector('.name_city');
 const favoriteButton = contentWeather.querySelector('.favorite_btn');
 const favoirtesCities = document.querySelector('.favorites_cities');
-const cities = favoirtesCities.querySelectorAll('.add__city');
+const searchButton = document.querySelector('.search');
 
+let list = [];
 
 
 export {
@@ -18,5 +19,6 @@ export {
 	favoriteCity,
 	favoriteButton,
 	favoirtesCities,
-	cities,
+	searchButton,
+	list
 }

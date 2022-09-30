@@ -58,6 +58,15 @@ input {
 
 .nav_search__input {
 	margin-left: 15px;
+	width: 100%;
+}
+
+.search {
+	cursor: pointer;
+
+	outline: none;
+	border: none;
+	background: none;
 }
 
 .nav_search__image {

@@ -35,7 +35,10 @@ function getWeatherInfo(cityName) {
     const url = `${serverUrl}?q=${cityName}&appid=${apiKey}&units=metric`;
     fetch(url)
         .then(response => response.json())
-        .then(weather => renderNowTab(weather))
+        .then(weather => {
+            renderNowTab(weather);
+            renderDetailsTab(weather);
+        })
         .catch(err => console.log(err.message))
 }
 
@@ -51,11 +54,11 @@ function renderNowTab(weatherInfo) {
     } else {
         likeIcon.setAttribute('fill', 'none');
     }
-    temperatureValue.textContent = Math.trunc(weatherInfo.main.temp);
+    temperatureValue.textContent = Math.round(weatherInfo.main.temp);
     currentCity.textContent = weatherInfo.name;
     formInput.placeholder = weatherInfo.name;
     weatherIcon.src = `http://openweathermap.org/img/wn/${weatherInfo.weather[0]['icon']}@4x.png`;
-    weatherIcon.alt = weatherInfo.weather[0]['main'];
+    weatherIcon.alt = weatherInfo.weather[0].main;
     addedLocationsMassive.forEach(element => {
         (currentCity.textContent === element.name) ? element.isSelected = true : element.isSelected = false;
     });
@@ -68,6 +71,31 @@ function renderNowTab(weatherInfo) {
             continue;
         }
     }
+}
+
+function renderDetailsTab(weatherInfo) {
+    const temperatureValue = document.querySelector('.details__temperature');
+    const currentCity = document.querySelector('.current__city-detailstab');
+    const feelsLike = document.querySelector('.details__feelslike');
+    const weatherData = document.querySelector('.details__weather');
+    const sunrise = document.querySelector('.details__sunrise');
+    const sunset = document.querySelector('.details__sunset');
+    temperatureValue.textContent = Math.round(weatherInfo.main.temp);
+    currentCity.textContent = weatherInfo.name;
+    feelsLike.textContent = Math.round(weatherInfo.main.feels_like);
+    weatherData.textContent = weatherInfo.weather[0].main;
+    sunrise.textContent = getLocalTime(weatherInfo.sys.sunrise, weatherInfo.timezone);
+    sunset.textContent = getLocalTime(weatherInfo.sys.sunset, weatherInfo.timezone);
+}
+
+function getLocalTime(time, local) {
+    const yourOffset = new Date().getTimezoneOffset()*60*1000;
+    time *= 1000;
+    time += yourOffset;
+    time += local*1000;
+    let localTime = new Date( time );
+    localTime = localTime.toLocaleTimeString().slice(0,-3)
+    return localTime;
 }
 
 function cityPresenceCheck(cityName) {

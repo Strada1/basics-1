@@ -76,6 +76,11 @@ function toStorage (list) {
 	localStorage.setItem('citiesArray', citiesArray);
 }
 
+function lastFavoriteViewed(cityName) {
+	let lastCity = cityName
+    localStorage.setItem('lastCity', lastCity)
+}
+
 // localStorage.clear()
 
 function addLocation() {
@@ -100,11 +105,7 @@ function addLocation() {
 			
 		toStorage(list)
 		let listLocal = JSON.parse(localStorage.getItem("citiesArray"));
-		// console.log(`list parse: \n ${listLocal}`);
-		// console.log(`list parse masyv: \n ${Array.isArray(listLocal)}`);
-		// console.log(`list parse length: \n ${listLocal.length}`);
-		
-		
+
 		renderAddedLocation();
 	} else {
 		alert("Уже есть такой город")
@@ -137,7 +138,7 @@ function renderAddedLocation() {
 		cross.onclick = deleteTown // переделать AddEventListner 
 		city.append(cross)
 	})
-	// console.log(`list: ${list}`)
+	showlastCity()
 }
 
 function deleteTown(event) {
@@ -168,12 +169,28 @@ async function showNowTab(event) {
 	const icon = (json.weather[0].icon) 
 
 	renderNow(temperature, cityName, icon)
+	
+	lastFavoriteViewed(cityName)
 
 	// меняю цвет города по которому кликнул
 	event.target.classList = "showTown"
 	setTimeout(() => event.target.className = "delete__class", 350)
 }
 
+async function showlastCity() {
+	let cityName = localStorage.getItem('lastCity')
 
+	const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
+	const serverUrl = '//api.openweathermap.org/data/2.5/weather';
+	const url = `${serverUrl}?q=${cityName}&appid=${apiKey}&units=metric`;
+
+	let responce = await fetch(url);
+	let json = await responce.json();
+	
+	let temperature = (json.main.temp)
+	const icon = (json.weather[0].icon) 
+
+	renderNow(temperature, cityName, icon)
+}
 
 // localStorage.clear()

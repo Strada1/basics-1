@@ -1,55 +1,66 @@
-// const storage = {
-//     saveFavoriteCity: (city) => {
-//         const cities = localStorage.getItem('cities');
-//         if (cities) cities.push(city);
-//         else cities = [city];
-//         localStorage.setItem('cities', cities);
-//     },
-//     getFavoriteCities: () => {
-//         try{
-//             return localStorage.getItem('cities');
-//         }
-//         catch{error}
-//     },
-//     getCurrentCity: () => {
-//         try{
-//             return localStorage.getItem('currentCity');
-//         }
-//         catch{error}
-//     },
-//     saveCurrentCity: (city) => {
-//         localStorage.setItem('currentCity', city);
-//     },
-// }
-// // storage.saveFavoriteCities(CITIES);
-const CITIES = ['almaty'];
-// const currentCity = storage.getCurrentCity();
+const storage = {
+    saveFavoriteCity: (cities) => {
+        localStorage.setItem('cities', JSON.stringify(cities));
+    },
+    getFavoriteCities: () => {
+        try{
+            return JSON.parse(localStorage.getItem('cities'));
+        }
+        catch(error){console.log(error)}
+    },
+    getCurrentCity: () => {
+        try{
+            return localStorage.getItem('currentCity');
+        }
+        catch{error}
+    },
+    saveCurrentCity: (city) => {
+        localStorage.setItem('currentCity', city);
+    },
+}
 
+let CITIES = storage.getFavoriteCities() || [];
+// CITIES = Array.isArray(CITIES) ? CITIES : [CITIES];
+let currentCity = storage.getCurrentCity();
 
-async function sendWeatherRequest() {
+document.addEventListener('DOMContentLoaded', () => {
+    if (CITIES) {
+        for (e of CITIES) {
+            drawFavoriteCity(e)
+        }
+    }
+    sendWeatherRequest(currentCity);
+});
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('#test').addEventListener('submit', (e)=>{
+        e.preventDefault();
+        sendWeatherRequest();
+    })
+});
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.left__bottom-box').addEventListener('click', (e)=>{
+        e.preventDefault();
+        sendWeatherRequest();
+    })
+});
+
+async function sendWeatherRequest(city = null) {
     const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
-    const cityName = document.querySelector('input').value;
+    const cityName = city || document.querySelector('#city__location').value;
     const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
     const url = `${serverUrl}?q=${cityName}&lang=ru&units=metric&appid=${apiKey}`;
-    // const url = `https://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=${apiKey}`;
-    // console.log(`http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=${apiKey}`);
     try{
-        console.log(20);
         response = await fetch(url);
-        console.log(response);
     } catch(err) {
-        debugger;
         console.log(err);
     }
-    // console.log(20);
-    // if (response.ok) {
-    //     console.log(1)
-    //     result = await response.json();
-    //     draw(result);
-    // }
-    // else {
-    //     alert(`Произошла ошибка: ${response.message}` );
-    // }
+    if (response.ok) {
+        result = await response.json();
+        draw(result);
+    }
+    else {
+        alert(`Произошла ошибка: ${response.message}` );
+    }
 }
 
 function clearAllChildren(myNode) {
@@ -64,7 +75,6 @@ function createChild(tag, className, content) {
     return tag;
 }
 function draw(data) {
-    console.log(document.activeElement.value);
     switch (document.activeElement.value) {
         case 'Details':
             drawDetaislBox(data);
@@ -76,27 +86,25 @@ function draw(data) {
             drawNowBox(data);
     }
 }
-
-// function changeCityArray(city) {
-//     console.log(2);
-//     if (CITIES.includes(city)) {
-//         index = CITIES.indexOf(city);
-//         CITIES.splice(index, 1);
-//     }
-//     else CITIES.push(city);
-// }
-
-function favourite(Node, city) {
-    let input = createChild('input', 'notFavourite', '');
+function favorite(Node, city) {
+    let input = createChild('input', 'favorite', '');
     input.src = `./img/favourite-icon.svg`;
+    input.id = 'favorite';
     input.type = 'image';
-    input.alt = input.className;
-    input.form = 'changeCityArray(${city}); return false';
-    if (CITIES.includes(city)) {
-        input.className =  'favourite';
+    if (!CITIES.includes(city)) {
+        input.alt =  'not favorite';
+        input.id = 'notFavorite';
     }
     Node.append(input);
-    // input.addEventListener(click, () => drawCitiesList());
+    input.addEventListener('click', () => editFavoriteCities(city));
+}
+
+function editFavoriteCities(city) {
+    parent = document.querySelector('.favorite');
+    if (CITIES.includes(city)) {
+        delFavoriteCity(city);
+    }
+    else addFavoriteCity(city);
 }
 
 function drawDetaislBox(data) {
@@ -105,11 +113,11 @@ function drawDetaislBox(data) {
     clearAllChildren(parent);
     let children = [createChild('span', 'city', data.name),
                     createChild('span', 'image', ''),
-                    createChild('div', 'weather-deteils', '')];
+                    createChild('div', 'weather-details', '')];
     for (key of children) {
         parent.append(key);
     }
-    favourite(child1, data.name);
+    favorite(children[0], data.name);
     let sunrise = new Date(data.sys.sunrise*1000);
     let sunset = new Date(data.sys.sunset*1000);
     let subChildren = [createChild('span', 'temperature', `Температура: ${data.main.temp} ℃`),
@@ -120,10 +128,10 @@ function drawDetaislBox(data) {
     let img = createChild('img', 'weather-image', '');
     img.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     img.alt = data.weather[0].description;
+    children[1].append(img);
     for (key of subChildren) {
         children[2].append(key);
     }
-    children[1].append(img);
 }
 
 function drawForecastBox(data) {
@@ -132,33 +140,59 @@ function drawForecastBox(data) {
     clearAllChildren(parent);
     let test = createChild('span', 'city', data.name);
     parent.append(test);
-    favourite(test, data.name);
+    favorite(test, data.name);
 }
 function drawNowBox(data) {
     storage.saveCurrentCity(data.name);
     let parent = document.querySelector('.weather');
     clearAllChildren(parent);
-    let child3 = createChild('span', 'city', data.name);
     let child1 = createChild('span', 'degrees', `${data.main.temp} ℃`);
     let child2 = createChild('span', 'image', '');
+    let child3 = createChild('span', 'city', data.name);
     let img = createChild('img', 'weather-image', '');
     img.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     img.alt = data.weather[0].description;
     parent.append(child1);
     parent.append(child2);
     parent.append(child3);
-    favourite(child3, data.name);
+    favorite(child3, data.name);
     child2.append(img);
     document.querySelector('#city__location').placeholder = data.name;
     document.querySelector('#city__location').value = data.name;
 }
-function drawCitiesList() {
-    console.log(65);
+function drawFavoriteCity(city) {
     let parent = document.querySelector('.right__bottom-box');
-    let span = createChild('span', 'delete', 'X');
-    clearAllChildren(parent);
-    for (i = 0; i<CITIES.length; i++) {
-        let div = createChild('div', 'favorite-city', CITIES[i])
-        parent.append(div).append(span);
+    let button = createChild('button', 'delete', 'X');
+    button.value = 'X';
+    button.addEventListener('click', () => delFavoriteCity(city));
+    let span = createChild('span', 'favorite-city', city);
+    span.addEventListener('click', (event) => {
+        currentCity = event.target.textContent.slice(0, -1);
+        sendWeatherRequest(currentCity);
+    });
+    parent.append(span);
+    span.append(button);
+    // temp = document.querySelector('.favorite');
+    // if (temp.textContent === city) temp.id = 'favorite';
+    // else temp.id = 'notFavorite';
+}
+function addFavoriteCity(city) {
+    CITIES.push(city);
+    storage.saveFavoriteCity(CITIES);
+    drawFavoriteCity(city);
+    temp = document.querySelector('.favorite');
+    temp.id = 'favorite';
+}
+function delFavoriteCity(city) {
+    CITIES = CITIES.filter(item => item !== city);
+    storage.saveFavoriteCity(CITIES);
+    elements = document.querySelectorAll('.favorite-city');
+    for (key of elements) {
+        if (key.textContent === `${city}X`) {
+            key.remove();
+            
+        }
     }
+    temp = document.querySelector('.favorite');
+    temp.id = 'notFavorite';
 }

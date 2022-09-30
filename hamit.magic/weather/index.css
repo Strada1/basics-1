@@ -99,7 +99,7 @@ form .city {
     height: 180px;
     align-self: center;
 }
-.weather-deteils {
+.weather-details {
     display: flex;
     flex-direction: column;
 }
@@ -108,15 +108,19 @@ form .city {
     justify-content: space-between;
 }
 
-.notFavourite {
+#notFavorite {
     background-color: white;
     border-radius: 35%;
 }
-.favourite {
+#favorite {
     background-color: red;
     border-radius: 35%;
 }
 .city-list {
+    display: flex;
+    justify-content: space-between;
+}
+.favorite-city {
     display: flex;
     justify-content: space-between;
 }

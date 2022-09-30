@@ -94,6 +94,7 @@ function getLocalStorageCurrentCity() {
   currentCity = JSON.parse(currentCity);
   let url = `${serverUrl}?q=${currentCity}&appid=${apiKey}&units=metric`;
   changeNow(url);
+  changeDetails(url);
 }
 
 function renderLocation(cityes) {

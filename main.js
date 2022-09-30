@@ -118,6 +118,7 @@ function renderAddedLocation() {
 	city.textContent = "";
 
 	let listLocal = JSON.parse(localStorage.getItem("citiesArray"));
+	 list = listLocal
 
 	console.log(`list parse: \n ${listLocal} \n length: ${listLocal.length}`);
 	console.log(`Массив: ${list} \n length: ${list.length}`)
@@ -148,7 +149,8 @@ function deleteTown(event) {
 	  })
 
 	  list.splice(IndexObj, 1) // сделать фильтр (поиск флуд: как избавится от splice? )
-	  console.log(list)
+	  toStorage (list)
+	  
 	  renderAddedLocation()
 }
 

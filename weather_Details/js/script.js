@@ -138,9 +138,13 @@ function recordToStorage(tasks, nameOfTask) {
 
 changeColorTabs.addEventListener('click', e => {
   btnCurrent.forEach(item => {
+    console.log(e.target);
     if (item === e.target || item === e.target.parentElement) {
       item.classList.add('active');
+      document.querySelector(`.${item.textContent}`).style.display = 'block';
+      console.log();
     } else {
+      document.querySelector(`.${item.textContent}`).style.display = 'none';
       item.classList.remove('active');
     }
   });
@@ -163,7 +167,5 @@ FORM.addEventListener('submit', e => {
   addCity(cityName.value);
   cityName.value = '';
 });
-
-console.log(document);
 
 favoriteBtn.addEventListener('click', addFavoriteCity);

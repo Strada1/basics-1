@@ -11,7 +11,13 @@ body {
   background-color: #d9d9d9;
 }
 li {
+  display: flex;
+  justify-content: space-between;
   list-style-type: none;
+}
+
+li span {
+  cursor: pointer;
 }
 a {
   text-decoration: none;
@@ -60,10 +66,6 @@ input {
   padding-left: 12px;
 }
 
-.weather_block:target {
-  display: block;
-}
-
 .weather_widgets {
   height: 399px;
   width: 300px;
@@ -93,6 +95,8 @@ input {
 .weather_widgets-img {
   text-align: center;
   margin-top: 40px;
+  height: 103px;
+  margin: 0;
 }
 
 .city_selected {
@@ -152,11 +156,6 @@ input {
   width: 100%;
 }
 
-.weather_widgets-img {
-  height: 103px;
-  margin: 0;
-}
-
 .images_current_weather {
   width: 150px;
   height: 150px;
@@ -191,11 +190,6 @@ input {
   margin-top: 11px;
 }
 
-.data_wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
 .temp_wrapper {
   display: flex;
   justify-content: space-between;
@@ -226,11 +220,6 @@ input {
   border: 3px solid black;
 }
 
-li {
-  display: flex;
-  justify-content: space-between;
-}
-
-li span {
-  cursor: pointer;
+.Now {
+  display: block;
 }

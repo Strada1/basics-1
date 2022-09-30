@@ -1,0 +1,301 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #E5E5E5;
+    font-family: Roboto, sans-serif;
+    color: #000;
+    font-size: 24px;
+}
+.weather {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weather__container {
+    height: 460px;
+    width: 620px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather__block {
+    width: 600px;
+    height: 435px;
+    border: 1px solid #000;
+}
+
+.weather__search {
+    width: 100%;
+    height: 58px;
+    border-bottom: 1px solid #000;
+    display: flex;
+    align-items: center;
+}
+
+.weater__search-form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0px 20px 0px 15px; 
+}
+
+.weather__search-input {
+    width: 300px;
+    outline: none;
+    font-size: 18px;
+    color: #696969;
+}
+
+.weater__main-wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 375px;
+}
+
+.weather__search-button {
+    cursor: pointer;
+    background: #fff;
+}
+
+.weather__main {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    opacity: 0;
+}
+
+.main__blocks {
+    height: 100%;
+
+    overflow: hidden;
+    overflow-y: scroll;
+    /* display: none; */
+}
+
+.main__now-block {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+.now__block-degrees {
+    font-size: 70px;
+    margin-left: 20px;
+}
+
+.now__block-image {
+    margin: 0 auto;
+    padding-bottom: 35px;
+}
+
+.now__block-location {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0px 10px
+}
+
+.location__name {
+    font-size: 24px;
+    font-weight: 200;
+}
+
+button {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.main__details-block {
+    padding: 20px 0px 0px 15px;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.details__info {
+    font-size: 24px;
+    font-weight: 200;
+    margin-bottom: 12px;
+}
+
+.details__info:last-child {
+    margin-bottom: 0px;
+}
+
+.main__forecast-block {
+    padding: 20px 0px 0px 15px;
+}
+
+.forecast__item {
+    margin: 8px 0px 0px 2px;
+    padding: 7px;
+    width: 265px;
+    height: 120px;
+    border: 1px solid #000;
+    font-size: 18px;
+    font-weight: 200;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item__data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item__weather {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main__navigation {
+    height: 45px;
+    display: flex;
+}
+
+.navigation__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 33.333%;
+    border-top: 1px solid #000;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    
+    transition: background-color .3s ease-in-out;
+}
+
+.navigation__link:hover {
+    background-color:rgb(216, 212, 212);
+}
+
+.navigation__link:nth-child(2) {
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+}
+
+
+.weather__location-list {
+    border-left: 1px solid #000;
+    width: 50%;
+}
+
+.weather__list-heading {
+    font-weight: 200;
+    border-bottom: 1px solid #000;
+}
+
+.list-heading {
+    font-size: 24px;
+    font-weight: 200;
+    margin: 20px 0px 4px 15px;
+}
+
+.weather__list-blocks {
+    padding: 25px 0px 0px 15px;
+    max-height: 275px;
+    overflow: hidden;
+    overflow-y: scroll;
+    list-style: none;
+}
+
+.block__item {
+    display: block;
+    margin-bottom: 13px;
+    background-color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.block__item:last-child {
+    margin-bottom: 0px;
+}
+
+.main__block:target {
+    display: block;
+}
+
+.main__block {
+    height: 335px;
+    display: none;
+}
+
+.weather__list-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.weather__list-block:last-child {
+    margin-bottom: 0px;
+}
+
+.list__delete-button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.list__delete-button::after,
+.list__delete-button::before {
+    position: absolute;
+    content: "";
+    width: calc(100% - 2px);
+    height: 1px;
+    background-color: #616061;
+
+    margin-right: 25px;
+}
+
+.list__delete-button::before {
+    transform: rotate(90deg);
+}
+
+.list__delete-button::after {
+    transform: rotate(45deg);
+}
+.list__delete-button::before {
+    transform: rotate(-45deg);
+}
+
+
+.toShow {
+    opacity: 1;
+}
+
+.list__item-name {
+    cursor: pointer;
+}

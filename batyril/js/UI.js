@@ -36,3 +36,10 @@ export function addFavoriteCityUI(city, place) {
   liCity.append(delImage);
   place.append(liCity);
 }
+
+export function renderFavoriteCities(array, place = UI.FAVORITE_CITIES_LIST) {
+  while (place.firstChild) {
+    place.firstChild.remove();
+  }
+  array.forEach((city) => addFavoriteCityUI(city, place));
+}

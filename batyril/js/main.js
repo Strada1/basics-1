@@ -1,12 +1,12 @@
-import { UI, UI_NOW } from './UI.js';
+import { UI, UI_NOW, renderFavoriteCities } from './UI.js';
 import { getCityWeather, getWeatherFavoriteList } from './requests.js';
 import { checkInput } from './checks.js';
 import {
   favoriteCities,
-  renderFavoriteCities,
   addFavoriteCitDatabase,
   deleteCitiDatabase,
 } from './favorite-cities-db.js';
+import { getCurrentCity, renderLocalStorage } from './localStorage.js';
 
 function getCityName(event) {
   event.preventDefault();
@@ -28,4 +28,9 @@ UI_NOW.ADD_FAVORITE_ICON.addEventListener('click', () => {
 
 UI.FAVORITE_CITIES_LIST.addEventListener('click', (event) => deleteCitiDatabase(event));
 UI.FAVORITE_CITIES_LIST.addEventListener('click', (event) => getWeatherFavoriteList(event));
+
+getCurrentCity(getCityWeather);
+renderLocalStorage(addFavoriteCitDatabase);
 renderFavoriteCities(favoriteCities);
+
+console.log(favoriteCities);

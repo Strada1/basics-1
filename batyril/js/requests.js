@@ -1,4 +1,5 @@
 import { UI_NOW, renderNowTab } from './UI.js';
+import { setCurrentCity } from './localStorage.js';
 
 export function getCityWeather(cityName) {
   const SERVER_URL = 'http://api.openweathermap.org/data/2.5/weather';
@@ -17,7 +18,11 @@ export function getCityWeather(cityName) {
           throw new Error('error');
       }
     })
-    .then((weather) => renderNowTab(weather, UI_NOW))
+    .then((weather) => {
+      renderNowTab(weather, UI_NOW);
+      return weather;
+    })
+    .then((weather) => setCurrentCity(weather.name))
     .catch((e) => console.log(e.message));
 }
 

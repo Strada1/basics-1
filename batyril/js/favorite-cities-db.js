@@ -1,17 +1,12 @@
-import { addFavoriteCityUI, UI } from './UI.js';
+import { renderFavoriteCities } from './UI.js';
+import { updateCityLocalStorage } from './localStorage.js';
 
 export const favoriteCities = [];
-
-export function renderFavoriteCities(array, place = UI.FAVORITE_CITIES_LIST) {
-  while (place.firstChild) {
-    place.firstChild.remove();
-  }
-  array.forEach((city) => addFavoriteCityUI(city, place));
-}
 
 export function addFavoriteCitDatabase(city, db = favoriteCities) {
   if (!db.includes(city)) {
     db.push(city);
+    updateCityLocalStorage(db);
   } else {
     throw new Error('city in favorites');
   }
@@ -24,6 +19,7 @@ export function deleteCitiDatabase(event, db = favoriteCities) {
     if (indexTask !== -1) {
       db.splice(indexTask, 1);
     }
+    updateCityLocalStorage(db);
     renderFavoriteCities(db);
   }
 }

@@ -116,7 +116,9 @@ body.onload = renderAddedLocation()
 
 function renderAddedLocation() {
 	const city = document.getElementById('city')
+	const cityTab2 = document.getElementById('cityTab2')
 	city.textContent = "";
+	cityTab2.textContent = "";
 
 	let listLocal = JSON.parse(localStorage.getItem("citiesArray"));
 	 list = listLocal
@@ -126,10 +128,12 @@ function renderAddedLocation() {
 
 	listLocal.forEach(function(item) {
 
+		// добавление в Now 
 		let div_location = document.createElement('div');
 		div_location.textContent = item;
 		div_location.onclick = showNowTab
 		city.append(div_location)
+		// cityTab2.append(div_location)
 
 		let cross = document.createElement('input');
 		cross.value = '☒';
@@ -137,6 +141,20 @@ function renderAddedLocation() {
 		cross.classList = 'button_close';
 		cross.onclick = deleteTown // переделать AddEventListner 
 		city.append(cross)
+		// cityTab2.append(cross)
+
+		// добавление в Detalis
+		let div_locationTab2 = document.createElement('div');
+		div_locationTab2.textContent = item;
+		div_locationTab2.onclick = showNowTab
+		cityTab2.append(div_locationTab2)
+
+		let crossTab2 = document.createElement('input');
+		crossTab2.value = '☒';
+		crossTab2.type = 'submit'
+		crossTab2.classList = 'button_close';
+		crossTab2.onclick = deleteTown 
+		cityTab2.append(crossTab2)
 	})
 	showlastCity()
 }

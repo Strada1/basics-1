@@ -9,13 +9,18 @@ const temperature = document.querySelector('.now__temperature span')
 const city = document.querySelector('.now__city-name')
 const like = document.querySelector('.now__city--like')
 
+const tabsList = document.querySelector('.tabs-list')
+const tabs = document.querySelectorAll('.tab-item')
+
 // api's urls
 const serverUrl = 'http://api.openweathermap.org/data/2.5/weather'
 const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f'
 
-let cityName = 'Aktobe'
+let cityName = city.textContent || 'Aktobe'
 let addedLocations = []
 let locationsElems = []
+
+// add switch between added cities functionality
 
 !localStorage.addedLocations
   ? (addedLocations = [])
@@ -34,7 +39,7 @@ function cb() {
 
 const createTemplate = (addedLocation, index) => {
   return `
-    <li class="location-item location-item__favorite">
+    <li onclick="chooseNewCity('${addedLocation.name}')" class="location-item location-item__favorite">
       <span class="location-item__text">${addedLocation.name}</span>
       <button onclick="deleteFromFavorites(${index})" class="location-item__button">&#9587;</button>
     </li>
@@ -85,12 +90,18 @@ function deleteFromFavorites(index) {
   isAdded()
 }
 
+function chooseNewCity(name) {
+  fetchByName(name)
+}
+
 // search for a city
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault()
   if (!searchInput.value.length) {
     alert('Please type a city name')
   } else {
+    // !city name must derive from fetch data.name
+    // cityName = fetchWeatherData().name
     cityName = searchInput.value
     try {
       fetchWeatherData()
@@ -111,6 +122,8 @@ async function fetchWeatherData() {
     const data = await response.json()
 
     const temp = Math.floor(data.main.temp)
+    const feelsLike = Math.floor(data.main.feels_like)
+    const weather = String(data.weather[0].main)
 
     temperature.innerHTML = `${temp}°`
     city.innerHTML = data.name
@@ -141,3 +154,28 @@ fetchWeatherData()
 // check is city already in addedLocations
 isAdded()
 // ---------------------------------------------------------
+
+// fetch data by name
+async function fetchByName(name) {
+  const url = `${serverUrl}?q=${name}&appid=${apiKey}&units=metric`
+  try {
+    const response = await fetch(url)
+    const data = await response.json()
+    const temp = Math.floor(data.main.temp)
+    temperature.innerHTML = `${temp}°`
+    city.innerHTML = data.name
+  } catch (error) {
+    alert('error!')
+    console.error(error.message)
+  }
+}
+
+// !switching between tabs
+const activePage = location.pathname
+const navLinks = document.querySelectorAll('nav a').forEach((link) => {
+  if (link.href.includes(`${activePage}`)) {
+    link.parentNode.classList.add('tab-item--current')
+    // link.classList.add('tab-item--current')
+  }
+})
+console.log(activePage)

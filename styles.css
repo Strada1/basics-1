@@ -15,8 +15,12 @@ ul {
 }
 
 .app {
-  width: 621px;
-  height: 462px;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* grid */
@@ -162,7 +166,7 @@ ul {
 
 .tab-item {
   font-size: 18px;
-  padding: 10px 15px;
+  padding: 10px 10px;
   width: 100%;
   text-align: center;
   border-right: 1px solid black;
@@ -176,7 +180,11 @@ ul {
 
 .tab-item--current {
   background-color: black;
+}
+
+.tab-item--current a {
   color: white;
+  width: 10px;
 }
 
 /* styling locations */
@@ -289,4 +297,13 @@ ul {
 
   padding-right: 10px;
   margin-bottom: 9px;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

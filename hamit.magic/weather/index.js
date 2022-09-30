@@ -1,23 +1,55 @@
-import {storage} from './storage.js';
+// const storage = {
+//     saveFavoriteCity: (city) => {
+//         const cities = localStorage.getItem('cities');
+//         if (cities) cities.push(city);
+//         else cities = [city];
+//         localStorage.setItem('cities', cities);
+//     },
+//     getFavoriteCities: () => {
+//         try{
+//             return localStorage.getItem('cities');
+//         }
+//         catch{error}
+//     },
+//     getCurrentCity: () => {
+//         try{
+//             return localStorage.getItem('currentCity');
+//         }
+//         catch{error}
+//     },
+//     saveCurrentCity: (city) => {
+//         localStorage.setItem('currentCity', city);
+//     },
+// }
+// // storage.saveFavoriteCities(CITIES);
+const CITIES = ['almaty'];
+// const currentCity = storage.getCurrentCity();
 
-// storage.saveFavoriteCities(CITIES);
-const CITIES = storage.getFavoriteCities();
-const currentCity = storage.getCurrentCity();
 
 async function sendWeatherRequest() {
     const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
     const cityName = document.querySelector('input').value;
     const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
     const url = `${serverUrl}?q=${cityName}&lang=ru&units=metric&appid=${apiKey}`;
-
-    response = await fetch(url);
-    if (response.ok) {
-        result = await response.json();
-        draw(result);
+    // const url = `https://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=${apiKey}`;
+    // console.log(`http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=${apiKey}`);
+    try{
+        console.log(20);
+        response = await fetch(url);
+        console.log(response);
+    } catch(err) {
+        debugger;
+        console.log(err);
     }
-    else {
-        alert('Произошла ошибка');
-    }
+    // console.log(20);
+    // if (response.ok) {
+    //     console.log(1)
+    //     result = await response.json();
+    //     draw(result);
+    // }
+    // else {
+    //     alert(`Произошла ошибка: ${response.message}` );
+    // }
 }
 
 function clearAllChildren(myNode) {
@@ -64,7 +96,7 @@ function favourite(Node, city) {
         input.className =  'favourite';
     }
     Node.append(input);
-    input.addEventListener(click, () => drawCitiesList());
+    // input.addEventListener(click, () => drawCitiesList());
 }
 
 function drawDetaislBox(data) {
@@ -120,7 +152,7 @@ function drawNowBox(data) {
     document.querySelector('#city__location').placeholder = data.name;
     document.querySelector('#city__location').value = data.name;
 }
-let drawCitiesList = () => {
+function drawCitiesList() {
     console.log(65);
     let parent = document.querySelector('.right__bottom-box');
     let span = createChild('span', 'delete', 'X');

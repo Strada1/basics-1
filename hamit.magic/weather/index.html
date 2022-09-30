@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
-    <script type="module" src="./index.js"></script>
+    <script src="./index.js"></script>
     <title>weather</title>
 </head>
 <body>
     <div class="main">
         <header>
-            <form class="city" onsubmit="sendWeatherRequest(); return false">
+            <form class="city" id="test" onsubmit="sendWeatherRequest()">
                 <input type="text" id="city__location" placeholder="Almaty" value="Almaty">
                 <button>
                     <img src="img/search-icon.svg" alt="найти город" class="search">
@@ -28,9 +28,9 @@
                     </div>
                 </div>
                 <div class="left__bottom-box">
-                    <input type="button" class="now" onclick="sendWeatherRequest()" value='Now'>
-                    <input type="button" class="details" onclick="sendWeatherRequest()" value='Details'>
-                    <input type="button" class="forecast" onclick="sendWeatherRequest()" value='Forecast'>
+                    <input type="button" class="now" value='Now'>
+                    <input type="button" class="now" value='Details'>
+                    <input type="button" class="now" value='Forecast'>
                 </div>
             </div>
             <div class="right">
@@ -45,5 +45,6 @@
             </div>
         </div>
     </div>
+    
 </body>
 </html>

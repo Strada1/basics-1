@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>WeatherApp</title>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <form class="find-form">
+                <input type="text" class="find__input" placeholder="Найти город">
+                <input type="button" class="find__button">
+            </form>
+            <div class="tabs">
+                <div id="tab__01" class="tab__item tab-now">
+                    <!-- <p class="tab-now__temperature">14&#176;</p>
+                    <p class="tab-now__city">Actobe</p>
+                    <img class="tab-now__img" src="/img/cloud.png" alt="weather icon">
+                    <input class="tab-now__add" type="button"> -->
+                </div>
+                <div id="tab__02" class="tab__item tab-details">
+                    <!-- <p class="tab-details__city">Actobe</p>
+                    <ul class="tab-details__list">
+                        <li class="tab-details__item">Temperature: 14&#176;</li>
+                        <li class="tab-details__item">Feels like: 10&#176;</li>
+                        <li class="tab-details__item">Weather: Clouds</li>
+                        <li class="tab-details__item">Sunrise: 03:21</li>
+                        <li class="tab-details__item">Sunset: 18:54</li>
+                    </ul> -->
+                </div>
+                <div id="tab__03" class="tab__item tab-forecast">
+                    <p class="tab-forecast__city">Actobe</p>
+                    <div class="tab-forecast__block">
+                        <p class="tab-forecast__date">17 may</p>
+                        <p class="tab-forecast__time">12:00</p>
+                        <p class="tab-forecast__tesperature">Temperature: 13&#176;</p>
+                        <p class="tab-forecast__feels-like">Feels like: 10&#176;</p>
+                        <p class="tab-forecast__weather">Rain</p>
+                        <img class="tab-forecast__icon" src="/img/icon-rain.svg" alt="icon weather">
+                    </div>
+                </div>
+            </div>
+            <div class="added-locations">
+                <p class="added-locations__title">
+                    Найденные города:
+                </p>
+            </div>
+            <div class="added-cities">
+                <ul class="added-cities__list">
+                    <!-- <li class="added-cities__item">Amur</li>
+                    <li class="added-cities__item">Samara</li>
+                    <li class="added-cities__item">Bali</li>
+                    <li class="added-cities__item">Dane</li>
+                    <li class="added-cities__item">Kilo</li>
+                    <li class="added-cities__item">Nur-sultan</li> -->
+                </ul>
+            </div>
+            <a href="#tab__01" class="tab tab-now__button active-tab">Сейчас</a>
+            <a href="#tab__02" class="tab tab-details__button">В деталях</a>
+            <a href="#tab__03" class="tab tab-forecast__button">Прогноз</a>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

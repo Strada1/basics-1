@@ -71,6 +71,13 @@ function renderNow(temperature, cityName, icon) {
 	loveButton.addEventListener('click', addLocation)
 }
 
+function toStorage (list) {
+	let citiesArray = JSON.stringify(list);
+	localStorage.setItem('citiesArray', citiesArray);
+}
+
+// localStorage.clear()
+
 function addLocation() {
 
 	let cityValue = document.getElementById("cityName")
@@ -82,21 +89,20 @@ function addLocation() {
 
 	if (indexObj == -1) {
 		
+		if(localStorage.length) {
+			let cityInLs = JSON.parse(localStorage.getItem("citiesArray"));
+			list.push(cityInLs)
+		}
+		
 
 		list.push(cityName) // (заменить на concat или оператор расширения)
 		console.log(`Массив после клика на сердечко: \n ${list}`);
-		let citiesArray = JSON.stringify(list);
-
-		// let storage = JSON.parse(localStorage.getItem("citiesArray"));
-		// console.log(storage)
-// //
-		// localStorage.setItem('citiesArray', citiesArray + storage);
-		localStorage.setItem('citiesArray', citiesArray);
-
+			
+		toStorage(list)
 		let listLocal = JSON.parse(localStorage.getItem("citiesArray"));
-		console.log(`list parse: \n ${listLocal}`);
-		console.log(`list parse masyv: \n ${Array.isArray(listLocal)}`);
-		console.log(`list parse length: \n ${listLocal.length}`);
+		// console.log(`list parse: \n ${listLocal}`);
+		// console.log(`list parse masyv: \n ${Array.isArray(listLocal)}`);
+		// console.log(`list parse length: \n ${listLocal.length}`);
 		
 		
 		renderAddedLocation();
@@ -113,7 +119,8 @@ function renderAddedLocation() {
 
 	let listLocal = JSON.parse(localStorage.getItem("citiesArray"));
 
-	console.log(`list parse: \n ${listLocal}`);
+	console.log(`list parse: \n ${listLocal} \n length: ${listLocal.length}`);
+	console.log(`Массив: ${list} \n length: ${list.length}`)
 
 	listLocal.forEach(function(item) {
 

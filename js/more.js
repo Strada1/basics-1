@@ -11,7 +11,6 @@ import {
 import { addCurrentCity, saveFavoriteCity, getFavoriteCities, deleteCity } from './localStorage.js';
 
 function render() {
-	console.log(getFavoriteCities())
 	let favorites = getFavoriteCities();
 
 	favorites ?
@@ -26,19 +25,18 @@ function render() {
 			deleteFavorite(deleteButton, favoriteCity.textContent);
 		}) :
 		// переделать
-		console.log(favorites)
+		console.log(favorites);
 	
 	
 }
 
 function createCityItem(name) {
-	console.log(list);
 	return favoirtesCities.insertAdjacentHTML('afterbegin',
-	`<div class="item">
+		`<div class="item">
 		<li class="add__city">${name}</li>
 		<img class="delete" src="./css/img/delete.png" alt="Delete" width="20" height="20">
 	</div>`
-	)
+	);
 }
 
 const renderNow = (data) => {

@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (currentCity) {
 		const city = getData(currentCity);
-		renderNow(city)
-		render()
+		renderNow(city);
+		render();
 	} else {
 		const city = getData(favoriteCity.textContent);
 		renderNow(city);

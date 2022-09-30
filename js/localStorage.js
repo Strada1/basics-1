@@ -23,7 +23,7 @@ export function addCurrentCity(name) {
 }
 
 export function getCurrentCity() {
-	return localStorage.getItem('current')
+	return localStorage.getItem('current');
 }
 
 export function deleteCity(name) {

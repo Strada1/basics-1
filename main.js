@@ -1,6 +1,8 @@
 const Town = document.getElementById("Town")
 const formSumbit = document.getElementById('formSumbit')
 
+const body = document.getElementById('body')
+
 window.addEventListener('unhandledrejection', function(event) {
 	alert(event.promise);
 	alert(event.reason); 
@@ -83,29 +85,28 @@ function addLocation() {
 		console.log(`Массив после клика на сердечко: \n ${list}`)
 
 
-		toStorage(cityName)
-		cityName = JSON.parse(localStorage.getItem("cityName"))
-		console.log(cityName)
-		// localStorage.setItem('cityName', JSON.stringify(list) )
-		// let arrInStorage = JSON.parse(list)
-		// console.log(arrInStorage)
-		
-	
-		// let favoriteCities = localStorage.getItem('cityName')
-		// console.log(`storage: \n ${favoriteCities}` )
+		let citiesArray = JSON.stringify(list)
+		localStorage.setItem('citiesArray', citiesArray)
 
-	
-		renderAddedLocation()
+		listLocal = JSON.parse(localStorage.getItem("citiesArray"))
+		console.log(`list parse: \n ${listLocal}`)
+		console.log(`list parse masyv: \n ${Array.isArray(listLocal)}`)
+		console.log(`list parse length: \n ${listLocal.length}`)
+
+		
+		renderAddedLocation(listLocal)
 	} else {
 		alert("Уже есть такой город")
 	}
 }
 
-function renderAddedLocation() {
+body.onload = renderAddedLocation()
+
+function renderAddedLocation(listLocal) {
 	const city = document.getElementById('city')
 	city.textContent = "";
 
-	list.forEach(function(item) {
+	listLocal.forEach(function(item) {
 
 		let div_location = document.createElement('div');
 		div_location.textContent = item;
@@ -155,9 +156,6 @@ async function showNowTab(event) {
 	setTimeout(() => event.target.className = "delete__class", 350)
 }
 
-function toStorage(cityName) {
-    let citiesArray = JSON.stringify(cityName)
-    localStorage.setItem('citiesArray', citiesArray)
-}
+
 
 // localStorage.clear()

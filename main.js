@@ -81,20 +81,25 @@ function addLocation() {
 	})
 
 	if (indexObj == -1) {
-		list.push(cityName) // (заменить на concat или оператор расширения)
-		console.log(`Массив после клика на сердечко: \n ${list}`)
-
-
-		let citiesArray = JSON.stringify(list)
-		localStorage.setItem('citiesArray', citiesArray)
-
-		listLocal = JSON.parse(localStorage.getItem("citiesArray"))
-		console.log(`list parse: \n ${listLocal}`)
-		console.log(`list parse masyv: \n ${Array.isArray(listLocal)}`)
-		console.log(`list parse length: \n ${listLocal.length}`)
-
 		
-		renderAddedLocation(listLocal)
+
+		list.push(cityName) // (заменить на concat или оператор расширения)
+		console.log(`Массив после клика на сердечко: \n ${list}`);
+		let citiesArray = JSON.stringify(list);
+
+		// let storage = JSON.parse(localStorage.getItem("citiesArray"));
+		// console.log(storage)
+// //
+		// localStorage.setItem('citiesArray', citiesArray + storage);
+		localStorage.setItem('citiesArray', citiesArray);
+
+		let listLocal = JSON.parse(localStorage.getItem("citiesArray"));
+		console.log(`list parse: \n ${listLocal}`);
+		console.log(`list parse masyv: \n ${Array.isArray(listLocal)}`);
+		console.log(`list parse length: \n ${listLocal.length}`);
+		
+		
+		renderAddedLocation();
 	} else {
 		alert("Уже есть такой город")
 	}
@@ -102,9 +107,13 @@ function addLocation() {
 
 body.onload = renderAddedLocation()
 
-function renderAddedLocation(listLocal) {
+function renderAddedLocation() {
 	const city = document.getElementById('city')
 	city.textContent = "";
+
+	let listLocal = JSON.parse(localStorage.getItem("citiesArray"));
+
+	console.log(`list parse: \n ${listLocal}`);
 
 	listLocal.forEach(function(item) {
 

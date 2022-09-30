@@ -111,10 +111,10 @@ function cityPresenceCheck(cityName) {
 function addCityToFavorite() {
     let newCity = { name: currentCity.textContent, url: `${serverUrl}?q=${currentCity.textContent}&appid=${apiKey}&units=metric`, }
     addedLocationsMassive = addedLocationsMassive.concat(newCity);
-    renderLocationList(addedLocationsMassive);
     addedLocationsMassive.forEach(element => {
         (currentCity.textContent === element.name) ? element.isSelected = true : element.isSelected = false;
     });
+    renderLocationList(addedLocationsMassive);
     saveData(addedLocationsMassive);
 }
 

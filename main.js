@@ -91,7 +91,7 @@ function addLocation() {
 		
 		if(localStorage.length) {
 			let cityInLs = JSON.parse(localStorage.getItem("citiesArray"));
-			list.push(cityInLs)
+			list = cityInLs
 		}
 		
 

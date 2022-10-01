@@ -1,0 +1,322 @@
+.body {
+	background: rgb(181, 180, 164);
+}
+
+.container {
+	position: relative;
+	box-sizing: border-box;
+	width: 700px;
+	height: 535px;
+	margin: 0 auto;
+	margin-top: 100px;
+	background-color: rgba(255, 255, 255, 0.911);
+
+}
+
+.conteiner_1 {
+	margin-top: 10px;
+	position: relative;
+	box-sizing: border-box;
+	width: 600px;
+	height: 435px;
+	margin: 0 auto;
+	margin-top: 200px;
+
+	
+	border: 1px solid #000000;
+	border-left: none;
+}
+
+.content {
+	max-width: 621px;
+	margin: 0px auto;
+}
+
+/* ТАБЫ ------------------------------------------------------------------------------ */
+.tabs__items {
+	margin-top: 393px;
+	margin-left: 50px;
+	width: 310px;
+	height: 34px;
+	border: 1px solid #000000;
+	border-bottom: none;
+	border-top: none;
+
+	position: absolute;
+	z-index: 1;
+
+	padding-top: 8px;
+}
+
+.tabs__item {
+	box-sizing: border-box;
+	padding-right: 20px;
+
+	width: 37px;
+	height: 21px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
+	padding: 20px;
+	padding-top: 9px;
+	padding-bottom: 13px;
+	border: 1px solid #000000;
+	border-top: none;
+	border-bottom: none;
+}
+
+.tabs__block {
+	display: none;
+}
+
+.show_tab {
+	display: block;
+}
+
+.tabs__block:target {
+	display: block;
+}
+
+/* ИНПУТ + КНОПКА ПОИСКА------------------------------------------------------------------------------ */
+
+.input_serch_element {
+	box-sizing: border-box;
+	width: 562px;
+	height: 40px;
+	padding-left: 16px;
+
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 21px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+.button_search {
+	box-sizing: border-box;
+	float: right;
+	width: 35px;
+	height:40px;
+	padding: 10px;
+	background-color: white;
+	color: white;
+	font-size: 17px;
+	border: 1px solid grey;
+	border-left: none; 
+	cursor: pointer;
+}
+
+.img_search {
+	width: 20px;
+	height: 23px;
+}
+/* ------------------------------------------------------------------------------ */
+
+.container_article_1 {
+	display: flex;
+	flex-direction: column;
+	width: 310px;
+	height: 350px;
+	border: 1px solid #000000;
+}
+
+.temperature {
+	box-sizing: border-box;
+	width: 95px;
+	height: 83px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 70px;
+	line-height: 82px;
+
+	color: #000000;
+
+	padding: 20px 0px 0px 25px;
+}
+
+.img_cloud {
+	box-sizing: border-box;
+	padding: 35px 0px 0px 110px;
+}
+
+
+
+.section1_text {
+	display: flex;
+	flex-direction: column;
+	width: 76px;
+	height: 28px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 28px;
+
+	padding-left: 15px;
+	margin-top: 85px;
+}
+
+.love_button {
+	display: flex;
+	flex-direction: column;
+	margin-left: 250px;
+	margin-top: 311px;
+}
+
+.after__render {
+	display: flex;
+	flex-direction: column;
+	margin-left: 250px;
+	margin-top: -26px;
+}
+
+.img_love {
+	display: flex;
+	flex-direction: column;
+	width: 22px;
+	height: 22px;
+}
+/* ------------------------------------------------------------------------------ */
+
+.container_article_2 {
+	display: flex;
+	flex-direction: column;	
+	height: 45px;
+	border: 1px solid #000000;
+	margin-left: 312px;
+	margin-top: -352px;
+	border-left: none;
+	border-right: none;
+}
+
+.text_addedLocations {
+	width: 186px;
+	height: 28px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 28px;
+
+	padding: 17px 98px 7px 18px;
+}
+
+.button_close {
+	margin-left: 206px;
+	margin-top: -24px;
+	position: absolute;
+}
+/* ------------------------------------------------------------------------------ */
+
+.container_article_3 {
+	height: 45px;
+	margin-left: 331px;
+	padding-top: 18px;
+	width: 260px;
+	height: 250px;
+	overflow-y: scroll;
+}
+
+.city {
+	width: 113px;
+	height: 238px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 28px;	
+}
+
+.showTown {
+	background: gray;
+}
+
+/* TAb 2------------------------------------------------------------------------------ */
+
+.Actobe_text {
+	width: 76px;
+	height: 28px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 28px;
+
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
+.data_Wether {
+	width: 205px;
+	height: 196px;
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 28px;
+
+	margin-top: 35px;
+	margin-left: 30px;
+}
+
+/* TAB 3------------------------------------------------------------------------------ */
+
+.scrol_day { 
+	overflow-y: scroll;
+}
+
+.container_day {
+	width: 252px;
+	height: 120px;
+	border: 1px solid #000000;
+	margin-left: 30px;
+
+	margin-bottom: 9px;
+}
+
+.elements_day {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
+}
+
+.element_data {
+	margin-top: 6px;
+	margin-left: 8px
+}
+
+.element_temperature {
+	margin-top: 38px;
+	margin-left: 8px
+}
+
+.element_feelsLike {
+	margin-left: 8px
+}
+
+.element_time {
+	margin-left: 210px;
+	margin-top: -100px;
+}
+
+.element_wether {
+	margin-left: 210px;
+	margin-top: 39px;
+}
+
+.element_img {
+	margin-left: 210px;
+}
+

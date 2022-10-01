@@ -212,7 +212,17 @@ body {
     margin-top: 8px;
     height: 365px;
     overflow-y: scroll;
+}
 
+.selectLocation{
+    justify-content: space-around;
+    display: flex;
+    margin-bottom: 7px;
+}
+
+.removeLocation{
+    width: 25px;
+    height: 25px;
 }
 
 .city_name{
@@ -266,5 +276,7 @@ body {
 hr{
     border-top: 2px solid  black;
 }
+
+
 
 

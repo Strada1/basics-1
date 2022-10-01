@@ -1,23 +1,29 @@
-import { UIELEMENTS } from './src/uielements.js'
+//import {UIELEMENTS} from './uielements.js'
+
+const UIELEMENTS =  {
+    form_input: document.querySelector(".form-input"),
+    cityName: document.querySelector(".input-city"),
+    search: document.querySelector(".search"),
+    countTemp: document.querySelector(".count"),
+    icon_weather: document.querySelector(".icon-cloud"),
+    city_name: document.querySelector(".city-name"),
+    likeCity: document.querySelector(".like"),
+}
 
 
-const list = [{cityName: "Bali"}];
+let list = [  ]
+
 
 UIELEMENTS.form_input.addEventListener('submit', function (event, TODO) {
     event.preventDefault();
     const inputCity = getWeatherPromise(UIELEMENTS.cityName.value.split(' ').join(''));
     renderNow(inputCity);
-    //TODO: divRemove нужно доделать
-
-
+    const divRemove = document.querySelector(".divRemove");
+    divRemove.remove();
     UIELEMENTS.form_input.reset();
+
 })
 
-
-// function remove(divRemove){
-//     divRemove = document.querySelector("divRemove");
-//     divRemove.remove();
-// }
 
 function getWeatherPromise(cityName){
 
@@ -44,11 +50,11 @@ function getWeatherPromise(cityName){
 
 function renderNow(inputCity){
 
-    console.log(inputCity);
     const  tabNow = document.querySelector("#tab_01");
     let promise = inputCity;
     promise
         .then((data) => {
+
         const temperature = data.main.temp;
         const serverImgUrl = `http://openweathermap.org/img/wn/`;
         const src = `${serverImgUrl}${data.weather[0]['icon']}@2x.png`;
@@ -82,19 +88,15 @@ function renderNow(inputCity){
         likeImg.src  = "img/like.png";
         likeImg.id = "nowIdLike"
         city_like.appendChild(likeImg);
-
         tabNow.append(divRemove);
 
-        console.log(tabNow);
 
         const like_location = document.querySelector("#nowIdLike");
         like_location.addEventListener("click", likeLocation);
+
+
     })
         .catch(error => alert(error.message))
-
-
-    // const divRemove = document.querySelector("divRemove");
-    // divRemove.remove();
 
 }
 
@@ -110,29 +112,29 @@ function likeLocation(){
 
         const result = list.findIndex(item => likeCity.textContent === item.cityName);
 
-        // if(result !== -1){
-        //     throw new Error(`${likeCity.textContent}  уже существует в избранных `)
-        // }
+        if(result !== -1){
+            throw new Error(`${likeCity.textContent}  уже существует в избранных `)
+        }else {
+            const div = document.createElement("div");
+            div.className = "city-name";
+            div.id = "like-city-name";
 
-        const div = document.createElement("div");
-        div.className = "city-name";
-        div.textContent = likeCity.textContent;
+            div.textContent = likeCity.textContent;
 
+            const remove = document.createElement("img");
+            remove.className = "removeLocation";
+            remove.src  = "img/remove.png";
+            remove.id = "removeId"
+            selectLocation.appendChild(div);
+            selectLocation.appendChild(remove);
+            locations.append(selectLocation);
+            list.push({cityName: likeCity.textContent});
 
-        const remove = document.createElement("img");
-        remove.className = "removeLocation";
-        remove.src  = "img/remove.png";
-        remove.id = "removeId"
-        selectLocation.appendChild(div);
-        selectLocation.appendChild(remove);
-        locations.append(selectLocation);
+            remove.addEventListener("click",deleteLikeCity);
 
+            div.addEventListener("click",renderNowLikeLocation);
 
-
-        document.getElementById("removeId").addEventListener("click", function () {
-            deleteLikeCity(likeCity.textContent);
-        });
-        list.push({cityName: likeCity.textContent});
+        }
 
     }catch (e) {
         alert(e.message);
@@ -140,14 +142,16 @@ function likeLocation(){
 
 }
 
-function deleteLikeCity(likeCity){
-    const result = list.findIndex(item => likeCity.textContent === item.cityName);
-
-    if(result !== -1){
-        throw new Error(`${likeCity.textContent}  уже существует в избранных `)
-    } else {
-        list.splice( result, 1 );
-    }
+function renderNowLikeLocation (){
+    const like_city = document.querySelector("#like-city-name");
+    const divRemove = document.querySelector(".divRemove");
+    divRemove.remove();
+    const inputCity = getWeatherPromise(like_city.textContent);
+    renderNow(inputCity);
 }
 
-console.log(list);
+function deleteLikeCity(likeCity){
+    const result = list.findIndex(item => likeCity.textContent === item.cityName);
+    list.splice( result, 1 );
+    document.querySelector(".selectLocation").remove();
+}

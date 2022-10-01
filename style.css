@@ -1,0 +1,179 @@
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: black white;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 2px;
+}
+
+*::-webkit-scrollbar-track {
+    background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 0;
+    border: none;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    font-weight: 100;
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.content {
+    max-height: 250px;
+    display: flex;
+}
+
+.search {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.search form {
+    width: 100%;
+    display: flex;
+}
+
+.search input {
+    width: 100%;
+    padding: 10px 10px;
+    font-size: 1rem;
+    font-family: sans-serif;
+    font-weight: 100;
+    border-style: none;
+}
+
+form input:focus {
+    outline-width: 0;
+}
+
+.search button {
+    margin-left: auto;
+    margin-right: 0;
+    border-style: none;
+    background-color: inherit;
+    padding-right: 15px;
+}
+
+.col {
+    width: 50%;
+    min-height: 100%;
+    border-right: 1px solid black;
+}
+
+.col:last-child {
+    border-right: none;
+}
+
+.temperature h1 {
+    font-weight: 100;
+    font-size: 3rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.icon-weather {
+    display: flex;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.icon-weather i {
+    margin: 0 auto;
+}
+
+.city {
+    display: flex;
+}
+
+.city button {
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 0;
+    border-style: none;
+    background-color: inherit;
+}
+
+.details-city h1 {
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+.details-item {
+    padding-top: 6px;
+}
+
+.tabcontent {
+    padding: 10px;
+    min-height: 185px;
+    border-bottom: 1px solid black;
+}
+
+.tab {
+    overflow: hidden;
+}
+
+.tab button {
+    float: left;
+    outline: none;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    width: calc(100%/3);
+    padding: 14px 16px;
+    border: none;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+.tab button:hover {
+    background-color: rgb(237, 237, 237);
+}
+
+.tab button:last-child {
+    border-right: none;
+}
+
+.tab button.active {
+    background-color: black;
+    color: white;
+}
+
+.locations-header {
+    border-bottom: 1px solid black;
+    padding-left: 10px;
+}
+
+.locations-header h3 {
+    font-weight: 100;
+}
+
+.locations {
+    max-height: 190px;
+    overflow-y: scroll;
+}
+
+.location {
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.location:hover {
+    background-color: rgb(237, 237, 237);
+}

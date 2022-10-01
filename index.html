@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<script src="main.js" type="module"></script>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Roboto', sans-serif;
+			padding-top: 200px;
+			margin: 0;
+			font-size: 24px;
+			line-height: 28px;
+			font-weight: 400;
+		}
+
+		button {
+			padding: 0;
+			border: none;
+			background: none;
+			cursor: pointer;
+		}
+
+		.container {
+			max-width: 600px;
+			width: 100%;
+			margin: auto;
+		}
+
+		.weather {
+			border: 1px solid #000;
+		}
+
+		.weather_header {
+			border-bottom: 1px solid #000;
+		}
+
+		.search-form {
+			position: relative;
+		}
+
+		.search-form_input {
+			display: block;
+			width: 100%;
+			color: #696969;
+			padding: 11px 60px 11px 16px;
+			font-size: 18px;
+			line-height: 21px;
+			outline: none;
+			border: none;
+			font-family: inherit;
+		}
+
+		.search-form_button {
+			position: absolute;
+			width: 50px;
+			height: 100%;
+			right: 0;
+			top: 50%;
+			translate: 0 -50%;
+			display: flex;
+		}
+
+		.search-form_button img {
+			width: 22px;
+			height: 22px;
+			margin: auto;
+		}
+
+		.weather_body {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.weather_content {
+			border-right: 1px solid #000;
+		}
+
+		.weather_display {
+			height: 345px;
+		}
+
+		.controls {
+			display: flex;
+			border-top: 1px solid #000;
+		}
+
+		.tab-content {
+			height: 100%;
+			display: none;
+		}
+
+		.tab-button {
+			font-size: 18px;
+			line-height: 21px;
+			width: calc(100% / 3);
+			flex: 1;
+			padding: 12px;
+			border-right: 1px solid #000;
+			transition: 0.2s;
+		}
+
+		.tab-button:last-child {
+			border-right: none;
+		}
+
+		.tab-button:hover,
+		.tab-button--active {
+			background-color: #000;
+			color: #fff;
+		}
+
+		.locations_title {
+			border-bottom: 1px solid #000;
+			padding: 32px 18px 7px;
+		}
+
+		.locations_list {
+			padding: 35px 18px;
+			height: 322px;
+			overflow: auto;
+		}
+
+		.locations_item {
+			display: flex;
+			align-items: center;
+			gap: 30px;
+			font-size: inherit;
+			font-family: inherit;
+			margin-bottom: 15px;
+		}
+
+		.locations_city {
+			cursor: pointer;
+		}
+
+		.locations_item:last-child {
+			margin-bottom: 0;
+		}
+
+		.locations_remove {
+			width: 30px;
+			height: 30px;
+			display: flex;
+		}
+
+		.locations_remove:before {
+			content: "";
+			width: 60%;
+			height: 60%;
+			margin: auto;
+			background-image: url("./icons/close.svg");
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		.details {
+			height: 100%;
+			padding: 33px 17px;
+		}
+
+		.details_city {
+			margin-bottom: 42px;
+		}
+
+		.details_list {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.details_item {
+			margin-bottom: 10px;
+		}
+
+		.details_item:last-child {
+			margin-bottom: 0;
+		}
+
+		.temperature--size-lg {
+			font-size: 70px;
+			line-height: 82px;
+		}
+
+		.temperature:after {
+			content: "";
+			width: 0.2em;
+			height: 0.2em;
+			margin-top: 0.2em;
+			background-image: url('icons/celsius.svg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.now {
+			padding: 20px 23px;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.now_temperature {
+			margin-bottom: 40px;
+		}
+
+		.now_weather-icon {
+			width: 78px;
+			height: 59px;
+			align-self: center;
+		}
+
+		.now_weather-icon img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.now_components {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 15px;
+			margin-top: auto;
+		}
+
+		.favorite-button {
+			width: 22px;
+			height: 22px;
+		}
+
+		.favorite-button img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		.forecast {
+			height: 100%;
+			padding: 33px 0 0 18px;
+			font-size: 18px;
+			line-height: 21px;
+		}
+
+		.forecast_city {
+			margin-bottom: 7px;
+		}
+
+		.forecast_list {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			height: 274px;
+			overflow: auto;
+			padding-right: 18px;
+		}
+
+		.forecast-item {
+			border: 1px solid #000;
+			padding: 6px 10px 13px;
+			margin-bottom: 9px;
+		}
+
+		.forecast-item:last-child {
+			margin-bottom: 0;
+		}
+
+		.forecast-item_header {
+			display: flex;
+			justify-content: space-between;
+			gap: 10px;
+			margin-bottom: 30px;
+		}
+
+		.forecast-item_info {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 10px;
+		}
+
+		.forecast-item_temperature {
+			margin-bottom: 5px;
+		}
+
+		.forecast-item_weather-icon {
+			width: 45px;
+			height: 35px;
+			margin: auto;
+		}
+
+		.forecast-item_weather-icon img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="weather">
+			<div class="weather_header">
+				<form class="search-form">
+					<input type="text" class="search-form_input" placeholder="Aktobe">
+					<button class="search-form_button">
+						<img src="icons/search.svg" alt="">
+					</button>
+				</form>
+			</div>
+			<div class="weather_body">
+				<div class="weather_content">
+					<div class="weather_display">
+						<div class="tab-content">
+							<div class="now">
+								<div class="now_temperature temperature temperature--size-lg"></div>
+								<div class="now_weather-icon">
+									<img src="" alt="">
+								</div>
+								<div class="now_components">
+									<div class="now_city"></div>
+									<button class="favorite-button">
+										<img src="icons/heart.svg" alt="">
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="tab-content">
+							<div class="details">
+								<div class="details_city">Aktobe</div>
+								<ul class="details_list">
+									<li class="details_item">Temperature: <span class="temperature"></span></li>
+									<li class="details_item">Feels like: <span id="details-feels-like-temperature"
+											class="temperature"></span></li>
+									<li class="details_item">Weather: <span id="details-weather-type"></span></li>
+									<li class="details_item">Sunrise: <span id="details-sunrise"></span></li>
+									<li class="details_item">Sunset: <span id="details-sunset"></span></li>
+								</ul>
+							</div>
+						</div>
+						<div class="tab-content">
+							<div class="forecast">
+								<div class="forecast_city">Aktobe</div>
+								<ul class="forecast_list"></ul>
+							</div>
+						</div>
+					</div>
+					<div class="controls">
+						<button class="tab-button">Now</button>
+						<button class="tab-button">Details</button>
+						<button class="tab-button">Forecast</button>
+					</div>
+				</div>
+				<div class="locations">
+					<div class="locations_title">
+						Added Locations:
+					</div>
+					<div class="locations_list"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

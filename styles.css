@@ -16,7 +16,7 @@ ul {
 
 .app {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
 
   display: flex;
   justify-content: center;
@@ -248,7 +248,7 @@ ul {
 
 /* styling Forecast tab */
 .forecast {
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .forecast span {
@@ -256,7 +256,8 @@ ul {
 }
 
 .forecast__block {
-  width: 265px;
+  /* width: 265px; */
+  width: 248px;
   height: 120px;
   border: 1px solid black;
   margin: 7px 16px 9px 18px;
@@ -306,4 +307,8 @@ ul {
 a {
   text-decoration: none;
   color: black;
+}
+
+.wip {
+  text-align: center;
 }

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet"
+      />
+      <link rel="stylesheet" href="styles.css" />
+      <script defer src="js/forecast.js"></script>
+      <title>Forecast</title>
+    </head>
+    <body></body>
+  </html>
+  <body>
+    <main class="app">
+      <div class="grid-container">
+        <form class="search">
+          <input class="search__input" type="search" placeholder="Aktobe" />
+          <img
+            class="search__icon"
+            src="./img/search.svg"
+            alt="Search"
+            srcset=""
+          />
+        </form>
+
+        <div class="forecast">
+          <div class="details__city">
+            <span class="details__city-name">Aktobe</span>
+          </div>
+          <div class="forecast__block">
+            <div class="forecast__date">
+              <span class="forecast__date--day">17 May</span>
+              <span class="forecast__date--hour">12:00</span>
+            </div>
+            <div class="forecast__data">
+              <div class="forecast__data-temperature">
+                <span class="forcast__data--real">Temperature: 13°</span>
+                <br />
+                <span class="forcast__data--feels-like">Feels like: 10°</span>
+              </div>
+              <div class="forecast__data-condition">
+                <span class="forecast__data--icon">Rain</span>
+                <img
+                  src="./img/rainy-cloud.svg"
+                  alt="Rain"
+                  width="31"
+                  height="31"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="forecast__block">
+            <div class="forecast__date">
+              <span class="forecast__date--day">17 May</span>
+              <span class="forecast__date--hour">15:00</span>
+            </div>
+            <div class="forecast__data">
+              <div class="forecast__data-temperature">
+                <span class="forcast__data--real">Temperature: 13°</span>
+                <br />
+                <span class="forcast__data--feels-like">Feels like: 10°</span>
+              </div>
+              <div class="forecast__data-condition">
+                <span class="forecast__data--icon">Rain</span>
+                <img
+                  src="./img/rainy-cloud.svg"
+                  alt="Rain"
+                  width="31"
+                  height="31"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="forecast__block">
+            <div class="forecast__date">
+              <span class="forecast__date--day">17 May</span>
+              <span class="forecast__date--hour">18:00</span>
+            </div>
+            <div class="forecast__data">
+              <div class="forecast__data-temperature">
+                <span class="forcast__data--real">Temperature: 13°</span>
+                <br />
+                <span class="forcast__data--feels-like">Feels like: 10°</span>
+              </div>
+              <div class="forecast__data-condition">
+                <span class="forecast__data--icon">Rain</span>
+                <img
+                  src="./img/rainy-cloud.svg"
+                  alt="Rain"
+                  width="31"
+                  height="31"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <nav class="tabs">
+          <ul class="tabs-list">
+            <li class="tab-item">
+              <a href="/index.html">Now</a>
+            </li>
+            <li class="tab-item">
+              <a href="/details.html"> Details </a>
+            </li>
+            <li class="tab-item"><a href="/forecast.html">Forecast</a></li>
+          </ul>
+        </nav>
+
+        <div class="locations">
+          <div class="added-locations">
+            <span class="added-locations--text">Added Locations:</span>
+          </div>
+          <ul class="locations-list"></ul>
+        </div>
+      </div>
+    </main>
+    <h1 class="wip">Work in progress!</h1>
+  </body>
+</html>

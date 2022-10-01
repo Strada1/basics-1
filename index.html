@@ -11,7 +11,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <title>Weather App</title>
+
+    <script defer src="js/index.js"></script>
+    <title>Now</title>
   </head>
   <body>
     <main class="app">
@@ -25,7 +27,6 @@
             srcset=""
           />
         </form>
-        <!-- This is Now Tab -->
 
         <div class="now">
           <div class="now__temperature">
@@ -43,95 +44,6 @@
           </div>
         </div>
 
-        <!-- This is Details Tab -->
-
-        <!-- <div class="details">
-          <div class="details__city">
-            <span class="details__city-name">Aktobe</span>
-          </div>
-          <ul class="details-list">
-            <li class="detail-item">Temperature: 14°</li>
-            <li class="detail-item">Feels like: 10°</li>
-            <li class="detail-item">Weather: Clouds</li>
-            <li class="detail-item">Sunrise: 03:21</li>
-            <li class="detail-item">Sunset: 18:54</li>
-          </ul>
-        </div> -->
-
-        <!-- This is Forecast Tab -->
-
-        <!-- <div class="forecast">
-          <div class="details__city">
-            <span class="details__city-name">Aktobe</span>
-          </div>
-          <div class="forecast__block">
-            <div class="forecast__date">
-              <span class="forecast__date--day">17 May</span>
-              <span class="forecast__date--hour">12:00</span>
-            </div>
-            <div class="forecast__data">
-              <div class="forecast__data-temperature">
-                <span class="forcast__data--real">Temperature: 13°</span>
-                <br />
-                <span class="forcast__data--feels-like">Feels like: 10°</span>
-              </div>
-              <div class="forecast__data-condition">
-                <span class="forecast__data--icon">Rain</span>
-                <img
-                  src="./img/rainy-cloud.svg"
-                  alt="Rain"
-                  width="31"
-                  height="31"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="forecast__block">
-            <div class="forecast__date">
-              <span class="forecast__date--day">17 May</span>
-              <span class="forecast__date--hour">15:00</span>
-            </div>
-            <div class="forecast__data">
-              <div class="forecast__data-temperature">
-                <span class="forcast__data--real">Temperature: 13°</span>
-                <br />
-                <span class="forcast__data--feels-like">Feels like: 10°</span>
-              </div>
-              <div class="forecast__data-condition">
-                <span class="forecast__data--icon">Rain</span>
-                <img
-                  src="./img/rainy-cloud.svg"
-                  alt="Rain"
-                  width="31"
-                  height="31"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="forecast__block">
-            <div class="forecast__date">
-              <span class="forecast__date--day">17 May</span>
-              <span class="forecast__date--hour">18:00</span>
-            </div>
-            <div class="forecast__data">
-              <div class="forecast__data-temperature">
-                <span class="forcast__data--real">Temperature: 13°</span>
-                <br />
-                <span class="forcast__data--feels-like">Feels like: 10°</span>
-              </div>
-              <div class="forecast__data-condition">
-                <span class="forecast__data--icon">Rain</span>
-                <img
-                  src="./img/rainy-cloud.svg"
-                  alt="Rain"
-                  width="31"
-                  height="31"
-                />
-              </div>
-            </div>
-          </div>
-        </div> -->
-
         <nav class="tabs">
           <ul class="tabs-list">
             <li class="tab-item">
@@ -148,25 +60,9 @@
           <div class="added-locations">
             <span class="added-locations--text">Added Locations:</span>
           </div>
-          <ul class="locations-list">
-            <!-- <li class="location-item location-item__favorite">
-              <span class="location-item__text">Aktobe</span>
-              <button class="location-item__button">&#9587;</button>
-            </li>
-            <li class="location-item">
-              <span class="location-item__text">Bali</span>
-            </li>
-            <li class="location-item">
-              <span class="location-item__text">Dani</span>
-            </li>
-            <li class="location-item">
-              <span class="location-item__text">Kilo</span>
-            </li> -->
-          </ul>
+          <ul class="locations-list"></ul>
         </div>
       </div>
     </main>
-
-    <script src="index.js"></script>
   </body>
 </html>

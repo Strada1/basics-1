@@ -1,3 +1,4 @@
+// alert('Work in progress!')
 // Elements ...
 const searchForm = document.querySelector('.search')
 const searchInput = document.querySelector('.search__input')
@@ -63,7 +64,7 @@ async function fetchWeatherData() {
 
     city.innerHTML = data.name
     temperature.innerHTML = `Temperature: ${temp}°`
-    feelsLike.innerHTML = `Feels like: ${feels}`
+    feelsLike.innerHTML = `Feels like: ${feels}°`
     weather.innerHTML = `Weather: ${currentWeather}`
     sunrise.innerHTML = `Sunrise: ${sunriseAt}`
     sunset.innerHTML = `Sunset: ${sunsetAt}`
@@ -170,16 +171,35 @@ async function fetchByName(name) {
     // formatting Date
     const sunriseDate = new Date(data.sys.sunrise * 1000)
     const sunsetDate = new Date(data.sys.sunset * 1000)
-    const sunriseHours = sunriseDate.getHours()
-    const sunsetHours = sunsetDate.getHours()
-    const sunriseMinutes = sunriseDate.getMinutes()
-    const sunsetMinutes = sunsetDate.getMinutes()
+    let sunriseHours = sunriseDate.getHours()
+    let sunsetHours = sunsetDate.getHours()
+
+    let sunriseMinutes = sunriseDate.getMinutes()
+    let sunsetMinutes = sunsetDate.getMinutes()
+
+    // adding 0 when there's none
+    if (sunriseHours < 10) {
+      sunriseHours = '0' + sunriseHours
+    }
+
+    if (sunsetHours < 10) {
+      sunsetHours = '0' + sunsetHours
+    }
+
+    if (sunriseMinutes < 10) {
+      sunriseMinutes = '0' + sunriseMinutes
+    }
+
+    if (sunsetMinutes < 10) {
+      sunsetMinutes = '0' + sunsetMinutes
+    }
+
     const sunriseAt = `${sunriseHours} : ${sunriseMinutes}`
     const sunsetAt = `${sunsetHours} : ${sunsetMinutes}`
 
     city.innerHTML = data.name
     temperature.innerHTML = `Temperature: ${temp}°`
-    feelsLike.innerHTML = `Feels like: ${feels}`
+    feelsLike.innerHTML = `Feels like: ${feels}°`
     weather.innerHTML = `Weather: ${currentWeather}`
     sunrise.innerHTML = `Sunrise: ${sunriseAt}`
     sunset.innerHTML = `Sunset: ${sunsetAt}`
@@ -196,3 +216,22 @@ renderAddedLocations()
 fetchWeatherData()
 // check is city already in addedLocations
 // ---------------------------------------------------------
+
+// search for a city
+searchForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+  if (!searchInput.value.length) {
+    alert('Please type a city name')
+  } else {
+    // !city name must derive from fetch data.name
+    // cityName = fetchWeatherData().name
+    cityName = searchInput.value
+    try {
+      fetchWeatherData()
+    } catch (error) {
+      alert('Ошибка!')
+      console.error(error.message)
+    }
+    searchInput.value = ''
+  }
+})

@@ -11,17 +11,16 @@ const UIELEMENTS =  {
 }
 
 
-let list = [  ]
+let list = [ ]
 
 
 UIELEMENTS.form_input.addEventListener('submit', function (event, TODO) {
     event.preventDefault();
     const inputCity = getWeatherPromise(UIELEMENTS.cityName.value.split(' ').join(''));
+    UIELEMENTS.form_input.reset();
     renderNow(inputCity);
     const divRemove = document.querySelector(".divRemove");
     divRemove.remove();
-    UIELEMENTS.form_input.reset();
-
 })
 
 
@@ -41,8 +40,8 @@ function getWeatherPromise(cityName){
             }
             return response.json();
         } )
-    }catch (error){
-        alert(error)
+    }catch (error) {
+        alert(error.message);
     }
 }
 
@@ -51,6 +50,8 @@ function getWeatherPromise(cityName){
 function renderNow(inputCity){
 
     const  tabNow = document.querySelector("#tab_01");
+
+
     let promise = inputCity;
     promise
         .then((data) => {
@@ -90,68 +91,72 @@ function renderNow(inputCity){
         city_like.appendChild(likeImg);
         tabNow.append(divRemove);
 
-
         const like_location = document.querySelector("#nowIdLike");
         like_location.addEventListener("click", likeLocation);
-
 
     })
         .catch(error => alert(error.message))
 
 }
 
+function renderLikeList (){
+   const  locations = document.querySelector(".locations");
+   locations.innerHTML = "";
 
+    list.forEach( (el) => {
+
+        const selectLocation = document.createElement("div");
+        selectLocation.className = "selectLocation";
+
+        const div = document.createElement("div");
+        div.className = "city-name";
+        div.id = `divId` + el.cityName ;
+
+        div.textContent = el.cityName;
+
+        const remove = document.createElement("img");
+        remove.className = "removeLocation";
+        remove.src  = "img/remove.png";
+        remove.id = `removeId` + el.cityName;
+        selectLocation.appendChild(div);
+        selectLocation.appendChild(remove);
+        locations.append(selectLocation);
+
+
+        remove.addEventListener("click", () => {
+            const result = list.findIndex(item => el.cityName === item.cityName);
+           // TODO: splice нужно заменить на фильтр
+            list.splice( result, 1 );
+            renderLikeList();
+        });
+
+        div.addEventListener("click",() => {
+            const divRemove = document.querySelector(".divRemove");
+            divRemove.remove();
+            const inputCity = getWeatherPromise(el.cityName);
+            renderNow(inputCity);
+        });
+
+    })
+
+}
 
 function likeLocation(){
 
     try {
-        const likeCity = document.querySelector("#nowIdCity");
-        const  locations = document.querySelector(".locations");
-        const  selectLocation = document.createElement("div");
-        selectLocation.className = "selectLocation";
 
+        const likeCity = document.querySelector(".city-name");
         const result = list.findIndex(item => likeCity.textContent === item.cityName);
-
         if(result !== -1){
             throw new Error(`${likeCity.textContent}  уже существует в избранных `)
-        }else {
-            const div = document.createElement("div");
-            div.className = "city-name";
-            div.id = "like-city-name";
-
-            div.textContent = likeCity.textContent;
-
-            const remove = document.createElement("img");
-            remove.className = "removeLocation";
-            remove.src  = "img/remove.png";
-            remove.id = "removeId"
-            selectLocation.appendChild(div);
-            selectLocation.appendChild(remove);
-            locations.append(selectLocation);
-            list.push({cityName: likeCity.textContent});
-
-            remove.addEventListener("click",deleteLikeCity);
-
-            div.addEventListener("click",renderNowLikeLocation);
-
         }
 
-    }catch (e) {
-        alert(e.message);
+        list.push({cityName: likeCity.textContent});
+        renderLikeList();
+
+
+    }catch (error) {
+        alert(error.message);
     }
 
-}
-
-function renderNowLikeLocation (){
-    const like_city = document.querySelector("#like-city-name");
-    const divRemove = document.querySelector(".divRemove");
-    divRemove.remove();
-    const inputCity = getWeatherPromise(like_city.textContent);
-    renderNow(inputCity);
-}
-
-function deleteLikeCity(likeCity){
-    const result = list.findIndex(item => likeCity.textContent === item.cityName);
-    list.splice( result, 1 );
-    document.querySelector(".selectLocation").remove();
 }

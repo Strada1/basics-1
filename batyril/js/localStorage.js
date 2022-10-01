@@ -10,11 +10,11 @@ export function renderLocalStorage(addDatabase) {
   }
 }
 
-export function setCurrentCity(cityName) {
+export function setCurrentCityLocalStorage(cityName) {
   localStorage.setItem('currentCity', cityName);
 }
 
-export function getCurrentCity(request) {
+export function getCurrentCityLocalStorage(request) {
   const checkCurrentCity = localStorage.getItem('currentCity');
   if (checkCurrentCity) {
     request(checkCurrentCity);

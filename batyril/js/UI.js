@@ -1,3 +1,5 @@
+import { getConvertTime } from "./checks.js";
+
 export const UI = {
   FORM: document.querySelector('.weather__form'),
   FAVORITE_CITIES_LIST: document.querySelector('.favorites__list'),
@@ -11,6 +13,15 @@ export const UI_NOW = {
   CURRENT_CITY: document.querySelector('.now__city'),
 };
 
+export const UI_DETAILS = {
+  CITY_NAME: document.querySelector('.details__city'),
+  TEMPERATURE: document.querySelector('.details__temperature>span'),
+  FEELS_LIKE: document.querySelector('.details__feels-like>span'),
+  WEATHER: document.querySelector('.details__weather>span'),
+  SUNRISE: document.querySelector('.details__sunrise>span'),
+  SUNSET: document.querySelector('.details__sunset>span'),
+};
+
 function getImageLink(imageNumber) {
   const SERVER_URL = 'http://openweathermap.org/img/wn/';
   const IMAGE_FORMAT = '@2x.png';
@@ -21,6 +32,15 @@ export function renderNowTab(jsonWeatherCity, place) {
   place.TEMPERATURE.textContent = `${Math.trunc(jsonWeatherCity.main.temp)}°`;
   place.CITY_NAME.textContent = jsonWeatherCity.name;
   place.IMAGE.src = getImageLink(jsonWeatherCity.weather[0].icon);
+}
+
+export function renderDetailsTab(jsonWeatherCity, place) {
+  place.CITY_NAME.textContent = jsonWeatherCity.name;
+  place.TEMPERATURE.textContent = `${Math.trunc(jsonWeatherCity.main.temp)}°`;
+  place.FEELS_LIKE.textContent = jsonWeatherCity.main.feels_like;
+  place.WEATHER.textContent = jsonWeatherCity.weather[0].main;
+  place.SUNRISE.textContent = getConvertTime(jsonWeatherCity.sys.sunrise);
+  place.SUNSET.textContent = getConvertTime(jsonWeatherCity.sys.sunset);
 }
 
 export function addFavoriteCityUI(city, place) {

@@ -1,0 +1,95 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Weather</title>
+    <link type="text/css" rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="search">
+            <form autocomplete="off" id="form-search">
+                <input id="search" type="text" placeholder="City">
+                <button type="submit">
+                    <i class="fa fa-magnifying-glass" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+
+        
+        <div class="content">
+            
+            <div class="col">
+                <div id="now" class="tabcontent">
+                    <div class="temperature">
+                        <h1 id="temperature"></h1>
+                    </div>
+                    <div class="icon-weather">
+                        <i class="fa fa-cloud fa-3x"></i>
+                    </div>
+                    <div class="city">
+                        <span id="nowCity"></span>
+                        <button id="like">
+                            <i id="heart-icon" class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="details" class="tabcontent">
+                    <div class="details-city">
+                        <h1 id="details-city">Moscow</h1>
+                    </div>
+                    <div class="details">
+                        <div class="details-item">Temperature: <span id="details-temperature"></span></div>
+                        <div class="details-item">Feels like: <span id="details-feels-like"></span></div>
+                        <div class="details-item">Weather: <span id="details-weather"></span></div>
+                        <div class="details-item">Sunrise: <span id="details-sunrise"></span></div>
+                        <div class="details-item">Sunset: <span id="details-sunset"></span></div>
+                    </div>
+                </div>
+
+                <div id="forecast" class="tabcontent">
+                </div>
+
+                <div class="tab">
+                    <button class="tablinks" onclick="openTab(event, 'now')">Now</button>
+                    <button class="tablinks" onclick="openTab(event, 'details')">Details</button>
+                    <button class="tablinks" onclick="openTab(event, 'forecast')">Forecast</button>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="locations-header">
+                    <h3>Added Locations:</h3>
+                </div>
+                <div class="locations" id="locations">
+                    <div class="location">Moscow</div>
+                    <div class="location">Berlin</div>
+                    <div class="location">Paris</div>
+                    <div class="location">Moscow</div>
+                    <div class="location">Berlin</div>
+                    <div class="location">Paris</div>
+                    <div class="location">Berlin</div>
+                    <div class="location">Moscow</div>
+                    <div class="location">Berlin</div>
+                    <div class="location">Paris</div>
+                    <div class="location">Moscow</div>
+                    <div class="location">Berlin</div>
+                    <div class="location">Paris</div>
+                    <div class="location">Berlin</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

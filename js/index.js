@@ -10,6 +10,8 @@
 const searchForm = document.querySelector('.search')
 const searchInput = document.querySelector('.search__input')
 
+const nowBlock = document.querySelector('.now')
+
 const locationsList = document.querySelector('.locations-list')
 const locationItems = document.querySelectorAll('.location-item')
 
@@ -95,9 +97,11 @@ async function fetchWeatherData(locationName) {
   const url = `${serverUrl}?q=${locationName}&appid=${apiKey}&units=metric`
   try {
     const response = await fetch(url)
-    const { main, name } = await response.json()
-    const temp = Math.floor(main.temp)
+    const { main, name, weather } = await response.json()
+    const weatherIconUrl = `http://openweathermap.org/img/wn/${weather[0].icon}@4x.png`
+    nowBlock.style.backgroundImage = `url(${weatherIconUrl})`
 
+    const temp = Math.floor(main.temp)
     temperature.innerHTML = `${temp}°`
     city.innerHTML = name
     cityName = locationName = name

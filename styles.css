@@ -113,7 +113,6 @@ ul {
 /* styling Now tab */
 
 .now {
-  background-image: url('./img/cloud.svg');
   background-repeat: no-repeat;
   background-position: center;
 
@@ -201,6 +200,7 @@ ul {
 
 .locations-list {
   padding-top: 15px;
+  overflow: hidden;
 }
 
 .location-item {

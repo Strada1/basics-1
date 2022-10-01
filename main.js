@@ -2,11 +2,23 @@ import { UI_ELEMENTS } from "./view.js";
 
 let favoritesCities = [];
 
+function getCurrentCity() {
+    return localStorage.getItem('currentCity');
+}
+const currentCity = getCurrentCity();
+
+function getFavoriteCities() {
+    return JSON.parse(localStorage.getItem('cities'));
+}
+const favoriteCities = getFavoriteCities();
+renderFavorites(favoriteCities);
+getWeather(currentCity);
+
 // Переключение табов
 document.querySelectorAll('.tab').forEach((item) => 
-    item.addEventListener('click', function(e) {
-        e.preventDefault();
-        const id = e.target.getAttribute('href').replace('#', '');
+    item.addEventListener('click', function(event) {
+        event.preventDefault();
+        const id = event.target.getAttribute('href').replace('#', '');
 
         document.querySelectorAll('.tab').forEach(
             (child) => child.classList.remove('active-tab')
@@ -23,15 +35,21 @@ document.querySelectorAll('.tab').forEach((item) =>
 document.querySelector('.tab').click();
 
 // Получение погоды
-UI_ELEMENTS.FIND_FORM.addEventListener('submit', getWeather);
-UI_ELEMENTS.FIND_CITY.addEventListener('click', getWeather);
+UI_ELEMENTS.FIND_FORM.addEventListener('submit', handlerCitySearch);
+UI_ELEMENTS.FIND_CITY.addEventListener('click', handlerCitySearch);
 
-async function getWeather(event) {
+function handlerCitySearch(event) {
     event.preventDefault();
+
+    const city = UI_ELEMENTS.FIND_INPUT.value;
+    getWeather(city);
+};
+
+async function getWeather(city) {
 
     const SERVER_URL = 'http://api.openweathermap.org/data/2.5/weather';
     const API_KEY = '0a8c506a0f09e19f0f5a48594460c570';
-    const URL = `${SERVER_URL}?q=${UI_ELEMENTS.FIND_INPUT.value}&appid=${API_KEY}&units=metric&lang=ru`;
+    const URL = `${SERVER_URL}?q=${city}&appid=${API_KEY}&units=metric&lang=ru`;
     
     try {
         let response = await fetch(URL);
@@ -89,11 +107,9 @@ function renderNow(temp, city, icon) {
 
 // Добавление в избранное
 function addToFavorites(city) {
-
+    favoritesCities = JSON.parse(localStorage.getItem('cities'));
     favoritesCities = favoritesCities.concat([city]);
     localStorage.setItem('cities', JSON.stringify(favoritesCities));
-    favoritesCities = JSON.parse(localStorage.getItem('cities'));
-    console.log(favoritesCities);
 
     renderFavorites(favoritesCities);
 };
@@ -102,31 +118,38 @@ function addToFavorites(city) {
 function renderFavorites(cities) {
 
     while(UI_ELEMENTS.ADDED_CITIES_LIST.firstChild){
-        UI_ELEMENTS.ADDED_CITIES_LIST.removeChild(UI_ELEMENTS.ADDED_CITIES_LIST.firstChild);
+        UI_ELEMENTS.ADDED_CITIES_LIST.removeChild(
+            UI_ELEMENTS.ADDED_CITIES_LIST.firstChild
+            );
     };
 
     for (const elem of cities) {
         const li = document.createElement('li');
         li.classList.add('added-cities__item');
         li.textContent = elem + '   ';
-        li.addEventListener('click', function() {
-            UI_ELEMENTS.FIND_INPUT.value = elem;
-            getWeather(event);
-        })
+        li.addEventListener('click', () => findFromFavorite(elem));
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('delete-city');
-        deleteButton.addEventListener('click', function(e) {
-            e.stopPropagation();
-
-            cities = JSON.parse(localStorage.getItem('cities'));
-            favoritesCities = cities.filter(item => item !== elem);
-            localStorage.cities = JSON.stringify(favoritesCities);
-            console.log(favoritesCities);
-            renderFavorites(favoritesCities);
-        });
+        deleteButton.addEventListener('click', () => delFromFavorites(event, cities, elem));
         li.appendChild(deleteButton);
         UI_ELEMENTS.ADDED_CITIES_LIST.appendChild(li);
     };
+};
+
+// Удаление из избранного
+function delFromFavorites(event, cities, elem) {
+    event.stopPropagation();
+
+    cities = JSON.parse(localStorage.getItem('cities'));
+    favoritesCities = cities.filter(item => item !== elem);
+    localStorage.cities = JSON.stringify(favoritesCities);
+    renderFavorites(favoritesCities);
+};
+
+// Поиск из избранного
+function findFromFavorite(elem) {
+    let city = elem;
+    getWeather(city);
 };
 
 // Отрисовка вкладки DETAILS

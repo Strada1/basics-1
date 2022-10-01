@@ -17,6 +17,9 @@ const ELEMENTS = {
   detailsSunrise: document.querySelector(".details-items li:nth-child(4) span"),
   detailsSunset: document.querySelector(".details-items li:nth-child(5) span"),
   detailsCity: document.querySelector(".forecast-details p"),
+
+  tabs: document.querySelectorAll(".tabs-item"),
+  forecastScreen: document.querySelectorAll(".forecast"),
 };
 
 console.log(ELEMENTS.detailsTemperature);
@@ -219,6 +222,18 @@ function setDetailHTML(
   ELEMENTS.detailsTemperature.textContent = degrees;
   ELEMENTS.detailsFeelsLike.textContent = degreesFeelsLike;
   ELEMENTS.detailsWeather.textContent = detailsWeather;
-
   ELEMENTS.detailsCity.textContent = forecastCity;
 }
+
+// switch tabs
+
+ELEMENTS.tabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => {
+    ELEMENTS.tabs.forEach((item) => item.classList.remove("active"));
+    ELEMENTS.forecastScreen.forEach((item) =>
+      item.classList.remove("forecast-start")
+    );
+    tab.classList.add("active");
+    ELEMENTS.forecastScreen[index].classList.add("forecast-start");
+  });
+});

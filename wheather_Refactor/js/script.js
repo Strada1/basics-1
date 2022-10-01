@@ -23,18 +23,6 @@ function exampleList(task) {
   return index;
 }
 
-function getInfoStorage(value) {
-  if (JSON.parse(localStorage.getItem(value))) {
-    const task = JSON.parse(localStorage.getItem(value));
-    return task;
-  }
-  return;
-}
-function recordToStorage(tasks, nameOfTask) {
-  const tasksStorage = JSON.stringify(tasks);
-  localStorage.setItem(nameOfTask, tasksStorage);
-}
-
 function addCity(value) {
   if (value) {
     const url = `${SERVER_URL}?q=${value}&appid=${API_KEY}&units=metric`;
@@ -53,9 +41,8 @@ function addCity(value) {
           new Date(data.sys.sunset * 1000),
           new Date(data.sys.sunrise * 1000)
         );
-        recordToStorage(value, 'lastItem');
-      })
-      .catch(() => console.log('Unknown error'));
+        recordToStorage({ name: value }, 'lastItem');
+      });
   }
 }
 
@@ -63,7 +50,7 @@ function addFavoriteCity() {
   if (exampleList(currentCityElement.textContent) === -1) {
     listOfСities.push(currentCityElement.textContent);
     recordToStorage(listOfСities, 'Task');
-    recordToStorage(currentCityElement.textContent, 'lastItem');
+    recordToStorage({ name: currentCityElement.textContent }, 'lastItem');
     addFavoriteCityinHtml(currentCityElement.textContent);
   } else {
     alert('Такой элемент уже добавлен в избранное');
@@ -92,7 +79,7 @@ function addFavoriteCityinHtml(currentCityEl) {
   cityLi.addEventListener('click', () => {
     addCity(currentCityEl);
     recordToStorage(listOfСities, 'Task');
-    recordToStorage(currentCityEl, 'lastItem');
+    recordToStorage({ name: currentCityEl }, 'lastItem');
   });
   item.append(cityLi);
   item.append(close);
@@ -136,6 +123,19 @@ function convertTime(value) {
   return value;
 }
 
+function getInfoStorage(value) {
+  if (JSON.parse(localStorage.getItem(value))) {
+    const task = JSON.parse(localStorage.getItem(value));
+    return task;
+  }
+  return;
+}
+
+function recordToStorage(tasks, nameOfTask) {
+  const tasksStorage = JSON.stringify(tasks);
+  localStorage.setItem(nameOfTask, tasksStorage);
+}
+
 changeColorTabs.addEventListener('click', e => {
   btnCurrent.forEach(item => {
     if (!e.target.classList.contains('tabs__items')) {
@@ -157,7 +157,7 @@ if (localStorage.length) {
       addFavoriteCityinHtml(item);
     });
   }
-  addCity(getInfoStorage('lastItem'));
+  addCity(getInfoStorage('lastItem').name);
 } else {
   addCity('Aktobe');
 }

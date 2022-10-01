@@ -15,7 +15,7 @@
 .container {
   margin: 0 auto;
   padding-top: 100px;
-  max-width: 590px;
+  max-width: 790px;
 }
 
 .title {
@@ -25,8 +25,10 @@
   box-sizing: border-box;
   padding-left: 10px;
   width: 100%;
-  height: 40px;
+  height: 60px;
   border: 1px solid #000000;
+  font-size: 28px;
+  font-weight: 600;
 }
 .title__button {
   position: absolute;
@@ -54,7 +56,7 @@
 .now {
   display: none;
   height: 350px;
-  width: 300px;
+  width: 400px;
 }
 .now__container {
   border: 1px solid #000000;
@@ -85,13 +87,14 @@
   display: none;
   border: 1px solid #000000;
   padding: 10px;
+  width: 400px;
 }
 .forecast {
   display: none;
   height: 350px;
-  overflow: scroll;
-  overflow: scroll;
+  overflow-y: scroll;
   border: 1px solid #000000;
+  width: 400px;
 }
 .forecast__city {
   padding: 10px 0 0 18px;
@@ -133,12 +136,13 @@
 .tabs__item:hover {
   background-color: #000;
   color: #fff;
+  width: 100%;
 }
 
 .locations {
   height: 404px;
-  overflow: scroll;
-  width: 300px;
+  overflow-y: scroll;
+  width: 400px;
   border: 1px solid #000000;
   border-left: none;
 }
@@ -151,11 +155,15 @@
   padding: 0 10px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  overflow: scroll;
+  gap: 30px;
+  overflow: hidden;
 }
 .list .list__item {
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.list .list__item:hover {
+  color: olive;
 }/*# sourceMappingURL=mainScss.css.map */

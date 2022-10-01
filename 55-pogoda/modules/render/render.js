@@ -1,4 +1,5 @@
 import { createElement } from '../view/createDom.js';
+import { STOREGE } from '../localStorege/localStorege.js';
 
 const allDomCityName = document.querySelectorAll('[data-current_city]');
 const allDomTemp = document.querySelectorAll('[data-current_temp]');
@@ -9,20 +10,20 @@ const sunriseElement = document.querySelector('[data-sunrise]');
 const sunsetElement = document.querySelector('[data-sunset]');
 const locationsList = document.querySelector('.locations-list');
 
-const deleteCityFromStorege = (storegArr, deleteCity) => {
-   const cityArr = JSON.parse(storegArr);
+const deleteCityFromStorege = (deleteCity) => {
+   const cityArr = STOREGE.pullLocalStoregeArr(true);
    const resultArr = cityArr.filter(item => item.name !== deleteCity)
-   localStorage.arrWeatherLocations = JSON.stringify(resultArr);
+   STOREGE.pushLocalStoregeArr(resultArr);
 }
 
-const increaseCityPriority = (storegArr, cityName) => {
-   const cityArr = JSON.parse(storegArr);
-   return cityArr.map(item => {
+const increaseCityPriority = (cityName) => {
+   const cityArr = STOREGE.pullLocalStoregeArr(true).map(item => {
       if (item.name === cityName) {
          ++item.elementWeight;
       }
       return item;
    })
+   STOREGE.pushLocalStoregeArr(cityArr);
 }
 
 const deleteElements = (container) => {
@@ -38,15 +39,15 @@ const isValideCity = (cityName, cityList) => {
    }
 }
 
-const addCityListToStorege = (currentCity, cityArr) => {
+const addCityListToStorege = (currentCity) => {
+   let cityArr = STOREGE.pullLocalStoregeArr(true);
    if (cityArr && cityArr.length) {
-      cityArr = JSON.parse(cityArr);
       isValideCity(currentCity, cityArr)
    } else {
       cityArr = []
    }
    cityArr.push({ name: currentCity, elementWeight: 1 })
-   localStorage.arrWeatherLocations = JSON.stringify(cityArr);
+   STOREGE.pushLocalStoregeArr(cityArr);
 }
 
 const addSityToDomList = (city, list) => {
@@ -60,8 +61,8 @@ const addSityToDomList = (city, list) => {
    list.append(element)
 }
 
-const renderCityList = (localStoregCity) => {
-   let cityArr = localStoregCity ? JSON.parse(localStoregCity) : [];
+const renderCityList = () => {
+   let cityArr = STOREGE.pullLocalStoregeArr() ? STOREGE.pullLocalStoregeArr(true) : [];
 
    deleteElements(locationsList);
 

@@ -1,4 +1,5 @@
 import { popupMessage } from '../modules/showMessage/showMessage.js';
+import { STOREGE } from '../modules/localStorege/localStorege.js';
 import {
    render,
    renderCityList,
@@ -39,18 +40,19 @@ const getDataWeather = (cityName) => {
 const handlerAddInCityList = (e) => {
    try {
       const currentCity = document.querySelector('.tabs-block__selected-city').textContent;
-      addCityListToStorege(currentCity, localStorage.arrWeatherLocations);
-      renderCityList(localStorage.arrWeatherLocations)
+      addCityListToStorege(currentCity);
+      renderCityList()
    } catch (error) {
-      popupMessage(error.message, error.name)
+      popupMessage(error.message, error.name);
+      console.error(error);
    }
 }
 
 const handlerCityesList = (e) => {
    if (e.target.classList.contains('item__delete-cyty-btn')) {
       const deleteCity = e.target.dataset.deleteCity;
-      deleteCityFromStorege(localStorage.arrWeatherLocations, deleteCity);
-      renderCityList(localStorage.arrWeatherLocations);
+      deleteCityFromStorege(deleteCity);
+      renderCityList();
    } else if (e.target.classList.contains('item__show-cyty-btn')) {
       try {
          getDataWeather(e.target.textContent).then(result => {
@@ -64,30 +66,31 @@ const handlerCityesList = (e) => {
                }],
             } = result;
 
+            STOREGE.setLastSelectedСity(e.target.textContent);
+            increaseCityPriority(e.target.textContent);
+            renderCityList();
             render(nameCity, temp, feels_like, weatherMain, icon, sunrise, sunset);
-
-            const newArrCity = increaseCityPriority(localStorage.arrWeatherLocations, e.target.textContent);
-            localStorage.arrWeatherLocations = JSON.stringify(newArrCity);
-
          }).catch(error => {
             popupMessage(error.message, error.name)
+            console.error(error);
          })
       } catch (error) {
          popupMessage(error.message, error.name)
+         console.error(error);
       }
    }
-
-   renderCityList(localStorage.arrWeatherLocations);
 }
 
 const handlerApp = (e) => {
    e.preventDefault();
 
+   const city = searchInput.value ? searchInput.value : STOREGE.getLastSelectedСity();
+
    try {
-      if (!isInputValid(searchInput.value)) {
+      if (!isInputValid(city)) {
          throw new Error(`Название города не определено. Попробуйте заново!`)
       }
-      getDataWeather(searchInput.value).then(result => {
+      getDataWeather(city).then(result => {
          const {
             name: nameCity,
             main: { feels_like, temp },
@@ -98,18 +101,22 @@ const handlerApp = (e) => {
             }],
          } = result;
 
+         STOREGE.setLastSelectedСity(city);
          render(nameCity, temp, feels_like, weatherMain, icon, sunrise, sunset);
+         renderCityList();
       }).catch(error => {
          popupMessage(error.message, error.name)
+         console.error(error);
       })
    } catch (error) {
       popupMessage(error.message, error.name)
+      console.error(error);
    } finally {
       searchInput.value = '';
    }
 }
 
-document.addEventListener('DOMContentLoaded', renderCityList(localStorage.arrWeatherLocations))
+document.addEventListener('DOMContentLoaded', handlerApp)
 saveCityBtn.addEventListener('click', handlerAddInCityList);
-locationsList.addEventListener('click', handlerCityesList)
+locationsList.addEventListener('click', handlerCityesList);
 searchLocationForm.addEventListener('submit', handlerApp);

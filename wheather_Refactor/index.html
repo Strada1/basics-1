@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather">
+        <form >
+          <input type="text" value="" class="input_User" />
+          <button class="search-btn" type="submit"><img src="images/search.svg" alt=""  /></button>
+        </form>
+        <div class="weather_wrapper">
+          <div class="weather_widgets"> 
+          <div id="tab_1" class="weather_block Now">
+            <div class="weather_widgets-now">
+              <div class="weather_widgets-degrees"></span></div>
+              <div class="weather_widgets-img">
+                <img src="" alt=""  class="images_current_weather"/>
+              </div>
+              <div class="city_selected">
+                <div class="city_now">
+                  <span class="name__current_city"></span>
+                </div>
+                <div class="favorite">
+                  <button class="favorite_btn">
+                    <img
+                      src="images/love_heart.svg"
+                      class="favorites-city"
+                      alt=""
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="tab_2" class="weather_block Details">
+            <div class="name__current_city"></div>
+            <ul class="city-properties">
+              <li class="city-properties_item temperature_block"></li>
+              <li class="city-properties_item feels_like"></li>
+              <li class="city-properties_item weather_blockTabTwo"></li>
+              <li class="city-properties_item sunrise_block"></li>
+              <li class="city-properties_item sunset_block" ></li>
+            </ul>
+          </div>
+
+          <div id="tab_3" class="weather_block Forecast">
+            <div class="name__current_city tab3__name "></div>
+            <div class="current__item">
+              <div class="data_wrapper">
+                <div class="date_current">17 May</div>
+                <div class="time_current">12:00</div>
+              </div>
+              <div class="temp_wrapper">
+                <div class="temp_block">
+                  <div class="temp">Temperature: 13</div>
+                  <div class="feels_like">Feels like: 10</div>  
+                </div>
+                <div class="temp_img">
+                  <div class="temp_text">Rain</div>
+                  <img src="images/rain.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="current__item">
+              <div class="data_wrapper">
+                <div class="date_current">17 May</div>
+                <div class="time_current">15:00</div>
+              </div>
+              <div class="temp_wrapper">
+                <div class="temp_block">
+                  <div class="temp">Temperature: 13</div>
+                  <div class="feels_like">Feels like: 10</div>  
+                </div>
+                <div class="temp_img">
+                  <div class="temp_text">Rain</div>
+                  <img src="images/rain.svg" alt="">
+                </div>
+              </div>
+            </div><div class="current__item">
+              <div class="data_wrapper">
+                <div class="date_current">17 May</div>
+                <div class="time_current">18:00</div>
+              </div>
+              <div class="temp_wrapper">
+                <div class="temp_block">
+                  <div class="temp">Temperature: 13</div>
+                  <div class="feels_like">Feels like: 10</div>  
+                </div>
+                <div class="temp_img">
+                  <div class="temp_text">Rain</div>
+                  <img src="images/rain.svg" alt="">
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <nav class="tabs__items">
+            <a href="#tab_1" class="tab-item active" >Now</a>
+              <a href="#tab_2" class="tab-item" >Details</a>
+              <a href="#tab_3" class="tab-item">Forecast</a>
+          </nav>
+        </div>
+          <div class="weather_locations">
+            <div class="added_locations">
+              <div class="locations_text">Added Locations:</div>
+              <ul class="location-list">
+              </ul>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

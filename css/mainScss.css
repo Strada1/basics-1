@@ -28,7 +28,7 @@
   height: 60px;
   border: 1px solid #000000;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .title__button {
   position: absolute;
@@ -80,6 +80,7 @@
   position: absolute;
   bottom: 20px;
   right: 26px;
+  cursor: pointer;
 }
 
 .details {

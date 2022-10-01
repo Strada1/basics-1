@@ -64,10 +64,9 @@ li {
 }
 .tabs-items {
     display: flex;
-    
 }
 
-#tabs-item {
+.tabs-item {
     flex: 0 1 50%;
     height: 45px;
     outline: 1px solid #000;
@@ -75,12 +74,10 @@ li {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    color: #000;
+    /* color: #000; */
     text-decoration: none;
 }
-#tabs-item > div.active {
-    color: white;
-}
+
 
 .tabs-items:before { 
     position: relative;
@@ -93,6 +90,7 @@ li {
     display: none;
     box-sizing: border-box;
     height: 310px;
+    
 }
 
 
@@ -105,13 +103,13 @@ li {
 }
 
 .tabs-block:nth-child(1) {
-    
+ 
 }
 
 .tabs-block:nth-child(1):before {
     background-color: #000;
-    color: white;
     left: 0;
+    
 }
 
 .tabs-block:nth-child(2) {
@@ -120,12 +118,22 @@ li {
 
 .tabs-block:nth-child(2):before {
     background-color: #000;
-    color: white;
     right: 0;
 }
 
 .tabs-block:target {
     display: block;
+}
+
+.tabs-item span {
+    position: relative;
+    z-index: 2;
+    color: #000;
+}
+
+.tabs-item:focus {
+    background-color: #000;
+    color: white;
 }
 
 .locations {
@@ -154,7 +162,6 @@ li {
     font-size: 70px;
     height: 33.333%;
 }
-
 .status {
     height: 103px;
     display: flex;

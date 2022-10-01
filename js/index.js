@@ -4,9 +4,13 @@ import {
 	favoriteButton,
 	favoirtesCities,
 	searchButton,
-	list
-} from "./const.js";
-import { getCurrentCity } from "./localStorage.js";
+	list,
+	navDetail,
+	navNow,
+	navForecast,
+	headerDetails
+} from "./const/const.js";
+import { addCurrentCity, getCurrentCity } from "./localStorage.js";
 import {
 	addToFavorite,
 	deleteFavorite,
@@ -14,7 +18,8 @@ import {
 	showDetails,
 	renderNow,
 	render,
-	createCityItem
+	createCityItem,
+	renderDetails
 } from "./more.js";
 
 import { getData } from './fetch.js';
@@ -51,4 +56,23 @@ favoriteButton.addEventListener('click', () => {
 	deleteFavorite(deleteButton, favoriteCity.textContent);
 })
 
+
+navNow.addEventListener('click', () => {
+	addCurrentCity(headerDetails.textContent);
+
+	const currentCity = getCurrentCity();
+	const name = getData(currentCity);
+
+	renderNow(name)
+})
+
+navDetail.addEventListener('click', () => {
+	addCurrentCity(favoriteCity.textContent);
+
+	const currentCity = getCurrentCity();
+	const name = getData(currentCity);
+
+	renderDetails(name);
+
+})
 

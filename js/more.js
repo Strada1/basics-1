@@ -6,9 +6,23 @@ import {
 	img,
 	list,
 	favoriteCity,
-	favoirtesCities
-} from './const.js';
-import { addCurrentCity, saveFavoriteCity, getFavoriteCities, deleteCity } from './localStorage.js';
+	favoirtesCities,
+	contentWeather,
+	contentDetails,
+	contentForecast,
+	headerDetails,
+	listDetails,
+	temperatureDetail,
+	feelsLikeDetail,
+	weatherDetail,
+	sunriseDetail,
+	sunsetDetail,
+	navDetail,
+	navForecast,
+	navNow,
+	contentNow
+} from './const/const.js';
+import { addCurrentCity, saveFavoriteCity, getFavoriteCities, deleteCity, getCurrentCity } from './localStorage.js';
 
 function render() {
 	let favorites = getFavoriteCities();
@@ -26,8 +40,40 @@ function render() {
 		}) :
 		// переделать
 		console.log(favorites);
+}
+
+function renderDetails(cityName) {
 	
+	const hideNow = contentWeather.querySelector('.main_weather__city-now');
 	
+	hideNow.classList.add('hide');
+
+	contentDetails.classList.remove('hide');
+	navNow.classList.remove('active');
+	navForecast.classList.remove('active');
+	navDetail.classList.add('active');
+
+	// const city = getData(cityName);
+	return cityName.then(data => {
+		const name = data.name;
+		const temperature = data.main.temp;
+		const feelsLike = data.main.feels_like;
+		const weather = data.weather[0].main;
+		const sunrise = data.sys.sunrise;
+		const sunset = data.sys.sunset;
+
+		function calcTimeSun(time) {
+			const result = new Date(time * 1000);
+			return result.toLocaleTimeString();
+		}
+
+		headerDetails.textContent = name;
+		temperatureDetail.textContent = `Temprature: ${temperature}°`;
+		feelsLikeDetail.textContent = `Feels like: ${feelsLike}°`;
+		weatherDetail.textContent = `Weather: ${weather}`;
+		sunriseDetail.textContent = `Sunrise: ${calcTimeSun(sunrise)}`;
+		sunsetDetail.textContent = `Sunset: ${calcTimeSun(sunset)}`;
+	})
 }
 
 function createCityItem(name) {
@@ -40,6 +86,16 @@ function createCityItem(name) {
 }
 
 const renderNow = (data) => {
+	if (!navNow.classList.contains('active')) {
+		
+		contentDetails.classList.add('hide');
+		contentWeather.querySelector('.main_weather__city-now').
+			classList.remove('hide');
+
+		navDetail.classList.remove('active');
+		navForecast.classList.remove('active');
+		navNow.classList.add('active');	
+	}
 	return data.then(obj => {
 		const temper = obj.main.temp;
 		const icon = obj.weather[0].icon;
@@ -49,24 +105,28 @@ const renderNow = (data) => {
 		img.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 		favoriteCity.textContent = name;
 	});
+		
 }
 
 function addToFavorite(city, arr) {
 	const item = getData(city);
 	item.then(data => {
 		arr.push(data);
+		
 		saveFavoriteCity(arr);
 	});
-
-	
 }
 
 function showDetails(nodeList) {
 	return nodeList.forEach(item => {
 		item.addEventListener('click', () => {
 			const details = getData(item.textContent);
-
-			renderNow(details);
+			
+			if (navNow.classList.contains('active')) {
+				renderNow(details);
+			} else {
+				renderDetails(details)
+			}
 	 })
  })
 }
@@ -96,6 +156,7 @@ function submit(evt) {
 	const data = getData(cityName);
 	
 	renderNow(data);
+
 	addCurrentCity(favoriteCity.textContent);
 
 	inputSearch.value = '';
@@ -108,5 +169,6 @@ export {
 	submit,
 	renderNow,
 	render,
-	createCityItem
+	createCityItem,
+	renderDetails
 }

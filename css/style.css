@@ -190,7 +190,12 @@ input {
 	margin-bottom: 12px;
 }
 
-.city_details, .details {
+.city_details,
+.list_item__temprature,
+.list_item__feels,
+.list_item__weather,
+.list_item__sunrise,
+.list_item__sunset {
 	font-size: 24px;
 	line-height: 28px;
 }
@@ -201,7 +206,11 @@ input {
 	margin-bottom: 42px;
 }
 
-.details {
+.list_item__temprature,
+.list_item__feels,
+.list_item__weather,
+.list_item__sunrise,
+.list_item__sunset {
 	margin-bottom: 12px;
 	margin-left: 17px;
 }
@@ -294,4 +303,8 @@ input {
 .active {
 	background: black;
 	color: white;
+}
+
+.hide {
+	display: none;
 }

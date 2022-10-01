@@ -1,16 +1,8 @@
 import { UI_ELEMENTS } from "./view.js";
+import {currentCity, favoriteCities} from "./storage.js";
 
 let favoritesCities = [];
 
-function getCurrentCity() {
-    return localStorage.getItem('currentCity');
-}
-const currentCity = getCurrentCity();
-
-function getFavoriteCities() {
-    return JSON.parse(localStorage.getItem('cities'));
-}
-const favoriteCities = getFavoriteCities();
 renderFavorites(favoriteCities);
 getWeather(currentCity);
 

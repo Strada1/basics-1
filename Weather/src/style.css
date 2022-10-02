@@ -1,0 +1,231 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: black;
+}
+
+body {
+  height: 100%;
+  background-color: white;
+}
+
+.container {
+  width: 600px;
+  height: 447px;
+  border: 1px solid black;
+  margin: 250px auto;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding: 0 2px 0 5px;
+}
+
+.search input {
+  width: 94%;
+}
+
+.buttonSearch {
+  cursor: pointer;
+  width: 26px;
+  background-color: white;
+  margin-right: 5px;
+  margin-top: 5px;
+  outline: none;
+}
+
+.windows {
+  display: flex;
+  flex-direction: row;
+}
+
+.leftWindow {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 50%;
+  height: 404px;
+  border-right: 1px solid black;
+}
+
+.leftWindow .status {
+  flex: 0 1 100%;
+  border-bottom: 1px solid black;
+  position: relative;
+}
+
+.leftWindow .status #tab_01 h1 {
+  padding: 20px 0 0 22px;
+  font-size: 70px;
+  line-height: 82px;
+}
+
+.leftWindow .status #tab_01 .icon {
+  display: block;
+  margin: 20px auto;
+  width: 180px;
+  height: 150px;
+}
+
+.leftWindow .status #tab_01 div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding: 10px;
+}
+
+.leftWindow .status #tab_01 div p {
+  padding-left: 10px;
+}
+
+.leftWindow .status #tab_01 .buttonFavorite {
+  margin-right: 10px;
+  width: 26px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.leftWindow .status #tab_02 h1 {
+  padding: 25px 15px;
+}
+
+.leftWindow .status #tab_02 .detail {
+  padding: 15px 25px;
+}
+
+.leftWindow .status #tab_03 {
+  height: 370px;
+  overflow-y: scroll;
+}
+
+.leftWindow .status #tab_03 h1 {
+  padding: 15px 0 0 10px;
+}
+
+.leftWindow .status #tab_03 .card {
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.leftWindow .status #tab_03 .card .date {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.leftWindow .status #tab_03 .card .date span {
+  font-size: 18px;
+  padding: 10px;
+}
+
+.leftWindow .status #tab_03 .card .details {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.leftWindow .status #tab_03 .card .detail {
+  font-size: 18px;
+}
+
+.leftWindow .status #tab_03 .card .details div h1 {
+  font-size: 18px;
+  padding: 0;
+}
+
+.leftWindow .status #tab_03 .card .details div img {
+  display: block;
+  margin: auto;
+  width: 31px;
+  height: 31px;
+}
+
+.leftWindow .status .tabsBlock {
+  display: none;
+}
+
+.leftWindow .status .tabsBlock:target {
+  display: block;
+}
+
+.leftWindow .tabsItems {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.leftWindow .tabsItem {
+  text-align: center;
+  padding: 5px 0 5px 0;
+  border-right: 1px solid black;
+  font-size: 18px;
+  flex: 0 1 33.3%;
+}
+
+.leftWindow .tabsItem:hover {
+  background-color: black;
+  color: white;
+}
+
+.leftWindow .tabsItem:last-child {
+  border: none;
+}
+
+.rightWindow {
+  flex: 0 1 50%;
+  height: 403px;
+  overflow-y: scroll;
+}
+
+.rightWindow h1 {
+  border-bottom: 1px solid black;
+  font-weight: 100;
+  padding: 30px 0 0 20px;
+}
+
+.rightWindow ul {
+  padding: 35px 0;
+}
+
+.rightWindow ul li {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.rightWindow ul li:hover {
+  background-color: aqua;
+}
+
+.rightWindow ul li .buttonDelete {
+  cursor: pointer;
+  width: 26px;
+  background-color: white;
+  border-radius: 10px;
+  outline: none;
+}
+
+.rightWindow ul li .buttonDelete:hover {
+  background-color: #67e4cf;
+}
+
+.active {
+  background-color: black;
+  color: white;
+}

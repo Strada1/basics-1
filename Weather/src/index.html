@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="search">
+        <input type="text" placeholder="Город" />
+        <button class="buttonSearch">
+          <img src="../public/img/search.png" alt="Поиск" />
+        </button>
+      </form>
+      <div class="windows">
+        <div class="leftWindow">
+          <div class="status">
+            <div id="tab_01" class="tabsBlock"></div>
+            <div id="tab_02" class="tabsBlock"></div>
+            <div id="tab_03" class="tabsBlock"></div>
+          </div>
+          <div class="tabs">
+            <nav class="tabsItems">
+              <a href="#tab_01" class="tabsItem">Now</a>
+              <a href="#tab_02" class="tabsItem">Details</a>
+              <a href="#tab_03" class="tabsItem">Forecast</a>
+            </nav>
+          </div>
+        </div>
+        <div class="rightWindow">
+          <h1>Added Locations:</h1>
+          <div>
+            <ul id="rUl"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

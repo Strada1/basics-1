@@ -51,7 +51,7 @@ function weatherResponce(url) {
                 dateSunset.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
             }`
         })
-        // .catch(error => alert("Произошла ошибка"))
+        .catch(error => alert("Произошла ошибка"))
 }
 
 function getCity() {

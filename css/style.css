@@ -111,7 +111,7 @@ body {
 
 .now--icon {
     width: 150px;
-    height: 84px;
+    height: 105px;
     background: url('../images/big_cloud_icon.png') no-repeat center;
     margin: 0 auto;
 }
@@ -197,6 +197,46 @@ body {
 .locations--item,
 .details--item {
     margin-bottom: 16px;
+
+}
+
+.locations--item {
+    cursor: pointer;
+    display: flex;
+}
+.locations--text {
+    flex: 1
+}
+
+.locations-btn {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.locations-btn::before,
+.locations-btn::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #cccccc;
+    position: absolute;
+    bottom: 10px
+}
+
+.locations-btn::before {
+    transform: rotate(45deg);
+
+}
+
+.locations-btn::after {
+    transform: rotate(-45deg);
 }
 
 .details--list {

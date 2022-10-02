@@ -96,6 +96,7 @@
 }
 
 .button_search {
+	position: relative;
 	box-sizing: border-box;
 	float: right;
 	width: 35px;
@@ -110,8 +111,9 @@
 }
 
 .img_search {
-	width: 20px;
-	height: 23px;
+
+	width: 40px;
+	height: 44px;
 }
 /* ------------------------------------------------------------------------------ */
 

@@ -56,10 +56,8 @@ async function getItem() {
 }
 
 async function addTown(event) {
-	
 		event.preventDefault();
 		getItem()
-		
 }
 
 function renderNow(temperature, cityName, icon) {

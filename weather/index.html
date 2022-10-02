@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Погода</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <main class="main">
+      <section class="weather">
+        <h1 class="visually-hidden">Погода.</h1>
+
+        <form class="weather__search-form">
+          <input class="weather__search-input" type="text" placeholder="Input a city name">
+          <button class="weather__search-button" type="submit" title="Search."></button>
+        </form>
+
+        <section class="weather__main">
+          <div class="weather__tabs-blocks-wrapper">
+            <article class="weather__tabs-block now-block" id="now">
+              <div class="now-block__wrapper">
+              </div>
+            </article>
+
+            <article class="weather__tabs-block details-block" id="details">
+              <div class="details-block__wrapper">
+              </div>
+            </article>
+
+            <article class="weather__tabs-block forecast-block" id="forecast">
+              <h2 class="weather__tabs-block-title forecast-block__title">Aktobe</h2>
+              <div class="forecast-block__wrapper">
+                <div class="forecast-block__card">
+                  <span class="forecast-block__date">17 May</span>
+                  <span class="forecast-block__time">12:00</span>
+                  <div class="forecast-block__temperature">
+                    <p class="forecast-block__temperature-item">Temperature: 13&#176;</p>
+                    <p class="forecast-block__temperature-item">Feels like: 10&#176;</p>
+                  </div>
+                  <div class="forecast-block__weather">
+                    <span class="forecast-block__weather-title">Rain</span>
+                    <img class="forecast-block__weather-picture" src="./images/rain.svg" alt="Weather picture.">
+                  </div>
+                </div>
+
+                <div class="forecast-block__card">
+                  <span class="forecast-block__date">17 May</span>
+                  <span class="forecast-block__time">15:00</span>
+                  <div class="forecast-block__temperature">
+                    <p class="forecast-block__temperature-item">Temperature: 13&#176;</p>
+                    <p class="forecast-block__temperature-item">Feels like: 10&#176;</p>
+                  </div>
+                  <div class="forecast-block__weather">
+                    <span class="forecast-block__weather-title">Rain</span>
+                    <img class="forecast-block__weather-picture" src="./images/rain.svg" alt="Weather picture.">
+                  </div>
+                </div>
+
+                <div class="forecast-block__card">
+                  <span class="forecast-block__date">17 May</span>
+                  <span class="forecast-block__time">18:00</span>
+                  <div class="forecast-block__temperature">
+                    <p class="forecast-block__temperature-item">Temperature: 13&#176;</p>
+                    <p class="forecast-block__temperature-item">Feels like: 10&#176;</p>
+                  </div>
+                  <div class="forecast-block__weather">
+                    <span class="forecast-block__weather-title">Rain</span>
+                    <img class="forecast-block__weather-picture" src="./images/rain.svg" alt="Weather picture.">
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <nav class="weather__nav">
+            <a class="weather__nav-link" id="now-link" href="#now">Now</a>
+            <a class="weather__nav-link" id="details-link" href="#details">Details</a>
+            <a class="weather__nav-link" id="forecast-link" href="#forecast">Forecast</a>
+          </nav>
+        </section>
+
+        <section class="weather__locations">
+          <h2 class="weather__locations-title">Added Locations:</h2>
+          <div class="weather__locations-wrapper">
+            <ul class="weather__locations-list">
+            </ul>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <template id="now-block">
+      <div class="now-block__wrapper">
+        <p class="now-block__temperature"><span></span>&#176;</p>
+        <img class="now-block__image" src="" width="100" alt="">
+        <footer class="now-block__footer">
+          <h2 class="weather__tabs-block-title now-block__title"></h2>
+          <button class="now-block__add" type="button" data-name="" title="Add to favourite">
+            <svg class="now-block__icon" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Add to favourite.">
+              <path opacity="1" fill-rule="evenodd" clip-rule="evenodd" d="M17.5 1C15.0556 1 12.8556 2.7875 12 5.125C11.1444 2.7875 8.94444 1 6.5 1C3.44444 1 1 3.6125 1 7.1875C1 12 5.27778 16.125 12 23C18.7222 16.125 23 12 23 7.1875C23 3.6125 20.5556 1 17.5 1Z" stroke="#39b54a" stroke-width="2"/>
+            </svg>
+          </button>
+        </footer>
+      </div>
+    </template>
+
+    <template id="details-block">
+      <div class="details-block__wrapper">
+        <h2 class="weather__tabs-block-title details-block__title"></h2>
+
+        <div class="details-block__information-item details-block__temperature">
+          Temperature: <span></span>&#176;
+        </div>
+        <div class="details-block__information-item details-block__feels-like">
+          Feels like: <span></span>&#176;
+        </div>
+        <div class="details-block__information-item details-block__weather">
+          Weather: <span></span>
+        </div>
+        <div class="details-block__information-item details-block__sunrise">
+          Sunrise: <span></span>
+        </div>
+        <div class="details-block__information-item details-block__sunset">
+          Sunset: <span></span>
+        </div>
+      </div>
+    </template>
+
+    <template id="locations-item">
+      <li class="weather__locations-item">
+        <a class="weather__locations-link" href="#"></a>
+        <button class="weather__locations-item-delete" type="button" data-name="" title="Delete"></button>
+      </li>
+    </template>
+
+    <script src="./js/main.js" type="module"></script>
+  </body>
+</html>

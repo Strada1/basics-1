@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>To do list</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <main class="main">
+      <section class="todo">
+        <ul class="todo__priority-list">
+        </ul>
+      </section>
+    </main>
+
+
+    <template id="todo-priority-item">
+      <li class="todo__priority-item">
+        <h2 class="todo__priority-title"></h2>
+        <form class="todo__add-task-form">
+          <input class="todo__task-input" name="add-task" data-priority="" type="text" placeholder="Добавить">
+          <button class="todo__add-task" type="submit"></button>
+        </form>
+
+        <ul class="todo__tasks-list" data-priority="">
+        </ul>
+      </li>
+    </template>
+
+    <template id="todo-task-item">
+      <li class="todo__task-item">
+        <label class="todo__task-label">
+          <input class="todo__task-check visually-hidden" type="checkbox" name="status">
+          <span class="todo__control-mark"></span>
+          <p class="todo__task-text"></p>
+          <button class="todo__delete-task" type="button"></button>
+        </label>
+      </li>
+    </template>
+
+    <script src="./js/main.js" type="module"></script>
+  </body>
+</html>

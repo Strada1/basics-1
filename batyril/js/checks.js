@@ -8,3 +8,10 @@ export function getConvertTime(time) {
   const minutes = convertTime.getMinutes();
   return `${hours}:${minutes}`;
 }
+
+export function getConvertDate(time) {
+  const convertTime = new Date(time * 1000);
+  const date = convertTime.getDate();
+  const month = convertTime.getMonth();
+  return `${date}.${month}`;
+}

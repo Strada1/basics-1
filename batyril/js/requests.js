@@ -2,11 +2,14 @@ import {
   UI_NOW,
   renderNowTab,
   renderDetailsTab,
+  renderForecastTab,
   UI_DETAILS,
 } from './UI.js';
 import { setCurrentCityLocalStorage } from './localStorage.js';
 
+
 export function getCityWeather(cityName) {
+  getCityWeatherForecast(cityName);
   const SERVER_URL = 'http://api.openweathermap.org/data/2.5/weather';
   const API_KEY = '358eaa62b262b36cac42f77b107308e8';
   const url = `${SERVER_URL}?q=${cityName}&appid=${API_KEY}&units=metric`;
@@ -37,4 +40,28 @@ export function getWeatherFavoriteList(event) {
     const cityName = event.target.textContent;
     getCityWeather(cityName);
   }
+}
+
+export function getCityWeatherForecast(cityName) {
+  const SERVER_URL = 'http://api.openweathermap.org/data/2.5/forecast';
+  const API_KEY = '358eaa62b262b36cac42f77b107308e8';
+  const url = `${SERVER_URL}?q=${cityName}&appid=${API_KEY}&units=metric`;
+  fetch(url)
+    .then((response) => {
+      switch (response.status) {
+        case 200:
+          return response.json();
+        case 401:
+          throw new Error('token error');
+        case 404:
+          throw new Error('Not Found');
+        default:
+          throw new Error('error');
+      }
+    })
+    .then((weather) => {
+      renderForecastTab(weather);
+      return weather;
+    })
+    .catch((e) => console.log(e.message));
 }

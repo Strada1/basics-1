@@ -140,6 +140,7 @@ body {
 }
 
 #tab-3 {
+  overflow-y: auto;
   height: 344px;
   border-bottom: solid 1px black;
 }
@@ -180,14 +181,15 @@ body {
   font-size: 24px;
 }
 .forecast__box {
-  padding: 6px;
+  gap: 20px;
+  padding: 10px;
   margin-top: 15px;
   font-size: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 265px;
-  height: 120px;
+  min-height: 120px;
   border: solid 1px black;
 }
 .forecast__top {
@@ -200,6 +202,21 @@ body {
 }
 .forecast__feels-like {
   margin-top: 10px;
+}
+.forecast__image-text {
+  text-align: right;
+}
+.forecast__wrapper {
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.forecast__wrapper:first-child {
+  align-items: flex-start;
+}
+.forecast img {
+  width: 40%;
 }
 
 /*# sourceMappingURL=build.css.map */

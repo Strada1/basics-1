@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Forecast</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="body">
+    <div class="container">
+      <div class="content">
+        <form class="forecast-form" action="">
+          <input type="text" placeholder="City" class="city-input" />
+          <button class="button" type="submit"></button>
+        </form>
+        <div class="forecast-container">
+          <section class="main-forecast">
+            <div class="forecast-now forecast forecast-start" id="tab-01">
+              <div class="degrees">
+                <p class="degrees-num">14</p>
+                <span></span>
+              </div>
+              <img
+                class="cloud"
+                src="./img/cloud.svg"
+                alt="icon of cloud"
+                width="78px"
+                height="59px"
+              />
+
+              <div class="forecast-months">
+                <p class="city-name">Aktobe</p>
+                <button class="like">
+                  <svg
+                    width="24"
+                    height="25"
+                    viewBox="0 0 24 25"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      opacity="0.54"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M17.5 1C15.0556 1 12.8556 2.7875 12 5.125C11.1444 2.7875 8.94444 1 6.5 1C3.44444 1 1 3.6125 1 7.1875C1 12 5.27778 16.125 12 23C18.7222 16.125 23 12 23 7.1875C23 3.6125 20.5556 1 17.5 1Z"
+                      stroke="black"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="forecast-details forecast" id="tab-02">
+              <div class="locations-header forecast-details">
+                <p class="text-locations">Aktobe</p>
+              </div>
+              <ul class="details-items">
+                <li>Temperature: <span> 14</span>°</li>
+                <li>Feels like: <span>10</span>°</li>
+                <li>Weather: <span>Clouds</span></li>
+                <li>Sunrise: <span>03:21</span></li>
+                <li>Sunset: <span>18:54</span></li>
+              </ul>
+            </div>
+            <div class="forecast-table forecast" id="tab-03">
+              <div class="locations-header forecast-details">
+                <p class="text-locations">Aktobe</p>
+              </div>
+              <div class="table-items">
+                <div class="table-container">
+                  <div class="forecast-date">
+                    <p>17 May</p>
+                    <p>12:00</p>
+                  </div>
+                  <div class="forecast-weather">
+                    <div class="forecast-temperature">
+                      <p>Temperature: 13°</p>
+                      <p>Feels like: 10°</p>
+                    </div>
+                    <div class="weather-icon">
+                      <p class="rain">Rain</p>
+                      <p class="forecast-icons"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-container">
+                  <div class="forecast-date">
+                    <p>17 May</p>
+                    <p>15:00</p>
+                  </div>
+                  <div class="forecast-weather">
+                    <div class="forecast-temperature">
+                      <p>Temperature: 13°</p>
+                      <p>Feels like: 10°</p>
+                    </div>
+                    <div class="weather-icon">
+                      <p class="rain">Rain</p>
+                      <p class="forecast-icons"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-container">
+                  <div class="forecast-date">
+                    <p>17 May</p>
+                    <p>18:00</p>
+                  </div>
+                  <div class="forecast-weather">
+                    <div class="forecast-temperature">
+                      <p>Temperature: 13°</p>
+                      <p>Feels like: 10°</p>
+                    </div>
+                    <div class="weather-icon">
+                      <p class="rain">Rain</p>
+                      <p class="forecast-icons"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <nav class="tabs-items">
+              <a href="#tab-01" class="tabs-item tabs-item-1 active">Now</a>
+              <a href="#tab-02" class="tabs-item tabs-item-2">Details</a>
+              <a href="#tab-03" class="tabs-item tabs-item-3">Forecast</a>
+            </nav>
+          </section>
+          <section class="main-locations">
+            <div class="locations-header">
+              <p class="text-locations">Added Locations:</p>
+            </div>
+            <ul class="locations-items">
+              <li>
+                <p>Amur</p>
+                <button class="button-exit"></button>
+              </li>
+              <li>
+                <p>Samara</p>
+                <button class="button-exit"></button>
+              </li>
+              <li>
+                <p>Bali</p>
+                <button class="button-exit"></button>
+              </li>
+              <li>
+                <p>Dane</p>
+                <button class="button-exit"></button>
+              </li>
+              <li>
+                <p>Kilo</p>
+                <button class="button-exit"></button>
+              </li>
+              <li>
+                <p>Nur-Sultan</p>
+                <button class="button-exit"></button>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

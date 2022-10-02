@@ -146,17 +146,18 @@ function drawNowBox(data) {
     storage.saveCurrentCity(data.name);
     let parent = document.querySelector('.weather');
     clearAllChildren(parent);
-    let child1 = createChild('span', 'degrees', `${data.main.temp} ℃`);
-    let child2 = createChild('span', 'image', '');
-    let child3 = createChild('span', 'city', data.name);
-    let img = createChild('img', 'weather-image', '');
+    //сделал деструктуризацию, если что не так подскажите
+    let [element, image, city, img] = [createChild('span', 'degrees', `${data.main.temp} ℃`),
+                                       createChild('span', 'image', ''),
+                                       createChild('span', 'city', data.name),
+                                       createChild('img', 'weather-image', '')];
     img.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     img.alt = data.weather[0].description;
-    parent.append(child1);
-    parent.append(child2);
-    parent.append(child3);
-    favorite(child3, data.name);
-    child2.append(img);
+    parent.append(element);
+    parent.append(image);
+    parent.append(city);
+    favorite(city, data.name);
+    image.append(img);
     document.querySelector('#city__location').placeholder = data.name;
     document.querySelector('#city__location').value = data.name;
 }

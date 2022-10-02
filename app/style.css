@@ -1,0 +1,257 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+a, a:link, a:visited, a:hover  {
+    text-decoration: none;
+}
+
+body {
+    color: rgb(76, 75, 75);
+}
+
+.wrapper {
+    background-color: rgb(229, 229, 229);
+    font-family: Roboto;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper__outer {
+    background-color: #fff;
+    width: 620px;
+    height: 460px;
+    border-radius: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper__inner {
+    width: 600px;
+    height: 435px;
+    /* border:  1px solid black; */
+    border-radius: 30px;
+}
+
+/* HEADER FORM */
+
+.inner_form {
+    width: 100%;
+    height: 43px;
+    border:  1px solid rgb(229, 229, 229);
+    padding: 0px 25px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inner__form-input {
+    outline: none;
+    width: 400px;
+    font-size: 12px;
+    color: rgb(76, 75, 75);
+}
+
+.inner__block-button {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.main {
+    margin-top: 10px;
+    width: 600px;
+    height: 380px;
+}
+
+.main__info {
+    float: left;
+    width: 300px;
+    height: 380px;
+    position: relative;
+    /* border: 1px solid black; */
+}
+
+/* NOW */
+
+.block__wrapper {
+    display: none;
+}
+
+.block__wrapper:target {
+    display: block;
+}
+
+.block__now {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 340px;
+    /* border: 1px solid blue; */
+}
+
+.block__now-temperature {
+    font-size: 50px;
+    padding: 20px 0px 0px 20px;
+}
+
+.block__now-status {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.block__now-location {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px 25px 15px;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 200;
+}
+
+.location__button {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* DETAILS */
+
+.block__details {
+    height: 340px;
+    padding: 30px 0px 0px 15px;
+}
+
+.details__info {
+    margin-top: 40px;
+}
+
+.details__info div {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+/* FORECAST */
+
+.block__forecast {
+    display: flex;
+    height: 340px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* NAVIGATION */
+
+.info__nav-wrapper {
+    width: 300px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.info__nav {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__link {
+    height: 38px;
+    display: flex;
+    flex: 0 1 30%;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid rgb(229, 229, 229);
+    border-radius: 25px;
+    color: rgb(76, 75, 75);
+
+    transition: background-color .3s ease-in-out;
+}
+
+.nav__link:hover {
+    background-color: rgb(229, 229, 229);
+}
+
+
+
+/* FOREVER LIST */
+
+.main__favourites {
+    float: right;
+    width: 300px;
+    height: 340px;
+    border: 1px solid rgb(229, 229, 229);
+    border-radius: 25px;
+
+    padding: 30px 0px 0px 15px;
+}
+
+.favourites__list {
+    margin-top: 30px;
+    height: 230px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.list__item {
+    max-width: 230px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0px 15px 8px;
+}
+
+.item__name {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.item__button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23px;
+    height: 23px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.item__button::after,
+.item__button::before {
+    position: absolute;
+    content: "";
+    width: calc(100% - 2px);
+    height: 1px;
+    background-color: #998899;
+}
+
+.item__button::after {
+    transform: rotate(45deg);
+}
+.item__button::before {
+    transform: rotate(-45deg);
+}

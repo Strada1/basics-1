@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto: 200, regular" rel="stylesheet" />
+    <title>Weather App</title>
+</head>
+<body>
+    <section class="wrapper">
+        <div class="wrapper__outer">
+            <div class="wrapper__inner">
+
+                <form class="inner_form">
+                    <input type="text" class="inner__form-input" placeholder="location">
+                    <button class="inner__block-button"><img id="input__block-button" src="./images/search-icon.png" alt="search button"></button>
+                </form>
+
+
+                <div class="main">
+                    <div class="main__info">
+
+                        <div class="block__wrapper" id="tab_now">
+                            <div class="block__now">
+                                <div class="block__now-temperature"></div>
+                                <div class="block__now-status"><img class="status__icon" src=""></div>
+                                <div class="block__now-location">
+                                    <h3 class="location__now title"></h3>
+                                    <button class="location__button"><img id="location-button" src=""></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="block__wrapper" id="tab_details">
+                            <div class="block__details">
+                                <h3 class="location__details title"></h3>
+                                <div class="details__info">
+                                    <div class="info__temperature"></div>
+                                    <div class="info__feels"></div>
+                                    <div class="info__weather"></div>
+                                    <div class="info__sunrise"></div>
+                                    <div class="info__sunset"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="block__wrapper" id="tab_forecast">
+                            <div class="block__forecast">coming soon</div>
+                        </div>
+
+                        <div class="info__nav-wrapper">
+                            <nav class="info__nav">
+                                <a href="#tab_now" class="nav__link">Now</a>
+                                <a href="#tab_details" class="nav__link">Details</a>
+                                <a href="#tab_forecast" class="nav__link">Forecast</a>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="main__favourites">
+                        <h3 class="title">Added locations:</h3>
+                        <ul class="favourites__list"></ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+<script src="./app.js"></script>
+</body>
+</html>

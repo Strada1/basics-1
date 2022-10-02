@@ -10,19 +10,22 @@ import {
 	navForecast,
 	headerDetails
 } from "./const/const.js";
+
 import { addCurrentCity, getCurrentCity } from "./localStorage.js";
+
 import {
 	addToFavorite,
 	deleteFavorite,
 	submit,
 	showDetails,
-	renderNow,
 	render,
 	createCityItem,
-	renderDetails
 } from "./more.js";
 
-import { getData } from './fetch.js';
+import { getData, getDataForecast } from './fetch.js';
+import { renderNow } from './renderNow.js';
+import { renderDetails } from './renderDetails.js';
+import { renderForecast } from "./renderForecast.js";
 
 document.addEventListener('DOMContentLoaded', () => {
 	const currentCity = getCurrentCity();
@@ -73,6 +76,13 @@ navDetail.addEventListener('click', () => {
 	const name = getData(currentCity);
 
 	renderDetails(name);
-
 })
 
+navForecast.addEventListener('click', () => {
+	addCurrentCity(favoriteCity.textContent);
+
+	const currentCity = getCurrentCity();
+	const name = getDataForecast(currentCity);
+
+	renderForecast(name)
+})

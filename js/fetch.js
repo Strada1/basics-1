@@ -14,3 +14,17 @@ export async function getData(cityName) {
 	}
 	
 }
+
+export async function getDataForecast(cityName) {
+	const servURL = 'http://api.openweathermap.org/data/2.5/forecast';
+  
+	try {
+		const url = `${servURL}?q=${cityName}&appid=${apiKey}&units=metric`;
+		const data = await fetch(url);
+
+		return data.json();
+		
+	} catch (error) {
+		alert(error.name, error.message);
+	}
+}

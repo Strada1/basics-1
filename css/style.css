@@ -215,6 +215,12 @@ input {
 	margin-left: 17px;
 }
 
+.main_weather__city-forecast {
+	max-height: 345px;
+
+	overflow: auto;
+}
+
 .forecast_list {
 	display: flex;
 	flex-direction: column;
@@ -238,7 +244,7 @@ input {
 	display: flex;
 	justify-content: space-between;
 
-	margin-bottom: 38px;
+	margin-bottom: 50px;
 }
 
 .forecast_detail {

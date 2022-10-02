@@ -1,0 +1,144 @@
+ul {
+  list-style: none;
+}
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+.weather__wrapper {
+  max-width: 39rem;
+  margin: 0 auto;
+  padding: 12px;
+  border: 1px solid #e5e5e5;
+}
+.weather__search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #000;
+  padding: 7px 16px;
+}
+.weather__search input {
+  width: 100%;
+  border: none;
+}
+.search__btn {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+}
+.weather__inner {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid #000;
+}
+.weather__items--container {
+  display: grid;
+  border-right: 1px solid #000;
+}
+
+.weather__item--main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.weather__item {
+  display: none;
+}
+.weather__item.active {
+  display: block;
+}
+.weather__item-temperature {
+  font-size: 70px;
+  padding-bottom: 40px;
+}
+.weather__item--icon {
+  align-self: center;
+}
+.weather__item-town {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 98px;
+}
+.weather__item--name {
+  font-size: 24px;
+}
+.weather__links {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #000;
+}
+.weather__link {
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  border-right: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.weather__link.active {
+  color: #fff;
+  background-color: #000;
+}
+.weather__favorites {
+  position: relative;
+  z-index: 10;
+}
+.weather__favorites.active svg path {
+  fill: red;
+}
+.weather__item-info {
+}
+.weather__main--info {
+}
+.temperature {
+}
+.feels {
+}
+.weather {
+}
+.sunrise {
+}
+.sunset {
+}
+.weather__days {
+}
+.weather__day {
+}
+.weather__date--info {
+}
+.weather__date {
+}
+.weather__time {
+}
+.weather__main--condition {
+}
+.weather__main--img {
+}
+.location {
+}
+.added {
+  padding: 33px 18px 7px 18px;
+  border-bottom: 1px solid #000;
+}
+.location__list {
+  margin: 0;
+  padding: 35px 18px;
+}
+.location__list li {
+  font-size: 1.5rem;
+}
+
+.location__list li:not(:last-child) {
+  margin-bottom: 1.5rem;
+}

@@ -1,0 +1,286 @@
+body {
+    background: -webkit-linear-gradient(90deg, #1a3f69,#5076a1,#1a3f69);
+    background: linear-gradient(90deg, #1a3f69,#5076a1,#1a3f69);
+    font-family: 'Roboto', sans-serif;
+}
+#outer {
+    width: 626px;
+    height: 466px;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    
+ 
+}
+
+#container {
+    width: 600px;
+    height: 435px;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: auto;
+    
+}
+
+input {
+    font-size: 23px;
+    width: 100%;
+    padding-left: 10px;
+    border: none;
+    height: 40px;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-sizing: border-box;
+    
+}
+
+#divInput {
+    border-bottom: 2px solid black;
+    height: 40px;
+    position: relative;
+}
+
+#divLeftSide {
+    width: 50%;
+    height: 395px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#divLeftBody {
+    height: 340px;
+   
+}
+
+#divRightSide {
+    width: 50%;
+    height: 395px;
+    float: right;
+    border-left: 2px solid black;
+    box-sizing: border-box;
+}
+
+#divRightHeader {
+    height: 55px;
+    border-bottom: 2px solid black;
+}
+
+#divRightHeader {
+    padding: 10px;
+}
+
+li {
+    font-size: 30px;
+    list-style-type: none;
+    line-height: 43px;
+}
+
+.divTab {
+    display: none;  
+    height: 100%; 
+    margin: 0;
+    position: relative;
+}
+
+.divTab:target {
+    display: block;
+}
+
+#tabs {
+    position: absolute;
+    bottom: 0;
+    left: -1px;
+    width: 301px;
+    margin: 0;
+    padding: 0;
+}
+
+#tabsItems {
+    display: flex;
+    
+}
+
+.tabItem {
+    flex: 0 1 33.333%;
+    height: 50px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 2px solid black;
+
+}
+
+.tabItem:active {
+    background-color: black;
+    color: white;
+}
+
+.active {
+    background-color: black;
+    color: white;
+}
+
+nav > a + a {
+    border-left: 2px solid black;
+}
+
+#headerLocations {
+    margin-top: 11px;
+}
+
+
+#tempHeader {
+    font-size: 500%;
+    padding: 0px;
+    margin: 0px;
+}
+
+#cloud {
+    width: 150px;
+    height: 150px;
+    background-image: url(./cloud.png);
+    padding-left: 25%;
+    z-index: 2;
+
+}
+
+#city {
+    font-size: 24px;
+    display: inline-block;
+    position: absolute;
+    left: 5px;
+    bottom: 1px;
+    margin: 0;
+}
+
+#fav {
+    font-size: 24px;
+    display: inline-block;
+    position: absolute;
+    right: 5px;
+    bottom: 1px;
+    margin: 0;
+}
+
+#fav:hover {
+    color: red;
+    cursor: pointer;
+}
+
+#fav:active {
+    color: white;
+}
+
+#detailesCity {
+    padding-left: 20px;
+}
+
+#forecastCity {
+    padding-left: 20px;
+}
+
+.forecastDate {
+    position: absolute;
+    left: 3px;
+    top: 5px;
+    margin: 0;
+}
+
+.forecastTime {
+    position: absolute;
+    right: 3px;
+    top: 5px;
+    margin: 0;
+}
+
+.forecastTemp {
+    position: absolute;
+    left: 3px;
+    bottom: 30px;
+    margin: 0;
+}
+
+.forecastFTemp {
+    position: absolute;
+    left: 3px;
+    bottom: 10px;
+    margin: 0;
+}
+
+.forecastRain {
+    position: absolute;
+    right: 3px;
+    bottom: 30px;
+    margin: 0;
+}
+
+.forecastIconRain {
+    position: absolute;
+    right: 3px;
+    bottom: 1px;
+    margin: 0;
+    height: 31px;
+    width: 31px;
+}
+
+.divForecast {
+    border: 1px solid black;
+    width: 265px;
+    height: 120px;
+    margin: 10px auto;
+    position: relative;
+}
+
+.divLocation {
+    line-height: 43px;
+    font-size: 30px;
+    position: relative;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.divLocation:hover {
+    background-color: azure;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.divLocation:active {
+    background-color: rgb(228, 228, 228);
+}
+
+.delbtnLocation {
+    position: absolute;
+    right: 7px;
+    bottom: 13px;
+    border-radius: 30%;
+    border: none;
+}
+
+#tab3 {
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;
+}
+
+#tab3::-webkit-scrollbar {
+    display: none;
+}
+
+#magnifierImg {
+    width: 20px;
+}
+
+#magnifierBtn {
+    position: absolute;
+    right: 5px;
+    top: 9px;
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+}

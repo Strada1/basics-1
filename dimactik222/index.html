@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather</title>
+        <link rel="stylesheet" href="./styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="outer">
+            <div id="container">
+                <div id="divInput">
+                    <form id="myForm">
+                        <input id="inputCity" type="text" placeholder="Find a city">
+                        <button type="submit" id="magnifierBtn"><img src="./images/magnifier.png" alt="magnifier" id="magnifierImg"></button>
+                    </form>
+                </div>
+
+
+
+
+
+                <div id="divLeftSide">
+                    <div id="divLeftBody">
+
+                        <div id="tab1" class="divTab">
+                            <h1 id="tempHeader">14&#176;</h1>
+                            <img src="./images/clouds.png" alt="cloud" id="cloud">
+                            <p id="city">Aktobe</p>
+                            <p id="fav">&#9825;</p>
+                        </div>
+
+                        <div id="tab2" class="divTab">
+                            <h2 id="detailesCity">Aktobe</h2>
+                            <ul>
+                                <li>Temperature: <span id="detailesTemp">14°</span></li>
+                                <li>Feels like: <span id="detailesFTemp">10°</span></li>
+                                <li>Weather: <span id="detailesWeather">Clouds</span></li>
+                                <li>Sunrise: <span id="detailesSunrise">03:21</span></li>
+                                <li>Sunset: <span id="detailesSunset">18:54</span></li>
+                            </ul>
+                        </div>
+
+                        <div id="tab3" class="divTab">
+                            <h2 id="forecastCity">Aktobe</h2>
+                            <div class="divForecast">
+                                <p class="forecastDate">17 May</p>
+                                <p class="forecastTime">12:00</p>
+                                <p class="forecastTemp">Temperature: 13&#176</p>
+                                <p class="forecastFTemp">Feels like: 10&#176</p>
+                                <p class="forecastRain">Rain</p>
+                                <img src="./images/iconRain.png" alt="rain" class="forecastIconRain">
+                            </div>
+
+                            <div class="divForecast">
+                                <p class="forecastDate">17 May</p>
+                                <p class="forecastTime">15:00</p>
+                                <p class="forecastTemp">Temperature: 13&#176</p>
+                                <p class="forecastFTemp">Feels like: 10&#176</p>
+                                <p class="forecastRain">Rain</p>
+                                <img src="./images/iconRain.png" alt="rain" class="forecastIconRain">
+                            </div>
+
+                            <div class="divForecast">
+                                <p class="forecastDate">17 May</p>
+                                <p class="forecastTime">18:00</p>
+                                <p class="forecastTemp">Temperature: 13&#176</p>
+                                <p class="forecastFTemp">Feels like: 10&#176</p>
+                                <p class="forecastRain">Rain</p>
+                                <img src="./images/iconRain.png" alt="rain" class="forecastIconRain">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="tabs">
+                        <nav id="tabsItems">
+                            <a href="#tab1" onclick="activator(event)" class="tabItem" id="defaultOpen"><p>Now</p></a>
+                            <a href="#tab2" onclick="activator(event)" class="tabItem"><p>Details</p></a>
+                            <a href="#tab3" onclick="activator(event)" class="tabItem"><p>Forecast</p></a>
+                        </nav>
+                    </div>
+
+                    
+                    
+                </div>
+
+
+                <div id="divRightSide">
+                    <div id="divRightHeader">
+                        <h2 id="headerLocations">Added Locations:</h2>
+                    </div>
+                    <div id="divRightBody">
+                        <div id="locations">
+                            <li>New York</li>
+                            <li>Chicago</li>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>

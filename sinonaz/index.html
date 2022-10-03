@@ -12,29 +12,132 @@
 
 <body>
 
-	<div class="calculator js-calculator">
-		<label class="calculator__label">
-			<input class="calculator__input js-first-operand" name="number" type="number">
-			<span class="visually-hidden">Ввод первого числа</span>
+	<form action="#" class="weather">
+		<label class="weather__search">
+			<input class="weather__input" type="search" name="search" placeholder="Aktobe">
 		</label>
-		<label class="calculator__label">
-			<select class="calculator__select js-operator" name="operator">
-				<option class="calculator__option" value="sum">+</option>
-				<option class="calculator__option" value="sub">-</option>
-				<option class="calculator__option" value="multi">*</option>
-				<option class="calculator__option" value="div">/</option>
-			</select>
-			<span class="visually-hidden">Выбор оператора</span>
-		</label>
-		<label class="calculator__label">
-			<input class="calculator__input js-second-operand" name="number" type="number">
-			<span class="visually-hidden">Ввод второго числа</span>
-		</label>
-		<button class="calculator__button js-button" type="button">=</button>
-		<span class="calculator__value js-value"></span>
-		<ul class="calculator__list js-list">
+		<div class="weather__content">
+			<div class="weather__now">
+				<span class="weather__value">14</span>
+				<p class="weather__bottom">
+				<p class="weather__city">Aktobe</p>
+				<button type="button" class="weather__favourite" aria-label="add to favourite">
+					<svg></svg>
+				</button>
+			</div>
+			<div class="weather__details">
+				<p class="weather__city">Aktobe</p>
+				<dl class="weather__details-list">
+					<div class="weather__details-item">
+						<dt class="weather__details-name">Temperature:</dt>
+						<dd class="weather__deatils-value">14</dd>
+					</div>
+					<div class="weather__details-item">
+						<dt class="weather__details-name">Feels like:</dt>
+						<dd class="weather__deatils-value">10</dd>
+					</div>
+					<div class="weather__details-item">
+						<dt class="weather__details-name">Weather:</dt>
+						<dd class="weather__deatils-value">Clouds</dd>
+					</div>
+					<div class="weather__details-item">
+						<dt class="weather__details-name">Sunrise:</dt>
+						<dd class="weather__deatils-value">03:21</dd>
+					</div>
+					<div class="weather__details-item">
+						<dt class="weather__details-name">Sunset:</dt>
+						<dd class="weather__deatils-value">18:54</dd>
+					</div>
+				</dl>
+			</div>
+			<div class="weather__forecast">
+				<p class="weather__city">Aktobe</p>
+				<ul class="weather__forecast-list">
+					<li class="weather__forecast-item">
+						<div class="weather__forecast-head">
+							<p class="weather__forecast-date">17 May</p>
+							<span class="weather__forecast-time">12:00</span>
+						</div>
+						<div class="weather__bottom">
+							<dl class="weather__bottom-list">
+								<div class="weather__bottom-item">
+									<dt class="weather__bottom-name">Temperature:</dt>
+									<dd class="weather__bottom-value">13</dd>
+								</div>
+								<div class="weather__bottom-item">
+									<dt class="weather__bottom-name">Feels like:</dt>
+									<dd class="weather__bottom-value">10</dd>
+								</div>
+							</dl>
+							<span class="weather__condition">Rain</span>
+						</div>
+					</li>
+					<li class="weather__forecast-item">
+						<div class="weather__forecast-head">
+							<p class="weather__forecast-date">17 May</p>
+							<span class="weather__forecast-time">15:00</span>
+						</div>
+						<div class="weather__bottom">
+							<dl class="weather__bottom-list">
+								<div class="weather__bottom-item">
+									<dt class="weather__bottom-name">Temperature:</dt>
+									<dd class="weather__bottom-value">13</dd>
+								</div>
+								<div class="weather__bottom-item">
+									<dt class="weather__bottom-name">Feels like:</dt>
+									<dd class="weather__bottom-value">10</dd>
+								</div>
+							</dl>
+							<span class="weather__condition">Rain</span>
+						</div>
+					</li>
+					<li class="weather__forecast-item">
+						<div class="weather__forecast-head">
+							<p class="weather__forecast-date">17 May</p>
+							<span class="weather__forecast-time">18:00</span>
+						</div>
+						<div class="weather__bottom">
+							<dl class="weather__bottom-list">
+								<div class="weather__bottom-item">
+									<dt class="weather__bottom-name">Temperature:</dt>
+									<dd class="weather__bottom-value">13</dd>
+								</div>
+								<div class="weather__bottom-item">
+									<dt class="weather__bottom-name">Feels like:</dt>
+									<dd class="weather__bottom-value">10</dd>
+								</div>
+							</dl>
+							<span class="weather__condition">Rain</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="weather__tabs">
+			<label class="weather__tab-label">
+				<input type="radio" class="weather__tab" name="weather">
+				<span class="weather__tab-name">Now</span>
+			</label>
+			<label class="weather__tab-label">
+				<input type="radio" class="weather__tab" name="weather">
+				<span class="weather__tab-name">Details</span>
+			</label>
+			<label class="weather__tab-label">
+				<input type="radio" class="weather__tab" name="weather">
+				<span class="weather__tab-name">Forecast</span>
+			</label>
+		</div>
+		<p class="weather__text">Added Locations:</p>
+		<ul class="weather__list">
+			<li class="weather__item">Amur</li>
+			<li class="weather__item">Samara</li>
+			<li class="weather__item">Bali</li>
+			<li class="weather__item">Dane</li>
+			<li class="weather__item">Kilo</li>
+			<li class="weather__item">Nur-Sultan</li>
 		</ul>
-	</div>
+		</div>
+	</form>
 
 	<script src="js/main.js"></script>
 </body>

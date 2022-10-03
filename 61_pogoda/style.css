@@ -1,0 +1,259 @@
+body {
+    background-color: rgb(215, 231, 250);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 620px;
+    height: 417px;
+    margin: 50px;
+    background-color: white;
+
+}
+
+.main {
+    width: 600px;
+    height: 396px;
+    border: solid 1px;
+    margin: 10px;
+    overflow: hidden;
+    display: block;
+}
+
+.find_city {
+    display: flex;
+    justify-content: space-between;
+    margin: 9px;
+}
+
+.border {
+    width: 600px;
+    height: 1px;
+    border-bottom: 1px solid;
+}
+
+.find_input {
+
+    border: none;
+    outline: none;
+    width: 92%;
+    height: auto;
+    text-decoration: none;
+    font-size: 19px;
+    padding-left: 7px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.fa-search {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-right: 10px;
+    color: rgb(81, 81, 81);
+}
+
+.block {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+
+.top {
+    margin: 25px 0px 25px 20px;
+    font-size: 24px;
+    font-family: sans-serif;
+    margin-left: 0px;
+
+}
+
+.info_city li{
+    font-size: 20px;
+    margin: 18px;
+    font-family: sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+
+.tab_now {
+    height: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+
+}
+
+.temp {
+    font-size: 70px;
+}
+
+.cloud {
+    text-align: center;
+    position: absolute;
+    top: 85px;
+    left: 50px;
+    background-color: rgb(160, 160, 160);
+    border-radius: 30px;
+    width: 60%;
+}
+
+.month {
+    top: 270px;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.month span {
+    font-size: 24px;
+}
+
+#like {
+    font-size: 22px;
+    margin-right: 10px;
+    margin-top: 2px;
+    color: rgb(121, 121, 121);
+    cursor: pointer;
+}
+
+#like:hover {
+    color: rgb(0, 0, 0);
+    transition: 600ms;
+}
+
+
+.add_locations {
+    width: 50%;
+    height: 352px;
+    border-left: 1px solid;
+    position: relative;
+}
+
+
+
+.list_locations {
+    font-size: 24px;
+    margin-top: 20px;
+    padding-left: 15px;
+    width: 100%;
+    border-bottom: solid 1px;
+    padding-bottom: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.scroll {
+    width: 240px;
+    height: 250px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(0 0% 50%);
+}
+
+.locate {
+    position: relative;
+}
+
+.locate:hover {
+    color: rgb(45, 122, 215);
+    transition: 200ms;
+}
+
+.fa-times {
+    color: rgb(81, 81, 81);
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+    margin: 9px;
+}
+
+.fa-times:hover {
+    color: rgb(103, 151, 14);
+    transition: 200ms;
+}
+
+.location {
+    cursor: pointer;
+    font-size: 24px;
+    margin: 9px;
+    font-family: sans-serif;
+}
+
+.location:hover {
+    color: rgb(45, 122, 215);
+    transition: 200ms;
+}
+
+
+.tabs {
+    width: 50%;
+    height: 352px;
+    /* padding-bottom: 70px; */
+    overflow: hidden;
+    position: relative;
+}
+
+.menu_tabs {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+}
+
+
+  
+.tab {
+    display: none;
+    
+}
+/* .tab_now{
+    display: block;
+} */
+/* .now{
+      background-color:rgb(232, 232, 232) ; 
+} */
+.tab:target{
+    display: block;
+} 
+
+.tb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    width: 34%;
+    cursor: pointer;
+}
+
+.forecast {
+    border-right: none;
+}
+
+a {
+    font-weight: 400;
+    text-decoration: none;
+    color: black;
+
+}
+
+
+.tb span {
+    line-height: 30px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif
+}
+
+.tb span:hover {
+    color: rgb(45, 122, 215);
+    transition: 200ms;
+} 

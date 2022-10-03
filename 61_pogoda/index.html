@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8b44bb65b6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Pogoda</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="header">
+                <form class="find_city">
+                    <input type="text" placeholder="City" class="find_input">
+                    <i class="fas fa-search"></i>
+                </form>
+                <div class="border"></div>
+            </div>
+            <div class="block">
+                <div class="tabs">
+                    <div id="tab_2" class="tab tab_details">
+                        <ul class="info_city" >
+                            <p class="top">City</p>
+                            <li>Temperature: <span class="info_temp">14&#176</span></li>
+                            <li>Feels like: <span class="info_feels">10&#176</span> </li>
+                            <li>Weather: <span class="info_weater">Clouds</span></li>
+                            <li>Sunrise: <span class="info_sunrise">03:21</span></li>
+                            <li>Sunset: <span class="info_sunset">18:54</span></li>
+                        </ul>
+                    </div>
+                    <div id="tab_1" class="tab tab_now">
+                        <div class="temp"></div>
+                        <img class="cloud" src="" alt="">
+                        <!-- src="https://openweathermap.org/img/wn/02n@4x.png" -->
+                        <div class="month">
+                            <span class="span_city"></span>
+                            <div><i id="like" class="fas fa-heart"></i></i></div>
+                        </div>
+                    </div>
+                    <div class="menu_tabs">
+                        <a href="#tab_1" class="tb now" active> <span>Now</span> </a>
+                        <a href="#tab_2" class="tb details"> <span>Details</span></a>
+                        <a href="#tab_1" class="tb forecast"><span>Forecast</span></a>
+                    </div>
+                </div>
+                <div class="add_locations">
+
+                    <div class="list_locations">Added Locations:</div>
+
+                    <ul class="scroll">
+                        <li class="locate">
+                            <!-- <div class="location">Bali</div>
+                            <i class="fas fa-times"></i> -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="./main.js" ></script>
+    </div>
+</body>
+
+</html>

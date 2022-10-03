@@ -1,18 +1,22 @@
-//import {UIELEMENTS} from './uielements.js'
+import {UIELEMENTS} from './uielements.js'
+//import {localstorege} from './localstorage'
 
-const UIELEMENTS =  {
-    form_input: document.querySelector(".form-input"),
-    cityName: document.querySelector(".input-city"),
-    search: document.querySelector(".search"),
-    countTemp: document.querySelector(".count"),
-    icon_weather: document.querySelector(".icon-cloud"),
-    city_name: document.querySelector(".city-name"),
-    likeCity: document.querySelector(".like"),
-}
+// const UIELEMENTS =  {
+//     form_input: document.querySelector(".form-input"),
+//     cityName: document.querySelector(".input-city"),
+//     search: document.querySelector(".search"),
+//     countTemp: document.querySelector(".count"),
+//     icon_weather: document.querySelector(".icon-cloud"),
+//     city_name: document.querySelector(".city-name"),
+//     likeCity: document.querySelector(".like"),
+// }
 
 
 let list = [ ]
+//const arrayFavoriteCities = [];
 
+
+renderLikeList(getFavoriteCities(list)) ;
 
 UIELEMENTS.form_input.addEventListener('submit', function (event, TODO) {
     event.preventDefault();
@@ -27,7 +31,6 @@ UIELEMENTS.form_input.addEventListener('submit', function (event, TODO) {
 function getWeatherPromise(cityName){
 
     try{
-
     const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
     const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
     const metric = `&units=metric`
@@ -48,14 +51,11 @@ function getWeatherPromise(cityName){
 
 
 function renderNow(inputCity){
-
     const  tabNow = document.querySelector("#tab_01");
-
 
     let promise = inputCity;
     promise
         .then((data) => {
-
         const temperature = data.main.temp;
         const serverImgUrl = `http://openweathermap.org/img/wn/`;
         const src = `${serverImgUrl}${data.weather[0]['icon']}@2x.png`;
@@ -122,7 +122,6 @@ function renderLikeList (){
         selectLocation.appendChild(remove);
         locations.append(selectLocation);
 
-
         remove.addEventListener("click", () => {
             const result = list.findIndex(item => el.cityName === item.cityName);
            // TODO: splice нужно заменить на фильтр
@@ -136,15 +135,12 @@ function renderLikeList (){
             const inputCity = getWeatherPromise(el.cityName);
             renderNow(inputCity);
         });
-
     })
-
 }
 
+
 function likeLocation(){
-
     try {
-
         const likeCity = document.querySelector(".city-name");
         const result = list.findIndex(item => likeCity.textContent === item.cityName);
         if(result !== -1){
@@ -152,11 +148,23 @@ function likeLocation(){
         }
 
         list.push({cityName: likeCity.textContent});
+        saveFavoriteCities(list);
         renderLikeList();
-
 
     }catch (error) {
         alert(error.message);
     }
+}
 
+
+
+
+function saveFavoriteCities (){
+    localStorage.setItem("cityName", JSON.stringify(list));
+}
+
+
+function getFavoriteCities(){
+        const favoriteCity = localStorage.getItem("cityName")
+        return JSON.parse(favoriteCity);
 }

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Погода UI</title>
+   <link rel="stylesheet" href="./css/style.css">
+   <link rel="stylesheet" href="./modules/showMessage/showMessage.css">
+   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+   <section class="weather-app">
+      <div class="weather-app__header search">
+         <form class="search__form">
+            <input class="search__input" type="text" placeholder="Location search:">
+            <button type="submit" class="search__btn"></button>
+         </form>
+      </div>
+      <div class="weather-app__body">
+         <div class="weather-app__sidebar left-sidebar">
+            <div class="left-sidebar__tabs-blocks">
+               <div id="now" class="tabs-block active">
+                  <div class="tabs-block__temperature"><span data-current_temp>0</span><sup>&deg;</sup></div>
+                  <div class="tabs-block__weather-img"><img src="./img/icons8-cloud-96-1.png" data-weather-icon alt="">
+                  </div>
+                  <div class="tabs-block__selected-city" data-current_city></div>
+                  <div class="tabs-block__save-city"><button class="save-city-btn"><img src="./img/Shape-1.png"
+                           alt=""></button></div>
+               </div>
+               <div id="details" class="tabs-block">
+                  <div class="tabs-block__city-details" data-current_city>City</div>
+                  <ul class="detalis-list">
+                     <li class="detalis-temperature">Temperature: <span data-current_temp>0</span><sup>&deg;</sup></li>
+                     <li class="detalis-feels-like">Feels like: <span data-feels-like>0</span><sup>&deg;</sup></li>
+                     <li class="detalis-weather">Weather: <span data-weather>Clouds</span></li>
+                     <li class="detalis-sunrise">Sunrise: <span data-sunrise>00:00</span></li>
+                     <li class="detalis-sunset">Sunset: <span data-sunset>00:00</span></li>
+                  </ul>
+               </div>
+               <div id="forecast" class="tabs-block">
+                  <div class="tabs-block__city-forecast" data-current_city>City</div>
+                  <div class="forecast__item-list">
+                     <div class="forecast__item">
+                        <div class="forecast__item-header item-header">
+                           <div class="item-header__date">17 May</div>
+                           <div class="item-header__time">12:00</div>
+                        </div>
+                        <div class="forecast__item-footer item-footer">
+                           <div class="item-header__all-temperature">
+                              <div class="forecast__temperature">Temperature: 13</div>
+                              <div class="forecast__feels-like">Feels like: 10</div>
+                           </div>
+                           <div class="item-header__weather">
+                              <div class="item-header__current-weather">Rain</div>
+                              <div class="item-header__weather-img"><img src="./img/icons8-rain-96-1.png" alt=""></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="forecast__item">
+                        <div class="forecast__item-header item-header">
+                           <div class="item-header__date">17 May</div>
+                           <div class="item-header__time">12:00</div>
+                        </div>
+                        <div class="forecast__item-footer item-footer">
+                           <div class="item-header__all-temperature">
+                              <div class="forecast__temperature">Temperature: 13</div>
+                              <div class="forecast__feels-like">Feels like: 10</div>
+                           </div>
+                           <div class="item-header__weather">
+                              <div class="item-header__current-weather">Rain</div>
+                              <div class="item-header__weather-img"><img src="./img/icons8-rain-96-1.png" alt=""></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="forecast__item">
+                        <div class="forecast__item-header item-header">
+                           <div class="item-header__date">17 May</div>
+                           <div class="item-header__time">12:00</div>
+                        </div>
+                        <div class="forecast__item-footer item-footer">
+                           <div class="item-header__all-temperature">
+                              <div class="forecast__temperature">Temperature: 13</div>
+                              <div class="forecast__feels-like">Feels like: 10</div>
+                           </div>
+                           <div class="item-header__weather">
+                              <div class="item-header__current-weather">Rain</div>
+                              <div class="item-header__weather-img"><img src="./img/icons8-rain-96-1.png" alt=""></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="forecast__item">
+                        <div class="forecast__item-header item-header">
+                           <div class="item-header__date">17 May</div>
+                           <div class="item-header__time">12:00</div>
+                        </div>
+                        <div class="forecast__item-footer item-footer">
+                           <div class="item-header__all-temperature">
+                              <div class="forecast__temperature">Temperature: 13</div>
+                              <div class="forecast__feels-like">Feels like: 10</div>
+                           </div>
+                           <div class="item-header__weather">
+                              <div class="item-header__current-weather">Rain</div>
+                              <div class="item-header__weather-img"><img src="./img/icons8-rain-96-1.png" alt=""></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="forecast__item">
+                        <div class="forecast__item-header item-header">
+                           <div class="item-header__date">17 May</div>
+                           <div class="item-header__time">12:00</div>
+                        </div>
+                        <div class="forecast__item-footer item-footer">
+                           <div class="item-header__all-temperature">
+                              <div class="forecast__temperature">Temperature: 13</div>
+                              <div class="forecast__feels-like">Feels like: 10</div>
+                           </div>
+                           <div class="item-header__weather">
+                              <div class="item-header__current-weather">Rain</div>
+                              <div class="item-header__weather-img"><img src="./img/icons8-rain-96-1.png" alt=""></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="forecast__item">
+                        <div class="forecast__item-header item-header">
+                           <div class="item-header__date">17 May</div>
+                           <div class="item-header__time">12:00</div>
+                        </div>
+                        <div class="forecast__item-footer item-footer">
+                           <div class="item-header__all-temperature">
+                              <div class="forecast__temperature">Temperature: 13</div>
+                              <div class="forecast__feels-like">Feels like: 10</div>
+                           </div>
+                           <div class="item-header__weather">
+                              <div class="item-header__current-weather">Rain</div>
+                              <div class="item-header__weather-img"><img src="./img/icons8-rain-96-1.png" alt=""></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="left-sidebar__tabs tabs">
+               <div class="tabs__list">
+                  <button class="tabs__btn active" data-tabs="now">Now</button>
+                  <button class="tabs__btn" data-tabs="details">Details</button>
+                  <button class="tabs__btn" data-tabs="forecast">Forecast</button>
+               </div>
+            </div>
+         </div>
+         <div class="weather-app__sidebar right-sidebar">
+            <div class="right-sidebar__title-list">
+               Added Locations:
+            </div>
+            <div class="right-sidebar__locations-list locations-list">
+
+            </div>
+         </div>
+      </div>
+   </section>
+
+
+   <section class="popup">
+      <div class="popup__box">
+         <div class="popup__title"></div>
+         <div class="popup__text"></div>
+         <button class="popup__close"></button>
+      </div>
+   </section>
+
+   <script type="module" src="./js/script.js"></script>
+</body>
+
+</html>

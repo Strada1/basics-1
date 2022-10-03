@@ -1,0 +1,162 @@
+* {
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+}
+:active, :hover, :focus {
+   outline: 0;
+   outline-offset: 0;
+}
+body {
+   font-size: 16px;
+   font-family: Arial, Helvetica, sans-serif;
+   line-height: normal;
+   margin: 3em 0;
+}
+ul {
+   list-style: none;
+}
+img {
+   max-width: 100%;
+}
+.weather-app {display: flex;flex-direction: column;max-width: 600px;height: 435px;margin: 0 auto;border: 3px solid #D09683;border-radius: 12px;background: #363237;box-shadow: 0 0 5px 1px #D09683;}
+.weather-app__header {width: 100%;}
+.search {
+}
+.search__form {position: relative;}
+.search__input {width: 100%;padding: 8px 15px;background: none;border: none;border-bottom: 2px solid #D09683;font-size: 18px;color: #D09683;}
+.search__input::placeholder {color: #6c5b57}
+.search__btn {position: absolute;width: 22px;height: 22px;top: calc(100% / 2 - 10px);right: 10px;border: none;background: none;cursor: pointer;}
+.search__btn::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: block;
+   border: 3px solid #6c5b57;
+   border-radius: 50%;
+   width: 8px;
+   height: 8px;
+}
+.search__btn::before {
+   content: '';
+   position: absolute;
+   bottom: 8px;
+   right: 2px;
+   border-top: 3px solid #6c5b57;
+   width: 10px;
+   transform: rotateZ(35deg);
+}
+
+.weather-app__body {flex: 1 1 auto;display: flex;}
+.weather-app__sidebar {flex: 50%;display: flex;flex-direction: column;}
+.left-sidebar {border-right: 1px solid #D09683;}
+.left-sidebar__tabs-blocks {position: relative;flex: auto;display: flex;}
+.tabs-block {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.tabs-block.active {
+   visibility: visible;
+   opacity: 1;
+}
+.left-sidebar__tabs {}
+.tabs {
+}
+.tabs__list {display: flex;justify-content: center;align-items: center;border-top: 2px solid #D09683;}
+.tabs__btn {font-size: 18px;color: #D09683;text-align: center;text-decoration: none;padding: 8px;flex: 1 1 calc(100% / 3);background: none;border: none;border-right: 2px solid #D09683;cursor: pointer;transition: all 0.3s;}
+.tabs__btn:last-child {border-right: none;}
+.tabs__btn.active,
+.tabs__btn:hover {
+    background: #D09683;
+    color: #363237;
+    font-weight: bold;
+}
+.tabs-block__temperature {position: absolute;font-size: 70px;color: #D09683;left: 20px;top: 10px;}
+.tabs-block__weather-img {position: absolute;width: 100%;top: calc(50% - 32px);text-align: center;}
+.tabs-block__weather-img img {max-width: 78px;}
+.tabs-block__selected-city {position: absolute;left: 17px;bottom: 12px;font-size: 18px;color: #d09683;}
+.tabs-block__save-city {position: absolute;right: 20px;bottom: 15px;width: 22px;cursor: pointer;}
+.tabs-block__save-city .save-city-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.tabs-block__city-details {font-size: 18px;color: #D09683;text-align: left;padding: 8px 8px 10px 8px;}
+.detalis-list {
+   padding: 6px 0;
+}
+.detalis-list li {
+   font-size: 18px;
+   color: #D09683;
+   padding: 6px 8px 6px 20px;
+}
+.tabs-block__city-forecast {font-size: 18px;color: #D09683;text-align: left;padding: 8px;}
+.forecast__item-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: calc(100% - 37px);
+}
+.forecast__item {display: flex;flex-direction: column;justify-content: space-between;min-height: 120px;border: 2px solid #D09683;margin: 0 6px 9px;padding: 6px;color: #D09683;}
+.forecast__item-header {
+}
+.item-header {display: flex;justify-content: space-between;}
+.item-header__date {
+}
+.item-header__time {
+}
+.forecast__item-footer {display: flex;justify-content: space-between;align-items: flex-end;}
+.item-footer {
+}
+.item-header__all-temperature {
+}
+.forecast__temperature {
+}
+.forecast__feels-like {
+}
+.item-header__weather {
+}
+.item-header__current-weather {
+}
+.item-header__weather-img {width: 31px;}
+.right-sidebar {border-left: 1px solid #D09683;}
+.right-sidebar__title-list {font-size: 18px;color: #D09683;text-align: center;padding: 8px;border-bottom: 2px solid #D09683;}
+.right-sidebar__locations-list {
+    max-height: 352px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 6px 0;
+}
+.right-sidebar__locations-list .locations-list__items.item {
+   position: relative;
+}
+.right-sidebar__locations-list .item__show-cyty-btn {width: 100%;font-size: 18px;text-align: left;color: #D09683;padding: 6px 36px 6px 8px;background: none;border: none;cursor: pointer;transition: all 0.3s;z-index: 1;}
+.right-sidebar__locations-list .item:hover .item__show-cyty-btn {background:#D09683;color:#363237;}
+.right-sidebar__locations-list .item__delete-cyty-btn {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background: none;
+    border: none;
+    right: 5px;
+    top: calc(50% - 13px);
+    cursor: pointer;
+    transform: scale(1);
+    transition: all 0.3s;
+}
+.right-sidebar__locations-list .item__delete-cyty-btn:hover {transform: scale(1.2);}
+.right-sidebar__locations-list .item__delete-cyty-btn::after,
+.right-sidebar__locations-list .item__delete-cyty-btn::before {position: absolute;content: '';display: block;width: 100%;height: 2px;background: linear-gradient(45deg, transparent, #e39783, transparent); transform: rotateZ(45deg)}
+.right-sidebar__locations-list .item__delete-cyty-btn::after {
+    transform: rotateZ(-45deg);
+}
+.right-sidebar__locations-list .item:hover .item__delete-cyty-btn::after,
+.right-sidebar__locations-list .item:hover .item__delete-cyty-btn::before {
+   background: linear-gradient(45deg, transparent, #232323, transparent);
+}

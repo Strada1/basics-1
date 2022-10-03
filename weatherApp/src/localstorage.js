@@ -1,8 +1,12 @@
+export function saveFavoriteCities (list){
+    localStorage.setItem("cityName", JSON.stringify(list));
+}
 
-export function localstorege (){
-    // storage.saveFavoriteCities(favoriteCities)
-    // const favoriteCities = storage.getFavoriteCities();
-    // const currentCity = storage.getCurrentCity();
-
-    //localStorage.setItem("cityName", JSON.stringify(list.cityName));
+export function getFavoriteCities(){
+    let favoriteCity = localStorage.getItem("cityName");
+    if(!favoriteCity){
+        return [];
+    }
+    console.log(favoriteCity);
+    return (JSON.parse(favoriteCity));
 }

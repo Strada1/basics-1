@@ -1,58 +1,20 @@
 import {UIELEMENTS} from './uielements.js'
-//import {localstorege} from './localstorage'
+import {saveFavoriteCities,getFavoriteCities} from './localstorage.js'
+import {getWeatherPromise} from "./getWeatherPromise.js";
 
-// const UIELEMENTS =  {
-//     form_input: document.querySelector(".form-input"),
-//     cityName: document.querySelector(".input-city"),
-//     search: document.querySelector(".search"),
-//     countTemp: document.querySelector(".count"),
-//     icon_weather: document.querySelector(".icon-cloud"),
-//     city_name: document.querySelector(".city-name"),
-//     likeCity: document.querySelector(".like"),
-// }
-
-
-let list = [ ]
-//const arrayFavoriteCities = [];
-
-
-renderLikeList(getFavoriteCities(list)) ;
 
 UIELEMENTS.form_input.addEventListener('submit', function (event, TODO) {
     event.preventDefault();
     const inputCity = getWeatherPromise(UIELEMENTS.cityName.value.split(' ').join(''));
     UIELEMENTS.form_input.reset();
     renderNow(inputCity);
-    const divRemove = document.querySelector(".divRemove");
-    divRemove.remove();
+    const divRemove = document.querySelector("#divRemove");
+    divRemove.innerHTML = "";
 })
 
 
-function getWeatherPromise(cityName){
-
-    try{
-    const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
-    const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
-    const metric = `&units=metric`
-    const url = `${serverUrl}?q=${cityName}&appid=${apiKey}${metric}`;
-
-    return fetch(url)
-        .then((response) => {
-            if(!response.ok){
-                throw new Error(`Проверьте название города`)
-            }
-            return response.json();
-        } )
-    }catch (error) {
-        alert(error.message);
-    }
-}
-
-
-
 function renderNow(inputCity){
-    const  tabNow = document.querySelector("#tab_01");
-
+    const divRemove = document.querySelector("#divRemove");
     let promise = inputCity;
     promise
         .then((data) => {
@@ -61,13 +23,13 @@ function renderNow(inputCity){
         const src = `${serverImgUrl}${data.weather[0]['icon']}@2x.png`;
         const tempCount = `${temperature.toFixed(0)}°`;
 
-        const divRemove = document.createElement("div");
-        divRemove.className = "divRemove";
-
+        console.log(divRemove);
         const span = document.createElement("span");
         span.className = "count";
         span.textContent = tempCount;
+        console.log(divRemove);
         divRemove.append(span);
+        console.log('kjhgfv')
 
         const img = document.createElement("img");
         img.className = "icon-cloud";
@@ -89,7 +51,6 @@ function renderNow(inputCity){
         likeImg.src  = "img/like.png";
         likeImg.id = "nowIdLike"
         city_like.appendChild(likeImg);
-        tabNow.append(divRemove);
 
         const like_location = document.querySelector("#nowIdLike");
         like_location.addEventListener("click", likeLocation);
@@ -99,10 +60,11 @@ function renderNow(inputCity){
 
 }
 
+
 function renderLikeList (){
    const  locations = document.querySelector(".locations");
    locations.innerHTML = "";
-
+    let list = getFavoriteCities();
     list.forEach( (el) => {
 
         const selectLocation = document.createElement("div");
@@ -126,13 +88,15 @@ function renderLikeList (){
             const result = list.findIndex(item => el.cityName === item.cityName);
            // TODO: splice нужно заменить на фильтр
             list.splice( result, 1 );
+            saveFavoriteCities(list);
             renderLikeList();
         });
 
         div.addEventListener("click",() => {
-            const divRemove = document.querySelector(".divRemove");
-            divRemove.remove();
+            const divRemove = document.querySelector("#divRemove");
+            divRemove.innerHTML = "";
             const inputCity = getWeatherPromise(el.cityName);
+            console.log(inputCity);
             renderNow(inputCity);
         });
     })
@@ -141,12 +105,14 @@ function renderLikeList (){
 
 function likeLocation(){
     try {
+        let list = getFavoriteCities();
+        console.log(list);
         const likeCity = document.querySelector(".city-name");
         const result = list.findIndex(item => likeCity.textContent === item.cityName);
+
         if(result !== -1){
             throw new Error(`${likeCity.textContent}  уже существует в избранных `)
         }
-
         list.push({cityName: likeCity.textContent});
         saveFavoriteCities(list);
         renderLikeList();
@@ -156,15 +122,4 @@ function likeLocation(){
     }
 }
 
-
-
-
-function saveFavoriteCities (){
-    localStorage.setItem("cityName", JSON.stringify(list));
-}
-
-
-function getFavoriteCities(){
-        const favoriteCity = localStorage.getItem("cityName")
-        return JSON.parse(favoriteCity);
-}
+renderLikeList();

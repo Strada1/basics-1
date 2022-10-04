@@ -13,19 +13,27 @@
 <body>
 
 	<form action="#" class="weather">
-		<label class="weather__search">
-			<input class="weather__input" type="search" name="search" placeholder="Aktobe">
-		</label>
+		<div class="weather__border"></div>
+		<div class="weather__search">
+			<label class="weather__search-label">
+				<input class="weather__input" type="search" name="search" placeholder="Aktobe">
+			</label>
+			<button class="weather__search-button" type="button">
+				<img src="img/search.svg" width="30" height="30" alt="">
+			</button>
+		</div>
 		<div class="weather__content">
 			<div class="weather__now">
 				<span class="weather__value">14</span>
-				<p class="weather__bottom">
-				<p class="weather__city">Aktobe</p>
-				<button type="button" class="weather__favourite" aria-label="add to favourite">
-					<svg></svg>
-				</button>
+				<img class="weather__condition" src="img/cloud.png" width="79" height="59" alt="">
+				<div class="weather__bottom">
+					<p class="weather__city">Aktobe</p>
+					<button type="button" class="weather__favourite" aria-label="add to favourite">
+						<img src="img/heart.svg" width="24" height="25" alt="">
+					</button>
+				</div>
 			</div>
-			<div class="weather__details">
+			<div class="weather__details" style="display: none;">
 				<p class="weather__city">Aktobe</p>
 				<dl class="weather__details-list">
 					<div class="weather__details-item">
@@ -50,7 +58,7 @@
 					</div>
 				</dl>
 			</div>
-			<div class="weather__forecast">
+			<div class="weather__forecast" style="display: none;">
 				<p class="weather__city">Aktobe</p>
 				<ul class="weather__forecast-list">
 					<li class="weather__forecast-item">
@@ -69,7 +77,7 @@
 									<dd class="weather__bottom-value">10</dd>
 								</div>
 							</dl>
-							<span class="weather__condition">Rain</span>
+							<span class="weather__condition weather__condition--rain">Rain</span>
 						</div>
 					</li>
 					<li class="weather__forecast-item">
@@ -88,7 +96,7 @@
 									<dd class="weather__bottom-value">10</dd>
 								</div>
 							</dl>
-							<span class="weather__condition">Rain</span>
+							<span class="weather__condition weather__condition--rain">Rain</span>
 						</div>
 					</li>
 					<li class="weather__forecast-item">
@@ -107,7 +115,7 @@
 									<dd class="weather__bottom-value">10</dd>
 								</div>
 							</dl>
-							<span class="weather__condition">Rain</span>
+							<span class="weather__condition weather__condition--rain">Rain</span>
 						</div>
 					</li>
 				</ul>
@@ -115,15 +123,15 @@
 		</div>
 		<div class="weather__tabs">
 			<label class="weather__tab-label">
-				<input type="radio" class="weather__tab" name="weather">
+				<input type="radio" class="visually-hidden weather__tab" name="weather" checked>
 				<span class="weather__tab-name">Now</span>
 			</label>
 			<label class="weather__tab-label">
-				<input type="radio" class="weather__tab" name="weather">
+				<input type="radio" class="visually-hidden weather__tab" name="weather">
 				<span class="weather__tab-name">Details</span>
 			</label>
 			<label class="weather__tab-label">
-				<input type="radio" class="weather__tab" name="weather">
+				<input type="radio" class="visually-hidden weather__tab" name="weather">
 				<span class="weather__tab-name">Forecast</span>
 			</label>
 		</div>

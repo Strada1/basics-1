@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+
+	<title>Погода</title>
+</head>
+<body>
+	<div class="nav_search">
+		<input type="text" placeholder="Aktobe" class="nav_search__input">
+		<svg class="nav_search__image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><g id="_01_align_center" data-name="01 align center"><path d="M24,22.586l-6.262-6.262a10.016,10.016,0,1,0-1.414,1.414L22.586,24ZM10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18Z"/></g></svg>
+	</div>
+	<div class="container">
+		<div class="main_weather">
+			<div class="main_weather__city-details">
+				<div class="city_details">
+					<h2>Aktobe</h2>
+				</div>
+					<ul class="list-details">
+						<li class="list_item">Temprature: 14&deg</li>
+						<li class="list_item">Feels like: 10&deg</li>
+						<li class="list_item">Weather: Clouds</li>
+						<li class="list_item"> Sunrise: 03:21</li>
+						<li class="list_item">Sunset: 18:54</li>
+					</ul>
+			</div>
+			<div class="main_weather__nav">
+				<div class="nav_now">
+					<a href="#tab-1">Now</a>
+				</div>
+				<div class="nav_details">
+					<a href="#tab-2">Details</a>
+				</div>
+				<div class="nav_forecast">
+					<a href="#tab-3">Forecast</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="location">
+			<div class="header">
+				<p class="header_text">Added Locations: </p>
+			</div>
+		<div class="added_cities">
+			<ul>
+				<li class="add__city">Amur</li>
+				<li class="add__city">Samara</li>
+				<li class="add__city">Bali</li>
+				<li class="add__city">Dane</li>
+				<li class="add__city">Kilo</li>
+				<li class="add__city">Nur-Sultan</li>
+			</ul>
+			
+		</div>
+		</div>
+		
+	</div>
+	<script src="./js/index.js"></script>
+</body>
+</html>

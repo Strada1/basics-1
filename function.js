@@ -1,0 +1,90 @@
+import {city, cityNameNow} from "./variable.js";
+import {addCity} from "./main.js"
+
+const serverUrl = 'https://api.openweathermap.org/data/2.5/weather';
+const apiKey = 'ca303486726129b9a3bc59b41b03cd15';
+
+export function getUrl(event) {
+    let cityName = city.value
+
+    if (!city.value){
+        cityName = event.currentTarget.textContent
+    }
+    return `${serverUrl}?q=${cityName}&appid=${apiKey}`
+}
+
+export function getTemperature(data) {
+    return  Math.round(data['main']['temp'] - 273.15)
+}
+
+export function removeCity(event){
+    event.currentTarget.parentNode.remove()
+}
+
+export function saveFavoriteCities() {
+    let elemFavoriteCities = document.querySelectorAll('.name-favorite')
+    let nameFavoriteCities = [];
+
+    elemFavoriteCities.forEach((elem, index) => {
+        nameFavoriteCities[index] = elem.textContent;
+    })
+    
+    let nameFavoriteCitiesJson = JSON.stringify(nameFavoriteCities);
+    localStorage.setItem('citiesFavorite', nameFavoriteCitiesJson)
+}
+
+export function limitFavoriteCities() {
+
+    let favoriteCities = document.querySelectorAll('.add-city')
+    favoriteCities.forEach((elem, index) => {
+        if (index > 4) {
+            elem.remove()
+        }
+    })
+}
+
+export function showFavoriteCities() {
+    let citiesFavoriteJson = localStorage.getItem('citiesFavorite');
+    let citiesFavorite = JSON.parse(citiesFavoriteJson)
+    
+    citiesFavorite.forEach((elem) =>{
+        cityNameNow.textContent = elem;
+        addCity()
+    })
+}
+
+export function showCityNow() {
+    let divs = document.querySelectorAll('.name-favorite')
+    
+    divs.forEach(elem =>{
+        if(elem.textContent === localStorage.getItem('cityNameNow')){
+            elem.click()
+        }
+    })
+}
+
+export function addDetails(data) {
+    
+    const listDetails = {
+        'Temperature': `${getTemperature(data)}\u00B0`,
+        'Feels like': Math.round(data['main']['feels_like'] - 273.15),
+        'Weather': data['weather'][0]['description'],
+        'Sunrise': new Date(data['sys']['sunrise'] * 1000).toLocaleTimeString(),
+        'Sunset': new Date(data['sys']['sunset'] * 1000).toLocaleTimeString()
+    }
+    let detailsCity = document.querySelector('.information');
+
+    for (let listDetail in listDetails) {
+        let div = document.createElement('div');
+        div.className = 'data-details'
+        div.textContent = `${listDetail}: ${listDetails[listDetail]}`
+        detailsCity.append(div)
+    }
+
+}
+
+export function removeDetails(){
+    document.querySelectorAll('.data-details').forEach(elem => {
+        elem.remove()
+    })
+}

@@ -1,0 +1,257 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E5E5E5;
+}
+
+.wrapper {
+    margin: 150px auto;
+    width: 621px;
+    height: 462px;
+    background-color: #FFFF;
+    padding: 14px 9px 13px 12px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.content {
+    width: 600px;
+    height: 435px;
+    border: 1px solid #000000;
+}
+
+.search__field {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #000000;
+}
+
+.search__city {
+    width: 600px;
+    width: 400px;
+    height: 45px;
+
+    position: absolute;
+}
+
+.searching, .searching__button {
+    outline: none;
+    border: none;
+}
+
+.searching {
+    width: 525px;
+    height: 45px;
+    font-size: 18px;
+    margin-left: 16px;
+    line-height: 21px;
+}
+
+.searching__button {
+    background-color: #FFFF;
+    cursor: pointer;
+    position: relative;
+    top: 7px;
+}
+
+.data {
+    display: flex;
+    flex-direction: row;
+}
+
+.tabs__content {
+    width: 298px;
+    height: 390px;
+}
+
+.locations {
+    width: 302px;
+    height: 385px;
+    border-left: 1px solid #000000;
+}
+
+.head {
+    height: 68px;
+    border-bottom: 1px solid #000000;
+    display: flex;
+}
+
+.header {
+    margin-left: 18px;
+    font-size: 24px;
+    line-height: 28px;
+    margin-top: 35px;
+}
+
+.list__location {
+    line-height: 28px;
+}
+
+.cities {
+    width: 299px;
+    height: 300px;
+    font-size: 24px;
+    padding: 25px 0px 39px 18px;
+    overflow: auto;
+}
+
+.city__name {
+    margin: 5px auto;
+    margin-bottom: 12px;
+}
+
+.tabs__content {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+}
+
+.navigation {
+    height: 53px;
+    border-top: 1px solid #000000;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.now, .details, .forecast {
+    width: 99px;
+    height: 45px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.now, .details {
+    border-right: 1px solid #000000;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.now:hover, .now:active, .details:hover, .details:active, .forecast:hover, .forecast:active {
+    background-color: #000000;
+}
+
+a:hover, a:active {
+    color: #FFFF;
+}
+
+.tabs {
+    height: 345px;
+    overflow: hidden;
+}
+
+.tab__now, .tab__details, .tab__forecast {
+    display: none;
+}
+
+.tab__now:target, .tab__details:target, .tab__forecast:target {
+    display: block;
+}
+
+.temperature {
+    font-size: 70px;
+    margin: 20px;
+}
+
+.cloud {
+    margin-left: 112px;
+}
+
+.city {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 12px;
+    margin-top: 80px;
+    font-size: 24px;
+}
+
+.heart {
+    padding-right: 12px;
+}
+
+.tab__details {
+    line-height: 28px;
+    font-size: 24px;
+    margin-left: 17px;
+}
+
+.head__city {
+    height: 68px;
+    display: flex;
+}
+
+.header__city {
+    margin-top: 35px;
+}
+
+.information {
+    width: 298px;
+    overflow: auto;
+}
+
+.characteristics {
+    margin: 25px auto;
+    line-height: 20px;
+}
+
+.tab__forecast {
+    line-height: 28px;
+    font-size: 24px;
+    margin-left: 17px;
+}
+
+.cards {
+    overflow: auto;
+    width: 275px;
+    height: 260px;
+}
+
+.card__wrapper {
+    width: 255px;
+    height: 120px;
+    border: 1px solid #000000;
+
+    margin-bottom: 9px;
+    font-size: 18px;
+}
+
+.card__part-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 5px;
+}
+
+.date, .time {
+    margin: 5px;
+}
+
+.card__part-2 {
+    display: flex;
+}
+
+.weather__data {
+    margin-top: 20px;
+    margin-left: 8px;
+}
+
+.temp {
+    line-height: 3px;
+}
+
+.img__wrap {
+    width: 50px;
+    margin-left: 22px;
+    margin-top: 10px;
+    line-height: 15px;
+}

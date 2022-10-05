@@ -1,4 +1,4 @@
-import {buttonSearch, city, cityNameNow, cityTemperature, descriptionWeather, listCities, newCity} from "./variable.js";
+import {buttonSearch, city, cityNameNow, cityTemperature, descriptionWeather, listCities, newCity,} from "./variable.js";
 
 import {
     getTemperature,
@@ -7,7 +7,9 @@ import {
     saveFavoriteCities,
     limitFavoriteCities,
     showFavoriteCities,
-    showCityNow
+    showCityNow,
+    addDetails,
+    removeDetails
 } from "./function.js";
 
 showFavoriteCities()
@@ -17,8 +19,7 @@ buttonSearch.addEventListener('click', getDataLocation)
 
 export function getDataLocation(event) {
     event.preventDefault()
-    // showCitiesNow()
-    
+    removeDetails()
 
     fetch(getUrl(event))
         .then(response => {
@@ -27,15 +28,19 @@ export function getDataLocation(event) {
         .then(data => {
             cityTemperature.textContent = `${getTemperature(data)}\u00B0`
             cityNameNow.textContent = data['name']
+            cityNameNow.forEach(elem => {
+                elem.textContent = data['name']
+            })
             descriptionWeather.src = `https://openweathermap.org/img/w/${data['weather'][0]['icon']}.png`
+            addDetails(data)
             localStorage.setItem('cityNameNow', cityNameNow.textContent)
+            
         })
         .catch(err => {
             alert(err.message)
         })
     city.value = ''
 }
-
 
 newCity.addEventListener('click', addCity)
 

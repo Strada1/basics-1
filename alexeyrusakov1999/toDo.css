@@ -96,3 +96,15 @@ body {
     opacity: 0.9;
     cursor: pointer;
 }
+
+#btn_exit {
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    border: 0;
+    background-color: rgba(28, 28, 28, 0)
+}
+
+.status_done {
+    background-color: grey;
+}

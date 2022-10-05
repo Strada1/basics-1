@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <title>To Do UI</title>
+</head>
+<body>
+   <div class="wrapper">
+      <div class="container flex">
+         <section class="flex">
+            <h2 class="title">HIGH</h2>
+            <form action="" id="form_high">
+               <div class="plus" >
+                  <input type="text" class="box clearHigh" placeholder="Добавить важных дел" id="textInputHigh">
+                  <button type="submit" class="addButton" >+</button>
+               </div>
+            </form>
+               <ul class="flex" id="listHigh">
+ 
+               </ul>
+         </section>
+         <section class="flex">
+            <h2 class="title">LOW</h2>
+            <form action="" id="form_low">
+               <div class="plus">
+                  <input type="text" class="box clearLow" placeholder="Добавить" id="textInputLow">
+                  <button type="submit" class="addButton"  >+</button>
+               </div>
+               <ul class="flex" id="listLow">
+
+               </ul>
+            </form>
+         </section>
+      </div>
+   </div>
+   <script src="todo.js"></script>
+   
+</body>
+</html>

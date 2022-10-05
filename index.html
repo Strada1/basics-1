@@ -9,53 +9,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <title>TODO UI</title>
+    <title>Genderize</title>
+    <link rel="icon" href="./img/icons8-sex-62.png">
 </head>
 <body>
     <header class="header"></header>
     <div class="main">
         <div class="container">
-            <section class="high section">
-                <h3 class="section__title title">high</h3>
-                <div class="add-task-div">
-                    <input type="text" class="task-add-input" placeholder="Добавить важное дело" />
-                    <button class="add-task-button button">
-                        <img src="./img/cross-icon.svg" alt="+" class="add-task-img" />
-                    </button>
-                </div>
-                <!-- place for content -->
-            </section>
-            <section class="medium section">
-                <h3 class="section__title title">medium</h3>
-                <div class="add-task-div">
-                    <input type="text" class="task-add-input" placeholder="Добавить дело средней важности" />
-                    <button class="add-task-button button">
-                        <img src="./img/cross-icon.svg" alt="+" class="add-task-img" />
-                    </button>
-                </div>
-                <!-- place for content -->
-            </section>
-            <section class="low section">
-                <h3 class="section__title title">low</h3>
-                <div class="add-task-div">
-                    <input type="text" class="task-add-input" placeholder="Добавить неважное дело" />
-                    <button class="add-task-button button">
-                        <img src="./img/cross-icon.svg" alt="+" class="add-task-img" />
-                    </button>
-                </div>
-                <!-- <div class="task-div">
-                    <input type="checkbox" id="task-4" class="task-checkbox">
-                    <label for="task-4" class="task-label">
-                        <p class="task__name">Посмотреть ютубчик</p>
-                    </label>
-                    <button class="finish-task-button button">
-                        <img src="./img/cross-icon.svg" alt="x" class="finish-task-img" />
-                    </button>
-                </div> -->
-            </section>
+            <form action="#" class="fetch-form">
+                <input type="text" class="name-input" />
+                <input type="submit" class="button" value="Get gender" />
+            </form>
+            <div class="answer"><b>Answer!</b> <span class="given-name">...</span>
+                is <span class="gotten-gender">...</span></div>
         </div>
     </div>
-    
     <footer class="footer"></footer>
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/sayHi.js"></script>

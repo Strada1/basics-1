@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #E5E5E5;
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+.wrapper {
+    width: 621px;
+    height: 462px;
+    background-color: white;
+    box-shadow: 3px 0px 9px 1px rgba(0, 0, 0, 0.45);
+}
+
+/* шапка приложения - форма для поиска города */
+.form-city-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+    margin: 6px 6px 0 6px
+}
+/* поле ввода города для поиска */
+.city-input {
+    width: 550px;
+    height: 45px;
+    padding-left: 20px;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-size: 20px;
+}
+.city-input:focus {
+    outline: none;
+}
+/* кнопка search */
+.button-search {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 7px 17px 7px 0;
+    border: none;
+    border-radius: 100%;
+    background-color: inherit;
+    cursor: pointer; 
+}
+.button-search:hover svg path {
+    opacity: .94;
+    fill: black;
+}
+.button-search:active svg path {
+    opacity: .94;
+    fill: tomato;
+}
+
+/* контейнер с контентом левое и правое поле вместе*/
+.content {
+    width: 607px;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    margin: 0 6px 0 6px
+}
+/* контейнер для левого поля - табов */
+.tabs-content {
+    display: flex;
+    flex-direction: column;
+    width: 303px;
+    height: 358px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    overflow-y: auto;
+}
+
+/* контейнер таба NOW */
+.tab-now {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 330px;
+    display: none;
+}
+.tab-now.active {
+    display: flex;
+}
+.data-temperature {
+    width: 283px;
+    padding-left: 15px; 
+    padding-top: 30px;
+    font-size: 70px;
+}
+.img-weather{
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+}
+.footer-now {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.city {
+    margin: 0;
+    padding-left: 15px;
+    font-weight: 400;
+    font-size: 24px;
+    text-transform: capitalize;
+}
+.like-btn {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    background-image: url(../../../images/like.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+.like-btn:hover:not(.like-btn-added) {
+    transform: scale(1.1);
+}
+.like-btn:active:not(.like-btn-added) {
+    background-image: url(../../../images/likeFavorite.svg);
+    transform: translateY(1px);
+    transform: scale(0.9);
+}
+.like-btn-added {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    background-image: url(../../../images/likeFavorite.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: none; 
+    background-color: transparent;
+    cursor: auto; 
+}
+
+
+
+
+/* контейнер для кнопок навигации по табам */
+.buttons-nav {
+	display: flex;
+	justify-content: space-between;
+    font-size: 18px;
+}
+.btn-nav {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background-color: inherit;
+    border: none;
+	border-right: 1px solid black;
+    font-size: 18px;
+}
+
+.btn-nav:hover:not(.btn-active) {
+    color: black;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 3px rgba(40, 40, 40, 0.3);
+}
+.btn-nav:active:not(.btn-active) {
+    color: orangered;
+    font-size: 17px;
+    text-shadow: none;
+    background-color: white;
+    box-shadow: 0px 0px 7px 1px rgba(40, 40, 40, 0.2) inset;
+    cursor: pointer;
+    outline: none;
+}
+.btn-nav:focus {
+    outline: none;
+}
+
+.btn-nav.btn-active {
+    color: white;
+    background-color: black;
+}
+
+/* картинка и ссылка на сайт openweather */
+.logo img {
+    width: 50px;
+    height: 30px;
+    margin-bottom: 0;
+    margin-left: 250px;
+    cursor: pointer;
+}
+.logo:hover img {
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgb(197, 197, 197);
+    scale: 1.05;
+}
+.logo:active img {
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px 0px tomato;
+    scale: .95;
+}
+
+
+
+/* правая часть - сайд бар */
+.header-sidebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 303px;
+    height: 68px;
+    border-bottom: 1px solid black;
+}
+/* заголовок правой части */
+.text-header {
+    padding: 0 0 7px 20px;
+    font-size: 24px;
+}
+/* контейнер для контента сайд бара */
+.content-sidebar {
+    margin-top: 25px;
+    padding-left: 0;
+}
+/* контейнер для города */
+.city-name-container { 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 24px; 
+    list-style-type: none;
+    line-height: 1.8;
+}
+/* название города */
+.city-name-added {
+    width: 240px;
+    height: 43px;
+}
+.city-name-added:hover {
+    text-shadow: 0 0 4px rgb(176, 176, 176);
+    cursor: pointer;
+}
+.city-name-added:active {
+    font-size: 23px;
+    color: tomato;
+}
+/* рисунок отметки активного города */
+.btn-mark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+}
+.img-mark {
+    width: 13px;
+    height: 15px;
+    filter: contrast(100);
+    display: none;
+}
+.is-mark {
+    display: flex;
+}
+/* кнопка удалить */
+.btn-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    background-color: inherit;
+    cursor: pointer;
+}
+.btn-delete:hover {
+    background-color: rgb(244, 244, 244);
+}
+.btn-delete:active {
+    background-color: rgb(255, 99, 71, 1.1);
+}
+
+/* контейнер таба Details */
+.tab-details {
+    display: flex;
+    flex-direction: column;
+    width: 303px;
+    height: 358px;
+    display: none;
+}
+.tab-details.active {
+    display: flex;
+}
+/* контент таба Details */
+.city-details {
+    display: flex;
+    align-items: flex-end;
+    width: 281px;
+    height: 68px;
+    margin: 0;
+    padding: 0px 0 8px 20px;
+    font-size: 24px;
+}
+.details-content { 
+    height: 285px;
+    font-size: 24px;
+    padding: 34px 0 0 20px;
+    margin: 0px;
+}
+li {
+    font-size: 24px;
+    margin-bottom: 14px;
+    list-style-type: none;
+}
+
+/* контейнер таба Forecast */
+.tab-forecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.tab-forecast.active {
+    display: flex;
+}
+.city-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 303px;
+    height: 68px;
+    margin: 0;
+}
+.city-forecast {
+    padding: 0px 0 8px 20px;
+    font-size: 24px;
+}
+
+
+/* контейнер карточек погоды в Forecast */
+.container-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    width: 290px;
+    height: 287px;
+    margin-left: 2px;
+    overflow-y: scroll;
+}
+/* карточка погоды в Forecast */
+.card-forecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 265px;
+    height: 120px;
+    margin-bottom: 8px;
+    padding: 6px 8px 6px 8px;
+    border: 1px solid black;
+}
+.period {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 45px;
+}
+.temp-realy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.temp-feels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.temperature-feels {
+    padding-top: 3px;
+}
+.img-card {
+    width: 31px;
+    height: 31px;
+    margin: 0 10px 0px 0;
+}
+
+.disabled {
+    display: none;
+}
+
+/* кастомизация скролл бара */
+::-webkit-scrollbar {
+    width: 4px;
+    margin-left: 1px;
+}
+::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);    
+    border-radius: 11px;
+    box-shadow: inset 0 0 4px rgb(176, 176, 176);
+}
+::-webkit-scrollbar-thumb {
+    height: 4px;
+    background-size: cover;
+    border-radius: 11px;
+    box-shadow: inset 0 0 4px rgb(109, 109, 109);
+}
+.pop_up {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: transparent;
+    z-index: 2;
+    transform: translateY(-50%) scale(0);
+    transition: 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.pop_up.pop-up-active {
+    transform: translateY(0%) scale(100%);
+    background-color: rgb( 65, 65, 65, .9);
+}
+.pop_container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.pop_up_body {
+    text-align: center;
+    position: relative;
+    width: 80%;
+    max-width: 550px;
+    margin: 1em auto;
+    margin-top: 280px;
+    padding: 1em;
+    border-radius: 10px;
+    background: rgb(100,100,100) radial-gradient(circle at 0 0, rgba(255, 255, 255, .55), rgba(255,255,255,.35));
+    box-shadow:
+     inset rgba(0,0,0,.5) -3px -3px 8px,
+     inset rgba(255,255,255,.9) 3px 3px 8px,
+     rgba(0,0,0,.8) 3px 3px 8px -3px;
+}
+.pop_up_close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    background-color: transparent;
+    cursor: pointer;
+}
+.pop_up_close:hover { 
+    background-color: rgb(183, 183, 183);
+}
+.pop_up_close:active {
+    background-color: rgb(255, 99, 71, 1.1);
+}
+.error_text {
+    font-size: 24px;
+    color: red;
+}
+

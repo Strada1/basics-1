@@ -69,6 +69,44 @@ function popUpError(errorText) {
 }
 
 const HTML_ELEMENTS = {
+    dataTemperature: {
+        name: 'dataTemperature',
+        tag: 'span',
+        className: 'data-temperature',
+        innerText: undefined,
+        src: undefined,
+    },
+    imgCityWeather: {
+        name: 'imgCityWeather',
+        tag: 'img',
+        className: 'img-weather',
+        innerText: undefined,
+        src: undefined,
+    },
+    divFooterNow: {
+        name: 'divFooterNow',
+        tag: 'div',
+        className: 'footer-now',
+        innerText: undefined,
+        src: undefined,
+    },
+    cityNameField: {
+        name: 'cityNameField',
+        tag: 'span',
+        className: 'city',
+        innerText: undefined,
+        src: undefined,
+    },
+    btnLike: {
+        name: 'btnLike',
+        tag: 'button',
+        className: 'like-btn',
+        innerText: undefined,
+        src: undefined,
+        attribute: {
+            type: 'button',
+        },
+    },
     detailsContentElement: {
         name: 'detailsContentElement',
         tag: 'li',

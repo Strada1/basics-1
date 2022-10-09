@@ -26,8 +26,8 @@ function handlerCitySearch(event) {
 
 function renderAddedCities() {
     let сitiesAdded = getFromStorage();
-    while(UI_ELEMENTS.added_location.firstChild) {
-        UI_ELEMENTS.added_location.removeChild(UI_ELEMENTS.added_location.firstChild);
+    while (UI_ELEMENTS.added_location.lastElementChild) {
+        UI_ELEMENTS.added_location.removeChild(UI_ELEMENTS.added_location.lastElementChild);
     }
     сitiesAdded.forEach(city => {          
         UI_ELEMENTS.citiesDiv = publishCities(city);
@@ -49,16 +49,14 @@ UI_ELEMENTS.btn_tab.forEach(function(button) {
             });   
             currentBtn.classList.add('btn-active');
             currentTab.classList.add('active');
-
-            let currentCity = getCurrentCity();
+            const currentCity = getCurrentCity();
             fetchDataWeather(currentCity);
             fetchDataWeatherForecast(currentCity);
         }        
     })
 });
+
 UI_ELEMENTS.tab_first.click();
-
-
 
 async function fetchDataWeather(cityName = 'Moscow') {
     const urlWeather = `${API.serverURL}?q=${cityName}&appid=${API.apiKey}&units=metric`;
@@ -83,8 +81,7 @@ async function fetchDataWeather(cityName = 'Moscow') {
 }
 
 async function fetchDataWeatherForecast(cityName = 'Moscow') {
-    const urlForecast = 'http://httpstat.us/500'; // для проверки отлавливания 500 ошибки
-    // const urlForecast = `${API.forecastURL}?q=${cityName}&appid=${API.apiKey}&units=metric`;
+    const urlForecast = `${API.forecastURL}?q=${cityName}&appid=${API.apiKey}&units=metric`;
     try {
         const response = await fetch(urlForecast);
         dataWeatherForecast = await response.json();
@@ -103,42 +100,29 @@ async function fetchDataWeatherForecast(cityName = 'Moscow') {
 }
 
 function renderTabNow(dataWeather) {
-    // очищаем страницу перед рендерингом
     while (UI_ELEMENTS.now_tab.lastElementChild) {
         UI_ELEMENTS.now_tab.removeChild(UI_ELEMENTS.now_tab.lastElementChild);
     }
-    // записываем данные по температуре
-    let dataTemperature = document.createElement('span');
-    dataTemperature.classList = 'data-temperature';
+    const dataTemperature = htmlElementConstructor(HTML_ELEMENTS.dataTemperature);
     dataTemperature.innerText = Math.round(dataWeather.main.temp) + '°';
     UI_ELEMENTS.now_tab.append(dataTemperature);
-    // находим и размещаем картинку погоды
-    let imgCityWeather = document.createElement('img');
-    imgCityWeather.classList = 'img-weather';
+    const imgCityWeather = htmlElementConstructor(HTML_ELEMENTS.imgCityWeather);
     imgCityWeather.src = `https://openweathermap.org/img/wn/${dataWeather.weather[0]['icon']}@4x.png`;
     UI_ELEMENTS.now_tab.append(imgCityWeather);
-    // создаем оболочку для названия города и кнопки лайк
-    let divFooterNow = document.createElement('div');
-    divFooterNow.classList = 'footer-now';
+    const divFooterNow = htmlElementConstructor(HTML_ELEMENTS.divFooterNow);
     UI_ELEMENTS.now_tab.append(divFooterNow);
     UI_ELEMENTS.city_footer = divFooterNow;
-    // записываем название города
-    let cityNameField = document.createElement('span');
-    cityNameField.classList = 'city';
+    const cityNameField = htmlElementConstructor(HTML_ELEMENTS.cityNameField);
     cityNameField.innerText = dataWeather.name;
     UI_ELEMENTS.city_footer.append(cityNameField);
     UI_ELEMENTS.city_name = cityNameField;
-    // создаем кнопку лайк - добавить город в список выбранных
-    let btnLike = document.createElement('button');
-    btnLike.setAttribute('type', 'button');
-    btnLike.classList.add('like-btn')
+    const btnLike = htmlElementConstructor(HTML_ELEMENTS.btnLike);
     btnLike.addEventListener('click', (event) => handlerAddCity(event));
     if(dataWeather.name === getCurrentCity()) {
         btnLike.classList.add('like-btn-added')
     }
     UI_ELEMENTS.city_footer.append(btnLike);
     UI_ELEMENTS.city_btn_like = btnLike;
-    // помещаем всё на страницу
     UI_ELEMENTS.now_tab.append(UI_ELEMENTS.city_footer);
     return UI_ELEMENTS.now_tab;
 }
@@ -229,7 +213,6 @@ function renderTabForecast(dataWeatherForecast) {
     UI_ELEMENTS.forecast_tab.append(cardsForecastContainer);
 }
 
-// добавляет город в список
 function handlerAddCity(event) {
     event.preventDefault();
     getFromStorage();
@@ -255,7 +238,8 @@ function publishCities(city) {
         const cityFiltered = сitiesAdded.filter(city => city !== cityDel);
         recordToStorage(cityFiltered);
         renderAddedCities();
-        setCurrentCity(cityFiltered.at(-1));
+        city = cityFiltered.at(-1);
+        setCurrentCity(city);
         const currentCity = getCurrentCity();
         fetchDataWeather(currentCity);
         handlerFavoriteCity();
@@ -266,29 +250,26 @@ function publishCities(city) {
         fetchDataWeather(cityFavorite);
         setCurrentCity(cityFavorite);
         renderAddedCities();
+        UI_ELEMENTS.tab_first.click();
         fetchDataWeatherForecast(cityFavorite);
     };
     UI_ELEMENTS.citiesDiv = document.createElement('div');
     UI_ELEMENTS.citiesDiv.classList = 'city-name-container';
-
-// чекбокс cityMarkBtn current city
     const cityMarkBtn = htmlElementConstructor(HTML_ELEMENTS.cityMarkBtn);
     UI_ELEMENTS.citiesDiv.append(cityMarkBtn);
-
     const cityMarkBtnImg = htmlElementConstructor(HTML_ELEMENTS.cityMarkBtnImg);
     cityMarkBtn.append(cityMarkBtnImg);
-// имя города
     const cityName = htmlElementConstructor(HTML_ELEMENTS.cityName)
     cityName.innerText = city;
     cityName.addEventListener('click', handlerFavoriteCity);
     if(city === getCurrentCity()) {
         cityMarkBtnImg.classList.add('is-mark');
+        UI_ELEMENTS.citiesDiv.classList.add('active-current');
+        cityName.classList.add('active');
     }
     UI_ELEMENTS.citiesDiv.append(cityName);
-// кнопка cityDeleteBtn "удалить"
     const cityDeleteBtn = htmlElementConstructor(HTML_ELEMENTS.cityDeleteBtn);
     UI_ELEMENTS.citiesDiv.append(cityDeleteBtn);
-
     const cityDeleteBtnImg = htmlElementConstructor(HTML_ELEMENTS.cityDeleteBtnImg);
     cityDeleteBtn.append(cityDeleteBtnImg);
     cityDeleteBtn.addEventListener('click', handlerDelete);
@@ -312,7 +293,6 @@ function htmlElementConstructor(objElementProperty) {
     return objElementProperty.name;
 };
 
-// Sunrise & Sunset Block
 function getSunRiseAndSet(timeNeed) {
     const dateNow = new Date();
     const localOffset = dateNow.getTimezoneOffset() * 60000;

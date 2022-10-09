@@ -1,56 +1,53 @@
-const tabs = document.querySelectorAll('.tab_item');
-const tabsContent = document.querySelectorAll('.weather__forecast-main');
-const form = document.querySelector('form');
-const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
-const input = document.querySelector('.search__city');
-const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
-const nowTemperature = document.querySelector('.count-temperature');
-const nowTemperatureDetails = document.querySelector('.count-temperature-text span');
-const nowNameCity = document.querySelector('.name_city');
-const parentForImage = document.querySelector('.image__wather');
-const addedButton = document.querySelector('.button__add_favorites-city');
-const parentFavoriteCity = document.querySelector('.weather__forecast-list');
-const nameCityDetails = document.querySelector('.name_city_details');
-const feelsLikeDetails = document.querySelector('.feels-like span');
-const wheather = document.querySelector('.wheather span');
-const sunrice = document.querySelector('.sunrice span');
-const sunset = document.querySelector('.sunset span');
+import {
+    tabs,
+    tabsContent,
+    form,
+    serverUrl,
+    input,
+    apiKey,
+    nowTemperature,
+    nowTemperatureDetails,
+    nowNameCity,
+    parentForImage,
+    addedButton,
+    parentFavoriteCity,
+    nameCityDetails,
+    feelsLikeDetails,
+    wheather,
+    sunriceValue,
+    sunsetValue,
+} from "./value.js";
+let result = "";
 
-let result = '';
-
-for (let i = 0; i < tabs.length; i++) {
+tabs.forEach(function (item, index) {
     tabs[0].classList.add('active');
     tabsContent[0].classList.add('active');
-    tabs[i].addEventListener("click", function () {
-        for (let j = 0; j < tabs.length; j++) {
-            tabs[j].classList.remove('active');
-            tabsContent[j].classList.remove('active');
-        }
-        tabs[i].classList.add('active');
-        tabsContent[i].classList.add('active');
+    tabs[index].addEventListener("click", function () {
+        tabs.forEach(function (item, indexin) {
+            tabs[indexin].classList.remove('active');
+            tabsContent[indexin].classList.remove('active');
+        })
+        tabs[index].classList.add('active');
+        tabsContent[index].classList.add('active');
     });
-}
+})
 
 form.addEventListener("submit", function () {
     showThisCity(input.value);
 });
-
 
 addedButton.addEventListener("click", function () {
     addedFavoriteCity(nowNameCity.innerHTML);
     addedCityToLocalStorage(nowNameCity.innerHTML);
 });
 
-list = JSON.parse(localStorage.getItem("favoritesCity"));
+let list = JSON.parse(localStorage.getItem("favoritesCity"));
 
 function addedCityToLocalStorage(nameCity) {
     list.push({ 'name': nameCity });
     localStorage.setItem('favoritesCity', JSON.stringify(list));
     result = JSON.parse(localStorage.getItem("favoritesCity"));
 }
-
-
-
 
 function render() {
     parentFavoriteCity.innerHTML = "";
@@ -62,11 +59,6 @@ function render() {
         showThisCity(result[0].name);
     }
 }
-
-render();
-
-
-
 
 function addedFavoriteCity(nameCity) {
     const myDiv = document.createElement('div');
@@ -82,8 +74,7 @@ function addedFavoriteCity(nameCity) {
                 result.splice(index, 1)
                 result.unshift(item);
             }
-            localStorage.setItem('favoritesCity', JSON.stringify(result));
-            result = JSON.parse(localStorage.getItem("favoritesCity"));
+            addedCityToLocalStorage(nameCity)
         })
     })
 
@@ -106,19 +97,38 @@ function addedFavoriteCity(nameCity) {
     parentContainer.append(deleteCity);
 }
 
+function covertData(data) {
+    return new Date(data * 1000).toLocaleTimeString('en-US');
+};
 
 function showThisCity(nameCity) {
     const url = `${serverUrl}?q=${nameCity}&appid=${apiKey}&units=metric`;
+
     fetch(url)
         .then(function (result) {
             return result.json();
         }).then(function (result) {
-            sunrice.textContent = new Date(result.sys.sunrise * 1000).toLocaleTimeString('en-US');
-            sunset.textContent = new Date(result.sys.sunset * 1000).toLocaleTimeString('en-US');
-            nowTemperature.textContent = Math.round(result.main.temp);
-            nowTemperatureDetails.textContent = Math.round(result.main.temp);
-            feelsLikeDetails.textContent = Math.round(result.main.feels_like);
-            wheather.textContent = result.weather[0].main;
+            let {
+                main: {
+                    temp,
+                    feels_like,
+                },
+                weather: {
+                    0: {
+                        main,
+                    }
+                },
+                sys: {
+                    sunrise,
+                    sunset,
+                }
+            } = result;
+            sunriceValue.textContent = covertData(sunrise);
+            sunsetValue.textContent = covertData(sunset);
+            nowTemperature.textContent = Math.round(temp);
+            nowTemperatureDetails.textContent = Math.round(temp);
+            feelsLikeDetails.textContent = Math.round(feels_like);
+            wheather.textContent = main;
             nowNameCity.textContent = nameCity;
             nameCityDetails.textContent = nameCity;
             const img = document.createElement('img');
@@ -130,6 +140,4 @@ function showThisCity(nameCity) {
         })
 }
 
-
-
-
+render();

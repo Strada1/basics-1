@@ -1,9 +1,5 @@
 import {
-	contentWeather,
 	contentDetails,
-	contentForecast,
-	navNow,
-	navForecast,
 	navDetail,
 	headerDetails,
 	temperatureDetail,
@@ -14,18 +10,13 @@ import {
 } from './const/const.js';
 
 import { calcTimeSun } from './date.js';
-
+import { addClassHide, removeClassActive } from './more.js';
 
 export function renderDetails(cityName) {
-	
-	const hideNow = contentWeather.querySelector('.main_weather__city-now');
-	
-	hideNow.classList.add('hide');
-	contentForecast.classList.add('hide');
+	addClassHide();
 	contentDetails.classList.remove('hide');
 
-	navNow.classList.remove('active');
-	navForecast.classList.remove('active');
+	removeClassActive();
 	navDetail.classList.add('active');
 
 	return cityName.then(data => {
@@ -37,7 +28,7 @@ export function renderDetails(cityName) {
 		const sunset = data.sys.sunset;
 
 		headerDetails.textContent = name;
-		temperatureDetail.textContent = `Temprature: ${temperature}°`;
+		temperatureDetail.textContent = `Temperature: ${temperature}°`;
 		feelsLikeDetail.textContent = `Feels like: ${feelsLike}°`;
 		weatherDetail.textContent = `Weather: ${weather}`;
 		sunriseDetail.textContent = `Sunrise: ${calcTimeSun(sunrise)}`;

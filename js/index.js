@@ -11,7 +11,7 @@ import {
 	headerDetails
 } from "./const/const.js";
 
-import { addCurrentCity, getCurrentCity } from "./localStorage.js";
+import { getCurrentCity } from "./localStorage.js";
 
 import {
 	addToFavorite,
@@ -20,6 +20,7 @@ import {
 	showDetails,
 	render,
 	createCityItem,
+	getCurrentCityName
 } from "./more.js";
 
 import { getData, getDataForecast } from './fetch.js';
@@ -61,26 +62,16 @@ favoriteButton.addEventListener('click', () => {
 
 
 navNow.addEventListener('click', () => {
-	addCurrentCity(headerDetails.textContent);
-
-	const currentCity = getCurrentCity();
-	const name = getData(currentCity);
-
-	renderNow(name)
+	const cityName = getCurrentCityName(headerDetails);
+	renderNow(cityName)
 })
 
 navDetail.addEventListener('click', () => {
-	addCurrentCity(favoriteCity.textContent);
-
-	const currentCity = getCurrentCity();
-	const name = getData(currentCity);
-
-	renderDetails(name);
+	const cityName = getCurrentCity(favoriteCity);
+	renderDetails(cityName);
 })
 
 navForecast.addEventListener('click', () => {
-	addCurrentCity(favoriteCity.textContent);
-
 	const currentCity = getCurrentCity();
 	const name = getDataForecast(currentCity);
 

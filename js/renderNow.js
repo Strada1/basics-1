@@ -1,25 +1,21 @@
 import {
-	contentDetails,
 	contentWeather,
-	contentForecast,
-	navDetail,
-	navForecast,
 	navNow,
 	temperature,
 	img,
 	favoriteCity,
-} from './const/const.js'
+} from './const/const.js';
+
+import { addClassHide, removeClassActive } from './more.js';
 
 export function renderNow(data) {
 	if (!navNow.classList.contains('active')) {
 		
-		contentDetails.classList.add('hide');
-		contentForecast.classList.add('hide');
+		addClassHide();
 		contentWeather.querySelector('.main_weather__city-now').
 			classList.remove('hide');
 
-		navDetail.classList.remove('active');
-		navForecast.classList.remove('active');
+		removeClassActive();
 		navNow.classList.add('active');	
 	}
 

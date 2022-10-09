@@ -1,12 +1,11 @@
 import {
 	contentWeather,
 	contentForecast,
-	navNow,
 	navForecast,
-	navDetail,
 } from './const/const.js';
 
 import { getConvertDate, calcTime } from './date.js';
+import { addClassHide, removeClassActive } from './more.js';
 
 function createForecastList(element ,data) {
 	return element.insertAdjacentHTML('beforeend',
@@ -31,15 +30,11 @@ function createForecastList(element ,data) {
 }
 
 export function renderForecast(cityName) {
-	contentWeather.querySelector('.main_weather__city-now').
-		classList.add('hide');
-	contentWeather.querySelector('.main_weather__city-details').
-			classList.add('hide');
-	
+	addClassHide();
 	contentWeather.querySelector('.main_weather__city-forecast').
 		classList.remove('hide');
 	
-	navNow.classList.remove('active') && navDetail.classList.remove('active');
+	removeClassActive();
 	navForecast.classList.add('active');
 
 	while (contentForecast.querySelector('.forecast_list').firstChild) {

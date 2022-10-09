@@ -1,8 +1,6 @@
-export function saveFavoriteCity(cities) {
-	cities.forEach((city, idx) => {
-		localStorage.setItem(`city-${idx}`, JSON.stringify(city));
-	})
-}
+export function saveFavoriteCity(city) {
+		localStorage.setItem(`${city.id}`, JSON.stringify(city));
+	}
 
 export function getFavoriteCities() {
 	let list = [];

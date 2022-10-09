@@ -7,9 +7,30 @@ import {
 	favoirtesCities,
 	navNow,
 } from './const/const.js';
-import { addCurrentCity, saveFavoriteCity, getFavoriteCities, deleteCity, getCurrentCity } from './localStorage.js';
+
+import {
+	addCurrentCity,
+	saveFavoriteCity,
+	getFavoriteCities,
+	deleteCity,
+	getCurrentCity
+} from './localStorage.js';
+	
 import { renderNow } from './renderNow.js';
 import { renderDetails } from './renderDetails.js';
+
+function addClassHide() {
+	document.querySelectorAll('.main_weather__city')
+		.forEach(element => element.classList.add('hide'));
+}
+
+function removeClassActive() {
+	const tabs = document.querySelectorAll('.navigation');
+
+	tabs.forEach((tab) => {
+		tab.classList.remove('active');
+	})
+}
 
 function render() {
 	let favorites = getFavoriteCities();
@@ -44,7 +65,7 @@ function addToFavorite(city, arr) {
 	item.then(data => {
 		arr.push(data);
 		
-		saveFavoriteCity(arr);
+		saveFavoriteCity(data);
 	});
 }
 
@@ -53,10 +74,9 @@ function showDetails(nodeList) {
 		item.addEventListener('click', () => {
 			const details = getData(item.textContent);
 			
-			if (!navNow.classList.contains('active')) {
-				renderNow(details);
-			} else {
-				renderDetails(details)
+			if (!navNow.classList.contains('active') || navNow.classList.contains('active')) {
+				renderDetails(details);
+				details.then(data => addCurrentCity(data.name))
 			}
 	 })
  })
@@ -93,6 +113,15 @@ function submit(evt) {
 	inputSearch.value = '';
 }
 
+function getCurrentCityName(element) {
+	addCurrentCity(element.textContent);
+
+	const currentCity = getCurrentCity();
+	const name = getData(currentCity);
+
+	return name;
+}
+
 export {
 	addToFavorite,
 	showDetails,
@@ -101,5 +130,8 @@ export {
 	renderNow,
 	render,
 	createCityItem,
-	renderDetails
+	renderDetails,
+	addClassHide,
+	removeClassActive,
+	getCurrentCityName
 }

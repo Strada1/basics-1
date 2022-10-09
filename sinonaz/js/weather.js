@@ -25,27 +25,31 @@ const weahter = ({
   async function onFormSubmit(evt) {
     evt.preventDefault();
     const url = `${serverUrl}?q=${input.value}&appid=${apiKey}`;
-    let response = await fetch(url);
-    let json = await response.json();
-    let dateSunset = new Date(json.sys.sunset * 1000);
-    let dateSunrise = new Date(json.sys.sunrise * 1000);
 
-    cityNameElements.forEach((cityName) => {
-      cityName.textContent = json.name;
-    });
-
-    tempElements.forEach((temp) => {
-      temp.innerHTML = Math.round(json.main.temp - 273) + `<span>&#176</span>`;
-    });
-
-    icon.src = `${iconUrl}${json.weather[0].icon}.png`;
-    feelsLikeElement.innerHTML =
-      Math.round(json.main.feels_like - 273) + `<span>&#176</span>`;
-    conditionElement.textContent = json.weather[0].main;
-    sunset.innerHTML = `${dateSunset.getMinutes()}:${dateSunset.getSeconds()}`;
-    sunrise.innerHTML = `${dateSunrise.getMinutes()}:${dateSunrise.getSeconds()}`;
-
-    console.log(json);
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => {
+        if (!input.value) {
+          throw new Error(`City field is empty`);
+        }
+        let dateSunset = new Date(json.sys.sunset * 1000);
+        let dateSunrise = new Date(json.sys.sunrise * 1000);
+        cityNameElements.forEach((cityName) => {
+          cityName.textContent = json.name;
+        });
+        tempElements.forEach((temp) => {
+          temp.innerHTML =
+            Math.round(json.main.temp - 273) + `<span>&#176</span>`;
+        });
+        icon.src = `${iconUrl}${json.weather[0].icon}@2x.png`;
+        feelsLikeElement.innerHTML =
+          Math.round(json.main.feels_like - 273) + `<span>&#176</span>`;
+        conditionElement.textContent = json.weather[0].main;
+        sunset.innerHTML = `${dateSunset.getMinutes()}:${dateSunset.getSeconds()}`;
+        sunrise.innerHTML = `${dateSunrise.getMinutes()}:${dateSunrise.getSeconds()}`;
+        console.log(json);
+      })
+      .catch((error) => alert(error.message));
   }
   form.addEventListener(`submit`, onFormSubmit);
 };

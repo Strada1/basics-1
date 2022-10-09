@@ -137,7 +137,7 @@ function showThisCity(nameCity) {
             parentForImage.append(img);
         }).catch(function (err) {
             alert(err.message);
-        })
+        });
 }
 
 render();

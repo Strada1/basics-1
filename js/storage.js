@@ -10,7 +10,10 @@ function recordToStorage(сitiesAdded) {
 
 // извлечение списка любимых городов из localStorage
 function getFromStorage() {
-    сitiesAdded = JSON.parse(localStorage.getItem('cities'));
+    сitiesAdded = JSON.parse(localStorage.getItem('cities'))
+    if( !сitiesAdded) {
+        сitiesAdded = [];
+    }
     return сitiesAdded;
 }
 

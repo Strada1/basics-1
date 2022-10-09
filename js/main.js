@@ -1,9 +1,10 @@
 import { UI_ELEMENTS, ERROR_LIST, HTML_ELEMENTS } from './view.js';
 import { API } from './api.js';
-import { сitiesAdded, recordToStorage, getFromStorage, setCurrentCity, getCurrentCity  } from './storadge.js';
+import { сitiesAdded, recordToStorage, getFromStorage, setCurrentCity, getCurrentCity  } from './storage.js';
 
 let dataWeather = {};
 let dataWeatherForecast = {};
+
 
 UI_ELEMENTS.city_search.addEventListener('submit', (event) => handlerCitySearch(event));
 
@@ -25,14 +26,19 @@ function handlerCitySearch(event) {
 }
 
 function renderAddedCities() {
-    let сitiesAdded = getFromStorage();
+    let сitiesAdded = [];
+    if(getFromStorage()) {
+        сitiesAdded = getFromStorage();
+    };
     while (UI_ELEMENTS.added_location.lastElementChild) {
         UI_ELEMENTS.added_location.removeChild(UI_ELEMENTS.added_location.lastElementChild);
     }
-    сitiesAdded.forEach(city => {          
-        UI_ELEMENTS.citiesDiv = publishCities(city);
-        UI_ELEMENTS.added_location.prepend(UI_ELEMENTS.citiesDiv);     
-    });
+    if(сitiesAdded.length !== 0) {
+        сitiesAdded.forEach(city => {          
+            UI_ELEMENTS.citiesDiv = publishCities(city);
+            UI_ELEMENTS.added_location.prepend(UI_ELEMENTS.citiesDiv);     
+        });
+    }
 }
 
 UI_ELEMENTS.btn_tab.forEach(function(button) {
@@ -118,7 +124,7 @@ function renderTabNow(dataWeather) {
     UI_ELEMENTS.city_name = cityNameField;
     const btnLike = htmlElementConstructor(HTML_ELEMENTS.btnLike);
     btnLike.addEventListener('click', (event) => handlerAddCity(event));
-    if(dataWeather.name === getCurrentCity()) {
+    if(dataWeather.name === getCurrentCity() || сitiesAdded.includes(dataWeather.name)) {
         btnLike.classList.add('like-btn-added')
     }
     UI_ELEMENTS.city_footer.append(btnLike);
@@ -217,8 +223,10 @@ function handlerAddCity(event) {
     event.preventDefault();
     getFromStorage();
     let newCityName = UI_ELEMENTS.city_name.textContent;
-    if(сitiesAdded.includes(newCityName)) {
-        return;
+    if(сitiesAdded.length !== 0) {
+        if(сitiesAdded.includes(newCityName)) {
+            return;
+        }
     }
     сitiesAdded.push(newCityName);
     if(сitiesAdded.length > 6) {

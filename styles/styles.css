@@ -99,12 +99,23 @@ body {
 .tab-now.active {
     display: flex;
 }
-
-.data-temperature {
+.container-temp-data {
+    display: flex;
+    justify-content: space-between;
     width: 283px;
-    padding-left: 15px; 
-    padding-top: 30px;
+    padding: 30px 0px 0 15px; 
+}
+.data-temperature {
     font-size: 70px;
+}
+.time-now{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 15px;
+}
+.time-now-day {
+    margin-bottom: 5px;
 }
 .img-weather{
     display: flex;
@@ -220,6 +231,9 @@ body {
 }
 
 /* правая часть - сайд бар */
+.sidebar {
+    position: relative;
+}
 .header-sidebar {
     display: flex;
     justify-content: space-between;
@@ -336,7 +350,6 @@ li {
     margin-bottom: 14px;
     list-style-type: none;
 }
-
 /* контейнер таба Forecast */
 .tab-forecast {
     display: flex;
@@ -412,7 +425,24 @@ li {
 .disabled {
     display: none;
 }
-
+.container-img-ref {
+    position: absolute;
+    bottom: 5px;
+    right: 12px;
+    border-radius: 3px;
+}
+.img-ref {
+    width: 50px;
+    height: 30px;
+    border-radius: 3px;
+}
+.container-img-ref:hover {
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.45);
+}
+.container-img-ref:active {
+    scale: .88;
+    box-shadow: 0px 0px 8px 1px rgb(221, 93, 71);
+}
 /* кастомизация скролл бара */
 ::-webkit-scrollbar {
     width: 4px;

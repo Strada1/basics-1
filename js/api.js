@@ -8,3 +8,9 @@ const API = {
 }
 
 
+
+
+// manyCitiesURL: 'http://api.openweathermap.org/geo/1.0/direct',
+// const urlWeather = `${API.manyCitiesURL}?q=${cityName}&limit=5&appid=${API.apiKey}&units=metric`;
+
+

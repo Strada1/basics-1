@@ -1,10 +1,9 @@
-import { UI_ELEMENTS, ERROR_LIST, HTML_ELEMENTS } from './view.js';
+import { UI_ELEMENTS, ERROR_LIST, HTML_ELEMENTS, FOR_DATE } from './view.js';
 import { API } from './api.js';
 import { сitiesAdded, recordToStorage, getFromStorage, setCurrentCity, getCurrentCity  } from './storage.js';
 
 let dataWeather = {};
 let dataWeatherForecast = {};
-
 
 UI_ELEMENTS.city_search.addEventListener('submit', (event) => handlerCitySearch(event));
 
@@ -84,6 +83,7 @@ async function fetchDataWeather(cityName = 'Moscow') {
     if(UI_ELEMENTS.tab_details.classList.contains('active')) {
         renderTabDetailes(dataWeather);
     }
+    UI_ELEMENTS.a_ref.setAttribute('href', `https://openweathermap.org/city/${dataWeather.id}`);
 }
 
 async function fetchDataWeatherForecast(cityName = 'Moscow') {
@@ -109,27 +109,54 @@ function renderTabNow(dataWeather) {
     while (UI_ELEMENTS.now_tab.lastElementChild) {
         UI_ELEMENTS.now_tab.removeChild(UI_ELEMENTS.now_tab.lastElementChild);
     }
+    const containerTempAndData = htmlElementConstructor(HTML_ELEMENTS.containerTempAndData);
+
     const dataTemperature = htmlElementConstructor(HTML_ELEMENTS.dataTemperature);
     dataTemperature.innerText = Math.round(dataWeather.main.temp) + '°';
-    UI_ELEMENTS.now_tab.append(dataTemperature);
+    containerTempAndData.append(dataTemperature);
+
+    const timeNow = htmlElementConstructor(HTML_ELEMENTS.timeNow);
+
+    const timeNowDate = htmlElementConstructor(HTML_ELEMENTS.timeNowDay);
+
+    const timeShift = new Date() - (10800 * 1000) + (dataWeather.timezone * 1000);
+    timeNowDate.innerText = new Date(timeShift).toLocaleDateString('en', FOR_DATE.optionsDate);
+    timeNow.append(timeNowDate);
+
+    const timeNowTime = htmlElementConstructor(HTML_ELEMENTS.timeNowTime);
+    timeNowTime.innerText = new Date(timeShift).toLocaleTimeString('nu', FOR_DATE.optionsTime);
+    timeNow.append(timeNowTime);
+    containerTempAndData.append(timeNow);
+
+    UI_ELEMENTS.now_tab.append(containerTempAndData);
+
     const imgCityWeather = htmlElementConstructor(HTML_ELEMENTS.imgCityWeather);
     imgCityWeather.src = `https://openweathermap.org/img/wn/${dataWeather.weather[0]['icon']}@4x.png`;
+
     UI_ELEMENTS.now_tab.append(imgCityWeather);
+
     const divFooterNow = htmlElementConstructor(HTML_ELEMENTS.divFooterNow);
+
     UI_ELEMENTS.now_tab.append(divFooterNow);
     UI_ELEMENTS.city_footer = divFooterNow;
+
     const cityNameField = htmlElementConstructor(HTML_ELEMENTS.cityNameField);
+
     cityNameField.innerText = dataWeather.name;
     UI_ELEMENTS.city_footer.append(cityNameField);
     UI_ELEMENTS.city_name = cityNameField;
+
     const btnLike = htmlElementConstructor(HTML_ELEMENTS.btnLike);
     btnLike.addEventListener('click', (event) => handlerAddCity(event));
+
     if(dataWeather.name === getCurrentCity() || сitiesAdded.includes(dataWeather.name)) {
         btnLike.classList.add('like-btn-added')
-    }
+    } else (btnLike.classList.remove('like-btn-added'));
+
     UI_ELEMENTS.city_footer.append(btnLike);
     UI_ELEMENTS.city_btn_like = btnLike;
     UI_ELEMENTS.now_tab.append(UI_ELEMENTS.city_footer);
+
     return UI_ELEMENTS.now_tab;
 }
 
@@ -146,17 +173,22 @@ function renderTabDetailes(dataWeather) {
     while (UI_ELEMENTS.tab_details.lastElementChild) {
         UI_ELEMENTS.tab_details.removeChild(UI_ELEMENTS.tab_details.lastElementChild);
     }
+
     const currentCity = getCurrentCity();
     HTML_ELEMENTS.cityNameDetails.innerText = currentCity;
+
     const cityNameDetails = htmlElementConstructor(HTML_ELEMENTS.cityNameDetails);
     
     const detailsContent = htmlElementConstructor(HTML_ELEMENTS.detailsContentContainer);
     UI_ELEMENTS.detailsContentContainer = detailsContent;
+
     for (let [key, value] of dataTabDetailes) {
         const detailsContentElement = htmlElementConstructor(HTML_ELEMENTS.detailsContentElement);
         detailsContentElement.innerText = `${key} ${value}`;
+
         UI_ELEMENTS.detailsContentContainer.append(detailsContentElement);
     }
+
     UI_ELEMENTS.tab_details.append(cityNameDetails);
     UI_ELEMENTS.tab_details.append(UI_ELEMENTS.detailsContentContainer);
     UI_ELEMENTS.tabs_content.append(UI_ELEMENTS.tab_details); 
@@ -167,21 +199,23 @@ function renderTabForecast(dataWeatherForecast) {
         UI_ELEMENTS.forecast_tab.removeChild(UI_ELEMENTS.forecast_tab.lastElementChild);
     }
     const cityHeaderForecast = htmlElementConstructor(HTML_ELEMENTS.cityHeaderForecast);
+
     const currentCity = getCurrentCity();
     HTML_ELEMENTS.cityNameForecast.innerText = currentCity;
+
     const cityNameForecast = htmlElementConstructor(HTML_ELEMENTS.cityNameForecast);
     cityHeaderForecast.append(cityNameForecast);
+
     const cardsForecastContainer = htmlElementConstructor(HTML_ELEMENTS.cardsForecastContainer);
+    const timeShiftForecast = (dataWeather.timezone * 1000) - (10800 * 1000);
     for(let i = 0; i < 10; i++) {
         const cardForecast = htmlElementConstructor(HTML_ELEMENTS.cardForecast);
         const timesPeriod = htmlElementConstructor(HTML_ELEMENTS.timesPeriod);
 
-        const optionsDate = { weekday: 'short', day: '2-digit', month: 'long' };
-        HTML_ELEMENTS.periodDate.innerText = new Date(dataWeatherForecast.list[i].dt * 1000).toLocaleDateString('en', optionsDate);
+        HTML_ELEMENTS.periodDate.innerText = new Date(dataWeatherForecast.list[i].dt * 1000 + timeShiftForecast).toLocaleDateString('en', FOR_DATE.optionsDate);
         const periodDate = htmlElementConstructor(HTML_ELEMENTS.periodDate);
         
-        const optionsTime = { hour: '2-digit', minute: '2-digit' };
-        HTML_ELEMENTS.periodTime.innerText = new Date(dataWeatherForecast.list[i].dt * 1000).toLocaleTimeString('nu', optionsTime);
+        HTML_ELEMENTS.periodTime.innerText = new Date(dataWeatherForecast.list[i].dt * 1000 + timeShiftForecast).toLocaleTimeString('nu', FOR_DATE.optionsTime);
         const periodTime = htmlElementConstructor(HTML_ELEMENTS.periodTime);
         
         const tempRealy = htmlElementConstructor(HTML_ELEMENTS.tempRealy);
@@ -222,7 +256,7 @@ function renderTabForecast(dataWeatherForecast) {
 function handlerAddCity(event) {
     event.preventDefault();
     getFromStorage();
-    let newCityName = UI_ELEMENTS.city_name.textContent;
+    const newCityName = UI_ELEMENTS.city_name.textContent;
     if(сitiesAdded.length !== 0) {
         if(сitiesAdded.includes(newCityName)) {
             return;
@@ -253,7 +287,6 @@ function publishCities(city) {
         handlerFavoriteCity();
     };
     const handlerFavoriteCity = () => {
-        // event.preventDefault();
         const cityFavorite = city;
         fetchDataWeather(cityFavorite);
         setCurrentCity(cityFavorite);
@@ -307,9 +340,6 @@ function getSunRiseAndSet(timeNeed) {
     const localTime_sun = timeNeed * 1000;
     const utc_sun = localTime_sun + localOffset;
     const nd_sun = utc_sun + (dataWeather.timezone * 1000);
-    const options = { hour: 'numeric', minute: 'numeric'};
-    const timeRequest = new Date(nd_sun).toLocaleTimeString(navigator.language, options);
+    const timeRequest = new Date(nd_sun).toLocaleTimeString(navigator.language, FOR_DATE.optionsTime);
     return timeRequest;
 }
-
-

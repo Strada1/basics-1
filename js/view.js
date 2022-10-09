@@ -1,4 +1,4 @@
-export { UI_ELEMENTS, ERROR_LIST, HTML_ELEMENTS };
+export { UI_ELEMENTS, ERROR_LIST, HTML_ELEMENTS, FOR_DATE };
 
 
 const UI_ELEMENTS = {
@@ -25,7 +25,7 @@ const UI_ELEMENTS = {
     forecast_cards_container: document.querySelector('.container-cards'),
     forecast_card: document.querySelector('.card-forecast'),
 
-
+    a_ref: document.querySelector('.a-ref'),
 
     added_location: document.querySelector('.content-sidebar'),
     city_favorite: document.querySelector('.city-name-added'),
@@ -67,12 +67,44 @@ function popUpError(errorText) {
         pop_up.classList.remove('pop-up-active');
     });
 }
+const FOR_DATE = {
+    optionsDate: { weekday: 'short', day: '2-digit', month: 'long' },
+    optionsTime: { hour: '2-digit', minute: '2-digit' },
+};
 
 const HTML_ELEMENTS = {
+    containerTempAndData: {
+        name: 'containerTempAndData',
+        tag: 'div',
+        className: 'container-temp-data',
+        innerText: undefined,
+        src: undefined,
+    },
     dataTemperature: {
         name: 'dataTemperature',
-        tag: 'span',
+        tag: 'div',
         className: 'data-temperature',
+        innerText: undefined,
+        src: undefined,
+    },
+    timeNow: {
+        name: 'timeNow',
+        tag: 'div',
+        className: 'time-now',
+        innerText: undefined,
+        src: undefined,
+    },
+    timeNowDay: {
+        name: 'timeNowDay',
+        tag: 'div',
+        className: 'time-now-day',
+        innerText: undefined,
+        src: undefined,
+    },
+    timeNowTime: {
+        name: 'timeNowTime',
+        tag: 'div',
+        className: 'time-now-time',
         innerText: undefined,
         src: undefined,
     },

@@ -1,11 +1,4 @@
-const Town = document.getElementById("Town")
-const formSumbit = document.getElementById('formSumbit')
-
-const body = document.getElementById('body')
-// 
-const tabNow = document.getElementById('tabNow')
-const tabDetalis = document.getElementById('tabDetalis')
-const tabForecast = document.getElementById('tabForecast')
+import {ITEMS_TAB, renderNowHTML} from './view.js';
 
 window.addEventListener('unhandledrejection', function(event) {
 	console.log(event.promise);
@@ -14,11 +7,11 @@ window.addEventListener('unhandledrejection', function(event) {
 
 let list = [];
 
-formSumbit.addEventListener("submit", addTown)
+ITEMS_TAB.formSumbitNow.addEventListener("submit", addTown)
+ITEMS_TAB.formSumbitDetalis.addEventListener("submit", addTown)
 
 async function getItem() {
-
-	let cityName = Town.value;
+	let cityName = ITEMS_TAB.Town.value;
 	if(!cityName) {
 		cityName = localStorage.getItem('lastCity')
 	}
@@ -52,41 +45,22 @@ async function getItem() {
 
 		renderNow(temperature, cityName, icon)
 		renderDetalis (temperature, cityName, feels_like, Weather_status, Sunrise, Sunset)
-		formSumbit.reset()
+		ITEMS_TAB.formSumbitNow.reset()
+		ITEMS_TAB.formSumbitDetalis.reset()
 }
 
 async function addTown(event) {
 		event.preventDefault();
 		getItem()
 }
-
+//
 function renderNow(temperature, cityName, icon) {
 	const temperatureNow = document.getElementById('temperatureNow')
 	const loveButton = document.getElementById('loveButton')
 
 	temperatureNow.textContent = ""
 	
-	let link_img = `//openweathermap.org/img/wn/${icon}@2x.png`
-	
-	// картинка в now
-	let img_weather = document.createElement('img');
-	img_weather.className = "img_cloud";
-	img_weather.src  = link_img;
-	temperatureNow.prepend(img_weather)
-	
-
-	// температура
-	let div_temperature = document.createElement('div')
-	div_temperature.className = "temperature";
-	div_temperature.textContent = `${temperature}°`;
-	temperatureNow.prepend(div_temperature)
-
-	// локация во вкладке now
-	let div_name = document.createElement('div');
-	div_name.className = "section1_text";
-	div_name.id = "cityName"
-	div_name.textContent = cityName;
-	temperatureNow.append(div_name)
+	renderNowHTML(temperature, cityName, icon)
 
 	//loveButton
 	loveButton.classList.add('after__render')
@@ -131,7 +105,6 @@ function renderDetalis (temperature, cityName, feels_like, Weather_status, Sunri
 	let div_Sunset = document.createElement('div')
 	div_Sunset.textContent = `Sunset: ${Sunset}`;
 	data_Wether.append(div_Sunset)
-
 }
 
 function toStorage (list) {
@@ -182,7 +155,7 @@ function addLocation() {
 	}
 }
 
-body.onload = renderAddedLocation()
+document.body.onload = renderAddedLocation()
 
 function renderAddedLocation() {
 	const city = document.getElementById('city')
@@ -265,4 +238,10 @@ async function showlastCity() {
 	}
 
 	getItem()
+}
+
+tabNow.addEventListener('click', TabmenuNow)
+
+function TabmenuNow() {
+	tabNow.classList = "active"
 }

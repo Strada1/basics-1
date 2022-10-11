@@ -169,7 +169,7 @@ function renderTabDetailes(dataWeather) {
     dataTabDetailes.set('Weather:', dataWeather.weather[0].main);
     dataTabDetailes.set('Sunrise:', timeSunRise);
     dataTabDetailes.set('Sunset:', timeSunSet);
-    dataTabDetailes.set('Pressure:', `${Math.round(dataWeather.main.pressure * API.hPaTommHg)} mmHg`);
+    dataTabDetailes.set('Pressure:', `${Math.round(dataWeather.main.pressure * API.hPa_To_mmHg)} mmHg`);
     while (UI_ELEMENTS.tab_details.lastElementChild) {
         UI_ELEMENTS.tab_details.removeChild(UI_ELEMENTS.tab_details.lastElementChild);
     }

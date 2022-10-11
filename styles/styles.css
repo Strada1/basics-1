@@ -315,6 +315,8 @@ body {
     background-color: rgb(244, 244, 244);
 }
 .btn-delete:active {
+    width: 30px;
+    height: 30px;
     background-color: rgb(255, 99, 71, 1.1);
 }
 
@@ -436,12 +438,14 @@ li {
     height: 30px;
     border-radius: 3px;
 }
+
 .container-img-ref:hover {
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.45);
 }
 .container-img-ref:active {
-    scale: .88;
-    box-shadow: 0px 0px 8px 1px rgb(221, 93, 71);
+    scale: .92;
+    border: 1px solid tomato;
+    box-shadow: 0px 0px 5px 3px rgb(255, 53, 3, .45);
 }
 /* кастомизация скролл бара */
 ::-webkit-scrollbar {

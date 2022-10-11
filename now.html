@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./css/style.css">
+
+	<title>Погода</title>
+</head>
+<body>
+	<form class="nav_search">
+		<input type="text" placeholder="Enter your city" class="nav_search__input">
+		<button class="search">
+			<svg class="nav_search__image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><g id="_01_align_center" data-name="01 align center"><path d="M24,22.586l-6.262-6.262a10.016,10.016,0,1,0-1.414,1.414L22.586,24ZM10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18Z"/></g></svg>
+		</button>
+	</form>
+
+
+	<div class="container">
+		<div class="main_weather">
+			
+			<!-- Now -->
+			<div class="main_weather__city main_weather__city-now">
+					<h1 class="temperature">14&deg</h1>
+				<div class="image_cloud">
+					<img class="cloud" src="./css/img/cloud.png" alt="Cloud">
+				</div>
+				<div class="favorite">
+					<p class="name_city">Aktobe</p>
+					<svg class="favorite_btn" width="22" height="22" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path opacity="0.54" fill-rule="evenodd" clip-rule="evenodd" d="M17.5 1C15.0556 1 12.8556 2.7875 12 5.125C11.1444 2.7875 8.94444 1 6.5 1C3.44444 1 1 3.6125 1 7.1875C1 12 5.27778 16.125 12 23C18.7222 16.125 23 12 23 7.1875C23 3.6125 20.5556 1 17.5 1Z" stroke="black" stroke-width="2"/>
+						</svg>						
+				</div>
+			</div>
+
+			<!-- Details -->
+			<div class="main_weather__city main_weather__city-details hide">
+				<div class="city_details">
+					<h2 class="header_details">Aktobe</h2>
+				</div>
+					<ul class="list-details">
+						<li class="list_item__temprature">Temprature: 14&deg</li>
+						<li class="list_item__feels">Feels like: 10&deg</li>
+						<li class="list_item__weather">Weather: Clouds</li>
+						<li class="list_item__sunrise"> Sunrise: 03:21</li>
+						<li class="list_item__sunset">Sunset: 18:54</li>
+					</ul>
+			</div>
+
+			<!-- Forecast -->
+			<div class="main_weather__city main_weather__city-forecast hide">
+				<div class="city_details">
+					<p class="forecast__header-name">Aktobe</p>
+				</div>
+					<ul class="forecast_list">
+						<li class="forecast_item">
+							<div class="forecast_date">
+								<p class="forecast_date__day">17 May</p>
+								<p class="forecast_date__time">12:00</p>
+							</div>
+							<div class="forecast_detail">
+								<div class="forecast_details" width="136" heigh="42">
+									<p class="forecast_details__temperature">Temprature: 13&deg</p>
+									<p class="forecast_details__feels">Feels Like: 10&deg</p>
+								</div>
+								<div class="forecast_icon">
+									<p class="forecast_weather__name">Rain</p>
+									<img class="forecast_weather__icon" src="./css/img/rain.png" alt="Rain" width="31" height="31">
+								</div>
+							</div>
+						</li>
+					</ul>
+			</div>
+
+			<div class="main_weather__nav">
+				<div class="navigation nav_now active">
+					Now
+				</div>
+				<div class="navigation nav_details">
+					Details
+				</div>
+				<div class="navigation nav_forecast">
+					Forecast
+				</div>
+			</div>
+		</div>
+
+		<div class="location">
+			<div class="header">
+				<p class="header_text">Added Locations: </p>
+			</div>
+		<div class="added_cities">
+			<ul class="favorites_cities">
+				
+			</ul>
+			
+		</div>
+		</div>
+		
+	</div>
+	<script type="module" src="./js/index.js"></script>
+</body>
+</html>

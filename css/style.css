@@ -1,0 +1,316 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 1280px;
+	height: 900px;
+
+	font-family: 'Roboto';
+}
+
+ul, li {
+	list-style: none;
+}
+
+/* a.text:active, /* активная/посещенная ссылка */
+/* a.text:hover,  при наведении */
+a.text,
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+h1 {
+	width: 95px;
+	height: 83px;
+	font-weight: 400;
+	font-size: 70px;
+	line-height: 82px;
+
+	margin-top: 20px;
+	margin-left: 23px;
+}
+
+input {
+	padding: 0;
+	margin: 0;
+	outline: none;
+	border: none;
+}
+
+.nav_search {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 600px;
+	height: 45px;
+
+	margin: 20px auto 0 auto;
+
+	border: 1px solid black;
+
+}
+
+.nav_search__input {
+	margin-left: 15px;
+	width: 100%;
+}
+
+.search {
+	cursor: pointer;
+
+	outline: none;
+	border: none;
+	background: none;
+}
+
+.nav_search__image {
+	margin-right: 15px;
+}
+
+.container {
+	display: flex;
+	flex-wrap: nowrap;
+
+	margin: 0 auto 0 auto;
+	width: 600px;
+	height:  389px;
+
+	border: 1px solid;
+	border-top: none;
+}
+
+.main_weather {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	width: 298px;
+	height: 389px;
+
+	border-right: 1px solid;
+}
+
+.main_weather__city {
+	padding: 0;
+	margin: 0;
+	height: 345px;
+	
+
+	overflow: scroll;
+}
+
+.image_cloud {
+	width: 78px;
+	height: 59px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	margin-top: 40px;
+	margin-bottom: 98px;
+	margin-left: 112px;
+}
+
+.favorite {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	margin-left: 15px;
+	margin-right: 22px;
+}
+
+.main_weather__nav {
+	display: flex;
+	justify-content: space-between;
+
+	margin-top: 0;	
+
+	outline: 1px solid;
+}
+
+.nav_now, .nav_details, .nav_forecast {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-right: 1px solid;
+	border-bottom: none;
+
+	width: 99px;
+	height: 44px;
+}
+
+.nav_forecast {
+ border-right: none;
+
+}
+
+.location {
+	width: 100%;
+}
+
+.header {
+	width: 100%;
+
+	font-size: 24px;
+	line-height: 28px;
+
+	border-bottom: 1px solid;
+}
+
+.header_text {
+	margin-top: 33px;
+	margin-left: 18px;
+}
+
+.added_cities {
+	max-height: 292px;
+
+	display: flex;
+	flex-direction: column;
+
+	margin-top: 35px;
+	margin-left: 18px;
+
+	overflow: auto;
+}
+
+.add__city {
+	font-size: 24px;
+	line-height: 28px;
+
+	margin-bottom: 12px;
+}
+
+.city_details,
+.list_item__temprature,
+.list_item__feels,
+.list_item__weather,
+.list_item__sunrise,
+.list_item__sunset {
+	font-size: 24px;
+	line-height: 28px;
+}
+
+.city_details {
+	margin-left: 17px;
+	margin-top: 33px;
+	margin-bottom: 42px;
+}
+
+.list_item__temprature,
+.list_item__feels,
+.list_item__weather,
+.list_item__sunrise,
+.list_item__sunset {
+	margin-bottom: 12px;
+	margin-left: 17px;
+}
+
+.main_weather__city-forecast {
+	max-height: 345px;
+
+	overflow: auto;
+}
+
+.forecast_list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.forecast_item {
+	border: 1px solid;
+
+	width: 250px;
+	height: 120px;
+
+	margin-bottom: 9px;
+	margin-left: 10px;
+	margin-right: 8px;
+
+	padding: 8px;
+}
+
+.forecast_date {
+	display: flex;
+	justify-content: space-between;
+
+	margin-bottom: 50px;
+}
+
+.forecast_detail {
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav_now,
+.nav_details,
+.nav_forecast {
+	cursor: pointer;
+}
+
+.nav_now,
+.nav_details,
+.nav_forecast {
+	transition: all 0.5s ease-in-out;
+}
+
+.now_tab:hover,
+.details_tab:hover,
+.forecast_tab:hover,
+.nav_now:hover,
+.nav_details:hover,
+.nav_forecast:hover	{ 
+	color: white;
+}
+
+.nav_now:hover, 
+.nav_details:hover,
+.nav_forecast:hover,
+.nav_now:focus, 
+.nav_details:focus,
+.nav_forecast:focus {
+	background-color: black;
+}
+
+.favorite_btn {
+	cursor: pointer;
+}
+
+.favorite_btn:hover {
+	fill: rgb(209, 209, 209);
+}
+
+.item {
+	margin-right: 10px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.delete {
+	cursor: pointer;
+}
+
+.add__city {
+	cursor: pointer;
+}
+
+.active {
+	background: black;
+	color: white;
+}
+
+.hide {
+	display: none;
+}

@@ -1,4 +1,4 @@
-import {ITEMS_TAB, renderNowHTML} from './view.js';
+import {ITEMS_TAB, renderNowHTML, renderDetailsHTML, renderAddedLocationHTML} from './view.js';
 
 window.addEventListener('unhandledrejection', function(event) {
 	console.log(event.promise);
@@ -53,18 +53,16 @@ async function addTown(event) {
 		event.preventDefault();
 		getItem()
 }
-//
+
 function renderNow(temperature, cityName, icon) {
 	const temperatureNow = document.getElementById('temperatureNow')
 	const loveButton = document.getElementById('loveButton')
-
 	temperatureNow.textContent = ""
 	
 	renderNowHTML(temperature, cityName, icon)
 
 	//loveButton
 	loveButton.classList.add('after__render')
-
 	loveButton.addEventListener('click', addLocation)
 }
 
@@ -74,37 +72,7 @@ function renderDetalis (temperature, cityName, feels_like, Weather_status, Sunri
 	DetalisTab.textContent = ""
 	data_Wether.textContent = ""
 
-	//Имя города
-	let div_name = document.createElement('div');
-	div_name.className = "Actobe_text";
-	div_name.textContent = cityName;
-	DetalisTab.prepend(div_name)
-
-	//Temperature
-	let div_temperature = document.createElement('div')
-	div_temperature.textContent = `Temperature: ${temperature}°`;
-	data_Wether.append(div_temperature)
-
-	//Feels like
-	let div_Feelslike = document.createElement('div')
-	div_Feelslike.textContent = `Feels like: ${feels_like}°`;
-	data_Wether.append(div_Feelslike)
-
-	//Weather 
-	let div_Weather = document.createElement('div')
-	div_Weather.textContent = `Weather: ${Weather_status}`;
-	data_Wether.append(div_Weather)
-
-	//Sunrise
-	let div_Sunrise = document.createElement('div')
-	div_Sunrise.textContent = `Sunrise: ${Sunrise}`;
-	data_Wether.append(div_Sunrise)
-
-
-	//Sunset
-	let div_Sunset = document.createElement('div')
-	div_Sunset.textContent = `Sunset: ${Sunset}`;
-	data_Wether.append(div_Sunset)
+	renderDetailsHTML(temperature, cityName, feels_like, Weather_status, Sunrise, Sunset)
 }
 
 function toStorage (list) {
@@ -117,27 +85,21 @@ function lastFavoriteViewed(cityName) {
     localStorage.setItem('lastCity', lastCity)
 }
 
-// localStorage.clear()
-
 function addLocation() {
-
 	let cityValue = document.getElementById("cityName")
 	let cityName = cityValue.textContent
 	
-
 	if(!list) {
 		list = ["Варшава"]
 	}
 	console.log(`list: ${list}`)
 	lastFavoriteViewed(cityName)
 	 
-
 	const indexObj = list.findIndex(function(item){
 		return item == cityName
 	})
 
 	if (indexObj == -1) {
-		
 		if(localStorage.length) {
 			let cityInLs = JSON.parse(localStorage.getItem("citiesArray"));
 			list = cityInLs
@@ -165,43 +127,13 @@ function renderAddedLocation() {
 
 	let listLocal = JSON.parse(localStorage.getItem("citiesArray"));
 	list = listLocal;
-
 	if(!listLocal){
 		listLocal = ["Варшава"]
 	}
 
 	console.log(`listLocal: ${listLocal}`)
 
-	listLocal.forEach(function(item) {
-
-		// добавление в Now 
-		let div_location = document.createElement('div');
-		div_location.textContent = item;
-		div_location.onclick = showNowTab
-		city.append(div_location)
-		// cityTab2.append(div_location)
-
-		let cross = document.createElement('input');
-		cross.value = '☒';
-		cross.type = 'submit'
-		cross.classList = 'button_close';
-		cross.onclick = deleteTown // переделать AddEventListner 
-		city.append(cross)
-		// cityTab2.append(cross)
-
-		// добавление в Detalis
-		let div_locationTab2 = document.createElement('div');
-		div_locationTab2.textContent = item;
-		div_locationTab2.onclick = showNowTab
-		cityTab2.append(div_locationTab2)
-
-		let crossTab2 = document.createElement('input');
-		crossTab2.value = '☒';
-		crossTab2.type = 'submit'
-		crossTab2.classList = 'button_close';
-		crossTab2.onclick = deleteTown 
-		cityTab2.append(crossTab2)
-	})
+	renderAddedLocationHTML(listLocal, showNowTab, deleteTown)
 	showlastCity()
 }
 
@@ -240,8 +172,8 @@ async function showlastCity() {
 	getItem()
 }
 
-tabNow.addEventListener('click', TabmenuNow)
+// tabNow.addEventListener('click', TabmenuNow)
 
-function TabmenuNow() {
-	tabNow.classList = "active"
-}
+// function TabmenuNow() {
+// 	tabNow.classList = "active"
+// }

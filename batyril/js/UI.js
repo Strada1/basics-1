@@ -1,8 +1,11 @@
-import { getConvertDate, getConvertTime } from "./checks.js";
+import { getConvertDate, getConvertTime } from './checks.js';
+import { closePopup, openPopup } from './popup.js';
 
 export const UI = {
   FORM: document.querySelector('.weather__form'),
   FAVORITE_CITIES_LIST: document.querySelector('.favorites__list'),
+  POPUP: document.querySelector('.overlay'),
+  POPUP_CLOSE: document.querySelector('.popup__close'),
 };
 
 export const UI_FORECAST = {
@@ -26,6 +29,8 @@ export const UI_DETAILS = {
   SUNRISE: document.querySelector('.details__sunrise>span'),
   SUNSET: document.querySelector('.details__sunset>span'),
 };
+
+UI.POPUP_CLOSE.addEventListener('click', () => closePopup(UI.POPUP));
 
 function getImageLink(imageNumber) {
   const SERVER_URL = 'http://openweathermap.org/img/wn/';
@@ -62,52 +67,44 @@ export function addFavoriteCityUI(city, place) {
   place.append(liCity);
 }
 
-export function addForecastWeatherUI(data, place) {
-  const box = document.createElement('div');
-  box.classList.add('forecast__box');
+function getCreateElement(tagName, className, tagContent) {
+  const element = document.createElement(tagName);
+  if (className) element.classList.add(className);
+  if (tagContent) element.textContent = tagContent;
+  return element;
+}
 
-  const top = document.createElement('div');
-  top.classList.add('forecast__top');
+export function addForecastWeatherUI(data, place) {
+  const box = getCreateElement('div', 'forecast__box');
+
+  const top = getCreateElement('div', 'forecast__top');
   box.prepend(top);
 
-  const date = document.createElement('div');
-  date.classList.add('forecast__date');
-  date.textContent = getConvertDate(data.dt);
+  const date = getCreateElement('div', 'forecast__date', getConvertDate(data.dt));
   top.prepend(date);
 
-  const time = document.createElement('div');
-  time.classList.add('forecast__time');
-  time.textContent = `${getConvertTime(data.dt)}0`;
+  const time = getCreateElement('div', 'forecast__time', getConvertTime(data.dt));
   top.append(time);
 
-  const bottom = document.createElement('div');
-  bottom.classList.add('forecast__bottom');
+  const bottom = getCreateElement('div', 'forecast__bottom');
   box.append(bottom);
 
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('forecast__wrapper');
+  const wrapper = getCreateElement('div', 'forecast__wrapper');
   bottom.prepend(wrapper);
 
-  const temperature = document.createElement('div');
-  temperature.classList.add('forecast__temperature');
-  temperature.textContent = `Temperature: ${Math.trunc(data.main.temp)}°`;
+  const temperature = getCreateElement('div', 'forecast__temperature', `Temperature: ${Math.trunc(data.main.temp)}°`);
   wrapper.prepend(temperature);
 
-  const feelsLike = document.createElement('div');
-  feelsLike.classList.add('forecast__feels-like');
-  feelsLike.textContent = `Feels like: ${Math.trunc(data.main.feels_like)}°`;
+  const feelsLike = getCreateElement('div', 'forecast__feels-like', `Feels like: ${Math.trunc(data.main.feels_like)}°`);
   wrapper.append(feelsLike);
 
-  const wrapperImage = document.createElement('div');
-  wrapperImage.classList.add('forecast__wrapper');
+  const wrapperImage = getCreateElement('div', 'forecast__wrapper');
   bottom.append(wrapperImage);
 
-  const imageText = document.createElement('div');
-  imageText.classList.add('forecast__image-text');
-  imageText.textContent = data.weather[0].main;
+  const imageText = getCreateElement('div', 'forecast__image-text', data.weather[0].main);
   wrapperImage.prepend(imageText);
 
-  const image = document.createElement('img');
+  const image = getCreateElement('img');
   image.alt = 'rain icon';
   image.src = getImageLink(data.weather[0].icon);
   wrapperImage.append(image);

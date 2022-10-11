@@ -6,7 +6,7 @@ export function getConvertTime(time) {
   const convertTime = new Date(time * 1000);
   const hours = convertTime.getHours();
   const minutes = convertTime.getMinutes();
-  return `${hours}:${minutes}`;
+  return `${hours}:${minutes}0`;
 }
 
 export function getConvertDate(time) {

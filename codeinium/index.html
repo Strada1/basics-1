@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="find">
+            <form id="find-form" type="submit">
+                <input id="find-input" type="text" placeholder="City">
+            </form>
+            <button id="find-button">
+                <img src="./icons/find.svg">
+            </button>
+        </div>
+        <div class="weather">
+            <div class="tabs">
+                <div class="tabs-body">
+                    <div id="tab-1" class="tabs-block">
+                        <div class="temperature">
+                            <div class="temp">
+                                <span id="temperature">
+                
+                                </span>
+                            </div>
+                            <div class="status">
+                                <img id='weather-icon'>
+                            </div>
+                            <div class="location">
+                                <div class="spancontainer">
+                                    <span id="loca">  </span>
+                                </div>
+                                <button id="add-button">
+                                    <img id="add-icon" src="./icons/like.svg" hidden>
+                                </button>
+                            </div>
+                        </div> 
+                    </div>
+                    <div id="tab-2" class="tabs-block">
+                        <div class="city">
+                            <span id="city"> </span>
+                        </div>
+                        <div class="details">
+                            <ol>
+                                <li>
+                                    <span id="temp"> </span>
+                                </li>
+                                <li>
+                                    <span id="feel"> </span>
+                                </li>
+                                <li>
+                                    <span id="weather"> </span>
+                                </li>
+                                <li>
+                                    <span id="sunrise">  </span>
+                                </li>
+                                <li>
+                                    <span id="sunset"> </span>
+                                </li>
+                            </ol>                 
+                        </div>
+                    </div>
+                    <nav class="tabs-items">
+                        <a href="#tab-1" class="tabs-item"><span>Now</span></a>
+                        <a href="#tab-2" class="tabs-item"><span>Details</span> </a>
+                    </nav>
+                </div>
+            </div>
+            <div class="cities">
+                <div class="liked-cities"> <span>Added locations:  </span></div>
+                <div class="locations">
+                    <ol id="added-locations"> </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module" src="./main.js"> </script>
+<script type="module" src="./localstorage.js"></script>
+</html>

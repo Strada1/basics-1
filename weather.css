@@ -210,7 +210,7 @@ li {
 }
 
 .forecast-icons {
-  background: url(/weather/img/Cloud-rain.svg);
+  background: url(/basics-1/img/Cloud-rain.svg);
   background-repeat: no-repeat;
   background-size: auto;
   width: 31px;
@@ -254,9 +254,11 @@ li {
 
 
 .locations-items button {
-  background: rgba(255, 255, 255, 0);
+  background: url(/basics-1/img/close-icon.svg);
   border: 0;
   padding-right: 25px;
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
 .locations-items li {

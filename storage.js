@@ -1,27 +1,24 @@
 
-let city = new Set();
-let CITYNAME = {}
-
-// function localGet() {
-//     if (localStorage.getItem("likedCity") !== null) {
-//       return JSON.parse(localStorage.getItem("likedCity"));
-//     } else {
-//       return [];
-//     }
-//   }
-  
-  // function localSet() {
-  //   localStorage.setItem("likedCity", JSON.stringify(city));
-  //   localStorage.setItem("CityNow", JSON.stringify(CITYNAME));
-  // }
-  
-  // function localGetNow() {
-  //   if (localStorage.getItem("CityNow") !== null) {
-  //     return JSON.parse(localStorage.getItem("CityNow"));
-  //   } else {
-  //     return {};
-  //   }
-  // }
+let city = new Set(localGet());
+let CITYNAME = localGetNow()
 
 
-  export {city, CITYNAME}
+  function localSet() {
+    localStorage.setItem("likedCity", JSON.stringify([...city]));
+    localStorage.setItem("CityNow", JSON.stringify(CITYNAME));
+  }
+
+  function localGet() {
+    return JSON.parse(localStorage.getItem("likedCity"));
+    }
+        
+
+  function localGetNow() {
+    if (localStorage.getItem("CityNow") !== null) {
+      return JSON.parse(localStorage.getItem("CityNow"));
+    } else {
+      return {};
+    }
+  }
+
+  export {city, localSet, CITYNAME}

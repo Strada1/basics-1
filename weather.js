@@ -2,7 +2,7 @@ const searchForm = document.querySelector(".forecast-form");
 const searchInput = document.querySelector(".inputForm");
 
 import { ELEMENTS } from "./elements.js";
-import {city, CITYNAME } from "./storage.js";
+import { city, localSet, CITYNAME } from "./storage.js";
 
 const serverUrl = "http://api.openweathermap.org/data/2.5/weather";
 const apiKey = "f660a2fb1e4bad108d6160b7f58c555f";
@@ -30,7 +30,7 @@ function request(item) {
           result.weather[0].main,
           result.main.feels_like,
           result.sys.sunrise,
-          result.sys.sunset,
+          result.sys.sunset
         );
       }
     })
@@ -48,55 +48,71 @@ function renderLeftNow(cityName, cityTemp, cityImg) {
   ELEMENTS.NEW_TEMP.textContent = Math.round(cityTemp) + "°";
   ELEMENTS.NEW_TEMP.classList.add("degrees-num");
   ELEMENTS.DEGREES_NUMBER.prepend(ELEMENTS.NEW_TEMP);
+
+  CITYNAME.name = cityName;
+  (CITYNAME.temp = cityTemp), (CITYNAME.icon = cityImg);
+
+  localSet();
 }
 
 ELEMENTS.HEART.addEventListener("click", function () {
   SaveCity(ELEMENTS.CITY_NAME.innerText);
 });
 
-ELEMENTS.HEART.addEventListener("click", renderRight);
-
 function SaveCity(name) {
-  if (city !== '') {
+  if (city !== "") {
     city.add(name);
-    console.log(city)
+    renderRight();
+    localSet();
   }
-
 }
 
 function renderRight() {
+  ELEMENTS.SAVE_CITY_FORM.textContent = "";
   city.forEach((item) => {
     let SAVED_CITY = document.createElement("li");
-    SAVED_CITY.textContent = item
+    SAVED_CITY.textContent = item;
     ELEMENTS.SAVE_CITY_FORM.prepend(SAVED_CITY);
     let REMOVE_SAVED_CITY = document.createElement("button");
-    REMOVE_SAVED_CITY.innerHTML = `<img src="/weather/img/delete-btn.svg">`;
     SAVED_CITY.appendChild(REMOVE_SAVED_CITY);
-   
+
     SAVED_CITY.addEventListener("click", function () {
       request(item);
     });
-    REMOVE_SAVED_CITY.addEventListener('click', function() {
+    REMOVE_SAVED_CITY.addEventListener("click", function () {
       deleteCity(item);
-    })
+    });
   });
 }
 
 function deleteCity(name) {
-  city.delete(name)
+  city.delete(name);
+  localSet();
   renderRight();
 }
 
-function renderDetails(cityName, cityTemp, cityWether, cityFeelLike, citySunset, citySunrise) {
- 
+function renderDetails(
+  cityName,
+  cityTemp,
+  cityWether,
+  cityFeelLike,
+  citySunset,
+  citySunrise
+) {
   ELEMENTS.DETAILS_CITY.textContent = cityName;
-  ELEMENTS.DETAILS_TEMP.textContent = "Temperature:" + " " + Math.round(cityTemp) + "°";
+  ELEMENTS.DETAILS_TEMP.textContent =
+    "Temperature:" + " " + Math.round(cityTemp) + "°";
   ELEMENTS.DETAILS_WEATHER.textContent = `Weather: ${cityWether}`;
-  ELEMENTS.DETAILS_FEEL_LIKE.textContent = "Feels like:" + " " + Math.round(cityFeelLike) + "°";
+  ELEMENTS.DETAILS_FEEL_LIKE.textContent =
+    "Feels like:" + " " + Math.round(cityFeelLike) + "°";
   let SUNRISE = new Date(citySunrise * 1000);
   let SUNSET = new Date(citySunset * 1000);
 
-  ELEMENTS.DETAILS_SUNRISE.textContent = "Sunrise:" + " " + SUNRISE.toLocaleTimeString();
-  ELEMENTS.DETAILS_SUNSET.textContent = "Sunset:" + " " + SUNSET.toLocaleTimeString();
-
+  ELEMENTS.DETAILS_SUNRISE.textContent =
+    "Sunrise:" + " " + SUNRISE.toLocaleTimeString();
+  ELEMENTS.DETAILS_SUNSET.textContent =
+    "Sunset:" + " " + SUNSET.toLocaleTimeString();
 }
+
+renderRight();
+renderLeftNow(CITYNAME.name, CITYNAME.temp, CITYNAME.icon);

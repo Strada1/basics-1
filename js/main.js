@@ -4,16 +4,24 @@ import { cityTime } from "./setTime.js";
 import { render, setNowHTML, setDetailHTML } from "./vue.js";
 
 const SERVER = {
+  serverForecast: "http://api.openweathermap.org/data/2.5/forecast",
   serverUrl: "http://api.openweathermap.org/data/2.5/weather",
   apiKey: "6ca767a0f89bdb44703b66b9c5240f30",
 };
 
-export let list = ["Amur", "Samara", "Bali", "Dane", "Kilo", "Nur-Sultan"];
+export let list = new Set([
+  "Amur",
+  "Samara",
+  "Bali",
+  "Dane",
+  "Kilo",
+  "Nur-Sultan",
+]);
 
 let cityName;
 
 if (storageList) {
-  list = JSON.parse(storageList);
+  list = new Set(JSON.parse(storageList));
 }
 
 if (storageCity) {
@@ -25,7 +33,8 @@ export function showForecast(cityName) {
   if (!cityName) {
     cityName = ELEMENTS.cityInput.value;
   }
-  if (list.includes(cityName)) {
+
+  if (list.has(cityName)) {
     document.querySelector(".like svg").classList.add("heart");
   } else {
     document.querySelector(".like svg").classList.remove("heart");
@@ -70,6 +79,60 @@ export function showForecast(cityName) {
       );
     })
     .catch((err) => alert(err));
+
+  const forecastUrl = `${SERVER.serverForecast}?q=${cityName}&cnt=3&appid=${SERVER.apiKey}&units=metric`;
+
+  fetch(forecastUrl)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        alert("Ошибка HTTP: " + response.status);
+      }
+    })
+    .then((forecastData) => {
+      const newForecast = forecastData.list.map((item) => {
+        return [
+          new Date(item.dt_txt).getDate(),
+          new Date(item.dt_txt).toLocaleString("en-us", { month: "short" }),
+          `${new Date(item.dt_txt).getHours()}:00`,
+          Math.round(item.main.temp),
+          Math.round(item.main.feels_like),
+          item.weather[0].main,
+          item.weather[0].icon,
+        ];
+      });
+
+      document.querySelector('.text-locations.details').textContent = forecastData.city.name;
+
+      const DATA = [
+        document.querySelectorAll(".forecast-date p:nth-child(1) span:nth-child(1)"),
+        document.querySelectorAll(".forecast-date p:nth-child(1) span:nth-child(2)"),
+        document.querySelectorAll(".forecast-date p:nth-child(2)"),
+        document.querySelectorAll(".forecast-temperature p:nth-child(1) span"),
+        document.querySelectorAll(".forecast-temperature p:nth-child(2) span"),
+        document.querySelectorAll(".rain"),
+        document.querySelectorAll(".forecast-icons"),
+      ];
+
+      let j = 0;
+      for (let elem of DATA) {
+        let i = 0;
+        for (let item of elem) {
+          if (j === DATA.length - 1) {
+            item.setAttribute(
+              "src",
+              `http://openweathermap.org/img/wn/${newForecast[i][j]}@2x.png`
+            );
+          } else {
+            item.textContent = newForecast[i][j];
+          }
+          ++i;
+        }
+        j++;
+      }
+    });
+
   ELEMENTS.cityInput.value = "";
 }
 
@@ -79,15 +142,10 @@ ELEMENTS.citySearch.addEventListener("submit", (event) => {
 });
 
 function addFavoriteLocation() {
-  if (list.includes(ELEMENTS.forecastCity.textContent)) {
-    let newList = list.filter(
-      (item) => item !== ELEMENTS.forecastCity.textContent
-    );
-    list = newList;
+  if (list.delete(ELEMENTS.forecastCity.textContent)) {
     document.querySelector(".like svg").classList.remove("heart");
   } else {
-    const city = ELEMENTS.forecastCity.textContent;
-    list = [city, ...list];
+    list.add(ELEMENTS.forecastCity.textContent);
     document.querySelector(".like svg").classList.add("heart");
   }
   setLocal(list);
@@ -96,10 +154,7 @@ function addFavoriteLocation() {
 }
 
 export function deleteFavoriteLocation(city) {
-  if (list.includes(city)) {
-    let newList = list.filter((item) => item !== city);
-    list = newList;
-  }
+  list.delete(city);
   setLocal(list);
   render();
 }

@@ -20,4 +20,6 @@ export const ELEMENTS = {
 
   tabs: document.querySelectorAll(".tabs-item"),
   forecastScreen: document.querySelectorAll(".forecast"),
+
+
 };

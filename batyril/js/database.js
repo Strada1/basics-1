@@ -8,11 +8,19 @@ const TASK_STATUS = {
   IN_PROGRESS: 'In Progress',
 };
 
+
+
 export const DB_TASKS = [{ task: 'did to do', status: 'In Progress', priority: 'high' },
   { task: 'go', status: 'In Progress', priority: 'high' },
   { task: 'cook', status: 'In Progress', priority: 'low' },
   { task: 'jump', status: 'In Progress', priority: 'high' },
   { task: 'read', status: 'In Progress', priority: 'low' }];
+
+function Tasks(task, status, priority) {
+  this.task = task;
+  this.status = status;
+  this.priority = priority;
+}
 
 export function addTaskDB(
   db,
@@ -20,7 +28,7 @@ export function addTaskDB(
   priority = TASK_PRIORITY.LOW,
   status = TASK_STATUS.IN_PROGRESS,
 ) {
-  db.push({ task, status, priority });
+  db.push(new Tasks(task, status, priority));
 }
 
 export function deleteTaskDB(db, task) {

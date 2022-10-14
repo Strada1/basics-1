@@ -96,6 +96,9 @@ const newTask = new addTask("test", PRIORITY.middle);
 list.push(newTask);
 console.log("new List: ", list);
 
+// list.push(new addTask("test", PRIORITY.middle));
+
+
 // addTask('123', PRIORITY.middle);
 deleteTask();
 changeStatus('Learn JS', STATUS.todo);

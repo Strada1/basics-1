@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="weather">
+            <div class="weather__search">
+                <form class="weather__form" action="">
+                    <input class="weather__input" type="text" placeholder="Введите город">
+                </form>
+            </div>
+            <div class="weather__window">
+
+                <div class="weather__subsection weather__information">
+                    <div class="weather__wind"> <!--ТУТ САМА ИНФОРМАЦИЯ, Т.Е. ПОГОДА! ОБЯЗАТЕЛЬНО ЗАДАТЬ ПРАВИЛЬНЫЙ КЛАСС!-->
+
+                        <div id="tab_01" class="weather__tab-content weather__tab-first">
+                            <span class="weather__temperature"></span>
+                            <img class="weather__icon" src="" alt="">
+                            <div class="weather__city">
+                                <span></span>
+                                <img class="weather__added" src="./img/Shape.svg" alt="">
+                            </div>
+                        </div>
+
+                        <div id="tab_02" class="weather__tab-content weather__tab-second">
+                            <div class="weather__city">
+                                <span>Aktobe</span>
+                            </div>
+                            <div class="weather__additional-details">
+                                <span>Temperature: </span>
+                                <span>Feels like: </span>
+                                <span>Weather: </span>
+                                <span>Sunrise: </span>
+                                <span>Sunset: </span>
+                            </div>
+                        </div>
+
+
+                        <div id="tab_03" class="weather__tab-content weather__tab-third">
+                            <div class="weather__city">
+                                <span>Aktobe</span>
+                            </div>
+
+                            <div class="weather__forecast">
+                                <div class="weather__time">
+                                    <span>17 May</span>
+                                    <span>12:00</span>
+                                </div>
+
+                                <div class="weather__details">
+                                    <div>
+                                        <span>Temperature: 13&deg</span>
+                                        <span>Feels Like: 10&deg</span>
+                                    </div>
+
+                                    <div>
+                                        <span>Rain</span>
+                                        <img src="./img/rain.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+
+                    <div class="weather__tabs">
+                        <a href="#tab_01"><div class="weather__tab weather__button-now">Now</div></a>
+                        <a href="#tab_02"><div class="weather__tab weather__button-details">Details</div></a>
+                        <a href="#tab_03"><div class="weather__tab weather__button-forecast">Forecast</div></a>
+                    </div>
+
+                </div>
+
+                <div class="weather__subsection weather__locations">
+                    <div class="weather__location-header">
+                        <span>Added Locations:</span>
+                    </div>
+
+                    <div class="weather__added-locations">
+                        <!-- <div class="weather__saved-location"><span>Amur</span><div class="weather__saved-remove">X</div></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

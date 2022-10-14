@@ -21,7 +21,6 @@ export function renderDetails(inputCity){
             const SUNRISE = document.querySelector("#sunrise");
             SUNRISE.textContent = `Sunrise: ${ new Date(data.sys.sunrise * 1000).toLocaleTimeString()}`;
 
-
             const SUNSET = document.querySelector("#sunset");
             SUNSET.textContent = `Sunrise: ${new Date(data.sys.sunset * 1000).toLocaleTimeString()}`;
 

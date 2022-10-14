@@ -17,18 +17,24 @@ const list = [
   { name: 'Learn JS', status: STATUS.inProgress, priority: PRIORITY.high },
 ];
 
-const addTask = (task, priority) => {
-  if (!task && !priority) {
-    return console.error('Передайте не пустые строки для задачи и статуса');
-  }
-  if (typeof task !== 'string' || typeof priority !== 'string') {
-    return console.error('Передана задача или статус не как строка');
-  }
-  if (task && priority) {
-    list.push({ name: task, status: STATUS.todo, priority });
-    return console.log(`Добавлена задача "${task}" с приоритетом "${priority}"`);
-  }
-};
+// const addTask = (task, priority) => {
+//   if (!task && !priority) {
+//     return console.error('Передайте не пустые строки для задачи и статуса');
+//   }
+//   if (typeof task !== 'string' || typeof priority !== 'string') {
+//     return console.error('Передана задача или статус не как строка');
+//   }
+//   if (task && priority) {
+//     list.push({ name: task, status: STATUS.todo, priority });
+//     return console.log(`Добавлена задача "${task}" с приоритетом "${priority}"`);
+//   }
+// };
+
+function addTask(task, priority) {
+  this.name = task;
+  this.status = STATUS.todo;
+  this.priority = priority;
+}
 
 const changeStatus = (task, status) => {
   if (!task && !status) {
@@ -86,7 +92,11 @@ const showList = () => {
   });
 };
 
-addTask('123', PRIORITY.middle);
+const newTask = new addTask("test", PRIORITY.middle);
+list.push(newTask);
+console.log("new List: ", list);
+
+// addTask('123', PRIORITY.middle);
 deleteTask();
 changeStatus('Learn JS', STATUS.todo);
 deleteTask('Learn JS');

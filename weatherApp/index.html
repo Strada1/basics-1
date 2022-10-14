@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="src/style.css">
+    <title>Weather</title>
+</head>
+<body>
+
+    <div class="wrapper">
+    <div class="container">
+
+        <form   class="form-input" type="reset" onsubmit = return false;>
+            <input class="input-city" placeholder="Введете название города" type="text">
+<!--            <img class="search" src="img/Shape.png">-->
+            <button class="search"><img src="img/Shape.png"></button>
+        </form>
+
+<!--        <div class="vertical-line"></div>-->
+
+        <div class="content">
+                <div class="container-weather">
+
+                        <div class="tabs__body">
+                            <div id="tab_01" class="tabs__block">
+                                <div  id="divRemove"></div>
+                            </div>
+
+                            <div id="tab_02" class="tabs__block">
+                                <div class="detals">
+                                    <div class="city_name" id="detalsCityName">Aktobe</div>
+                                    <div class="statistics">
+                                        <div class="statistic" id="tempCount"><span>Temperature: 14°</span></div>
+                                        <div class="statistic" id="feels_like"><span>Feels like: 10°</span></div>
+                                        <div class="statistic" id="weather"><span>Weather: Clouds</span></div>
+                                        <div class="statistic" id="sunrise"><span>Sunrise: 03:21</span></div>
+                                        <div class="statistic" id="sunset"><span>Sunset: 18:54</span></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div id="tab_03" class="tabs__block">
+
+                                <p class="city_name">Aktobe</p>
+
+                                <div class="scroll">
+                                <div class="forecast">
+                                    <div class="forecast_content">
+                                            <div class="data_month">17 May</div>
+                                            <div class="data_time">12:00</div>
+                                    </div>
+                                    <div class="temperature">
+                                        <div class="temperatures">Temperature: 14°</div>
+                                        <div class="rain">Rain</div>
+                                    </div>
+                                    <div class="feels">
+                                        <div class="feels">Feels like: 10°</div>
+                                         <img class="weather_feels" src="img/icons8-cloud-96%201.png">
+                                    </div>
+                                </div>
+
+
+                                <div class="forecast">
+                                    <div class="forecast_content">
+                                        <div class="data_month">17 May</div>
+                                        <div class="data_time">12:00</div>
+                                    </div>
+                                    <div class="temperature">
+                                        <div class="temperatures">Temperature: 14°</div>
+                                        <div class="rain">Rain</div>
+                                    </div>
+                                    <div class="feels">
+                                        <div class="feels">Feels like: 10°</div>
+                                        <img class="weather_feels" src="img/icons8-cloud-96%201.png">
+                                    </div>
+                                </div>
+
+
+                                <div class="forecast">
+                                    <div class="forecast_content">
+                                        <div class="data_month">17 May</div>
+                                        <div class="data_time">12:00</div>
+                                    </div>
+                                    <div class="temperature">
+                                        <div class="temperatures">Temperature: 14°</div>
+                                        <div class="rain">Rain</div>
+                                    </div>
+                                    <div class="feels">
+                                        <div class="feels">Feels like: 10°</div>
+                                        <img class="weather_feels" src="img/icons8-cloud-96%201.png">
+                                    </div>
+                                </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="tabs">
+                            <nav class="tabs__items">
+                                <a href="#tab_01" class="tabs__item"><span>Now</span></a>
+                                <a href="#tab_02" class="tabs__item"><span>Details</span></a>
+                                <a href="#tab_03" class="tabs__item"><span>Forecast</span></a>
+                            </nav>
+                        </div>
+
+                </div>
+
+                <div class="container-location">
+
+                    <div class="added-location">Added Locations:</div>
+
+                    <hr>
+
+                    <div class="locations">
+<!--                        <div class="selectLocation">-->
+<!--&lt;!&ndash;                            <div class="city-name">Amur</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <img class="removeLocation" src="img/remove.png">&ndash;&gt;-->
+<!--                        </div>-->
+
+                    </div>
+
+                </div>
+        </div>
+    </div>
+
+    </div>
+<!--    type="module"-->
+    <script type="module"  src="src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+/*Обнуление*/
+*,
+*:before,
+*:after {
+    /*padding: 0;*/
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+    background-color: #b6b6b6;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: #fff;
+    font-size: 16px;
+    overflow:  hidden;
+}
+
+.wrapper {
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.container {
+    /*position: relative;*/
+    width: 621px;
+    height: 462px;
+    margin: 140px auto;
+    background-color: #a8a8a8;
+    border: 2px solid  black;
+}
+
+.form-input{
+    display: flex;
+}
+
+.input-city{
+    width: 100%;
+    padding-left: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    height: 30px;
+    outline:none;
+    border: 0;
+}
+
+.search{
+    position: absolute;
+    width: 22px;
+    height: 21px;
+    margin: 4px 0 0 580px;
+
+
+    border: none;
+    background-color: transparent;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content{
+    display: flex;
+}
+
+
+.container-weather{
+    border-right: 2px solid  black;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 311px;
+    /*height: 382px;*/
+}
+
+
+
+.tabs {
+    /*margin: 0px 0px 50px 0px;*/
+    border-top: 2px solid  black;
+
+}
+
+.tabs__items {
+    display: flex;
+}
+
+
+
+.tabs__item:after{
+    background-color: #000000;
+
+}
+
+.tabs__item {
+    flex: 0 1 33.333%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    border-right: 2px solid #000000;
+}
+
+.tabs__item:last-child{
+    border-right: none;
+}
+
+
+.tabs__item span {
+    position: relative;
+    z-index: 2;
+}
+
+.tabs__body {
+    height: 380px;
+}
+
+.scroll{
+    padding-right: 15px;
+    height: 333px;
+    margin-top: 0;
+    width: 290px;
+    /*overflow-y: scroll;*/
+
+    overflow-y: auto;
+
+}
+
+
+.scroll::-webkit-scrollbar {
+    width: 0;
+}
+.locations::-webkit-scrollbar {
+    width: 0;
+}
+
+.tabs__block {
+    position: relative;
+    padding: 20px;
+    font-size: 18px;
+    line-height: 24px;
+    display: none;
+}
+.tabs__block:before {
+    content: "";
+    height: 50px;
+    width: 33.333%;
+    position: absolute;
+    top: -50px;
+}
+
+
+
+.tabs__block:target {
+    display: block;
+}
+
+
+.count{
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 82px;
+    color: #000000;
+}
+
+.icon-cloud{
+    width: 150px;
+    height: 150px;
+    margin: 20px 0 0 68px;
+    display: flex;
+}
+
+.city-like{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 66px;
+}
+
+.like{
+    width: 22px;
+    height: 22px;
+}
+
+
+.city-name{
+    height: 28px;
+    padding-left: 25px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+
+
+.container-location{
+    width: 306px;
+}
+
+.added-location{
+    margin: 20px 0 0 10px;
+    padding: 7px;
+}
+
+.locations{
+    margin-top: 8px;
+    height: 365px;
+    overflow-y: scroll;
+}
+
+.selectLocation{
+    justify-content: space-around;
+    display: flex;
+    margin-bottom: 7px;
+}
+
+.removeLocation{
+    width: 25px;
+    height: 25px;
+}
+
+.city_name{
+    display: inline-block;
+    line-height: 24px;
+}
+
+.statistics{
+    padding: 10px;
+}
+
+.statistic{
+
+    margin: 8px;
+}
+
+
+
+.forecast{
+    border: 2px solid  black;
+    padding: 5px;
+    margin-top: 6px;
+}
+
+
+
+
+.forecast_content{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+}
+
+.temperature{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+}
+
+.feels{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+}
+
+.weather_feels{
+    width: 31px;
+    height: 31px;
+}
+
+hr{
+    border-top: 2px solid  black;
+}
+
+
+
+

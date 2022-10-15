@@ -1,3 +1,5 @@
+import { saveToStorage, showLastCity } from "./storage.js";
+
 const weahter = ({
   formSelector = `.js-form`,
   inputElement = `.js-input`,
@@ -12,7 +14,14 @@ const weahter = ({
   const form = document.querySelector(formSelector);
   const input = form.querySelector(inputElement);
   const addBtn = form.querySelector(`.js-add`);
-  const cityArr = [];
+  let cityArr;
+  let lastCity;
+
+  if (localStorage.getItem("savedCities")) {
+    cityArr = JSON.parse(localStorage.getItem("savedCities"));
+  } else {
+    cityArr = [];
+  }
 
   async function onFormSubmit(cityName) {
     const serverUrl = "//api.openweathermap.org/data/2.5/weather";
@@ -64,40 +73,53 @@ const weahter = ({
     let cityNameElements = form.querySelectorAll(`.js-city-name`);
     let city = cityNameElements[0].textContent;
     if (city !== "---") {
-      let position = cityArr.findIndex((anyCity) => anyCity == city);
-      if (position >= 0) {
-        cityArr.splice(position, 1);
+      let index = cityArr.findIndex((anyCity) => anyCity == city);
+      if (index >= 0) {
+        cityArr.splice(index, 1);
       } else {
         cityArr.push(city);
       }
     }
+    saveToStorage(cityArr);
+    cityArr = JSON.parse(localStorage.getItem("savedCities"));
     renderFavorites();
     console.log(cityArr);
+    console.log(localStorage);
   }
 
   function renderFavorites() {
-    let cityNameElements = form.querySelectorAll(`.js-city-name`);
-    const cityList = form.querySelector(`.js-list`);
-    let firstCityName = cityNameElements[0].textContent;
-    const newItem = document.createElement(`li`);
-    newItem.className = `weather__item`;
-    newItem.textContent = firstCityName;
-    const newBtn = document.createElement(`button`);
-    newBtn.type = `button`;
-    newBtn.className = `btn`;
-    newBtn.innerHTML = `<img src="img/close-icon.svg" style="pointer-events:none;touch-action:none;">`;
-    newItem.append(newBtn);
-    const deleteBtn = newItem.querySelector(`button`);
-    cityList.append(newItem);
+    let cityList = form.querySelector(`.js-list`);
+    cityList.innerHTML = ``;
+    for (let city of cityArr) {
+      const newItem = document.createElement(`li`);
+      newItem.className = `weather__item`;
+      newItem.textContent = city;
+      const newBtn = document.createElement(`button`);
+      newBtn.type = `button`;
+      newBtn.className = `btn`;
+      newBtn.innerHTML = `<img src="img/close-icon.svg" style="pointer-events:none;touch-action:none;">`;
+      newItem.append(newBtn);
+      const deleteBtn = newItem.querySelector(`button`);
+      cityList.append(newItem);
+      deleteBtn.addEventListener(`click`, deleteFavourites);
+      newItem.addEventListener("click", renderData);
+    }
 
-    deleteBtn.addEventListener(`click`, deleteFavourites);
-    newItem.addEventListener("click", renderData);
+    lastCity = localStorage.getItem(`lastCity`);
+    if (localStorage.getItem(`lastCity`)) {
+      onFormSubmit(lastCity);
+    } else {
+      onFormSubmit(`Bukhara`);
+    }
+    console.log(lastCity);
   }
 
   function renderData(evt) {
     if (evt.target.className != `btn`) {
       let name = evt.target.textContent;
       onFormSubmit(name);
+      showLastCity(name);
+      console.log(localStorage.lastCity);
     }
   }
 
@@ -107,7 +129,10 @@ const weahter = ({
     let index = cityArr.findIndex((anyCity) => anyCity == city);
     cityArr.splice(index, 1);
     item.remove();
+    saveToStorage(cityArr);
+    cityArr = JSON.parse(localStorage.getItem("savedCities"));
     console.log(cityArr);
+    console.log(localStorage);
   }
 
   function getWeather(evt) {
@@ -115,8 +140,11 @@ const weahter = ({
     const cityName = input.value;
     onFormSubmit(cityName);
   }
+  console.log(localStorage);
+  console.log(cityArr);
 
   addBtn.addEventListener(`click`, addFavourite);
   form.addEventListener(`submit`, getWeather);
+  renderFavorites();
 };
 export default weahter;

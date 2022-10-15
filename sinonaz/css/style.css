@@ -81,6 +81,9 @@
   grid-row: 3/5;
   padding: 35px 18px;
   margin: 0;
+  max-height: 300px;
+  overflow: hidden;
+  overflow-y: auto;
   list-style: none;
   background-color: white;
   z-index: 1;

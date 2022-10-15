@@ -70,8 +70,17 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+.now__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .now__temperature {
   font-size: 70px;
+}
+.now__date {
+  text-align: right;
+  font-size: 18px;
 }
 .now__button {
   display: flex;

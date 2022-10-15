@@ -1,5 +1,5 @@
-import { getConvertDate, getConvertTime } from './checks.js';
-import { closePopup, openPopup } from './popup.js';
+import {getConvertDate, getConvertTime, getNowDate} from './checks.js';
+import { closePopup } from './popup.js';
 
 export const UI = {
   FORM: document.querySelector('.weather__form'),
@@ -19,6 +19,9 @@ export const UI_NOW = {
   CITY_NAME: document.querySelector('.now__city'),
   IMAGE: document.querySelector('.now__image>img'),
   CURRENT_CITY: document.querySelector('.now__city'),
+  DAY: document.querySelector('.now__date-day'),
+  MONTH: document.querySelector('.now__date-month'),
+  TIME: document.querySelector('.now__date-time'),
 };
 
 export const UI_DETAILS = {
@@ -42,6 +45,10 @@ export function renderNowTab(jsonWeatherCity, place) {
   place.TEMPERATURE.textContent = `${Math.trunc(jsonWeatherCity.main.temp)}°`;
   place.CITY_NAME.textContent = jsonWeatherCity.name;
   place.IMAGE.src = getImageLink(jsonWeatherCity.weather[0].icon);
+  const nowDate = getNowDate();
+  place.DAY.textContent = nowDate[0];
+  place.MONTH.textContent = nowDate[1];
+  place.TIME.textContent = `${nowDate[2]}:${nowDate[3]}`;
 }
 
 export function renderDetailsTab(jsonWeatherCity, place) {

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Strada</title>
+</head>
+
+
+<body>
+	<form action="#" class="weather js-form">
+		<div class="weather__border"></div>
+		<div class="weather__search">
+			<label class="weather__search-label">
+				<input class="weather__input js-input" type="search" name="search" placeholder="Aktobe">
+			</label>
+			<button class="weather__search-button" type="button">
+				<img src="img/search.svg" width="30" height="30" alt="">
+			</button>
+		</div>
+		<div class="weather__content">
+			<div class="weather__now js-now">
+				<span class="weather__value js-temp">14</span>
+				<img class="weather__condition js-icon" src="img/cloud.png" width="150" height="150" alt="">
+				<div class="weather__bottom">
+					<p class="weather__city js-city-name">Aktobe</p>
+					<button type="button" class="weather__favourite js-add" aria-label="add to favourite">
+						<img src="img/heart.svg" width="24" height="25" alt="">
+					</button>
+				</div>
+			</div>
+			<div class="weather__details js-details" style="display: none;">
+				<p class="weather__city js-city-name">Aktobe</p>
+				<dl class="weather__details-list">
+					<div class="weather__details-item">
+						<dt class="weather__details-name">Temperature:</dt>
+						<dd class="weather__deatils-value js-temp">14</dd>
+					</div>
+					<div class="weather__details-item">
+						<dt class="weather__details-name">Feels like:</dt>
+						<dd class="weather__deatils-value js-feel">10</dd>
+					</div>
+					<div class="weather__details-item">
+						<dt class="weather__details-name">Weather:</dt>
+						<dd class="weather__deatils-value js-condition">Clouds</dd>
+					</div>
+					<div class="weather__details-item">
+						<dt class="weather__details-name">Sunrise:</dt>
+						<dd class="weather__deatils-value js-sunrise">03:21</dd>
+					</div>
+					<div class="weather__details-item">
+						<dt class="weather__details-name">Sunset:</dt>
+						<dd class="weather__deatils-value js-sunset">18:54</dd>
+					</div>
+				</dl>
+			</div>
+			<div class="weather__forecast js-forecast" style="display: none;">
+				<p class="weather__city js-city-name">Aktobe</p>
+				<ul class="weather__forecast-list">
+					<li class="weather__forecast-item">
+						<div class="weather__forecast-head">
+							<p class="weather__forecast-date">17 May</p>
+							<span class="weather__forecast-time">12:00</span>
+						</div>
+						<div class="weather__bottom">
+							<dl class="weather__bottom-list">
+								<div class="weather__bottom-item">
+									<dt class="weather__bottom-name">Temperature:</dt>
+									<dd class="weather__bottom-value">13</dd>
+								</div>
+								<div class="weather__bottom-item">
+									<dt class="weather__bottom-name">Feels like:</dt>
+									<dd class="weather__bottom-value">10</dd>
+								</div>
+							</dl>
+							<span class="weather__condition weather__condition--rain">Rain</span>
+						</div>
+					</li>
+					<li class="weather__forecast-item">
+						<div class="weather__forecast-head">
+							<p class="weather__forecast-date">17 May</p>
+							<span class="weather__forecast-time">15:00</span>
+						</div>
+						<div class="weather__bottom">
+							<dl class="weather__bottom-list">
+								<div class="weather__bottom-item">
+									<dt class="weather__bottom-name">Temperature:</dt>
+									<dd class="weather__bottom-value">13</dd>
+								</div>
+								<div class="weather__bottom-item">
+									<dt class="weather__bottom-name">Feels like:</dt>
+									<dd class="weather__bottom-value">10</dd>
+								</div>
+							</dl>
+							<span class="weather__condition weather__condition--rain">Rain</span>
+						</div>
+					</li>
+					<li class="weather__forecast-item">
+						<div class="weather__forecast-head">
+							<p class="weather__forecast-date">17 May</p>
+							<span class="weather__forecast-time">18:00</span>
+						</div>
+						<div class="weather__bottom">
+							<dl class="weather__bottom-list">
+								<div class="weather__bottom-item">
+									<dt class="weather__bottom-name">Temperature:</dt>
+									<dd class="weather__bottom-value">13</dd>
+								</div>
+								<div class="weather__bottom-item">
+									<dt class="weather__bottom-name">Feels like:</dt>
+									<dd class="weather__bottom-value">10</dd>
+								</div>
+							</dl>
+							<span class="weather__condition weather__condition--rain">Rain</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="weather__tabs">
+			<label class="weather__tab-label">
+				<input type="radio" class="visually-hidden weather__tab js-radios" value="1" name="weather" checked>
+				<span class="weather__tab-name">Now</span>
+			</label>
+			<label class="weather__tab-label">
+				<input type="radio" class="visually-hidden weather__tab js-radios" value="2" name="weather">
+				<span class="weather__tab-name">Details</span>
+			</label>
+			<label class="weather__tab-label">
+				<input type="radio" class="visually-hidden weather__tab js-radios" value="3" name="weather">
+				<span class="weather__tab-name">Forecast</span>
+			</label>
+		</div>
+		<p class="weather__text">Added Locations:</p>
+		<ul class="weather__list js-list">
+		</ul>
+	</form>
+
+
+	<script type="module" src="js/app.js"></script>
+</body>
+
+</html>

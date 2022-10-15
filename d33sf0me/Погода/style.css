@@ -1,20 +1,19 @@
 .body {
-    font-family: "Roboto", "Arial", sans-serif ;
+    font-family: "Roboto", "Arial", sans-serif;
     background-color: rgb(172, 172, 172);
     font-size: 24px;
     line-height: 28px;
     font-weight: 400;
     margin-top: 20px;
-
-}
-
-* {
+  }
+  
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-.container {
+  }
+  
+  .container {
     width: 621px;
     height: 462px;
     background-color: #fff;
@@ -22,36 +21,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-}
-
-.content {
+  }
+  
+  .content {
     width: 600px;
     height: 435px;
-    border: 1px solid #000;  
-}
-
-.forecast-form {
+    border: 1px solid #000;
+  }
+  
+  .forecast-form {
     display: flex;
     justify-content: flex-start;
     height: 45px;
-    border-bottom: 1px solid #000; 
-
-}
-
-input[type=text] {
+    border-bottom: 1px solid #000;
+  }
+  
+  input[type="text"] {
     font: inherit;
     font-size: 18px;
     line-height: 21px;
-    outline:none;
+    outline: none;
     border: none;
     width: 522px;
     margin-left: 15px;
-}
-
-.button {
+  }
+  
+  .button {
     margin-right: 15px;
-    cursor: pointer;
+  
     background: url(./img/magnifier.svg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -61,216 +58,236 @@ input[type=text] {
     border: 0;
     margin-bottom: auto;
     margin-top: auto;
-
-} 
-
-.forecast-container {
+  }
+  
+  .forecast-container {
     display: flex;
-    height: 389px;
+    height: 388px;
     width: 600px;
-
-
-}
-
-.main-forecast {
+  }
+  
+  .main-forecast {
     display: flex;
     flex-direction: column;
     width: 298px;
-    border-right: 1px solid #000; 
-}
-
-.tabs-items {
+    border-right: 1px solid #000;
+  }
+  
+  .tabs-items {
     display: flex;
     margin-top: auto;
     justify-content: space-between;
-    border-top: 1px solid #000; 
-
-}
-
-.tabs-item {
+    border-top: 1px solid #000;
+  }
+  
+  .tabs-item {
     font-size: 18px;
     line-height: 21px;
-    text-decoration:none;
+    text-decoration: none;
     color: #000;
     padding: 12px;
-}
-
-.tabs-item:hover {
+  }
+  
+  .tabs-item:hover {
     background-color: #000;
     color: #fff;
-
-}
-.tabs-item:active {
+  }
+  .tabs-item:active {
     background-color: #000;
     color: #fff;
-
-}
-
-.tabs-item-1 {
+  }
+  
+  .active {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .tabs-start {
+    display: flex;
+  }
+  
+  .tabs-item-1 {
     padding: 12px 32px;
-    border-right: 1px solid #000; 
-}
-.tabs-item-2 {
+    border-right: 1px solid #000;
+  }
+  .tabs-item-2 {
     padding: 12px 23px;
-}
-
-.tabs-item-3 {
+  }
+  
+  .tabs-item-3 {
     padding: 12px;
-    border-left: 1px solid #000; 
-}
-
-.forecast-months {
+    border-left: 1px solid #000;
+  }
+  
+  .forecast-months {
     display: flex;
     margin-top: auto;
     margin-bottom: 17px;
     justify-content: space-between;
     margin-left: 12px;
     margin-right: 26px;
-}
-
-.degrees-num {
+  }
+  
+  .degrees-num {
     margin-left: 23px;
     font-size: 70px;
     line-height: 82px;
-}
-
-.degrees {
+  }
+  
+  .degrees {
     display: flex;
     margin-top: 20px;
-}
-
-span {
+  }
+  
+  .degrees span {
     border: 4px solid #000;
     border-radius: 50%;
     width: 13px;
     height: 13px;
     margin-top: 15px;
-}
-
-.cloud {
+  }
+  
+  .cloud {
     align-self: center;
     margin-top: auto;
     margin-bottom: auto;
-}
-
-.main-locations {
+  }
+  
+  .main-locations {
     width: 299px;
-}
-
-.locations-header {
+  }
+  
+  .locations-header {
     height: 68px;
-    border-bottom: 1px solid #000; 
+    border-bottom: 1px solid #000;
     display: flex;
     padding-bottom: 7px;
     padding-left: 17px;
-}
-
-
-.locations-items {
+  }
+  
+  .locations-items {
     list-style-type: none;
-    margin-left: 18px;
-    margin-top: 35px;
-}
-
-li {
+    margin: 35px 18px;
+  }
+  
+  li {
     margin: 14px 0;
-}
-
-.forecast {
+  }
+  
+  .forecast {
     display: flex;
     flex-direction: column;
     height: 345px;
-
-}
-.forecast-details {
+  }
+  .forecast-details {
     border: none;
-}
-
-.details-items {
+  }
+  
+  .details-items {
     list-style-type: none;
     margin-left: 18px;
     margin-top: 20px;
-}
-
-.forecast-table {
+  }
+  
+  .forecast-table {
     height: 390px;
-}
-.table-container {
+  }
+  .table-container {
     display: flex;
     flex-direction: column;
     width: 256px;
     height: 120px;
-    border: 1px solid #000; 
+    border: 1px solid #000;
     font-size: 18px;
     line-height: 21px;
     padding: 8px;
     margin-left: 18px;
     margin-bottom: 9px;
-}
-
-.forecast-date, .forecast-weather {
+  }
+  
+  .forecast-date,
+  .forecast-weather {
     display: flex;
     justify-content: space-between;
-}
-
-.forecast-icons {
+  }
+  
+  .forecast-icons {
     background: url(./img/rain.svg);
     background-repeat: no-repeat;
     background-size: auto;
     width: 31px;
     height: 31px;
-}
-
-.weather-icon{
+  }
+  
+  .weather-icon {
     display: flex;
     flex-direction: column;
-}
-
-.forecast-weather {
+  }
+  
+  .forecast-weather {
     margin-top: auto;
-}
-
-.rain {
+  }
+  
+  .rain {
     line-height: 15px;
-}
-
-.text-locations {
+  }
+  
+  .text-locations {
     display: inline-block;
     margin-top: auto;
-}
-
-.table-items {
+  }
+  
+  .table-items {
     height: 275px;
     overflow: auto;
-}
-
-.table-items::-webkit-scrollbar {
+  }
+  
+  .table-items::-webkit-scrollbar {
     width: 0;
   }
-
+  
+  /* .forecast {
+    display: none;
+  }
+  .forecast:target {
+    display: flex;
+  } */
+  
+  .locations-items li {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button-exit {
+    background: url(./img/close-icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border: none;
+  }
+  
+  .like {
+    border: none;
+    background-color: transparent;
+  }
+  
+  .like:hover svg {
+    fill: #000;
+  }
+  
+  .like:active svg {
+    fill: #000;
+  }
+  
+  .heart {
+    fill: #000;
+  }
+  
   .forecast {
     display: none;
   }
-
-  .forecast:target {
+  
+  .forecast-start {
     display: flex;
-  }
-
-  .heart {
-    cursor: pointer;
-    background: url(./img/heart.svg);
-    background-repeat: no-repeat;
-    border: 0;
-    width: 24px;
-    height: 24px;
-  }
-
-  .dlt_btn {
-    cursor: pointer;
-    background: url(./img/delete.svg);
-    background-repeat: no-repeat;
-    border: 0;
-    width: 24px;
-    height: 20px;
-    float: right;
   }

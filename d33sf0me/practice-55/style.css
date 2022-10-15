@@ -1,43 +1,131 @@
+body {
+    font-family: Trebuchet 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
 .container {
     width: 600px;
     height: 440px;
     background-color: rgb(223, 236, 250);
     margin: auto;
-    margin-top: 400px;
     box-shadow: 0 0 10px;
     border-radius: 5px;
+    padding: 8px;
 }
 
 input[type=text]::placeholder { 
     color:rgb(196, 196, 196);
-    font-family: Trebuchet MS, sans-serif;
-    font-size: 20px;
     line-height: 21px;
-    text-indent: 15px;
 }
 
 input[type=text] {
-    font-family: Trebuchet MS, sans-serif;
+    font-family: Trebuchet 'Trebuchet MS', sans-serif;
     font-size: 20px;
     outline:none;
     border: none;
-
-    text-indent: 15px;
     background-color: rgb(223, 236, 250);
+    width: 580px;
 }
  
 ul{ 
-    margin-top: -5px;
+    margin: 0;
     padding: 0;
 }
 
 li {
-    border: 2px solid #0f0b0b;
-    border-radius: 5px;
+    border: 2px solid #a2a1a1;
     display: flex;
     padding: 10px;
-    margin-top:5px;
-    width: 560px;
+    align-items: flex-start;
+}
+
+.btn_add {
+    cursor: pointer;
+    background:url(img/search_icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
     margin-left: auto;
-    margin-right: auto;
+    padding: 0%;
+    width: 25px;
+    height: 25px;
+    border: 0;
+}
+
+.main {
+    border: 2px solid #a2a1a1;
+    border-top-width: 0;
+    margin-bottom: auto;
+    height: 390px;
+    padding: 0;
+}
+
+div {
+    padding: 0;
+    width: 300px;
+    height: 440px;
+}
+
+
+.vl {
+    border-left: 2px solid #a2a1a1;
+    height: 390px;
+}
+
+.degrees {
+    font-size: 60px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.icon {
+    background:url(img/clouds_icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 100px;
+    margin-top: -20px;
+    border: none;
+    width: 95px;
+    height: 80px;
+}
+
+.like {
+    display: flex;
+}
+
+.btn_like {
+    cursor: pointer;
+    background:url(img/save_icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border: none;
+    margin: 58px 0 0 110px;
+}
+
+
+
+.tabs {
+
+}
+.tabs__items {
+    display: flex;
+}
+.tabs__item {
+    flex: 0 1 33.333%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color:rgb(15, 15, 16);
+    text-decoration: none;
+}
+.tabs__block {
+    padding: 20px;
+    line-height: 24px;
+    display: none;
+}
+.tabs__block:target {
+    display: block;
 }

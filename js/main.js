@@ -9,14 +9,26 @@ const pageElements = {
     form: document.querySelector(".weather__form"),
     inputCity: document.querySelector('.weather__input'),
     nameCity: document.querySelector('.weather__city span'),
+    nameCityDetails: document.querySelector('.weather__tab-second .weather__city span'),
     temperature: document.querySelector('.weather__temperature'),
     weather_img: document.querySelector('.weather__icon'),
     weatherAddButton: document.querySelector('.weather__added'),
     weatherAddedLocations: document.querySelector('.weather__added-locations'),
     weatherSavedLocation: 0,
+    weatherDetailsTemp: document.querySelector('.weather__additional-details span'),
+    weatherFeelsLike: document.querySelector('.weather__feels'),
+    weatherStatus: document.querySelector('.weather__status'),
+    weatherSunrise: document.querySelector('.weather__sunrise'),
+    weatherSunset: document.querySelector('.weather__sunset'),
 }
 
 const savedLocations = [];
+
+const convertTime = function(time){
+    const hour = new Date(time * 1000);
+    const min = new Date(time * 1000);
+    return hour.getHours() + ":" + min.getMinutes();
+}
 
 const getWeather = async function(callback){
     let json;
@@ -35,13 +47,25 @@ const inputHandler = function(event){
     weatherAPI.cityName = pageElements.inputCity.value;
     getWeather(json => {
         pageElements.nameCity.textContent = json.name;
+        pageElements.nameCityDetails.textContent = json.name;
         pageElements.temperature.textContent = Math.round(json.main.temp) + '°';
         pageElements.weather_img.setAttribute('src', `./img/${json.weather[0].icon}.png`);
+        pageElements.weatherDetailsTemp.textContent = "Temperature: " + Math.round(json.main.temp) + '°';
+        pageElements.weatherFeelsLike.textContent = "Feels like: " + Math.round(json.main.feels_like) + '°';
+        pageElements.weatherStatus.textContent = "Weather: " + json.weather[0].main;
+        pageElements.weatherSunrise.textContent = "Sunrise: " + convertTime(json.sys.sunrise);
+        pageElements.weatherSunset.textContent = "Sunset: " + convertTime(json.sys.sunset);
 
         const setCurrentCity = {
             currentLocation: json.name,
+            currentLocationDetails: json.name,
             currentTemp: Math.round(json.main.temp) + '°',
             currentIcon: `./img/${json.weather[0].icon}.png`,
+            currentDetailsTemp: "Temperature: " + Math.round(json.main.temp) + '°',
+            currentFeelsLike: "Feels like: " + Math.round(json.main.feels_like) + '°',
+            currentStatus: "Weather: " + json.weather[0].main,
+            currentSunrise: "Sunrise: " + convertTime(json.sys.sunrise),
+            currentSunset: "Sunset: " + convertTime(json.sys.sunset)
         };
 
         localStorage.setItem('currentData', JSON.stringify(setCurrentCity));
@@ -54,8 +78,14 @@ const inputHandler = function(event){
 function currentLocationHandler(){
     const getCurrentCity = JSON.parse(localStorage.getItem("currentData"));
     pageElements.nameCity.textContent = getCurrentCity.currentLocation;
+    pageElements.nameCityDetails.textContent = getCurrentCity.currentLocationDetails;
     pageElements.temperature.textContent = getCurrentCity.currentTemp;
     pageElements.weather_img.setAttribute('src', getCurrentCity.currentIcon);
+    pageElements.weatherDetailsTemp.textContent = getCurrentCity.currentDetailsTemp;
+    pageElements.weatherFeelsLike.textContent = getCurrentCity.currentFeelsLike;
+    pageElements.weatherStatus.textContent = getCurrentCity.currentStatus;
+    pageElements.weatherSunrise.textContent = getCurrentCity.currentSunrise;
+    pageElements.weatherSunset.textContent = getCurrentCity.currentSunset;
 }
 
 
@@ -110,16 +140,27 @@ const selectedLocation = function(){
         weatherAPI.cityName = button.querySelector('span').textContent;
         getWeather(json => {
             pageElements.nameCity.textContent = json.name;
+            pageElements.nameCityDetails.textContent = json.name;
             pageElements.temperature.textContent = Math.round(json.main.temp) + '°';
             pageElements.weather_img.setAttribute('src', `./img/${json.weather[0].icon}.png`);
+            pageElements.weatherDetailsTemp.textContent = "Temperature: " + Math.round(json.main.temp) + '°';
+            pageElements.weatherFeelsLike.textContent = "Feels like: " + Math.round(json.main.feels_like) + '°';
+            pageElements.weatherStatus.textContent = "Weather: " + json.weather[0].main;
+            pageElements.weatherSunrise.textContent = "Sunrise: " + convertTime(json.sys.sunrise);
+            pageElements.weatherSunset.textContent = "Sunset: " + convertTime(json.sys.sunset);
         })
 
         const setCurrentCity = {
             currentLocation: pageElements.nameCity.textContent,
+            currentLocationDetails: pageElements.nameCityDetails.textContent,
             currentTemp: pageElements.temperature.textContent,
-            currentIcon: pageElements.weather_img.getAttribute('src')
+            currentIcon: pageElements.weather_img.getAttribute('src'),
+            currentDetailsTemp: pageElements.weatherDetailsTemp.textContent,
+            currentFeelsLike: pageElements.weatherFeelsLike.textContent,
+            currentStatus: pageElements.weatherStatus.textContent,
+            currentSunrise: pageElements.weatherSunrise.textContent,
+            currentSunset: pageElements.weatherSunset.textContent
         };
-        alert(setCurrentCity.currentLocation);
         localStorage.setItem('currentData', JSON.stringify(setCurrentCity));
     }));
 }

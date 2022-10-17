@@ -26,8 +26,7 @@ const savedLocations = [];
 
 const convertTime = function(time){
     const hour = new Date(time * 1000);
-    const min = new Date(time * 1000);
-    return hour.getHours() + ":" + min.getMinutes();
+    return hour.getHours() + ":" + hour.getMinutes();
 }
 
 const getWeather = async function(callback){
@@ -39,6 +38,17 @@ const getWeather = async function(callback){
     } else{
         alert(new Error("Ошибка!"));
     }
+
+    pageElements.nameCity.textContent = json.name;
+    pageElements.nameCityDetails.textContent = json.name;
+    pageElements.temperature.textContent = Math.round(json.main.temp) + '°';
+    pageElements.weather_img.setAttribute('src', `./img/${json.weather[0].icon}.png`);
+    pageElements.weatherDetailsTemp.textContent = "Temperature: " + Math.round(json.main.temp) + '°';
+    pageElements.weatherFeelsLike.textContent = "Feels like: " + Math.round(json.main.feels_like) + '°';
+    pageElements.weatherStatus.textContent = "Weather: " + json.weather[0].main;
+    pageElements.weatherSunrise.textContent = "Sunrise: " + convertTime(json.sys.sunrise);
+    pageElements.weatherSunset.textContent = "Sunset: " + convertTime(json.sys.sunset);
+
     callback(json);
 }
 
@@ -46,16 +56,6 @@ const inputHandler = function(event){
     event.preventDefault();
     weatherAPI.cityName = pageElements.inputCity.value;
     getWeather(json => {
-        pageElements.nameCity.textContent = json.name;
-        pageElements.nameCityDetails.textContent = json.name;
-        pageElements.temperature.textContent = Math.round(json.main.temp) + '°';
-        pageElements.weather_img.setAttribute('src', `./img/${json.weather[0].icon}.png`);
-        pageElements.weatherDetailsTemp.textContent = "Temperature: " + Math.round(json.main.temp) + '°';
-        pageElements.weatherFeelsLike.textContent = "Feels like: " + Math.round(json.main.feels_like) + '°';
-        pageElements.weatherStatus.textContent = "Weather: " + json.weather[0].main;
-        pageElements.weatherSunrise.textContent = "Sunrise: " + convertTime(json.sys.sunrise);
-        pageElements.weatherSunset.textContent = "Sunset: " + convertTime(json.sys.sunset);
-
         const setCurrentCity = {
             currentLocation: json.name,
             currentLocationDetails: json.name,
@@ -88,8 +88,6 @@ function currentLocationHandler(){
     pageElements.weatherSunset.textContent = getCurrentCity.currentSunset;
 }
 
-
-
 const createLocation = function(localName){
     const savedCity = document.createElement('div');
     savedCity.className = "weather__saved-location";
@@ -109,15 +107,7 @@ const saveCity = function(){
     if(!savedLocations.includes(pageElements.nameCity.textContent)){
         createLocation();
     }
-
-    pageElements.weatherSavedLocation = document.querySelectorAll('.weather__saved-location');
     localStorage.setItem("saveLocations", JSON.stringify(savedLocations));
-
-    /// инициализация функции удаления
-    removeLocation();
-
-    /// инициализация функции выбора города из списка
-    selectedLocation();
 }
 
 const renderHandler = function(){
@@ -138,17 +128,7 @@ const removeLocation = function(){
 const selectedLocation = function(){
     pageElements.weatherSavedLocation.forEach(button => button.addEventListener('click', function(){
         weatherAPI.cityName = button.querySelector('span').textContent;
-        getWeather(json => {
-            pageElements.nameCity.textContent = json.name;
-            pageElements.nameCityDetails.textContent = json.name;
-            pageElements.temperature.textContent = Math.round(json.main.temp) + '°';
-            pageElements.weather_img.setAttribute('src', `./img/${json.weather[0].icon}.png`);
-            pageElements.weatherDetailsTemp.textContent = "Temperature: " + Math.round(json.main.temp) + '°';
-            pageElements.weatherFeelsLike.textContent = "Feels like: " + Math.round(json.main.feels_like) + '°';
-            pageElements.weatherStatus.textContent = "Weather: " + json.weather[0].main;
-            pageElements.weatherSunrise.textContent = "Sunrise: " + convertTime(json.sys.sunrise);
-            pageElements.weatherSunset.textContent = "Sunset: " + convertTime(json.sys.sunset);
-        })
+        getWeather();
 
         const setCurrentCity = {
             currentLocation: pageElements.nameCity.textContent,
@@ -176,6 +156,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     renderHandler();
     
+    // инициализируем
     pageElements.weatherSavedLocation = document.querySelectorAll('.weather__saved-location');
     removeLocation();
     selectedLocation();

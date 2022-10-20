@@ -35,7 +35,7 @@ async function OnButtonPress() {
 
 let button = document.getElementById('searchButton');
 button.onclick = OnButtonPress;
-
+showSavingCities();
 const setOfCity = new Set();
 updateListOfCities();
 
@@ -47,9 +47,6 @@ function updateListOfCities() {
         }
     }
 }
-
-
-showSavingCities();
 
 function deleteCityFromList(city) {
     let cityKey;
@@ -79,6 +76,14 @@ function showSavingCities() {
     }
 }
 
+function saveFavoriteCities(input) {
+    const city = document.getElementById(input).textContent;
+    alert("city - " + city);
+    localStorage.setItem(`keyCity${city}`, city);
+    setOfCity.add(city);
+    render();
+}
+
 
 function removeCity() {
     let allTasks = document.getElementsByClassName('task');
@@ -102,10 +107,3 @@ function calcCelsiusTemp(temp) {
     return Math.round(temp - 273);
 }
 
-function saveFavoriteCities(input) {
-    const city = document.getElementById(input).textContent;
-    alert("city - " + city);
-    localStorage.setItem(`keyCity${city}`, city);
-    setOfCity.add(city);
-    render();
-}

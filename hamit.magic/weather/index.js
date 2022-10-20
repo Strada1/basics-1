@@ -20,7 +20,6 @@ const storage = {
 }
 
 let CITIES = storage.getFavoriteCities() || [];
-// CITIES = Array.isArray(CITIES) ? CITIES : [CITIES];
 let currentCity = storage.getCurrentCity();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,12 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     sendWeatherRequest(currentCity);
 });
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#test').addEventListener('submit', (e)=>{
         e.preventDefault();
         sendWeatherRequest();
     })
 });
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.left__bottom-box').addEventListener('click', (e)=>{
         e.preventDefault();
@@ -59,8 +60,23 @@ async function sendWeatherRequest(city = null) {
         draw(result);
     }
     else {
-        alert(`Произошла ошибка: ${response.message}` );
+        alert(`Произошла ошибка: ${response.message}`);
     }
+}
+
+async function sendWeatherRequestByTime(city, time) {
+    const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
+    const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
+    const url = `${serverUrl}?q=${city}&lang=ru&dt=${time.time}&units=metric&appid=${apiKey}`;
+    try {
+        response = await fetch(url);
+    } catch(err) {
+        console.log(err);
+    }
+    if (response.ok) {
+        result = await response.json();
+        return {...result, time: time.time};
+    } else alert(`Произошла ошибка: ${response.message}`);
 }
 
 function clearAllChildren(myNode) {
@@ -68,12 +84,14 @@ function clearAllChildren(myNode) {
         myNode.removeChild(myNode.firstChild);
     }
 }
+
 function createChild(tag, className, content) {
     tag = document.createElement(tag);
     tag.className = className;
     if (Boolean(content)) tag.textContent = content;
     return tag;
 }
+
 function draw(data) {
     switch (document.activeElement.value) {
         case 'Details':
@@ -86,6 +104,7 @@ function draw(data) {
             drawNowBox(data);
     }
 }
+
 function favorite(Node, city) {
     let input = createChild('input', 'favorite', '');
     input.src = `./img/favourite-icon.svg`;
@@ -134,14 +153,85 @@ function drawDetaislBox(data) {
     }
 }
 
+function getDayMonth() {
+    let result = new Date().getDate();
+    console.log(result);
+    let monthes = ['Января',
+                 'Февраля',
+                 'Марта',
+                 'Апреля',
+                 'Мая',
+                 'Июня',
+                 'Июля',
+                 'Августа',
+                 'Сентября',
+                 'Октября',
+                 'Ноября',
+                 'Декабря'];
+    result += ' ' + monthes[new Date().getMonth()];
+    return result;
+}
+
+function requestTime(e) {
+    let date = new Date(Date.now());
+    switch (e.className) {
+        case 'nine':
+            return { time: '09:00', timeStamp: date.setHours(09, 0, 0, 0) };
+        case 'twelve':
+            return { time: '12:00', timeStamp: date.setHours(12, 0, 0, 0) };
+        case 'fifteen':
+            return { time: '15:00', timeStamp: date.setHours(15, 0, 0, 0) };
+        case 'eighteen':
+            return { time: '18:00', timeStamp: date.setHours(18, 0, 0, 0) };
+        default:
+            return { time: '00:00', timeStamp: date.setHours(0, 0, 0, 0) };
+    }
+}
+
+async function fillForecastBoxes (...args) {
+    for (let e of args) {
+        let data = await sendWeatherRequestByTime(currentCity, requestTime(e));
+        console.log(data)
+        let [day, time, details, divUp, divDown, img] = [createChild('span', 'day', getDayMonth()),
+                                                         createChild('span', 'time', data.time),
+                                                         createChild('span', 'weather-details', ''),
+                                                         createChild('div', 'temp', ''),
+                                                         createChild('div', 'temp', ''),
+                                                         createChild('img', 'weather-image', '')];
+        img.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+        img.alt = data.weather[0].description;
+        e.append(divUp);
+        divUp.append(day);
+        divUp.append(time);
+        e.append(divDown);
+        divDown.append(details);
+        divDown.append(img);
+        let span = [createChild('span', 'temperature', `Температура: ${data.main.temp} ℃`),
+                    createChild('span', 'fills-like', `Ощущается: ${data.main.feels_like} ℃`)];
+        for (key of span) {
+            details.append(key);
+        }
+    }
+}
+
 function drawForecastBox(data) {
     storage.saveCurrentCity(data.name);
     let parent = document.querySelector('.weather');
     clearAllChildren(parent);
-    let test = createChild('span', 'city', data.name);
-    parent.append(test);
-    favorite(test, data.name);
+    let city = createChild('span', 'city', data.name);
+    parent.append(city);
+    favorite(city, data.name);
+    let [nineAM, twelvePM, fifteenPM, eightennPM] = [createChild('div', 'nine', ``),
+                                                     createChild('div', 'twelve', ''),
+                                                     createChild('div', 'fifteen', ''),
+                                                     createChild('div', 'eighteen', '')];
+    parent.append(nineAM);
+    parent.append(twelvePM);
+    parent.append(fifteenPM);
+    parent.append(eightennPM);
+    fillForecastBoxes(nineAM, twelvePM, fifteenPM, eightennPM);
 }
+
 function drawNowBox(data) {
     storage.saveCurrentCity(data.name);
     let parent = document.querySelector('.weather');
@@ -161,6 +251,7 @@ function drawNowBox(data) {
     document.querySelector('#city__location').placeholder = data.name;
     document.querySelector('#city__location').value = data.name;
 }
+
 function drawFavoriteCity(city) {
     let parent = document.querySelector('.right__bottom-box');
     let button = createChild('button', 'delete', 'X');
@@ -173,10 +264,8 @@ function drawFavoriteCity(city) {
     });
     parent.append(span);
     span.append(button);
-    // temp = document.querySelector('.favorite');
-    // if (temp.textContent === city) temp.id = 'favorite';
-    // else temp.id = 'notFavorite';
 }
+
 function addFavoriteCity(city) {
     CITIES.push(city);
     storage.saveFavoriteCity(CITIES);
@@ -184,6 +273,7 @@ function addFavoriteCity(city) {
     temp = document.querySelector('.favorite');
     temp.id = 'favorite';
 }
+
 function delFavoriteCity(city) {
     CITIES = CITIES.filter(item => item !== city);
     storage.saveFavoriteCity(CITIES);

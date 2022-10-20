@@ -83,6 +83,7 @@ form .city {
     display: flex;
     justify-content: space-around;
     height: 100%;
+    overflow: auto;
     margin: 10px;
     flex-flow: column nowrap;
 }
@@ -95,13 +96,14 @@ form .city {
     justify-content: center;
 }
 .weather-image {
-    width: 180px;
-    height: 180px;
+    /* width: 180px; */
+    /* height: 180px; */
     align-self: center;
 }
 .weather-details {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 .city {
     display: flex;
@@ -123,4 +125,16 @@ form .city {
 .favorite-city {
     display: flex;
     justify-content: space-between;
+}
+.nine, .twelve, .fifteen, .eighteen {
+    height: 15vh;
+    border: 1px solid;
+    display: flex;
+    flex-flow: wrap row;
+}
+.temp {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* align-content: space-between; */
 }

@@ -14,53 +14,29 @@ export const SERVERS_URL = {
   API_KEY: '358eaa62b262b36cac42f77b107308e8',
 };
 
-export function getCityWeatherForecast(cityName) {
-  const url = `${SERVERS_URL.FORECAST_WEATHER}?q=${cityName}&appid=${SERVERS_URL.API_KEY}&units=metric`;
-  fetch(url)
-    .then((response) => {
-      switch (response.status) {
-        case 200:
-          return response.json();
-        case 401:
-          throw new Error('token error');
-        case 404:
-          throw new Error('Not Found');
-        default:
-          throw new Error('error');
-      }
-    })
-    .then((weather) => {
-      renderForecastTab(weather);
-      return weather;
-    })
-    .catch((e) => openPopup(UI.POPUP, e.message));
-}
-
-export function getCityWeather(cityName) {
-  const url = `${SERVERS_URL.CURRENT_WEATHER}?q=${cityName}&appid=${SERVERS_URL.API_KEY}&units=metric`;
-  fetch(url)
-    .then((response) => {
-      switch (response.status) {
-        case 200:
-          return response.json();
-        case 401:
-          throw new Error('Token error');
-        case 404:
-          throw new Error('The city was not found, try again');
-        default:
-          throw new Error('error');
-      }
-    })
-    .then((weather) => {
-      renderNowTab(weather, UI_NOW);
-      renderDetailsTab(weather, UI_DETAILS);
-      return weather;
-    })
-    .then((weather) => {
-      getCityWeatherForecast(weather.name);
-      setCurrentCityLocalStorage(weather.name);
-    })
-    .catch((e) => openPopup(UI.POPUP, e.message));
+export async function getCityWeather(cityName) {
+  try {
+    const urlNow = `${SERVERS_URL.CURRENT_WEATHER}?q=${cityName}&appid=${SERVERS_URL.API_KEY}&units=metric`;
+    const responseNow = await fetch(urlNow);
+    if (responseNow.ok) {
+      const weatherJSON = await responseNow.json();
+      renderNowTab(weatherJSON, UI_NOW);
+      renderDetailsTab(weatherJSON, UI_DETAILS);
+      setCurrentCityLocalStorage(weatherJSON.name);
+    } else {
+      throw new Error(`Ошибка HTTP:  ${responseNow.status}`);
+    }
+    const urlForecast = `${SERVERS_URL.FORECAST_WEATHER}?q=${cityName}&appid=${SERVERS_URL.API_KEY}&units=metric`;
+    const responseForecast = await fetch(urlForecast);
+    if (responseForecast.ok) {
+      const weatherJSON = await responseForecast.json();
+      renderForecastTab(weatherJSON);
+    } else {
+      throw new Error(`Ошибка HTTP:  ${responseForecast.status}`);
+    }
+  } catch (error) {
+    openPopup(UI.POPUP, error.message);
+  }
 }
 
 export function getWeatherFavoriteList(event) {

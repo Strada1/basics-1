@@ -18,125 +18,128 @@ const NEW_ELEMENTS = {
     detailsSunset:document.createElement('li'),
     newCity:document.createElement('p'),
 };
-const CITY_NAME = localGet2();
-const FAVORITE_CITY = localGet();
 
-cityInput.addEventListener('submit' , serverToDOM);
 //Запрос на сервер
-function serverToDOM(event) {
-    event.preventDefault();
-    const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
-    const cityName = nameInp.value;
-    const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
-    const url = `${serverUrl}?q=${cityName}&appid=${apiKey}&units=metric`;
-    fetch(url)
-    .then(response => response.json())
-    .then(response => {
-        if(response.cod !== 200) {
-            alert(response.cod + ' ' + response.message)
-        } else {
-            showCurrentCity(response.name , response.main.temp , response.main.feels_like, response.weather[0].main, response.sys.sunset, response.sys.sunrise);
-            renderDetails();
-        }
-    })
-    .catch(err => alert(err.message));
-};
-// Добавление города в избранные (массив)
-addFavorite.addEventListener('click' , addFavoriteInArray);
-function addFavoriteInArray() {
-    const favoriteCity = FAVORITE_CITY.find(item => item.name == CITY_NAME.name)
-    if(FAVORITE_CITY.includes(favoriteCity)) {
-        alert('Такой город уже в избранных!');
-    } else {
-        FAVORITE_CITY.push({name: CITY_NAME.name,temp: CITY_NAME.temp, feelslike: CITY_NAME.feelslike, weather: CITY_NAME.weather,sunset: CITY_NAME.sunset, sunrise:CITY_NAME.sunrise,});
-        localSet();
-        renderFavoriteCity();
-    }
-};
-// Удаление города из массива 
-function deleteCityArray(cityName) {
-    const CityFavorite = FAVORITE_CITY.findIndex(item => item.name == cityName);
-    FAVORITE_CITY.splice(CityFavorite , 1);
-    localSet();
-    renderFavoriteCity();
-};
-// localStorage Added Locations
+let FAVORITE_CITY = new Set(localGet());
+let cityNOW = localGet2()
+//LOCALSTORAGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function localSet() {
-    localStorage.setItem('cityNow', JSON.stringify(CITY_NAME));
-    localStorage.setItem('favoriteCity' , JSON.stringify(FAVORITE_CITY));
-};
+    localStorage.setItem ('cityNow', JSON.stringify([...FAVORITE_CITY]))
+    localStorage.setItem ('cityNeNow', JSON.stringify(cityNOW))
+}
 function localGet() {
-    if(localStorage.getItem('favoriteCity') !== null) {
-        return JSON.parse(localStorage.getItem('favoriteCity'));
-    } else {
-        return [];
-    }
-};
+    return JSON.parse(localStorage.getItem('cityNow'));
+}
 function localGet2() {
-    if(localStorage.getItem('cityNow') !== null) {
-        return JSON.parse(localStorage.getItem('cityNow'));
-    } else {
-        return [];
-    }
+    return JSON.parse(localStorage.getItem('cityNeNow'));
+}
+cityInput.addEventListener('submit' , inputToUrl);
+function inputToUrl(event) {
+    event.preventDefault();
+    serverToDOM(nameInp.value)
+}
+
+async function serverToDOM(item) {
+    const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
+    const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
+    const url = `${serverUrl}?q=${item}&appid=${apiKey}&units=metric`;
+
+    const serverINFO = await fetch(url)
+    const responseURL = await serverINFO.json()
+
+        if(responseURL.cod !== 200) {
+            alert(responseURL.cod + ' ' + responseURL.message)
+        } else {
+            showCurrentCity(responseURL.name , responseURL.main.temp);
+            renderDetails(responseURL.name , responseURL.main.temp , responseURL.main.feels_like, responseURL.weather[0].main, responseURL.sys.sunset, responseURL.sys.sunrise);
+        }
 };
-// Отображение города в NOW
-function showCurrentCity(cityName, cityTemp, cityFeel, cityWeather, citySunSet, citySunRise) {
-    CITY_NAME.name =cityName;
-    CITY_NAME.temp = cityTemp;
-    CITY_NAME.feelslike = cityFeel;
-    CITY_NAME.weather = cityWeather;
-    CITY_NAME.sunset = citySunSet;
-    CITY_NAME.sunrise = citySunRise;
+
+function showCurrentCity(cityName, cityTemp, ) {
+    cityNOW.name = cityName;
+    cityNOW.temp = cityTemp;
     NEW_ELEMENTS.nameCity.textContent = cityName;
     ELEMENTS_PARENTS.weatherCity.prepend(NEW_ELEMENTS.nameCity);
     NEW_ELEMENTS.tempCity.textContent = Math.round(cityTemp);
     NEW_ELEMENTS.tempCity.className = 'degrees-num';
     ELEMENTS_PARENTS.weatherTemp.prepend(NEW_ELEMENTS.tempCity);
     nameInp.value = '';
-    localSet();
+    localSet()
+    
 };
-// Отображение избранных городов
-function renderFavoriteCity() {
-    ELEMENTS_PARENTS.favoriteItems.textContent = '';
-    FAVORITE_CITY.forEach(function(item) {  
-        const newFavoriteCity = document.createElement('li');
-        newFavoriteCity.textContent = item.name;
-        ELEMENTS_PARENTS.favoriteItems.prepend(newFavoriteCity);
-        const removeCityIcon = document.createElement('button');
-        removeCityIcon.innerHTML = `<img src="./img/heart.svg" alt="">`;
-        newFavoriteCity.appendChild(removeCityIcon);
-        removeCityIcon.addEventListener('click' , () => {
-            deleteCityArray(newFavoriteCity.textContent);
-        })
-        newFavoriteCity.addEventListener('click', () => {
-            showCurrentCity(item.name, item.temp, item.feelslike, item.weather, item.sunset, item.sunrise);
-            renderDetails();
-        });
-    });
-};
-// Отображение подробной информации о городе
-function renderDetails() {
-    const normalDataSunSet = new Date(CITY_NAME.sunset * 1000);
-    const normalDataSunRise = new Date(CITY_NAME.sunrise * 1000);
+function renderDetails(cityName, cityTemp, feelsLike, weather, sunset, sunrise) {
+    cityNOW.name = cityName;
+    cityNOW.temp = cityTemp;
+    cityNOW.feelslike = feelsLike;
+    cityNOW.weather = weather;
+    cityNOW.sunset = sunset;
+    cityNOW.sunrise = sunrise;
+    const normalDataSunSet = new Date(sunset * 1000);
+    const normalDataSunRise = new Date(sunrise * 1000);
         // render city name
         NEW_ELEMENTS.newCity.className = 'text-locations';
         ELEMENTS_PARENTS.textHeader.textContent = '';
-        NEW_ELEMENTS.newCity.textContent = CITY_NAME.name;
+        NEW_ELEMENTS.newCity.textContent = cityName;
         ELEMENTS_PARENTS.textHeader.prepend(NEW_ELEMENTS.newCity);
         //Render city details
         ELEMENTS_PARENTS.detailList.textContent = '';
-        NEW_ELEMENTS.detailsTemp.textContent = `Temperature: ${Math.round(CITY_NAME.temp)}°`;
+        NEW_ELEMENTS.detailsTemp.textContent = `Temperature: ${Math.round(cityTemp)}°`;
         ELEMENTS_PARENTS.detailList.append(NEW_ELEMENTS.detailsTemp);
-        NEW_ELEMENTS.detailsFeelsLike.textContent = `Feels like: ${Math.round(CITY_NAME.feelslike)}°`;
+        NEW_ELEMENTS.detailsFeelsLike.textContent = `Feels like: ${Math.round(feelsLike)}°`;
         ELEMENTS_PARENTS.detailList.append(NEW_ELEMENTS.detailsFeelsLike);
-        NEW_ELEMENTS.detailsWeather.textContent = `Weather: ${CITY_NAME.weather}`;
+        NEW_ELEMENTS.detailsWeather.textContent = `Weather: ${weather}`;
         ELEMENTS_PARENTS.detailList.append(NEW_ELEMENTS.detailsWeather);
         NEW_ELEMENTS.detailsSunrise.textContent = `Sunrise: ${normalDataSunRise.toLocaleTimeString()}`;
         ELEMENTS_PARENTS.detailList.append(NEW_ELEMENTS.detailsSunrise);
         NEW_ELEMENTS.detailsSunset.textContent = `Sunset: ${normalDataSunSet.toLocaleTimeString()}`;
         ELEMENTS_PARENTS.detailList.append(NEW_ELEMENTS.detailsSunset);
+        localSet()
 };
+addFavorite.addEventListener('click' , addFavoriteInArray);
+function addFavoriteInArray() {
+    FAVORITE_CITY.add(NEW_ELEMENTS.newCity.textContent);
+    localSet()
+    console.log(FAVORITE_CITY)
+    renderFavorite()
+}
+function renderFavorite() {
+    ELEMENTS_PARENTS.favoriteItems.textContent = '';
+    FAVORITE_CITY.forEach((item) => {
+        const newFavoriteCity = document.createElement('li');
+        newFavoriteCity.textContent = item;
+        ELEMENTS_PARENTS.favoriteItems.prepend(newFavoriteCity);
+        const removeCityIcon = document.createElement('button');
+        removeCityIcon.innerHTML = `<img src="./img/heart.svg" alt="">`;
+        newFavoriteCity.appendChild(removeCityIcon);
+        newFavoriteCity.addEventListener('click' , ()=> {
+            serverToDOM(item)
+        })
+        removeCityIcon.addEventListener('click', ()=> {
+            deleteFavoriteCity(item)
+        })
+    })
+}
+function deleteFavoriteCity(item) {
+    FAVORITE_CITY.delete(item);
+    localSet()
+    console.log(FAVORITE_CITY)
+    renderFavorite()
+}
 
-window.onload = showCurrentCity(CITY_NAME.name, CITY_NAME.temp, CITY_NAME.feelslike, CITY_NAME.weather,CITY_NAME.sunset , CITY_NAME.sunrise);
-window.onload = renderFavoriteCity();
-window.onload = renderDetails();
+// КАНСТРУКТАР ПАПЫТКА
+addFavorite.addEventListener('click', () => {
+    constr(ELEMENTS_PARENTS.weatherCity.innerText)
+})
+
+function constr(name) {
+    const cityes = new CityLikes(name);
+    console.log(cityes)
+
+    function CityLikes(name) {
+        this.name =  name
+    }
+}
+
+renderFavorite()
+showCurrentCity(cityNOW.name , cityNOW.temp)
+renderDetails(cityNOW.name , cityNOW.temp, cityNOW.feelslike, cityNOW.weather, cityNOW.sunset, cityNOW.sunrise)

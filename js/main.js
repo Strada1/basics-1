@@ -107,7 +107,15 @@ const saveCity = function(){
     if(!savedLocations.includes(pageElements.nameCity.textContent)){
         createLocation();
     }
+
+    pageElements.weatherSavedLocation = document.querySelectorAll('.weather__saved-location');
     localStorage.setItem("saveLocations", JSON.stringify(savedLocations));
+
+    /// инициализация функции удаления
+    removeLocation();
+
+    /// инициализация функции выбора города из списка
+    selectedLocation();
 }
 
 const renderHandler = function(){

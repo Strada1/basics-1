@@ -1,0 +1,28 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "weather with npm",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Strada1/basics-1.git"
+  },
+  "author": "DimaSU2020",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Strada1/basics-1/issues"
+  },
+  "homepage": "https://github.com/Strada1/basics-1#readme",
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.4.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "parcel": "^2.7.0"
+  }
+}

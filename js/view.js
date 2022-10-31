@@ -1,5 +1,6 @@
 export { UI_ELEMENTS, ERROR_LIST, HTML_ELEMENTS, FOR_DATE };
-
+// import closeSvg from '../images/close.svg';
+// import arrowPng from '../images/arrow.png';
 
 const UI_ELEMENTS = {
     city_search: document.querySelector('.form-city-search'),
@@ -283,7 +284,7 @@ const HTML_ELEMENTS = {
         tag: 'img',
         className: 'img-delete',
         innerText: undefined,
-        src: './images/close.svg',
+        src: './images/delete.svg',
     },
 
     objImg: {
@@ -294,4 +295,5 @@ const HTML_ELEMENTS = {
         src: undefined,
     },
 }
+
 

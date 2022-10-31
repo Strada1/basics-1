@@ -2,6 +2,7 @@ import { UI_ELEMENTS, ERROR_LIST, HTML_ELEMENTS, FOR_DATE } from './view.js';
 import { API } from './api.js';
 import { сitiesAdded, recordToStorage, getFromStorage, setCurrentCity, getCurrentCity  } from './storage.js';
 
+
 let dataWeather = {};
 let dataWeatherForecast = {};
 
@@ -255,14 +256,12 @@ function renderTabForecast(dataWeatherForecast) {
 
 function handlerAddCity(event) {
     event.preventDefault();
-    getFromStorage();
     const newCityName = UI_ELEMENTS.city_name.textContent;
-    if(сitiesAdded.length !== 0) {
-        if(сitiesAdded.includes(newCityName)) {
-            return;
-        }
-    }
-    сitiesAdded.push(newCityName);
+    // применение Set()
+    const setCities = new Set(getFromStorage());
+    setCities.add(newCityName);
+    let сitiesAdded = [...setCities];
+    // далее на массивах
     if(сitiesAdded.length > 6) {
         сitiesAdded.splice(0, 1);
     }

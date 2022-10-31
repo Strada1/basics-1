@@ -25,12 +25,9 @@ function setCurrentCity(currentCity) {
 
 // извлечение текущего города из localStorage
 function getCurrentCity() {
-    let currentCity;
-    try {
-        currentCity = JSON.parse(localStorage.getItem('currentCity'));
-    }
-    catch {
-        currentCity = 'Moscow';
+    let currentCity = JSON.parse(localStorage.getItem('currentCity'));
+    if(!currentCity) {
+    currentCity = 'Moscow';
     }
     return currentCity;
 }

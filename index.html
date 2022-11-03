@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Weather</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/assets/css/style.css'>
+  <script type="module" src='/assets/js/main.js'></script>
+</head>
+
+<body>
+  <section>
+    <div class="wrapper">
+      <form>
+        <input class="cityInput" type="text" value="" placeholder="Kiev">
+      </form>
+
+
+      <div class="content-wrapper">
+
+
+        <div class="tabset">
+
+
+          <!-- Tab 1 -->
+          <input type="radio" name="tabset" id="tab1" aria-controls="now" checked>
+          <label for="tab1">Now</label>
+          <!-- Tab 2 -->
+          <input type="radio" name="tabset" id="tab2" aria-controls="details">
+          <label for="tab2">Details</label>
+          <!-- Tab 3 -->
+          <input type="radio" name="tabset" id="tab3" aria-controls="forecast">
+          <label for="tab3">Forecast</label>
+
+
+          <div class="tab-panels">
+            <section id="now" class="tab-panel">
+              <h2 class="nowTemperature"><i>14</i><span>&#176;</span></h2>
+              <div class="nowCondition"><img alt="" src="/assets/icons/cloud.svg"></div>
+              <div class="nowWishlist">
+                <h3>Aktobe</h3><img alt="" class="love" src="/assets/icons/heart.svg">
+              </div>
+
+            </section>
+            <section id="details" class="tab-panel">
+              <h2>Aktobe</h2>
+              <ul class="cities">
+                <li class="temperature">Temperature: <span>14</span></li>
+                <li class="feelslike">Feels like: <span>12</span></li>
+                <li class="weather">Weather: <span>Clouds</span></li>
+                <li class="sunrise">Sunrise: <span>03:21</span></li>
+                <li class="sunset">Sunset: <span>18:54</span></li>
+
+              </ul>
+            </section>
+            <section id="forecast" class="tab-panel">
+              <h2>6C. Dunkles Bock</h2>
+              <p><strong>Overall Impression:</strong> A dark, strong, malty German lager beer that emphasizes the
+                malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.</p>
+            </section>
+          </div>
+
+        </div>
+
+
+
+
+        <div class="citylist">
+          <h2 class="addedLocations">Added Locations:</h2>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+
+</body>
+
+</html>

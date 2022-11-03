@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body{
+    font-size: 18px;
+    line-height: 21px;
+}
+section{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    
+}
+.wrapper{
+    max-width: 600px;
+    width:100%;
+    border: 1px solid #000000;
+    position: relative;
+    height: 435px;
+}
+input{
+    width: 100%;
+    border:0;
+    border-bottom: 1px solid #000000;
+    height:45px;
+    padding-left: 10px;
+}
+
+ul li{
+    list-style: none;
+}
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+}
+
+.tabset, .citylist {
+    width: 50%;
+    height: 389px;
+}
+.tabset{
+    border-right: 1px solid #000;
+}
+/*
+ CSS for the main interaction
+*/
+.tabset > input[type="radio"] {
+position: absolute;
+left: -200vw;
+}
+
+section#now {
+   display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    align-content: space-around;
+    flex-direction: column;
+    height: 380px;
+}
+section#now h2 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 82px;
+    margin: 0;
+}
+.nowCondition {
+    width: 100%;
+}
+.nowCondition img {
+    margin: 0 auto;
+    display: block;
+}
+.nowWishlist{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.nowTemperature i{
+    font-style:normal;
+}
+.love:hover {
+    cursor:pointer;
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+
+
+.citylist ul li{
+    cursor: pointer;
+}
+.tabset .tab-panel {
+display: none!important;
+}
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3){
+    display: block!important;
+}
+
+.tabset > label {
+position: absolute;
+display: inline-block;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 21px;
+background:white;
+border: 1px solid #000;
+bottom:0;
+width:100px;
+text-align: center;
+
+}
+
+
+
+.tabset > label:hover,
+.tabset > input:focus + label {
+color: #06c;
+}
+
+.tabset > label:hover::after,
+.tabset > input:focus + label::after,
+.tabset > input:checked + label::after {
+background: #06c;
+}
+
+.tabset > input:checked + label {
+border-color: #ccc;
+border-bottom: 1px solid #fff;
+margin-bottom: -1px;
+background:black;
+color:#fff;
+width:100px;
+text-align: center;
+
+}
+
+.tab-panel {
+padding: 10px;
+}
+
+label[for="tab1"]
+{
+   left:0;
+}
+label[for="tab2"]
+{
+   left:100px;
+}
+label[for="tab3"]
+{
+   left:200px;
+}
+
+.citylist ul li {
+    cursor: pointer;
+    float: left;
+    width: 90%;
+}
+#favorites a {
+    width: 10%;
+    float:left
+}

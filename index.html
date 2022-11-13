@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strada Weather JS</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link type="Image/x-icon" href="./images/weather-news.png" rel="icon">
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <form class="form-city-search">
+                <input class="city-input" type="text" placeholder="Enter city name" autofocus/>
+                <button class = "button-search" type="submit">
+                    <svg class="search-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="search-svg" opacity="0.54" fill-rule="evenodd" clip-rule="evenodd" d="M19.3775 17.5H18.385L18.04 17.1575C19.2588 15.7363 20 13.8938 20 11.875C20 7.38752 16.3625 3.75002 11.875 3.75002C7.3875 3.75002 3.75 7.38752 3.75 11.875C3.75 16.3625 7.3875 20 11.875 20C13.8938 20 15.735 19.26 17.1563 18.0425L17.5013 18.385V19.375L23.7488 25.6138L25.6125 23.75L19.3775 17.5ZM11.875 17.5C8.76751 17.5 6.25001 14.9825 6.25001 11.875C6.25001 8.76877 8.76751 6.25002 11.875 6.25002C14.9813 6.25002 17.5 8.76877 17.5 11.875C17.5 14.9825 14.9813 17.5 11.875 17.5Z" fill="black"/>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="content">
+                <div class="tabs">
+
+                    <div class="tabs-content">                     
+                        <div class="tab tab-now" id="now"></div>
+                        <div class="tab tab-details" id="details"></div>
+                        <div class="tab tab-forecast" id="forecast"></div>
+                    </div>
+
+                    <div class="buttons-nav">
+                        <button class="btn-nav" data-tab="#now" type="button">Now</button>
+                        <button class="btn-nav" data-tab="#details" type="button">Details</button>
+                        <button class="btn-nav" data-tab="#forecast" type="button">Forecast</button>
+                    </div> 
+
+                </div>
+                <div class="sidebar">
+                    <div class="header-sidebar">
+                        <span class="text-header">Added Locations:</span>
+                    </div>
+                    <div class="content-sidebar"></div>
+                   
+                    <div class="container-img-ref">
+                        <a  target='blank' rel='noreferrer' class="a-ref">
+                            <img class="img-ref" src="./images/OpenWeatherLogo.jpg" alt='Лого погоды'/>
+                        </a>
+                    </div>
+                </div>   
+            </div> 
+           
+            <div class="pop_up">
+                <div class="pop_up_container">
+                    <div class="pop_up_body">
+                        <p class="error_text"></p>
+                        <button class="pop_up_close">
+                            <svg width="17" height="16" viewBox="0 0 17 16" fill="grey" xmlns="http://www.w3.org/2000/svg">
+                                <line y1="-0.5" x2="20.7803" y2="-0.5" transform="matrix(0.710506 0.703691 -0.65218 0.758064 1 1)" stroke="grey"/>
+                                <line y1="-0.5" x2="20.8155" y2="-0.5" transform="matrix(0.693335 -0.720616 0.670126 0.742247 1.56787 16)" stroke="grey"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>

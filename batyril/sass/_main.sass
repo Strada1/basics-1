@@ -1,0 +1,53 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: 'Roboto', sans-serif
+  img
+    object-fit: cover
+
+*::-webkit-scrollbar
+  height: 5px
+  width: 7px
+
+*::-webkit-scrollbar-track
+  background: transparent
+
+*::-webkit-scrollbar-thumb
+  background-color: black
+  border: 3px solid rgba(255, 165, 0, 0)
+
+
+body
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+.weather
+  background-color: white
+  width: 599px
+  height: 435px
+  border: solid 1px rgb(0, 0, 0)
+  overflow: hidden
+  &__form
+    position: relative
+  &__input
+    padding-left: 16px
+    font-size: 18px
+    border: none
+    width: 100%
+    height: 44px
+  &__button
+    background-color:  transparent
+    cursor: pointer
+    border: none
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    right: 10px
+  &__body
+    border-top: solid 1px rgb(0, 0, 0)
+    display: flex
+  &__tabs
+    width: 310px

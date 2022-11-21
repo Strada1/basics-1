@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>weather</title>
+    <link rel="stylesheet" href="css/build.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script defer src="js/tabs.js" ></script>
+    <script type="module" src="js/main.js" ></script>
+</head>
+<body>
+    <section class="weather">
+        <div class="weather__search">
+            <form class="weather__form">
+                <input class="weather__input" placeholder="enter the city" type="text">
+                <button class="weather__button">
+                    <img alt="search-icon" src="image/search-icon.svg">
+                </button>
+            </form>
+            <div class="weather__body">
+                <div class="weather__tabs" >
+                    <div class="tabs-content">
+                        <div id="tab-1" class="tabs-content__item">
+                            <div class="now">
+                                <div class="now__top">
+                                    <div class="now__temperature">14°</div>
+                                    <div class="now__date">
+                                        <div class="now__date-day"></div>
+                                        <div class="now__date-month"></div>
+                                        <div class="now__date-time"></div>
+                                    </div>
+                                </div>
+                                <div class="now__image">
+                                    <img alt="weather icon" src="image/weather-icon.svg">
+                                </div>
+                                <div class="now__button">
+                                    <div class="now__city">Kazan</div>
+                                    <div class="now__add-favorite">
+                                        <img alt="icon add favorites" src="image/add-favorites.svg">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="tab-2" class="tabs-content__item">
+                            <div class="details">
+                                <div class="details__city"></div>
+                                <div class="details__information">
+                                    <div class="details__temperature">Temperature: <span></span></div>
+                                    <div class="details__feels-like">Feels like: <span></span></div>
+                                    <div class="details__weather">Weather: <span></span></div>
+                                    <div class="details__sunrise">Sunrise: <span> 03:21</span></div>
+                                    <div class="details__sunset">Sunset: <span> 18:54</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-3" class="tabs-content__item">
+                            <div class="forecast">
+                                <div class="forecast__city">Kazan</div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabs">
+                        <div class="tabs-triggers">
+                            <a href="#tab-1"  class="tabs-triggers__item">Now</a>
+                            <a href="#tab-2" class="tabs-triggers__item">Details</a>
+                            <a href="#tab-3" class="tabs-triggers__item">Forecast</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather__favorites favorites" >
+                    <div class="favorites__title" >
+                        <span> Added Locations</span>
+                    </div>
+                    <div class="favorites__list-wrapper" >
+                        <ul class="favorites__list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay">
+            <div class="popup">
+                <div class="popup__warning">&#128679;</div>
+                <div class="popup__warning-text">Lorem ipsum dolor sit amet</div>
+                <div class="popup__close">&#215;</div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

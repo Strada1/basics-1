@@ -13,11 +13,15 @@ output.addEventListener("click", function () {
     }
     else {
         result.textContent = calculator(operator, number_1, number_2);
-        document.getElementById('number_1').value = '';
-        document.getElementById('number_2').value = '';
-        setTimeout(() => document.querySelector('.result').value = '', 5000);
-    }
+        setTimeout(restartCalculator, 5000)
+    };
 });
+
+function restartCalculator() {
+    document.querySelector('.result').textContent = '';
+    document.getElementById('number_1').value = '';
+    document.getElementById('number_2').value = '';
+}
 
 function calculator(operator, number_1, number_2) {
 

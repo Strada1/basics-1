@@ -2,7 +2,7 @@ let output = document.getElementById('output');
 
 output.addEventListener("click", function () {
 
-    let result = document.getElementById('result');
+    let result = document.querySelector('.result');
     let number_1 = document.getElementById('number_1').value;
     let number_2 = document.getElementById('number_2').value;
     let operator = document.getElementById('operator').value;
@@ -15,6 +15,7 @@ output.addEventListener("click", function () {
         result.textContent = calculator(operator, number_1, number_2);
         document.getElementById('number_1').value = '';
         document.getElementById('number_2').value = '';
+        setTimeout(() => document.querySelector('.result').value = '', 5000);
     }
 });
 
@@ -22,7 +23,7 @@ function calculator(operator, number_1, number_2) {
 
     switch (operator) {
         case 'add':
-            return number_1 + number_2;
+            return +number_1 + +number_2;
         case 'subtraction':
             return number_1 - number_2;
         case 'multi':

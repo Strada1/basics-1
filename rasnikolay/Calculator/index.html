@@ -12,18 +12,24 @@
 <body>
     <div class="container">
         <div class="wrapper">
-            <input id="number_1" type="text">
-            <select id="operator">
-                <option value="add">+</option>
-                <option value="subtraction">-</option>
-                <option value="multi">*</option>
-                <option value="division">/</option>
-            </select>
-            <input id="number_2" type="text">
-            <button id="output" type="button">=</button>
-            <span class="result"></span>
+            <div class="col-12">
+                <input id="number_1" type="text">
+                <select id="operator">
+                    <option value="add">+</option>
+                    <option value="subtraction">-</option>
+                    <option value="multi">*</option>
+                    <option value="division">/</option>
+                </select>
+                <input id="number_2" type="text">
+                <button id="output" type="button">=</button>
+                <span class="result"></span>
+            </div>
+            <div class="col-12">
+                <div class="all__results">
+                    <h2>Результаты в студию:</h2>
+                </div>
+            </div>
         </div>
-        <div class="all__results"></div>
     </div>
     <script src="main.js"></script>
 </body>

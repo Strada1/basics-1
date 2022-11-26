@@ -1,4 +1,5 @@
 let output = document.getElementById('output');
+let newResult = document.querySelector('.all__results');
 
 output.addEventListener("click", function () {
 
@@ -12,8 +13,19 @@ output.addEventListener("click", function () {
         return;
     }
     else {
-        result.textContent = calculator(operator, number_1, number_2);
-        setTimeout(restartCalculator, 5000)
+        result.textContent = Number(calculator(operator, number_1, number_2));
+
+        let newDivResult = document.createElement('div');
+        newDivResult.className = 'newResult';
+        newDivResult.textContent = result;
+
+        newDivResult.addEventListener("click", function () {
+            newDivResult.remove();
+        })
+
+        newResult.append(newDivResult);
+
+        setTimeout(restartCalculator, 15000);
     };
 });
 

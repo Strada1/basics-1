@@ -8,6 +8,7 @@ body {
 
 .container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     column-gap: 8px;
@@ -40,4 +41,31 @@ button {
     padding: 4px 200px 5px 10px;
     border: 1px solid #000000;
     margin-left: 10px;
+}
+
+.wrapper {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.all__results {
+    margin-top: 20px;
+    padding-left: 15px;
+    border: 1px solid #000000;
+    min-height: 200px;
+}
+
+.newResult {
+    cursor: pointer;
+    width: 100px;
+    height: 33px;
+    border: 1px solid #000000;
+    margin-top: 10px;
 }

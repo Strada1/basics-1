@@ -30,21 +30,32 @@ taskFormLow.addEventListener("submit", function (event) {
 });
 
 function addTask(nameTask, priority) {
-    let result = list.findIndex(function (item) { //находим индекс 
-        return item.name === nameTask; //находим наименования обьекта массива
-    });
-    if ((result === -1) && (nameTask !== "")) { //если такой задачи нет и наименование задачи не пустое
-        list.push({ //то добавляем элемент
-            name: nameTask,
-            status: STATUS.toDO,
-            priority: priority,
+    try {
+        const result = list.findIndex(function (item) { //находим индекс 
+            return item.name === nameTask; //находим наименования обьекта массива
         });
-
+        if ((result === -1) && (nameTask !== "")) { //если такой задачи нет и наименование задачи не пустое
+            list.push({ //то добавляем элемент
+                name: nameTask,
+                status: STATUS.toDO,
+                priority: priority,
+            });
+        } else {
+            throw new Error('Такая задача есть');
+        }
     }
-    render(); //обновляем html документ
+    catch (err) {
+        if (err.name === "Error")
+            alert(err.message);
+    }
+    finally {
+        render(); //обновляем html документ
+    }
+
 }
 
 function deleteTask(item) {
+    //list.filter(f => f.name !== item.nameTask);
     list.splice(list.indexOf(item), 1); //находим индекс обьекта, удаляем обьект
     render();
 };
@@ -54,43 +65,35 @@ function changedTask(item, status) {
 }
 
 function createElement(parent, item) {
-    let todoListHighTask = document.createElement("div"); //создаем див контейнер для таски
-    todoListHighTask.className = "todo__list__high-task"; //задаем ему класс
-    parent.append(todoListHighTask); //добавляем в конец контейнера нужного контейнера
-    let checkbox = document.createElement("input"); //создаем элемент чекбокса
+    const HIGH_TASK = document.createElement("div"); //создаем див контейнер для таски
+    HIGH_TASK.className = "todo__list__high-task"; //задаем ему класс
+    parent.append(HIGH_TASK); //добавляем в конец контейнера нужного контейнера
+    const checkbox = document.createElement("input"); //создаем элемент чекбокса
     checkbox.setAttribute("type", "checkbox"); //делаем его чекбоксом
     if (item.status === STATUS.done) { //если новая задача выполнена
-        todoListHighTask.classList.add('done'); //то она будет с пометкой выполнена
+        HIGH_TASK.classList.add('done'); //то она будет с пометкой выполнена
         checkbox.checked = true; //ее чекбокс тоже отмечен как выполнен
     };
     checkbox.addEventListener("change", function () { //при изменении чекбокса
-        todoListHighTask.classList.toggle("done"); //добавить/удалить класс выполнено
-        if (checkbox.checked) { //если элемент выбран
-            changeStatus(item, STATUS.done); //значит статус выполнен в массиве
-        } else {
-            changeStatus(item, STATUS.toDO); //значит статус в работе в массиве
-        }
+        HIGH_TASK.classList.toggle("done"); //добавить/удалить класс выполнено
+        checkbox.checked ? changeStatus(item, STATUS.done) : changeStatus(item, STATUS.toDO);
     });
-    todoListHighTask.append(checkbox); //добавить чекбокс в див контейнер для таски
-    let todoListHighTaskItemText = document.createElement("div"); //див с названием таски
-    todoListHighTaskItemText.textContent = item.name; //текст таски будет таким как элемент в массиве
-    todoListHighTask.append(todoListHighTaskItemText);  //добавляем сам текст
-    let button = document.createElement("button"); //кнопка удалить
+    HIGH_TASK.append(checkbox); //добавить чекбокс в див контейнер для таски
+    const HIGHT_TASK_ITEM = document.createElement("div"); //див с названием таски
+    HIGHT_TASK_ITEM.textContent = item.name; //текст таски будет таким как элемент в массиве
+    HIGH_TASK.append(HIGHT_TASK_ITEM);  //добавляем сам текст
+    const button = document.createElement("button"); //кнопка удалить
     button.textContent = "x"; //как выглядит
     button.addEventListener("click", function () { //вещаем на кнопку событие удаления
         deleteTask(item); //удаляем в массиве этот обьект таски
     });
-    todoListHighTask.append(button); //добавляем кнопку
+    HIGH_TASK.append(button); //добавляем кнопку
 }
 
 function render() { //перезагрузка содержимого при изменениях
     hightParent.innerHTML = "";
     lowParent.innerHTML = ""; //очистить сами содержимые контейнеры где будет храниться содержимое массива
     list.forEach(function (item) { //проходим по всем обьектам массива
-        if (item.priority === "high") { //если задача с повышенным приоритетом
-            createElement(hightParent, item); //добавляем в контейнер с high
-        } else {
-            createElement(lowParent, item); //добавляем в контейнер с low
-        }
+        item.priority === PRIORITY.high ? createElement(hightParent, item) : createElement(lowParent, item);
     });
 }

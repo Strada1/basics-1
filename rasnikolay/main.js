@@ -1,21 +1,37 @@
-const serverUrl = 'https://api.genderize.io';
-
-const firstName = document.body.querySelector('#text');
-const buttonGenderize = document.body.querySelector('#button');
-const formGenderize = document.body.querySelector('.form');
-const output = document.querySelector('.answer__inner');
-
-
-formGenderize.addEventListener('submit', getGender);
-
-function getGender(event) {
-    event.preventDefault();
-    const url = `${serverUrl}?name=${firstName.value}`;
-    fetch(url)
-        .then(response => response.json())
-        .then(obj => correct(obj))
+const ELEMENTS = {
+    FORM: document.querySelector('.field'),
+    INPUT: document.querySelector('.add__name'),
+    RESULT: document.querySelector('.result')
 }
 
-function correct(obj) {
-    return (obj.gender === null) ? output.textContent = `Probably this name doesn't exist` : output.textContent = obj.gender;
+const firstName = ELEMENTS.INPUT.value;
+const serverUrl = 'https://api.genderize.io';
+
+ELEMENTS.FORM.addEventListener('submit', getGender);
+
+function getGender(event) {
+    definitionGender(firstName);
+    ELEMENTS.INPUT.value = '';
+    ELEMENTS.RESULT.textContent = '';
+
+    event.preventDefault();
+}
+
+
+function definitionGender(firstName) {
+
+    try {
+        firstName = ELEMENTS.INPUT.value;
+        const name = firstName[0].toUpperCase() + firstName.slice(1);
+        const url = `${serverUrl}?name=${firstName}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(result => ELEMENTS.RESULT.textContent = `${name}` + ' is ' + `${result.gender}`);
+
+    } catch (err) {
+        if (firstName === empty) {
+            alert('Ошибка: введите имя');
+        }
+    }
 }

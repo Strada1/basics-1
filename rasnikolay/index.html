@@ -5,18 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Genderize</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <form class="form" action="">
-            <textarea id="text" placeholder="Напишите сообщение здесь"></textarea>
-            <button id="button">Отправить</button>
+    <div class="container">
+        <h1>Genderize</h1>
+        <form class="field">
+            <input type="text" class="add__name">
+            <br>
+            <button class="button">Gender</button>
         </form>
-        <div class="answer">
-            <p class="answer__inner">ss</p>
-        </div>
+        <div class="result"></div>
     </div>
     <script src="main.js"></script>
 </body>

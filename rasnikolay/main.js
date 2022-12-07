@@ -30,8 +30,5 @@ function definitionGender(firstName) {
             .then(result => ELEMENTS.RESULT.textContent = `${name}` + ' is ' + `${result.gender}`);
 
     } catch (err) {
-        if (firstName === empty) {
-            alert('Ошибка: введите имя');
-        }
     }
 }

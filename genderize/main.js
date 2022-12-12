@@ -11,7 +11,7 @@ formGender.addEventListener('submit', genderInfo)
 
  function genderInfo (event) {
     event.preventDefault()
-    // console.log(inputName.value)
+
 
     const url = `${serverUrl}?name=${inputName.value}`;
     

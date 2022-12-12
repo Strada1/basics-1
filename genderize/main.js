@@ -1,3 +1,5 @@
+// genderize
+
 const formGender =  document.querySelector('.form')
 const inputName = document.querySelector('.input')
 const serverUrl = 'https://api.genderize.io';

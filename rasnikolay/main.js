@@ -15,15 +15,12 @@ const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
 const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
 const CITY = ['Amur', 'Samara', 'Bali'];
 
-ELEMENTS.BTN.addEventListener('click', getWheatherCity);
-
-function getWheatherCity(event) {
+ELEMENTS.BTN.addEventListener('click', function (event) {
     event.preventDefault();
     let cityName = ELEMENTS.INPUT.value;
     let url = `${serverUrl}?q=${cityName}&appid=${apiKey}&units=metric`;
     checkCityName(cityName, url);
-
-}
+});
 
 function checkCityName(cityName, url) {
     if (!cityName || !isNaN(cityName)) {
@@ -50,12 +47,10 @@ function changeNow(url) {
         })
         .catch(alert);
 }
-
 ELEMENTS.BODY.onload = function () {
     addLocation();
-}
-
-ELEMENTS.ADD_LOCATION.addEventListener('click', addCityArray);
+};
+ELEMENTS.ADD_LOCATION.addEventListener('click', () => addCityArray());
 
 function addCityArray() {
     let nowCity = ELEMENTS.NOW_CITY_NAME.textContent;
@@ -69,7 +64,7 @@ function addCityArray() {
 }
 
 function addLocation() {
-    document.querySelectorAll('.list-item').forEach((city) => {
+    document.querySelectorAll('.list-item').forEach(function (city) {
         city.remove();
     });
     CITY.forEach((city) => {

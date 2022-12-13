@@ -13,17 +13,14 @@ const ELEMENTS = {
 };
 const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
 const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
-const CITY = ['Amur', 'Samara', 'Bali'];
+let CITY = ['Amur', 'Samara', 'Bali'];
 
-ELEMENTS.BTN.addEventListener('click', getWheatherCity);
-
-function getWheatherCity(event) {
+ELEMENTS.BTN.addEventListener('click', function (event) {
     event.preventDefault();
     let cityName = ELEMENTS.INPUT.value;
     let url = `${serverUrl}?q=${cityName}&appid=${apiKey}&units=metric`;
     checkCityName(cityName, url);
-
-}
+});
 
 function checkCityName(cityName, url) {
     if (!cityName || !isNaN(cityName)) {
@@ -57,9 +54,9 @@ ELEMENTS.BODY.onload = function () {
     }
     getLocalStorageCityes();
     getLocalStorageCurrentCity();
-}
+};
 
-ELEMENTS.ADD_LOCATION.addEventListener('click', addCityArray);
+ELEMENTS.ADD_LOCATION.addEventListener('click', () => addCityArray());
 
 function addCityArray() {
     let nowCity = ELEMENTS.NOW_CITY_NAME.textContent;
@@ -74,12 +71,12 @@ function addCityArray() {
 }
 
 function saveLocalStorageCityes() {
+    console.log(CITY);
     localStorage.setItem('cityes', JSON.stringify(CITY));
 }
-
 function getLocalStorageCityes() {
     if (localStorage.getItem('cityes')) {
-        const cityes = localStorage.getItem('cityes');
+        let cityes = localStorage.getItem('cityes');
         cityes = JSON.parse(cityes);
         renderLocation(cityes);
     }
@@ -88,14 +85,15 @@ function getLocalStorageCityes() {
 function getLocalStorageCurrentCity() {
     let currentCity = localStorage.getItem('currentCity');
     currentCity = JSON.parse(currentCity);
-    let url = `${serverUrl}?q=${currentCity}&appid=${apiKey}&units=metric`
+    let url = `${serverUrl}?q=${currentCity}&appid=${apiKey}&units=metric`;
     changeNow(url);
 }
 
 function renderLocation(cityes) {
-    document.querySelectorAll('.list-item').forEach((city) => {
+    document.querySelectorAll('.list-item').forEach(function (city) {
         city.remove();
     });
+
     cityes.forEach((city) => {
         let li = document.createElement('li');
         li.className = 'list-item';
